@@ -1,0 +1,384 @@
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600)
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700)
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css)
+
+// Variables
+@import "variables"
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap"
+
+*
+  font-family: Roboto Slab,Hoefler Text,'微軟正黑體',Songti TC,serif
+
+
+h1,h2,h3,h4,h5,h6
+  font-weight: 900
+
+h1
+  font-size: 30px
+h2
+  font-size: 24px 
+h3
+  font-size: 20px 
+h4
+  font-size: 18px 
+h5,p
+  font-size: 15px
+  letter-spacing: 0.5px
+  line-height: 26px
+
+@mixin ab_center
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%)
+
+::selection 
+  background-color: $color_red
+  color: white
+// @keyframes fadeIn
+//   0%
+//     opacity: 0
+//   100%
+//     opacity: 1
+
+// .navbar,.carousel,.indep_post,.col_post
+//   opacity: 0
+//   animation: fadeIn 0.5s both
+
+body
+  
+
+footer
+  background-color: #f3f3f7
+  color: #430095
+  margin-top: 100px
+  padding-top: 40px
+
+.navbar.navbar-default
+  background-color: white
+  height: 60px
+  
+.navbar-nav
+  margin-top: 5px 
+  background-color: white
+  font-size: 15px
+  font-weight: bold
+  li
+    margin-right: 10px
+    a
+      letter-spacing: 1px
+
+    &.active
+      color: $color_red
+
+
+.indep_post 
+  
+  img
+    // clip: rect(0px,400px,400px,0px)
+    width: 100%
+    height: auto
+    display: block
+
+  blockquote
+    font-size: 14px
+    padding: 0px !important
+    border-left: none
+    opacity: 0.6
+    margin-top: -10px
+  
+  p
+    font-size: 16px 
+    line-height: 1.7em
+    margin-top: 30px
+    margin-bottom: 30px
+    letter-spaing: 1.2em
+  
+  h1
+    margin-bottom: 15px
+    font-weight: 900
+  
+  h2
+    margin-top: 70px
+    margin-bottom: 30px
+    font-size: 1.5em
+    
+    &:nth-child(1)
+      margin-top: 10px
+  
+    
+  
+.carousel
+  position: relative
+
+.carousel_bg
+  height: 500px
+  background-size: cover
+  // background-attachment: fixed
+  background-position: center center
+
+.carousel_cover
+  background: linear-gradient(180deg,transparent 50%,black 120%)
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+
+
+.louder
+  position: absolute
+  left: 2%
+  max-width: 250px
+  width: 30%
+  bottom: -40px
+  z-index: 3
+  pointer-events: none
+  -webkit-pointer-events: none
+
+  @media screen and (max-width: 800px)
+    display: none
+
+
+.row_about_content
+  padding-top: 120px
+  padding-bottom: 120px
+
+.col_post
+  padding-left: 20px
+  box-sizing: border-box
+  .post_image
+    height: 300px
+    background-size: cover
+    background-position: center
+
+
+.landing_page_body
+  width: 100vw
+  height: 100vh
+  overflow: hidden
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  background-color: $color_red
+
+  .center_box
+    width: 80%
+    max-width: 400px
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%,-50%)
+    img
+      animation: fadeIn  0.5s 1s both 
+    h3
+      animation: fadeIn  0.5s 2s both 
+
+
+
+  .btn-trans
+    border: solid 2px white
+    color: white
+    background-color: transparent
+    transition: 0.5s
+    animation: fadeIn  0.5s 3.5s both 
+
+  
+  .btn-trans:hover
+
+    background-color: white
+    color: black
+
+.landing-video
+  position: absolute
+  width: 120%
+  height: auto
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%)
+  pointer-events: none
+  -webkit-pointer-events: none
+  z-index: -1
+
+
+
+.col_company
+  position: fixed
+  // padding-right: 30px
+  // border-right: solid 1px rgba(black,0.05)
+  box-sizing: border-box
+  p
+    font-size: 1em
+    max-width: 280px
+  
+  img
+    width: 80%
+    max-width: 150px
+    display: inline-block
+    border: solid 1px rgba(black,0.2)
+
+//文章頁面
+
+.loading .postbox
+  .post_title,p,.topimg
+    background-color: #ddd
+  
+  .post_title
+    height: 2em
+    width: 100%
+  
+
+
+.postbox
+  text-decoration: none
+  color: black
+  min-height: 450px
+  display: block
+  padding: 5px
+
+  .postbox
+
+
+  *
+    transition-duration: 0.5s
+  
+
+  &:hover,&:focus,.topimg:focus 
+  .company_name
+    color: white
+    border-left-color: white
+    border-right-color: white
+  
+  .topimg
+    &:before  
+      background-color: rgba(black,0.4)
+      
+    
+  
+
+  .post_title
+    min-height: 1.2em
+    font-weight: 900
+  
+  .post_author
+    font-size: 0.7em
+  
+  .post_para
+    // text-indent: 2em
+  
+
+
+
+.company_name
+  color: transparent
+  position: absolute
+  width: 70%
+  left: 50%
+  top: 50%
+  text-align: center
+  transform: translate(-50%,-50%)
+  z-index: 2
+  transition: 0.5s,border-color 0.5s 0.2s,padding 0.5s 0.2s
+  margin: 0
+  padding: 0px 5px
+
+  user-select: none
+
+  border-left: solid 2px transparent
+  border-right: solid 2px transparent
+
+
+.topimg
+  width: 100%
+  background-size: 100% auto
+  background-position: center
+  transition: 0.5s
+  position: relative
+  padding-bottom: 55%
+  &:before
+    content: ""
+    display: block
+    background-color: rgba(black,0)
+    position: absolute
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    transition: 0.5s
+
+//post page
+
+.company_link
+  color: $color_red
+  transition: 0.5s
+  &:hover,&:focus
+    color: darken($color_red,1)
+
+.relate_cover
+  position: relative
+  width: 100%
+  height: 240px
+  background-position: center
+  background-size: 110% auto
+  color: white
+  transition: 0.5s
+  cursor: pointer
+  .mask
+    background: linear-gradient(0deg,transparent 30%,black 110%)
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    opacity: 0.7
+    transition: 0.5s
+
+
+
+  &:hover
+    background-size: 120% auto
+    color: white
+
+    .mask
+      opacity: 1
+
+  // padding: 30px
+.related_info
+  +ab_center
+  transform: translateX(-50%)
+  top: 30px
+  width: 80%
+  background-size: 120% auto
+  background-position: center center
+
+  
+  h3
+    line-height: 40px
+  p
+    opacity: 0.9
+
+//-----------------
+//expo page
+.expo_pics_list
+  margin-top: 35px
+  margin-left: -20px
+  li
+    padding: 5px 5px !important
+    cursor: pointer
+    &:first-child
+.expo_cover
+  height: 300px
+  background-size: cover
+  transition: background-image 0.5s
+  &.cover_2015
+    background-image: url("http://img.accupass.com/userupload/dcfc34cde62f4340aae2dd00452b0ef9.jpg")
+  &.cover_2016
+    background-image: url("https://az796311.vo.msecnd.net/userupload/afe7351a4adc41ca8a828fd5b606798f.jpg")
+  
+
+  
