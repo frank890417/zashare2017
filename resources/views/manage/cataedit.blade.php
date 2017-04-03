@@ -13,34 +13,42 @@
 <div class='row'>
   <div class='col-lg-12' >
      <h1 class='page-header'>編輯類別</h1>
-     @if (Auth::guest())
-     @else
-        <form action="{{ url('manage/cata') }}" method="post">
+     <div class="panel">
+       <div class="panel-heading">
+         類別列表
+       </div>
+       <div class="panel-body">
+         @if (Auth::guest())
+         @else
+            <form action="{{ url('manage/cata') }}" method="post">
 
-          <input type="hidden" name="_token" value="{{ csrf_token() }}">
-          <input type="hidden" name="_method" value="PUT">
-          <input type="hidden" name="count" value="{{ count($catas) }}">
-          <table class="table table-bordered">
-            <thead>
-              <th>編號</th>
-              <th>TAG</th>
-              <th>名稱</th>
-            </thead>
-            <tbody>
-              @foreach ($catas as $cata)
-              <tr>
-                <td>{{$cata->id}}</td>
-                <td><input name="{{ 'tag_'.($cata->id) }}" value="{{$cata->tag}}"></td>
-                <td><input name="{{ 'name_'.($cata->id) }}" value="{{$cata->name}}"></td>
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              <input type="hidden" name="_method" value="PUT">
+              <input type="hidden" name="count" value="{{ count($catas) }}">
+              <table class="table table-bordered">
+                <thead>
+                  <th>編號</th>
+                  <th>TAG</th>
+                  <th>名稱</th>
+                </thead>
+                <tbody>
+                  @foreach ($catas as $cata)
+                  <tr>
+                    <td>{{$cata->id}}</td>
+                    <td><input name="{{ 'tag_'.($cata->id) }}" value="{{$cata->tag}}"></td>
+                    <td><input name="{{ 'name_'.($cata->id) }}" value="{{$cata->name}}"></td>
 
-              </tr>
-              @endforeach
-              
-            </tbody>
-          </table>
-          <button type="submit">更新</button>
-        </form>
-     @endif
+                  </tr>
+                  @endforeach
+                  
+                </tbody>
+              </table>
+              <button type="submit">更新</button>
+            </form>
+         @endif
+       </div>
+     </div>
+     
   </div>
 
 
