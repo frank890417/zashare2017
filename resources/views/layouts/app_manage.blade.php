@@ -102,7 +102,7 @@
                 |  Sub Item 3
         --}}
         <li role="presentation" class="divider"></li>
-        <li><a href="login.html">
+        <li><a href="{{ url('/login') }}">
             <svg class="glyph stroked male-user">
               <use xlink:href="#stroked-male-user"></use>
             </svg> Login Page</a></li>

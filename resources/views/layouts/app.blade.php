@@ -57,7 +57,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         <!-- <li><a href="{{ url('/blog') }}">最新消息</a></li> -->
-        
+                        <li><a href="{{ url('/news') }}">最新消息</a></li>
                         <li><a href="{{ url('/blog') }}">參展報導</a></li>
                         <li><a href="{{ url('/about') }}">關於雜學校</a></li>
                         <li><a href="{{ url('/expo') }}">歷屆展覽</a></li>
@@ -65,48 +65,7 @@
                         <!-- <li><a href="http://zashare.weebly.com/2015naughty.html" target="_blank">2015不太乖教育節</a></li>
                         <li><a href="http://zashare.org" target="_blank">2016雜學校</a></li>
  -->
-                        @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">登入</a></li>
-                            <!-- <li><a href="{{ url('/register') }}">註冊</a></li> -->
-                        @else
-                            <li class="dropdown">
-                                <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">後台管理 <span class="caret"></span></a> 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ url('/manage/post') }}">文章管理</a>
-
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('/manage/cata') }}">類別管理</a>
-
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('/manage/company') }}">攤位資料管理</a>
-
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
+                       
                         <li><a href="https://www.facebook.com/zashare.expo/?fref=ts" target="_blank">
                             <img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/46-facebook-512.png" style='width: 20px;opacity: 0.6'>
                         </a></li>
