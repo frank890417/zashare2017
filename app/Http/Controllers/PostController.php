@@ -38,7 +38,8 @@ class PostController extends Controller
         foreach ($catas as $cata)
           $catalist[$cata->tag]=$cata->name;
 
-        return view('home')
+        return view('manage.post_manage')
+              ->with('pagename','post')
               ->with('posts',$posts)
               ->with('catalist',$catalist);
     }
@@ -71,7 +72,7 @@ class PostController extends Controller
     {
       $catas = Cata::all();
 
-      return view('create')
+      return view('manage.create')
           ->with('title','新增文章')
           ->with('catas',$catas);
     }
@@ -98,7 +99,7 @@ class PostController extends Controller
       // $post->created_at = date("Y-m-d H:i:s");
       // $post->save();
 
-      return Redirect::to('post');
+      return Redirect::to('manage/post');
     }
   
     //進入編輯文章頁面
@@ -106,7 +107,8 @@ class PostController extends Controller
     {
       $post=Post::find($id);
       $catas=Cata::all();
-      return view('edit')
+      return view('manage.edit')
+            ->with('pagename','post')
             ->with('title','編輯-'.$post->title)
             ->with('post',$post)
             ->with('catas',$catas);
@@ -154,7 +156,7 @@ class PostController extends Controller
     
       $post->update($input);
 
-      return Redirect::to('post');
+      return Redirect::to('manage/post');
 
 
     }
@@ -165,7 +167,7 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->delete();
 
-        return Redirect::to('post');
+        return Redirect::to('manage/post');
     }
  
     // api / 依照攤位號碼尋找文章
@@ -233,7 +235,8 @@ class PostController extends Controller
     public function cata_edit(){
       $input = Input::all();
       $catas = Cata::all();
-      return view("cataedit")
+      return view("manage.cataedit")
+              ->with('pagename','cata')
               ->with("catas",$catas);
     }
 
@@ -248,7 +251,7 @@ class PostController extends Controller
         $cata->name=$input["name_".$i];
         $cata->save();
       }
-      return Redirect::to('cata');
+      return Redirect::to('manage/cata');
     }
 
 }

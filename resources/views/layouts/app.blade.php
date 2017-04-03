@@ -73,15 +73,15 @@
                                 <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">後台管理 <span class="caret"></span></a> 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="{{ url('/post') }}">文章管理</a>
+                                        <a href="{{ url('/manage/post') }}">文章管理</a>
 
                                     </li>
                                     <li>
-                                        <a href="{{ url('/cata') }}">類別管理</a>
+                                        <a href="{{ url('/manage/cata') }}">類別管理</a>
 
                                     </li>
                                     <li>
-                                        <a href="{{ url('/company') }}">攤位資料管理</a>
+                                        <a href="{{ url('/manage/company') }}">攤位資料管理</a>
 
                                     </li>
                                 </ul>

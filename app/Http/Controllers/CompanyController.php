@@ -15,15 +15,17 @@ class CompanyController extends Controller
     function index(){
       $all = Company::all();
 
-      return view("company_manage")
-          ->with("companies",$all);
+      return view("manage.company_manage")
+             ->with('pagename','company')
+              ->with("companies",$all);
     }
 
      //新增攤位
     public function create()
     {
-      return view('company_edit')
-          ->with('title','新增攤位資料');
+      return view('manage.company_edit')
+              ->with('pagename','company')
+              ->with('title','新增攤位資料');
     }
 
     //進入編輯文章頁面
@@ -31,9 +33,10 @@ class CompanyController extends Controller
     {
       $company=Company::find($id);
 
-      return view('company_edit')
-            ->with('title','編輯-'.$company->name_cht)
-            ->with('company',$company);
+      return view('manage.company_edit')
+              ->with('pagename','company')
+              ->with('title','編輯-'.$company->name_cht)
+              ->with('company',$company);
     }
 
     //儲存文章 

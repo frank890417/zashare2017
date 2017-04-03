@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.app_manage')
 
 @section('content')
 <div class='container'>
-  <a href='{!! URL::to('post') !!}'>返回文章列表</a>
-  <form action="{{ url('post') }}" method="post">
+  <a href='{!! URL::to('manage/post') !!}'>返回文章列表</a>
+  <form action="{{ url('manage/post') }}" method="post">
     <div style="position: relative;">
       <h1>{{ $title }}</h1>
       <div class="btn-group" style="float: right">

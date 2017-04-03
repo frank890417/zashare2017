@@ -8,7 +8,7 @@
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
-|
+|`
 */
 
 
@@ -18,10 +18,17 @@ Route::get('/about',"HomeController@about");
 Route::get('/expo',"HomeController@expo");
 
 Auth::routes();
-Route::resource('company','CompanyController');
-Route::resource('post','PostController');
-Route::get('/cata',"PostController@cata_edit");
-Route::put('/cata',"PostController@cata_update");
+Route::get('/post/{id}',"PostController@show");
+
+Route::group(['prefix'=>'manage'],function(){
+
+  Route::get('/', "PostController@index");
+  Route::resource('company','CompanyController');
+  Route::resource('post','PostController');
+  Route::get('cata',"PostController@cata_edit");
+  Route::put('cata',"PostController@cata_update");
+});
+
 //Route::post('post','HomeController@store');
 //Route::put('post/{id}','HomeController@update');
 //Route::delete('post/{id}','HomeController@destroy');
