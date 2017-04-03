@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-3 text-left col_company hidden-xs">
+      <div class="col-xs-12 col-sm-3 text-left col_company">
         
         <div class="hidden-xs">
           <br>
@@ -46,19 +46,6 @@
           <p> {{ $company->discribe_cht }}</p>
         </div>
 
-        <div class="visible-xs">
-          <br>
-          <div class="col-xs-4"><a href="{{$company->website}}" target="_blank" title='前往{{ $company->name_cht }}網站'>
-            <img src='{{"http://zashare.org/img/square_logos/".($company->tag).".jpg"}}'>  
-          </a></div>
-          <div class="col-xs-8 text-left">
-            <h4> {{ $company->tag }} <span class="text-muted" style='font-size: 0.8em'> #{{ $catalist[ $post->tag ] }} </span> </h4> 
-            <h4>{{ $company->name_cht}}</h4>
-            <p> {{ $company->discribe_cht }}</p>
-          </div>
-
-        </div>
-
 
       </div>
       <div class="col-xs-12 col-sm-9 col_post col-sm-offset-3">
@@ -70,6 +57,26 @@
           <div class='content-area'>{!! $post->content !!}</div>
             @endif
 
+
+          <div class="visible-xs">
+          
+                <a href="{{$company->website}}" target="_blank" title='前往{{ $company->name_cht }}網站'>
+                  <img src='{{"http://zashare.org/img/square_logos/".($company->tag).".jpg"}}'>  
+                </a>
+                <br> 
+                <h5 class="text-muted"> #{{ $catalist[ $post->tag ] }} </h5>
+                <br> 
+                <h3>{{ $company->name_cht}}
+                  <!-- <a class='company_link' href="{{$company->website}}" target="_blank" title='前往{{ $company->name_cht }}網站'>
+                    <i class="fa fa-link"></i>
+                  </a> -->
+                </h3>
+                
+                  <!-- <br>  -->
+                <p> {{ $company->discribe_cht }}</p>
+
+          </div>
+
           <div class='btns text-center'>
            <a class='btn btn-primary' href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current()}}" target="_blank">分享文章</a>
             <a class='btn btn-link' href="{!! URL::previous() !!}">回上一頁</a>
@@ -77,6 +84,8 @@
           <br>
         </div>
         <br>
+         
+
 
           <div class='col-sm-12'>
 

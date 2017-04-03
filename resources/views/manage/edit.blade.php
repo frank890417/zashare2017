@@ -80,7 +80,7 @@
           <label for='tag' >文章類別</label>
           <select name=tag id=tag class='form-control'>
             @foreach ($catas as $cata)
-              @if (isset($post)?($post->tag):''==$cata->tag)
+              @if ((isset($post)?($post->tag):'')==$cata->tag)
                 <option value={!! $cata->tag !!} selected=selected> {{$cata->tag}}. {{$cata->name}} </option>
               @else
                 <option value={!! $cata->tag !!}> {{$cata->tag}}. {{$cata->name}} </option>

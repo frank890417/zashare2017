@@ -39,7 +39,6 @@ class PostController extends Controller
           $catalist[$cata->tag]=$cata->name;
 
         return view('manage.post_manage')
-              ->with('pagename','post')
               ->with('posts',$posts)
               ->with('catalist',$catalist);
     }
@@ -62,6 +61,7 @@ class PostController extends Controller
       return view('show')
             ->with('title','文章編輯 - '.$post->title)
             ->with('post',$post)
+            ->with('pagename','blog')
             ->with('company',$company)
             ->with('related_posts',$related_posts)
             ->with('catalist',$catalist);
