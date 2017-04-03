@@ -7761,6 +7761,19 @@ footer {
   color: #EE3441;
 }
 
+.nav-transparent.navbar-default {
+  background-color: transparent;
+  border-bottom: none;
+}
+
+.nav-transparent.navbar-default li a {
+  color: white;
+}
+
+.navbar-nav {
+  background-color: transparent;
+}
+
 .indep_post img {
   width: 100%;
   height: auto;

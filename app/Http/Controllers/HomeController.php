@@ -52,14 +52,23 @@ class HomeController extends Controller
 
         return view('posts')
               ->with('title','雜學校-文章閱讀平台')
+              ->with('pagename','blog')
               ->with('posts',$posts)
               ->with('filter',isset($input['filter'])?$input['filter']:'')
               ->with('show_posts',$show_posts)
               ->with('catalist',$catalist);
     }
 
+    public function news(){
+      return view('about')
+              ->with('pagename','news')
+              ->with('title','最新消息');
+
+    }
+
     public function about(){
       return view('about')
+              ->with('pagename','about')
               ->with('title','關於雜學校');
 
     }
@@ -71,6 +80,7 @@ class HomeController extends Controller
 
     public function expo(){
       return view('expo')
+            ->with('pagename','expo')
             ->with('title','過去展覽成果');
     }
 }

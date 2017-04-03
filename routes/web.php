@@ -16,6 +16,7 @@ Route::get('/', "HomeController@landing");
 Route::get('/blog', "HomeController@index");
 Route::get('/about',"HomeController@about");
 Route::get('/expo',"HomeController@expo");
+Route::get('/news',"HomeController@news");
 
 Auth::routes();
 Route::get('/post/{id}',"PostController@show");

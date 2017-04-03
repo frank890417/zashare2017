@@ -55,12 +55,12 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
+                     <!-- Authentication Links -->
                         <!-- <li><a href="{{ url('/blog') }}">最新消息</a></li> -->
-                        <li><a href="{{ url('/news') }}">最新消息</a></li>
-                        <li><a href="{{ url('/blog') }}">參展報導</a></li>
-                        <li><a href="{{ url('/about') }}">關於雜學校</a></li>
-                        <li><a href="{{ url('/expo') }}">歷屆展覽</a></li>
+                        <li class="{{ isset($pagename)?(($pagename=='news')?'active':''):'' }} " ><a href="{{ url('/news') }}">最新消息</a></li>
+                        <li class="{{ isset($pagename)?(($pagename=='blog')?'active':''):'' }} " ><a href="{{ url('/blog') }}">參展報導</a></li>
+                        <li class="{{ isset($pagename)?(($pagename=='about')?'active':''):'' }} " ><a href="{{ url('/about') }}">關於雜學校</a></li>
+                        <li class="{{ isset($pagename)?(($pagename=='expo')?'active':''):'' }} " ><a href="{{ url('/expo') }}">歷屆展覽</a></li>
                         <!-- <li> <i class="fa fa-search"></i></li> -->
                         <!-- <li><a href="http://zashare.weebly.com/2015naughty.html" target="_blank">2015不太乖教育節</a></li>
                         <li><a href="http://zashare.org" target="_blank">2016雜學校</a></li>

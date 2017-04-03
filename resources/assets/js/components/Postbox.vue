@@ -286,7 +286,7 @@ $color_red: #EE3441;
     padding: 5px 12px;
     background-color: $color_red;
     color: white;
-    margin-top: 18px;
+    margin-top: 12px;
     cursor: pointer;
     font-weight: 300;
     letter-spacing: 2px;
