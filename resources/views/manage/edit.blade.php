@@ -49,10 +49,7 @@
         <textarea name='content' id='content' rows=20 class='form-control indep_post' > {!! isset($post)?($post->content):'' !!} </textarea> <br> 
 
       </div>
-     {{--  <form action="{{ url('post/'.isset($post)?($post->id):'') }}" method="post" id='form_delete_post'> 
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="hidden" name="_token" value="{{csrf_token()}}"> 
-      </form> --}}
+
     </div>
   </div>
   </div>
@@ -120,7 +117,7 @@
 
         <div class="form-group">
           <hr>
-          <button type=submit class='btn btn-default btn-md'>{{ isset($post)?'新增文章':'更新文章' }}</button>
+          <button type=submit class='btn btn-default btn-md'>{{ isset($post)?'更新文章':'新增文章' }}</button>
           @if(isset($post))
             <button class='btn btn-danger btn-md' onclick='event.preventDefault();if(confirm("你確定要刪除文章嗎？")){document.getElementById("form_delete_post").submit();}'>刪除文章</button>
           @endif
@@ -132,14 +129,14 @@
   </div>
 </form> 
 
-<form id="form_delete_post" action="{{url('manage/post/'.isset($post)?($post->id):'')}}" method="POST">
+<form id="form_delete_post" action="{{url('manage/post/'.(isset($post)?($post->id):''))}}" method="POST">
   <input type="hidden" name="_method" value="delete"/>
   <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 </form>
 
   <script>
     var company_filter="{!! isset($post)?($post->company):'' !!}";
-    var cover_url="{!! isset($post)?($post->covwe):'' !!}";
+    var cover_url="{!! isset($post)?($post->cover):'' !!}";
     window.require_js={};
     window.require_js.dropzone=true;
     window.require_js.tinymce=true;
