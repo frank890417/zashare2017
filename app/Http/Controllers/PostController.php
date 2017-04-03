@@ -72,7 +72,7 @@ class PostController extends Controller
     {
       $catas = Cata::all();
 
-      return view('manage.create')
+      return view('manage.edit')
           ->with('title','新增文章')
           ->with('catas',$catas);
     }

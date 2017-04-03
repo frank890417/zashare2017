@@ -17,39 +17,39 @@
       </h1>
     </div>
 </div>
-<form class='row' action="{{url('manage/post/'.$post->id)}}" method="post">  
+<form class='row' action="{{ isset($post)?url('manage/post/'.($post->id)):url('manage/post') }}" method="post">  
   <div class='col-lg-9'>
     <div class="panel panel-default">
       <div class='panel-heading'>
         編輯
       </div>
       <div class='panel-body'>
-        <input type="hidden" name="_method" value="PUT">
+        <input type="hidden" name="_method" value="{{isset($post)?'put':'post'}}">
         <input type="hidden" name="_token" value="{{csrf_token()}}">
          <div class='form-group'>
            <label for="title">標題 </label> 
-           <input name=title id=title class='form-control' value='{!! $post->title !!}'>
+           <input name=title id=title class='form-control' value='{!! isset($post)?($post->title):'' !!}'>
          </div>
 
        <company-selector></company-selector>
 
        <div class='form-group'>
          <label for='short_description'>一句話簡介</label>
-         <textarea name='short_description' id='short_description' rows=2 class='form-control' > {!! $post->short_description !!} </textarea>
+         <textarea name='short_description' id='short_description' rows=2 class='form-control' > {!! isset($post)?($post->short_description):'' !!} </textarea>
       </div>
       <div class='form-group'>
          <label for='description'>簡介</label>
-         <textarea name='description' id='description' rows=3 class='form-control' > {!! $post->description !!} </textarea>
+         <textarea name='description' id='description' rows=3 class='form-control' > {!! isset($post)?($post->description):'' !!} </textarea>
       </div>
 
 
      <div class='form-group'>
         <div class="btn btn-default btn-md btn-dropzone"  style='display:none;'>上傳圖片</div><br>
          <label for='content'>內容</label>
-        <textarea name='content' id='content' rows=20 class='form-control indep_post' > {!! $post->content !!} </textarea> <br> 
+        <textarea name='content' id='content' rows=20 class='form-control indep_post' > {!! isset($post)?($post->content):'' !!} </textarea> <br> 
 
       </div>
-     {{--  <form action="{{ url('post/'.$post->id) }}" method="post" id='form_delete_post'> 
+     {{--  <form action="{{ url('post/'.isset($post)?($post->id):'') }}" method="post" id='form_delete_post'> 
         <input type="hidden" name="_method" value="DELETE">
         <input type="hidden" name="_token" value="{{csrf_token()}}"> 
       </form> --}}
@@ -70,11 +70,11 @@
           <div class="btn-group">
 
             <label for="status">草稿
-              <input type="radio" name="status" value="draft" {{ $post->status=="draft"?"checked":"" }} >
+              <input type="radio" name="status" value="draft" {{ isset($post)?($post->status):''=="draft"?"checked":"" }} >
             </label>
             &nbsp;
             <label for="status">已發布
-              <input type="radio" name="status" value="published"  {{ $post->status=="published"?"checked":"" }}>
+              <input type="radio" name="status" value="published"  {{ isset($post)?($post->status):''=="published"?"checked":"" }}>
             </label>
           </div>
         </div>
@@ -83,7 +83,7 @@
           <label for='tag' >文章類別</label>
           <select name=tag id=tag class='form-control'>
             @foreach ($catas as $cata)
-              @if ($post->tag==$cata->tag)
+              @if (isset($post)?($post->tag):''==$cata->tag)
                 <option value={!! $cata->tag !!} selected=selected> {{$cata->tag}}. {{$cata->name}} </option>
               @else
                 <option value={!! $cata->tag !!}> {{$cata->tag}}. {{$cata->name}} </option>
@@ -94,23 +94,23 @@
 
         <div class='form-group'>
           <label for='company'>撰文者</label>
-          <input id=author name=author class='form-control' value='{!! $post->author !!}'></input>
+          <input id=author name=author class='form-control' value='{!! isset($post)?($post->author):'' !!}'></input>
         </div>
       
 
         <div class='form-group'>
           <label for='established_time'>上稿時間</label>
-          <input id=established_time name=established_time type='datetime' class='form-control' value='{!! $post->established_time !!}'></input>
+          <input id=established_time name=established_time type='datetime' class='form-control' value='{!! isset($post)?($post->established_time):'' !!}'></input>
         </div>
 
         <div class='form-group' >
           <label for='company'>封面圖片</label><br>
           <div class="row">
             <div class="col-sm-3">
-              <img class='cover_preview' src='{!! $post->cover !!}' width="100%">
+              <img class='cover_preview' src='{!! isset($post)?($post->cover):'' !!}' width="100%">
             </div>
             <div class="col-sm-9">
-              <input id=cover name=cover class='form-control' style='display: inline-block' value='{!! $post->cover !!}'></input>
+              <input id=cover name=cover class='form-control' style='display: inline-block' value='{!! isset($post)?($post->cover):'' !!}'></input>
               <br>
               <div class="btn btn-default btn-md btn-dropzone-cover" style='display: inline-block'>上傳圖片</div>
               <br>
@@ -120,9 +120,10 @@
 
         <div class="form-group">
           <hr>
-          <button type=submit class='btn btn-default btn-md'>更新文章</button>
-          &nbsp;
-          <button class='btn btn-danger btn-md' onclick='event.preventDefault();if(confirm("你確定要刪除文章嗎？")){document.getElementById("form_delete_post").submit();}'>刪除文章</button>
+          <button type=submit class='btn btn-default btn-md'>{{ isset($post)?'新增文章':'更新文章' }}</button>
+          @if(isset($post))
+            <button class='btn btn-danger btn-md' onclick='event.preventDefault();if(confirm("你確定要刪除文章嗎？")){document.getElementById("form_delete_post").submit();}'>刪除文章</button>
+          @endif
         </div>
           
     
@@ -131,14 +132,14 @@
   </div>
 </form> 
 
-<form id="form_delete_post" action="{{url('manage/post/'.$post->id)}}" method="POST">
+<form id="form_delete_post" action="{{url('manage/post/'.isset($post)?($post->id):'')}}" method="POST">
   <input type="hidden" name="_method" value="delete"/>
   <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 </form>
 
   <script>
-    var company_filter="{!! $post->company !!}";
-    var cover_url="{!! $post->covwe !!}";
+    var company_filter="{!! isset($post)?($post->company):'' !!}";
+    var cover_url="{!! isset($post)?($post->covwe):'' !!}";
     window.require_js={};
     window.require_js.dropzone=true;
     window.require_js.tinymce=true;

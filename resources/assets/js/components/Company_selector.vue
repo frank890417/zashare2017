@@ -12,7 +12,7 @@
 
 <script>
 
-    var apiurl="http://build.zashare.org/api/company/tag/";
+    var apiurl="/api/company/tag/";
 
     module.exports={
       data:function (){

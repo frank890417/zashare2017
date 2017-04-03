@@ -7,7 +7,7 @@
       <a href='{!! URL::to('manage/company') !!}'>返回編輯列表</a>
     </li>
     <li class="active">
-      編輯文章</a>
+      編輯攤位</a>
     </li>
 
   </ol>

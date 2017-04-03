@@ -16,8 +16,8 @@
                 @if (isset($companies))
                   <table class='table table-hover' id=posttable>
                     <thead>
-                      <th> </th>
-                      <th></th>
+                      <th>攤位代號</th>
+                      <th>縮圖</th>
                       <th>名字</th>
                       <th>短團隊名稱</th><!-- 
                       <th>描述</th> -->
