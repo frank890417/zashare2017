@@ -4,16 +4,18 @@
         <div class="row">
 
             <!-- 左設選單 -->
-           <!--  <div class="col-sm-2">
-              <div class="form-group">
-                <input class='form-control' type="text" placeholder="搜尋標題、內文、類別" v-model='filter'>
+            <div class="col-sm-12">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <input style='width: 100%;padding: 5px 10px;border-radius: 5px;border:none;border:solid #aaa 1px;' type="text" placeholder="搜尋標題、內文、類別" v-model='filter'>
+                </div>
               </div>
-              <div class="form-group">
+             <!--  <div class="form-group">
               <ul class="list-group">
                 <li :class='["list-group-item",(cata.tag==filter_cata)?"active":""]' v-for="cata in catalist" @click="set_cata(cata.tag)"  style='cursor: pointer'>{{cata.name}}</li>
               </ul>
-              </div>
-            </div> -->
+              </div> -->
+            </div>
 
             <!-- 文章區域  使用vue.js渲染 -->
             <div class="col-sm-12">

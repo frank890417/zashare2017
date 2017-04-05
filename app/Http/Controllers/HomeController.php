@@ -60,7 +60,7 @@ class HomeController extends Controller
     }
 
     public function news(){
-      return view('about')
+      return view('news')
               ->with('pagename','news')
               ->with('title','最新消息');
 
