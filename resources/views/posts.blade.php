@@ -10,7 +10,6 @@
 @section('content')
 
 <div id="carousel-id" class="carousel slide" data-ride="carousel" style='margin-bottom: 50px;'>
-	<img class='louder' src="http://image.zashare.org/uploads/2017_02_21_08_36_04_louder.png"alt="">
 <!-- 	<ol class="carousel-indicators">
 		<li data-target="#carousel-id" data-slide-to="0" class="active"></li>
 		<li data-target="#carousel-id" data-slide-to="1" class=""></li>
@@ -32,11 +31,11 @@
 			<div class="carousel_cover"></div>
 			<div class="container text-left">
 				<div class="row">
-					<div class="col-xs-12 col-sm-7 col-sm-offset-5">
+					<div class="col-xs-12 col-sm-7 ">
 						<div class="carousel-caption">
-							<h5 class="text-left" style='opacity: 0.9'>/ {{$post->name_cht}}</h5>
-							<h1 class="text-left">{{$post->title}}</h1>
-							<p class="text-left" style='display: inline-block'>{{  $post->short_description }}</p>
+							<h5 class="text-left" style='opacity: 0.9'>/ {{trim($post->name_cht)}}</h5>
+							<h1 class="text-left">{{trim($post->title)}}</h1>
+							<p class="text-left" style='display: inline-block'>{{  trim($post->short_description) }}</p>
 						
 						</div>
 					</div>

@@ -105,17 +105,20 @@
 
  <div class="container"><img src="http://zashare.org/img/ci_logosvg_purple.svg" width="130px">
     <br>
-  <h5>版權聲明</h5>
-  <p>© 2017 雜学校 Za Share All Rights Reserved.</p>
+  
   <h5>聯絡資訊 Contact Info</h5>
-  <p>25F., No.159, Songde Rd., Xinyi Dist.Taipei City 110, Taiwan 110<br>台北市信義區松德路159號25樓25F.
+  <p>25F., No.159, Songde Rd., Xinyi Dist.Taipei City 110, Taiwan 110<br>
+        台北市信義區松德路159號25樓25F.<br>
 TEL. +886-2-23467122<br>mail. zashare@ozzie-art.com</p>
+   <br>
+  <p>© 2017 雜学校 Za Share All Rights Reserved.</p>
 <!-- 
  <h6>電話:  02-2346-7122 # 109</h6>
  <h6>信箱:  zashare@ozzie-art.com</h6>
  <h6>地址:  110台北市信義區松德路159號25樓25F., No.159, Songde Rd., Xinyi Dist., Taipei City 110, Taiwan (R.O.C.)</h6> -->
  <br>
- <h6>網站製作: <a href="http://www.monoame.com/" target="_blank">墨雨設計</a></h6>
+ <p>網站製作: <a href="http://www.monoame.com/" target="_blank">墨雨設計</a></p>
+ <br>
  </div>
 
 

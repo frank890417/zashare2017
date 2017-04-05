@@ -54,7 +54,7 @@
         	<h1>{{ $post->title }}</h1>
           <div class='text-muted'>{{ $post->author }}</div>
           <hr>
-          <div class='content-area'>{!! $post->content !!}</div>
+          <div class='content-area'>{!! str_replace('&nbsp;</p>', '</p>' , $post->content)  !!}</div>
             @endif
 
 

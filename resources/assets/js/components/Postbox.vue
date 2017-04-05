@@ -337,7 +337,7 @@ $color_red: #EE3441;
   }
 
   .post_title{
-    min-height: 1.2em;
+    min-height: 2.2em;
     font-weight: 900;
     /*letter-spacing: 0.5px;*/
     color: #333;
