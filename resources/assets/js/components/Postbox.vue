@@ -326,7 +326,7 @@ $color_red: #EE3441;
     color: black;
     min-height: 360px;
     display: block;
-    padding: 20px;
+    padding: 10px;
     margin-bottom: 90px;
 
     .postbox
