@@ -5,13 +5,13 @@
 
             <!-- 左設選單 -->
             <div class="col-sm-12">
-              <div class="col-sm-12">
-                <div class="form-group" style='position: relative'>
-                  <i class="fa fa-search" style='position: absolute;top: 10px;left: 12px;'></i>
-                  <input style='width: 100%;padding: 5px 10px;border-radius: 5px;border:none;border:solid #aaa 1px;padding-left: 30px' type="text" placeholder=" 搜尋標題、內文、類別" v-model='filter' id='searchinput'>
-                  
-                </div>
+              
+              <div class="form-group" style='position: relative'>
+                <i class="fa fa-search" style='position: absolute;top: 10px;left: 12px;'></i>
+                <input style='width: 100%;padding: 5px 10px;border-radius: 5px;border:none;border:solid #aaa 1px;padding-left: 30px' type="text" placeholder=" 搜尋標題、內文、類別" v-model='filter' id='searchinput'>
+                
               </div>
+          
              <!--  <div class="form-group">
               <ul class="list-group">
                 <li :class='["list-group-item",(cata.tag==filter_cata)?"active":""]' v-for="cata in catalist" @click="set_cata(cata.tag)"  style='cursor: pointer'>{{cata.name}}</li>
@@ -20,12 +20,10 @@
             </div>
 
             <!-- 文章區域  使用vue.js渲染 -->
-            <div class="col-sm-12">
-                <div class="col-sm-12" v-if='filter_cata'>
-                  <h2 class="cata_title">{{get_cata_name(filter_cata)}} <div class='cancelbtn' @click="set_cata('')"></div></h2>
-                  <br>
-                </div>
-              
+            <div class="col-sm-12" v-if='filter_cata'>
+                
+                <h2 class="cata_title">{{get_cata_name(filter_cata)}} <div class='cancelbtn' @click="set_cata('')"></div></h2>
+                <br>
 
                 <div v-for="cata in catalist" v-show="(filter_cata=='') && (limit_tag_split(filtered_post,3)[cata.tag])">
                   <div class="col-sm-12">
@@ -36,8 +34,24 @@
                   </div>
 
 
-                  
-                  <div class="col-sm-4" v-for='p in limit_tag_split(filtered_post,3)[cata.tag]' >
+                <div class="row">
+                  <div class="col-sm-4" v-for='(p,id) in limit_tag_split(filtered_post,3)[cata.tag]' >
+                      <a class="postbox" :href="'post/'+p.id">
+                          <div class="topimg" :style='css_top_img(p)' >
+                              <h3 class='company_name' v-text='p.name_cht'></h3>
+                          </div>
+                          <h3 class='post_title' v-text='"【"+p.name_short+"】"+p.title'></h3>
+                          <p class='post_para' v-html='(p.description+"").substr(0,70)+"..."'></p>
+                          <!-- <p class='post_author text-muted' v-text='p.author.replace(/\//g," / ")+ " " + p.established_time.split(" ")[0]'> </p> -->
+                        </a>
+                    </div>
+                  </div>
+                </div>
+                
+                <h3 v-show="!(filter_cata=='') && filtered_post.length==0">相關報導即將上線</h3>
+
+                <div class="row" v-for='fp in filtered_post_three'>
+                  <div class="col-sm-4" v-for='(p,id) in fp'  v-if="!(filter_cata=='')">
                       <a class="postbox" :href="'post/'+p.id">
                           <div class="topimg" :style='css_top_img(p)' >
                               <h3 class='company_name' v-text='p.name_cht'></h3>
@@ -47,19 +61,6 @@
                           <!-- <p class='post_author text-muted' v-text='p.author.replace(/\//g," / ")+ " " + p.established_time.split(" ")[0]'> </p> -->
                       </a>
                   </div>
-                </div>
-                <div class="col-sm-12">
-                  <h3 v-show="!(filter_cata=='') && filtered_post.length==0">相關報導即將上線</h3>
-                </div>
-                <div class="col-sm-4" v-for='p in filtered_post'  v-if="!(filter_cata=='')">
-                    <a class="postbox" :href="'post/'+p.id">
-                        <div class="topimg" :style='css_top_img(p)' >
-                            <h3 class='company_name' v-text='p.name_cht'></h3>
-                        </div>
-                        <h3 class='post_title' v-text='"【"+p.name_short+"】"+p.title'></h3>
-                        <p class='post_para' v-html='(p.description+"").substr(0,70)+"..."'></p>
-                        <!-- <p class='post_author text-muted' v-text='p.author.replace(/\//g," / ")+ " " + p.established_time.split(" ")[0]'> </p> -->
-                    </a>
                 </div>
 
 
@@ -191,7 +192,19 @@
               }
             });
             return npost;
+          },
+          filtered_post_three: function(){
+            var stack_len = this.filtered_post.length;
+            var result=[];
+            for(var i=0;i<this.filtered_post.length;i++){
+              if (i%3==0){
+                result[i/3] = [];
+              }
+              result[i/3].push(this.filtered_post[i]);
+            }
+            return result;
           }
+
         }
     }
 </script>
@@ -317,8 +330,8 @@ $color_red: #EE3441;
     color: black;
     min-height: 360px;
     display: block;
-    padding: 0px;
-    margin-bottom: 40px;
+    padding: 20px;
+    margin-bottom: 90px;
 
     .postbox
 
