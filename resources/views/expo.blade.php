@@ -28,48 +28,48 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="item active" >
-              <div alt="Chania" style="background-size: cover;background-image: url('https://az796311.vo.msecnd.net/userupload/afe7351a4adc41ca8a828fd5b606798f.jpg');height: 304px"></div>
+              <div alt="Chania" style="background-size: cover;background-image: url('https://az796311.vo.msecnd.net/userupload/afe7351a4adc41ca8a828fd5b606798f.jpg');height: 350px"></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
             <div class="item">
-              <img src="/img/expo/2016/1.jpg" alt="Chania">
-              <div class="carousel-caption">
-                
-              </div>
-            </div>
-
-            <div class="item">
-              <img src="/img/expo/2016/2.jpg" alt="Chania">
+              <div style="background-image:url(/img/expo/2016/1.jpg);height: 350px;background-size: cover;" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
             <div class="item">
-              <img src="/img/expo/2016/3.jpg" alt="Flower">
+              <div style="background-image:url(/img/expo/2016/2.jpg);height: 350px;background-size: cover;" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
             <div class="item">
-              <img src="/img/expo/2016/4.jpg" alt="Flower">
+              <div style="background-image:url(/img/expo/2016/3.jpg);height: 350px;background-size: cover;" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
             <div class="item">
-              <img src="/img/expo/2016/5.jpg" alt="Flower">
+              <div style="background-image:url(/img/expo/2016/4.jpg);height: 350px;background-size: cover;" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
             <div class="item">
-              <img src="/img/expo/2016/6.jpg" alt="Flower">
+              <div style="background-image:url(/img/expo/2016/5.jpg);height: 350px;background-size: cover;" ></div>
+              <div class="carousel-caption">
+                
+              </div>
+            </div>
+
+            <div class="item">
+              <div style="background-image:url(/img/expo/2016/6.jpg);height: 350px;background-size: cover;" ></div>
               <div class="carousel-caption">
                 
               </div>
@@ -77,11 +77,11 @@
           </div>
 
           <!-- Left and right controls -->
-          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" style='background: none'>
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" style='background: none'>
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
@@ -118,48 +118,48 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="item active" >
-              <div alt="Chania" style="background-size: cover;background-image: url('http://img.accupass.com/userupload/dcfc34cde62f4340aae2dd00452b0ef9.jpg');height: 304px"></div>
+              <div alt="Chania" style="background-size: cover;background-image: url('http://img.accupass.com/userupload/dcfc34cde62f4340aae2dd00452b0ef9.jpg');height: 350px"></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
             <div class="item">
-              <img src="/img/expo/2015/1.jpg" alt="Chania">
-              <div class="carousel-caption">
-                
-              </div>
-            </div>
-
-            <div class="item">
-              <img src="/img/expo/2015/2.jpg" alt="Chania">
+              <div style="background-image:url(/img/expo/2015/1.jpg);height: 350px;background-size: cover;" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
             <div class="item">
-              <img src="/img/expo/2015/3.jpg" alt="Flower">
+              <div style="background-image:url(/img/expo/2015/2.jpg);height: 350px;background-size: cover;" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
             <div class="item">
-              <img src="/img/expo/2015/4.jpg" alt="Flower">
+              <div style="background-image:url(/img/expo/2015/3.jpg);height: 350px;background-size: cover;" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
             <div class="item">
-              <img src="/img/expo/2015/5.jpg" alt="Flower">
+              <div style="background-image:url(/img/expo/2015/4.jpg);height: 350px;background-size: cover;" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
             <div class="item">
-              <img src="/img/expo/2015/6.jpg" alt="Flower">
+              <div style="background-image:url(/img/expo/2015/5.jpg);height: 350px;background-size: cover;" ></div>
+              <div class="carousel-caption">
+                
+              </div>
+            </div>
+
+            <div class="item">
+              <div style="background-image:url(/img/expo/2015/6.jpg);height: 350px;background-size: cover;" ></div>
               <div class="carousel-caption">
                 
               </div>
@@ -167,11 +167,11 @@
           </div>
 
           <!-- Left and right controls -->
-          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" style='background: none'>
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" style='background: none'>
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
