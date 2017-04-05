@@ -118,10 +118,13 @@ class PostController extends Controller
 
       $re = '/style=\".*?\"/';
       $str = preg_replace($re, "", $str) ;
+
       $re = '/class=\".*?\"/';
       $str = preg_replace($re, "", $str) ;
+
       $re = '/align=\".*?\"/';
       $str = preg_replace($re, "", $str) ;
+
       $re = '/lang=\".*?\"/';
       $str = preg_replace($re, "", $str) ;
 
@@ -141,6 +144,7 @@ class PostController extends Controller
           $str=str_replace($s_matches[0][$i],$s_matches[1][$i],$str);   
       }
 
+      $str=str_replace("&nbsp;</p>","</p>",$str);
       return $str;
 
     }

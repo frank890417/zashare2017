@@ -77,6 +77,37 @@
         </div>
 
         <div class='form-group'>
+          <label>首頁置頂</label>
+          <br>
+          <div class="btn-group">
+
+            <label for="stick_top_index">置頂
+              <input type="radio" name="stick_top_index" value=1 {{ isset($post)?($post->stick_top_index):''==1?"checked":"" }} >
+            </label>
+            &nbsp;
+            <label for="stick_top_index">否
+              <input type="radio" name="stick_top_index" value=0  {{ isset($post)?($post->stick_top_index):''==0?"checked":"" }}>
+            </label>
+          </div>
+        </div>
+
+        <div class='form-group'>
+          <label>類別置頂</label>
+          <br>
+          <div class="btn-group">
+
+            <label for="stick_top_cata">置頂
+              <input type="radio" name="stick_top_cata" value=1 {{ isset($post)?($post->stick_top_cata):''==1?"checked":"" }} >
+            </label>
+            &nbsp;
+            <label for="stick_top_cata">否
+              <input type="radio" name="stick_top_cata" value=0  {{ isset($post)?($post->stick_top_cata):''==0?"checked":"" }}>
+            </label>
+          </div>
+        </div>
+
+
+        <div class='form-group'>
           <label for='tag' >文章類別</label>
           <select name=tag id=tag class='form-control'>
             @foreach ($catas as $cata)
