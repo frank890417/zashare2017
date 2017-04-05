@@ -6,8 +6,10 @@
             <!-- 左設選單 -->
             <div class="col-sm-12">
               <div class="col-sm-12">
-                <div class="form-group">
-                  <input style='width: 100%;padding: 5px 10px;border-radius: 5px;border:none;border:solid #aaa 1px;' type="text" placeholder="搜尋標題、內文、類別" v-model='filter'>
+                <div class="form-group" style='position: relative'>
+                  <i class="fa fa-search" style='position: absolute;top: 10px;left: 12px;'></i>
+                  <input style='width: 100%;padding: 5px 10px;border-radius: 5px;border:none;border:solid #aaa 1px;padding-left: 30px' type="text" placeholder=" 搜尋標題、內文、類別" v-model='filter' id='searchinput'>
+                  
                 </div>
               </div>
              <!--  <div class="form-group">
