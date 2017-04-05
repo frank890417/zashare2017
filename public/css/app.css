@@ -7844,6 +7844,10 @@ footer {
   height: 100%;
 }
 
+.carousel-caption {
+  text-align: left;
+}
+
 .louder {
   position: absolute;
   left: 2%;

@@ -114,7 +114,7 @@
             },
             set_cata: function(cata){
               this.filter_cata=cata;
-              $("html, body").animate({ scrollTop: 0 }, "slow");
+              $("html, body").animate({ scrollTop: 0 }, "fast");
             },
             get_cata_name: function(tag){
               var result="";
@@ -327,7 +327,7 @@ $color_red: #EE3441;
     min-height: 360px;
     display: block;
     padding: 10px;
-    margin-bottom: 90px;
+    margin-bottom: 40px;
 
     .postbox
 
