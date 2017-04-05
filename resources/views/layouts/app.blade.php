@@ -107,9 +107,9 @@
         <br>
       
       <h5>聯絡資訊 Contact Info</h5>
-      <p>25F., No.159, Songde Rd., Xinyi Dist.Taipei City 110, Taiwan 110<br>
+      <p>Address. 25F., No.159, Songde Rd., Xinyi Dist.Taipei City 110, Taiwan 110<br>
             台北市信義區松德路159號25樓25F.<br>
-    TEL. +886-2-23467122<br>mail. zashare@ozzie-art.com</p>
+    TEL. +886-2-23467122<br>Mail. zashare@ozzie-art.com</p>
        <br>
       <p>© 2017 雜学校 Za Share All Rights Reserved.</p>
     <!-- 
@@ -117,7 +117,7 @@
      <h6>信箱:  zashare@ozzie-art.com</h6>
      <h6>地址:  110台北市信義區松德路159號25樓25F., No.159, Songde Rd., Xinyi Dist., Taipei City 110, Taiwan (R.O.C.)</h6> -->
      <br>
-     <p>網站製作: <a href="http://www.monoame.com/" target="_blank">墨雨設計</a></p>
+     <p>網站製作. <a href="http://www.monoame.com/" target="_blank">墨雨設計</a></p>
      <br>
      </div>
 
