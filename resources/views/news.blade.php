@@ -14,24 +14,21 @@
 	<div style="height: 300px;background-image: url(http://zashare.org/img/ci_people.png);background-color: #f24;background-repeat: no-repeat;"></div>
 	</div>
 	<div class="container">
-		<div class="row">	
-			<div class="col-sm-12">
-				<br>
-				<h1>最新消息</h1>	
-				<hr>
-			</div>
-			
-		</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<h2>【有看見去年的你嗎？】2016雜學校回顧影片釋出！</h2>
-
+				<br>
+				<h1>【有看見去年的你嗎？】2016雜學校回顧影片釋出！</h1>
+				<hr>	
+			</div>
+			<div class='col-sm-12'>
+				<iframe width="100%" height="500" src="https://www.youtube.com/embed/fBgHQJG8UOM" frameborder="0" allowfullscreen></iframe>
+				<br><br>
 
 				<p>
 					匯聚所有學校沒教<br>
 					適合每一個你的不同學習路徑<br>
 					雜學校，亞洲最大創新教育展（前身為2015不太乖教育節）。通過針對創新教育<br>
-					單位的邀展，結合論壇、實作工作坊與主題策展，打造全新教育策展體驗。<br>
+					單位的邀展，結合論壇、實作工作坊與主題策展，打造全新教育策展體驗。<br><br>
 					去年的你，到現場「雜」了嗎？！快來看看影片找尋你的身影吧！<br>
 					（錯過了？沒關係！看完影片一樣讓你身歷其境～！）<br>
 					因為有了每一個你的大力相挺，2017雜學校正籌備著一樁前所未見的擴校計畫！<br>

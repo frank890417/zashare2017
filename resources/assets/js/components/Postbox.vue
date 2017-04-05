@@ -119,6 +119,7 @@
             },
             set_cata: function(cata){
               this.filter_cata=cata;
+              $("html, body").animate({ scrollTop: 0 }, "slow");
             },
             get_cata_name: function(tag){
               var result="";

@@ -7784,7 +7784,7 @@ footer {
 }
 
 .navbar-nav {
-  background-color: transparent;
+  background-color: white;
 }
 
 .indep_post img {
@@ -7890,6 +7890,10 @@ footer {
   -webkit-box-pack: center;
   justify-content: center;
   background-color: #EE3441;
+}
+
+.landing_page_body .navbar-nav {
+  background-color: transparent;
 }
 
 .landing_page_body .center_box {
