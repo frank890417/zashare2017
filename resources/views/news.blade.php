@@ -23,12 +23,12 @@
 			<div class='col-sm-12'>
 				<iframe width="100%" height="500" src="https://www.youtube.com/embed/fBgHQJG8UOM" frameborder="0" allowfullscreen></iframe>
 				<br><br>
-
+				<h4>
+					匯聚所有學校沒教<br><br>
+					適合每一個你的不同學習路徑<br>
+				</h4>
 				<p>
-					<h4>
-						匯聚所有學校沒教<br><br>
-						適合每一個你的不同學習路徑<br>
-					</h4>
+					
 					<br>
 					雜學校，亞洲最大創新教育展（前身為2015不太乖教育節）。通過針對創新教育<br>
 					單位的邀展，結合論壇、實作工作坊與主題策展，打造全新教育策展體驗。<br><br>
