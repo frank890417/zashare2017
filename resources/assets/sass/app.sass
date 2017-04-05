@@ -78,6 +78,29 @@ footer
 .navbar.navbar-default
   background-color: white
   height: 60px
+
+  .dropdown
+    &:hover
+      .dropdown-toggle
+        color: #333
+  .dropdown
+    .dropdown-menu
+      background-color: $color_red
+      li
+        margin: 0
+        padding: 0
+
+      a
+        color: rgba(white,0.8)
+        background-color: darken($color_red,3)
+        &:hover
+          background-color: darken($color_red,6)
+          color: rgba(white,1)
+    &:hover
+      
+
+      a
+        color: rgba(white,0.8)
   
 .navbar-nav
   margin-top: 5px 

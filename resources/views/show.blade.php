@@ -79,7 +79,7 @@
 
           <div class='btns text-center'>
            <a class='btn btn-primary' href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current()}}" target="_blank">分享文章</a>
-            <a class='btn btn-link' href="{!! URL::previous() !!}">回上一頁</a>
+            <a class='btn btn-link' href="#" onclick="window.history.back();">回上一頁</a>
           </div>
           <br>
         </div>

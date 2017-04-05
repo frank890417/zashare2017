@@ -7750,6 +7750,33 @@ footer .footer_logo a:hover {
   height: 60px;
 }
 
+.navbar.navbar-default .dropdown:hover .dropdown-toggle {
+  color: #333;
+}
+
+.navbar.navbar-default .dropdown .dropdown-menu {
+  background-color: #EE3441;
+}
+
+.navbar.navbar-default .dropdown .dropdown-menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar.navbar-default .dropdown .dropdown-menu a {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #ed2634;
+}
+
+.navbar.navbar-default .dropdown .dropdown-menu a:hover {
+  background-color: #ec1827;
+  color: white;
+}
+
+.navbar.navbar-default .dropdown:hover a {
+  color: rgba(255, 255, 255, 0.8);
+}
+
 .navbar-nav {
   margin-top: 5px;
   background-color: white;

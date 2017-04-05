@@ -96,6 +96,15 @@
             // if (window.data_storage.posts){
             this.posts=window.data_storage.posts;
             this.loading=false;
+            this.filter_cata=window.location.hash.slice(1) ;
+
+            var vobj=this;
+            window.onhashchange = function(){
+              vobj.filter_cata=window.location.hash.slice(1) ;
+              $("html,body").animate({scrollTop: $(".cata_title").offset().top-100},'fast');
+
+            }
+
             // }else{
               
             //   var vobj=this;

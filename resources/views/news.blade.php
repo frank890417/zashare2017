@@ -11,7 +11,7 @@
 
 <div class='container-fluid' style='padding: 0'>
 
-	<div style="height: 300px;background-image: url(http://zashare.org/img/ci_people.png);background-color: #f24;background-repeat: no-repeat;"></div>
+	<div style="height: 200px;background-image: url(http://zashare.org/img/ci_people.png);background-color: #f24;background-repeat: no-repeat;background-position: 30% 20%"></div>
 	</div>
 	<div class="container">
 		<div class="row">
