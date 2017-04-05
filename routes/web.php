@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/post/{id}',"PostController@show");
 
 Route::get('/home', "PostController@index");
-Route::group(['prefix'=>'manage'],function(){
+Route::group(['prefix'=>'manage','middleware' => 'auth'],function(){
 
   Route::get('/', "PostController@index");
   Route::resource('company','CompanyController');

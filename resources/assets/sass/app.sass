@@ -13,22 +13,42 @@
 *
   font-family: Roboto Slab,Hoefler Text,'微軟正黑體',Songti TC,serif
 
+//mixins
+@mixin paragraph_size_leading($fz,$lh)
+  font-size: $fz
+  line-height: $lh
 
-h1,h2,h3,h4,h5,h6
-  font-weight: 900
 
+//tag size
 h1
-  font-size: 30px
+  +paragraph_size_leading(56px,83px)
+  letter-spacing: 2px
+
 h2
-  font-size: 24px 
+  +paragraph_size_leading(34px,50px)
+  letter-spacing: 2px
 h3
-  font-size: 20px 
+  +paragraph_size_leading(24px,36px)
+  letter-spacing: 2px
 h4
-  font-size: 18px 
-h5,p
-  font-size: 15px
-  letter-spacing: 0.5px
-  line-height: 26px
+  +paragraph_size_leading(21px,31px)
+  letter-spacing: 2px
+h5
+  +paragraph_size_leading(17px,25px)
+  letter-spacing: 2px
+h6
+  +paragraph_size_leading(15px,25px)
+  letter-spacing: 2px
+p
+  +paragraph_size_leading(15px,25px)
+  letter-spacing: 3px
+  color: #333
+  font-weight: 300
+
+body
+  font-size: 16px
+  letter-spacing: 3px
+  font-weight: light
 
 @mixin ab_center
   position: absolute
@@ -147,7 +167,7 @@ footer
   background-position: center center
 
 .carousel_cover
-  background: linear-gradient(180deg,transparent 50%,black 120%)
+  background: linear-gradient(180deg,transparent 30%,black 110%)
   position: absolute
   left: 0
   top: 0
@@ -156,6 +176,7 @@ footer
 
 .carousel-caption
   text-align: left
+  left: 0% !important
 
 .louder
   position: absolute

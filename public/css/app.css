@@ -7694,30 +7694,54 @@ button.close {
   font-family: Roboto Slab,Hoefler Text,'微軟正黑體',Songti TC,serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 900;
-}
-
 h1 {
-  font-size: 30px;
+  font-size: 56px;
+  line-height: 83px;
+  letter-spacing: 2px;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 34px;
+  line-height: 50px;
+  letter-spacing: 2px;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 2px;
 }
 
 h4 {
-  font-size: 18px;
+  font-size: 21px;
+  line-height: 31px;
+  letter-spacing: 2px;
 }
 
-h5, p {
+h5 {
+  font-size: 17px;
+  line-height: 25px;
+  letter-spacing: 2px;
+}
+
+h6 {
   font-size: 15px;
-  letter-spacing: 0.5px;
-  line-height: 26px;
+  line-height: 25px;
+  letter-spacing: 2px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 3px;
+  color: #333;
+  font-weight: 300;
+}
+
+body {
+  font-size: 16px;
+  letter-spacing: 3px;
+  font-weight: light;
 }
 
 ::-moz-selection {
@@ -7835,8 +7859,8 @@ footer {
 }
 
 .carousel_cover {
-  background: -webkit-linear-gradient(top, transparent 50%, black 120%);
-  background: linear-gradient(180deg, transparent 50%, black 120%);
+  background: -webkit-linear-gradient(top, transparent 30%, black 110%);
+  background: linear-gradient(180deg, transparent 30%, black 110%);
   position: absolute;
   left: 0;
   top: 0;
@@ -7846,6 +7870,7 @@ footer {
 
 .carousel-caption {
   text-align: left;
+  left: 0% !important;
 }
 
 .louder {

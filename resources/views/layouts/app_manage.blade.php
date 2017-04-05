@@ -102,12 +102,26 @@
                 |  Sub Item 3
         --}}
         <li role="presentation" class="divider"></li>
-        <li><a href="{{ url('/login') }}">
-            <svg class="glyph stroked male-user">
-              <use xlink:href="#stroked-male-user"></use>
-            </svg> Login Page</a></li>
+        @if (Auth::guest())
+          <li><a href="{{ url('/login') }}">
+              <svg class="glyph stroked male-user">
+                <use xlink:href="#stroked-male-user"></use>
+              </svg> Login Page</a>
+          </li>
+        @else
+          <li>
+            <a onclick="event.preventDefault();
+               document.getElementById('logout-form').submit();">
+              <svg class="glyph stroked male-user">
+                <use xlink:href="#stroked-male-user"></use>
+              </svg> Login out
+            </a>
+          </li>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              {{ csrf_field() }}
+          </form>
+        @endif
       </ul>
-      <div class="attribution">Template by <a href="http://www.medialoot.com/item/lumino-admin-bootstrap-template/">Medialoot</a><br><a href="http://www.glyphs.co" style="color: #333;">Icons by Glyphs</a></div>
     </div>
     <!-- /.sidebar -->
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" id="app">
