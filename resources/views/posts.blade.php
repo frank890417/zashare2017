@@ -31,7 +31,7 @@
 			<div class="carousel_cover"></div>
 			<div class="container text-left">
 				<div class="row">
-					<div class="col-xs-12 col-sm-7 ">
+					<div class="col-xs-12 col-sm-8 ">
 						<div class="carousel-caption">
 							<h5 class="text-left" style='opacity: 0.9'>/ {{trim($post->name_cht)}}</h5>
 							<h1 class="text-left">{{trim($post->title)}}</h1>

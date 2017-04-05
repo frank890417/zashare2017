@@ -51,7 +51,7 @@
                 <div class="col-sm-12">
                   <h3 v-show="!(filter_cata=='') && filtered_post.length==0">相關報導即將上線</h3>
                 </div>
-                <div class="col-sm-4" v-for='p in filtered_post'  v-show="!(filter_cata=='')">
+                <div class="col-sm-4" v-for='p in filtered_post'  v-if="!(filter_cata=='')">
                     <a class="postbox" :href="'post/'+p.id">
                         <div class="topimg" :style='css_top_img(p)' >
                             <h3 class='company_name' v-text='p.name_cht'></h3>

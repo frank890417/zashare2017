@@ -167,11 +167,11 @@
           </div>
 
           <!-- Left and right controls -->
-          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" style='background: none'>
+          <a class="left carousel-control" href="#myCarousel2" role="button" data-slide="prev" style='background: none'>
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" style='background: none'>
+          <a class="right carousel-control" href="#myCarousel2" role="button" data-slide="next" style='background: none'>
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
