@@ -142,7 +142,7 @@
         <div class="col-sm-8">
             <h5>聯絡資訊 Contact Info</h5>
             <hr style='border-color: #333'>
-            <p>Address. 台北市信義區松德路159號25樓25F.<br>
+            <p>Address. 台北市信義區松德路159號25樓<br>
         Tel. +886-2-23467122<br>Mail. zashare@ozzie-art.com<br><br></p>
             <p>© 2017 雜学校 Za Share All Rights Reserved.&nbsp;&nbsp;&nbsp;&nbsp;</p>
     
