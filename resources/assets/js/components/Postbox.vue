@@ -325,7 +325,7 @@ $color_red: #EE3441;
     background-color: #ddd;
   }
   .post_title{
-    height: 2em;
+    min-height: 70px;
     width: 100%;
 
   }
@@ -362,7 +362,7 @@ $color_red: #EE3441;
   }
 
   .post_title{
-    min-height: 2.2em;
+    min-height: 60px;
     font-weight: 900;
     /*letter-spacing: 0.5px;*/
     color: #333;
