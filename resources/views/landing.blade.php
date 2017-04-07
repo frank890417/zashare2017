@@ -83,7 +83,9 @@
     <br>
     <h3 style='color: white'>學習從不是單一概念。</h3>
     <br>
-    {{-- <a href="{{ url('/blog') }}" class='btn btn-default btn-lg btn-trans'> 來雜學吧！ </a> --}}
+    <br class="visible-xs">
+    <br class="visible-xs">
+    <a  href="{{ url('/blog') }}" class='btn btn-default btn-lg btn-trans visible-xs'> 來雜學吧！ </a>
   </div>
   <video autoplay loop class='landing-video'>
       <source src="http://zashare.org/files/civideo.mp4" type="" >

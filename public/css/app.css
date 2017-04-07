@@ -7952,6 +7952,14 @@ footer .footer_logo a:hover {
   background-color: #EE3441;
 }
 
+@media screen and (max-width: 800px) {
+  .landing_page_body {
+    background-image: url("/img/landing_bg.jpg");
+    background-size: auto 100%;
+    background-position: center 70%;
+  }
+}
+
 .landing_page_body .navbar-nav {
   background-color: transparent;
 }
@@ -8002,6 +8010,12 @@ footer .footer_logo a:hover {
   pointer-events: none;
   -webkit-pointer-events: none;
   z-index: -1;
+}
+
+@media screen and (max-width: 800px) {
+  .landing-video {
+    display: none;
+  }
 }
 
 .col_company {
@@ -8222,6 +8236,17 @@ footer .footer_logo a:hover {
   }
   .page_about .row_about_content .row_about_content {
     padding-top: 30px;
+  }
+}
+
+.post_wait {
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .post_wait {
+    padding: 0;
+    text-align: center;
   }
 }
 

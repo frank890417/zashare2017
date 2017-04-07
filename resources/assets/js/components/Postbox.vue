@@ -46,8 +46,12 @@
 
     </div>
 
-        
-    <h3 v-show="!(filter_cata=='') && filtered_post.length==0">相關報導即將上線</h3>
+    <div class="row post_wait" >
+      <div class="col-sm-12">
+        <h3 v-show="!(filter_cata=='') && filtered_post.length==0">相關報導即將上線</h3>
+      </div>
+    </div>
+    
 
     <!-- 瀏覽單一類別 -->
     <div class="row" v-for='fp in filtered_post_three' v-if="!(filter_cata=='')">
