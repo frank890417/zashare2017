@@ -78,7 +78,7 @@
         </nav>
 
   <div class='center_box text-center'>
-    <img src="/img/logo_white.svg" style='width: 400px;margin-left: auto;margin-right: auto'>
+    <img src="/img/logo_white.svg" style='margin-left: auto;margin-right: auto'>
     <br>
     <br>
     <h3 style='color: white'>學習從不是單一概念。</h3>
