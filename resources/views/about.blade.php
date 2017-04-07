@@ -9,9 +9,9 @@
 @endsection
 
 @section('content')
-  <div class='container'>
+  <div class='container page_about'>
     <div class='row'>
-      <div class='col-sm-6 page_about'>
+      <div class='col-sm-6 '>
         <img src='http://zashare.org/img/ci_people.png'/>
       </div>
       <div class='col-sm-6 row_about_content' >
