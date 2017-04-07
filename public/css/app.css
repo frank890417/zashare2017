@@ -7901,6 +7901,17 @@ footer .footer_logo a:hover {
   padding-bottom: 150px;
 }
 
+@media screen and (max-width: 800px) {
+  .col_post {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .col_post .post_image {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+}
+
 .col_post .post_image {
   height: 300px;
   background-size: cover;
