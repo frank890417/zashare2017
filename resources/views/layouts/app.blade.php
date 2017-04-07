@@ -67,6 +67,10 @@
                               <li><a href="/blog#A">學校現場與實驗教育</a></li>
                               <li><a href="/blog#B">教育倡議與實踐</a></li>
                               <li><a href="/blog#C">媒體與資訊平台</a></li>
+                              <li><a href="/blog#D">創客與程式設計</a></li>
+                              <li><a href="/blog#E">文化與歷史生活</a></li>
+                              <li><a href="/blog#F">肢體與藝術創作</a></li>
+                              <li><a href="/blog#G">自然與食農教育</a></li>
 
                             </ul>
                         </li>
@@ -129,6 +133,12 @@
                     <i class="fa fa-youtube"></i>
                     Youtube 
                 </a>
+
+                <a href="https://www.instagram.com/zashare_edu/" target="_blank">
+                    <i class="fa fa-instagram"></i>
+                    Instagram 
+                </a>
+                <br>
                 <a href="http://weibo.com/6020066115/profile?rightmod=1&wvr=6&mod=personnumber&is_all=1" target="_blank">
                     <i class="fa fa-weibo"></i>
                     Weibo 

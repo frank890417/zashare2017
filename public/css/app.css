@@ -7754,27 +7754,21 @@ footer .footer_logo a:hover {
   color: #333;
 }
 
-.navbar.navbar-default .dropdown .dropdown-menu {
-  background-color: #EE3441;
-}
-
 .navbar.navbar-default .dropdown .dropdown-menu li {
   margin: 0;
   padding: 0;
 }
 
 .navbar.navbar-default .dropdown .dropdown-menu a {
-  color: rgba(255, 255, 255, 0.8);
-  background-color: #ed2634;
+  color: rgba(51, 51, 51, 0.8);
 }
 
 .navbar.navbar-default .dropdown .dropdown-menu a:hover {
-  background-color: #ec1827;
-  color: white;
+  color: #333333;
 }
 
 .navbar.navbar-default .dropdown:hover a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(51, 51, 51, 0.8);
 }
 
 .navbar-nav {
@@ -7901,11 +7895,6 @@ footer .footer_logo a:hover {
   }
 }
 
-.row_about_content {
-  padding-top: 120px;
-  padding-bottom: 120px;
-}
-
 .col_post {
   padding-left: 20px;
   box-sizing: border-box;
@@ -7916,6 +7905,37 @@ footer .footer_logo a:hover {
   height: 300px;
   background-size: cover;
   background-position: center;
+  color: white;
+  position: relative;
+}
+
+.col_post .post_image .infos {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  letter-spacing: 1px;
+}
+
+.col_post .post_image .infos h1 {
+  margin-bottom: 8px;
+}
+
+.col_post .post_image .infos h5 {
+  opacity: 0.9;
+  margin-top: 0px;
+  letter-spacing: 2px;
+}
+
+.col_post .post_image:before {
+  content: "";
+  display: block;
+  background: -webkit-linear-gradient(top, transparent 30%, black 110%);
+  background: linear-gradient(180deg, transparent 30%, black 110%);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .landing_page_body {
@@ -7996,9 +8016,20 @@ footer .footer_logo a:hover {
 
 .col_company img {
   width: 80%;
-  max-width: 150px;
+  max-width: 120px;
   display: inline-block;
   border: solid 1px rgba(0, 0, 0, 0.2);
+}
+
+.col_company2 {
+  background-color: #f4f4f4;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.col_company2 img {
+  width: 50%;
+  max-width: 200px;
 }
 
 .loading .postbox .post_title, .loading .postbox p, .loading .postbox .topimg {
@@ -8176,6 +8207,22 @@ footer .footer_logo a:hover {
 
 .expo_cover.cover_2016 {
   background-image: url("https://az796311.vo.msecnd.net/userupload/afe7351a4adc41ca8a828fd5b606798f.jpg");
+}
+
+.page_about .row_about_content {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+@media screen and (max-width: 800px) {
+  .page_about .row_about_content img {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .page_about .row_about_content .row_about_content {
+    padding-top: 30px;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */

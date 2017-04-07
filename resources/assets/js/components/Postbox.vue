@@ -292,6 +292,11 @@ $color_red: #EE3441;
   margin-bottom: 10px;
   padding-bottom: 8px;
   position: relative;
+
+  @media screen and (max-width: 800px){
+    margin-bottom: 50px;
+    margin-top: 30px;
+  }
   &:before{
     content: "";
     display: block;
@@ -339,6 +344,11 @@ $color_red: #EE3441;
     display: block;
     padding: 10px;
     margin-bottom: 40px;
+
+    @media screen and (max-width: 800px){
+      margin-bottom: 40px;
+      min-height: 200px;
+    }
 
     .postbox
 

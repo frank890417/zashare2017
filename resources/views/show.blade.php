@@ -50,15 +50,18 @@
       </div>
       <div class="col-xs-12 col-sm-9 col_post col-sm-offset-3">
         <div class="col-sm-12">
-          <div class='post_image' style="background-image:url('{{ $post->cover }}');" alt=""></div>
-        	<h1>{{ $post->title }}</h1>
-          <div class='text-muted'>{{ $post->author }}</div>
+          <div class='post_image' style="background-image:url('{{ $post->cover }}');" alt="">
+            <div class="infos">
+            	<h1>{{ $post->title }}</h1>
+              <h5>{{ $post->author }}</h5>
+            </div>
+          </div>
           <hr>
           <div class='content-area'>{!! str_replace('&nbsp;</p>', '</p>' , $post->content)  !!}</div>
             @endif
 
 
-          <div class="visible-xs">
+          <div class="visible-xs col_company2">
           
                 <a href="{{$company->website}}" target="_blank" title='前往{{ $company->name_cht }}網站'>
                   <img src='{{"http://zashare.org/img/square_logos/".($company->tag).".jpg"}}'>  
