@@ -11,7 +11,7 @@
 @section('content')
   <div class='container page_about'>
     <div class='row'>
-      <div class='col-sm-6 '>
+      <div class='col-sm-6 row_about_pic'>
         <img src='http://zashare.org/img/ci_people.png'/>
       </div>
       <div class='col-sm-6 row_about_content' >

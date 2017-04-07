@@ -501,17 +501,21 @@ footer
   
 ///-----------------
 
-
+.row_about_pic
+  img
+    width: 90%
+    margin-left: auto
+    margin-right: auto
+    @media screen and (max-width: 800px)
+      position: absolute
+      opacity: 0.08
+          
 .page_about
-
   .row_about_content
     padding-top: 120px
     padding-bottom: 120px
     @media screen and (max-width: 800px)
-      img
-        width: 90%
-        margin-left: auto
-        margin-right: auto    
+      
       .row_about_content
         padding-top: 30px
 

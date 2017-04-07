@@ -8243,17 +8243,25 @@ footer .footer_logo a:hover {
   background-image: url("https://az796311.vo.msecnd.net/userupload/afe7351a4adc41ca8a828fd5b606798f.jpg");
 }
 
+.row_about_pic img {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 800px) {
+  .row_about_pic img {
+    position: absolute;
+    opacity: 0.08;
+  }
+}
+
 .page_about .row_about_content {
   padding-top: 120px;
   padding-bottom: 120px;
 }
 
 @media screen and (max-width: 800px) {
-  .page_about .row_about_content img {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
   .page_about .row_about_content .row_about_content {
     padding-top: 30px;
   }
