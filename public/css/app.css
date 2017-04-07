@@ -7920,6 +7920,15 @@ footer .footer_logo a:hover {
   position: relative;
 }
 
+@media screen and (max-width: 800px) {
+  .col_post .post_image {
+    height: 50vh;
+  }
+  .col_post .post_image .infos .jour {
+    font-size: 13px;
+  }
+}
+
 .col_post .post_image .infos {
   position: absolute;
   bottom: 20px;

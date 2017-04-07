@@ -37,7 +37,7 @@
             <img src='{{"http://zashare.org/img/square_logos/".($company->tag).".jpg"}}'>  
           </a>
           <h5 class="text-muted"> #{{ $catalist[ $post->tag ] }} </h5>
-          <h3>{{ $company->name_cht}}
+          <h3>{{ $company->name_short}}
             <!-- <a class='company_link' href="{{$company->website}}" target="_blank" title='前往{{ $company->name_cht }}網站'>
               <i class="fa fa-link"></i>
             </a> -->
@@ -52,8 +52,10 @@
         <div class="col-sm-12">
           <div class='post_image' style="background-image:url('{{ $post->cover }}');" alt="">
             <div class="infos">
+
+              <h5 class='visible-xs'> / {{ $company->name_short }}</h5>
             	<h1>{{ $post->title }}</h1>
-              <h5>{{ $post->author }}</h5>
+              <h5 class='jour'>{{ $post->author }}</h5>
             </div>
           </div>
           <hr>
@@ -63,13 +65,13 @@
 
           <div class="visible-xs col_company2">
           
-                <a href="{{$company->website}}" target="_blank" title='前往{{ $company->name_cht }}網站'>
+                <a href="{{$company->website}}" target="_blank" title='前往{{ $company->name_short }}網站'>
                   <img src='{{"http://zashare.org/img/square_logos/".($company->tag).".jpg"}}'>  
                 </a>
                 <br> 
                 <h5 class="text-muted"> #{{ $catalist[ $post->tag ] }} </h5>
                 <br> 
-                <h3>{{ $company->name_cht}}
+                <h3>{{ $company->name_short}}
                   <!-- <a class='company_link' href="{{$company->website}}" target="_blank" title='前往{{ $company->name_cht }}網站'>
                     <i class="fa fa-link"></i>
                   </a> -->
