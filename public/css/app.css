@@ -8254,10 +8254,13 @@ footer .footer_logo a:hover {
   padding-left: 20px;
 }
 
+.post_wait h3 {
+  font-weight: 500;
+}
+
 @media screen and (max-width: 800px) {
   .post_wait {
     padding: 0;
-    text-align: center;
   }
 }
 

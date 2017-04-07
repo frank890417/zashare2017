@@ -48,7 +48,7 @@
 
     <div class="row post_wait" >
       <div class="col-sm-12">
-        <h3 v-show="!(filter_cata=='') && filtered_post.length==0">相關報導即將上線</h3>
+        <h3 class="text-center" v-show="!(filter_cata=='') && filtered_post.length==0">相關報導即將上線</h3>
       </div>
     </div>
     
