@@ -182,6 +182,7 @@
               return npost;
             },
             highlight_post(post){
+              if (this.filter.trim()=="") return post;
               var npost = JSON.parse(JSON.stringify(post));
               console.log(npost);
               npost.name_short = (npost.name_short+"").replace( new RegExp(this.filter,'g'),"<span style='background-color:#f24;color: white;'>"+this.filter+"</span>");
