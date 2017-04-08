@@ -69,9 +69,7 @@
                         <li><a href="http://zashare.org" target="_blank">2016雜學校</a></li>
  -->
                        
-                        <li><a href="https://www.facebook.com/zashare.expo/?fref=ts" target="_blank">
-                            <img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/46-facebook-512.png" style='width: 20px;opacity: 0.6'>
-                        </a></li>
+                    
                     </ul>
                 </div>
             </div>

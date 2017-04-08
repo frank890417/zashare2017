@@ -30,6 +30,14 @@ window.onload=function(){
   if ($('#posttable').length>0){
     $('#posttable').DataTable();
   }
+  if ($('.dropdown').length>0){
+    $('.dropdown').hover(function(){
+      $(this).addClass('open');
+    },function(){
+      $(this).removeClass('open');
+
+    });
+  }
 }
 
 // $(window).scroll(function(){

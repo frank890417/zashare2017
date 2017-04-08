@@ -7736,6 +7736,10 @@ footer {
   padding-top: 40px;
 }
 
+footer .footer_logo {
+  line-height: 30px;
+}
+
 footer .footer_logo a {
   margin-right: 10px;
   color: #430095;
@@ -7754,13 +7758,29 @@ footer .footer_logo a:hover {
   color: #333;
 }
 
+.navbar.navbar-default .dropdown-menu {
+  max-height: 0px;
+  overflow: hidden;
+  display: block;
+  opacity: 0;
+}
+
+.navbar.navbar-default .dropdown.open .dropdown-menu {
+  max-height: 300px;
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 1;
+}
+
 .navbar.navbar-default .dropdown .dropdown-menu li {
   margin: 0;
-  padding: 0;
 }
 
 .navbar.navbar-default .dropdown .dropdown-menu a {
   color: rgba(51, 51, 51, 0.8);
+  padding: 5px 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .navbar.navbar-default .dropdown .dropdown-menu a:hover {
@@ -7875,7 +7895,13 @@ footer .footer_logo a:hover {
 
 .carousel-caption {
   text-align: left;
-  left: 10% !important;
+  left: 30px !important;
+}
+
+@media screen and (max-width: 800px) {
+  .carousel-caption {
+    left: 10% !important;
+  }
 }
 
 .louder {
@@ -8167,11 +8193,12 @@ footer .footer_logo a:hover {
   width: 100%;
   height: 240px;
   background-position: center;
-  background-size: 110% auto;
+  background-size: auto 115%;
   color: white;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   cursor: pointer;
+  margin-bottom: 30px;
 }
 
 .relate_cover .mask {
@@ -8188,7 +8215,7 @@ footer .footer_logo a:hover {
 }
 
 .relate_cover:hover {
-  background-size: 120% auto;
+  background-size: auto 120%;
   color: white;
 }
 

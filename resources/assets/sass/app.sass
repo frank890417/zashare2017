@@ -66,6 +66,7 @@ footer
   padding-top: 40px
 
   .footer_logo
+    line-height: 30px
     a
       margin-right: 10px
       color: $color_purple
@@ -83,16 +84,28 @@ footer
     &:hover
       .dropdown-toggle
         color: #333
+
+  .dropdown-menu
+      max-height: 0px
+      overflow: hidden
+      display: block
+      opacity: 0
+  .dropdown.open
+    .dropdown-menu
+      max-height: 300px
+      transition: 1s
+      opacity: 1
+
   .dropdown
     .dropdown-menu
       // background-color: $color_red
       li
         margin: 0
-        padding: 0
-
       a
         color: rgba(#333,0.8)
         // background-color: darken($color_red,3)
+        padding: 5px 10px
+        transition: 0.5s
         &:hover
           // background-color: darken($color_red,6)
           color: rgba(#333,1)
@@ -193,7 +206,9 @@ footer
 
 .carousel-caption
   text-align: left
-  left: 10% !important
+  left: 30px !important
+  @media screen and (max-width: 800px)
+    left: 10% !important
 
 .louder
   position: absolute
@@ -430,6 +445,8 @@ footer
     transition: 0.5s
 
 //post page
+//--------------------------------------------------
+
 
 .company_link
   color: $color_red
@@ -437,15 +454,17 @@ footer
   &:hover,&:focus
     color: darken($color_red,1)
 
+
 .relate_cover
   position: relative
   width: 100%
   height: 240px
   background-position: center
-  background-size: 110% auto
+  background-size: auto 115%
   color: white
   transition: 0.5s
   cursor: pointer
+  margin-bottom: 30px
   .mask
     background: linear-gradient(0deg,transparent 30%,black 110%)
     position: absolute
@@ -459,7 +478,7 @@ footer
 
 
   &:hover
-    background-size: 120% auto
+    background-size: auto 120%
     color: white
 
     .mask

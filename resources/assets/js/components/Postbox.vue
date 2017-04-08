@@ -32,9 +32,9 @@
               <div class="col-sm-4" v-for='(p,id) in limit_tag_split(filtered_post,3)[cata.tag]' >
                 <a class="postbox" :href="'post/'+p.id">
                   <div class="topimg" :style='css_top_img(p)' >
-                      <h3 class='company_name' v-text='p.name_cht'></h3>
+                      <h3 class='company_name' v-html='p.name_cht'></h3>
                   </div>
-                  <h3 class='post_title' v-text='"【"+p.name_short+"】"+p.title'></h3>
+                  <h3 class='post_title' v-html='"【"+p.name_short+"】"+p.title'></h3>
                   <p class='post_para' v-html='(p.description+"").substr(0,70)+"..."'></p>
                   <!-- <p class='post_author text-muted' v-text='p.author.replace(/\//g," / ")+ " " + p.established_time.split(" ")[0]'> </p> -->
                 </a>
@@ -58,9 +58,9 @@
       <div class="col-sm-4" v-for='p in fp'>
         <a class="postbox" :href="'post/'+p.id">
             <div class="topimg" :style='css_top_img(p)' >
-                <h3 class='company_name' v-text='p.name_cht'></h3>
+                <h3 class='company_name' v-html='p.name_cht'></h3>
             </div>
-            <h3 class='post_title' v-text='"【"+p.name_short+"】"+p.title'></h3>
+            <h3 class='post_title' v-html='"【"+p.name_short+"】"+p.title'></h3>
             <p class='post_para' v-html='(p.description+"").substr(0,70)+"..."'></p>
             <!-- <p class='post_author text-muted' v-text='p.author.replace(/\//g," / ")+ " " + p.established_time.split(" ")[0]'> </p> -->
         </a>
@@ -180,6 +180,14 @@
               });
               // console.log(npost);
               return npost;
+            },
+            highlight_post(post){
+              var npost = JSON.parse(JSON.stringify(post));
+              console.log(npost);
+              npost.name_short = (npost.name_short+"").replace( new RegExp(this.filter,'g'),"<span style='background-color:#f24;color: white;'>"+this.filter+"</span>");
+              npost.title = (npost.title+"").replace( new RegExp(this.filter,'g'),"<span style='background-color:#f24;color: white;'>"+this.filter+"</span>");
+              npost.description = (npost.description+"").replace( new RegExp(this.filter,'g'),"<span style='background-color:#f24;color: white;'>"+this.filter+"</span>");
+              return npost;
             }
         },
         computed: {
@@ -196,7 +204,7 @@
                   obj.name_cht.indexOf(vobj.filter)!=-1 
                    ){
                 if (vobj.filter_cata=='' || obj.tag==vobj.filter_cata){
-                  npost.push(obj);
+                  npost.push(vobj.highlight_post(obj));
                 }
               }
             });

@@ -59,11 +59,9 @@
                         <!-- <li><a href="{{ url('/blog') }}">最新消息</a></li> -->
                         <li class="{{ isset($pagename)?(($pagename=='news')?'active':''):'' }} " ><a href="{{ url('/news') }}">最新消息</a></li>
 
-
                         <li class="dropdown {{ isset($pagename)?(($pagename=='blog')?'active':''):'' }} ">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">參展報導 <span class="caret"></span></a>
+                            <a href="{{ url('/blog') }}"  role="button" aria-haspopup="true" aria-expanded="true" >參展報導<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                              <li><a href="/blog">全部類別</a></li>
                               <li><a href="/blog#A">學校現場與實驗教育</a></li>
                               <li><a href="/blog#B">教育倡議與實踐</a></li>
                               <li><a href="/blog#C">媒體與資訊平台</a></li>
@@ -81,10 +79,6 @@
                         <!-- <li><a href="http://zashare.weebly.com/2015naughty.html" target="_blank">2015不太乖教育節</a></li>
                         <li><a href="http://zashare.org" target="_blank">2016雜學校</a></li>
  -->
-                       
-                        <li><a href="https://www.facebook.com/zashare.expo/?fref=ts" target="_blank">
-                            <img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/46-facebook-512.png" style='width: 20px;opacity: 0.6'>
-                        </a></li>
                     </ul>
                 </div>
             </div>
@@ -148,6 +142,7 @@
                     Wechat 
                 </a>
              </div>
+             <br>
         </div>
         <div class="col-sm-8">
             <h5>聯絡資訊 Contact Info</h5>
