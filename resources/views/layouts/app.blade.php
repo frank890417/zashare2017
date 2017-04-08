@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     
+    <script type="text/javascript" src="//typesquare.com/accessor/zh_tw/script/typesquare.js?HGNrQi080jw%3D" charset="utf-8"></script>
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
