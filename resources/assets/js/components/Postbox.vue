@@ -237,7 +237,7 @@ $color_red: #EE3441;
   padding-top: 50px;
   padding-left: 80px;
   padding-right: 80px;
-  max-width: 1250px;
+  max-width: 1300px;
   width: 100%;
 }
 

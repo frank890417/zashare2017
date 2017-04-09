@@ -8419,6 +8419,7 @@ footer .footer_logo a:hover {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   flex-direction: row;
+  background-color: white;
   @elseif {}
 }
 
