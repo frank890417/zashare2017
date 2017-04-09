@@ -37,6 +37,12 @@ window.onload=function(){
       $(this).removeClass('open');
 
     });
+    $('.dropdown').tap(function(){
+      $(this).addClass('open');
+    },function(){
+      $(this).removeClass('open');
+
+    });
   }
 }
 
