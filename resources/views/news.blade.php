@@ -20,7 +20,7 @@
 					<br>
 				</div>
 				<div class='col-sm-12'>
-					<iframe width="100%" height="500" src="https://www.youtube.com/embed/fBgHQJG8UOM" frameborder="0" allowfullscreen></iframe>
+					<iframe src="https://www.youtube.com/embed/fBgHQJG8UOM" frameborder="0" allowfullscreen></iframe>
 					<br><br>
 					<h4>
 						匯聚所有學校沒教<br><br>
