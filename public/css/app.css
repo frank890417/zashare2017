@@ -7691,12 +7691,12 @@ button.close {
 }
 
 * {
-  font-family: Roboto Slab,Hoefler Text,'龍明體 R-KL','微軟正黑體',Songti TC,serif;
+  font-family: Roboto Slab,Hoefler Text,'微軟正黑體',Songti TC,serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 900;
-  font-family: "龍明體 B-KL",'微軟正黑體',Songti TC,serif;
+  font-family: '微軟正黑體',Songti TC,serif;
 }
 
 h1 {
@@ -8097,6 +8097,7 @@ footer .footer_logo a:hover {
 
 .col_company {
   position: fixed;
+  padding: 20px 50px 20px 40px;
   box-sizing: border-box;
 }
 
@@ -8277,7 +8278,7 @@ footer .footer_logo a:hover {
 }
 
 .page_expo {
-  padding-bottom: 40px;
+  background-color: white;
   @elseif {}
 }
 
@@ -8318,6 +8319,28 @@ footer .footer_logo a:hover {
 .page_expo p {
   padding: 20px;
   margin: 0;
+}
+
+.page_expo h2:before {
+  content: "/";
+  font-size: 30px;
+  margin-right: 2px;
+}
+
+.page_expo h2 span {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.page_expo .bt_line {
+  width: 30px;
+  border-bottom: solid 4px #EE3441;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+.page_expo .bt_line[data-color="green"] {
+  border-color: #26D03A;
 }
 
 .page_expo .red {
@@ -8363,7 +8386,7 @@ footer .footer_logo a:hover {
     min-height: calc( (100vh - 60px) / 2);
   }
   .page_expo .col-carousel {
-    height: calc( (100vh - 60px) / 2);
+    height: calc( (100vh - 60px) / 2.5);
   }
   .page_expo .red, .page_expo .green {
     -webkit-box-ordinal-group: 0;
@@ -8467,6 +8490,7 @@ footer .footer_logo a:hover {
   .page_about .col_about_pic, .page_about .col_about_content {
     width: 100%;
     min-height: 150px;
+    height: auto;
   }
   .page_about .col_about_pic {
     height: 400px;

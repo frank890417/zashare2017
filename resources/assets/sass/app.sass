@@ -11,7 +11,7 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap"
 
 *
-  font-family: Roboto Slab,Hoefler Text,'龍明體 R-KL','微軟正黑體',Songti TC,serif
+  font-family: Roboto Slab,Hoefler Text,'微軟正黑體',Songti TC,serif
 
 //mixins
 @mixin paragraph_size_leading($fz,$lh)
@@ -32,7 +32,7 @@
 
 h1,h2,h3,h4,h5,h6
   font-weight: 900
-  font-family: "龍明體 B-KL",'微軟正黑體',Songti TC,serif
+  font-family: '微軟正黑體',Songti TC,serif
 
 
 h1
@@ -363,6 +363,7 @@ footer
 
 .col_company
   position: fixed
+  padding: 20px 50px 20px 40px
   // padding-right: 30px
   // border-right: solid 1px rgba(black,0.05)
   box-sizing: border-box
@@ -534,7 +535,8 @@ footer
 //expo page
 
 .page_expo
-  padding-bottom: 40px
+  // padding-bottom: 40px
+  background-color: white
   .col-sm-6
     padding: 0
   .col-content
@@ -556,6 +558,24 @@ footer
   p
     padding: 20px
     margin: 0
+  h2:before
+    content: "/"
+    font-size: 30px
+    margin-right: 2px
+
+  h2
+    span 
+      display: inline-block
+      margin-bottom: 20px
+
+  .bt_line
+    width: 30px
+    border-bottom: solid 4px $color_red
+    margin-top: -10px
+    margin-bottom: 20px
+    &[data-color="green"]
+      border-color: #26D03A
+
   .red
     background-color: $color_red
     width: 10%
@@ -584,7 +604,7 @@ footer
         width: 100%
         min-height: calc( (100vh - 60px) / 2 )
     .col-carousel
-      height: calc( (100vh - 60px) / 2 )
+      height: calc( (100vh - 60px) / 2.5 )
     .red,.green
       order: -1
     .col-content
@@ -652,6 +672,7 @@ footer
     .col_about_pic , .col_about_content
       width: 100%
       min-height: 150px
+      height: auto
     .col_about_pic
       height: 400px
 
