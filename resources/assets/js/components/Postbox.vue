@@ -231,6 +231,16 @@
 
 <style scoped lang=sass>
 $color_red: #EE3441;
+
+.container{
+  background-color: white;
+  padding-top: 50px;
+  padding-left: 80px;
+  padding-right: 80px;
+  max-width: 1250px;
+  width: 100%;
+}
+
 .list-group{
   border-left: solid 3px $color_red;
   .list-group-item{

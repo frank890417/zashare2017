@@ -85,7 +85,7 @@
             </div>
         </nav>
 
-        <div style='padding-top: 60px;'>
+        <div class='content_frame'>
             @yield('content')
         </div>
     </div>
