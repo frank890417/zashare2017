@@ -239,6 +239,10 @@ $color_red: #EE3441;
   padding-right: 80px;
   max-width: 1300px;
   width: 100%;
+  @media screen and (max-width: 1000px){
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 .list-group{
