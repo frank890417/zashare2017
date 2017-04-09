@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-  <div class='container'>
+  <div class='container page_expo'>
     <div class='row'>
 
       <div class="col-sm-6">
