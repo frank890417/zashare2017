@@ -60,8 +60,22 @@
                         <!-- <li><a href="{{ url('/blog') }}">最新消息</a></li> -->
                         <li class="{{ isset($pagename)?(($pagename=='news')?'active':''):'' }} " ><a href="{{ url('/news') }}">最新消息</a></li>
 
-                        <li class="dropdown {{ isset($pagename)?(($pagename=='blog')?'active':''):'' }} ">
+                        <li class="dropdown {{ isset($pagename)?(($pagename=='blog')?'active':''):'' }} hidden-xs">
                             <a href="{{ url('/blog') }}"  role="button" aria-haspopup="true" aria-expanded="true" >參展報導<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="/blog#A">學校現場與實驗教育</a></li>
+                              <li><a href="/blog#B">教育倡議與實踐</a></li>
+                              <li><a href="/blog#C">媒體與資訊平台</a></li>
+                              <li><a href="/blog#D">創客與程式設計</a></li>
+                              <li><a href="/blog#E">文化與歷史生活</a></li>
+                              <li><a href="/blog#F">肢體與藝術創作</a></li>
+                              <li><a href="/blog#G">自然與食農教育</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="dropdown {{ isset($pagename)?(($pagename=='blog')?'active':''):'' }} visible-xs">
+                            <a href="#"  role="button" aria-haspopup="true" aria-expanded="true" >參展報導<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                               <li><a href="/blog#A">學校現場與實驗教育</a></li>
                               <li><a href="/blog#B">教育倡議與實踐</a></li>

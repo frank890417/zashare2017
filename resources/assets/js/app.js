@@ -38,12 +38,11 @@ window.onload=function(){
         $(this).removeClass('open');
       });
     }
-    
-    $('.dropdown').tap(function(){
-      $(this).addClass('open');
-    },function(){
-      $(this).removeClass('open');
-
+    $(".dropdown").click(function(){
+      $(this).toggleClass("open");
+    });
+    $(".dropdown-menu li").click(function(){
+      $(this).parent.toggleClass("open");
     });
   }
 }
