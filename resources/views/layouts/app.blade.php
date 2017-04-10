@@ -26,6 +26,15 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=756438861174269";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 </head>
 <body>
     <div id="app">
@@ -158,6 +167,8 @@
                 </a>
              </div>
              <br>
+             <div class="fb-like" data-href="https://www.facebook.com/zashare.expo/?fref=ts" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true" data-width="300px"></div>
+             <br><br><br>
         </div>
         <div class="col-sm-8">
             <h5>聯絡資訊 Contact Info</h5>
