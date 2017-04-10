@@ -34,7 +34,7 @@
           <!-- <h4> {{ $company->tag }} -->
           </h4>
           <a href="{{$company->website}}" target="_blank" title='前往{{ $company->name_cht }}網站'>
-            <img src='{{"http://zashare.org/img/square_logos/".($company->tag).".jpg"}}'>  
+            <img src='{{"http://2016.zashare.org/img/square_logos/".($company->tag).".jpg"}}'>  
           </a>
           <h5 class="text-muted"> #{{ $catalist[ $post->tag ] }} </h5>
           <h3>{{ $company->name_short}}
@@ -66,7 +66,7 @@
           <div class="visible-xs col_company2">
           
                 <a href="{{$company->website}}" target="_blank" title='前往{{ $company->name_short }}網站'>
-                  <img src='{{"http://zashare.org/img/square_logos/".($company->tag).".jpg"}}'>  
+                  <img src='{{"http://2016.zashare.org/img/square_logos/".($company->tag).".jpg"}}'>  
                 </a>
                 <br> 
                 <h5 class="text-muted"> #{{ $catalist[ $post->tag ] }} </h5>
