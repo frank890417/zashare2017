@@ -13,7 +13,7 @@
     <div class="col_about_pic">
     </div>
     <div class='col_about_content' >
-        <h1>雜學，為了找回我們的哪吒</h1>
+        <h1>/ 雜學，為了找回我們的哪吒</h1>
         <h3>「哪吒太子，析肉還母，析骨還父。然後現本身，運大神力，為父母說法。」</h3>
         <p class='text-muted text-right'>-《五燈會元》卷2</p>
         <p>

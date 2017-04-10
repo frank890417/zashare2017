@@ -239,6 +239,7 @@ $color_red: #EE3441;
   padding-right: 80px;
   max-width: 1300px;
   width: 100%;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
   @media screen and (max-width: 1000px){
     padding-left: 30px;
     padding-right: 30px;
