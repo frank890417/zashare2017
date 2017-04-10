@@ -26,6 +26,13 @@
     @media screen and (min-width: $min) and (max-width: $max)
       @content
 
+@mixin range_height($min: 0,$max: $min)
+  @if ($max==$min)
+    @media screen and (min-height: $min)
+      @content
+  @else
+    @media screen and (min-height: $min) and (max-height: $max)
+      @content
 
 
 
@@ -560,7 +567,8 @@ footer
     justify-content: center
     padding: 0px 50px
     width: 100%
-    
+  .item
+    cursor: pointer
   .text_inner
     display: flex
 
@@ -610,6 +618,10 @@ footer
     width: 55%
   .col-carousel
     width: 45%
+
+  +range_height(0px,800px)
+    .row
+      height: calc( (100vh - 60px) / 1.7 )
   +range_width(900px,1150px)
     .col-content
       width: 60%
@@ -717,6 +729,7 @@ footer
   +range_width(0px,700px)
     .col_about_content
       padding: 20px 20px
+
 
 
 //---------------- 

@@ -46,6 +46,14 @@ window.onload=function(){
       $("#app-navbar-collapse").removeClass("in");
     });
   }
+  $(".item_2015").click(function(){
+      window.open("https://zh-tw.facebook.com/feexpos/");
+  });
+
+  $(".item_2016").click(function(){
+      window.open("https://www.facebook.com/zashare.expo/");
+    
+  });
 }
 
 // $(window).scroll(function(){

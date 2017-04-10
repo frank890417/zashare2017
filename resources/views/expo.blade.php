@@ -26,48 +26,48 @@
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
-            <div class="item active" >
+            <div class="item item_2016 active" >
               <div class="bg_img" style="background-image: url('https://az796311.vo.msecnd.net/userupload/afe7351a4adc41ca8a828fd5b606798f.jpg');"></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
-            <div class="item">
+            <div class="item item_2016">
               <div class="bg_img" style="background-image:url(/img/expo/2016/1.jpg);" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
-            <div class="item">
+            <div class="item item_2016">
               <div class="bg_img" style="background-image:url(/img/expo/2016/2.jpg);" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
-            <div class="item">
+            <div class="item item_2016">
               <div class="bg_img" style="background-image:url(/img/expo/2016/3.jpg);" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
-            <div class="item">
+            <div class="item item_2016">
               <div class="bg_img" style="background-image:url(/img/expo/2016/4.jpg);" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
-            <div class="item">
+            <div class="item item_2016">
               <div class="bg_img" style="background-image:url(/img/expo/2016/5.jpg);" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
-            <div class="item">
+            <div class="item item_2016">
               <div class="bg_img" style="background-image:url(/img/expo/2016/6.jpg);" ></div>
               <div class="carousel-caption">
                 
@@ -124,48 +124,48 @@
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
-            <div class="item active" >
+            <div class="item item_2015 active" >
               <div class="bg_img" style="background-image: url('http://img.accupass.com/userupload/dcfc34cde62f4340aae2dd00452b0ef9.jpg');"></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
-            <div class="item">
+            <div class="item item_2015">
               <div class="bg_img" style="background-image:url(/img/expo/2015/1.jpg);" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
-            <div class="item">
+            <div class="item item_2015">
               <div class="bg_img" style="background-image:url(/img/expo/2015/2.jpg);" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
-            <div class="item">
+            <div class="item item_2015">
               <div class="bg_img" style="background-image:url(/img/expo/2015/3.jpg);" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
-            <div class="item">
+            <div class="item item_2015">
               <div class="bg_img" style="background-image:url(/img/expo/2015/4.jpg);" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
-            <div class="item">
+            <div class="item item_2015">
               <div class="bg_img" style="background-image:url(/img/expo/2015/5.jpg);" ></div>
               <div class="carousel-caption">
                 
               </div>
             </div>
 
-            <div class="item">
+            <div class="item item_2015">
               <div class="bg_img" style="background-image:url(/img/expo/2015/6.jpg);" ></div>
               <div class="carousel-caption">
                 

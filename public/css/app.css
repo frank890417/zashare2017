@@ -8316,6 +8316,10 @@ footer .footer_logo a:hover {
   width: 100%;
 }
 
+.page_expo .item {
+  cursor: pointer;
+}
+
 .page_expo .text_inner {
   display: -webkit-box;
   display: flex;
@@ -8388,6 +8392,12 @@ footer .footer_logo a:hover {
 
 .page_expo .col-carousel {
   width: 45%;
+}
+
+@media screen and (min-height: 0px) and (max-height: 800px) {
+  .page_expo .row {
+    height: calc( (100vh - 60px) / 1.7);
+  }
 }
 
 @media screen and (min-width: 900px) and (max-width: 1150px) {
