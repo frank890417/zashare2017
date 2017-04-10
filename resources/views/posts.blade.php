@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('meta_og')
- <meta property="og:title" content="雜學校Zashare-亞洲最大創新教育展" />
+ <meta property="og:title" content="雜學校Zashare-參展報導" />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="http://zashare.org/img/main.jpg" />
 <meta property="og:description" content="一個由民間自主發起由下而上的社會創新策展（前身為“不太乖教育節”）建立1-99歲的「一站式教育資源平台」，聚集所有學校沒教/ 適合每一個你的不同學習路徑 ;以台灣為震央，希望將這份影響力不僅凝聚國內教育創新正向力量，更擴及整個華人世界。" />

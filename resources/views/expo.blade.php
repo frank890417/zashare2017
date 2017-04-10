@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('meta_og')
- <meta property="og:title" content="雜學校Zashare-亞洲最大創新教育展" />
+<title>雜學校Zashare-歷屆展覽</title>
+ <meta property="og:title" content="雜學校Zashare-歷屆展覽" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://zashare.org" />
 <meta property="og:image" content="http://zashare.org/img/main.jpg" />
