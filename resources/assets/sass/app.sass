@@ -124,6 +124,12 @@ footer
       overflow: hidden
       display: block
       opacity: 0
+      
+  .dropdown.open
+    .dropdown-menu
+      max-height: 500px
+      transition: 0.5s
+      opacity: 1
 
   +range_width(768px)
     .dropdown_cata:hover
@@ -132,12 +138,6 @@ footer
         transition: 0.5s
         opacity: 1
 
-  .dropdown_cata:active
-    .dropdown-menu
-      max-height: 0px
-
-
-  
   .dropdown
     .dropdown-menu
       // background-color: $color_red
