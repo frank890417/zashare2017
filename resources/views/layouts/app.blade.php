@@ -69,7 +69,7 @@
                         <!-- <li><a href="{{ url('/blog') }}">最新消息</a></li> -->
                         <li class="{{ isset($pagename)?(($pagename=='news')?'active':''):'' }} " ><a href="{{ url('/news') }}">最新消息</a></li>
 
-                        <li class="dropdown {{ isset($pagename)?(($pagename=='blog')?'active':''):'' }} hidden-xs">
+                        <li class="dropdown dropdown_cata {{ isset($pagename)?(($pagename=='blog')?'active':''):'' }} hidden-xs">
                             <a href="{{ url('/blog') }}"  role="button" aria-haspopup="true" aria-expanded="true" >參展報導<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                               <li><a href="/blog#A">學校現場與實驗教育</a></li>
@@ -83,7 +83,7 @@
                             </ul>
                         </li>
 
-                        <li class="dropdown {{ isset($pagename)?(($pagename=='blog')?'active':''):'' }} visible-xs">
+                        <li class="dropdown dropdown_cata {{ isset($pagename)?(($pagename=='blog')?'active':''):'' }} visible-xs">
                             <a href="#"  role="button" aria-haspopup="true" aria-expanded="true" >參展報導<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                               <li><a href="/blog#A">學校現場與實驗教育</a></li>

@@ -22,7 +22,7 @@
           <div v-for="cata in catalist" v-show="(filter_cata=='') && (limit_tag_split(filtered_post,3)[cata.tag])">
             <div class="col-sm-12">
               <h2 class='cata_title'>{{cata.name}}
-                <div class="more_btn"  @click="set_cata(cata.tag)" >More</div>
+                <div class="more_btn"  @click="set_cata(cata.tag)" ></div>
               </h2>
               <br>
             </div>
@@ -244,6 +244,13 @@ $color_red: #EE3441;
     padding-left: 30px;
     padding-right: 30px;
   }
+  @media screen and (max-width: 650px){
+    padding-left: 10px;
+    padding-right: 10px;
+    h2{
+      font-size: 22px;
+    }
+  }
 }
 
 .list-group{
@@ -344,10 +351,16 @@ $color_red: #EE3441;
     padding: 5px 12px;
     background-color: $color_red;
     color: white;
-    margin-top: 12px;
+    margin-top: 11px;
     cursor: pointer;
     font-weight: 300;
     letter-spacing: 2px;
+    &:before{
+      content: "More";
+      @media screen and (max-width: 350px) {
+        content: "+";
+      }
+    }
 
   }
 
