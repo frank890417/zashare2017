@@ -167,7 +167,7 @@
                 </a>
              </div>
              <br>
-             <div class="fb-like" data-href="https://www.facebook.com/zashare.expo/?fref=ts" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true" data-width="300px"></div>
+             <div class="fb-like" data-href="https://www.facebook.com/zashare.expo/?fref=ts" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true" data-width="250px"></div>
              <br><br><br>
         </div>
         <div class="col-sm-8">
