@@ -57,6 +57,11 @@ h5,p
 ::selection 
   background-color: $color_red
   color: white
+
+br.lg
+  +range_width(0,1200px)
+    display: none
+
 // @keyframes fadeIn
 //   0%
 //     opacity: 0
@@ -99,6 +104,8 @@ footer
   background-color: white
   height: 60px
   border: none
+  .navbar-collapse
+    max-height: 440px
 
   .dropdown
     &:hover
@@ -599,10 +606,16 @@ footer
     display: flex
     height: calc( (100vh - 60px) / 2 )
     box-shadow: 0px -15px 15px 0px rgba(black,0.05) inset
-    .col-content,.col-carousel
-      width: 50%
-
-  +range_width(0px,768px)
+  .col-content
+    width: 55%
+  .col-carousel
+    width: 45%
+  +range_width(900px,1150px)
+    .col-content
+      width: 60%
+    .col-carousel
+      width: 40%
+  +range_width(0px,900px)
     .row
       flex-direction: column
       height: auto
@@ -638,6 +651,9 @@ footer
         padding: 20px 10px
         p
           padding: 0
+
+      .title 
+        width: 100%
 
 .expo_pics_list
   margin-top: 35px
@@ -712,7 +728,8 @@ footer
 
   h1
     padding: 0
-  iframe
+    line-height: 42px
+  iframe 
     width: calc(100% + 30px * 2)
     height: 550px
     margin-left: -30px

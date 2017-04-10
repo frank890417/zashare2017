@@ -42,7 +42,8 @@ window.onload=function(){
       $(this).toggleClass("open");
     });
     $(".dropdown-menu li").click(function(){
-      $(this).parent.toggleClass("open");
+      // $(this).parent.toggleClass("open");
+      $("#app-navbar-collapse").removeClass("in");
     });
   }
 }
