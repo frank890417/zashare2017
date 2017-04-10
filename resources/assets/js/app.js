@@ -31,12 +31,14 @@ window.onload=function(){
     $('#posttable').DataTable();
   }
   if ($('.dropdown').length>0){
-    $('.dropdown').hover(function(){
-      $(this).addClass('open');
-    },function(){
-      $(this).removeClass('open');
-
-    });
+    if ($(window).width()>700){
+      $('.dropdown').hover(function(){
+        $(this).addClass('open');
+      },function(){
+        $(this).removeClass('open');
+      });
+    }
+    
     $('.dropdown').tap(function(){
       $(this).addClass('open');
     },function(){

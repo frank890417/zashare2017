@@ -113,7 +113,7 @@ footer
   .dropdown.open
     .dropdown-menu
       max-height: 500px
-      transition: 1.5s
+      transition: 0.5s
       opacity: 1
 
   .dropdown
@@ -551,13 +551,15 @@ footer
     flex-direction: row
     justify-content: center
     padding: 0px 50px
+    width: 100%
     
   .text_inner
     display: flex
 
   p
-    padding: 20px
+    padding: 20px 30px
     margin: 0
+    width: 75%
   h2:before
     content: "/"
     font-size: 30px
@@ -576,12 +578,14 @@ footer
     &[data-color="green"]
       border-color: #26D03A
 
+  .title 
+    width: 40%
+  .red,.green
+    width: 10%
   .red
     background-color: $color_red
-    width: 10%
   .green
     background-color: lighten(#26D03A,3)
-    width: 10%
   .bg_img
     height: 100%
     background-position: center center
@@ -607,17 +611,26 @@ footer
         height: auto
       .col-carousel
         height: calc( (100vh - 60px) / 2.5 )
+
       .red,.green
         order: -1
+        position: absolute
+        top: 0
+        width: 100%
+        height: 30px
+        left: 0
+
       .col-content
         flex-direction: column
         min-height: calc((100vh - 60px)/ 2)
-  
-    
+        position: relative
+        p
+          width: 100%
 
       .text
         padding: 20px
         display: block
+        position: relative
 
       .text_inner
         flex-direction: column
@@ -692,8 +705,9 @@ footer
 
 .area_news
   background-color: white
-  padding: 50px 30px
-  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1)
+  padding: 50px 30px 80px 30px
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2)
+
   h1
     padding: 0
   iframe
@@ -703,18 +717,19 @@ footer
     margin-right: -30px
 
 .page_news
-  background-color: #f24
-  +range_width(0px,700px)
-    iframe
-      height: 300px
-
-.red_bg
   background-color: $color_red
-  padding: 80px 0px
+  padding: 150px 0px
   background-image: url(http://zashare.org/img/ci_people.png)
+  background-repeat: no-repeat
   background-attachment: fixed
-  background-size: 60%
-  background-position: 0 0
+  background-size: 55%
+  background-position: -30% 20%
+
+  padding-bottom: 200px
+  +range_width(0px,800px)
+    background-size: 100%
+    iframe
+      height: 350px
 
   
 
