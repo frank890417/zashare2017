@@ -15,7 +15,7 @@
       <!-- 文章區域  使用vue.js渲染 -->
       <div class="col-sm-12" >
           <!-- 類別標題 -->
-          <h2 class="cata_title" v-if="!(filter_cata=='')">{{get_cata_name(filter_cata)}} <div class='cancelbtn' @click="set_cata('')"></div></h2>
+          <h2 class="cata_title" v-if="!(filter_cata=='')">類別-{{get_cata_name(filter_cata)}} <div class='cancelbtn' @click="set_cata('')"></div></h2>
           <br>
 
           <!-- 類別 三篇文章 -->

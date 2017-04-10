@@ -38,9 +38,9 @@ window.onload=function(){
     //     $(this).removeClass('open');
     //   });
     // }
-    $(".dropdown").click(function(){
-      $(this).toggleClass("open");
-    });
+    // $(".dropdown").click(function(){
+    //   $(this).toggleClass("open");
+    // });
     $(".dropdown-menu li").click(function(){
       // $(this).parent.toggleClass("open");
       $("#app-navbar-collapse").removeClass("in");
