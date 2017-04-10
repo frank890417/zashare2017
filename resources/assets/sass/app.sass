@@ -125,11 +125,12 @@ footer
       display: block
       opacity: 0
 
-  .dropdown_cata:hover
-    .dropdown-menu
-      max-height: 500px
-      transition: 0.5s
-      opacity: 1
+  +range_width(768px)
+    .dropdown_cata:hover
+      .dropdown-menu
+        max-height: 500px
+        transition: 0.5s
+        opacity: 1
 
   .dropdown_cata:active
     .dropdown-menu

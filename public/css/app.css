@@ -7785,11 +7785,13 @@ footer .footer_logo a:hover {
   opacity: 0;
 }
 
-.navbar.navbar-default .dropdown_cata:hover .dropdown-menu {
-  max-height: 500px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  opacity: 1;
+@media screen and (min-width: 768px) {
+  .navbar.navbar-default .dropdown_cata:hover .dropdown-menu {
+    max-height: 500px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    opacity: 1;
+  }
 }
 
 .navbar.navbar-default .dropdown_cata:active .dropdown-menu {
