@@ -86,7 +86,7 @@
     <a  href="{{ url('/blog') }}" class='btn btn-default btn-lg btn-trans visible-xs'> 來雜學吧！ </a>
   </div>
   <video autoplay loop class='landing-video'>
-      <source src="http://zashare.org/files/civideo.mp4" type="" >
+      <source src="http://2016.zashare.org/files/civideo.mp4" type="" >
 
   </video>
 
