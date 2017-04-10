@@ -51,7 +51,7 @@ window.onload=function(){
   });
 
   $(".item_2016").click(function(){
-      window.open("https://www.facebook.com/zashare.expo/");
+      window.open("http://2016.zashare.org/");
     
   });
 }
