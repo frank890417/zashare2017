@@ -140,7 +140,7 @@
      <div class="container">
      <div class="row">
         <div class="col-sm-4">
-            <img src="http://zashare.org/img/ci_logosvg_purple.svg" width="130px">
+            <img src="/img/ci_logosvg_purple.svg" width="130px">
             <br><br>
             <div class=footer_logo>
                 <a href="https://www.facebook.com/zashare.expo/" target="_blank">
