@@ -664,6 +664,7 @@ footer
   flex-direction: row
   background-color: white
 
+
   .col_about_pic
     background-image: url(/img/zashare_poster.jpg)
   .col_about_pic , .col_about_content
@@ -727,10 +728,31 @@ footer
   background-position: -30% 20%
 
   padding-bottom: 200px
+
+
+  .btn-default
+    padding: 9px 21px
+    border-radius: 3px
+    letter-spacing: 1px
+    background-color: $color_red
+    color: white
+
+    border: solid 1px transparent
+
+    transition: 0.5s
+
+    &:hover
+      border: solid 1px $color_red
+      background-color: transparent
+      color: $color_red
+      
+
   +range_width(0px,800px)
     background-size: 100%
     iframe
       height: 350px
+
+
 
   
 

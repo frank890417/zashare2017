@@ -8544,6 +8544,23 @@ footer .footer_logo a:hover {
   padding-bottom: 200px;
 }
 
+.page_news .btn-default {
+  padding: 9px 21px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  background-color: #EE3441;
+  color: white;
+  border: solid 1px transparent;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.page_news .btn-default:hover {
+  border: solid 1px #EE3441;
+  background-color: transparent;
+  color: #EE3441;
+}
+
 @media screen and (min-width: 0px) and (max-width: 800px) {
   .page_news {
     background-size: 100%;

@@ -34,6 +34,8 @@
 						打勾勾，<br>
 						今年我們相約10月20-22日 華山1914文化創意產業園區 見！
 					</p>
+					<br>
+					<a class="btn btn-default" href="/blog">看更多2016精采故事</a>
 				</div>
 			</div>		
 		</div>
