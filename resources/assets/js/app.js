@@ -55,14 +55,16 @@ window.onload=function(){
     
   });
   var col_descibe=$(".col_describe");
-  $(window).scroll(function(){
-    if (col_descibe.offset().top+col_descibe.outerHeight() > $("footer").offset().top ){
-       col_descibe.css("opacity",0);
-    }else{
-      col_descibe.css("opacity",1);
-    }
-    console.log(col_descibe.css("opacity") );
-  });
+  if ($(".col_describe").length>0){
+    $(window).scroll(function(){
+      if (col_descibe.offset().top+col_descibe.outerHeight() > $("footer").offset().top ){
+         col_descibe.css("opacity",0);
+      }else{
+        col_descibe.css("opacity",1);
+      }
+      console.log(col_descibe.css("opacity") );
+    });
+  }
 }
 
 // $(window).scroll(function(){
