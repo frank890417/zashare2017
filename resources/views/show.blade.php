@@ -94,8 +94,6 @@
 
 
           <div class='col-sm-12'>
-
-              
                 
               <div id="fb-root"></div>
               <script>(function(d, s, id) {
@@ -107,14 +105,7 @@
               }(document, 'script', 'facebook-jssdk'));</script>
 
               <div class="fb-comments" data-href="{{ url()->current() }}" data-numposts="5" data-width="100%"></div>
-             
 
-
-              
-                              
-              
-
-             
           </div>
           <div class="col-sm-12">
             <h2>相關類別文章</h2>
