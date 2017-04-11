@@ -16,7 +16,7 @@
 		<div class="container area_news">
 			<div class="row">
 				<div class="col-sm-12">
-					<h1>【有看見去年的你嗎？】2016雜學校回顧影片釋出！</h1>
+					<h1>【有看見去年的你嗎？】<br class="visible-xs">2016雜學校回顧影片釋出！</h1>
 					<br>
 					<br>
 				</div>
