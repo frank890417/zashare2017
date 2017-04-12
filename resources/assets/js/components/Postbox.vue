@@ -185,9 +185,19 @@
               if (this.filter.trim()=="") return post;
               var npost = JSON.parse(JSON.stringify(post));
               console.log(npost);
-              npost.name_short = (npost.name_short+"").replace( new RegExp(this.filter,'g'),"<span style='background-color:#f24;color: white;'>"+this.filter+"</span>");
-              npost.title = (npost.title+"").replace( new RegExp(this.filter,'g'),"<span style='background-color:#f24;color: white;'>"+this.filter+"</span>");
-              npost.description = (npost.description+"").replace( new RegExp(this.filter,'g'),"<span style='background-color:#f24;color: white;'>"+this.filter+"</span>");
+              var mt1 = (npost.name_short+"").match(new RegExp(this.filter,'i'));
+              if (mt1)
+              npost.name_short = (npost.name_short+"").replace( new RegExp(this.filter,'i'),"<span style='background-color:#f24;color: white;'>"+mt1[0]+"</span>");
+
+              
+              var mt2 = (npost.title+"").match(new RegExp(this.filter,'i'));
+              if (mt2)
+              npost.title = (npost.title+"").replace( new RegExp(this.filter,'i'),"<span style='background-color:#f24;color: white;'>"+mt2[0]+"</span>");
+
+              
+              var mt3 = (npost.description+"").match(new RegExp(this.filter,'i'));
+              if (mt3)
+              npost.description = (npost.description+"").replace( new RegExp(this.filter,'i'),"<span style='background-color:#f24;color: white;'>"+mt3[0]+"</span>");
               return npost;
             }
         },
