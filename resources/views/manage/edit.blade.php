@@ -82,11 +82,11 @@
           <div class="btn-group">
 
             <label for="stick_top_index">置頂
-              <input type="radio" name="stick_top_index" value=1 {{ (isset($post)?($post->stick_top_index):''==1)?"checked":"" }} >
+              <input type="radio" name="stick_top_index" value=1 {{ (isset($post)?($post->stick_top_index):-1==1)?"checked":"" }} >
             </label>
             &nbsp;
             <label for="stick_top_index">否
-              <input type="radio" name="stick_top_index" value=0  {{ (isset($post)?($post->stick_top_index):''==0)?"checked":"" }}>
+              <input type="radio" name="stick_top_index" value=0  {{ (isset($post)?($post->stick_top_index):-1==0)?"checked":"" }}>
             </label>
           </div>
         </div>
@@ -97,11 +97,11 @@
           <div class="btn-group">
 
             <label for="stick_top_cata">置頂
-              <input type="radio" name="stick_top_cata" value=1 {{ (isset($post)?($post->stick_top_cata):''==1)?"checked":"" }} >
+              <input type="radio" name="stick_top_cata" value=1 {{ (isset($post)?($post->stick_top_cata):-1==1)?"checked":"" }} >
             </label>
             &nbsp;
             <label for="stick_top_cata">否
-              <input type="radio" name="stick_top_cata" value=0  {{ (isset($post)?($post->stick_top_cata):''==0)?"checked":"" }}>
+              <input type="radio" name="stick_top_cata" value=0  {{ (isset($post)?($post->stick_top_cata):-1==0)?"checked":"" }}>
             </label>
           </div>
         </div>
