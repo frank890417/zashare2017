@@ -27,7 +27,7 @@
 			
 		<!-- 文章輪播 -->
 	    @foreach ($show_posts as $id=>$post)
-			<div class="item {{$id==0?'active':''}}" onclick="window.open('{{ url('post/'.$post->id) }}','_self')" style='cursor: pointer'>
+			<div class="item {{$id==0?'active':''}}" onclick="window.open('{{ url('post/n/'.$post->title) }}','_self')" style='cursor: pointer'>
 				<div class="bg_parallax carousel_bg" style="background-image:url('{{ $post->cover }}');"></div>
 				<div class="carousel_cover"></div>
 				<div class="container text-left">
