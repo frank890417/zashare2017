@@ -19,6 +19,7 @@ Route::get('/expo',"HomeController@expo");
 Route::get('/news',"HomeController@news");
 
 Auth::routes();
+Route::get('/post/n/{title}',"PostController@show_name");
 Route::get('/post/{id}',"PostController@show");
 
 Route::get('/home', "PostController@index");

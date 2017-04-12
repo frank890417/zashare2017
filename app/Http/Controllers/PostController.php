@@ -67,6 +67,31 @@ class PostController extends Controller
             ->with('catalist',$catalist);
     }
 
+    // 顯示單篇文章
+    public function show_name($title)
+    {
+      $post = Post::where('title',$title)->first();
+      $company = Company::where('tag',$post->company)->first();
+
+      $catas = Cata::all();    
+
+      $related_posts=Post::where('tag','=',$post->tag)
+                      ->inRandomOrder()
+                      ->limit(2)->get();
+
+      $catalist=[];
+      foreach ($catas as $cata)
+        $catalist[$cata->tag]=$cata->name;
+
+      return view('show')
+            ->with('title','文章編輯 - '.$post->title)
+            ->with('post',$post)
+            ->with('pagename','blog')
+            ->with('company',$company)
+            ->with('related_posts',$related_posts)
+            ->with('catalist',$catalist);
+    }
+
     //新增文章
     public function create()
     {
@@ -180,6 +205,12 @@ class PostController extends Controller
     // api / 依照攤位號碼尋找文章
     public function find_by_tag($tag){
       $post=Post::where('tag',$tag)->get();
+      return $post;
+    }
+
+    // api / 依照文章名稱尋找文章
+    public function get_title($title){
+      $post=Post::where('title',$title)->get();
       return $post;
     }
 
