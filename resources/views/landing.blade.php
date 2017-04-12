@@ -42,51 +42,8 @@
 </script>
 </head>
 <body class='landing_page_body'> 
-<nav class="navbar navbar-default navbar-fixed-top nav-transparent">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="/img/logo_red.svg" height="30px">
-                        <!-- {{ config('app.name', 'Laravel') }} -->
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-<!--                     <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul> -->
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                     <!-- Authentication Links -->
-                        <!-- <li><a href="{{ url('/blog') }}">最新消息</a></li> -->
-                        <li class="{{ isset($pagename)?(($pagename=='news')?'active':''):'' }} " ><a href="{{ url('/news') }}">最新消息</a></li>
-                        <li class="{{ isset($pagename)?(($pagename=='blog')?'active':''):'' }} " ><a href="{{ url('/blog') }}">參展報導</a></li>
-                        <li class="{{ isset($pagename)?(($pagename=='about')?'active':''):'' }} " ><a href="{{ url('/about') }}">關於雜學校</a></li>
-                        <li class="{{ isset($pagename)?(($pagename=='expo')?'active':''):'' }} " ><a href="{{ url('/expo') }}">歷屆展覽</a></li>
-                        <!-- <li> <i class="fa fa-search"></i></li> -->
-                        <!-- <li><a href="http://zashare.weebly.com/2015naughty.html" target="_blank">2015不太乖教育節</a></li>
-                        <li><a href="http://zashare.org" target="_blank">2016雜學校</a></li>
- -->
-                       
-                    
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-  <div class='center_box text-center'>
+  @include('nav')
+  <div class='center_box text-center' id="app">
     <img src="/img/logo_white.svg" style='margin-left: auto;margin-right: auto'>
     <br>
     <br>
@@ -100,6 +57,19 @@
       <source src="http://2016.zashare.org/files/civideo.mp4" type="" >
 
   </video>
+    <script>
+      if (!window.data_storage){
+        window.data_storage={};
+      }
+    </script>
+    @yield('blade_pass_variables')
 
 
+    {{-- Script BEFORE app.js --}}
+    @yield('require_js')
+    <script src="/js/app.js"></script>
+
+    {{-- Script AFTER app.js --}}
+    @yield('require_js_after')
+        
 </body>

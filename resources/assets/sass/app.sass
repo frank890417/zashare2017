@@ -55,11 +55,17 @@ h5,p
   letter-spacing: 0.5px
   line-height: 26px
 
+div[direction="left"]
+  display: none
+
 @mixin ab_center
   position: absolute
   left: 50%
   top: 50%
   transform: translate(-50%,-50%)
+
+.clearfix.pvs.phm
+  display: none !important
 
 ::selection 
   background-color: $color_red
@@ -83,6 +89,7 @@ br.lg
   padding: 0
 
 body
+  overflow-x: hidden
 //---------------------
 
 
@@ -120,10 +127,12 @@ footer
         color: #333
 
   .dropdown-menu
-      max-height: 0px
-      overflow: hidden
-      display: block
-      opacity: 0
+    max-height: 0px
+    overflow: hidden
+    display: block
+    opacity: 0
+    padding: 0
+    margin: 0
 
   .dropdown.open
     .dropdown-menu
@@ -228,7 +237,13 @@ footer
     
     &:nth-child(1)
       margin-top: 10px
+
+  a
+    max-width: 100%
+    overflow: hidden
   
+  +range_width(0px,500px)
+    display: block
   
 //------------
 //blog
@@ -338,17 +353,30 @@ footer
   +range_width(0px,800px)
     background-image: url("/img/landing_bg.jpg")
     background-size: auto 100%
-    background-position: center 70%
+    background-position: center 30%
+
+    nav
+      display: none
+
+  nav.navbar-default
+    background-color: transparent
+    .navbar-nav > li > a
+      color: rgba(white,0.8) !important
+      transition: 0.5s
+      &:hover
+        color: rgba(white,1) !important
+
 
   .navbar-nav
     background-color: transparent
+    
 
   .center_box
     width: 80%
     max-width: 400px
     position: absolute
     left: 50%
-    top: 50%
+    top: 60%
     transform: translate(-50%,-50%)
     img
       animation: fadeIn  0.5s 0.5s both 
@@ -362,7 +390,8 @@ footer
     color: white
     background-color: transparent
     transition: 0.5s
-    animation: fadeIn  0.5s 2s both 
+    animation: pulse 0.5s 1.5s both 3
+
 
   
   .btn-trans:hover
