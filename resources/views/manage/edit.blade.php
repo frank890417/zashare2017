@@ -67,11 +67,11 @@
           <div class="btn-group">
 
             <label for="status">草稿
-              <input type="radio" name="status" value="draft" {{ isset($post)?($post->status):''=="draft"?"checked":"" }} >
+              <input type="radio" name="status" value="draft" {{ (isset($post)?($post->status):'')=="draft"?"checked":"" }} >
             </label>
             &nbsp;
             <label for="status">已發布
-              <input type="radio" name="status" value="published"  {{ isset($post)?($post->status):''=="published"?"checked":"" }}>
+              <input type="radio" name="status" value="published"  {{ (isset($post)?($post->status):'')=="published"?"checked":"" }}>
             </label>
           </div>
         </div>
