@@ -30,7 +30,7 @@
                     @foreach ($companies as $id => $company)
                       <tr class=''> 
                         <td> {{ $company->tag }}</td>
-                        <td><img src='{{"http://zashare.org/img/square_logos/".$company->tag.".jpg"}}' style="width: 60px" alt=""></td>
+                        <td><img src='{{"http://2016.zashare.org/img/square_logos/".$company->tag.".jpg"}}' style="width: 60px" alt=""></td>
                         <!-- <td><img src="{{$company->cover}}" alt="" style="width: 80px"></td> -->
                        
                         <td> {{ $company->name_cht }} </td>
