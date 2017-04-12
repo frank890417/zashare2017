@@ -107,6 +107,7 @@ class PostController extends Controller
     {
       $post=Post::find($id);
       $catas=Cata::all();
+      $post->content=$this->html_cleaner($post->content) ;
       return view('manage.edit')
             ->with('pagename','post')
             ->with('title','編輯-'.$post->title)
@@ -145,6 +146,8 @@ class PostController extends Controller
       }
 
       $str=str_replace("&nbsp;</p>","</p>",$str);
+      $str=str_replace("../../dropzone","/dropzone",$str);
+
       return $str;
 
     }
