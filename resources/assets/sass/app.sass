@@ -131,14 +131,15 @@ footer
     overflow: hidden
     display: block
     opacity: 0
-    padding: 0
-    margin: 0
+    margin-left: -100px
+
 
   .dropdown.open
     .dropdown-menu
       max-height: 500px
-      transition: 0.5s
+      transition: 0.5s , margin-left 0s
       opacity: 1
+      margin-left: 0px
 
   +range_width(768px)
     .dropdown_cata:hover
