@@ -200,9 +200,9 @@
             var npost=[];
             var vobj=this;
             this.posts.forEach(function(obj,index){
-              if (obj.title.indexOf(vobj.filter)!=-1 ||
-                  obj.description.indexOf(vobj.filter)!=-1 ||
-                  obj.name_cht.indexOf(vobj.filter)!=-1 
+              if (obj.title.toLowerCase().indexOf(vobj.filter.toLowerCase())!=-1 ||
+                  obj.description.toLowerCase().indexOf(vobj.filter.toLowerCase())!=-1 ||
+                  obj.name_short.toLowerCase().indexOf(vobj.filter.toLowerCase())!=-1 
                    ){
                 if (vobj.filter_cata=='' || obj.tag==vobj.filter_cata){
                   npost.push(vobj.highlight_post(obj));
