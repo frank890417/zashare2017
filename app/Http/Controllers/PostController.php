@@ -247,6 +247,10 @@ class PostController extends Controller
               ->where('status','published')
               ->get();
 
+      foreach ($posts as $post) {
+        $post->content="";
+      }
+
       return $posts;
     }
 
