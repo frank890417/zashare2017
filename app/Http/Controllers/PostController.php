@@ -172,6 +172,8 @@ class PostController extends Controller
 
       $str=str_replace("&nbsp;</p>","</p>",$str);
       $str=str_replace("../../dropzone","/dropzone",$str);
+      $str=str_replace("..//","/",$str);
+      $str=str_replace("//","/",$str);
 
       return $str;
 
