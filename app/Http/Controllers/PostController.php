@@ -54,6 +54,8 @@ class PostController extends Controller
                       ->inRandomOrder()
                       ->limit(2)->get();
 
+      $post->content=$this->html_cleaner($post->content);
+
       $catalist=[];
       foreach ($catas as $cata)
         $catalist[$cata->tag]=$cata->name;
@@ -79,6 +81,7 @@ class PostController extends Controller
                       ->inRandomOrder()
                       ->limit(2)->get();
 
+      $post->content=$this->html_cleaner($post->content);
       $catalist=[];
       foreach ($catas as $cata)
         $catalist[$cata->tag]=$cata->name;
