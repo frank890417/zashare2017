@@ -240,6 +240,18 @@ class PostController extends Controller
       return $posts;
     }
 
+    public function get_all_published(){
+      $posts = DB::table('posts')
+              ->join('companies','posts.company','=','companies.tag')
+              ->select('posts.*','companies.name_cht','companies.name_short')
+              ->where('status','published')
+              ->get();
+
+      return $posts;
+    }
+
+    
+
     //api / 取得相關文章
     public function get_relate(){
       $posts = Post::all();
