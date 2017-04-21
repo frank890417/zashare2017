@@ -264,7 +264,7 @@ class PostController extends Controller
 
     //api / 取得相關文章
     public function get_relate(){
-      $posts = Post::all();
+      $posts = Post::where('status',"published")->get();
       $len = count($posts)-1;
       $num1 = rand(0,$len);
       $num2 = rand(0,$len);
