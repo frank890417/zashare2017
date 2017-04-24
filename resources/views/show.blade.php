@@ -72,7 +72,7 @@
                 <br> 
                 <h5 class="text-muted"> #{{ $catalist[ $post->tag ] }} </h5>
                 <br> 
-                <h3>{{ $company->name_short}}
+                <h3>{{ $company->name_cht}}
                   <!-- <a class='company_link' href="{{$company->website}}" target="_blank" title='前往{{ $company->name_cht }}網站'>
                     <i class="fa fa-link"></i>
                   </a> -->

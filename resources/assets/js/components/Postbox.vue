@@ -30,7 +30,7 @@
             <!-- 類別三篇文章 -->
             <div class="row">
               <div class="col-sm-4" v-for='(p,id) in limit_tag_split(filtered_post,3)[cata.tag]' >
-                <a class="postbox" :href="'post/n/'+p.title">
+                <a class="postbox" :href="'post/n/'+(p.ori_title?p.ori_title:p.title)">
                   <div class="topimg" :style='css_top_img(p)' >
                       <h3 class='company_name' v-html='p.name_cht'></h3>
                   </div>
@@ -56,7 +56,7 @@
     <!-- 瀏覽單一類別 -->
     <div class="row" v-for='fp in filtered_post_three' v-if="!(filter_cata=='')">
       <div class="col-sm-4" v-for='p in fp'>
-        <a class="postbox" :href="'post/n/'+p.title">
+        <a class="postbox" :href="'post/n/'+(p.ori_title?p.ori_title:p.title)">
             <div class="topimg" :style='css_top_img(p)' >
                 <h3 class='company_name' v-html='p.name_cht'></h3>
             </div>
@@ -185,9 +185,12 @@
               if (this.filter.trim()=="") return post;
               var npost = JSON.parse(JSON.stringify(post));
               console.log(npost);
+              npost.ori_title=npost.title;
+
               var mt1 = (npost.name_short+"").match(new RegExp(this.filter,'i'));
               if (mt1)
               npost.name_short = (npost.name_short+"").replace( new RegExp(this.filter,'i'),"<span style='background-color:#f24;color: white;'>"+mt1[0]+"</span>");
+
 
               
               var mt2 = (npost.title+"").match(new RegExp(this.filter,'i'));
