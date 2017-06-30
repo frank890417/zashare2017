@@ -421,6 +421,7 @@ $color_blue: #0047BA
     background-image: url("/img/2017/static_bg.jpg")
     background-size: auto 100%
     background-position: center 30%
+    overflow-y: scroll
     
     .index_btns
       flex-direction: column
@@ -430,7 +431,7 @@ $color_blue: #0047BA
   
     .main_info_container
       height: 100vh
-      overflow-y: scroll
+      width: calc(100% - 40px)
       justify-content: flex-start
       .col-md-7
 
