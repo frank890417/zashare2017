@@ -44,6 +44,8 @@
 <body class='landing_page_body' style="overflow-y: scroll;height: 100vh"> 
   @include('nav')
 
+
+
   <div class="container main_info_container">
     <div class="row">
       <div class="col-md-7">
@@ -84,6 +86,26 @@
       if (!window.data_storage){
         window.data_storage={};
       }
+       //傾斜效果
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        if(window.DeviceOrientationEvent){
+          window.addEventListener("deviceorientation", orientation, false);
+        }else{
+          console.log("DeviceOrientationEvent is not supported");
+        }
+
+        function orientation(event){
+          $(".landing_page_body").css("background-position",(50-(event.gamma/10))"% "+(50-(event.beta/10))"% ");
+            $(".main_info_container").css("transform","translateX("+($(window).width()/2-event.gamma/1.5)+"px"+") translateY("+-event.beta/1.7+"px"+")");
+          // mospos.x=mpos.x+event.gamma;
+          // mospos.y=mpos.y+event.gamma;
+
+
+        }
+        
+      }
+
+
     </script>
     @yield('blade_pass_variables')
 
