@@ -43,7 +43,31 @@
 </head>
 <body class='landing_page_body'> 
   @include('nav')
-  <div class='center_box text-center' id="app">
+
+  <div class="container main_info_container">
+    <div class="row">
+      <div class="col-md-7">
+        <img class='hidden-sm hidden-xs main' src="/img/2017/index_index_desktop.svg" class="main_block" alt="">
+        <img class='visible-sm visible-xs main' src="/img/2017/index_index_mobile.svg" class="main_block" alt="">
+        <div class="index_btns">
+          <div class="index_btn btn_apply">
+            <img src="/img/2017/index_btn_attend.svg"  alt="">
+          </div>
+          <div class="index_btn btn_ticket disable">
+            <img src="/img/2017/index_btn_buy.svg" alt="">
+          </div>
+          <div class="index_btn btn_crowd disable">
+            <img src="/img/2017/index_btn_crowd.svg" alt="">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+ {{--  <div class='center_box text-center' id="app">
+    <div class="row">
+    
+    </div>
     <img src="/img/logo_white.svg" style='margin-left: auto;margin-right: auto'>
     <br>
     <br>
@@ -52,10 +76,9 @@
     <br class="visible-xs">
     <br class="visible-xs">
     <a  href="{{ url('/blog') }}" class='btn btn-default btn-lg btn-trans visible-xs'> 來雜學吧！ </a>
-  </div>
+  </div> --}}
   <video autoplay loop class='landing-video'>
-      <source src="http://2016.zashare.org/files/civideo.mp4" type="" >
-
+      <source src="/video/ci_main_2017.mp4" type="" >
   </video>
     <script>
       if (!window.data_storage){

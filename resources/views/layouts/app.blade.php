@@ -44,6 +44,11 @@
       js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=756438861174269";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+
+    <script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+    ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
 </head>
 <body>
     <div id="app">

@@ -20,6 +20,11 @@
       'csrfToken' => csrf_token(),
       ]) !!};
     </script>
+
+    <script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+    ':35729/livereload.js?snipver=1"></' + 'script>');
+    </script>
   </head>
   <body>
     <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
