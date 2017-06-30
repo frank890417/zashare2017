@@ -41,7 +41,7 @@
 
 </script>
 </head>
-<body class='landing_page_body'> 
+<body class='landing_page_body' style="overflow-y: scroll;height: 100vh"> 
   @include('nav')
 
   <div class="container main_info_container">
