@@ -511,7 +511,9 @@ $color_blue: #0047BA
   z-index: -1
   +range_width(0px,800px) 
     display: none 
-
+  @media screen and (min-aspect-ratio: 2/1)
+    width: 100%
+    height: auto
 
 .col_company
   position: fixed
