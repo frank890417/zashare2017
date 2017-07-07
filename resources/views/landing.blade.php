@@ -52,9 +52,9 @@
         <img class='hidden-sm hidden-xs main' src="/img/2017/index_index_desktop.svg" class="main_block" alt="">
         <img class='visible-sm visible-xs main' src="/img/2017/index_index_mobile.svg" class="main_block" alt="">
         <div class="index_btns">
-          <div class="index_btn btn_apply">
+          <a class="index_btn btn_apply" href="https://zashare.typeform.com/to/yPCxFD" target="_blank">
             <img src="/img/2017/index_btn_attend.svg"  alt="">
-          </div>
+          </a>
           <div class="index_btn btn_ticket disable">
             <img src="/img/2017/index_btn_buy.svg" alt="">
           </div>
