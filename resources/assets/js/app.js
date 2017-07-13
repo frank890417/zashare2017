@@ -54,6 +54,13 @@ window.onload=function(){
       window.open("http://2016.zashare.org/");
     
   });
+  $(".btn_ticket").click(function(){
+    $(".full_lang_sel").addClass("active")
+  })
+  $(".full_lang_sel").click(function(){
+    $(".full_lang_sel").removeClass("active")
+
+  })
   var col_descibe=$(".col_describe");
   if ($(".col_describe").length>0){
     $(window).scroll(function(){

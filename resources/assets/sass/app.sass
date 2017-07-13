@@ -12,7 +12,11 @@
 
 *
   font-family: Roboto Slab,Hoefler Text,'微軟正黑體',Songti TC,serif
-
+  
+=flex_center
+  display: flex
+  justify-content: center
+  align-items: center
 //mixins
 @mixin paragraph_size_leading($fz,$lh)
   font-size: $fz
@@ -67,6 +71,11 @@ div[direction="left"]
   left: 50%
   top: 50%
   transform: translate(-50%,-50%)
+
+=size($w,$h:$w)
+  width: $w
+  height: $h
+
 
 .clearfix.pvs.phm
   display: none !important
@@ -422,6 +431,60 @@ $color_blue: #0047BA
 
     &:hover
       background-color: white
+
+  .full_lang_sel
+    position: fixed
+    +size(100%)
+    left: 0
+    top: 0
+    z-index: 2000
+    +flex_center
+    justify-content: space-around
+    transition: 0.5s
+    padding: 30px
+    box-sizing: border-box
+    
+
+    .btn
+      width: 50%
+      max-width: 400px
+      padding: 50px 100px
+      font-weight: 300
+      letter-spacing: 1px
+      margin: 20px
+      font-weight: 300
+      color: white
+      text-align: center
+
+      // padding-bottom: 100%
+      +flex_center
+      background-color: $color_orange
+      // color: white
+      // color: #333
+      font-size: 30px
+      &:hover
+        text-decoration: none
+        background-color: white
+        color: #333
+        // color: white
+    +range_width(0px,500px)
+      flex-direction: column
+      .btn
+        width: 85%
+        max-width: initial
+        display: inline-block
+        padding: 50px 30px
+
+    background-color: rgba($color_blue,0.9)
+    
+    pointer-events: none
+    opacity: 0
+    &.active
+      pointer-events: initial
+      opacity: 1
+      cursor: pointer
+
+
 
   +range_width(0px,991px)
     background-image: url("/img/2017/static_bg.jpg")

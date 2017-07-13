@@ -51,13 +51,21 @@
       <div class="col-md-7">
         <img class='hidden-sm hidden-xs main' src="/img/2017/index_index_desktop.svg" class="main_block" alt="">
         <img class='visible-sm visible-xs main' src="/img/2017/index_index_mobile.svg" class="main_block" alt="">
-        <div class="index_btns">
-          <a class="index_btn btn_apply" href="https://zashare.typeform.com/to/yPCxFD" target="_blank">
-            <img src="/img/2017/index_btn_attend.svg"  alt="">
+        <div class="full_lang_sel">
+          <a class="btn" href="/files/雜學校zashare-徵展手冊.pdf" target="_blank">
+            中文參展手冊
           </a>
-          <div class="index_btn btn_ticket disable">
-            <img src="/img/2017/index_btn_buy.svg" alt="">
+          <a class="btn" href="/files/2017 zashare-English Manual.pdf" target="_blank">
+            English Manual
+          </a>
+        </div>
+        <div class="index_btns">
+          <div class="index_btn btn_ticket">
+            <img src="/img/2017/index_btn_attend.svg" alt="">
           </div>
+          <a class="index_btn btn_apply" href="https://zashare.typeform.com/to/yPCxFD" target="_blank">
+            <img src="/img/2017/index_btn_buy.svg"  alt="">
+          </a>
           <div class="index_btn btn_crowd disable">
             <img src="/img/2017/index_btn_crowd.svg" alt="">
           </div>
@@ -83,6 +91,7 @@
       <source src="/video/ci_main_2017.mp4" type="" >
   </video>
     <script>
+     document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');
       if (!window.data_storage){
         window.data_storage={};
       }
@@ -95,8 +104,8 @@
         }
 
         function orientation(event){
-          $(".landing_page_body").css("background-position",(50-(event.gamma/10))"% "+(50-(event.beta/10))"% ");
-            $(".main_info_container").css("transform","translateX("+($(window).width()/2-event.gamma/1.5)+"px"+") translateY("+-event.beta/1.7+"px"+")");
+          // $(".landing_page_body").css("background-position",(50-(event.gamma/10))"% "+(50-(event.beta/10))"% ");
+          //   $(".main_info_container").css("transform","translateX("+($(window).width()/2-event.gamma/1.5)+"px"+") translateY("+-event.beta/1.7+"px"+")");
           // mospos.x=mpos.x+event.gamma;
           // mospos.y=mpos.y+event.gamma;
 
@@ -104,12 +113,12 @@
         }
         
       }
-
+      
 
     </script>
     @yield('blade_pass_variables')
 
-
+    
     {{-- Script BEFORE app.js --}}
     @yield('require_js')
     <script src="/js/app.js"></script>
