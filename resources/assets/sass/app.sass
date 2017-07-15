@@ -427,10 +427,17 @@ $color_blue: #0047BA
       &:hover
         background-color: #ccc
 
-
+    &.full
+      width: 100%
+      height: 77px
+      display: flex
+      justify-content: center
+      img
+        height: 100%
 
     &:hover
       background-color: white
+
 
   .full_lang_sel
     position: fixed
@@ -475,6 +482,7 @@ $color_blue: #0047BA
         display: inline-block
         padding: 50px 30px
 
+
     background-color: rgba($color_blue,0.9)
     
     pointer-events: none
@@ -498,7 +506,13 @@ $color_blue: #0047BA
     .index_btn
       width: 100%
       margin-bottom: 25px
-  
+      &.full
+        width: 100%
+        height: initial
+        display: block
+        justify-content: center
+        img
+          height: initial
     .main_info_container
       height: 100vh
       width: calc(100% - 40px)

@@ -70,6 +70,11 @@
             <img src="/img/2017/index_btn_crowd.svg" alt="">
           </div>
         </div>
+        <div class="index_btns">
+          <a class="index_btn full btn_admission" href="https://backerfounder.typeform.com/to/FS4sFi" target="_blank">
+            <img src="/img/2017/index_btn_admission.svg" alt="">
+          </a>
+        </div>
       </div>
 
     </div>
