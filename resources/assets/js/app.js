@@ -26,7 +26,7 @@ Vue.component('postbox',Postbox);
 //     el: '#app'
 // });
 
-window.onload=function(){
+$(window).ready(()=>{
   if ($('#posttable').length>0){
     $('#posttable').DataTable();
   }
@@ -72,7 +72,7 @@ window.onload=function(){
       console.log(col_descibe.css("opacity") );
     });
   }
-}
+});
 
 // $(window).scroll(function(){
 //   var st=$(window).scrollTop();
