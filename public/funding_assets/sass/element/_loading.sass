@@ -1,0 +1,85 @@
+#loading
+	position: fixed
+	display: flex
+	justify-content: center
+	align-items: center
+	left: 0
+	top: 0
+	width: 100%
+	height: 100vh
+	z-index: 50
+	background-color: $db
+
+	.progress-text
+		font-size: 5vw
+		opacity: .5
+		color: #fff
+
+	[class*="block"]
+		position: absolute
+		left: 0
+		top: 0;
+		width: 100%
+		height: 100vh
+		z-index: 1
+		transform: scale3d(0 ,1 ,1)
+    transform-origin: 0% 0%
+	
+	.block-og
+		background-color: $og
+		z-index: 3
+
+	.block-db
+		background-color: rgba(255, 255, 255, .2)
+		z-index: 2
+
+	.block-b
+		background-color: $b
+
+
+#loading.completed
+	animation: disappear 1.5s ease 0s 1 both
+	pointer-events: none
+	background-color: transparent
+
+	.progress-text
+		animation: disappear 1.5s ease 0s 1 both
+
+	.block-og
+		animation: slideRight 1.5s ease .2s 1 both
+
+	.block-db
+		animation: slideRight 1.7s ease .1s 1 both
+
+	.block-b
+		animation: slideRight 2.1s ease 0s 1 both
+
+
+@keyframes slideRight
+  0%
+    transform: scale3d(0 ,1 ,1)
+    transform-origin: 0% 0%
+  40%
+    transform: scale3d(1 ,1 ,1)
+    transform-origin: 0% 0%
+  60%
+    transform: scale3d(1 ,1 ,1)
+    transform-origin: 100% 0%
+  100%
+  	transform: scale3d(0 ,1 ,1)
+  	transform-origin: 100% 0%
+
+
+@keyframes disappear
+  0%
+    font-size: 5vw
+    background-color: $db
+  40%
+    font-size: 5vw
+    background-color: $db
+  60%
+    font-size: 0
+    background-color: transparent
+  100%
+  	font-size: 0
+    background-color: transparent

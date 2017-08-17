@@ -85,4 +85,10 @@ class HomeController extends Controller
             ->with('pagename','expo')
             ->with('title','過去展覽成果');
     }
+
+    public function funding(){
+      return view('funding')
+            ->with('pagename','fund')
+            ->with('title','募資頁面');
+    }
 }

@@ -1,0 +1,26 @@
+[class*='btn'] 
+	cursor: pointer
+	user-select: none
+  text-align: center
+
+#call-to-action-btn
+	position: fixed
+	width: 95px
+	height: 150px
+	z-index: 2
+	right: calc( 4% + 90px )
+	bottom: calc( 7% + 60px )
+
+	img
+		position: absolute
+		top: 0
+		left: 0
+		
+		&:not(.text)
+	    width: 300%
+    	transform: translate3d(-6%, 5%, 0)
+
+		&.text 
+			width: 100%
+			position: absolute
+

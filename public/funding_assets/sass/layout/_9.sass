@@ -1,0 +1,113 @@
+.sec9
+	background-color: $db
+
+	.section-title
+		background-color: $b
+		padding-bottom: 5%
+		padding-top: 6%
+		line-height: 1
+		@media screen and (max-width: 500px)
+			font-size: 20px
+			line-height: 1.2
+			padding-bottom: 30px
+			padding-top: 30px
+
+
+
+.rw-block
+	display: flex;
+	justify-content: center
+	@media screen and (max-width: 500px)
+		flex-wrap: wrap
+
+	.left
+		flex: 0 0 45%
+		width: 45%
+		position: relative
+		margin-top: 2.5%
+
+		@media screen and (max-width: 500px)
+			flex: 0 0 100%
+			height: 200px
+			width: 100%
+
+	.left > img
+		position: absolute
+		bottom: 10%
+		right: 30%
+		width: 50px
+
+	.right
+		flex: 0 0 50%
+		width: 50%
+		margin: 5% 0
+		background-color: #FFF
+		border-radius: 10px
+		padding: 30px 40px
+		@media screen and (max-width: 500px)
+			flex: 0 0 95%
+			width: 95%
+
+		h2
+			color: #003FB1
+			opacity: 1
+			font-family: $p600
+			font-weight: 600
+
+		h2.mark-l:after
+			position: relative
+			bottom: 3px
+			content: attr(data-mark)
+			font-size: 12px
+			background-color: #003FB1
+			color: #fff
+			text-align: center
+			padding: 3px 10px
+			margin-top: -5px
+			display: inline-block
+			border-radius: 30px
+			margin-left: 10px
+
+		p
+			color: $db
+			margin: 30px auto 60px
+			line-height: 1.7
+			@media screen and (max-width: 500px)
+				margin: 15px auto 20px
+				font-size: 14px
+				line-height: 1.4
+
+		.bottom
+			position: relative
+
+			.price
+				font-size: 34px
+				color: #003FB1
+
+				@media screen and (max-width: 500px)
+					font-size: 20px
+
+				span
+					font-size: 12px
+					margin-left: 15px
+
+			a.buy-btn
+				position: absolute
+				right: 0;
+				top: 0;
+				background-color: $og
+				text-align: center
+				width: 125px
+				line-height: 40px
+				height: 40px
+				border-radius: 40px
+
+				@media screen and (max-width: 500px)
+					width: 90px
+					line-height: 30px
+					height: 30px
+					font-size: 13px
+
+
+.rw-block.blue
+	background-color: $b

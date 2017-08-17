@@ -1,0 +1,82 @@
+.sec8
+	background-color: #FFF
+
+	.section-title
+		background-color: $b
+		padding-bottom: 5%
+		padding-top: 6%
+		line-height: 1
+	
+	.intro-block
+		margin: 10% 0
+
+	.img
+		@media screen and (max-width: 500px)
+			order: -1
+
+	.img img
+		width: 100%
+
+	.text
+		@media screen and (max-width: 500px)
+			margin-bottom: 25px
+
+		.h1
+			color: $db
+
+		p, h2
+			color: $db
+			margin: 50px 0
+			@media screen and (max-width: 500px)
+				margin: 15px 0
+
+		.more-btn
+			background-color: $b
+			display: inline-block
+			width: 120px
+			text-align: center;
+			line-height: 40px;
+			height: 40px
+			border-radius: 5px
+
+	.intro-block:nth-child(n) .text
+		padding-left: 5%
+		@media screen and (max-width: 500px)
+			padding-left: 0%
+
+	.intro-block:nth-child(2n) .text
+		padding-left: 0
+		padding-right: 5%
+		@media screen and (max-width: 500px)
+			padding-right: 0%
+
+	.tb
+		box-shadow: 0 0 0 1px $db
+		margin-bottom: 40px
+
+		.tr
+		 display: flex;
+		 justify-content: center;
+
+		 .th
+		 	flex: 0 0 90px
+		 	width: 90px
+		 	padding: 20px
+		 	color: $db
+		 	box-shadow: inset -1px -1px 0 0 $db
+
+		 .td
+		 	flex: 1 1 calc( 100% - 90px )
+		 	width: calc( 100% - 90px )
+		 	padding: 20px
+		 	color: $db
+		 	box-shadow: inset 0px -1px 0 0 $db
+
+.tb-ker
+	.text
+		h2
+			margin-top: 10px
+			margin-bottom: 30px
+		p
+			margin-top: 0px
+			margin-bottom: 15px

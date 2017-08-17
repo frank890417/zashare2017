@@ -1,0 +1,69 @@
+#header-slider
+	
+	li
+		position: relative
+		top: 10vh
+		width: 100%
+		height: 90vh
+		background-position: bottom
+
+
+.header-border 
+	position: absolute
+	left: 4%
+	top: 7%
+	width: 92%
+	height: 86%
+	pointer-events: none
+	z-index: 3
+
+	div
+		position: absolute
+
+		&.left, &.top, &.right, &.bottom 
+			box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .4)
+
+		&.left
+			width: 5px
+			left: 8px
+			top: 205px
+			height: calc( 100% - 350px )
+
+		&.right
+			width: 5px
+			right: 8px
+			top: 130px
+			height: calc( 100% - 300px )
+
+		&.top
+			height: 5px
+			top: 10px
+			width: calc( 100% - 215px )
+			left: 40px
+
+		&.bottom
+			height: 5px
+			bottom: 14px
+			width: calc( 100% - 365px )
+			left: 180px
+
+		&.left-top
+			top: 0
+			left: 0
+			width: 22px
+
+		&.left-bottom
+			bottom: 0
+			left: 0
+			width: 160px
+
+		&.right-bottom
+			bottom: 0
+			right: 0
+			width: 170px
+			transform: translateY(6px)
+
+		&.right-top
+			top: 0
+			right: 0
+			width: 160px

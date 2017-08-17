@@ -1,0 +1,74 @@
+.s3-scroll-block
+	min-height: 50vh
+	position: relative
+	margin: 5% auto
+
+.s3-title
+	line-height: 1.5
+	color: #fff
+	font-size: 36px
+	text-align: center
+	@media screen and (max-width: 500px)
+		font-size: 24px
+
+.s3-info
+	font-size: 5vw
+	line-height: 1
+	font-family: $p600
+	font-weight: 600
+	color: #fff
+	opacity: .2
+	text-align: right
+
+.s3-scroll-block:nth-of-type(2)
+
+	.s3-info
+		font-size: 10vw
+		text-align: left
+
+.s3-scroll-block:nth-of-type(3)
+	background-color: $db
+	max-width: 100%;
+
+.s3-cards
+	margin-top: 50px
+
+.s3-cards .card
+	color: #fff
+	margin-top: 30px;
+	display: flex
+	justify-content: center
+	align-itmes: flex-start
+	
+	.img
+		flex: 0 0 95px
+		width: 95px
+		height: 95px
+		border-radius: 100%
+		overflow: hidden
+		img
+			width: 100%
+
+	.text
+		position: relative
+		flex: 1 1 calc( 100% - 110px )
+		width: calc( 100% - 110px )
+		margin-left: 15px
+		font-size: 17px
+		line-height: 1.4
+		letter-spacing: 1px
+		font-family: $p300
+		font-weight: 300
+		padding: 8px 30px 30px 20px
+
+		span
+			position: absolute
+			right: 50px
+			color: #fff
+			opacity: .6
+			bottom: 0px
+			font-size: 12px
+
+
+.sec3-2
+	background-color: $db
