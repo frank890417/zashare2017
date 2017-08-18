@@ -91,4 +91,11 @@ class HomeController extends Controller
             ->with('pagename','fund')
             ->with('title','募資頁面');
     }
+
+
+    public function packman(){
+      return view('pacman')
+            ->with('pagename','fund')
+            ->with('title','募資頁面');
+    }
 }
