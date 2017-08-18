@@ -8,6 +8,16 @@
  * do proper ghost mechanics (blinky/wimpy etc)
  */
 
+
+
+window.onscroll = function(evt){
+    var tt = document.getElementsByClassName("sectionDoor")[0];
+    if (window.pageYOffset> tt.offsetTop){
+        window.location = "/funding";
+    }
+}
+ 
+
 var NONE        = 4,
     UP          = 3,
     LEFT        = 2,
@@ -1299,4 +1309,4 @@ Object.prototype.clone = function () {
 
 
 
-startNewGame();
+// startNewGame();

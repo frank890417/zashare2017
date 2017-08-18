@@ -18,7 +18,7 @@ Route::get('/about',"HomeController@about");
 Route::get('/expo',"HomeController@expo");
 Route::get('/news',"HomeController@news");
 Route::get('/funding',"HomeController@funding");
-Route::get('/packman',"HomeController@packman");
+Route::get('/pacman',"HomeController@pacman");
 
 Auth::routes();
 Route::get('/post/n/{title}',"PostController@show_name");
