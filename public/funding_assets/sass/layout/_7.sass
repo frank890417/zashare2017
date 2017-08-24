@@ -1,6 +1,37 @@
 .sec7
 	background-color: $db
 
+	.h1
+		@media screen and (max-width: 768px)
+			font-size: 23px
+
+	.content
+		max-width: 100%
+		padding-right: 0
+		padding-left: 0
+
+		.right
+			margin: 0
+			font-size: 0
+
+			@media screen and (max-width: 768px)
+				flex: 0 0 100%
+
+		.left
+			padding-left: 5%
+
+		.bottom
+			flex: 0 0 100%
+			width: 100%
+			text-align: center
+			font-size: 30px
+			margin-top: 5%
+
+			@media screen and (max-width: 768px)
+				font-size: 18px
+				margin-left: 0
+				margin-right: 0
+
 	h3, h4
 		color: $og
 		font-family: $p600
@@ -14,7 +45,7 @@
 	.s7-list
 		position: relative
 		padding-left: 35px
-		margin: 30px 0 0
+		margin: 15px 0
 		letter-spacing: 1px;
 
 		span 
@@ -35,6 +66,9 @@
 
 	.s7-list:nth-of-type(2)
 		margin-top: 80px
+
+		@media screen and (max-width: 768px)
+			margin-top: 30px
 
 	.s7-list:nth-of-type(2) b
 		color: #FF56CC
@@ -64,10 +98,6 @@
 	.right
 		img, p
 			display: block
-			width: 75%
-			margin: 0 auto
-
-		p
-			margin-top: 40px
-			opacity: .5
+			width: 80%
+			margin: 0 0 0 auto
 

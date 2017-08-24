@@ -20,3 +20,109 @@
 	
 	a:hover
 		background-color: $og
+
+
+#nav-mobile
+	display: none
+	@media screen and (max-width: 992px)
+		display: block
+		position: fixed
+		left: 0
+		top: 0
+		z-index: 90
+		width: 100%
+		height: 100vh
+		pointer-events: none
+
+		.icon
+			position: absolute
+			right: 4%
+			top: 10px
+			width: 35px
+			height: 40px
+			pointer-events: visible
+			cursor: pointer
+			z-index: 3
+
+			&:after, &:before
+				content: ''
+				position: absolute
+				left: 0
+				right: 0
+				top: 0
+				bottom: 0
+				width: 100%
+				background-color: #FFF
+				height: 4px
+				margin: auto
+				transition: .3s ease
+			
+			&:after
+				transform: translateY(-11px)
+				box-shadow: 0 11px 0 0 #fff
+			&:before
+				transform: translateY(11px)
+
+		.icon.active
+			&:after
+				transform: translateY(0px) rotate(45deg)
+				box-shadow: 0 0 0 0 transparent
+
+			&:before
+				transform: translateY(0px) rotate(-45deg)
+
+
+		.nav-content
+			pointer-events: visible
+			transform: translateX(100%)
+			transition: .5s ease
+			position: absolute
+			width: 100%
+			height: 100%
+			background-color: $b
+			z-index: 2
+			display: flex
+			justify-content: center
+			align-items: center
+			flex-direction: column
+
+			a
+				display: none
+				background-color: #FFF
+				margin: 10px 0
+				width: 130px
+				line-height: 40px
+				height: 40px
+				color: $b
+				text-align: center
+				border-radius: 30px
+				animation: show 0.5s ease 0s 1 both
+
+				&.call
+					background-color: $og
+					color: #fff
+
+		.nav-content.active
+			transform: translateX(0%)
+
+			a
+				display: block
+
+			a:nth-child(1)
+				animation-delay: .1s
+			a:nth-child(2)
+				animation-delay: .2s
+			a:nth-child(3)
+				animation-delay: .3s
+			a:nth-child(4)
+				animation-delay: .4s
+
+
+@keyframes show
+	0% 
+		opacity: 0
+		transform: translateX(50px)
+
+	100% 
+		opacity: 1
+		transform: translateX(0px)

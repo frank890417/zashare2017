@@ -41,6 +41,27 @@ $(document).ready(function() {
   })
 
 
+  //about-scroll
+  $("#call-to-action-btn").click(function() {
+    var goFindIt = $("section.sec9").offset().top;
+    $(document.body).animate({
+      scrollTop: (goFindIt)
+    })
+  });
+
+  $("#nav a.btn, #nav-mobile a.btn").click(function() {
+  	$('#nav-mobile .icon, #nav-mobile .nav-content').removeClass('active')
+  	var $t = $(this).attr('data-link')
+    var goFindIt = $("section.sec" + $t).offset().top;
+    $(document.body).animate({
+      scrollTop: (goFindIt)
+    })
+  }); 
+
+  $('#nav-mobile .icon').click(function() {
+  	$('#nav-mobile .icon, #nav-mobile .nav-content').toggleClass('active')
+  })
+
   // slider
 	$('#header-slider').unslider({
 		autoplay: true,
@@ -94,5 +115,29 @@ $(document).ready(function() {
 	  distance		: '100px',
 	  origin      : 'right',
 	});
+	sr.reveal('.reveal-top-500', {
+	  duration    : 1000,
+	  delay       : 200,
+	  distance		: '100px',
+	  origin      : 'bottom',
+	});
+
+
+	//pop	
+	$('.pop-btn').click(function() {
+		var $p = $(this).attr('data-popup')
+		console.log($('#popup .content[data-popup="' + $p + '"]'))
+		$('#popup').fadeIn(300)
+		$('#popup .content').removeClass('active')
+		$('#popup .content[data-popup="' + $p + '"]').addClass('active')
+		$('body').css('overflow', 'hidden')
+	})
+
+	$('#popup .close-btn').click(function() {
+		$('#popup').fadeOut(300)
+		$('#popup .content').removeClass('active')
+		$('body').css('overflow', 'auto')
+	})
+
 
 })

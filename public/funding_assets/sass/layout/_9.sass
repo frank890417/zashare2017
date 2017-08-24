@@ -1,11 +1,16 @@
 .sec9
-	background-color: $db
+	background-color: $b
+	overflow: hidden
+
+	.content 
+		max-width: 1280px
+		padding: 5% 1%;
 
 	.section-title
-		background-color: $b
 		padding-bottom: 5%
 		padding-top: 6%
 		line-height: 1
+		
 		@media screen and (max-width: 500px)
 			font-size: 20px
 			line-height: 1.2
@@ -15,72 +20,53 @@
 
 
 .rw-block
-	display: flex;
-	justify-content: center
-	@media screen and (max-width: 500px)
-		flex-wrap: wrap
 
 	.left
-		flex: 0 0 45%
-		width: 45%
 		position: relative
-		margin-top: 2.5%
-
-		@media screen and (max-width: 500px)
-			flex: 0 0 100%
-			height: 200px
-			width: 100%
+		height: 200px
+		width: 100%
 
 	.left > img
 		position: absolute
-		bottom: 10%
-		right: 30%
-		width: 50px
+		bottom: 5%
+		right: 5%
+		width: 40px
 
 	.right
-		flex: 0 0 50%
-		width: 50%
-		margin: 5% 0
+		margin: 0
+		width: 100%
 		background-color: #FFF
 		border-radius: 10px
-		padding: 30px 40px
-		@media screen and (max-width: 500px)
-			flex: 0 0 95%
-			width: 95%
+		padding: 20px 20px
+
+		.rw-see-more-btn
+			color: $lb
+			margin-bottom: 25px
+
+			@media screen and (max-width: 768px)
+				display: none
 
 		h2
 			color: #003FB1
 			opacity: 1
 			font-family: $p600
 			font-weight: 600
-
-		h2.mark-l:after
-			position: relative
-			bottom: 3px
-			content: attr(data-mark)
-			font-size: 12px
-			background-color: #003FB1
-			color: #fff
 			text-align: center
-			padding: 3px 10px
-			margin-top: -5px
-			display: inline-block
-			border-radius: 30px
-			margin-left: 10px
+			height: 45px
+			margin: 0;
 
 		p
-			color: $db
-			margin: 30px auto 60px
+			color: $lb
+			font-size: 1ˋpx
+			height: 120px
+			margin-top: 50px
 			line-height: 1.7
-			@media screen and (max-width: 500px)
-				margin: 15px auto 20px
-				font-size: 14px
-				line-height: 1.4
 
 		.bottom
 			position: relative
 
 			.price
+				position: relative
 				font-size: 34px
 				color: #003FB1
 
@@ -88,26 +74,34 @@
 					font-size: 20px
 
 				span
+					display: block
+					text-align: right
 					font-size: 12px
-					margin-left: 15px
+					margin-top: 10px
 
 			a.buy-btn
-				position: absolute
-				right: 0;
-				top: 0;
+				margin-top: 20px
 				background-color: $og
 				text-align: center
-				width: 125px
+				width: 100%
 				line-height: 40px
 				height: 40px
 				border-radius: 40px
 
-				@media screen and (max-width: 500px)
-					width: 90px
-					line-height: 30px
-					height: 30px
-					font-size: 13px
-
-
 .rw-block.blue
 	background-color: $b
+
+.mark-l:after
+	position: absolute
+	right: 0
+	top: 17px
+	content: attr(data-mark)
+	font-size: 12px
+	background-color: #003FB1
+	color: #fff
+	text-align: center
+	padding: 3px 10px
+	margin-top: -5px
+	display: inline-block
+	border-radius: 30px
+	margin-left: 10px

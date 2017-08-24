@@ -1,14 +1,62 @@
 .sec8
 	background-color: #FFF
 
+	.content
+		max-width: 1200px
+		padding-top: 0
+
+	.boxes
+		margin: 0 0 120px
+
+	.lb-box
+		position: relative
+		padding-bottom: 95px
+		border-radius: 15px
+
+		h3
+			text-align: center
+			font-size: 30px
+			font-weight: 400
+			@media screen and (max-width: 992px)
+				font-size: 18px
+
+		img
+			margin-bottom: 0
+
+		p
+			opacity: 1
+
+		.see-more-btn
+			position: absolute
+			left: 0
+			bottom: 20px
+			background-color: #FFF
+			border-radius: 35px
+			line-height: 35px
+			width: calc( 100% - 30px )
+			right: 0
+			margin: auto
+			text-align: center
+			color: $b
+
+	.lb-box.up
+		transform: translateY(-10%)
+		@media screen and (max-width: 992px)
+			transform: translateY(0%)
+
+	.lb-box.down
+		transform: translateY(10%)
+		@media screen and (max-width: 992px)
+			transform: translateY(0%)
+
 	.section-title
-		background-color: $b
 		padding-bottom: 5%
 		padding-top: 6%
 		line-height: 1
+		color: $b
 	
 	.intro-block
-		margin: 10% 0
+		margin: 30px 0 30px
 
 	.img
 		@media screen and (max-width: 500px)
@@ -26,7 +74,7 @@
 
 		p, h2
 			color: $db
-			margin: 50px 0
+			margin: 20px 0
 			@media screen and (max-width: 500px)
 				margin: 15px 0
 
