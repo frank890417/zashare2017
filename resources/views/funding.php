@@ -641,7 +641,7 @@
           那個最近手頭有點緊，<br>
           可不可以只買博覽會的票?
         </div>
-        <h2 class="reveal-top-500">2017 雜學校門票在這裡:</h2><a class="reveal-top-500">TICKETS HERE</a>
+        <h2 class="reveal-top-500">2017 雜學校門票在這裡:</h2><a class="reveal-top-500" href="https://zashare.kktix.cc/events/2017zashare" target="_blank">TICKETS HERE</a>
       </div>
     </section>
     <footer>
