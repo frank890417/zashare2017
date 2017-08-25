@@ -517,8 +517,9 @@
           <div class="lb-box down"><img src="funding_assets/img/main/lb-3.png" alt="">
             <h3>雜學堂</h3>
             <h2>
-              2018 年雜學堂系列課程<br>
-              24 堂超狂講師線上課程免費收看
+            雜學到底要學什麼？行銷？程式？設計？<br>
+            24堂最狂講師陣容，手把手地教你史上最雜的知識。<br>
+            「學你想學，學你想成為」不再是口號！
             </h2>
             <p>雜講堂課程架構 :</p>
             <div class="see-more-btn pop-btn" data-popup="1">了解更多...</div>
