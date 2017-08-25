@@ -32,6 +32,9 @@
 .LatinaEssential
 	font-family: LatinaEssential, B Nazanin, Tahoma !important
 
+*
+	-webkit-overflow-scrolling: touch
+
 body 
 	background-color: $b
 	color: #fff
@@ -44,7 +47,7 @@ section, header
 	min-height: 100vh
 	height: auto
 	width: 100%
-	overflow-x: hidden
+	overflow: hidden
 
 	.content
 		position: relative
@@ -158,3 +161,12 @@ br.m
 	display: none
 	@media screen and (max-width: 768px)
 		display: block
+
+.super-block
+	padding: 15px
+	border-radius: 10px
+	background-color: $db
+	color: #fff
+	.h1
+		font-size: 20px
+		color: #fff!important

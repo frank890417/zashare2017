@@ -734,6 +734,10 @@ a {
   top: 0;
   background-color: #0047BA;
   z-index: 30; }
+  #popup .box.more .img {
+    border-radius: 13px;
+    background-color: #123293;
+    opacity: .4; }
   #popup .close-btn {
     display: block;
     width: 120px;
@@ -1136,7 +1140,7 @@ h3 {
     width: 76%;
     margin: 2% auto 0; }
   .sec4 h3 {
-    max-width: 350px;
+    max-width: 385px;
     font-family: PingFangTC-Medium, Noto Sans TC, sans-serif, Microsoft JhengHei;
     font-weight: 500; }
 
@@ -1173,6 +1177,8 @@ h3 {
   background-color: #123293; }
   .sec5-1 .content {
     max-width: 1200px; }
+  .sec5-1 .title-right-mark:after {
+    margin-left: 6px; }
 
 .db-box, .lb-box {
   background-color: #123293;
@@ -1608,6 +1614,10 @@ h3 {
     height: 120px;
     margin-top: 50px;
     line-height: 1.7; }
+    @media screen and (max-width: 768px) {
+      .rw-block .right p {
+        height: auto;
+        margin-bottom: 20px; } }
   .rw-block .right .bottom {
     position: relative; }
     .rw-block .right .bottom .price {
@@ -1698,6 +1708,9 @@ h3 {
 .LatinaEssential {
   font-family: LatinaEssential, B Nazanin, Tahoma !important; }
 
+* {
+  -webkit-overflow-scrolling: touch; }
+
 body {
   background-color: #0047BA;
   color: #fff;
@@ -1710,7 +1723,7 @@ section, header {
   min-height: 100vh;
   height: auto;
   width: 100%;
-  overflow-x: hidden; }
+  overflow: hidden; }
   section .content, header .content {
     position: relative;
     width: 100%;
@@ -1833,3 +1846,12 @@ br.m {
   @media screen and (max-width: 768px) {
     br.m {
       display: block; } }
+
+.super-block {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #123293;
+  color: #fff; }
+  .super-block .h1 {
+    font-size: 20px;
+    color: #fff !important; }
