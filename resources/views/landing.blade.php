@@ -64,7 +64,7 @@
           <div class="index_btn btn_ticket disable">
             <img src="/img/2017/index_btn_attend.svg" alt="">
           </div>
-          <a class="index_btn btn_apply disable" href="https://zashare.typeform.com/to/yPCxFD" target="_blank">
+          <a class="index_btn btn_apply disable" target="_blank">
             <img src="/img/2017/index_btn_buy.svg"  alt="">
           </a>
           <div class="index_btn btn_crowd">
