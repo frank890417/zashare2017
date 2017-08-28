@@ -54,7 +54,7 @@ $(window).ready(()=>{
       window.open("http://2016.zashare.org/");
     
   });
-  $(".btn_ticket").click(function(){
+  $(".btn_crowd").click(function(){
     $(".full_lang_sel").addClass("active")
   })
   $(".full_lang_sel").click(function(){

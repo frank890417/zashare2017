@@ -53,26 +53,26 @@
         <img class='hidden-sm hidden-xs main' src="/img/2017/index_index_desktop.svg" class="main_block" alt="">
         <img class='visible-sm visible-xs main' src="/img/2017/index_index_mobile.svg" class="main_block" alt="">
         <div class="full_lang_sel">
-          <a class="btn" href="/files/雜學校zashare-徵展手冊.pdf" target="_blank">
-            中文參展手冊
+          <a class="btn" href="https://zashare.kktix.cc/events/2017zashare" target="_blank">
+            kktix
           </a>
-          <a class="btn" href="/files/2017 zashare-English Manual.pdf" target="_blank">
-            English Manual
+          <a class="btn" href="http://tickets.books.com.tw/progshow/08010901224680/" target="_blank">
+            博客來
           </a>
         </div>
         <div class="index_btns">
-          <div class="index_btn btn_ticket">
+          <div class="index_btn btn_ticket disable">
             <img src="/img/2017/index_btn_attend.svg" alt="">
           </div>
-          <a class="index_btn btn_apply" href="https://zashare.typeform.com/to/yPCxFD" target="_blank">
+          <a class="index_btn btn_apply disable" href="https://zashare.typeform.com/to/yPCxFD" target="_blank">
             <img src="/img/2017/index_btn_buy.svg"  alt="">
           </a>
-          <div class="index_btn btn_crowd disable">
+          <div class="index_btn btn_crowd">
             <img src="/img/2017/index_btn_crowd.svg" alt="">
           </div>
         </div>
         <div class="index_btns">
-          <a class="index_btn full btn_admission" href="https://backerfounder.typeform.com/to/FS4sFi" target="_blank">
+          <a class="index_btn full btn_admission" href="http://zashare.org/pacman/" target="_blank">
             <img src="/img/2017/index_btn_admission.svg" alt="">
           </a>
         </div>
