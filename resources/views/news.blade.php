@@ -11,9 +11,53 @@
 @section('content')
 
 <div class='container-fluid page_news'>
+	<div class="blue_bg">
 
-	<div class="red_bg">
 		<div class="container area_news">
+			<div class="row ">
+				<div class='col-sm-4 visible-xs'>
+					<img class='person' src="http://zashare.org/funding_assets/img/main/header-s3.png" alt="">
+				</div>
+				<div class="col-sm-8 pdlr">
+					<h1>2017 雜学校參展入圍名單出爐囉！</h1>
+					<p class='subtitle'>今年度雜學校「有敢擇學try try see」公開徵展後，收到了近五百個優秀團隊的申請，
+在策展團隊經過無數個爭辯廝殺討論後，熱騰騰的入選名單終於出爐囉！
+快來一探究竟今年入選的優秀團隊有哪些！<br><br><br><br></p>
+				</div>
+				<div class='col-sm-4 hidden-xs'>
+					<img class='person' src="http://zashare.org/funding_assets/img/main/header-s3.png" alt="">
+				</div>
+				
+			</div>
+			<div class='row'>
+				<div class='col-sm-12'>
+					<div class='form-inline'>
+						<label for="" placeholder="請輸入關鍵字">快速搜尋：</label>
+						<input type="text" class='form-control' v-model="teamfilter">	
+						<label for=""> (共@{{filtered2017list.length}}項結果)</label>
+					</div>
+				</div>
+
+			</div>
+			<div class="row row_list" v-for="cata in cata2017" v-if="getCataTeam2017(cata).length">
+				
+				<div class='col-sm-12 '>
+					<br>
+					<h3> @{{cata}} </h3>
+				</div>
+				
+				<div class="catabox col-sm-12">
+					<a class="col-sm-4 team" v-for="team in getCataTeam2017(cata)" :href="team.website" target="_blank" :title="'前往'+team.name+'的網站'">
+						<div class="tag">@{{team.tag}}</div>
+						<div class="title">@{{team.name}}</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+
+		<div class="container area_news area_news_white">
 			<div class="row">
 				<div class="col-sm-12">
 					<h1>【有看見去年的你嗎？】<br class="visible-xs">2016雜學校回顧影片釋出！</h1>

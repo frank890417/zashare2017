@@ -11,7 +11,7 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap"
 
 *
-  font-family: Roboto Slab,Hoefler Text,'微軟正黑體',Songti TC,serif
+  font-family: 'Noto Sans TC',Roboto Slab,Hoefler Text,'微軟正黑體',Songti TC,serif
   
 =flex_center
   display: flex
@@ -46,9 +46,8 @@ html,body
   overflow-x: hidden
 
 h1,h2,h3,h4,h5,h6
-  font-weight: 600
-  font-family: '微軟正黑體',Songti TC,serif
-
+  font-weight: 400
+  letter-spacing: 1px
 
 h1
   font-size: 30px
@@ -248,7 +247,7 @@ footer
   
   h1
     margin-bottom: 15px
-    font-weight: 900
+    font-weight: 500
   
   h2
     margin-top: 70px
@@ -659,7 +658,7 @@ $color_blue: #0047BA
 
   .post_title
     min-height: 1.2em
-    font-weight: 900
+    font-weight: 500
   
   .post_author
     font-size: 0.7em
@@ -977,15 +976,92 @@ $color_blue: #0047BA
     margin-right: -30px
 
 .page_news
-  background-color: $color_red
+  // background-color: $color_red
+  background-color: #0047BA
   padding: 150px 0px
-  background-image: url(/img/ci_people.png)
   background-repeat: no-repeat
   background-attachment: fixed
-  background-size: 55%
-  background-position: -30% 20%
-
+  background-size: 70%
   padding-bottom: 200px
+
+  img
+    max-width: 100%
+
+  .person
+    transform: scale(3)
+
+  .pdlr
+    padding-left: 5vw
+    padding-right: 5vw
+  
+  .imageTop
+    height: 800px
+    right: 0px
+    position: absolute
+    top: 0px
+    
+  .area_news
+    background-color: transparent
+    color: white
+    box-shadow: none
+
+  .area_news_white
+    background-color: white
+    color: #333
+    box-shadow: initial
+
+  .subtitle
+    font-size: 18px
+    font-weight: 300
+    line-height: 2em
+    letter-spacing: 1px
+    
+    opacity: 0.8
+
+  label
+    font-size: 16px
+    font-weight: 400
+  input
+    background-color: transparent
+    border: solid 2px white
+    color: white
+
+  .catabox
+    background-color: #143183
+    border-radius: 40px
+    padding: 15px
+    margin-bottom: 30px
+    margin-top: 20px
+
+    .team
+      padding: 10px
+      display: flex
+      flex-direction: row
+      align-items: center
+      min-height: 100px
+
+      transition: 0.5s
+      cursor: pointer
+      border-radius: 100px
+      &:hover
+        text-decoration: none
+        background-color: rgba(white,0.1)
+      .title
+        color: white
+
+        margin-left: 20px
+        font-size: 16px
+        font-weight: 300
+
+      .tag
+        padding: 5px 15px
+        border-radius: 20px
+        background-color: #ff4714
+        color: white
+        font-weight: 300
+
+        &:before
+          content: "#"
 
   .btn-default
     padding: 9px 21px
