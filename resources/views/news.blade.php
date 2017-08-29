@@ -47,7 +47,7 @@
 				</div>
 				
 				<div class="catabox col-sm-12">
-					<a class="col-sm-4 team" v-for="team in getCataTeam2017(cata)" :href="team.website" target="_blank" :title="'前往'+team.name+'的網站'">
+					<a class="col-sm-4 team" v-for="team in getCataTeam2017(cata)" :href="team.website.indexOf('http')!=-1?team.website:'http://'+team.website" target="_blank" :title="'前往'+team.name+'的網站'">
 						<div class="tag">@{{team.tag}}</div>
 						<div class="title">@{{team.name}}</div>
 					</a>
