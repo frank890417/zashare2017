@@ -19,7 +19,7 @@
 					<img class='person' src="http://zashare.org/funding_assets/img/main/header-s3.png" alt="">
 				</div>
 				<div class="col-sm-8 pdlr">
-					<h1>2017 雜学校參展入圍名單出爐囉！</h1>
+					<h1>2017 雜學校參展入圍名單出爐囉！</h1>
 					<p class='subtitle'>今年度雜學校「有敢擇學try try see」公開徵展後，收到了近五百個優秀團隊的申請，
 在策展團隊經過無數個爭辯廝殺討論後，熱騰騰的入選名單終於出爐囉！
 快來一探究竟今年入選的優秀團隊有哪些！<br><br><br><br></p>
