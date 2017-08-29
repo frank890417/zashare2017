@@ -72,7 +72,7 @@
           </div>
         </div>
         <div class="index_btns">
-          <a class="index_btn full btn_admission" href="http://zashare.org/pacman/" target="_blank">
+          <a class="index_btn full btn_admission" href="https://backme.tw/ref/GZMac/" target="_blank">
             <img src="/img/2017/index_btn_admission.svg" alt="">
           </a>
         </div>
