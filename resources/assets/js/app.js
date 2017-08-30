@@ -827,14 +827,57 @@ var vm = new Vue({
         "tag": "Z163",
         "name": "墨雨設計",
         "website": "http://monoame.com/#/",
-      }
+      },{
+        "theme": "實驗教育",
+        "tag": "Z023",
+        "name": "臺北市影視音實驗教育機構",
+        "website": "http://www.mediaschool.taipei/",
+      },
+      {
+        "theme": "實驗教育",
+        "tag": "Z084",
+        "name": "全人實驗學校",
+        "website": "http://holistic.org.tw/",
+      },
+      {
+        "theme": "實驗教育",
+        "tag": "Z104",
+        "name": "人文無學籍行動高中（人文展賦行動學苑）",
+        "website": "https://www.facebook.com/人文無學籍行動高中-Humanities-Explorational-High-School-197428987035257/?ref=bookmarks",
+        "": ""
+      },
+      {
+        "theme": "實驗教育",
+        "tag": "Z055",
+        "name": "清水小校",
+        "website": "https://www.facebook.com/YiLanQingShuiXiaoXiao/?fref=ts",
+      },
+      {
+        "theme": "實驗教育",
+        "tag": "Z145",
+        "name": "學學文化創意基金會",
+        "website": "http://www.xuexuefoundation.org.tw/",
+      },
+      {
+        "theme": "群－關係",
+        "tag": "Z086",
+        "name": "BTS無界塾",
+        "website": "https://www.facebook.com/無界塾-279310215857863/",
+      },
+      {
+        "theme": "體－身體實踐",
+        "tag": "Z044",
+        "name": "心對話股份有限公司",
+        "website": "https://www.facebook.com/SEABreezers/",
+      },
     ],
     cata2017: [
       "德－公民道德",
       "智－思考批判力",
       "體－身體實踐",
       "群－關係",
-      "美－美感經驗"
+      "美－美感經驗",
+      "實驗教育"
     ],
     teamfilter: ""
   },
