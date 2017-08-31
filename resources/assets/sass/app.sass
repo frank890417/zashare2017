@@ -977,12 +977,18 @@ $color_blue: #0047BA
 
 .page_news
   // background-color: $color_red
-  background-color: #0047BA
-  padding: 150px 0px
+  // padding: 150px 0px
   background-repeat: no-repeat
+  background-color: #0047BA
   background-attachment: fixed
   background-size: 70%
   padding-bottom: 200px
+
+
+  .vertical_text  
+    writing-mode: vertical-rl
+    text-orientation: upright
+
 
   img
     max-width: 100%
@@ -1080,14 +1086,55 @@ $color_blue: #0047BA
       color: $color_red
       
 
+
+  .blue_bg
+    background-color: #0047BA
+
+  .orange_bg
+    padding: 80px 0px
+    background-color: #FD4A0C
+    color: white
+    filter: saturate(91%)
+
+    .btn
+      display: inline-block
+      background-color: #0047BA
+      border-radius: 20px
+      padding: 10px 20px
+      margin-top: 20px
+      color: white
+      &:hover
+        background-color: white
+        color: black
+  
+  .newsTitle
+    font-weight: 500
+  .num
+    background-color: white
+    width: 50px
+    height: 50px
+    border-radius: 50%
+    display: flex
+    justify-content: center
+    align-items: center
+    color: #FD4A0C
+    font-size: 25px
+    font-weight: 800
+    margin-top: 30px
+  .fcenter
+    display: flex
+    justify-content: center
+    text-align: center
+    &.vertical
+      flex-direction: column
+      align-items: center
+
   +range_width(0px,768px)
     background-size: 80%
     background-attachment: scroll
     background-position: -30% -50px
     iframe
       height: 350px
-
-
 
   
 
