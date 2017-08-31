@@ -357,7 +357,7 @@ var vm = new Vue({
       {
         "theme": "體－身體實踐",
         "tag": "Z010",
-        "name": "YOTTA - 專屬於你最有效的學習夥伴",
+        "name": "YOTTA",
         "website": "http://www.yottau.com.tw/",
       },
       {
@@ -705,7 +705,7 @@ var vm = new Vue({
       {
         "theme": "美－美感經驗",
         "tag": "Z019",
-        "name": "羅傑耀",
+        "name": "Roger528",
         "website": "http://www.roger528.com/",
       },
       {
