@@ -818,12 +818,6 @@ var vm = new Vue({
       },
       {
         "theme": "美－美感經驗",
-        "tag": "Z146",
-        "name": "學學國際文化創意事業股份有限公司",
-        "website": "http://www.xuexue.tw/",
-      },
-      {
-        "theme": "美－美感經驗",
         "tag": "Z163",
         "name": "墨雨設計",
         "website": "http://monoame.com/#/",
