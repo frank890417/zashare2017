@@ -11,6 +11,98 @@
 @section('content')
 
 <div class='container-fluid page_news'>
+	<div class="blue_bg news3" style="display: none">
+		<div class="container">
+				
+			<h1>2017雜學校門票開賣囉！</h1>
+			<br>
+			<p>2017雜學校，售票系統正式上線！還記得我們去年的約定嗎？<br>今年我們包下整個華山，創造亞洲最大學習內容互動平台。<br>即日起到9/30可享早鳥優惠，快和我們一起「有感擇學TRY TRY SEE!」</p>
+			<div class="row dark_bg">
+				<div class="row">
+					<div class="col-sm-1">
+						<h3>購票<br class="hidden-xs">方式</h3>
+					</div>
+					<div class="col-sm-11">
+						<div class="row">
+							<div class="col-sm-4">
+								<div class="btn">網路購票</div>
+								<h4>KKTIX</h4>
+								<h5>(KKTIX電子票券)</h5>
+								<br>
+								<h4>博客來</h4>
+								<h5>(iBon實體票券)</h5>
+							</div>
+							<div class="col-sm-4">
+								<div class="btn">超商購票</div>
+								<h4>全家FamiPort</h4>
+								<h5>(FamiPort實體票券)</h5>
+								<br>
+								<h4>7-11 iBon</h4>
+								<h5>(iBon實體票券)</h5>
+							</div>
+							<div class="col-sm-4">
+								<div class="btn">現場購票</div>
+								<h4>活動現場實體票券</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-1">
+						<h3>票價</h3>
+					</div>
+					<div class="col-sm-11">
+						<div class="row">
+							<div class="col-sm-4">
+								<div class="btn">早鳥票<div class="small">(僅於網路販售)</div></div>
+								<h5>即日起到9/30 (Sat.)</h5>
+								<h4>$280 團購票<br>$300 單日票</h4>
+							</div>
+							<div class="col-sm-4">
+								<div class="btn">網路票</div>
+								<h5>10/01 (Sun.) - 10/19 (Thu.)</h5>
+								<h4>$300 團購票<br>$320 單日票</h4>
+							</div>
+							<div class="col-sm-4">
+								<div class="btn">現場票</div>
+								<h5>10/20 (Fri.) - 10/22 (Sun.)</h5>
+								<h4>$350 現場票</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-sm-1">
+						<h3>免票<br class="hidden-xs">資格</h3>
+					</div>
+					<div class="col-sm-11">
+						<ul class="listWarn">
+							<li>— 持身心障礙手冊人士，現場憑證明文件可另攜一位陪同人免費入場</li>
+							<li>— 6歲以下（含6歲），65歲以上，出示相關證明文件可免費入場</li>
+							<li>— 符合免票資格者，入場前需先至博覽會入口處出示證明文件兌換入場手環</li>
+						</ul>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-sm-1">
+						<h3>注意<br class="hidden-xs">事項</h3>
+					</div>
+					<div class="col-sm-11">
+						<ul class="listWarn">
+							<li>— 6張以上為團購票價</li>
+							<li>— 超商取票一筆訂單手續費皆為$30 ｜  博客來宅配取票一筆訂單手續費皆為$50 </li>
+							<li>— KKTIX電子票券、超商購票、現場購票免手續費</li>
+							<li>— 超商購票、取票一筆訂單上限為4張｜  博客來宅配取票一筆訂單上限為49張 ｜  KKTIX電子票券一筆訂單上限為20張</li>
+							<li>— 超過50張以上的票券採購請聯繫主辦單位洽詢團購方案 ｜  聯繫窗口： zashare@ozzie-art.com 楊小姐</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="orange_bg">
 		<div class="container">
 			<div class="row">
@@ -50,7 +142,7 @@
 					</div>
 					<hr>
 					<h4>看更多建校內容>>> 
-						<a class="btn" href="http://zashare.org/pacman/" target="_blank">
+						<a class="btn" href="https://backme.tw/ref/GZMac/" target="_blank">
 							立即支持建校
 						</a>
 					</h4>
