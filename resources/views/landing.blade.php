@@ -49,9 +49,9 @@
 
   <div class="container main_info_container">
     <div class="row">
-      <div class="col-md-7">
-        <img class='hidden-sm hidden-xs main' src="/img/2017/index_index_desktop.svg" class="main_block" alt="">
-        <img class='visible-sm visible-xs main' src="/img/2017/index_index_mobile.svg" class="main_block" alt="">
+      <div class="col-md-6 col-md-push-3 col-sm-8 col-sm-push-2">
+        <img class='hidden-sm hidden-xs main' src="/img/2017/index0829_coverLogo.svg" class="main_block" alt="">
+        <img class='visible-sm visible-xs main' src="/img/2017/index0829_coverLogo.svg" class="main_block" alt="">
         <div class="full_lang_sel">
           <a class="btn" href="https://zashare.kktix.cc/events/2017zashare" target="_blank">
             kktix
@@ -61,19 +61,11 @@
           </a>
         </div>
         <div class="index_btns">
-          <div class="index_btn btn_ticket disable">
-            <img src="/img/2017/index_btn_attend.svg" alt="">
-          </div>
-          <a class="index_btn btn_apply disable" target="_blank">
-            <img src="/img/2017/index_btn_buy.svg"  alt="">
+          <a class="index_btn btn_buy" target="_blank">
+            <img src="/img/2017/index0829_btnBuy.svg"  alt="">
           </a>
-          <div class="index_btn btn_crowd">
-            <img src="/img/2017/index_btn_crowd.svg" alt="">
-          </div>
-        </div>
-        <div class="index_btns">
-          <a class="index_btn full btn_admission" href="https://backme.tw/ref/GZMac/" target="_blank">
-            <img src="/img/2017/index_btn_admission.svg" alt="">
+          <a class="index_btn btn_crowd" href="https://backme.tw/ref/GZMac/" target="_blank">
+            <img src="/img/2017/index0829_btnFunding.svg" alt="">
           </a>
         </div>
       </div>

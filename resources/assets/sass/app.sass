@@ -377,6 +377,8 @@ $color_blue: #0047BA
     font-family: 'Noto Sans TC'
     font-weight: 300
 
+  .main
+    background-color: $color_blue
 
   nav.navbar-default
     // background-color: transparent
@@ -417,7 +419,7 @@ $color_blue: #0047BA
 
   .index_btn
     background-color: $color_blue
-    width: calc( (100% - 50px) / 3)
+    width: calc( (100% - 50px) / 2)
     border-radius: 6px
     cursor: pointer
     &.disable
@@ -435,8 +437,8 @@ $color_blue: #0047BA
         height: 100%
 
     &:hover
-      background-color: white
-
+      //background-color: $color_orange
+      background-color: darken($color_blue,10)
 
   .full_lang_sel
     position: fixed
@@ -515,13 +517,14 @@ $color_blue: #0047BA
     .main_info_container
       height: 100vh
       width: calc(100% - 40px)
+      padding: 0px !important
       justify-content: flex-start
       .col-md-7
 
       img.main
         margin-top: 100px
 
-        margin-bottom: 100px
+        // margin-bottom: 100px
         width: 100%
     
     nav.navbar-default
