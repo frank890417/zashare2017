@@ -378,11 +378,13 @@ $color_blue: #0047BA
     font-weight: 300
 
   .main
-    background-color: $color_blue
+    // background-color: $color_blue
+    user-select: none
 
   nav.navbar-default
-    // background-color: transparent
-    background-color: $color_blue
+    background-color: transparent
+    // background: linear-gradient($color_blue,transparent)
+    // background-color: $color_blue
     .navbar-nav > li > a
       color: white !important
       transition: 0.5s
@@ -391,8 +393,8 @@ $color_blue: #0047BA
 
 
   .navbar-nav
-    background-color: $color_blue
-    
+    // background-color: $color_blue
+    background-color: transparent
 
   .main_info_container
     position: absolute
@@ -418,7 +420,7 @@ $color_blue: #0047BA
     justify-content: space-between
 
   .index_btn
-    background-color: $color_blue
+    background-color: white
     width: calc( (100% - 25px) / 2)
     border-radius: 6px
     cursor: pointer
@@ -438,7 +440,7 @@ $color_blue: #0047BA
 
     &:hover
       //background-color: $color_orange
-      background-color: darken($color_blue,10)
+      background-color: #ccc
 
   .full_lang_sel
     position: fixed
@@ -1093,6 +1095,13 @@ $color_blue: #0047BA
   .news3
     p,h3,h4,h5,li
       font-weight: 300
+      
+    a
+      display: block
+      margin-top: 15px
+      color: white
+      font-size: 20px
+
     p
       margin: 40px 0px
       line-height: 36px
@@ -1140,13 +1149,17 @@ $color_blue: #0047BA
     color: white
     padding: 80px 0px
 
-    .btn
+    .round_title
       background-color: $color_orange
       padding: 15px 30px
       font-size: 20px
       letter-spacing: 1px
       font-weight: 300
       border-radius: 30px
+      display: inline-block
+      &:hover
+        color: white
+        
     .dark_bg
       background-color: darken($color_blue,10)
       padding: 50px 50px

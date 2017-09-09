@@ -2,7 +2,7 @@
 
 @section('meta_og')
 <title>雜學校Zashare-最新消息</title>
- <meta property="og:title" content="雜學校Zashare-最新消息" />
+<meta property="og:title" content="雜學校Zashare-最新消息" />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="http://zashare.org/img/main2.jpg" />
 <meta property="og:description" content="一個由民間自主發起由下而上的社會創新策展（前身為“不太乖教育節”）建立1-99歲的「一站式教育資源平台」，聚集所有學校沒教/ 適合每一個你的不同學習路徑 ;以台灣為震央，希望將這份影響力不僅凝聚國內教育創新正向力量，更擴及整個華人世界。" />
@@ -13,7 +13,6 @@
 <div class='container-fluid page_news'>
 	<div class="blue_bg news3" style="display: none">
 		<div class="container">
-				
 			<h1>2017雜學校門票開賣囉！</h1>
 			<br>
 			<p>2017雜學校，售票系統正式上線！還記得我們去年的約定嗎？<br>今年我們包下整個華山，創造亞洲最大學習內容互動平台。<br>即日起到9/30可享早鳥優惠，快和我們一起「有感擇學TRY TRY SEE!」</p>
@@ -25,23 +24,23 @@
 					<div class="col-sm-11">
 						<div class="row">
 							<div class="col-sm-4">
-								<div class="btn">網路購票</div>
-								<h4>KKTIX</h4>
+								<div class="round_title">網路購票</div>
+								<a target="_blank" href="https://zashare.kktix.cc/events/2017zashare">KKTIX&nbsp;<i class='fa fa-link'></i></a>
 								<h5>(KKTIX電子票券)</h5>
 								<br>
-								<h4>博客來</h4>
+								<a target="_blank" href="http://tickets.books.com.tw/progshow/08010901224680/">博客來&nbsp;<i class='fa fa-link'></i></a>
 								<h5>(iBon實體票券)</h5>
 							</div>
 							<div class="col-sm-4">
-								<div class="btn">超商購票</div>
-								<h4>全家FamiPort</h4>
+								<div class="round_title">超商購票</div>
+								<a target="_blank" href="http://support.kktix.com/knowledgebase/articles/636721-全家famiport購票">全家FamiPort&nbsp;<i class='fa fa-link'></i></a>
 								<h5>(FamiPort實體票券)</h5>
 								<br>
-								<h4>7-11 iBon</h4>
+								<a target="_blank" href="http://www.ticket.com.tw/infor/ibon.htm">7-11 iBon&nbsp;<i class='fa fa-link'></i></a>
 								<h5>(iBon實體票券)</h5>
 							</div>
 							<div class="col-sm-4">
-								<div class="btn">現場購票</div>
+								<div class="round_title">現場購票</div>
 								<h4>活動現場實體票券</h4>
 							</div>
 						</div>
@@ -54,17 +53,17 @@
 					<div class="col-sm-11">
 						<div class="row">
 							<div class="col-sm-4">
-								<div class="btn">早鳥票<div class="small">(僅於網路販售)</div></div>
+								<div class="round_title">早鳥票<div class="small">(僅於網路販售)</div></div>
 								<h5>即日起到9/30 (Sat.)</h5>
 								<h4>$280 團購票<br>$300 單日票</h4>
 							</div>
 							<div class="col-sm-4">
-								<div class="btn">網路票</div>
+								<div class="round_title">網路票</div>
 								<h5>10/01 (Sun.) - 10/19 (Thu.)</h5>
 								<h4>$300 團購票<br>$320 單日票</h4>
 							</div>
 							<div class="col-sm-4">
-								<div class="btn">現場票</div>
+								<div class="round_title">現場票</div>
 								<h5>10/20 (Fri.) - 10/22 (Sun.)</h5>
 								<h4>$350 現場票</h4>
 							</div>

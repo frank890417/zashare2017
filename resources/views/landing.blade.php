@@ -86,7 +86,7 @@
     <a  href="{{ url('/blog') }}" class='btn btn-default btn-lg btn-trans visible-xs'> 來雜學吧！ </a>
   </div> --}}
   <video autoplay loop class='landing-video'>
-      <source src="/video/ci_main_2017.mp4" type="" >
+      <source src="/video/za-share-02.mp4" type="" >
   </video>
     <script>
      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');
