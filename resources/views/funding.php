@@ -25,13 +25,12 @@
       </div>
     </div>
     <div id="bar">
-      <div class="bar-chart-wrap">
+      <!--div class="bar-chart-wrap">
         <div class="b-pg-main" :style="'width:' + ticketObj.progressPercentage"></div>
         <div class="b-pg-bg"></div>
-      </div>
+      </div-->
       <div class="text">
-        已募資<b>{{ ticketObj.progressPercentage }}</b>學生證倒數<b>{{ 2017 - ticketObj.count }}/2017</b>張
-        
+        已註冊學生證<b>{{ticketObj.count}}</b>張        
       </div>
     </div>
     <div id="nav"><a class="btn" href="javascript:;" data-link="3">為什麼建校？</a><a class="btn" href="javascript:;" data-link="5">建校夢想藍圖</a><a class="btn" href="javascript:;" data-link="8">建校元老回饋</a><a class="btn" href="javascript:;" data-link="9">支持建校方案</a></div>
