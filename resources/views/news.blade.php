@@ -11,7 +11,7 @@
 @section('content')
 
 <div class='container-fluid page_news'>
-	<div class="blue_bg news3" style="display: none">
+	<div class="blue_bg news3">
 		<div class="container">
 			<h1>2017雜學校門票開賣囉！</h1>
 			<br>
