@@ -864,6 +864,12 @@ var vm = new Vue({
         "name": "心對話股份有限公司",
         "website": "https://www.facebook.com/SEABreezers/",
       },
+      {
+        "theme": "德－公民道德",
+        "tag": "Z164",
+        "name": "國際同圓社-台灣總社",
+        "website": "http://circlek.org",
+      }
     ],
     cata2017: [
       "德－公民道德",
