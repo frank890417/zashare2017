@@ -30,7 +30,7 @@
         <div class="b-pg-bg"></div>
       </div-->
       <div class="text">
-        已註冊學生證<b>{{ticketObj.count}}</b>張        
+        已註冊學生證<b style="text-align: center">{{ticketObj.count}}</b>張        
       </div>
     </div>
     <div id="nav"><a class="btn" href="javascript:;" data-link="3">為什麼建校？</a><a class="btn" href="javascript:;" data-link="5">建校夢想藍圖</a><a class="btn" href="javascript:;" data-link="8">建校元老回饋</a><a class="btn" href="javascript:;" data-link="9">支持建校方案</a></div>
