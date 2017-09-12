@@ -497,8 +497,7 @@ $color_blue: #0047BA
       cursor: pointer
 
 
-
-  +range_width(0px,991px)
+  +range_width(0px,767px)
     background-image: url("/img/2017/zashare-website-static.jpg")
     background-size: auto 100%
     background-position: center 30%
@@ -553,6 +552,19 @@ $color_blue: #0047BA
 
     .main_info_container
       padding: 20px
+
+
+  +range_width(0px,767px)
+    .navbar-right
+      background-color: rgba($color_blue,0.95)
+      padding-bottom: 10px
+    .navbar-toggle
+      &:hover
+        background-color: #fff
+        .icon-bar
+          background-color: $color_blue
+    .navbar-toggle.collapsed
+      background-color: transparent
     // padding-top: 50px
 
   // .center_box
