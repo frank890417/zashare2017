@@ -371,7 +371,7 @@ $color_blue: #0047BA
   display: flex
   align-items: center
   justify-content: center
-  background-color: $color_orange
+  background-color: $color_blue
 
   *
     font-family: 'Noto Sans TC'
@@ -481,6 +481,7 @@ $color_blue: #0047BA
       flex-direction: column
       .btn
         width: 85%
+        
         max-width: initial
         display: inline-block
         padding: 50px 30px
@@ -498,7 +499,7 @@ $color_blue: #0047BA
 
 
   +range_width(0px,991px)
-    background-image: url("/img/2017/static_bg.jpg")
+    background-image: url("/img/2017/zashare-website-static.jpg")
     background-size: auto 100%
     background-position: center 30%
     background-attachment: fixed
@@ -509,6 +510,9 @@ $color_blue: #0047BA
     .index_btn
       width: 100%
       margin-bottom: 25px
+      
+      img
+        max-width: 200px
       &.full
         width: 100%
         height: initial
