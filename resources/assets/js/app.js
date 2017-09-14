@@ -309,7 +309,7 @@ var vm = new Vue({
       {
         "theme": "智－思考批判力",
         "tag": "Z132",
-        "name": "意識物",
+        "name": "意識物 Consciousness",
         "website": "https://www.facebook.com/consciousness.sciwrite/",
       },
       {
