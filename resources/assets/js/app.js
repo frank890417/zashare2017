@@ -315,8 +315,8 @@ var vm = new Vue({
       {
         "theme": "智－思考批判力",
         "tag": "Z148",
-        "name": "[De]science",
-        "website": "https://percusion123.wixsite.com/descience",
+        "name": "[D]science",
+        "website": "https://percusion123.wixsite.com/dscience",
       },
       {
         "theme": "智－思考批判力",
