@@ -1,0 +1,21 @@
+<template>
+<div class="page_loading">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 70 40">
+  <defs></defs>
+  <title>index</title>
+    <g id="f313127c-471b-4129-aad0-ae93b40067d1" data-name="menu">
+        <polygon class="char1 ec685184-f611-44a6-93b0-55957dc715d0" points="21.92 25.77 30.44 25.77 39.98 25.77 48.5 25.77 35.28 0.48 21.92 25.77"/>
+        <polygon class="char2 ec685184-f611-44a6-93b0-55957dc715d0" points="13.33 19.08 23.08 0.48 0 0.48 0 6.55 10.26 6.55 0.02 25.77 21.91 25.77 22.05 19.08 13.33 19.08"/>
+        
+      </g>
+  </svg> 
+</div>
+</template>
+
+<script>
+export default {
+}
+</script>
+<style>
+.ec685184-f611-44a6-93b0-55957dc715d0{fill:#ff4c00;}
+</style>

@@ -1,0 +1,130 @@
+.navbar.navbar-default
+  background-color: white
+  height: 60px
+  border: none
+  transition: 0.5s
+  
+  .navbar-collapse
+    max-height: 440px
+
+  .dropdown
+    &:hover
+      .dropdown-toggle
+        color: #333
+
+  .dropdown-menu
+    max-height: 0px
+    overflow: hidden
+    display: block
+    opacity: 0
+    margin-left: -100px
+
+
+  .dropdown.open
+    .dropdown-menu
+      max-height: 500px
+      transition: 0.5s , margin-left 0s
+      opacity: 1
+      margin-left: 0px
+
+  +range_width(768px)
+    .dropdown_cata:hover
+      .dropdown-menu
+        max-height: 500px
+        transition: 0.5s
+        opacity: 1
+
+  .dropdown
+    transition: 0.5s
+    .dropdown-menu
+      // background-color: $color_red
+      li
+        margin: 0
+      a
+        color: rgba(#333,0.8)
+        // background-color: darken($color_red,3)
+        padding: 5px 10px
+        transition: 0.5s
+        &:hover
+          // background-color: darken($color_red,6)
+          color: rgba(#333,1)
+    &:hover
+      
+
+      a
+        color: rgba(#333,0.8)
+  
+  &.at_landing_page
+    background-color: transparent
+    // background: linear-gradient($color_blue,transparent)
+    // background-color: $color_blue
+    .navbar-nav > li > a
+      color: white !important
+      transition: 0.5s
+      &:hover
+        color: rgba(white,0.8) !important
+
+
+    .navbar-nav
+      // background-color: $color_blue
+      background-color: transparent
+
+    +range_width(0px,767px)
+      height: auto
+      *
+        color: white !important
+      .navbar-toggle
+        border: none
+
+      .icon-bar
+        background-color: white
+      .dropdown
+        margin-right: 0
+        &.open
+          &>a,&>a:hover
+            background-color: white !important
+            color: $color_blue !important
+      .navbar-right
+        background-color: rgba($color_blue,0.95)
+        padding-bottom: 10px
+      .navbar-toggle
+        &:hover
+          background-color: #fff
+          .icon-bar
+            background-color: $color_blue
+      .navbar-toggle.collapsed
+        background-color: transparent
+
+
+.navbar-nav
+  margin-top: 5px 
+  background-color: white
+  font-size: 15px
+  font-weight: bold
+  li
+    margin-right: 10px
+    a
+      letter-spacing: 1px
+
+    &.active
+      color: $color_red
+  li:hover
+    a
+      color: $color_red
+      opacity: 1
+
+
+.nav-transparent.navbar-default
+  background-color: transparent
+  border-bottom: none
+  li a
+    color: white
+    transition: 0.5s
+    opacity: 0.7
+  li:hover
+    a
+      color: white
+      opacity: 1
+
+.navbar-nav
+  background-color: white

@@ -3,48 +3,59 @@
   .container-fluid
     .blue_bg.news3
       .container
-        h1 2017雜學校門票開賣囉！
-        br
-        p
-          | 2017雜學校，售票系統正式上線！還記得我們去年的約定嗎？
-          br
-          | 今年我們包下整個華山，創造亞洲最大學習內容互動平台。
-          br
-          | 即日起到9/30可享早鳥優惠，快和我們一起「有感擇學TRY TRY SEE!」
+        .row
+          .col-sm-4.visible-xs
+            img.person(src='http://zashare.org/funding_assets/img/main/header-s1.png', alt='')
+          .col-sm-8.pdlr(style="z-index: 1")
+            h1 2017雜學校門票開賣囉！
+            br
+            p
+              | 2017雜學校，售票系統正式上線！還記得我們去年的約定嗎？
+              br
+              | 今年我們包下整個華山，創造亞洲最大學習內容互動平台。
+              br
+              | 即日起到9/30可享早鳥優惠，快和我們一起「有感擇學TRY TRY SEE!」
+            br
+            br.hidden-xs
+            br.hidden-xs
+            br
+          .col-sm-4.hidden-xs
+            img.person(src='http://zashare.org/funding_assets/img/main/header-s1.png', alt='')
+            
         .row.dark_bg
-          .row
-            .col-sm-1
-              h3
-                | 購票
-                br.hidden-xs
-                | 方式
-            .col-sm-11
-              .row
-                .col-sm-4
-                  .round_title 網路購票
-                  a(target='_blank', href='https://zashare.kktix.cc/events/2017zashare')
-                    | KKTIX 
-                    i.fa.fa-link
-                  h5 (KKTIX電子票券)
-                  br
-                  a(target='_blank', href='http://tickets.books.com.tw/progshow/08010901224680/')
-                    | 博客來 
-                    i.fa.fa-link
-                  h5 (iBon實體票券)
-                .col-sm-4
-                  .round_title 超商購票
-                  a(target='_blank', href='http://support.kktix.com/knowledgebase/articles/636721-全家famiport購票')
-                    | 全家FamiPort 
-                    i.fa.fa-link
-                  h5 (FamiPort實體票券)
-                  br
-                  a(target='_blank', href='http://www.ticket.com.tw/infor/ibon.htm')
-                    | 7-11 iBon 
-                    i.fa.fa-link
-                  h5 (iBon實體票券)
-                .col-sm-4
-                  .round_title 現場購票
-                  h4 活動現場實體票券
+          .col-sm-1
+            h3
+              | 購票
+              br.hidden-xs
+              | 方式
+          .col-sm-11
+            //img.visible-xs(src='http://zashare.org/funding_assets/img/main/2-right.png', alt='')
+            .row
+              .col-sm-4
+                .round_title 網路購票
+                a(target='_blank', href='https://zashare.kktix.cc/events/2017zashare')
+                  | KKTIX 
+                  i.fa.fa-link
+                h5 (KKTIX電子票券)
+                br
+                a(target='_blank', href='http://tickets.books.com.tw/progshow/08010901224680/')
+                  | 博客來 
+                  i.fa.fa-link
+                h5 (iBon實體票券)
+              .col-sm-4
+                .round_title 超商購票
+                a(target='_blank', href='http://support.kktix.com/knowledgebase/articles/636721-全家famiport購票')
+                  | 全家FamiPort 
+                  i.fa.fa-link
+                h5 (FamiPort實體票券)
+                br
+                a(target='_blank', href='http://www.ticket.com.tw/infor/ibon.htm')
+                  | 7-11 iBon 
+                  i.fa.fa-link
+                h5 (iBon實體票券)
+              .col-sm-4
+                .round_title 現場購票
+                h4 活動現場實體票券
           .row
             .col-sm-1
               h3 票價
@@ -157,7 +168,7 @@
         .row
           .col-sm-4.visible-xs
             img.person(src='http://zashare.org/funding_assets/img/main/header-s3.png', alt='')
-          .col-sm-8.pdlr
+          .col-sm-8.pdlr(style="z-index: 1")
             h1 2017 雜學校參展入圍名單出爐囉！
             p.subtitle
               | 今年度雜學校「有敢擇學try try see」公開徵展後，收到了近五百個優秀團隊的申請，

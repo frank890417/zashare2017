@@ -1,3 +1,122 @@
+
+*
+  font-family: 'Noto Sans TC',Roboto Slab,Hoefler Text,'微軟正黑體',Songti TC,serif
+  
+=flex_center
+  display: flex
+  justify-content: center
+  align-items: center
+//mixins
+@mixin paragraph_size_leading($fz,$lh)
+  font-size: $fz
+  line-height: $lh
+
+@mixin range_width($min: 0,$max: $min)
+  @if ($max==$min)
+    @media screen and (min-width: $min)
+      @content
+  @else
+    @media screen and (min-width: $min) and (max-width: $max)
+      @content
+
+@mixin range_height($min: 0,$max: $min)
+  @if ($max==$min)
+    @media screen and (min-height: $min)
+      @content
+  @else
+    @media screen and (min-height: $min) and (max-height: $max)
+      @content
+
+
+html,body
+  padding: 0
+  margin: 0
+  width: 100%
+  overflow-x: hidden
+
+h1,h2,h3,h4,h5,h6
+  font-weight: 400
+  letter-spacing: 1px
+
+h1
+  font-size: 30px
+h2
+  font-size: 24px 
+h3
+  font-size: 20px 
+h4
+  font-size: 18px 
+h5,p
+  font-size: 15px
+  letter-spacing: 0.5px
+  line-height: 26px
+
+div[direction="left"]
+  display: none
+
+@mixin ab_center
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%)
+
+=size($w,$h:$w)
+  width: $w
+  height: $h
+
+
+.clearfix.pvs.phm
+  display: none !important
+
+::selection 
+  background-color: $color_red
+  color: white
+
+br.lg
+  +range_width(0,1200px)
+    display: none
+
+// @keyframes fadeIn
+//   0%
+//     opacity: 0
+//   100%
+//     opacity: 1
+
+// .navbar,.carousel,.indep_post,.col_post
+//   opacity: 0
+//   animation: fadeIn 0.5s both
+
+.container-fluid
+  padding: 0
+
+html
+  background-color: #666
+  min-height: 100vh
+
+body,footer
+  overflow-x: hidden
+  
+  
+.app_container
+  transition: 0.5s
+  background-color: #eee
+
+
+
+
+
+
+[class^='page_']
+  padding-top: 60px
+
+//---------------------
+
+
+.fb_iframe_widget
+  max-width: 250px !important
+  width: 250px !important
+  overflow-x: hidden !important
+
 .fade-enter-active ,.fade-leave-active 
   transition: opacity 0.5s, max-height 0.5s
 

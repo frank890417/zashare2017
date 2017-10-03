@@ -22,7 +22,9 @@ import App from './App.vue'
 Vue.component('company-selector', Company_selector );
 Vue.component('postbox',Postbox);
 
-
+window.onload=function(){
+  store.commit("setLoading",false)
+}
 var vm = new Vue({
   el: "#app",
   router,
