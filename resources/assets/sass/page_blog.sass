@@ -62,14 +62,31 @@
 .carousel
   position: relative
 
+.slick-dotted.slick-slider
+  margin-bottom: 0
+
+.slick-dots
+  bottom: 25px
+
+  li
+    button:before
+      font-size: 30px
+      color: #fff  
+
+  li.slick-active
+    button:before
+      font-size: 30px
+      color: #fff 
+
+
 .carousel_bg
-  height: 500px
+  height: 550px
   background-size: cover
   // background-attachment: fixed
   background-position: center center
 
 .carousel_cover
-  background: linear-gradient(180deg,transparent 30%,black 110%)
+  background: linear-gradient(180deg,transparent 60%,rgba(black,0.3) 110%)
   position: absolute
   left: 0
   top: 0

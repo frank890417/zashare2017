@@ -19,7 +19,8 @@ nav.navbar.navbar-default.navbar-fixed-top
         </ul>
       // Right Side Of Navbar
       ul.nav.navbar-nav.navbar-right
-        // Authentication Links
+        li(:class="{active: $router.path=='/ticket'}", @click="toggleNav")
+          router-link(to='/ticket') 展覽購票
         li(:class="{active: $router.path=='/news'}", @click="toggleNav")
           router-link(to="/news") 最新消息
         li.dropdown.dropdown_cata.hidden-xs(:class="{active: $router.path=='/blog'}")
@@ -41,27 +42,27 @@ nav.navbar.navbar-default.navbar-fixed-top
               a(href='/blog#F') 肢體與藝術創作
             li
               a(href='/blog#G') 自然與食農教育
+        li(:class="{active: $router.path=='/about'}", @click="toggleNav")
+          router-link(to='/about') 關於雜學校
         li.dropdown.dropdown_cata.visible-xs(:class="{active: $router.path=='/blog'}")
-          a(href='#', role='button', aria-haspopup='true', aria-expanded='true')
-            | 參展報導
+          router-link(to='#', role='button', aria-haspopup='true', aria-expanded='true')
+            | 2016參展報導
             span.caret
           ul.dropdown-menu
             li
-              a(href='/blog#A') 學校現場與實驗教育
+              router-link(to='/blog/A') 學校現場與實驗教育
             li
-              a(href='/blog#B') 教育倡議與實踐
+              router-link(to='/blog/B') 教育倡議與實踐
             li
-              a(href='/blog#C') 媒體與資訊平台
+              router-link(to='/blog/C') 媒體與資訊平台
             li
-              a(href='/blog#D') 創客與程式設計
+              router-link(to='/blog/D') 創客與程式設計
             li
-              a(href='/blog#E') 文化與歷史生活
+              router-link(to='/blog/E') 文化與歷史生活
             li
-              a(href='/blog#F') 肢體與藝術創作
+              router-link(to='/blog/F') 肢體與藝術創作
             li
-              a(href='/blog#G') 自然與食農教育
-        li(:class="{active: $router.path=='/about'}", @click="toggleNav")
-          router-link(to='/about') 關於雜學校
+              router-link(to='/blog/G') 自然與食農教育
         li(:class="{active: $router.path=='/expo'}", @click="toggleNav")
           router-link(to='/expo') 歷屆展覽
        

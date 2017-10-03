@@ -25,7 +25,10 @@ const routes = [
   { path: '/', component: require( '../pages/page_index.vue') },
   { path: '/news', component: require( '../pages/page_news.vue') },
   { path: '/expo', component: require( '../pages/page_expo.vue') },
+  { path: '/ticket', component: require( '../pages/page_ticket.vue') },
   { path: '/about', component: require( '../pages/page_about.vue') },
+  { path: '/blog', component: require( '../pages/page_blog.vue')},
+  { path: '/blog/:filter_cata', component: require( '../pages/page_blog.vue') ,props: true},
   // { path: '/service', component: page_service },
 
   // { path: '/works', component: page_works },

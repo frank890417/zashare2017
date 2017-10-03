@@ -1,75 +1,51 @@
 <!-- 這邊是首頁的文章顯示區 -->
-<template>
-  <div class="container" v-if='posts.length>0' :class="loading?'loading':''">
-    <div class="row">
-      <!-- 搜尋 -->
-      <div class="col-sm-12" >
-        <div class="col-sm-12">
-          <div class="form-group" style='position: relative'>
-            <i class="fa fa-search" style='position: absolute;top: 10px;left: 12px;'></i>
-            <input style='width: 100%;padding: 5px 10px;border-radius: 5px;border:none;border:solid #aaa 1px;padding-left: 30px' type="text" placeholder=" 搜尋標題、內文、類別" v-model='filter' id='searchinput'>
-          </div>
-        </div>
-      </div>
-
-      <!-- 文章區域  使用vue.js渲染 -->
-      <div class="col-sm-12" >
-          <!-- 類別標題 -->
-          <h2 class="cata_title" v-if="!(filter_cata=='')">類別-{{get_cata_name(filter_cata)}} <div class='cancelbtn' @click="set_cata('')"></div></h2>
-          <br>
-
-          <!-- 類別 三篇文章 -->
-          <div v-for="cata in catalist" v-show="(filter_cata=='') && (limit_tag_split(filtered_post,3)[cata.tag])">
-            <div class="col-sm-12">
-              <h2 class='cata_title'>{{cata.name}}
-                <div class="more_btn"  @click="set_cata(cata.tag)" ></div>
-              </h2>
-              <br>
-            </div>
-
-            <!-- 類別三篇文章 -->
-            <div class="row">
-              <div class="col-sm-4" v-for='(p,id) in limit_tag_split(filtered_post,3)[cata.tag]' >
-                <a class="postbox" :href="'post/n/'+(p.ori_title?p.ori_title:p.title)">
-                  <div class="topimg" :style='css_top_img(p)' >
-                      <h3 class='company_name' v-html='p.name_cht'></h3>
-                  </div>
-                  <h3 class='post_title' v-html='"【"+p.name_short+"】"+p.title'></h3>
-                  <p class='post_para' v-html='(p.description+"").substr(0,70)+"..."'></p>
-                  <!-- <p class='post_author text-muted' v-text='p.author.replace(/\//g," / ")+ " " + p.established_time.split(" ")[0]'> </p> -->
-                </a>
-              </div>
-            </div>
-
-          </div>
-      </div>
-
-    </div>
-
-    <div class="row post_wait" >
-      <div class="col-sm-12">
-        <h3 class="text-center" v-show="!(filter_cata=='') && filtered_post.length==0">相關報導即將上線</h3>
-      </div>
-    </div>
-    
-
-    <!-- 瀏覽單一類別 -->
-    <div class="row" v-for='fp in filtered_post_three' v-if="!(filter_cata=='')">
-      <div class="col-sm-4" v-for='p in fp'>
-        <a class="postbox" :href="'post/n/'+(p.ori_title?p.ori_title:p.title)">
-            <div class="topimg" :style='css_top_img(p)' >
-                <h3 class='company_name' v-html='p.name_cht'></h3>
-            </div>
-            <h3 class='post_title' v-html='"【"+p.name_short+"】"+p.title'></h3>
-            <p class='post_para' v-html='(p.description+"").substr(0,70)+"..."'></p>
-            <!-- <p class='post_author text-muted' v-text='p.author.replace(/\//g," / ")+ " " + p.established_time.split(" ")[0]'> </p> -->
-        </a>
-      </div>
-    </div>
-</div>
-<div v-else>
-  <h2>文章載入中...</h2>
-</div>
+<template lang="pug">
+  div
+    .container.blog_posts_area(v-if='posts.length>0', :class="loading?'loading':''")
+      .row
+        // 搜尋
+        .col-sm-12
+          .col-sm-12
+            .form-group(style='position: relative')
+              i.fa.fa-search(style='position: absolute;top: 10px;left: 12px;')
+              input#searchinput(style='width: 100%;padding: 5px 10px;border-radius: 5px;border:none;border:solid #aaa 1px;padding-left: 30px', type='text', placeholder=' 搜尋標題、內文、類別', v-model='filter')
+        // 文章區域  使用vue.js渲染
+        .col-sm-12
+          // 類別標題
+          h2.cata_title(v-if="!(filter_cata=='')", :class="{specified: filter_cata!=''}")
+            | 類別-{{get_cata_name(filter_cata)}} 
+            .cancelbtn(@click="set_cata('')")
+        br
+        // 類別 三篇文章
+        div(v-for='cata in catalist', v-show="(filter_cata=='') && (limit_tag_split(filtered_post,3)[cata.tag])")
+          .col-sm-12
+            h2.cata_title
+              | {{cata.name}}
+              .more_btn(@click="set_cata(cata.tag)")
+            br
+          // 類別三篇文章
+          .row
+            .col-sm-4(v-for='(p,id) in limit_tag_split(filtered_post,3)[cata.tag]')
+              a.postbox(:href="'/post/n/'+(p.ori_title?p.ori_title:p.title)")
+                .topimg(:style='css_top_img(p)')
+                  h3.company_name(v-html='p.name_cht')
+                h3.post_title(v-html='"【"+p.name_short+"】"+p.title')
+                p.post_para(v-html='(p.description+"").substr(0,70)+"..."')
+                // <p class='post_author text-muted' v-text='p.author.replace(/\//g," / ")+ " " + p.established_time.split(" ")[0]'> </p>
+      .row.post_wait
+        .col-sm-12
+          h3.text-center(v-show="!(filter_cata=='') && filtered_post.length==0") 相關報導即將上線
+      // 瀏覽單一類別
+      .row(v-for='fp in filtered_post_three', v-if="!(filter_cata=='')")
+        .col-sm-4(v-for='p in fp')
+          a.postbox(:href="'/post/n/'+(p.ori_title?p.ori_title:p.title)")
+            .topimg(:style='css_top_img(p)')
+              h3.company_name(v-html='p.name_cht')
+            h3.post_title(v-html='"【"+p.name_short+"】"+p.title')
+            p.post_para(v-html='(p.description+"").substr(0,70)+"..."')
+            // <p class='post_author text-muted' v-text='p.author.replace(/\//g," / ")+ " " + p.established_time.split(" ")[0]'> </p>
+    div(v-else='')
+      h2 文章載入中...
 
 </template>
 
@@ -83,11 +59,24 @@
       tag: "temp"
     };
     export default {
+        props: {
+          catalist:{
+            default(){
+              return []
+            }
+          },
+          posts:{
+            default(){
+              return [temp,temp,temp]
+            } 
+          },
+          // filter_cata:{
+          //   default: ""
+          // }
+        },
         data: function (){
             return {
-                posts: [temp,temp,temp],
                 loading: true,
-                catalist: [],
                 filter: "",
                 filter_cata: ""
             }
@@ -95,19 +84,15 @@
         ,
         mounted() {
             console.log('Postbox mounted.');
-            this.catalist=window.data_storage.catalist;
-
-            // if (window.data_storage.posts){
-            this.posts=window.data_storage.posts;
             this.loading=false;
-            this.filter_cata=window.location.hash.slice(1) ;
+            // this.filter_cata=window.location.hash.slice(1) ;
 
             var vobj=this;
-            window.onhashchange = function(){
-              vobj.filter_cata=window.location.hash.slice(1) ;
-              $("html,body").animate({scrollTop: $(".cata_title").offset().top-100},'fast');
+            // window.onhashchange = function(){
+            //   vobj.filter_cata=window.location.hash.slice(1) ;
+            //   $("html,body").animate({scrollTop: $(".cata_title").offset().top-100},'fast');
 
-            }
+            // }
 
             // }else{
               
@@ -129,7 +114,7 @@
             },
             set_cata: function(cata){
               this.filter_cata=cata;
-              $("html, body").animate({ scrollTop: 0 }, "fast");
+              $("html, body").animate({ scrollTop: $($(".blog_posts_area")[0]).offset().top });
             },
             get_cata_name: function(tag){
               var result="";
@@ -340,6 +325,7 @@ $color_red: #EE3441;
   margin-bottom: 10px;
   padding-bottom: 8px;
   position: relative;
+  
 
   @media screen and (max-width: 800px){
     margin-bottom: 50px;

@@ -67,30 +67,62 @@ class HomeController extends Controller
               ->with('catalist',$catalist);
     }
 
-    public function news(){
-      return view('news')
-              ->with('pagename','news')
-              ->with('title','最新消息');
 
+    public function postpage_api()
+    {
+        $posts = DB::table('posts')
+                ->where('status',"published")
+                ->join('companies','companies.tag','=','posts.company')
+                ->join('catas','catas.tag','posts.tag')
+                ->orderBy('stick_top_cata','DESC')
+                ->orderBy('tag','ASC')
+                ->select('posts.*','companies.name_cht','companies.name_short','catas.name as cataname')
+                ->get();
+
+
+        $catalist = Cata::all();
+        $show_posts= DB::table('posts')
+                   ->where('status',"published")
+                   ->where('stick_top_index',"1")
+                   ->join("companies",'companies.tag','=','posts.company')
+                   ->where('cover','!=','')->inRandomOrder()->limit(10)
+                   ->get(['posts.*' , 'companies.name_cht']);
+
+        foreach ($posts as $post){
+            unset($post->content);
+        }
+
+        return [
+          'posts'=> $posts,
+          'show_posts'=> $show_posts,
+          'catalist'=> $catalist
+        ];
     }
 
-    public function about(){
-      return view('about')
-              ->with('pagename','about')
-              ->with('title','關於雜學校');
+    // public function news(){
+    //   return view('news')
+    //           ->with('pagename','news')
+    //           ->with('title','最新消息');
 
-    }
+    // }
+
+    // public function about(){
+    //   return view('about')
+    //           ->with('pagename','about')
+    //           ->with('title','關於雜學校');
+
+    // }
 
     public function landing(){
       return view('landing')->with('title','雜學校-百百種學習的面貌');
     }
     
 
-    public function expo(){
-      return view('expo')
-            ->with('pagename','expo')
-            ->with('title','過去展覽成果');
-    }
+    // public function expo(){
+    //   return view('expo')
+    //         ->with('pagename','expo')
+    //         ->with('title','過去展覽成果');
+    // }
 
     public function funding(){
       return view('funding')

@@ -18,6 +18,8 @@ Route::get('/user', function (Request $request) {
 
 })->middleware('auth:api');
 
+Route::get('/page/blog','HomeController@postpage_api');
+
 Route::group(['middleware'=>['cors']] , function(){
   Route::resource('company', 'CompanyController');
   Route::get('/company/tag/{tag}','CompanyController@find_by_tag');
