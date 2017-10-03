@@ -20,7 +20,7 @@ nav.navbar.navbar-default.navbar-fixed-top
       // Right Side Of Navbar
       ul.nav.navbar-nav.navbar-right
         // Authentication Links
-        li(:class="{active: $router.path=='/news'}")
+        li(:class="{active: $router.path=='/news'}", @click="toggleNav")
           router-link(to="/news") 最新消息
         li.dropdown.dropdown_cata.hidden-xs(:class="{active: $router.path=='/blog'}")
           a(href="/blog", role='button', aria-haspopup='true', aria-expanded='true')
@@ -60,14 +60,41 @@ nav.navbar.navbar-default.navbar-fixed-top
               a(href='/blog#F') 肢體與藝術創作
             li
               a(href='/blog#G') 自然與食農教育
-        li(:class="{active: $router.path=='/about'}")
+        li(:class="{active: $router.path=='/about'}", @click="toggleNav")
           router-link(to='/about') 關於雜學校
-        li(:class="{active: $router.path=='/expo'}")
+        li(:class="{active: $router.path=='/expo'}", @click="toggleNav")
           router-link(to='/expo') 歷屆展覽
        
 </template>
 
 <script>
+import $ from 'jquery'
+export default {
+  mounted(){
+    if ($('.dropdown').length>0){
+      console.log("add event collapse")
+      // if ($(window).width()>700){
+      //   $('.dropdown').hover(function(){
+      //     $(this).addClass('open');
+      //   },function(){
+      //     $(this).removeClass('open');
+      //   });
+      // }
+      $(".dropdown").click(function(){
+        $(this).toggleClass("open");
+      });
+      $(".dropdown-menu li").click(function(){
+        // $(this).parent.toggleClass("open");
+        $("#app-navbar-collapse").removeClass("in");
+      });
+    }
+  },
+  methods: {
+    toggleNav(){
+      $(".navbar-collapse").collapse('hide');
+    }
+  }
+}
 </script>
 
 <style>
