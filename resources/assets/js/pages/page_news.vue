@@ -20,7 +20,7 @@
             br.hidden-xs
             br
           .col-sm-4.hidden-xs
-            img.person(src='http://zashare.org/funding_assets/img/main/header-s1.png', alt='')
+            img.person.fadeIn.animated(src='http://zashare.org/funding_assets/img/main/header-s1.png', alt='')
             
         .row.dark_bg
           .col-sm-1
@@ -232,8 +232,11 @@
 </template>
 
 <script>
-
 export default {
+  metaInfo: {
+    title: '最新消息', // set a title
+    titleTemplate: '%s - 雜學校 Zashare', // title is now "My Example App - Yay!"
+  },
   data() {
     return {
       list2017: require('../zashare_2017_group_list').default,

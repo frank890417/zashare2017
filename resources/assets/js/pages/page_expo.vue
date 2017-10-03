@@ -140,7 +140,10 @@
 
 <script>
 export default {
-
+  metaInfo: {
+    title: '歷屆展覽', // set a title
+    titleTemplate: '%s - 雜學校 Zashare', // title is now "My Example App - Yay!"
+  }
 }
 </script>
 

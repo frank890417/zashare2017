@@ -18,7 +18,14 @@ import Postbox from './components/Postbox.vue';
 import router from './router/index.js'
 import store from './store/index.js'
 import App from './App.vue'
+import VueAnalytics from 'vue-analytics'
 
+if (document.domain!="zashare2017.dev"){
+  Vue.use(VueAnalytics, {
+    id: 'UA-52977512-16',
+    router
+  })
+}
 Vue.component('company-selector', Company_selector );
 Vue.component('postbox',Postbox);
 

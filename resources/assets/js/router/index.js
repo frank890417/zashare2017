@@ -2,7 +2,9 @@ import $ from 'jquery'
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-Vue.use(VueRouter);
+import Meta from 'vue-meta'
+Vue.use(VueRouter)
+Vue.use(Meta)
 
 // import page_service from '../components/page_service';
 // // import page_works from '../components/page_work';

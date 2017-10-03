@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('meta_og')
     <title>雜學校Zashare-亞洲最大創新教育展</title>
-    
+
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
@@ -21,7 +21,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-
+<!-- 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -31,7 +31,7 @@
       ga('create', 'UA-52977512-16', 'auto');
       ga('send', 'pageview');
 
-    </script>
+    </script> -->
       
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
