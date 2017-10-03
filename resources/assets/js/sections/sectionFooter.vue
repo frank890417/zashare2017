@@ -39,6 +39,8 @@ footer
           | Mail. zashare@ozzie-art.com
           br
           br
+          span 網站製作：
+            a(href="http://monoame.com" target="_blank" @click="$ga.event('link', 'click', '墨雨設計')") 墨雨設計
         p © 2017 雜学校 Za Share All Rights Reserved.    
         br
     //
