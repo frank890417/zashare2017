@@ -45,22 +45,22 @@ nav.navbar.navbar-default.navbar-fixed-top
         li(:class="{active: $router.path=='/about'}", @click="toggleNav")
           router-link(to='/about') 關於雜學校
         li.dropdown.dropdown_cata.visible-xs(:class="{active: $router.path=='/blog'}")
-          router-link(to='#', role='button', aria-haspopup='true', aria-expanded='true')
+          router-link(to='/blog', role='button', aria-haspopup='true', aria-expanded='true')
             | 2016參展報導
             span.caret
           ul.dropdown-menu
             li
-              router-link(to='/blog/A') 學校現場與實驗教育
+              router-link(to='/blog#A') 學校現場與實驗教育
             li
-              router-link(to='/blog/B') 教育倡議與實踐
+              router-link(to='/blog#B') 教育倡議與實踐
             li
-              router-link(to='/blog/C') 媒體與資訊平台
+              router-link(to='/blog#C') 媒體與資訊平台
             li
-              router-link(to='/blog/D') 創客與程式設計
+              router-link(to='/blog#D') 創客與程式設計
             li
-              router-link(to='/blog/E') 文化與歷史生活
+              router-link(to='/blog#E') 文化與歷史生活
             li
-              router-link(to='/blog/F') 肢體與藝術創作
+              router-link(to='/blog#F') 肢體與藝術創作
             li
               router-link(to='/blog/G') 自然與食農教育
         li(:class="{active: $router.path=='/expo'}", @click="toggleNav")

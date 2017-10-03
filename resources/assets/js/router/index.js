@@ -28,7 +28,7 @@ const routes = [
   { path: '/ticket', component: require( '../pages/page_ticket.vue') },
   { path: '/about', component: require( '../pages/page_about.vue') },
   { path: '/blog', component: require( '../pages/page_blog.vue')},
-  { path: '/blog/:filter_cata', component: require( '../pages/page_blog.vue') ,props: true},
+  { path: '/blog/:cata', component: require( '../pages/page_blog.vue') ,props: true},
   // { path: '/service', component: page_service },
 
   // { path: '/works', component: page_works },
