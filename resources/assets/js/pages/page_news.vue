@@ -81,15 +81,15 @@
             .form-inline
               label(for='', placeholder='請輸入關鍵字') 快速搜尋：
               input.form-control(type='text', v-model='teamfilter')
-              label(for='')  (共@{{filtered2017list.length}}項結果)
+              label(for='')  (共{{filtered2017list.length}}項結果)
         .row.row_list(v-for='cata in cata2017', v-if='getCataTeam2017(cata).length')
           .col-sm-12
             br
-            h3  @{{cata}} 
+            h3  {{cata}} 
           .catabox.col-sm-12
             a.col-sm-4.team(v-for='team in getCataTeam2017(cata)', :href="team.website.indexOf('http')!=-1?team.website:'http://'+team.website", target='_blank', :title="'前往'+team.name+'的網站'")
-              .tag @{{team.tag}}
-              .title @{{team.name}}
+              .tag {{team.tag}}
+              .title {{team.name}}
       br
       br
       .container.area_news.area_news_white
