@@ -82,7 +82,7 @@
       author: " ",
       tag: "temp"
     };
-    module.exports={
+    export default {
         data: function (){
             return {
                 posts: [temp,temp,temp],

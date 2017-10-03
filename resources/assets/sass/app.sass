@@ -100,9 +100,17 @@ br.lg
 .container-fluid
   padding: 0
 
+html
+  background-color: #666
+  min-height: 100vh
+
 body,footer
-  width: 100%
   overflow-x: hidden
+  
+  
+.app_container
+  transition: 0.5s
+  background-color: #eee
 //---------------------
 
 
@@ -136,6 +144,8 @@ footer
   background-color: white
   height: 60px
   border: none
+  transition: 0.5s
+  
   .navbar-collapse
     max-height: 440px
 
@@ -167,6 +177,7 @@ footer
         opacity: 1
 
   .dropdown
+    transition: 0.5s
     .dropdown-menu
       // background-color: $color_red
       li
@@ -185,6 +196,48 @@ footer
       a
         color: rgba(#333,0.8)
   
+  &.at_landing_page
+    background-color: transparent
+    // background: linear-gradient($color_blue,transparent)
+    // background-color: $color_blue
+    .navbar-nav > li > a
+      color: white !important
+      transition: 0.5s
+      &:hover
+        color: rgba(white,0.8) !important
+
+
+    .navbar-nav
+      // background-color: $color_blue
+      background-color: transparent
+
+    +range_width(0px,767px)
+      height: auto
+      *
+        color: white !important
+      .navbar-toggle
+        border: none
+
+      .icon-bar
+        background-color: white
+      .dropdown
+        margin-right: 0
+        &.open
+          &>a,&>a:hover
+            background-color: white !important
+            color: $color_blue !important
+      .navbar-right
+        background-color: rgba($color_blue,0.95)
+        padding-bottom: 10px
+      .navbar-toggle
+        &:hover
+          background-color: #fff
+          .icon-bar
+            background-color: $color_blue
+      .navbar-toggle.collapsed
+        background-color: transparent
+
+
 .navbar-nav
   margin-top: 5px 
   background-color: white
@@ -264,11 +317,16 @@ footer
   +range_width(0px,500px)
     display: block
   
+
+[class^='page_']
+  padding-top: 60px
+
 //------------
 //blog
 
 
 .page_blog
+  padding-top: 0
   background-color: $color_red
 
 .post-box-wrapper
@@ -359,13 +417,11 @@ footer
       height: 100%
 
 
-$color_orange: #FF4C00
-$color_blue: #0047BA
 
 
 .landing_page_body
   width: 100vw
-  height: 100vh
+  min-height: 100vh
   overflow: hidden
   position: relative
   display: flex
@@ -381,20 +437,6 @@ $color_blue: #0047BA
     // background-color: $color_blue
     user-select: none
 
-  nav.navbar-default
-    background-color: transparent
-    // background: linear-gradient($color_blue,transparent)
-    // background-color: $color_blue
-    .navbar-nav > li > a
-      color: white !important
-      transition: 0.5s
-      &:hover
-        color: rgba(white,0.8) !important
-
-
-  .navbar-nav
-    // background-color: $color_blue
-    background-color: transparent
 
   .main_info_container
     position: absolute
@@ -407,7 +449,7 @@ $color_blue: #0047BA
     flex-direction: column
     justify-content: center
     max-width: 1400px
-
+    z-index: 1
     padding: 80px
     padding-left: 10px
 
@@ -502,7 +544,7 @@ $color_blue: #0047BA
     background-size: auto 100%
     background-position: center 30%
     background-attachment: fixed
-    height: auto
+    
     
     .index_btns
       flex-direction: column
@@ -520,7 +562,7 @@ $color_blue: #0047BA
         img
           height: initial
     .main_info_container
-      height: 100vh
+      min-height: 100vh
       width: calc(100% - 40px)
       padding: 0px !important
       justify-content: flex-start
@@ -531,40 +573,14 @@ $color_blue: #0047BA
 
         // margin-bottom: 100px
         width: 100%
+      +range_width(0px,500px)
+        position: relative
     
-    nav.navbar-default
-      height: auto
-
-      *
-        color: white !important
-      .navbar-toggle
-        border: none
-
-      .icon-bar
-        background-color: white
-      .dropdown
-        margin-right: 0
-        &.open
-          >a,>a:hover
-            background-color: white !important
-            color: $color_blue !important
-
 
     .main_info_container
       padding: 20px
 
 
-  +range_width(0px,767px)
-    .navbar-right
-      background-color: rgba($color_blue,0.95)
-      padding-bottom: 10px
-    .navbar-toggle
-      &:hover
-        background-color: #fff
-        .icon-bar
-          background-color: $color_blue
-    .navbar-toggle.collapsed
-      background-color: transparent
       
     // padding-top: 50px
 
@@ -606,7 +622,7 @@ $color_blue: #0047BA
   transform: translate(-50%,-50%)
   pointer-events: none
   -webkit-pointer-events: none
-  z-index: -1
+  z-index: 0
   +range_width(0px,800px) 
     display: none 
   @media screen and (min-aspect-ratio: 2/1)
@@ -1245,3 +1261,13 @@ $color_blue: #0047BA
     padding: 0
 
 
+.fade-enter-active ,.fade-leave-active 
+  transition: opacity 0.5s, max-height 0.5s
+
+.fade-enter, .fade-leave-to 
+  opacity: 0
+  
+
+
+
+  @import "common"

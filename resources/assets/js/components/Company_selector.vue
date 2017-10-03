@@ -12,35 +12,35 @@
 
 <script>
 
-    var apiurl="/api/company/tag/";
+  var apiurl="/api/company/tag/";
 
-    module.exports={
-      data:function (){
-        return {
-          company: {},
-          company_filter: window.company_filter,
-          company_linking: false
-        }
-      },
-      watch: {
-        company_filter: function(){
-          this.update_company();
-        }
-      },methods: {
-        update_company: function(){
-          this.company_linking=true;
-          this.company={};
-          var vobj=this;
-          this.$http.get(apiurl+this.company_filter).then(function(res){
-            vobj.company=res.body;
-            this.company_linking=false;
-          });
-          
-        }
-      },mounted: function(){
+  export default {
+    data:function (){
+      return {
+        company: {},
+        company_filter: window.company_filter,
+        company_linking: false
+      }
+    },
+    watch: {
+      company_filter: function(){
         this.update_company();
-        vm=this;  
-      }  
+      }
+    },methods: {
+      update_company: function(){
+        this.company_linking=true;
+        this.company={};
+        var vobj=this;
+        this.$http.get(apiurl+this.company_filter).then(function(res){
+          vobj.company=res.body;
+          this.company_linking=false;
+        });
+        
+      }
+    },mounted: function(){
+      this.update_company();
+      vm=this;  
+    }  
 }
 
 </script>

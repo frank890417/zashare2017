@@ -22,6 +22,12 @@ class HomeController extends Controller
     //     $this->middleware('guest');
     // }
 
+
+    
+    public function spa()
+    {
+      return view("layouts/app_spa");
+    }
     /**
      * Show the application dashboard.
      *

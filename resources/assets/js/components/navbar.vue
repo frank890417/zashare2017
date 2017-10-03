@@ -1,0 +1,75 @@
+<template lang="pug">
+nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      // Collapsed Hamburger
+      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#app-navbar-collapse')
+        span.sr-only Toggle Navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      // Branding Image
+      router-link.navbar-brand(to="/")
+        img(src='/img/2017/index_za_logo.svg', height='28px')
+    #app-navbar-collapse.collapse.navbar-collapse
+      // Left Side Of Navbar
+      //
+        <ul class="nav navbar-nav">
+        &nbsp;
+        </ul>
+      // Right Side Of Navbar
+      ul.nav.navbar-nav.navbar-right
+        // Authentication Links
+        li(:class="{active: $router.path=='/news'}")
+          router-link(to="/news") 最新消息
+        li.dropdown.dropdown_cata.hidden-xs(:class="{active: $router.path=='/blog'}")
+          a(href="/blog", role='button', aria-haspopup='true', aria-expanded='true')
+            | 參展報導
+            span.caret
+          ul.dropdown-menu
+            li
+              a(href='/blog#A') 學校現場與實驗教育
+            li
+              a(href='/blog#B') 教育倡議與實踐
+            li
+              a(href='/blog#C') 媒體與資訊平台
+            li
+              a(href='/blog#D') 創客與程式設計
+            li
+              a(href='/blog#E') 文化與歷史生活
+            li
+              a(href='/blog#F') 肢體與藝術創作
+            li
+              a(href='/blog#G') 自然與食農教育
+        li.dropdown.dropdown_cata.visible-xs(:class="{active: $router.path=='/blog'}")
+          a(href='#', role='button', aria-haspopup='true', aria-expanded='true')
+            | 參展報導
+            span.caret
+          ul.dropdown-menu
+            li
+              a(href='/blog#A') 學校現場與實驗教育
+            li
+              a(href='/blog#B') 教育倡議與實踐
+            li
+              a(href='/blog#C') 媒體與資訊平台
+            li
+              a(href='/blog#D') 創客與程式設計
+            li
+              a(href='/blog#E') 文化與歷史生活
+            li
+              a(href='/blog#F') 肢體與藝術創作
+            li
+              a(href='/blog#G') 自然與食農教育
+        li(:class="{active: $router.path=='/about'}")
+          router-link(to='/about') 關於雜學校
+        li(:class="{active: $router.path=='/expo'}")
+          router-link(to='/expo') 歷屆展覽
+       
+</template>
+
+<script>
+</script>
+
+<style>
+
+</style>

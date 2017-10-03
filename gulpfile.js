@@ -16,8 +16,6 @@ require('laravel-elixir-vue-2');
 elixir((mix) => {
     mix.sass('app.sass')
        .webpack([
-//          '../../../node_modules/dropzone/dist/dropzone.js',
-//          '../../../node_modules/tinymce/tinymce.js',
           'app.js'
         ],'public/js/app.js')
 });

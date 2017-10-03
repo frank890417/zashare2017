@@ -42,84 +42,84 @@
 </template>
 
 <script>
-    var temp={
-      title: " ",
-      authos: " ",
-      established_time: " ",
-      cover: " ",
-      author: " "
-    };
-    module.exports={
-        data: function (){
-            return {
-                posts: [temp,temp,temp],
-                loading: true,
-                catalist: [],
-                filter: "",
-                filter_cata: ""
-            }
-        }
-        ,
-        mounted() {
-            console.log('Postbox mounted.');
-            this.catalist=window.data_storage.catalist;
-
-            // if (window.data_storage.posts){
-            this.posts=window.data_storage.posts;
-            this.loading=false;
-            // }else{
-              
-            //   var vobj=this;
-            //   this.$http.get('http://build.zashare.org/api/post/all').then(function(res){
-            //       vobj.posts=res.body;
-            //       vobj.loading=false;
-            //       // console.log(vobj.posts);
-            //   });
-            // }
-        },
-        methods: {
-            css_top_img: function(post){
-                // console.log(post.cover);
-                return {"background-image":"url("+post.cover.trim().replace(" ","%20")+")"};
-            },
-            set_filter: function(filter){
-              this.filter=filter;
-            },
-            set_cata: function(cata){
-              this.filter_cata=cata;
-            },
-            get_cata_name: function(tag){
-              var result="";
-              this.catalist.forEach(function(obj){
-                if (obj.tag==tag){
-                  result=obj.name;
-                }
-              })
-              return result;
-            }
-        },
-        computed: {
-          filtered_post: function(){
-            //if no filter return original posts
-            if (this.filter=="" && this.filter_cata=="") return this.posts;
-
-            //else apply filter
-            var npost=[];
-            var vobj=this;
-            this.posts.forEach(function(obj,index){
-              if (obj.title.indexOf(vobj.filter)!=-1 ||
-                  obj.description.indexOf(vobj.filter)!=-1 ||
-                  obj.name_cht.indexOf(vobj.filter)!=-1 
-                   ){
-                if (vobj.filter_cata=='' || obj.tag==vobj.filter_cata){
-                  npost.push(obj);
-                }
-              }
-            });
-            return npost;
-          }
+var temp={
+  title: " ",
+  authos: " ",
+  established_time: " ",
+  cover: " ",
+  author: " "
+};
+export default {
+    data (){
+        return {
+            posts: [temp,temp,temp],
+            loading: true,
+            catalist: [],
+            filter: "",
+            filter_cata: ""
         }
     }
+    ,
+    mounted() {
+        console.log('Postbox mounted.');
+        this.catalist=window.data_storage.catalist;
+
+        // if (window.data_storage.posts){
+        this.posts=window.data_storage.posts;
+        this.loading=false;
+        // }else{
+          
+        //   var vobj=this;
+        //   this.$http.get('http://build.zashare.org/api/post/all').then(function(res){
+        //       vobj.posts=res.body;
+        //       vobj.loading=false;
+        //       // console.log(vobj.posts);
+        //   });
+        // }
+    },
+    methods: {
+        css_top_img: function(post){
+            // console.log(post.cover);
+            return {"background-image":"url("+post.cover.trim().replace(" ","%20")+")"};
+        },
+        set_filter: function(filter){
+          this.filter=filter;
+        },
+        set_cata: function(cata){
+          this.filter_cata=cata;
+        },
+        get_cata_name: function(tag){
+          var result="";
+          this.catalist.forEach(function(obj){
+            if (obj.tag==tag){
+              result=obj.name;
+            }
+          })
+          return result;
+        }
+    },
+    computed: {
+      filtered_post: function(){
+        //if no filter return original posts
+        if (this.filter=="" && this.filter_cata=="") return this.posts;
+
+        //else apply filter
+        var npost=[];
+        var vobj=this;
+        this.posts.forEach(function(obj,index){
+          if (obj.title.indexOf(vobj.filter)!=-1 ||
+              obj.description.indexOf(vobj.filter)!=-1 ||
+              obj.name_cht.indexOf(vobj.filter)!=-1 
+                ){
+            if (vobj.filter_cata=='' || obj.tag==vobj.filter_cata){
+              npost.push(obj);
+            }
+          }
+        });
+        return npost;
+      }
+    }
+  }
 </script>
 
 <style scoped lang=sass>

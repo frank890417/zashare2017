@@ -12,11 +12,19 @@
 */
 
 
-Route::get('/', "HomeController@landing");
+Route::get('/testspa', "HomeController@spa");
+Route::get('/', "HomeController@spa");
+Route::get('/news', "HomeController@spa");
+Route::get('/about', "HomeController@spa");
+Route::get('/expo', "HomeController@spa");
+
+
+
+// Route::get('/', "HomeController@landing");
 Route::get('/blog', "HomeController@index");
-Route::get('/about',"HomeController@about");
-Route::get('/expo',"HomeController@expo");
-Route::get('/news',"HomeController@news");
+// Route::get('/about',"HomeController@about");
+// Route::get('/expo',"HomeController@expo");
+// Route::get('/news',"HomeController@news");
 Route::get('/funding',"HomeController@funding");
 Route::get('/pacman',"HomeController@pacman");
 
