@@ -23,39 +23,55 @@
             img.person.fadeIn.animated(src='http://zashare.org/funding_assets/img/main/header-s1.png', alt='')
             
         .row.dark_bg
-          .col-sm-1
-            h3
-              | 購票
-              br.hidden-xs
-              | 方式
-          .col-sm-11
-            //img.visible-xs(src='http://zashare.org/funding_assets/img/main/2-right.png', alt='')
-            .row
-              .col-sm-4
-                .round_title 網路購票
-                a(target='_blank', href='https://zashare.kktix.cc/events/2017zashare')
-                  | KKTIX 
-                  i.fa.fa-link
-                h5 (KKTIX電子票券)
-                br
-                a(target='_blank', href='http://tickets.books.com.tw/progshow/08010901224680/')
-                  | 博客來 
-                  i.fa.fa-link
-                h5 (iBon實體票券)
-              .col-sm-4
-                .round_title 超商購票
-                a(target='_blank', href='http://support.kktix.com/knowledgebase/articles/636721-全家famiport購票')
-                  | 全家FamiPort 
-                  i.fa.fa-link
-                h5 (FamiPort實體票券)
-                br
-                a(target='_blank', href='http://www.ticket.com.tw/infor/ibon.htm')
-                  | 7-11 iBon 
-                  i.fa.fa-link
-                h5 (iBon實體票券)
-              .col-sm-4
-                .round_title 現場購票
-                h4 活動現場實體票券
+          .row
+            .col-sm-1
+              h3
+                | 購票
+                br.hidden-xs
+                | 方式
+            .col-sm-11
+              //img.visible-xs(src='http://zashare.org/funding_assets/img/main/2-right.png', alt='')
+              .row
+                .col-sm-4
+                  .round_title 網路購票
+                  a(
+                    target='_blank', 
+                    href='https://zashare.kktix.cc/events/2017zashare', 
+                    @click="$ga.event('link', 'click', 'ticket' ,'網路購票')"
+                    )
+                    | KKTIX 
+                    i.fa.fa-link
+                  h5 (KKTIX電子票券)
+                  br
+                  a(
+                    target='_blank', 
+                    href='http://tickets.books.com.tw/progshow/08010901224680/', 
+                    @click="$ga.event('link', 'click', 'ticket' ,'博客來 ')"
+                    )
+                    | 博客來 
+                    i.fa.fa-link
+                  h5 (iBon實體票券)
+                .col-sm-4
+                  .round_title 超商購票
+                  a(target='_blank', 
+                    href='http://support.kktix.com/knowledgebase/articles/636721-全家famiport購票', 
+                    @click="$ga.event('link', 'click', 'ticket' ,'全家FamiPort')"
+                    )
+                    | 全家FamiPort 
+                    i.fa.fa-link
+                  h5 (FamiPort實體票券)
+                  br
+                  a(
+                    target='_blank', 
+                    href='http://www.ticket.com.tw/infor/ibon.htm', 
+                    @click="$ga.event('link', 'click', 'ticket' ,'7-11 iBon')"
+                    )
+                    | 7-11 iBon 
+                    i.fa.fa-link
+                  h5 (iBon實體票券)
+                .col-sm-4
+                  .round_title 現場購票
+                  h4 活動現場實體票券
           .row
             .col-sm-1
               h3 票價
