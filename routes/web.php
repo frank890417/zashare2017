@@ -16,7 +16,7 @@
 Route::get('/', function(){
   return view("layouts/app_spa") ->with([
           "meta_og"=>[
-            "title"=>"雜學校Zashare - 亞洲最大創新教育展",
+            "title"=>"雜學校 Zashare - 亞洲最大創新教育展",
             "type"=>"website",
             "url"=>trim(url()->current()),
             "cover"=>"http://zashare.org/img/main2.jpg",
@@ -27,7 +27,7 @@ Route::get('/', function(){
 Route::get('/news', function(){
   return view("layouts/app_spa") ->with([
           "meta_og"=>[
-            "title"=>"最新消息 - 雜學校Zashare",
+            "title"=>"最新消息 - 雜學校 Zashare",
             "type"=>"website",
             "url"=>trim(url()->current()),
             "cover"=>"http://zashare.org/img/main2.jpg",
@@ -38,7 +38,7 @@ Route::get('/news', function(){
 Route::get('/about', function(){
   return view("layouts/app_spa") ->with([
           "meta_og"=>[
-            "title"=>"關於雜學校 - 雜學校Zashare",
+            "title"=>"關於雜學校 - 雜學校 Zashare",
             "type"=>"website",
             "url"=>trim(url()->current()),
             "cover"=>"http://zashare.org/img/main2.jpg",
@@ -49,7 +49,7 @@ Route::get('/about', function(){
 Route::get('/ticket', function(){
   return view("layouts/app_spa") ->with([
           "meta_og"=>[
-            "title"=>"展覽購票 - 雜學校Zashare",
+            "title"=>"展覽購票 - 雜學校 Zashare",
             "type"=>"website",
             "url"=>trim(url()->current()),
             "cover"=>"http://zashare.org/img/main2.jpg",
@@ -61,7 +61,7 @@ Route::get('/ticket', function(){
 Route::get('/expo', function(){
   return view("layouts/app_spa") ->with([
           "meta_og"=>[
-            "title"=>"歷屆展覽 - 雜學校Zashare",
+            "title"=>"歷屆展覽 - 雜學校 Zashare",
             "type"=>"website",
             "url"=>trim(url()->current()),
             "cover"=>"http://zashare.org/img/main2.jpg",
@@ -72,7 +72,7 @@ Route::get('/expo', function(){
 Route::get('/blog', function(){
   return view("layouts/app_spa") ->with([
           "meta_og"=>[
-            "title"=>"參展報導 - 雜學校Zashare",
+            "title"=>"參展報導 - 雜學校 Zashare",
             "type"=>"website",
             "url"=>trim(url()->current()),
             "cover"=>"http://zashare.org/img/main2.jpg",
@@ -83,7 +83,7 @@ Route::get('/blog', function(){
 Route::get('/blog/{cata}', function(){
   return view("layouts/app_spa") ->with([
           "meta_og"=>[
-            "title"=>"參展報導 - 雜學校Zashare",
+            "title"=>"參展報導 - 雜學校 Zashare",
             "type"=>"website",
             "url"=>trim(url()->current()),
             "cover"=>"http://zashare.org/img/main2.jpg",

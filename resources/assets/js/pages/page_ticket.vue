@@ -126,6 +126,10 @@
 
 <script>
 export default {
+  metaInfo: {
+    title: '展覽購票', // set a title
+    titleTemplate: '%s - 雜學校 Zashare', // title is now "My Example App - Yay!"
+  },
 
 }
 </script>
