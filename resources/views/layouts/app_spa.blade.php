@@ -16,10 +16,12 @@
         <meta property="og:url" content="{{url()->current()}}">
         <meta property="og:image" content="{{$meta_og['cover']}}">
         <meta property="og:description" content="{{$meta_og['description']}}">
+    @else
+        <title>雜學校Zashare-亞洲最大創新教育展</title>
     @endif
 
 
-    <title>雜學校Zashare-亞洲最大創新教育展</title>
+    
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
