@@ -7,6 +7,18 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('meta_og')
+
+
+    @if (isset($meta_og))
+        <title>{{$meta_og['title']}}</title>
+        <meta property="og:title" content="{{$meta_og['title']}}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{url()->current()}}">
+        <meta property="og:image" content="{{$meta_og['cover']}}">
+        <meta property="og:description" content="{{$meta_og['description']}}">
+    @endif
+
+
     <title>雜學校Zashare-亞洲最大創新教育展</title>
 
     <!-- Styles -->

@@ -69,6 +69,8 @@ class PostController extends Controller
             ->with('catalist',$catalist);
     }
 
+
+
     // 顯示單篇文章
     public function show_name($title)
     {
@@ -93,6 +95,54 @@ class PostController extends Controller
             ->with('company',$company)
             ->with('related_posts',$related_posts)
             ->with('catalist',$catalist);
+    }
+
+    // 顯示單篇文章
+    public function show_name_api($title)
+    {
+      $post = Post::where('title',$title)->first();
+      $company = Company::where('tag',$post->company)->first();
+
+      $catas = Cata::all();    
+
+      $related_posts=Post::where('tag','=',$post->tag)
+                      ->inRandomOrder()
+                      ->limit(2)->get();
+
+      $post->content=$this->html_cleaner($post->content);
+      $catalist=[];
+      foreach ($catas as $cata)
+        $catalist[$cata->tag]=$cata->name;
+
+      return [
+        "title"=> $post->title,
+        "post"=> $post,
+        "company"=> $company,
+        "related_posts"=> $related_posts,
+        "catalist"=> $catalist,
+        "og"=>[
+          "title"=>"【 ".$company->name_cht." 】".$post->title,
+          "type"=>"website",
+          "url"=>url()->current(),
+          "cover"=>$post->cover,
+          "description"=>$post->description
+        ]
+      ];
+    }
+
+    public function spa_post($title){
+      $post = Post::where('title',$title)->first();
+      $company = Company::where('tag',$post->company)->first();
+      return view("layouts/app_spa")->
+        with([
+          "meta_og"=>[
+            "title"=>"【 ".$company->name_cht." 】".$post->title,
+            "type"=>"website",
+            "url"=>trim(url()->current()),
+            "cover"=>trim($post->cover),
+            "description"=>trim($post->description)
+          ]
+        ]);
     }
 
     //新增文章

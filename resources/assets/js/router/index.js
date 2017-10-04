@@ -28,7 +28,8 @@ const routes = [
   { path: '/ticket', component: require( '../pages/page_ticket.vue') },
   { path: '/about', component: require( '../pages/page_about.vue') },
   { path: '/blog', component: require( '../pages/page_blog.vue')},
-  { path: '/blog/:cata', component: require( '../pages/page_blog.vue') ,props: true},
+  { path: '/blog/:filter_cata', component: require( '../pages/page_blog.vue') ,props: true},
+  { path: '/post/n/:title', component: require( '../pages/page_post.vue') ,props: true},
   // { path: '/service', component: page_service },
 
   // { path: '/works', component: page_works },
@@ -48,7 +49,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   setTimeout(()=>{
     $("html,body").animate({scrollTop: 0});
-  },500)
+  },100)
   next()
 })
 

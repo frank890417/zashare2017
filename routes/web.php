@@ -12,15 +12,57 @@
 */
 
 
-Route::get('/testspa', "HomeController@spa");
-Route::get('/', "HomeController@spa");
-Route::get('/news', "HomeController@spa");
-Route::get('/about', "HomeController@spa");
-Route::get('/ticket', "HomeController@spa");
+// Route::get('/testspa', "HomeController@spa");
+Route::get('/', function(){
+  return view("layouts/app_spa") ->with([
+          "meta_og"=>[
+            "title"=>"雜學校Zashare-亞洲最大創新教育展",
+            "type"=>"website",
+            "url"=>trim(url()->current()),
+            "cover"=>"http://zashare.org/img/main2.jpg",
+            "description"=>"一個由民間自主發起由下而上的社會創新策展（前身為“不太乖教育節”）建立1-99歲的「一站式教育資源平台」，聚集所有學校沒教/ 適合每一個你的不同學習路徑 ;以台灣為震央，希望將這份影響力不僅凝聚國內教育創新正向力量，更擴及整個華人世界。"
+          ]
+        ]);
+});
+Route::get('/news', function(){
+  return view("layouts/app_spa") ->with([
+          "meta_og"=>[
+            "title"=>"最新消息 - 雜學校Zashare",
+            "type"=>"website",
+            "url"=>trim(url()->current()),
+            "cover"=>"http://zashare.org/img/main2.jpg",
+            "description"=>"一個由民間自主發起由下而上的社會創新策展（前身為“不太乖教育節”）建立1-99歲的「一站式教育資源平台」，聚集所有學校沒教/ 適合每一個你的不同學習路徑 ;以台灣為震央，希望將這份影響力不僅凝聚國內教育創新正向力量，更擴及整個華人世界。"
+          ]
+        ]);
+});
+Route::get('/about', function(){
+  return view("layouts/app_spa") ->with([
+          "meta_og"=>[
+            "title"=>"關於雜學校 - 雜學校Zashare",
+            "type"=>"website",
+            "url"=>trim(url()->current()),
+            "cover"=>"http://zashare.org/img/main2.jpg",
+            "description"=>"一個由民間自主發起由下而上的社會創新策展（前身為“不太乖教育節”）建立1-99歲的「一站式教育資源平台」，聚集所有學校沒教/ 適合每一個你的不同學習路徑 ;以台灣為震央，希望將這份影響力不僅凝聚國內教育創新正向力量，更擴及整個華人世界。"
+          ]
+        ]);
+});
+Route::get('/ticket', function(){
+  return view("layouts/app_spa") ->with([
+          "meta_og"=>[
+            "title"=>"展覽購票 - 雜學校Zashare",
+            "type"=>"website",
+            "url"=>trim(url()->current()),
+            "cover"=>"http://zashare.org/img/main2.jpg",
+            "description"=>"一個由民間自主發起由下而上的社會創新策展（前身為“不太乖教育節”）建立1-99歲的「一站式教育資源平台」，聚集所有學校沒教/ 適合每一個你的不同學習路徑 ;以台灣為震央，希望將這份影響力不僅凝聚國內教育創新正向力量，更擴及整個華人世界。"
+          ]
+        ]);
+});
+
 Route::get('/expo', "HomeController@spa");
 Route::get('/blog', "HomeController@spa");
 Route::get('/blog/{cata}', "HomeController@spa");
 
+Route::get('/post/n/{title}',"PostController@spa_post");
 
 
 // Route::get('/', "HomeController@landing");
@@ -32,7 +74,7 @@ Route::get('/funding',"HomeController@funding");
 Route::get('/pacman',"HomeController@pacman");
 
 Auth::routes();
-Route::get('/post/n/{title}',"PostController@show_name");
+// Route::get('/post/n/{title}',"PostController@show_name");
 Route::get('/post/{id}',"PostController@show");
 
 Route::get('/home', "PostController@index");

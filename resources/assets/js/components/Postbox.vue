@@ -26,7 +26,7 @@
           // 類別三篇文章
           .row
             .col-sm-4(v-for='(p,id) in limit_tag_split(filtered_post,3)[cata.tag]')
-              a.postbox(:href="'/post/n/'+(p.ori_title?p.ori_title:p.title)")
+              router-link.postbox(:to="'/post/n/'+(p.ori_title?p.ori_title:p.title)")
                 .topimg(:style='css_top_img(p)')
                   h3.company_name(v-html='p.name_cht')
                 h3.post_title(v-html='"【"+p.name_short+"】"+p.title')
@@ -38,7 +38,7 @@
       // 瀏覽單一類別
       .row(v-for='fp in filtered_post_three', v-if="!(filter_cata=='')")
         .col-sm-4(v-for='p in fp')
-          a.postbox(:href="'/post/n/'+(p.ori_title?p.ori_title:p.title)")
+          router-link.postbox(:to="'/post/n/'+(p.ori_title?p.ori_title:p.title)")
             .topimg(:style='css_top_img(p)')
               h3.company_name(v-html='p.name_cht')
             h3.post_title(v-html='"【"+p.name_short+"】"+p.title')
@@ -70,6 +70,7 @@
               return [temp,temp,temp]
             } 
           },
+          init_filter_cata: String
           // filter_cata:{
           //   default: ""
           // }
@@ -83,6 +84,9 @@
         }
         ,
         mounted() {
+          if (this.init_filter_cata){
+            this.filter_cata=this.init_filter_cata
+          }
             console.log('Postbox mounted.');
             this.loading=false;
             // this.filter_cata=window.location.hash.slice(1) ;

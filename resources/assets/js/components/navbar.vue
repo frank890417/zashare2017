@@ -24,24 +24,24 @@ nav.navbar.navbar-default.navbar-fixed-top
         li(:class="{active: $router.path=='/news'}", @click="toggleNav")
           router-link(to="/news") 最新消息
         li.dropdown.dropdown_cata.hidden-xs(:class="{active: $router.path=='/blog'}")
-          a(href="/blog", role='button', aria-haspopup='true', aria-expanded='true')
+          router-link(to="/blog", role='button', aria-haspopup='true', aria-expanded='true')
             | 參展報導
             span.caret
           ul.dropdown-menu
-            li
-              a(href='/blog#A') 學校現場與實驗教育
-            li
-              a(href='/blog#B') 教育倡議與實踐
-            li
-              a(href='/blog#C') 媒體與資訊平台
-            li
-              a(href='/blog#D') 創客與程式設計
-            li
-              a(href='/blog#E') 文化與歷史生活
-            li
-              a(href='/blog#F') 肢體與藝術創作
-            li
-              a(href='/blog#G') 自然與食農教育
+            li.disable_current
+              router-link(to='/blog/A') 學校現場與實驗教育
+            li.disable_current
+              router-link(to='/blog/B') 教育倡議與實踐
+            li.disable_current
+              router-link(to='/blog/C') 媒體與資訊平台
+            li.disable_current
+              router-link(to='/blog/D') 創客與程式設計
+            li.disable_current
+              router-link(to='/blog/E') 文化與歷史生活
+            li.disable_current
+              router-link(to='/blog/F') 肢體與藝術創作
+            li.disable_current
+              router-link(to='/blog/G') 自然與食農教育
         li(:class="{active: $router.path=='/about'}", @click="toggleNav")
           router-link(to='/about') 關於雜學校
         li.dropdown.dropdown_cata.visible-xs(:class="{active: $router.path=='/blog'}")
@@ -49,19 +49,19 @@ nav.navbar.navbar-default.navbar-fixed-top
             | 2016參展報導
             span.caret
           ul.dropdown-menu
-            li
-              router-link(to='/blog#A') 學校現場與實驗教育
-            li
-              router-link(to='/blog#B') 教育倡議與實踐
-            li
-              router-link(to='/blog#C') 媒體與資訊平台
-            li
-              router-link(to='/blog#D') 創客與程式設計
-            li
-              router-link(to='/blog#E') 文化與歷史生活
-            li
-              router-link(to='/blog#F') 肢體與藝術創作
-            li
+            li.disable_current
+              router-link(to='/blog/A') 學校現場與實驗教育
+            li.disable_current
+              router-link(to='/blog/B') 教育倡議與實踐
+            li.disable_current
+              router-link(to='/blog/C') 媒體與資訊平台
+            li.disable_current
+              router-link(to='/blog/D') 創客與程式設計
+            li.disable_current
+              router-link(to='/blog/E') 文化與歷史生活
+            li.disable_current
+              router-link(to='/blog/F') 肢體與藝術創作
+            li.disable_current
               router-link(to='/blog/G') 自然與食農教育
         li(:class="{active: $router.path=='/expo'}", @click="toggleNav")
           router-link(to='/expo') 歷屆展覽
@@ -88,6 +88,13 @@ export default {
         // $(this).parent.toggleClass("open");
         $("#app-navbar-collapse").removeClass("in");
       });
+
+      $(".dropdown_cata .dropdown-menu").click(function(){
+        console.log("remove")
+        setTimeout(()=>{
+          $(".dropdown-menu").removeClass("open");
+        },200)
+      })
     }
   },
   methods: {

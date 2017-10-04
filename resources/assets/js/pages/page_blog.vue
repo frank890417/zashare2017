@@ -19,7 +19,7 @@
   .post-box-wrapper
     postbox(:posts="posts",
             :catalist="catalist",
-            :filter_cata="filter_cata")
+            :init_filter_cata="filter_cata")
 
 </template>
 

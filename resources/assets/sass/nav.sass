@@ -109,11 +109,15 @@
       background-color: $color_orange
       position: absolute
       transition: 0.4s
+    &.disable_current
+      a:after
+        display: none
 
   .router-link-exact-active
     position: relative
     &:after
       width: 80%
+
 
       // bottom: 0
 

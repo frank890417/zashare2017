@@ -19,6 +19,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::get('/page/blog','HomeController@postpage_api');
+Route::get('/post/n/{title}','PostController@show_name_api');
 
 Route::group(['middleware'=>['cors']] , function(){
   Route::resource('company', 'CompanyController');

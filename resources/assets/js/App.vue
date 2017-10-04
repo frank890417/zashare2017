@@ -3,8 +3,9 @@ div.app_container
   transition(name="fade")
     page_loading(v-if="loading")
   navbar(:class="{at_landing_page: $route.path=='/'}")
-  transition(name='fade', mode='out-in')
-    router-view(:key="$router.path")
+  .all_pages
+    transition(name='fade', mode='out-in')
+      router-view(:key="$route.path")
   sectionFooter(v-if="$route.path!='/'")
 
 </template>
