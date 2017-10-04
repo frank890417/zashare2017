@@ -1,65 +1,66 @@
 <template lang="pug">
-.container.indep_post
-  .row
-    .col-sm-12
-
-  .row(v-if="company")
-    .col-xs-12.col-sm-3.text-left.col_company
-      .hidden-xs
-        br
-        br
-        // <h4> {{ company.tag }}
-        a(:href='company.website', target='_blank', :title='`前往 ${company.name_cht} 網站`')
-          img(:src='"http://2016.zashare.org/img/square_logos/"+(company.tag)+".jpg"')
-        h5.text-muted(v-text="'#'+ catalist[ post.tag ]")
-        h3
-          | {{ company.name_cht}}
-          //
-            <a class='company_link' href="{{company.website}}" target="_blank" title='前往{{ company.name_cht }}網站'>
-            <i class="fa fa-link"></i>
-            </a>
-        // <br>
-        p.col_describe  {{ company.discribe_cht }}
-    .col-xs-12.col-sm-9.col_post.col-sm-offset-3
+.page_post
+  .container.post_area
+    .row
       .col-sm-12
-        .post_image(:style='{"background-image":"url(" + post.cover + ")"}', alt='')
-          .infos
-            h5.visible-xs  / {{ company.name_short }}
-            h1 {{ post.title }}
-            h5.jour {{ post.author }}
-        hr
-        .content-area(v-html="post.content")
-        .visible-xs.col_company2
-          a(:href='company.website', target='_blank', :title='"前往"+ company.name_short +"網站"')
-            img(:src='"http://2016.zashare.org/img/square_logos/"+company.tag+".jpg"')
+
+    .row(v-if="company")
+      .col-xs-12.col-sm-3.text-left.col_company
+        .hidden-xs
           br
+          br
+          // <h4> {{ company.tag }}
+          a(:href='company.website', target='_blank', :title='`前往 ${company.name_cht} 網站`')
+            img(:src='"http://2016.zashare.org/img/square_logos/"+(company.tag)+".jpg"')
           h5.text-muted(v-text="'#'+ catalist[ post.tag ]")
-          br
           h3
             | {{ company.name_cht}}
+            //
+              <a class='company_link' href="{{company.website}}" target="_blank" title='前往{{ company.name_cht }}網站'>
+              <i class="fa fa-link"></i>
+              </a>
+          // <br>
+          p.col_describe  {{ company.discribe_cht }}
+      .col-xs-12.col-sm-9.col_post.col-sm-offset-3
+        .col-sm-12
+          .post_image(:style='{"background-image":"url(" + post.cover + ")"}', alt='')
+            .infos
+              h5.visible-xs  / {{ company.name_short }}
+              h1 {{ post.title }}
+              h5.jour {{ post.author }}
+          hr
+          .content-area(v-html="post.content")
+          .visible-xs.col_company2
+            a(:href='company.website', target='_blank', :title='"前往"+ company.name_short +"網站"')
+              img(:src='"http://2016.zashare.org/img/square_logos/"+company.tag+".jpg"')
+            br
+            h5.text-muted(v-text="'#'+ catalist[ post.tag ]")
+            br
+            h3
+              | {{ company.name_cht}}
 
-          p  {{ company.discribe_cht }}
-        .btns.text-center
-          a.btn.btn-primary(:href='"https://www.facebook.com/sharer/sharer.php?u="+now_url', target='_blank') 分享文章
-          a.btn.btn-link(href='#', onclick='window.history.back();') 回上一頁
+            p  {{ company.discribe_cht }}
+          .btns.text-center
+            a.btn.btn-primary(:href='"https://www.facebook.com/sharer/sharer.php?u="+now_url', target='_blank') 分享文章
+            a.btn.btn-link(href='#', onclick='window.history.back();') 回上一頁
+          br
         br
-      br
-      .col-sm-12
-        #fb-root
+        .col-sm-12
+          #fb-root
 
-        .fb-comments(:data-href='now_url', data-numposts='5', data-width='100%')
-      .col-sm-12
-        h2 相關類別文章
-        hr
-      .col-sm-6(
-        style='cursor:pointer'
-        v-for="rpost in related_posts")
-        router-link.relate_cover(:style='{"background-image":"url("+rpost.cover+")"}',
-                        :to='"/post/n/"+rpost.title')
-          .mask
-          .related_info
-            h3(style='margin: 0;margin-bottom: 10px') {{ rpost.title }}
-            p  {{ rpost.short_description }}
+          .fb-comments(:data-href='now_url', data-numposts='5', data-width='100%')
+        .col-sm-12
+          h2 相關類別文章
+          hr
+        .col-sm-6(
+          style='cursor:pointer'
+          v-for="rpost in related_posts")
+          router-link.relate_cover(:style='{"background-image":"url("+rpost.cover+")"}',
+                          :to='"/post/n/"+rpost.title')
+            .mask
+            .related_info
+              h3(style='margin: 0;margin-bottom: 10px') {{ rpost.title }}
+              p  {{ rpost.short_description }}
 
 </template>
 

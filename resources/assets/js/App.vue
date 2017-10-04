@@ -3,7 +3,7 @@ div.app_container
   transition(name="fade")
     page_loading(v-if="loading")
   navbar(:class="{at_landing_page: $route.path=='/'}")
-  .all_pages
+  .all_pages(:class="{route_post: $route.path.indexOf('/post/n')!=-1}")
     transition(name='fade', mode='out-in')
       router-view(:key="$route.path")
   sectionFooter(v-if="$route.path!='/'")
