@@ -75,7 +75,15 @@ Route::get('/pacman',"HomeController@pacman");
 
 Auth::routes();
 // Route::get('/post/n/{title}',"PostController@show_name");
-Route::get('/post/{id}',"PostController@show");
+// Route::get('/post/{id}',"PostController@show");
+use App\Post;
+Route::get('/post/{id}',function($id){
+  $post = Post::find($id);
+  if($post){
+    return redirect()->to("/post/n/".$post->title);
+  }
+  return redirect()->to("/");
+});
 
 Route::get('/home', "PostController@index");
 Route::group(['prefix'=>'manage','middleware' => 'auth'],function(){
