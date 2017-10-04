@@ -37,7 +37,7 @@
                   a(
                     target='_blank', 
                     href='https://zashare.kktix.cc/events/2017zashare', 
-                    @click="$ga.event('link', 'click', 'ticket' ,'網路購票')"
+                    @click="$ga.event('link', 'click', '購票-網路購票')"
                     )
                     | KKTIX 
                     i.fa.fa-link
@@ -46,7 +46,7 @@
                   a(
                     target='_blank', 
                     href='http://tickets.books.com.tw/progshow/08010901224680/', 
-                    @click="$ga.event('link', 'click', 'ticket' ,'博客來 ')"
+                    @click="$ga.event('link', 'click', '購票-博客來')"
                     )
                     | 博客來 
                     i.fa.fa-link
@@ -55,7 +55,7 @@
                   .round_title 超商購票
                   a(target='_blank', 
                     href='http://support.kktix.com/knowledgebase/articles/636721-全家famiport購票', 
-                    @click="$ga.event('link', 'click', 'ticket' ,'全家FamiPort')"
+                    @click="$ga.event('link', 'click', '購票-全家FamiPort')"
                     )
                     | 全家FamiPort 
                     i.fa.fa-link
@@ -64,7 +64,7 @@
                   a(
                     target='_blank', 
                     href='http://www.ticket.com.tw/infor/ibon.htm', 
-                    @click="$ga.event('link', 'click', 'ticket' ,'7-11 iBon')"
+                    @click="$ga.event('link', 'click', '購票-7-11 iBon')"
                     )
                     | 7-11 iBon 
                     i.fa.fa-link
