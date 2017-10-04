@@ -113,11 +113,15 @@
       a:after
         display: none
 
+
   .router-link-exact-active
     position: relative
     &:after
       width: 80%
 
+  +range_width(0px,768px)
+    .router-link-exact-active:after
+      display: none
 
       // bottom: 0
 
