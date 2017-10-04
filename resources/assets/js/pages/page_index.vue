@@ -5,14 +5,14 @@
       .col-md-6.col-md-push-3.col-sm-8.col-sm-push-2
         img.hidden-sm.hidden-xs.main.fadeIn.animated(src='/img/2017/index0829_coverLogo.svg', alt='')
         img.visible-sm.visible-xs.main.fadeIn.animated(src='/img/2017/index0829_coverLogo.svg', alt='')
-        .full_lang_sel(@click="full_lang_sel_show=false",
+        //.full_lang_sel(@click="full_lang_sel_show=false",
                        :class="{active: full_lang_sel_show}")
           a.btn(href='https://zashare.kktix.cc/events/2017zashare', target='_blank')
             | kktix
           a.btn(href='http://tickets.books.com.tw/progshow/08010901224680/', target='_blank')
             | 博客來
         .index_btns
-          a.index_btn.btn_buy(target='_blank', @click="full_lang_sel_show=true")
+          router-link.index_btn.btn_buy(to="/ticket")
             img(src='/img/2017/index0829_btnBuy.svg', alt='')
           a.index_btn.btn_crowd(href='https://backme.tw/ref/GZMac/', target='_blank')
             img(src='/img/2017/index0829_btnFunding.svg', alt='')

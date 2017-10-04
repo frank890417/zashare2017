@@ -97,6 +97,25 @@
       .navbar-toggle.collapsed
         background-color: transparent
 
+  li
+    a:after
+      content: ""
+      display: block
+      width: 0%
+      transform: translateX(-50%)
+      left: 50%
+      height: 3px
+      bottom: 6px
+      background-color: $color_orange
+      position: absolute
+      transition: 0.4s
+
+  .router-link-exact-active
+    position: relative
+    &:after
+      width: 80%
+
+      // bottom: 0
 
 .navbar-nav
   margin-top: 5px 
