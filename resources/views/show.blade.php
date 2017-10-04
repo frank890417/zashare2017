@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('meta_og')
-<title>雜學校-參展報導-{{$company->name_cht}}</title>
+<title></title>
 <meta property="og:title" content="【 {{$company->name_cht}} 】{{$post->title}}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{url()->current()}}">
