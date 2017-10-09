@@ -48,7 +48,7 @@
   section.sectionEvents.themeDarkBlue
     .page.themeDarkBlue(@click="nowEventPage=0" , :style="{'left': getEventOffset(0)+'%'}" :class="{active: nowEventPage==0}")
       .ver_title 實驗教育館
-        i.fa.fa-caret-left(v-if="nowEventPage<=2")
+        i.fa.fa-caret-left(v-if="nowEventPage<=0")
         i.fa.fa-caret-right(v-else)
       .container
         .row
@@ -79,7 +79,7 @@
             img(src="/img/2017/expo_2017/event/雜工坊.jpg")
     .page2.themeDarkBlue(@click="nowEventPage=2" , :style="{'left': getEventOffset(2)+'%'}" ,:class="{active: nowEventPage==2}")
       .ver_title 雜講堂
-        i.fa.fa-caret-left(v-if="nowEventPage<=0")
+        i.fa.fa-caret-left(v-if="nowEventPage<=2")
         i.fa.fa-caret-right(v-else)
       .container
         .row
