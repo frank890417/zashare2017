@@ -16,7 +16,7 @@
               br
               span 亞洲創新教育博覽會
             p 現在這個時代，我們不是不知道有什麼樣的途徑可以學習，而是不知道我們或生活還能「成為什麼樣子」。在打開對自己/生活的想像後，勇敢的選擇前往這個未來的學習途徑，成為你想成為的自己。這，就是「有敢擇學」的精神。
-            .btn.btn-orange.btn-lg Tickets 勇敢購票
+            .btn.btn-orange.btn-lg.btn-tickets Tickets 勇敢購票
         //.col-sm-6
           img(src='/img/2017/expo_2017/02/宣傳圖.jpg')
   section.sectionAbout.themeWhite
@@ -48,18 +48,20 @@
   section.sectionEvents.themeDarkBlue
     .page.themeDarkBlue(@click="nowEventPage=0" , :style="{'left': getEventOffset(0)+'%'}" :class="{active: nowEventPage==0}")
       .ver_title 實驗教育館
-        i.fa.fa-caret-left(v-if="nowEventPage<=0")
+        i.fa.fa-caret-left(v-if="nowEventPage<=2")
         i.fa.fa-caret-right(v-else)
       .container
         .row
           .col-sm-6
-            h3.eng_title BRAVE PEOPLE
-            h2 絕對不能錯過的 20 個勇敢講堂
+            h3.eng_title Ｍore Possibility
+            h2 給未來的教育更多可能性
               br
-              span 雜講堂
-            p 2017 年「超勇敢」的雜講堂， 讓各類議題、各種人生在這裡勇敢發聲。<br><br>身分證還可以是什麼樣子?讓知名作家詹偉雄、台大教授李明璁等人來和你聊一聊。還有知名部落客 AKKO、熊仁謙、台灣吧-蕭宇辰、知名 Youtuber MOM&DAD、最衝公民教師-黃益中、翻轉教育推手-葉丙成教授等等⋯，要來講堂跟你聊勇敢、聊人生。
+              span 實驗教育館
+            p 2017年，雜學校邀請實驗教育之父-陳怡光 (陳爸)共同策展，邀請臺灣各地實驗教育機構前來參與展出，用親身的互動，讓大眾能理解當代實驗教育發展。同時，也邀請亞洲知名親子媒體-親子天下，共同策劃「臺灣實驗教育論壇」，創造更多的討論空間，一起找到屬於臺灣實驗教育的方向。 
+
           .col-sm-6
-            img(src="/img/2017/expo_2017/event/雜講堂.jpg")
+            img(src="/img/2017/expo_2017/event/實驗教育館.jpg", alt="")
+          
     .page1.themeWhite(@click="nowEventPage=1", :style="{'left': getEventOffset(1)+'%'}" :class="{active: nowEventPage==1}")
       .ver_title 雜工坊
         i.fa.fa-caret-left(v-if="nowEventPage<=1")
@@ -76,21 +78,20 @@
           .col-sm-6
             img(src="/img/2017/expo_2017/event/雜工坊.jpg")
     .page2.themeDarkBlue(@click="nowEventPage=2" , :style="{'left': getEventOffset(2)+'%'}" ,:class="{active: nowEventPage==2}")
-      .ver_title 實驗教育館
-        i.fa.fa-caret-left(v-if="nowEventPage<=2")
+      .ver_title 雜講堂
+        i.fa.fa-caret-left(v-if="nowEventPage<=0")
         i.fa.fa-caret-right(v-else)
       .container
         .row
           .col-sm-6
-            h3.eng_title Ｍore Possibility
-            h2 給未來的教育更多可能性
+            h3.eng_title BRAVE PEOPLE
+            h2 絕對不能錯過的 20 個勇敢講堂
               br
-              span 實驗教育館
-            p 2017年，雜學校邀請實驗教育之父-陳怡光 (陳爸)共同策展，邀請臺灣各地實驗教育機構前來參與展出，用親身的互動，讓大眾能理解當代實驗教育發展。同時，也邀請亞洲知名親子媒體-親子天下，共同策劃「臺灣實驗教育論壇」，創造更多的討論空間，一起找到屬於臺灣實驗教育的方向。 
-
+              span 雜講堂
+            p 2017 年「超勇敢」的雜講堂， 讓各類議題、各種人生在這裡勇敢發聲。<br><br>身分證還可以是什麼樣子?讓知名作家詹偉雄、台大教授李明璁等人來和你聊一聊。還有知名部落客 AKKO、熊仁謙、台灣吧-蕭宇辰、知名 Youtuber MOM&DAD、最衝公民教師-黃益中、翻轉教育推手-葉丙成教授等等⋯，要來講堂跟你聊勇敢、聊人生。
           .col-sm-6
-            img(src="/img/2017/expo_2017/event/實驗教育館.jpg", alt="")
-          
+            img(src="/img/2017/expo_2017/event/雜講堂.jpg")
+      
   section.sectionPlan.themeBlue
     .row.text-center
       .col-sm-6.col-sm-offset-3
@@ -331,6 +332,10 @@ export default {
     $(".btn_go_to_top").click(()=>{
       $("html,body").animate({scrollTop: 0})
     });
+    $(".btn-tickets").click(()=>{
+      let target = $(".sectionTicket").offset().top
+      $("html,body").animate({scrollTop: target})
+    })
   },
   computed:{
     themeCardOffset(){
@@ -406,6 +411,8 @@ section
   padding-top: 60px
   padding-bottom: 60px
 
+  
+
 .themeBlue
   background-color: $color_blue
   color: white
@@ -473,7 +480,7 @@ p
     position: relative
     overflow: hidden
     border-radius: 20px
-    cursor: pointer
+    /* cursor: pointer */
 
     h4
       position: relative
