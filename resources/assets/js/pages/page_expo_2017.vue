@@ -3,22 +3,25 @@
   section.sectionHero.themeBlue.text-center
     img(style="max-width: 300px" src='http://zashare.org/img/2017/index0829_coverLogo.svg')
     
-  section.sectionPurpose.themeBlue
-    .container
-      .row
-        .col-sm-6
-          h3.eng_title ZASHARE
-          h2 雜學校
-            br
-            span 亞洲創新教育博覽會
-          p 現在這個時代，我們不是不知道有什麼樣的途徑可以學習，而是不知道我們或生活還能「成為什麼樣子」。在打開對自己/生活的想像後，勇敢的選擇前往這個未來的學習途徑，成為你想成為的自己。這，就是「有敢擇學」的精神。
-          .btn.btn-primary Tickets 勇敢購票
+  section.sectionPurpose.themeDarkBlue
+    .container-fluid
+      .col-sm-6
+        .row
+          .col-sm-8.col-sm-offset-3
+            h3.eng_title ZASHARE
+            h2 雜學校
+              br
+              span 亞洲創新教育博覽會
+            p 現在這個時代，我們不是不知道有什麼樣的途徑可以學習，而是不知道我們或生活還能「成為什麼樣子」。在打開對自己/生活的想像後，勇敢的選擇前往這個未來的學習途徑，成為你想成為的自己。這，就是「有敢擇學」的精神。
+            .btn.btn-orange.btn-lg Tickets 勇敢購票
+        //.col-sm-6
+          img(src='/img/2017/expo_2017/02/宣傳圖.jpg')
   section.sectionAbout.themeWhite
     .container
       .row
         .col-sm-6
           img(src="/img/2017/expo_2017/03/03換圖_2015.jpg")
-          img(src="/img/2017/expo_2017/03/03換圖_2016.jpg")
+          img(src="/img/2017/expo_2017/03/03換圖_2016.jpg", style="margin-top: -100px;margin-left: -100px;margin-bottom: -100px;box-shadow: 0px 0px 20px rgba(0,0,0,0.1)")
           img(src="/img/2017/expo_2017/03/03換圖_2017.jpg")
         .col-sm-6
           h3.eng_title ABOUT SCHOOL
@@ -100,23 +103,26 @@
   
   section.sectionInfo.themeDarkBlue
     .row
-      .col-sm-6
+      .col-sm-6.panelInfo
         .container
           .row
             .col-sm-6.col-sm-offset-3
-              h4 開學時間DATE :
+              h3 開學時間DATE :
               h5 2017.10.20 FRI. - 10.22 SUN.
               p ※10/20-10/21 每日10-20點開放參觀<br>※10/22 10-17點開放參觀<br>※每日最後入場時間為閉館前30分鐘
-              h4 地點 VENUE :
+              br
+              h3 地點 VENUE :
               p 台北華山1914文創產業園區（捷運忠孝新生站)<br>Huashan1914.Creative Park, Taipei 
               
       .col-sm-6
         iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.703477056893!2d121.52721081483303!3d25.044135144039476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a96523e0246d%3A0xf1c9276707165c71!2z6I-v5bGxMTkxNOaWh-WJteWckuWNgA!5e0!3m2!1szh-TW!2stw!4v1507557998332" width="100%" height="480px" frameborder="0" style="border:0" allowfullscreen)
   
-  section.sectionTicket.themeWhite.row
-    .col-sm-12
-      h1 購票
-      a(href="https://kktix.com/events/2017zashare/registrations/new") https://kktix.com/events/2017zashare/registrations/new
+  section.sectionTicket.themeWhite
+    .container
+      .row
+        .col-sm-12
+          h1 購票
+          a(href="https://kktix.com/events/2017zashare/registrations/new") https://kktix.com/events/2017zashare/registrations/new
     
       
 
@@ -188,6 +194,16 @@ section
   &.themeDarkBlue
     background-color: $color_dark_blue
     color: white
+    .btn
+      background-color: white
+      color: $color_blue
+      padding: 10px 30px
+      border: none
+    .btn-orange
+      background-color: $color_orange
+      color: white
+      padding: 10px 30px
+      border: none
   padding-top: 60px
   padding-bottom: 60px
 .btn
@@ -211,16 +227,38 @@ p
 
 .panelCards
   margin-top: 50px
+
 .themeCards
   display: flex
   /* overflow: hidden */
   list-style: none
   transition: 0.5s
   padding: 0
+
   .card
     box-shadow: 0px 20px 30px -20px rgba(black,0.4)
-    padding: 150px 50px 50px 50px
+    padding: 170px 50px 30px 50px
     box-sizing: border-box
+    position: relative
+    overflow: hidden
+
+    h4
+      position: relative
+      z-index: 1
+    p
+      text-shadow: 0px 0px 5px rgba(black,0.4)
+
+    &:before
+      content: ""
+      display: block
+      position: absolute
+      width: 100%
+      height: 100%
+      left: 0
+      top: 0
+      background: linear-gradient(transparent 0%, #{rgba(black,0.4)} 100%)
+
+
     /* width: 20% */
     background-size: cover
     width: 40vw
@@ -241,6 +279,7 @@ p
   margin-left: -12px
   margin-right: -12px
   
+  
   &.darkBlue
     background-color: $color_dark_blue
     color: white
@@ -252,12 +291,34 @@ p
     .small
       font-size: 48px
 
+.panelInfo
+  padding-top: 50px
+  padding-bottom: 50px
+
 .sectionHero
   min-height: 100vh
   height: 100vh
   display: flex;
   justify-content: center
   align-items: center
+
+.sectionPurpose
+  background-image: url(/img/2017/expo_2017/02/宣傳圖.jpg)
+  background-size: 80% auto
+  background-position: 150% bottom
+  position: relative
+
+  &:before
+    content: ""
+    display: block
+    position: absolute
+    width: 50%
+    height: 100%
+    left: 0
+    top: 0
+    background-color: $color_dark_blue
+  img
+    width: 100%
 
 .sectionAbout
   img
