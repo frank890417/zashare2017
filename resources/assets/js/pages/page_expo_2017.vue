@@ -1,7 +1,10 @@
 <template lang="pug">
 .page_expo_2017
+  .btn_go_to_top 
+    i.fa.fa-angle-up
+
   section.sectionHero.themeBlue.text-center
-    img(style="max-width: 300px" src='http://zashare.org/img/2017/index0829_coverLogo.svg')
+    img(style="width: 100%;max-width: 600px" src='http://zashare.org/img/2017/index0829_coverLogo.svg')
     
   section.sectionPurpose.themeDarkBlue
     .container-fluid
@@ -30,7 +33,7 @@
             br
             | 2017 年，徵集 120 個創新教育機構參展，活動三天舉辦超過 50 場講座與工作坊，要你一次了解台灣教育現況，更可以從中找到屬於每個人的不同學習路徑。 
     
-  section.sectionEvent.themeBlue
+  section.sectionTheme.themeBlue
     .container
       .row.text-center
         .col-sm-6.col-sm-offset-3
@@ -122,13 +125,18 @@
         br
         br
         br
-        h4 總價值超過
+        h3 總價值超過
           s $24,800  
           | → 現在募資只要2,480，更有揪團優惠<br>跟朋友一起 「有敢」的支持我們建校
         a.btn.btn-primary.btn-lg(href="/funding") 支持募資計畫
+        br
+        br
+        br
       .col-sm-12
         h3.text-center 那個最近手頭有點緊<br>可不可以只買博覽會的票?
-  
+        br
+        i.fa.fa-angle-double-down(style="color: white;font-size: 50px")
+
   section.sectionSchool.themeWhite
     .container
       .row.text-center
@@ -320,6 +328,9 @@ export default {
     setInterval(()=>{
       this.pageIndex++
     },2000)
+    $(".btn_go_to_top").click(()=>{
+      $("html,body").animate({scrollTop: 0})
+    });
   },
   computed:{
     themeCardOffset(){
@@ -369,6 +380,27 @@ export default {
 $color_orange: #FF4C00
 $color_blue: #0047BA
 $color_dark_blue: #153691
+
+.btn_go_to_top
+  width: 50px
+  height: 50px
+  background-color: white
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.2)
+  transition: 0.5s
+  position: fixed
+  right: 30px
+  bottom: 30px
+  font-size: 35px
+  padding-top: -20px
+  z-index: 100
+  display: flex
+  justify-content: center
+  align-items: center
+  border-radius: 50%
+  cursor: pointer
+  &:hover
+    background-color: #eee
+
 
 section
   padding-top: 60px
@@ -553,6 +585,11 @@ p
   
   .col-sm-6:nth-child(2)    
     /* background-color: #fff */
+
+.sectionTheme
+  padding-bottom: 100px
+  /* li
+    background-attachment: fixed */
 
 .sectionEvents
   position: relative
