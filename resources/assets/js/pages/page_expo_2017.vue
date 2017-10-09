@@ -21,8 +21,6 @@
       .row
         .col-sm-6
           img(src="/img/2017/expo_2017/03/03換圖_2015.jpg")
-          img(src="/img/2017/expo_2017/03/03換圖_2016.jpg", style="margin-top: -100px;margin-left: -100px;margin-bottom: -100px;box-shadow: 0px 0px 20px rgba(0,0,0,0.1)")
-          img(src="/img/2017/expo_2017/03/03換圖_2017.jpg")
         .col-sm-6
           h3.eng_title ABOUT SCHOOL
           h2 關於雜學校
@@ -45,15 +43,39 @@
           h4.cardTitle {{card.title}}
           p(v-html="card.content")
   section.sectionEvents.themeDarkBlue
-    .container
-      .row
-        .col-sm-6
-          h3.eng_title BRAVE PEOPLE
-          h2 絕對不能錯過的 20 個
-            br
-            span 勇敢講堂
-          p 2017 年「超勇敢」的雜講堂， 讓各類議題、各種人生在這裡勇敢發聲。<br><br>身分證還可以是什麼樣子?讓知名作家詹偉雄、台大教授李明璁等人來和你聊一聊。還有知名部落客 AKKO、熊仁謙、台灣吧-蕭宇辰、知名 Youtuber MOM&DAD、最衝公民教師-黃益中、翻轉教育推手-葉丙成教授等等⋯，要來講堂跟你聊勇敢、聊人生。
-        .col-sm-6
+    .page.themeDarkBlue(@click="nowEventPage=0" , :style="{'left': getEventOffset(0)+'%'}")
+      .container
+        .row
+          .col-sm-6
+            h3.eng_title 1BRAVE PEOPLE
+            h2 絕對不能錯過的 20 個
+              br
+              span 勇敢講堂
+            p 2017 年「超勇敢」的雜講堂， 讓各類議題、各種人生在這裡勇敢發聲。<br><br>身分證還可以是什麼樣子?讓知名作家詹偉雄、台大教授李明璁等人來和你聊一聊。還有知名部落客 AKKO、熊仁謙、台灣吧-蕭宇辰、知名 Youtuber MOM&DAD、最衝公民教師-黃益中、翻轉教育推手-葉丙成教授等等⋯，要來講堂跟你聊勇敢、聊人生。
+          .col-sm-6
+            img(src="/img/2017/expo_2017/03/03換圖_2015.jpg")
+    .page1.themeWhite(@click="nowEventPage=1", :style="{'left': getEventOffset(1)+'%'}")
+      .container
+        .row
+          .col-sm-6
+            h3.eng_title 2BRAVE PEOPLE
+            h2 絕對不能錯過的 20 個
+              br
+              span 勇敢講堂
+            p 2017 年「超勇敢」的雜講堂， 讓各類議題、各種人生在這裡勇敢發聲。<br><br>身分證還可以是什麼樣子?讓知名作家詹偉雄、台大教授李明璁等人來和你聊一聊。還有知名部落客 AKKO、熊仁謙、台灣吧-蕭宇辰、知名 Youtuber MOM&DAD、最衝公民教師-黃益中、翻轉教育推手-葉丙成教授等等⋯，要來講堂跟你聊勇敢、聊人生。
+          .col-sm-6
+            img(src="/img/2017/expo_2017/03/03換圖_2015.jpg")
+    .page2.themeDarkBlue(@click="nowEventPage=2" , :style="{'left': getEventOffset(2)+'%'}")
+      .container
+        .row
+          .col-sm-6
+            h3.eng_title BRAVE PEOPLE
+            h2 絕對不能錯過的 20 個
+              br
+              span 勇敢講堂
+            p 2017 年「超勇敢」的雜講堂， 讓各類議題、各種人生在這裡勇敢發聲。<br><br>身分證還可以是什麼樣子?讓知名作家詹偉雄、台大教授李明璁等人來和你聊一聊。還有知名部落客 AKKO、熊仁謙、台灣吧-蕭宇辰、知名 Youtuber MOM&DAD、最衝公民教師-黃益中、翻轉教育推手-葉丙成教授等等⋯，要來講堂跟你聊勇敢、聊人生。
+          .col-sm-6
+            img(src="/img/2017/expo_2017/03/03換圖_2015.jpg", alt="")
           
   section.sectionPlan.themeBlue
     .row.text-center
@@ -62,8 +84,14 @@
         h2 雜學校建校大業計畫啟動
         p 將單次展覽擴展成年度計畫<br>打造一間地表最嚮往的未來學校<br>MY SCHOOL, MY BRAVEDUCATION<br>我們堅信台灣可以是亞洲最大的創新教育內容平台。
         br
+        br
       .col-sm-10.col-sm-offset-1
         .row
+          .col-sm-3
+            .planCard.Orange
+              .num ∞
+                span.small 
+              p 10/20-10/22<br>三日雜學校展覽<br>無限次進出 <br>另贈3張單日票
           .col-sm-3
             .planCard.darkBlue
               .num 5
@@ -73,22 +101,19 @@
             .planCard.Orange
               .num 24
                 span.small 堂
-              p 行銷？程式？設計？<br>最狂講師陣容<br>手把手地教你史上最雜的知識<br>「學你想學，學你想成為」<br>不再是口號！
+              p 行銷？程式？設計？<br>最狂講師陣容<br>手把手地教你史上最雜知識<br>「學你想學，學你想成為」<br>不再是口號！
           .col-sm-3
             .planCard.darkBlue
               .num 9
                 span.small 折
               p 雜學校特約夥伴周邊商品<br>以及課程優惠
-          .col-sm-3
-            .planCard.Orange
-              .num ∞
-                span.small 
-              p 10/20-10/22<br>三日雜學校展覽<br>無限次進出 <br>另贈3張單日票
-        
       .col-sm-6.col-sm-offset-3
         br
         br
-        p 總價值超過$24,800  → 現在募資只要2,480，更有揪團優惠<br>跟朋友一起 「有敢」的支持我們建校
+        br
+        h4 總價值超過
+          s $24,800  
+          | → 現在募資只要2,480，更有揪團優惠<br>跟朋友一起 「有敢」的支持我們建校
         a.btn.btn-primary.btn-lg(href="/funding") 支持募資計畫
       .col-sm-12
         h3.text-center 那個最近手頭有點緊<br>可不可以只買博覽會的票?
@@ -104,28 +129,148 @@
   section.sectionInfo.themeDarkBlue
     .row
       .col-sm-6.panelInfo
-        .container
-          .row
-            .col-sm-6.col-sm-offset-3
-              h3 開學時間DATE :
-              h5 2017.10.20 FRI. - 10.22 SUN.
-              p ※10/20-10/21 每日10-20點開放參觀<br>※10/22 10-17點開放參觀<br>※每日最後入場時間為閉館前30分鐘
-              br
-              h3 地點 VENUE :
-              p 台北華山1914文創產業園區（捷運忠孝新生站)<br>Huashan1914.Creative Park, Taipei 
+        .row
+          .col-sm-6.col-sm-offset-3
+            h3 開學時間DATE :
+            h5 2017.10.20 FRI. - 10.22 SUN.
+            p ※10/20-10/21 每日10-20點開放參觀<br>※10/22 10-17點開放參觀<br>※每日最後入場時間為閉館前30分鐘
+            br
+            h3 地點 VENUE :
+            p 台北華山1914文創產業園區（捷運忠孝新生站)<br>Huashan1914.Creative Park, Taipei 
               
       .col-sm-6
         iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.703477056893!2d121.52721081483303!3d25.044135144039476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a96523e0246d%3A0xf1c9276707165c71!2z6I-v5bGxMTkxNOaWh-WJteWckuWNgA!5e0!3m2!1szh-TW!2stw!4v1507557998332" width="100%" height="480px" frameborder="0" style="border:0" allowfullscreen)
   
-  section.sectionTicket.themeWhite
+  //.themeWhite
     .container
       .row
         .col-sm-12
           h1 購票
           a(href="https://kktix.com/events/2017zashare/registrations/new") https://kktix.com/events/2017zashare/registrations/new
     
-      
-
+        
+  section.sectionTicket.page_news
+    .blue_bg.news3
+      .container
+        .row
+          .col-sm-4.visible-xs
+            img.person(src='http://zashare.org/funding_assets/img/main/header-s1.png', alt='' ,style="z-index: 0")
+          .col-sm-8.pdlr(style="z-index: 1")
+            h1 一張門票打開創新教育的眼界，不買嗎？
+            br
+            p
+              | 2017雜學校，售票系統正式上線！還記得我們去年的約定嗎？
+              br
+              | 今年我們包下整個華山，創造亞洲最大學習內容互動平台。
+              br
+              //| 即日起到9/30可享早鳥優惠，快和我們一起「有感擇學TRY TRY SEE!」
+            //br
+            //br.hidden-xs
+            br.hidden-xs
+            br
+          .col-sm-4.hidden-xs
+            img.person.fadeIn.animated(src='http://zashare.org/funding_assets/img/main/header-s1.png', alt='')
+            
+        .row.dark_bg(style="z-index: 1;position: relative;")
+          .row
+            .col-sm-1
+              h3
+                | 購票
+                br.hidden-xs
+                | 方式
+            .col-sm-11
+              //img.visible-xs(src='http://zashare.org/funding_assets/img/main/2-right.png', alt='')
+              .row
+                .col-sm-4
+                  .round_title 網路購票
+                  a(
+                    target='_blank', 
+                    href='https://zashare.kktix.cc/events/2017zashare', 
+                    @click="$ga.event('link', 'click', '購票-網路購票')"
+                    )
+                    | KKTIX 
+                    i.fa.fa-link
+                  h5 (KKTIX電子票券)
+                  br
+                  a(
+                    target='_blank', 
+                    href='http://tickets.books.com.tw/progshow/08010901224680/', 
+                    @click="$ga.event('link', 'click', '購票-博客來')"
+                    )
+                    | 博客來 
+                    i.fa.fa-link
+                  h5 (iBon實體票券)
+                .col-sm-4
+                  .round_title 超商購票
+                  a(target='_blank', 
+                    href='http://support.kktix.com/knowledgebase/articles/636721-全家famiport購票', 
+                    @click="$ga.event('link', 'click', '購票-全家FamiPort')"
+                    )
+                    | 全家FamiPort 
+                    i.fa.fa-link
+                  h5 (FamiPort實體票券)
+                  br
+                  a(
+                    target='_blank', 
+                    href='http://www.ticket.com.tw/infor/ibon.htm', 
+                    @click="$ga.event('link', 'click', '購票-7-11 iBon')"
+                    )
+                    | 7-11 iBon 
+                    i.fa.fa-link
+                  h5 (iBon實體票券)
+                .col-sm-4
+                  .round_title 現場購票
+                  h4 活動現場實體票券
+          .row
+            .col-sm-1
+              h3 票價
+            .col-sm-11
+              .row
+                .col-sm-4
+                  .round_title
+                    | 早鳥票
+                    .small (僅於網路販售)
+                  h5 即日起到9/30 (Sat.)
+                  h4
+                    | $280 團購票
+                    br
+                    | $300 單日票
+                .col-sm-4
+                  .round_title 網路票
+                  h5 10/01 (Sun.) - 10/19 (Thu.)
+                  h4
+                    | $300 團購票
+                    br
+                    | $320 單日票
+                .col-sm-4
+                  .round_title 現場票
+                  h5 10/20 (Fri.) - 10/22 (Sun.)
+                  h4 $350 現場票
+          .row
+            .col-sm-1
+              h3
+                | 免票
+                br.hidden-xs
+                | 資格
+            .col-sm-11
+              ul.listWarn
+                li — 持身心障礙手冊人士，現場憑證明文件可另攜一位陪同人免費入場
+                li — 6歲以下（含6歲），65歲以上，出示相關證明文件可免費入場
+                li — 符合免票資格者，入場前需先至博覽會入口處出示證明文件兌換入場手環
+          .row
+            .col-sm-1
+              h3
+                | 注意
+                br.hidden-xs
+                | 事項
+            .col-sm-11
+              ul.listWarn
+                li — 6張以上為團購票價
+                li — 超商取票一筆訂單手續費皆為$30 ｜  博客來宅配取票一筆訂單手續費皆為$50 
+                li — KKTIX電子票券、超商購票、現場購票免手續費
+                li — 超商購票、取票一筆訂單上限為4張｜  博客來宅配取票一筆訂單上限為49張 ｜  KKTIX電子票券一筆訂單上限為20張
+                li — 超過50張以上的票券採購請聯繫主辦單位洽詢團購方案 ｜  聯繫窗口： zashare@ozzie-art.com 楊小姐
+    
 
 </template>
 
@@ -148,7 +293,7 @@ export default {
           img: "/img/2017/expo_2017/04/新聞稿配圖-五育_體.jpg"
         },{
           title: "群-關係",
-          content: "人，生活在社會之中，我們無法與他人、外在環境斷裂。如何與外於「自己」的它者共處，建立良好關係，是至關重要的。在這個沒有群眾不能成事、 彼此緊密關連的時代中，「沒有人會是局外人」。",
+          content: "人，生活在社會之中，我們無法與他人、外在環境斷裂。如何與外於「自己」的它者共處，建立良好關係，是至關重要的。在這個沒有群眾不能成事、彼此緊密關連的時代中，「沒有人會是局外人」。",
           img: "/img/2017/expo_2017/04/新聞稿配圖-五育_群.jpg"
         },{
           title: "美-美感經驗",
@@ -156,7 +301,8 @@ export default {
           img: "/img/2017/expo_2017/04/新聞稿配圖-五育_美.jpg"
         }
       ],
-      pageIndex: 0
+      pageIndex: 0,
+      nowEventPage: 0
     }
   },
   mounted(){
@@ -167,6 +313,40 @@ export default {
   computed:{
     themeCardOffset(){
       return -(this.pageIndex%5)*20+"%"
+    },
+  },
+  methods:{
+    getEventOffset(i){
+      if (this.nowEventPage==0){
+        if (i==0){
+          return 0
+        }else if (i==1){
+          return 90
+        }else {
+          return 95
+        }
+      }
+      
+      if (this.nowEventPage==1){
+        if (i==0){
+          return 0
+        }else if (i==1){
+          return 5
+        }else {
+          return 95
+        }
+      }
+
+
+      if (this.nowEventPage==2){
+        if (i==0){
+          return 0
+        }else if (i==1){
+          return 5
+        }else {
+          return 10
+        }
+      }
     }
   }
 
@@ -178,34 +358,38 @@ export default {
 $color_orange: #FF4C00
 $color_blue: #0047BA
 $color_dark_blue: #153691
+
 section
-  &.themeBlue
-    background-color: $color_blue
-    color: white
-    .btn
-      background-color: white
-      color: $color_blue
-      padding: 10px 30px
-      border: none
-    
-  &.themeWhite
-    background-color: white
-    color: $color_blue
-  &.themeDarkBlue
-    background-color: $color_dark_blue
-    color: white
-    .btn
-      background-color: white
-      color: $color_blue
-      padding: 10px 30px
-      border: none
-    .btn-orange
-      background-color: $color_orange
-      color: white
-      padding: 10px 30px
-      border: none
   padding-top: 60px
   padding-bottom: 60px
+
+.themeBlue
+  background-color: $color_blue
+  color: white
+  .btn
+    background-color: white
+    color: $color_blue
+    padding: 10px 30px
+    border: none
+  
+.themeWhite
+  background-color: white
+  color: $color_blue
+
+.themeDarkBlue
+  background-color: $color_dark_blue
+  color: white
+  .btn
+    background-color: white
+    color: $color_blue
+    padding: 10px 30px
+    border: none
+  .btn-orange
+    background-color: $color_orange
+    color: white
+    padding: 10px 30px
+    border: none
+
 .btn
   margin-top: 30px
   margin-bottom: 30px
@@ -220,6 +404,10 @@ h3.eng_title
   font-size: 25px
   opacity: .7
   letter-spacing: 5px
+
+h4
+  line-height: 30px
+
 p
   opacity: .8
   font-weight: 400
@@ -241,12 +429,15 @@ p
     box-sizing: border-box
     position: relative
     overflow: hidden
+    border-radius: 20px
+    cursor: pointer
 
     h4
       position: relative
       z-index: 1
+      margin-bottom: 20px
     p
-      text-shadow: 0px 0px 5px rgba(black,0.4)
+      text-shadow: 0px 0px 2px rgba(black,0.2)
 
     &:before
       content: ""
@@ -256,9 +447,14 @@ p
       height: 100%
       left: 0
       top: 0
-      background: linear-gradient(transparent 0%, #{rgba(black,0.4)} 100%)
+      background: linear-gradient(transparent 0%, #{rgba(black,0.5)} 100%)
+      opacity: 0.5
+      transition: 0.5s
+    &:hover
+      &:before  
+        opacity: 0.8
 
-
+    
     /* width: 20% */
     background-size: cover
     width: 40vw
@@ -274,12 +470,21 @@ p
       font-size: 30px
 
 .planCard
-  padding: 50px
-  min-height: 450px
-  margin-left: -12px
-  margin-right: -12px
-  
-  
+  padding: 30px
+  min-height: 400px
+  margin-left: -6px
+  margin-right: -6px
+  cursor: pointer
+  border-radius: 10px
+  overflow: hidden
+  transition: 0.5s
+  box-shadow: 0px 20px 30px -20px rgba(black,0.4)
+
+  transform: translate(0px,0px)
+
+  &:hover
+    transform: translate(-10px,-10px)
+
   &.darkBlue
     background-color: $color_dark_blue
     color: white
@@ -287,13 +492,15 @@ p
     background-color: $color_orange
     color: white
   .num
-    font-size: 130px
+    font-size: 100px
     .small
-      font-size: 48px
+      font-size: 32px
+      margin-left: 10px
 
 .panelInfo
-  padding-top: 50px
-  padding-bottom: 50px
+  /* padding-top: 50px */
+  /* padding-bottom: 50px */
+
 
 .sectionHero
   min-height: 100vh
@@ -320,9 +527,51 @@ p
   img
     width: 100%
 
+
 .sectionAbout
-  img
+  padding-top: 100px
+  padding-bottom: 100px
+
+  img 
+    /* width: 50vw */
     width: 100%
+  .row
+    display: flex
+    align-items: center
+    /* margin-left: -70px */
+  
+  .col-sm-6:nth-child(2)    
+    /* background-color: #fff */
+
+.sectionEvents
+  position: relative
+  padding: 0
+  .page,.page1,.page2
+    position: absolute
+    left: 0
+    top: 0
+    height: 100%
+    width: 100%
+    transition: 0.5s
+    cursor: pointer
+  .page
+    left: 0
+    position: relative
+  .page1
+    left: 50px
+    /* background-color: #fff */
+    position: absolute
+    z-index: 1
+  .page2
+    left: 100px
+    /* background-color: #fff */
+    position: absolute
+    z-index: 2
+
+.sectionEvents,.sectionPurpose,.sectionInfo
+  .row
+    display: flex
+    align-items: center
 
 .sectionInfo
   padding: 0
