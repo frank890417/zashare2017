@@ -25,6 +25,7 @@ const routes = [
   { path: '/', component: require( '../pages/page_index.vue') },
   { path: '/news', component: require( '../pages/page_news.vue') },
   { path: '/expo', component: require( '../pages/page_expo.vue') },
+  { path: '/expo2017', component: require( '../pages/page_expo_2017.vue') },
   { path: '/ticket', component: require( '../pages/page_ticket.vue') },
   { path: '/about', component: require( '../pages/page_about.vue') },
   { path: '/blog', component: require( '../pages/page_blog.vue')},

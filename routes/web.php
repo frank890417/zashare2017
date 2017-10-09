@@ -69,6 +69,20 @@ Route::get('/expo', function(){
           ]
         ]);
 });
+
+
+Route::get('/expo2017', function(){
+  return view("layouts/app_spa") ->with([
+          "meta_og"=>[
+            "title"=>"2017展覽 - 雜學校 Zashare",
+            "type"=>"website",
+            "url"=>trim(url()->current()),
+            "cover"=>"http://zashare.org/img/main2.jpg",
+            "description"=>"一個由民間自主發起由下而上的社會創新策展（前身為“不太乖教育節”）建立1-99歲的「一站式教育資源平台」，聚集所有學校沒教/ 適合每一個你的不同學習路徑 ;以台灣為震央，希望將這份影響力不僅凝聚國內教育創新正向力量，更擴及整個華人世界。"
+          ]
+        ]);
+});
+
 Route::get('/blog', function(){
   return view("layouts/app_spa") ->with([
           "meta_og"=>[
