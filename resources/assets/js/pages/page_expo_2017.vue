@@ -43,39 +43,50 @@
           h4.cardTitle {{card.title}}
           p(v-html="card.content")
   section.sectionEvents.themeDarkBlue
-    .page.themeDarkBlue(@click="nowEventPage=0" , :style="{'left': getEventOffset(0)+'%'}")
-      .container
-        .row
-          .col-sm-6
-            h3.eng_title 1BRAVE PEOPLE
-            h2 絕對不能錯過的 20 個
-              br
-              span 勇敢講堂
-            p 2017 年「超勇敢」的雜講堂， 讓各類議題、各種人生在這裡勇敢發聲。<br><br>身分證還可以是什麼樣子?讓知名作家詹偉雄、台大教授李明璁等人來和你聊一聊。還有知名部落客 AKKO、熊仁謙、台灣吧-蕭宇辰、知名 Youtuber MOM&DAD、最衝公民教師-黃益中、翻轉教育推手-葉丙成教授等等⋯，要來講堂跟你聊勇敢、聊人生。
-          .col-sm-6
-            img(src="/img/2017/expo_2017/03/03換圖_2015.jpg")
-    .page1.themeWhite(@click="nowEventPage=1", :style="{'left': getEventOffset(1)+'%'}")
-      .container
-        .row
-          .col-sm-6
-            h3.eng_title 2BRAVE PEOPLE
-            h2 絕對不能錯過的 20 個
-              br
-              span 勇敢講堂
-            p 2017 年「超勇敢」的雜講堂， 讓各類議題、各種人生在這裡勇敢發聲。<br><br>身分證還可以是什麼樣子?讓知名作家詹偉雄、台大教授李明璁等人來和你聊一聊。還有知名部落客 AKKO、熊仁謙、台灣吧-蕭宇辰、知名 Youtuber MOM&DAD、最衝公民教師-黃益中、翻轉教育推手-葉丙成教授等等⋯，要來講堂跟你聊勇敢、聊人生。
-          .col-sm-6
-            img(src="/img/2017/expo_2017/03/03換圖_2015.jpg")
-    .page2.themeDarkBlue(@click="nowEventPage=2" , :style="{'left': getEventOffset(2)+'%'}")
+    .page.themeDarkBlue(@click="nowEventPage=0" , :style="{'left': getEventOffset(0)+'%'}" :class="{active: nowEventPage==0}")
+      .ver_title 實驗教育館
+        i.fa.fa-caret-left(v-if="nowEventPage<=0")
+        i.fa.fa-caret-right(v-else)
       .container
         .row
           .col-sm-6
             h3.eng_title BRAVE PEOPLE
-            h2 絕對不能錯過的 20 個
+            h2 絕對不能錯過的 20 個勇敢講堂
               br
-              span 勇敢講堂
+              span 雜講堂
             p 2017 年「超勇敢」的雜講堂， 讓各類議題、各種人生在這裡勇敢發聲。<br><br>身分證還可以是什麼樣子?讓知名作家詹偉雄、台大教授李明璁等人來和你聊一聊。還有知名部落客 AKKO、熊仁謙、台灣吧-蕭宇辰、知名 Youtuber MOM&DAD、最衝公民教師-黃益中、翻轉教育推手-葉丙成教授等等⋯，要來講堂跟你聊勇敢、聊人生。
           .col-sm-6
-            img(src="/img/2017/expo_2017/03/03換圖_2015.jpg", alt="")
+            img(src="/img/2017/expo_2017/event/雜講堂.jpg")
+    .page1.themeWhite(@click="nowEventPage=1", :style="{'left': getEventOffset(1)+'%'}" :class="{active: nowEventPage==1}")
+      .ver_title 雜工坊
+        i.fa.fa-caret-left(v-if="nowEventPage<=1")
+        i.fa.fa-caret-right(v-else)
+      .container
+        .row
+          .col-sm-6
+            h3.eng_title DARE TO TRY
+            h2 43 場勇敢試試看的體驗工作坊
+              br
+              span 雜工坊
+            p 雜工坊邀請各參展單位參與，在工坊空間帶出更有趣、 更身歷其境的創新教育內容的體 驗。<br>同時，雜學校更與「交點」 合作，成立雜點工作坊，讓更多有趣的想法可以在這裡有舞台被更多人看見。<br>另外，雜學校更關注到台灣教育中，缺乏對「技職」 的想像與注意，此次邀請到「職人」、「技職 3.0」兩個關注台灣技職領域的團隊，為我們開設一系列職人工坊，一探職人的世界!
+
+          .col-sm-6
+            img(src="/img/2017/expo_2017/event/雜工坊.jpg")
+    .page2.themeDarkBlue(@click="nowEventPage=2" , :style="{'left': getEventOffset(2)+'%'}" ,:class="{active: nowEventPage==2}")
+      .ver_title 實驗教育館
+        i.fa.fa-caret-left(v-if="nowEventPage<=2")
+        i.fa.fa-caret-right(v-else)
+      .container
+        .row
+          .col-sm-6
+            h3.eng_title Ｍore Possibility
+            h2 給未來的教育更多可能性
+              br
+              span 實驗教育館
+            p 2017年，雜學校邀請實驗教育之父-陳怡光 (陳爸)共同策展，邀請臺灣各地實驗教育機構前來參與展出，用親身的互動，讓大眾能理解當代實驗教育發展。同時，也邀請亞洲知名親子媒體-親子天下，共同策劃「臺灣實驗教育論壇」，創造更多的討論空間，一起找到屬於臺灣實驗教育的方向。 
+
+          .col-sm-6
+            img(src="/img/2017/expo_2017/event/實驗教育館.jpg", alt="")
           
   section.sectionPlan.themeBlue
     .row.text-center
@@ -302,7 +313,7 @@ export default {
         }
       ],
       pageIndex: 0,
-      nowEventPage: 0
+      nowEventPage: 2
     }
   },
   mounted(){
@@ -546,6 +557,15 @@ p
 .sectionEvents
   position: relative
   padding: 0
+  .ver_title
+    width: 1em
+    font-size: 24px
+    top: 50px
+    left: 1.5%
+    position: absolute
+    opacity: 1
+    transition: 0.5s
+    text-align: center
   .page,.page1,.page2
     position: absolute
     left: 0
@@ -554,6 +574,12 @@ p
     width: 100%
     transition: 0.5s
     cursor: pointer
+    img
+      height: 100vh
+      max-height: 800px
+    &.active
+      .ver_title
+        opacity: 0
   .page
     left: 0
     position: relative
