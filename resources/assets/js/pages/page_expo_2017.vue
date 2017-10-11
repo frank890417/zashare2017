@@ -10,20 +10,22 @@
     .container-fluid
       .col-sm-6
         .row
-          .col-sm-8.col-sm-offset-3
+          .col-sm-8.col-sm-offset-3.col-xs-offset-0
             h3.eng_title ZASHARE
             h2 雜學校
               br
               span 亞洲創新教育博覽會
             p 現在這個時代，我們不是不知道有什麼樣的途徑可以學習，而是不知道我們或生活還能「成為什麼樣子」。在打開對自己/生活的想像後，勇敢的選擇前往這個未來的學習途徑，成為你想成為的自己。這，就是「有敢擇學」的精神。
-            .btn.btn-orange.btn-lg.btn-tickets Tickets 勇敢購票
+            .btn.btn-orange.btn-lg.btn-tickets 勇敢購票
         //.col-sm-6
           img(src='/img/2017/expo_2017/02/宣傳圖.jpg')
   section.sectionAbout.themeWhite
     .container
       .row
-        .col-sm-6
+        .col-sm-6.scenePics
           img(src="/img/2017/expo_2017/03/03換圖_2015.jpg")
+          img(src="/img/2017/expo_2017/03/03換圖_2016.jpg")
+          img(src="/img/2017/expo_2017/03/03換圖_2017.jpg")
         .col-sm-6
           h3.eng_title ABOUT SCHOOL
           h2 關於雜學校
@@ -46,7 +48,7 @@
           h4.cardTitle {{card.title}}
           p(v-html="card.content")
   section.sectionEvents.themeDarkBlue
-    .page.themeDarkBlue(@click="nowEventPage=0" , :style="{'left': getEventOffset(0)+'%'}" :class="{active: nowEventPage==0}")
+    .page.themeDarkBlue(@click="nowEventPage=0" , :style="{'left': getEventOffset(0)}" :class="{active: nowEventPage==0}")
       .ver_title 實驗教育館
         i.fa.fa-caret-left(v-if="nowEventPage<=0")
         i.fa.fa-caret-right(v-else)
@@ -62,7 +64,7 @@
           .col-sm-6
             img(src="/img/2017/expo_2017/event/實驗教育館.jpg", alt="")
           
-    .page1.themeWhite(@click="nowEventPage=1", :style="{'left': getEventOffset(1)+'%'}" :class="{active: nowEventPage==1}")
+    .page1.themeWhite(@click="nowEventPage=1", :style="{'left': getEventOffset(1)}" :class="{active: nowEventPage==1}")
       .ver_title 雜工坊
         i.fa.fa-caret-left(v-if="nowEventPage<=1")
         i.fa.fa-caret-right(v-else)
@@ -77,7 +79,7 @@
 
           .col-sm-6
             img(src="/img/2017/expo_2017/event/雜工坊.jpg")
-    .page2.themeDarkBlue(@click="nowEventPage=2" , :style="{'left': getEventOffset(2)+'%'}" ,:class="{active: nowEventPage==2}")
+    .page2.themeDarkBlue(@click="nowEventPage=2" , :style="{'left': getEventOffset(2)}" ,:class="{active: nowEventPage==2}")
       .ver_title 雜講堂
         i.fa.fa-caret-left(v-if="nowEventPage<=2")
         i.fa.fa-caret-right(v-else)
@@ -94,13 +96,13 @@
       
   section.sectionPlan.themeBlue
     .row.text-center
-      .col-sm-6.col-sm-offset-3
+      .col-sm-6.col-sm-offset-3.col-xs-offset-0
         h3.eng_title LAUNCH PLAN
         h2 雜學校建校大業計畫啟動
         p 將單次展覽擴展成年度計畫<br>打造一間地表最嚮往的未來學校<br>MY SCHOOL, MY BRAVEDUCATION<br>我們堅信台灣可以是亞洲最大的創新教育內容平台。
         br
         br
-      .col-sm-10.col-sm-offset-1
+      .col-sm-10.col-sm-offset-1.col-xs-offset-0
         .row
           .col-sm-3
             .planCard.Orange
@@ -122,7 +124,7 @@
               .num 9
                 span.small 折
               p 雜學校特約夥伴周邊商品<br>以及課程優惠
-      .col-sm-6.col-sm-offset-3
+      .col-sm-6.col-sm-offset-3.col-xs-offset-0
         br
         br
         br
@@ -141,26 +143,28 @@
   section.sectionSchool.themeWhite
     .container
       .row.text-center
-        .col-sm-6.col-sm-offset-3
+        .col-sm-6.col-sm-offset-3.col-xs-offset-0
           h3.eng_title OPEN SCHOOL
           h2 開學資訊
           p 2017年，雜學校勇敢包下整座華山園區，<br>以超實惠的票價，囊括創新教育博覽會、雜學主題館、<br>實驗教育館、演講、工作坊<br>讓・你・一・票・逛・到・底！
   
   section.sectionInfo.themeDarkBlue
-    .row
-      .col-sm-6.panelInfo
-        .row
-          .col-sm-6.col-sm-offset-3
-            h3 開學時間DATE :
-            h5 2017.10.20 FRI. - 10.22 SUN.
-            p ※10/20-10/21 每日10-20點開放參觀<br>※10/22 10-17點開放參觀<br>※每日最後入場時間為閉館前30分鐘
-            br
-            h3 地點 VENUE :
-            p 台北華山1914文創產業園區（捷運忠孝新生站)<br>Huashan1914.Creative Park, Taipei 
-              
-      .col-sm-6
-        iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.703477056893!2d121.52721081483303!3d25.044135144039476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a96523e0246d%3A0xf1c9276707165c71!2z6I-v5bGxMTkxNOaWh-WJteWckuWNgA!5e0!3m2!1szh-TW!2stw!4v1507557998332" width="100%" height="480px" frameborder="0" style="border:0" allowfullscreen)
-  
+    .container-fluid
+      .row
+        .col-sm-6.panelInfo
+          .row
+            .col-sm-6.col-sm-offset-3.col-xs-offset-0
+              h3 開學時間DATE :
+              h5 2017.10.20 FRI. - 10.22 SUN.
+              p ※10/20-10/21 每日10-20點開放參觀<br>※10/22 10-17點開放參觀<br>※每日最後入場時間為閉館前30分鐘
+              br
+              h3 地點 VENUE :
+              p 台北華山1914文創產業園區（捷運忠孝新生站)<br>Huashan1914.Creative Park, Taipei 
+                
+        .col-sm-6
+          br
+          iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.703477056893!2d121.52721081483303!3d25.044135144039476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a96523e0246d%3A0xf1c9276707165c71!2z6I-v5bGxMTkxNOaWh-WJteWckuWNgA!5e0!3m2!1szh-TW!2stw!4v1507557998332" width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen)
+    
   //.themeWhite
     .container
       .row
@@ -295,6 +299,7 @@
 </template>
 
 <script>
+import slick from 'slick-carousel'
 export default {
   data(){
     return {
@@ -336,21 +341,33 @@ export default {
       let target = $(".sectionTicket").offset().top
       $("html,body").animate({scrollTop: target})
     })
+
+
+    $(".scenePics").slick({
+      autoplay: true,
+      fade: true,
+      dots: true
+    })
+
+    $(".fa-angle-double-down").click(()=>{
+      let target = $(".sectionTicket").offset().top
+      $("html,body").animate({scrollTop: target})
+    })
   },
   computed:{
     themeCardOffset(){
-      return -(this.pageIndex%5)*20+"%"
+      return 'calc( '+(this.pageIndex-1)*30+"px  - "+(this.pageIndex%5)*20+"% )"
     },
   },
   methods:{
     getEventOffset(i){
-      if (this.nowEventPage==0){
+      if (this.nowEventPage==0){ 
         if (i==0){
           return 0
         }else if (i==1){
-          return 90
+          return "calc(100% - 120px)"
         }else {
-          return 95
+          return "calc(100% - 60px)"
         }
       }
       
@@ -358,9 +375,9 @@ export default {
         if (i==0){
           return 0
         }else if (i==1){
-          return 5
+          return "calc(60px)"
         }else {
-          return 95
+          return "calc(100% - 60px)"
         }
       }
 
@@ -369,9 +386,9 @@ export default {
         if (i==0){
           return 0
         }else if (i==1){
-          return 5
+          return "calc(60px)"
         }else {
-          return 10
+          return "calc(120px)"
         }
       }
     }
@@ -421,6 +438,7 @@ section
     color: $color_blue
     padding: 10px 30px
     border: none
+
   
 .themeWhite
   background-color: white
@@ -429,16 +447,20 @@ section
 .themeDarkBlue
   background-color: $color_dark_blue
   color: white
+
   .btn
     background-color: white
     color: $color_blue
     padding: 10px 30px
     border: none
+
   .btn-orange
     background-color: $color_orange
     color: white
     padding: 10px 30px
     border: none
+    &:hover
+      background-color: lighten($color_orange,10)
 
 .btn
   margin-top: 30px
@@ -473,6 +495,13 @@ p
   transition: 0.5s
   padding: 0
 
+
+  /* width: calc(100vw - 30px) */
+  /* max-width: 500px */
+
+  width: calc( 5 * ( 100vw - 30px ) + 40px * 4 )
+  /* max-width: 500px*5+30px*4 */
+
   .card
     box-shadow: 0px 20px 30px -20px rgba(black,0.4)
     padding: 170px 50px 30px 50px
@@ -488,6 +517,8 @@ p
       margin-bottom: 20px
     p
       text-shadow: 0px 0px 2px rgba(black,0.2)
+
+    
 
     &:before
       content: ""
@@ -507,9 +538,9 @@ p
     
     /* width: 20% */
     background-size: cover
-    width: 40vw
-    min-width: 500px
-    max-width: calc(100vw - 30px)
+    width: calc(100vw - 30px)
+    /* min-width:  */
+    max-width: 500px
     margin: 20px
     border-radius: 18px
     /* background-attachment: fixed */
@@ -521,6 +552,7 @@ p
 
 .planCard
   padding: 30px
+  margin: 20px
   min-height: 400px
   margin-left: -6px
   margin-right: -6px
@@ -531,6 +563,7 @@ p
   box-shadow: 0px 20px 30px -20px rgba(black,0.4)
 
   transform: translate(0px,0px)
+
 
   &:hover
     transform: translate(-10px,-10px)
@@ -546,6 +579,12 @@ p
     .small
       font-size: 32px
       margin-left: 10px
+
+  @media screen and (max-width: 800px)
+    width: calc(100% - 60px)
+    margin: auto
+    margin-top: 30px
+    margin-bottom: 30px
 
 .panelInfo
   /* padding-top: 50px */
@@ -564,6 +603,7 @@ p
   background-size: 80% auto
   background-position: 150% bottom
   position: relative
+  
 
   &:before
     content: ""
@@ -576,7 +616,14 @@ p
     background-color: $color_dark_blue
   img
     width: 100%
-
+  
+  @media screen and (max-width: 800px)
+    &:before
+      width: 100%
+      height: 50%
+    background-size: auto 50%
+    background-position: top center
+    padding-bottom: 150%
 
 .sectionAbout
   padding-top: 100px
@@ -605,7 +652,7 @@ p
     width: 1em
     font-size: 24px
     top: 50px
-    left: 1.5%
+    left: 20px
     position: absolute
     opacity: 1
     transition: 0.5s
@@ -638,13 +685,33 @@ p
     position: absolute
     z-index: 2
 
+  img
+    height: 300px
+  
+  @media screen and (max-width: 800px)
+    img
+      width: 100%
+      height: auto
+      margin-left: -15px
+      margin-right: -15px
+
 .sectionEvents,.sectionPurpose,.sectionInfo
   .row
     display: flex
     align-items: center
 
+  @media screen and (max-width: 800px)
+    .row
+      display: block
+    .container-fluid
+      padding-left: 15px
+      padding-right: 15px
+
 .sectionInfo
   padding: 0
+  iframe
+    margin-left: -15px
+    margin-right: -15px
 
 
 
