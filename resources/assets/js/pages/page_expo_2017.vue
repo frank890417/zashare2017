@@ -685,11 +685,16 @@ p
   img 
     /* width: 50vw */
     width: 100%
-  .row .col-sm-6
-    /* display: flex */
+
+  .row
+    display: flex
     align-items: center
     /* margin-left: -70px */
-  
+    flex-direction: row
+    @media screen and (max-width: 800px)
+      display: block
+      
+
   .col-sm-6:nth-child(2)    
     /* background-color: #fff */
 
