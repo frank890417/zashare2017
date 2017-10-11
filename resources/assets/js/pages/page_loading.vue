@@ -17,5 +17,5 @@ export default {
 }
 </script>
 <style>
-.ec685184-f611-44a6-93b0-55957dc715d0{fill:#ff4c00;}
+.ec685184-f611-44a6-93b0-55957dc715d0{fill:#fff;}
 </style>
