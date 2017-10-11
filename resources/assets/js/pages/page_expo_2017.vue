@@ -321,6 +321,10 @@ export default {
 	},
   data(){
     return {
+      metaInfo: {
+        title: '2017展覽', // set a title
+        titleTemplate: '%s - 雜學校 Zashare', // title is now "My Example App - Yay!"
+      },
       themeCards: [
         {
           title: "德-公民道德",

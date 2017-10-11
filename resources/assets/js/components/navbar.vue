@@ -10,7 +10,7 @@ nav.navbar.navbar-default.navbar-fixed-top
         span.icon-bar
       // Branding Image
       router-link.navbar-brand(to="/")
-        img(src='/img/2017/index_za_logo.svg', height='28px')
+        img(src='/img/2017/logo1011.svg', height='28px')
     #app-navbar-collapse.collapse.navbar-collapse
       // Left Side Of Navbar
       //
