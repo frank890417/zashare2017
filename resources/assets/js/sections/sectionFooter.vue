@@ -32,9 +32,9 @@ footer
         h5 聯絡資訊 Contact Info
         hr(style='border-color: #333')
         p
-          | Address. 台北市信義區松德路159號25樓
+          | Address. 台北市光復南路417巷213號1樓
           br
-          |         Tel. +886-2-23467122
+          |         Tel. +886-2-2729-7122
           br
           | Mail. zashare@ozzie-art.com
           br
