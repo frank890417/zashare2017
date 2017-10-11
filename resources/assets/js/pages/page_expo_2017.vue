@@ -122,7 +122,7 @@
             .planCard.Orange
               .num ∞
                 span.small 
-              p 10/20-10/22<br>三日雜學校展覽<br>無限次進出 <br>另贈3張單日票
+              p 10/20-10/22<br>三日雜學校展覽<br>無限次進出
           .col-sm-3
             .planCard.darkBlue
               .num 5
