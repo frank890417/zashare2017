@@ -3,7 +3,7 @@ footer
   .container
     .row
       .col-sm-4
-        img(src='/img/ci_logosvg_purple.svg', width='130px')
+        img(src='/img/2017/logo1011.svg', width='130px')
         br
         br
         .footer_logo

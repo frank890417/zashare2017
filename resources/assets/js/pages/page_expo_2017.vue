@@ -22,10 +22,11 @@
   section.sectionAbout.themeWhite
     .container
       .row
-        .col-sm-6.scenePics
-          img(src="/img/2017/expo_2017/03/03換圖_2015.jpg")
-          img(src="/img/2017/expo_2017/03/03換圖_2016.jpg")
-          img(src="/img/2017/expo_2017/03/03換圖_2017.jpg")
+        .col-sm-6
+          .scenePics
+            img(src="/img/2017/expo_2017/03/03換圖_2015.jpg")
+            img(src="/img/2017/expo_2017/03/03換圖_2016.jpg")
+            img(src="/img/2017/expo_2017/03/03換圖_2017.jpg")
         .col-sm-6
           h3.eng_title ABOUT SCHOOL
           h2 關於雜學校
@@ -66,7 +67,7 @@
               | 更多可能性
               br
               span 實驗教育館
-            p 2017年，雜學校邀請實驗教育之父-陳怡光 (陳爸)共同策展，邀請臺灣各地實驗教育機構前來參與展出，用親身的互動，讓大眾能理解當代實驗教育發展。同時，也邀請亞洲知名親子媒體-親子天下，共同策劃「臺灣實驗教育論壇」，創造更多的討論空間，一起找到屬於臺灣實驗教育的方向。 
+            p 2017年，雜學校邀請實驗教育推手-陳怡光 (陳爸)共同策展，邀請臺灣各地實驗教育機構前來參與展出，用親身的互動，讓大眾能理解當代實驗教育發展。同時，也邀請亞洲知名親子媒體-親子天下，共同策劃「臺灣實驗教育論壇」，創造更多的討論空間，一起找到屬於臺灣實驗教育的方向。 
 
           .col-sm-6
             img(src="/img/2017/expo_2017/event/實驗教育館.jpg", alt="")
@@ -141,15 +142,13 @@
         br
         br
         br
-        h3 總價值超過
-          s $24,800  
-          | → 現在募資只要2,480，更有揪團優惠<br>跟朋友一起 「有敢」的支持我們建校
-        a.btn.btn-primary.btn-lg(href="/funding") 支持募資計畫
+        h3 快跟朋友一起到活動現場 「有敢」的支持我們建校<br>（ 要來現場ZASHOP註冊雜學校學生證哦！）
+        a.btn.btn-primary.btn-lg(href="/funding") 線上暸解學生證
         br
         br
         br
       .col-sm-12
-        h3.text-center 那個最近手頭有點緊<br>可不可以只買博覽會的票?
+        h3.text-center 那個活動現場要怎麼進去？<br>我想買博覽會的門票！
         br
         i.fa.fa-angle-double-down(style="color: white;font-size: 50px")
 
@@ -173,9 +172,8 @@
               br
               h3 地點 VENUE :
               p 台北華山1914文創產業園區（捷運忠孝新生站)<br>Huashan1914.Creative Park, Taipei 
-                
-        .col-sm-6
-          br
+              br.visible-xs
+        .col-sm-6.col-map
           iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.703477056893!2d121.52721081483303!3d25.044135144039476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a96523e0246d%3A0xf1c9276707165c71!2z6I-v5bGxMTkxNOaWh-WJteWckuWNgA!5e0!3m2!1szh-TW!2stw!4v1507557998332" width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen)
     
   //.themeWhite
@@ -223,7 +221,7 @@
                   a(
                     target='_blank', 
                     href='https://zashare.kktix.cc/events/2017zashare', 
-                    @click="$ga.event('link', 'click', '購票-網路購票')"
+                    @click="$ga.event('link', 'click', '購票-kktix')"
                     )
                     | KKTIX 
                     i.fa.fa-link
@@ -322,7 +320,7 @@ export default {
   data(){
     return {
       metaInfo: {
-        title: '2017展覽', // set a title
+        title: '2017展覽購票', // set a title
         titleTemplate: '%s - 雜學校 Zashare', // title is now "My Example App - Yay!"
       },
       themeCards: [
@@ -559,7 +557,9 @@ p
     position: relative
     overflow: hidden
     border-radius: 20px
-    display: inline-block
+    display: inline-flex
+    align-items: bottom
+    flex-direction: column
     white-space: normal
     min-height: 430px
     /* cursor: pointer */
@@ -795,9 +795,13 @@ p
 
 .sectionInfo
   padding: 0
+  
+  .col-map
+    padding-left: 0
+    padding-right: 0
   iframe
-    margin-left: -15px
-    margin-right: -15px
+    /* margin-left: -15px */
+    /* margin-right: -15px */
     
     @media screen and (max-width: 800px)
       width: 100vw

@@ -19,8 +19,8 @@ nav.navbar.navbar-default.navbar-fixed-top
         </ul>
       // Right Side Of Navbar
       ul.nav.navbar-nav.navbar-right
-        li(:class="{active: $router.path=='/ticket'}", @click="toggleNav")
-          router-link(to='/ticket') 展覽購票
+        li(:class="{active: $router.path=='/expo2017'}", @click="toggleNav")
+          router-link(to='/expo2017') 展覽購票
         li(:class="{active: $router.path=='/news'}", @click="toggleNav")
           router-link(to="/news") 最新消息
         li.dropdown.dropdown_cata.hidden-xs(:class="{active: $router.path=='/blog'}")
@@ -93,6 +93,7 @@ export default {
         console.log("remove")
         setTimeout(()=>{
           $(".dropdown-menu").removeClass("open");
+          $(".dropdown_cata").removeClass("open");
         },200)
       })
     }
