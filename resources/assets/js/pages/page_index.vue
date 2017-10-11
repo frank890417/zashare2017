@@ -12,7 +12,7 @@
           a.btn(href='http://tickets.books.com.tw/progshow/08010901224680/', target='_blank')
             | 博客來
         .index_btns
-          router-link.index_btn.btn_buy(to="/ticket")
+          router-link.index_btn.btn_buy(to="/expo2017")
             img(src='/img/2017/index0829_btnBuy.svg', alt='')
           a.index_btn.btn_crowd(href='https://backme.tw/ref/GZMac/', target='_blank')
             img(src='/img/2017/index0829_btnFunding.svg', alt='')
