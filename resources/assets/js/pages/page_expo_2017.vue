@@ -40,13 +40,18 @@
       .row.text-center
         .col-sm-6.col-sm-offset-3
           h3.eng_title BIG EVENT
-          h2 亞洲唯一創新教育內容展
+          h2 亞洲唯一
+              br.visible-xs
+              | 創新教育內容展
           p 邀請上百個創新學習機構、個人<br>重新定義五育，打破過往教育想像<br>我們說，教育是要讓我們成為更好的人<br>所以生活，才應該是教育的內容
     .panelCards
-      ul.themeCards(:style="{'transform':'translateX('+themeCardOffset+')'}")
-        li.card(v-for="card in themeCards" , :style="{'background-image': 'url('+card.img+')'}")
+      ul.themeCards
+        li.card(v-for="(card,cid) in themeCards" ,
+                :style="{'background-image': 'url('+card.img+')'}")
           h4.cardTitle {{card.title}}
           p(v-html="card.content")
+      //vue-slider(v-model="themeCardOffset")
+      
   section.sectionEvents.themeDarkBlue
     .page.themeDarkBlue(@click="nowEventPage=0" , :style="{'left': getEventOffset(0)}" :class="{active: nowEventPage==0}")
       .ver_title 實驗教育館
@@ -56,7 +61,9 @@
         .row
           .col-sm-6
             h3.eng_title Ｍore Possibility
-            h2 給未來的教育更多可能性
+            h2 給未來的教育
+              br.visible-xs
+              | 更多可能性
               br
               span 實驗教育館
             p 2017年，雜學校邀請實驗教育之父-陳怡光 (陳爸)共同策展，邀請臺灣各地實驗教育機構前來參與展出，用親身的互動，讓大眾能理解當代實驗教育發展。同時，也邀請亞洲知名親子媒體-親子天下，共同策劃「臺灣實驗教育論壇」，創造更多的討論空間，一起找到屬於臺灣實驗教育的方向。 
@@ -72,7 +79,9 @@
         .row
           .col-sm-6
             h3.eng_title DARE TO TRY
-            h2 43 場勇敢試試看的體驗工作坊
+            h2 43 場勇敢試試看的
+              br.visible-xs
+              | 體驗工作坊
               br
               span 雜工坊
             p 雜工坊邀請各參展單位參與，在工坊空間帶出更有趣、 更身歷其境的創新教育內容的體 驗。<br>同時，雜學校更與「交點」 合作，成立雜點工作坊，讓更多有趣的想法可以在這裡有舞台被更多人看見。<br>另外，雜學校更關注到台灣教育中，缺乏對「技職」 的想像與注意，此次邀請到「職人」、「技職 3.0」兩個關注台灣技職領域的團隊，為我們開設一系列職人工坊，一探職人的世界!
@@ -87,18 +96,22 @@
         .row
           .col-sm-6
             h3.eng_title BRAVE PEOPLE
-            h2 絕對不能錯過的 20 個勇敢講堂
+            h2 絕對不能錯過的
+              br.visible-xs
+              | 20 個勇敢講堂
               br
               span 雜講堂
             p 2017 年「超勇敢」的雜講堂， 讓各類議題、各種人生在這裡勇敢發聲。<br><br>身分證還可以是什麼樣子?讓知名作家詹偉雄、台大教授李明璁等人來和你聊一聊。還有知名部落客 AKKO、熊仁謙、台灣吧-蕭宇辰、知名 Youtuber MOM&DAD、最衝公民教師-黃益中、翻轉教育推手-葉丙成教授等等⋯，要來講堂跟你聊勇敢、聊人生。
           .col-sm-6
-            img(src="/img/2017/expo_2017/event/雜講堂.jpg")
-      
+            img(src="/img/2017/expo_2017/event/雜講堂.jpg")  
+  
   section.sectionPlan.themeBlue
     .row.text-center
       .col-sm-6.col-sm-offset-3.col-xs-offset-0
         h3.eng_title LAUNCH PLAN
-        h2 雜學校建校大業計畫啟動
+        h2 雜學校建校大業
+          br.visible-xs
+          | 計畫啟動
         p 將單次展覽擴展成年度計畫<br>打造一間地表最嚮往的未來學校<br>MY SCHOOL, MY BRAVEDUCATION<br>我們堅信台灣可以是亞洲最大的創新教育內容平台。
         br
         br
@@ -300,7 +313,12 @@
 
 <script>
 import slick from 'slick-carousel'
+import vueSlider from 'vue-slider-component'
+
 export default {
+  components: {
+		vueSlider
+	},
   data(){
     return {
       themeCards: [
@@ -326,7 +344,7 @@ export default {
           img: "/img/2017/expo_2017/04/新聞稿配圖-五育_美.jpg"
         }
       ],
-      pageIndex: 0,
+      themeCardOffset: 0,
       nowEventPage: 2
     }
   },
@@ -347,7 +365,28 @@ export default {
       autoplay: true,
       fade: true,
       dots: true
+    }) 
+    $(".themeCards").slick({
+      autoplay: true,
+      // infinite: true,
+
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      dots: true,
+      responsive: [
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow: 1,
+            
+          }
+        }
+      ]
+
+    
     })
+
+    
 
     $(".fa-angle-double-down").click(()=>{
       let target = $(".sectionTicket").offset().top
@@ -355,11 +394,11 @@ export default {
     })
   },
   computed:{
-    themeCardOffset(){
-      return 'calc( '+(this.pageIndex-1)*30+"px  - "+(this.pageIndex%5)*20+"% )"
-    },
   },
   methods:{
+    // themeCardOffset(cid){
+    //   return "translate( calc( "+(50-( (this.pageIndex)%5 -cid)*100)+"% )) "
+    // },
     getEventOffset(i){
       if (this.nowEventPage==0){ 
         if (i==0){
@@ -483,23 +522,30 @@ h4
 p
   opacity: .8
   font-weight: 400
+  letter-spacing: 1px
 
 
 .panelCards
   margin-top: 50px
+  /* width: 0 */
+  /* max-width: 0 */
 
 .themeCards
-  display: flex
+  display: block
+  white-space: nowrap
   /* overflow: hidden */
   list-style: none
   transition: 0.5s
   padding: 0
+  
+  .slick-dots
+    bottom: -25px
 
 
   /* width: calc(100vw - 30px) */
   /* max-width: 500px */
 
-  width: calc( 5 * ( 100vw - 30px ) + 40px * 4 )
+  width: auto
   /* max-width: 500px*5+30px*4 */
 
   .card
@@ -509,6 +555,9 @@ p
     position: relative
     overflow: hidden
     border-radius: 20px
+    display: inline-block
+    white-space: normal
+    min-height: 430px
     /* cursor: pointer */
 
     h4
@@ -632,8 +681,8 @@ p
   img 
     /* width: 50vw */
     width: 100%
-  .row
-    display: flex
+  .row .col-sm-6
+    /* display: flex */
     align-items: center
     /* margin-left: -70px */
   
@@ -648,6 +697,7 @@ p
 .sectionEvents
   position: relative
   padding: 0
+  
   .ver_title
     width: 1em
     font-size: 24px
@@ -657,6 +707,7 @@ p
     opacity: 1
     transition: 0.5s
     text-align: center
+
   .page,.page1,.page2
     position: absolute
     left: 0
@@ -665,12 +716,23 @@ p
     width: 100%
     transition: 0.5s
     cursor: pointer
+    padding-left: 65px
+    padding-right: 65px
     img
       height: 100vh
       max-height: 800px
+      filter: saturate(40%)
     &.active
       .ver_title
         opacity: 0
+
+    @media screen and (max-width: 800px)
+      img
+        width: 100%
+        height: auto
+        margin-left: -15px
+        margin-right: -15px
+
   .page
     left: 0
     position: relative
@@ -687,13 +749,33 @@ p
 
   img
     height: 300px
-  
+
+
+
+  //mobile settings
   @media screen and (max-width: 800px)
-    img
-      width: 100%
+    .page,.page1,.page2
+      position: relative
+      left: 0 !important
       height: auto
-      margin-left: -15px
-      margin-right: -15px
+      padding-bottom: 30px
+      padding-top: 60px
+      padding-left: 15px
+      padding-right: 15px
+      img
+        width: 100vw
+        height: auto
+        margin-left: -30px
+        margin-right: -30px
+        margin-top: 30px
+      .ver_title
+        width: 100%
+        margin-bottom: 30px
+        text-align: left
+        left: 30px
+      i
+        display: none
+
 
 .sectionEvents,.sectionPurpose,.sectionInfo
   .row
@@ -712,7 +794,9 @@ p
   iframe
     margin-left: -15px
     margin-right: -15px
-
+    
+    @media screen and (max-width: 800px)
+      width: 100vw
 
 
 </style>
