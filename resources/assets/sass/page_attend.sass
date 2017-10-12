@@ -1,0 +1,129 @@
+.page_attends
+  background-color: $color_blue
+.attenditem 
+  color: #333
+  display: inline-block
+  margin-bottom: 10px
+  margin-top: 10px
+  padding: 20px
+  width: 100%
+  border-radius: 10px !important
+  background-color: #FCFCFD
+  padding-bottom: 20px
+  -webkit-transition: 0.5s
+  transition: 0.5s
+  position: relative
+  top: 0px
+  left: 0px
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3)
+  text-decoration: none
+
+  & a.cardtop 
+    color: inherit
+
+  & a.cardtop:hover 
+    color: inherit
+    text-decoration: none
+
+  &:hover 
+    top: -5px
+    left: -5px
+    color: #333
+
+  & img
+    width: 30%
+
+.attenditem:hover .itemteach, .attenditem:hover .itemlearn 
+  opacity: 1
+  max-height: 100px
+
+
+p 
+  line-height: 23px
+
+
+.white 
+  color: #FCFCFD
+
+
+.swex 
+  color: #430095
+  font-weight: 700
+  padding: 4px 8px
+  cursor: pointer
+
+
+.form-group 
+  position: relative
+
+
+.keywordbtn 
+  display: inline-block
+  background-color: #EE3441
+  padding: 5px 10px
+  margin-top: 10px
+  margin-right: 10px
+  border-radius: 5px
+  color: white
+  cursor: pointer
+
+@media screen and (max-width: 1024px) 
+  .keywordbtn 
+    display: none
+  
+
+
+.input_filter 
+  background-color: transparent
+  color: white
+  font-weight: 500
+
+
+.filter_cancel 
+  color: white
+  position: absolute
+  right: 15px
+  top: 3px
+  font-size: 20px
+  cursor: pointer
+
+.filter_cancel:hover 
+  color: #EE3441
+
+
+.footertext 
+  color: #FCFCFD
+  padding: 20px
+
+
+.searchtitle 
+  display: inline-block
+  margin-bottom: 15px
+
+
+#search_headpart .container 
+  padding: 10px
+  box-sizing: border-box
+
+#search_headpart.fixtop 
+  position: fixed
+  top: 0px
+  left: 0
+  z-index: 900
+  background-color: #430095
+  width: 100%
+  max-width: 100vw
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3)
+
+@media screen and (max-height: 800px) 
+  #search_headpart.fixtop .searchtitle 
+    font-size: 22px
+    display: inline-block
+  
+  #search_headpart.fixtop .keywordbtn 
+    display: none
+  
+
+#search_headpart.fixtop .container 
+  padding: 10px
+
