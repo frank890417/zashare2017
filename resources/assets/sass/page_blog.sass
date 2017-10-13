@@ -84,10 +84,14 @@
 
 
 .carousel_bg
-  height: 550px
+  height: 650px
+  padding-top: 60px
   background-size: cover
   // background-attachment: fixed
   background-position: center center
+  
+  @media screen and (max-width: 500px)
+    height: 400px
 
 .carousel_cover
   background: linear-gradient(180deg,transparent 50%,rgba(black,0.2) 150%)

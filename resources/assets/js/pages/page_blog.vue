@@ -1,5 +1,6 @@
 <template lang="pug">
 .page_blog
+  
   .slick.carousel.slide(data-ride='carousel')
     // 文章輪播
     .item(
@@ -12,7 +13,7 @@
       .container.text-left
         .row
           .col-xs-12.col-sm-8
-            .carousel-caption
+            .carousel-caption(v-if="tag!='H'")
               h5.text-left(style='opacity: 0.9') / {{post.name_cht}}
               h1.text-left {{post.title}}
               p.text-left(style='display: inline-block') {{  post.short_description }}
