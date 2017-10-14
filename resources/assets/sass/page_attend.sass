@@ -134,6 +134,9 @@
     font-size: 20px
     cursor: pointer
 
+    @media screen and (max-width: 768px)
+      top: 5px
+
   .filter_cancel:hover 
     color: #EE3441
 
@@ -146,7 +149,8 @@
   .searchtitle 
     display: inline-block
     margin-bottom: 15px
-
+    span
+      font-size: 16px
 
   #search_headpart .container 
     padding: 10px
@@ -179,7 +183,11 @@
     
     #search_headpart.fixtop .keywordbtn 
       display: none
-    
+  @media screen and (max-height: 800px) 
+    .row-cata-btn
+      .col-sm-11
+        overflow-x: scroll
+        white-space: nowrap
 
   #search_headpart.fixtop .container 
     padding: 10px

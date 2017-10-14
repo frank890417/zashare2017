@@ -9,7 +9,7 @@ nav.navbar.navbar-default.navbar-fixed-top
         span.icon-bar
         span.icon-bar
       // Branding Image
-      router-link.navbar-brand(to="/")
+      router-link.navbar-brand(to="/", style="display: block")
         img(src='/img/2017/logo1011.svg', height='28px')
     #app-navbar-collapse.collapse.navbar-collapse
       // Left Side Of Navbar
@@ -19,7 +19,7 @@ nav.navbar.navbar-default.navbar-fixed-top
         </ul>
       // Right Side Of Navbar
       ul.nav.navbar-nav.navbar-right
-        li.dropdown.dropdown_cata.hidden-xs(:class="{active: $router.path=='/expo2017'}")
+        li.dropdown.dropdown_cata(:class="{active: $router.path=='/expo2017'}")
           router-link(to="/expo2017", role='button', aria-haspopup='true', aria-expanded='true')
             | 當期展覽
             span.caret
@@ -32,7 +32,7 @@ nav.navbar.navbar-default.navbar-fixed-top
           router-link(to='/expo2017') 展覽購票
         li(:class="{active: $router.path=='/news'}", @click="toggleNav")
           router-link(to="/news") 最新消息
-        li.dropdown.dropdown_cata.hidden-xs(:class="{active: $router.path=='/blog'}")
+        //li.dropdown.dropdown_cata.hidden-xs(:class="{active: $router.path=='/blog'}")
           router-link(to="/blog", role='button', aria-haspopup='true', aria-expanded='true')
             | 參展報導
             span.caret
@@ -55,7 +55,7 @@ nav.navbar.navbar-default.navbar-fixed-top
 
         //li(:class="{active: $router.path=='/about'}", @click="toggleNav")
           router-link(to='/about') 關於雜學校
-        li.dropdown.dropdown_cata.visible-xs(:class="{active: $router.path=='/blog'}")
+        li.dropdown.dropdown_cata(:class="{active: $router.path=='/blog'}")
           router-link(to='/blog', role='button', aria-haspopup='true', aria-expanded='true')
             | 2016參展報導
             span.caret

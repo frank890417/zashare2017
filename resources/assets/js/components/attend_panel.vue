@@ -4,27 +4,28 @@ div
   .row
     .col-sm-12
       h2.searchtitle.white 參展單位查詢
-        span.white (共{{filtered_list.length}}項結果):
+        span.white (共{{filtered_list.length}}攤位) &nbsp;
+        i.fa.fa-search.pull-right(@click="showSearch=!showSearch")
   #search_headpart.row(:class='{fixed: fixed_search_class}')
     div(:class="{container: fixed_search_class}")
       .col-sm-12
         .form-group
-          br
-          input.form-control.input_filter(v-model='filter', placeholder='輸入代號、名字、或任何你想要搜尋的關鍵字')
-          br
+          br.hidden-xs
+          input.form-control.input_filter(v-if="showSearch", v-model='filter', placeholder='輸入代號、名字、或任何你想要搜尋的關鍵字')
+          br(v-if="showSearch",)
           
           .row.row-cata-btn
             //.col-sm-1
               label 類別
             .col-sm-11
-              span.keywordbtn(v-for='k in catas', @click='filter=k', :class="{active: k==filter}") {{k}}
-          span.filter_cancel(@click='filter=""', title='清空篩選條件') x
-          br
-          .row.row-keyword-btn
+              span.keywordbtn(v-for='k in catas', @click='setFilter(k)', :class="{active: k==filter}") {{k}}
+          span.filter_cancel(v-if="showSearch",@click='filter="";showSearch=false', title='清空篩選條件') x
+          br.hidden-xs
+          .row.row-keyword-btn.hidden-xs
             .col-sm-1
               label 關鍵字
             .col-sm-11
-              span.keywordbtn(v-for='k in keywords', @click='filter=k') {{k}}
+              span.keywordbtn(v-for='k in keywords', @click='setFilter(k)') {{k}}
           
   .row
     ul.col-sm-4(v-if='wsize>=992')
@@ -59,7 +60,8 @@ export default {
       "群－關係",
       "美－美感經驗",
       "實驗教育"],
-      fixed: false
+      fixed: false,
+      showSearch: false
     }
   },
   computed: {
@@ -127,6 +129,12 @@ export default {
       return false
     }
    
+  },
+  methods:{
+    setFilter(k){
+      this.filter=k
+      $("html,body").animate({scrollTop:0})
+    }
   },
   mounted(){
     
