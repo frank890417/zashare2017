@@ -23,20 +23,19 @@
           thead
             th(style="width: 10%") 時間
             //th(style="width: 5%") 參展編號
-            th(style="width: 10%") 攤位編號
+            //th(style="width: 10%") 攤位編號
             th(style="width: 15%") 名稱
             th(style="width: 15%") 主題
-            th(style="width: 20%") 描述
+            th(style="width: 25%") 描述
             th(style="width: 20%") 報名方式
             //th(style="width: 5%") 報名連結
             th(style="width: 15%") 地點
 
           tbody
             tr(v-for="event in events")
-              td {{event.time}} 
+              td.text-center {{event.time}} 
               //td {{event.tag_team}}
-              td {{event.tag}}
-              td {{event.name}}
+              td {{event.name}} ({{event.tag}})
               td {{event.title}}
               td {{event.description}}
               td {{event.register}}
@@ -63,6 +62,11 @@ export default {
   computed:{
     time_chunk(){
       return _.groupBy(this.workshop,o=>o.date)
+    }
+  },
+  methods:{
+    place_chunk(obj){
+      return _.groupBy(obj,o=>o.place)
     }
   }
   
