@@ -20,7 +20,7 @@ nav.navbar.navbar-default.navbar-fixed-top
       // Right Side Of Navbar
       ul.nav.navbar-nav.navbar-right
         li.dropdown.dropdown_cata(:class="{active: $router.path=='/expo2017'}")
-          router-link(to="/expo2017", role='button', aria-haspopup='true', aria-expanded='true')
+          a(role='button', aria-haspopup='true', aria-expanded='true')
             | 當期展覽
             span.caret
           ul.dropdown-menu
@@ -32,7 +32,7 @@ nav.navbar.navbar-default.navbar-fixed-top
           router-link(to='/expo2017') 展覽購票
         li(:class="{active: $router.path=='/news'}", @click="toggleNav")
           router-link(to="/news") 最新消息
-        //li.dropdown.dropdown_cata.hidden-xs(:class="{active: $router.path=='/blog'}")
+        li.dropdown.dropdown_cata.hidden-xs(:class="{active: $router.path=='/blog'}")
           router-link(to="/blog", role='button', aria-haspopup='true', aria-expanded='true')
             | 參展報導
             span.caret

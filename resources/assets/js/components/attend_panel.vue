@@ -132,12 +132,19 @@ export default {
   },
   methods:{
     setFilter(k){
-      this.filter=k
+      if (this.filter!=k){
+        this.filter=k
+      }else{
+        this.filter=""
+      }
       $("html,body").animate({scrollTop:0})
     }
   },
   mounted(){
-    
+    if (window.location.hash!=""){
+      this.filter=window.location.hash.slice(1)
+
+    }
   }
 }
 </script>

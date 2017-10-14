@@ -47,8 +47,10 @@
           p 邀請上百個創新學習機構、個人<br>重新定義五育，打破過往教育想像<br>我們說，教育是要讓我們成為更好的人<br>所以生活，才應該是教育的內容
     .panelCards
       ul.themeCards
-        li.card(v-for="(card,cid) in themeCards" ,
-                :style="{'background-image': 'url('+card.img+')'}")
+        router-link.card(v-for="(card,cid) in themeCards" ,
+                :style="{'background-image': 'url('+card.img+')'}",
+                :to="'/expo2017/attends#'+card.title",
+                :title="'前往參展單位介紹-'+card.title")
           h4.cardTitle {{card.title}}
           p(v-html="card.content")
       //vue-slider(v-model="themeCardOffset")
@@ -325,23 +327,23 @@ export default {
       },
       themeCards: [
         {
-          title: "德-公民道德",
+          title: "德－公民道德",
           content: "公民道德是當代公民社會不可缺乏的素養。生活在現代公民社會中的我們，應該如何思考公共領域，以及人在公共領域中的行為。生活，關心、在乎的不是只有自己，更有這個社會，與你身邊的每一個人。",
           img: "/img/2017/expo_2017/04/新聞稿配圖-五育_德.jpg"
         },{
-          title: "智-思考批判",
+          title: "智－思考批判力",
           content: "在資訊爆炸的時代，我們缺乏的不是資訊或是獲得資訊的渠道。而是如何選擇、判斷資訊內容，並加以吸收的能力。當大量的資訊湧進的時候，我們如何驗證、如何求真、如何吸收之後進而產生自己的觀點?",
           img: "/img/2017/expo_2017/04/新聞稿配圖-五育_智.jpg"
         },{
-          title: "體-身體實踐",
+          title: "體－身體實踐",
           content: "關於體，大家可能會直接聯想到「體育」，但「體」其實更關乎的是實踐。如果沒有辦法實踐，再多的理想、夢想都是空談。通過親自去做，才能從中真正得到自己的體會，而非只是被動的「 被告知 」與接受",
           img: "/img/2017/expo_2017/04/新聞稿配圖-五育_體.jpg"
         },{
-          title: "群-關係",
+          title: "群－關係",
           content: "人，生活在社會之中，我們無法與他人、外在環境斷裂。如何與外於「自己」的它者共處，建立良好關係，是至關重要的。在這個沒有群眾不能成事、彼此緊密關連的時代中，「沒有人會是局外人」。",
           img: "/img/2017/expo_2017/04/新聞稿配圖-五育_群.jpg"
         },{
-          title: "美-美感經驗",
+          title: "美－美感經驗",
           content: "美，是一種對世界的感受能力，不是單一可以被判斷的價值。當我們可以靜下心來，用自己的方式觀察並感受這個世界，那剎那的感受，或許就是我們在說的美感經驗。",
           img: "/img/2017/expo_2017/04/新聞稿配圖-五育_美.jpg"
         }
@@ -550,7 +552,7 @@ p
   width: auto
   /* max-width: 500px*5+30px*4 */
 
-  .card
+  a.card
     box-shadow: 0px 20px 30px -20px rgba(black,0.4)
     padding: 170px 50px 30px 50px
     box-sizing: border-box
@@ -562,6 +564,9 @@ p
     flex-direction: column
     white-space: normal
     min-height: 430px
+    color: white
+    text-decoration: none
+
     /* cursor: pointer */
 
     h4
