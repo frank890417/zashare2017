@@ -10,7 +10,7 @@
       .col-sm-12.col-cata.fixed(v-if="fixed_cata_class")
         .btn-group
           .btn.btn-secondary(
-            v-for="time in Object.keys(time_chunk(ws))",
+            v-for="time in Object.keys(time_chunk(workshop))",
             @click="now_date = time",
             :class="{'btn-primary': now_date == time}"
           ) {{time}}
