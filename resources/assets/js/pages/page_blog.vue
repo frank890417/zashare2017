@@ -8,7 +8,8 @@
         style='cursor: pointer'
         v-for="(post,id) in show_posts"
       )
-      .bg_parallax.carousel_bg(:style="{'background-image':'url('+post.cover+')'}")
+      img.carousel_image(:src="post.cover")
+      //.bg_parallax.carousel_bg(:style="{'background-image':'url('+post.cover+')'}")
       .carousel_cover
       .container.text-left
         .row
@@ -49,7 +50,7 @@ export default {
           dots: true,
           infinite: true,
           autoplay: true,
-          autoplaySpeed: 2000,
+          autoplaySpeed: 4000,
         })
 
       })
