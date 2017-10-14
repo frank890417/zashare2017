@@ -60,7 +60,7 @@
     if (window.location.host.indexOf("dev")!=-1){
         document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
     ':35729/livereload.js?snipver=1"></' + 'script>');
-
+    }else{
         (function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
             h._hjSettings={hjid:656669,hjsv:6};
