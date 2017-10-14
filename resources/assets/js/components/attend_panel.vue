@@ -142,7 +142,7 @@ export default {
   },
   mounted(){
     if (window.location.hash!=""){
-      this.filter=window.location.hash.slice(1)
+      this.filter= decodeURIComponent(window.location.hash.slice(1))
 
     }
   }
