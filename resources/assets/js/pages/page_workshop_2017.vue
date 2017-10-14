@@ -10,23 +10,23 @@
       .col-sm-12.col-cata.fixed(v-if="fixed_cata_class")
         .btn-group
           .btn.btn-secondary(
-            v-for="time in Object.keys(time_chunk)",
+            v-for="time in Object.keys(time_chunk(ws))",
             @click="now_date = time",
             :class="{'btn-primary': now_date == time}"
           ) {{time}}
       .col-sm-12.col-cata
         .btn-group
           .btn.btn-secondary(
-            v-for="time in Object.keys(time_chunk)",
+            v-for="time in Object.keys(time_chunk(workshop))",
             @click="now_date = time",
             :class="{'btn-primary': now_date == time}"
           ) {{time}}
         br
         br
-  .container.container-table
+  .container.container-table(v-for="ws in [workshop,workshop_c]")
     .row
       .col-sm-12(
-        v-for="(events,time) in time_chunk",
+        v-for="(events,time) in time_chunk(ws)",
         v-if="now_date == time"
         )
         //h3 {{time}}
@@ -70,25 +70,26 @@
                   target="_blank",
                   v-if="event.website"
                 ) 報名
-
+    //.row
+      .col-sm-12
+        pre(v-html="workshop_c")
   //pre(v-html="time_chunk")
 </template>
 
 <script>
 import {mapState} from 'vuex'
 import workshop from "../data/workshop_2017.js"
+import workshop_c from "../data/workshop_c_2017.js"
 import _ from 'lodash'
 export default {
   data() {
     return {
       workshop: workshop.default,
+      workshop_c: workshop_c.default,
       now_date: "10/19(四)"
     }
   },
   computed:{
-    time_chunk(){
-      return _.groupBy(this.workshop,o=>o.date)
-    },
      ...mapState(['scrollTop','wsize']),
     fixed_cata_class(){
       let $cata_bar = $(".col-cata")
@@ -101,6 +102,10 @@ export default {
     }
   },
   methods:{
+
+    time_chunk(obj){
+      return _.groupBy(obj,o=>o.date)
+    },
     place_chunk(obj){
       return _.groupBy(obj,o=>o.place)
     },
