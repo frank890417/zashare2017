@@ -3,10 +3,9 @@
     a.row.cardtop(:href='item.website', :title='"前往"+item.name_cht+"的網站"', target='_blank')
       .col-xs-4.col-icon
         img.icon(:src='icon_url')
-      .col-sm-8
+      .col-xs-8
         .topleft
           span.itemtag(v-html='item.tag')
-          br
           h3(v-html='item.name_cht')
           h6.itemtheme(v-html="item.theme")
     .row(v-show="liststyle!='iconmode'")
