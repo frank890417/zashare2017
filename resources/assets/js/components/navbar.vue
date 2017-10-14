@@ -20,7 +20,7 @@ nav.navbar.navbar-default.navbar-fixed-top
       // Right Side Of Navbar
       ul.nav.navbar-nav.navbar-right
         li.dropdown.dropdown_cata(:class="{active: $router.path=='/expo2017'}")
-          a(role='button', aria-haspopup='true', aria-expanded='true')
+          router-link(to="/expo2017" ,role='button', aria-haspopup='true', aria-expanded='true')
             | 當期展覽
             span.caret
           ul.dropdown-menu
