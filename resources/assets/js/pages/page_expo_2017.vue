@@ -47,10 +47,10 @@
           p 邀請上百個創新學習機構、個人<br>重新定義五育，打破過往教育想像<br>我們說，教育是要讓我們成為更好的人<br>所以生活，才應該是教育的內容
     .panelCards
       ul.themeCards
-        router-link.card(v-for="(card,cid) in themeCards" ,
+        .card(v-for="(card,cid) in themeCards" ,
                 :style="{'background-image': 'url('+card.img+')'}",
-                :to="'/expo2017/attends#'+card.title",
                 :title="'前往參展單位介紹-'+card.title")
+          //:to="'/expo2017/attends#'+card.title",
           h4.cardTitle {{card.title}}
           p(v-html="card.content")
       //vue-slider(v-model="themeCardOffset")
@@ -88,7 +88,8 @@
               br
               span 雜工坊
             p 雜工坊邀請各參展單位參與，在工坊空間帶出更有趣、 更身歷其境的創新教育內容的體 驗。<br>同時，雜學校更與「交點」 合作，成立雜點工作坊，讓更多有趣的想法可以在這裡有舞台被更多人看見。<br>另外，雜學校更關注到台灣教育中，缺乏對「技職」 的想像與注意，此次邀請到「職人」、「技職 3.0」兩個關注台灣技職領域的團隊，為我們開設一系列職人工坊，一探職人的世界!
-
+            br
+            //router-link.btn.btn-blue(to="/expo2017/workshops") 查看場次
           .col-sm-6
             img(src="/img/2017/expo_2017/event/雜工坊.jpg")
     .page2.themeDarkBlue(@click="nowEventPage=2" , :style="{'left': getEventOffset(2)}" ,:class="{active: nowEventPage==2}")
@@ -481,11 +482,19 @@ section
     color: $color_blue
     padding: 10px 30px
     border: none
+    
 
   
 .themeWhite
   background-color: white
   color: $color_blue
+  .btn.btn-blue
+    background-color: $color_blue
+    color: white
+    padding: 10px 30px
+    border: none
+    &:hover
+      background-color: lighten($color_blue,5)
 
 .themeDarkBlue
   background-color: $color_dark_blue
@@ -552,7 +561,7 @@ p
   width: auto
   /* max-width: 500px*5+30px*4 */
 
-  a.card
+  .card
     box-shadow: 0px 20px 30px -20px rgba(black,0.4)
     padding: 170px 50px 30px 50px
     box-sizing: border-box

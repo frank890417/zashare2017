@@ -4,6 +4,7 @@
     .row
       .col-sm-12
         h1 工作坊活動
+        hr
         .btn-group
           .btn.btn-secondary(
             v-for="time in Object.keys(time_chunk)",
