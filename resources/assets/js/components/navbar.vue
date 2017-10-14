@@ -55,7 +55,7 @@ nav.navbar.navbar-default.navbar-fixed-top
 
         //li(:class="{active: $router.path=='/about'}", @click="toggleNav")
           router-link(to='/about') 關於雜學校
-        li.dropdown.dropdown_cata(:class="{active: $router.path=='/blog'}")
+        //li.dropdown.dropdown_cata(:class="{active: $router.path=='/blog'}")
           router-link(to='/blog', role='button', aria-haspopup='true', aria-expanded='true')
             | 2016參展報導
             span.caret
