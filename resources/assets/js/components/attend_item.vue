@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     click: function(title){
-      this.$ga.event('link', 'click', title.replace(/(<([^>]+)>)/ig,""));
+      this.$ga.event('attends', 'click', title.replace(/(<([^>]+)>)/ig,""));
     }            
   },
   computed:{
