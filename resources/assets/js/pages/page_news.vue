@@ -80,9 +80,8 @@
         .row
           .col-sm-12
             .form-inline
-              label(for='', placeholder='請輸入關鍵字') 快速搜尋：
-              input.form-control(type='text', v-model='teamfilter')
-              label(for='')  (共{{filtered2017list.length}}項結果)
+              input.form-control(type='text', v-model='teamfilter', placeholder='快速搜尋(名稱/編號)')
+              label(for='')  &nbsp;(共{{filtered2017list.length}}項結果)
         .row.row_list(v-for='cata in cata2017', v-if='getCataTeam2017(cata).length')
           .col-sm-12
             br
