@@ -28,6 +28,8 @@ nav.navbar.navbar-default.navbar-fixed-top
               router-link(to='/expo2017') 購票資訊
             li.disable_current
               router-link(to='/expo2017/attends') 攤位一覽
+            li.disable_current
+              router-link(to='/expo2017/workshops') 工作坊
         //li(:class="{active: $router.path=='/expo2017'}", @click="toggleNav")
           router-link(to='/expo2017') 展覽購票
         li(:class="{active: $router.path=='/news'}", @click="toggleNav")

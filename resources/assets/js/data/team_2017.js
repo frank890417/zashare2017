@@ -6,7 +6,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "小盒子藝術教育",
-    "Name-eng": "LittleBox Art Education",
+    "name_eng": "LittleBox Art Education",
     "description_cht": "小盒子藝術教育在台灣深耕十五年以上，致力推廣美學教育，落實美學生活，秉持六面哲學的教育理念，獨創邏輯美學教育系統，堅持著：「提供一個思考的起點，比教什麼更重要！」的信念，激發孩子的美學創意。",
     "description_eng": "The core spirit of enterprise of Little Box Art Education is the high-quality art education, six-sided educational philosophy,and unique logic aesthetic teaching system.We keep the faith that “Providing a thinking start is much more important than giving a lesson,” and we believe that this idea can inspires kids to generate more productive and creative art works.",
     "website": "http://littleboxart.weebly.com/"
@@ -18,7 +18,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "玩轉學校",
-    "Name-eng": "Pley School",
+    "name_eng": "Pley School",
     "description_cht": "玩轉學校(Pley = Play + Education)想要透過遊戲點燃孩子自主學習的熱情，讓孩子知道如何開創未來，且面對未來各種挑戰，喚醒他們的天賦與熱情，成為未來的領航員。",
     "description_eng": "Play School combines game and learning. We create the \"learner centered\" scenario that allows participants doing anything in the game. And we put social issues and difficulties in the game, which inspires participants to notice and reflect themselves.",
     "website": "http://www.pleyschool.org"
@@ -30,7 +30,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "緩緩農作",
-    "Name-eng": "Slowgrowing",
+    "name_eng": "Slowgrowing",
     "description_cht": "緩緩農作希望帶著雲林的有機、友善蔬果及蔬果背後的正確知識透過緩緩菜車到都市的市集推廣。除此之外也開辦都市講座活動、田間體驗活動等等，讓消費者親身感受，敬天畏地、珍惜食物。 最終的目標：希望將緩緩所在",
     "description_eng": "Slowgrowing -- Open the anywhere door to link of city and countryside. Slowgrowing hope to bring organic vegetables from Yunlin and the correct knowledge behind it, and promote them through the Slowgrowing vegetable trolley at any fairs in city.",
     "website": "https://www.facebook.com/slowgrowing/"
@@ -42,7 +42,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "Arcterus Co., Ltd.",
-    "Name-eng": "Arcterus Co., Ltd.",
+    "name_eng": "Arcterus Co., Ltd.",
     "description_cht": "「每個孩子都有自己的學習方法。」 來自日本的Arcterus秉持著因材施教、適性學習的初衷，致力耕耘教育科技，在台灣提供Clear筆記共享app、ClearS解題系統及家長用回報系統Link服務。",
     "description_eng": "Arcterus is a Japanese edTech startup established in 2010. Currently, Arcterus has three businesses devoting to helping students to learn efficiently. Clear, a notebook-sharing app that allows users to view, share, and rate notebooks, is now rapidly proceeding to the global expansion. So far, Clear has been released in Japan, Thailand, Taiwan, China and Indonesia. Now there are more than 1.5 million users registered, and more than 150k notebooks are shared among them.",
     "website": "http://cleartw.pixnet.net/blog"
@@ -54,7 +54,7 @@ let data = [
     "space_num": 1,
     "theme": "智－思考批判力",
     "name_cht": "社團法人中華學習體驗分享協會",
-    "Name-eng": "Chinese Learning Experiencing and Sharing Council (LENS Council)",
+    "name_eng": "Chinese Learning Experiencing and Sharing Council (LENS Council)",
     "description_cht": "LENS的理念是從非主流的環境來進行體驗試教學。從親子共學的角度出發，我們推廣全腦開發學習，透過課程交流，使父母與孩子的距離更接近，從中發掘孩子的天賦！學習體驗分享最大的目標就是幫助體現人生的價值與快樂。",
     "description_eng": "The concept of LENS is to create a learning environment by alternative education. We eager to encourage everyone to use appropriate techniques voluntarily while “STUDY”. The passion of “EXPERIENCE” may be required as a lifetime vocation. We love it, dedicate on developing it and make everyone’s talent a real splash. Everyone’s talent of knowing how to “SHARE” may be brought out from one’s original inner desire. The major target is to teach children how to use their sharing ability to create respect from others on the way of learning.",
     "website": "http://www.lensverymuch.com/"
@@ -66,7 +66,7 @@ let data = [
     "space_num": 2,
     "theme": "體－身體實踐",
     "name_cht": "YOTTA",
-    "Name-eng": "YOTTA",
+    "name_eng": "YOTTA",
     "description_cht": "YOTTA，台灣擁有最多專業線上課程的網站。我們相信，學習始終脫離不了人性。當你對生活感到不足，卻苦無充分時間進修額外專長時，YOTTA提供了通往不同領域的階梯。讓你用最時間，創造最大可能。",
     "description_eng": "We are YOTTA, a Chinese E-learning platform from Taiwan, dedicated to creating online learning materials and environments. We integrate online and offline instructions aiming to bring a brand new learning experience to users.",
     "website": "http://www.yottau.com.tw/"
@@ -78,7 +78,7 @@ let data = [
     "space_num": 2,
     "theme": "智－思考批判力",
     "name_cht": "Snapask 知之有限公司",
-    "Name-eng": "Snapask",
+    "name_eng": "Snapask",
     "description_cht": "『不必為了發問而等待・不必為了發問而掙扎』 我們相信發問是學習的第一步。Snapask 期望透過手機 app 引導學習者透過「每日一問」的方式，建立「自主學習」的習慣，同時提供個人化的即時輔導。",
     "description_eng": "Founded in 2015, Snapask is an education technology company that applies machine learning and mobile cloud services to make education more effective, personalized, and accessible to everyone. Snapask started with our “Question & Answer” (Q&A) platform, which lets students get instant homework help from our tutors. Since then, we have built out the “Quizzes” feature, a platform that digitizes academic content for practice, which our students can access for free.",
     "website": "https://snapask.co/tw/"
@@ -90,7 +90,7 @@ let data = [
     "space_num": 2,
     "theme": "智－思考批判力",
     "name_cht": "SEE MORE教育",
-    "Name-eng": "SEE MORE EDUCATION",
+    "name_eng": "SEE MORE EDUCATION",
     "description_cht": "在500多個日子裡我們已前往30多所國中， 並與超過10,000名以上的孩子接觸。 講座結束後，講師也留下來陪伴高關懷的孩子， 希望讓這股力量可以幫助孩子走到更遠的地方。 您，也願意一起為孩子努力嗎?",
     "description_eng": "See More Education is a long term lecture plan for remote rural junior high schools. We recruited young adults with passions and a strong sense of commitment for education to become the lecturers. The lecturers would go through series of training before giving lectures to the junior high schools in need. We deeply believe every single kid has their own unique frequency. They are waiting to be seen, be supported and be recognized. It is our mission to help kids learning to like themselves and appreciate themselves.",
     "website": "http://web.seemore.org.tw/"
@@ -102,7 +102,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "藍色小屋",
-    "Name-eng": "Blue House",
+    "name_eng": "Blue House",
     "description_cht": "藍色小屋：台三線113.5公里(苗栗縣獅潭鄉新店村)，『蜥蜴大冒險』，淺山生態與文史的故事。內容、動作、規則仿自然。獲得苗栗縣環境教育獎個人獎、苗栗縣文創商品、實境導覽雙認證，新型專利M516770。",
     "description_eng": "Blue House is located at 113.5km of the 3rd Taiwan Provincial Road in Miaoli.By the board game, Lizard Adventure , people can  understand the relationships between animals, plants and the natural ecosystem. It's full of  knowledge and interests , suitable for any ages to play . The game is designed to  simulate the reaction in nature and link with the human beings' behavior . We have received two certifications of cultural and creative products , and also obtained a new patent— M516770 from  Ministry of Economic Affairs,R .O.C.。",
     "website": "https://www.facebook.com/profile.php?id=1777086923"
@@ -114,7 +114,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "新北市樹林區文林國民小學",
-    "Name-eng": "Wenlin Elementary School",
+    "name_eng": "Wenlin Elementary School",
     "description_cht": "「經驗來自於個人化選擇與辯證間的對話，成熟與否在於我們是否提供足夠的選擇次數」 文林銀行建立一個模擬社會，學生在選擇與拿捏中運用手中每一分文林幣，在歷程中累積失敗與成功的經驗，進而建立成熟的金錢觀。",
     "description_eng": "From running a bank to planning personal finances, Bank of Wenlin, an innovative educational program provides teachers and students in Wenlin Elementary School a field to enhance students’ financial literacy also prepare students to live in the real world. This program guides children transform their efforts into assets, know the priority and utilize their money wisely. Through accumulating experiences both successful and failed ones, students obtain knowledge and build up the ability to manage personal finances by themselves.",
     "website": "https://www.facebook.com/bankofwenlin/"
@@ -126,7 +126,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "Roger528",
-    "Name-eng": "Roger528",
+    "name_eng": "Roger528",
     "description_cht": "現職插畫教師、繪本作家。創作榮獲海內外插畫獎項肯定,作品細膩、風格多變。教授課程著重\"想像力\"開發與情感表達,培訓各種媒材技巧外,更強化自我價值的建立，想像力是無法被比較的，因為那非常主觀，非常個人。",
     "description_eng": "Graduated from the National Yunlin University of Science and Technology / visual communication design department, full-time illustrator teacher, picture book writer, incumbent Taiwan painting association teacher / member. Works fine, style changeable, through the creative way, record life is not forgotten the good times, the current residence, work in Taipei.",
     "website": "http://www.roger528.com/"
@@ -138,7 +138,7 @@ let data = [
     "space_num": 4,
     "theme": "實驗教育",
     "name_cht": "臺北市影視音實驗教育機構",
-    "Name-eng": "Taipei Media School",
+    "name_eng": "Taipei Media School",
     "description_cht": "TMS是一所培育音樂、展演、視覺技術暨行政人才的高中階段非學校實驗教育機構，由臺北市文化局與台北市文化基金會共同創辦。我們的甄選不採學業成績，只看興趣和潛力，參考學生的影音作品及經驗、外語能力證明等。",
     "description_eng": "Taipei Media School is a non-school experimental education initiative jointly established by the Department of Cultural Affairs, Taipei City Government, and the Taipei Culture Foundation to foster skills and nurture talent in music, show production, visual arts, and administration. By replacing the restraints of the traditional school system with an innovative type of education, our students will be able to face the future with confidence.",
     "website": "http://www.mediaschool.taipei/"
@@ -150,7 +150,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "冒險島嶼戶外教育中心",
-    "Name-eng": "Venture Island Outdoor Education",
+    "name_eng": "Venture Island Outdoor Education",
     "description_cht": "戶外活動不只是冒險挑戰而已, 更是建立個體信念及群我關係的一趟旅程。 冒險島嶼強調領導力培訓及團隊合作。運用戶外環境，帶領孩子跳脫舒適圈，讓學習價值真正地烙印在人生歷程中，裝備孩子挑戰未來的重要能力！",
     "description_eng": "Venture Island is an outdoor education organization, we provide various courses of soft skills in the backcountry. Because we believe people will have impactful learning during these unique adventures . We gain a lot of inspirations from Nature and we want to share with our children.",
     "website": "https://www.facebook.com/ventureisland/"
@@ -162,7 +162,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "客遊天下旅行社有限公司",
-    "Name-eng": "KLOOK",
+    "name_eng": "KLOOK",
     "description_cht": "探索未知的你，發現更好玩的世界！KLOOK客路-亞太最大旅遊體驗預訂平台，提供最優惠的亞太城市熱門景點與獨特體驗預訂服務，包括：當地交通/Ｗi-Fi、景點門票、一日行程、獨特體驗及美食饗宴。",
     "description_eng": "Klook is Asia’s largest in-destination services booking platform. We are dedicated to giving travelers a simple, fast and convenient access to popular attractions, experiences and services so they can discover the sounds, colors, and even tastes of places around the world. Travelers can easily customize their itineraries on Klook to satisfy their wanderlust and last-minute plans. Each day, we help countless travelers feel inspired with over 10,000 activities in more than 90 destinations at their fingertips.",
     "website": "網站 https://www.klook.com/zh-TW/"
@@ -174,7 +174,7 @@ let data = [
     "space_num": 2,
     "theme": "智－思考批判力",
     "name_cht": "台北城市散步",
-    "Name-eng": "Taipei Walking Tour",
+    "name_eng": "Taipei Walking Tour",
     "description_cht": "台北城市散步藉由導覽推廣文化教育的重要性，認識我們所生活的城市，以及居住在這城市裡面的人們。於2016年秉持文化記憶傳承給下一代，設計小朋友的文化導覽活動，讓文化歷史不再無趣，也可以很好玩，很生動。",
     "description_eng": "Taipei is just like a museum. There is a group of people tells the story of this huge museum, inviting travelers strolling along, exploring every single corner, and discovering the landscape and history. Professional tour guide, In-depth cultural experience, On regular spot and time. Taipei City Guides are passionate with Taipei. We read through the historical data to understand the development of every corner, and visit various neighborhoods to feature the beauty of architecture. Taipei City Guides provides regular on-spot introduction.",
     "website": "https://www.taipei-walkingtour.tw/"
@@ -186,7 +186,7 @@ let data = [
     "space_num": 2,
     "theme": "群－關係",
     "name_cht": "阿滴英文",
-    "Name-eng": "Ray Du English",
+    "name_eng": "Ray Du English",
     "description_cht": "「要喜歡英文，才能學好英文。」阿滴與滴妹對英文教育充滿熱忱，在網路上實踐對教育與創作的理念。透過新媒體經營，在YouTube頻道累積了百萬訂閱者、上千萬觀看次數，也成為了全台灣最大的知識型頻道。",
     "description_eng": "Ray Du English creates fun, educational videos that spread the joy of learning English. With his creative partner (and sister) Crown, Ray created a whole new learning style with their channel and it has rapidly grown to become the top educational channel in Taiwan with well over a million subscribers.",
     "website": "http://youtube.com/rayduenglish"
@@ -198,7 +198,7 @@ let data = [
     "space_num": 2,
     "theme": "體－身體實踐",
     "name_cht": "傑作國際專業教練有限公司",
-    "Name-eng": "Masterpiece Coaching & Training Ltd., Co.",
+    "name_eng": "Masterpiece Coaching & Training Ltd., Co.",
     "description_cht": "傑作以教練(Coaching)的方式創造一個安全與支持的氛圍，協助各年齡層的學子與社會人士，透過自我探索，釐清自己擅長、喜愛與關心的領域，以確立自己的定位與方向，讓自己對未來不再迷惘。",
     "description_eng": "Everyone is unique. We all have different talent and purpose which represent “Who we are” and “What we can be!” People who have found their talent and purpose always devote to work because the work itself is a source of joy. However, in fact, most people are not really aware of their own uniqueness. Thus, Masterpiece Coaching & Training aims to coach youth and individuals to identify their talent and purpose in order to maximize their potentials to create their desired life.",
     "website": "https://www.facebook.com/true.identity.coaching"
@@ -210,7 +210,7 @@ let data = [
     "space_num": 2,
     "theme": "智－思考批判力",
     "name_cht": "LIS線上教學平台",
-    "Name-eng": "LIS Academy",
+    "name_eng": "LIS Academy",
     "description_cht": "如果沒有考試，學生會想學習嗎? LIS一直相信教育該給孩子的是快樂和能力，而不是填鴨和成績。 因此LIS從科學開始重新設計教材，讓每一個教學者都能透過這套教材，引發孩子的學習熱情，培養他們如何像個科學家一樣思考，學習用科學方法解決問題的能力。",
     "description_eng": "LIS is a nonprofit organization which devotes itself to fostering a student’s passion in learning. Our scientific program requires students to engage with scientific materials and experimentation in order to understand the methods and how to apply them.We have redeveloped the curriculum that now focuses on connecting lessons in the classroom to life skills.Rather on focusing on the test scores, we focus on the process of learning. Our vision for education is to have students take initiative for their studies.",
     "website": "www.lis.org.tw"
@@ -222,7 +222,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "日心月藝工作室",
-    "Name-eng": "Solar heart & lunar art studio",
+    "name_eng": "Solar heart & lunar art studio",
     "description_cht": "日心月藝工作室以教育及心理科學為基底，透過科學檢測與結合藝術、肢體、心理的主題式課程，協助人探索、開發並積極培養內在的情感、自信、創造力等心理素質。平衡身心健康，提升人際與親密關係等生命品質。",
     "description_eng": "Solar heart & lunar art Studio devoted to guiding people to explore their potential, emotion, self-confidence, and creativity. We offer courses and products based on education, psychology, and science. Our goals are to assist students balancing their physiological and mental health as well as increasing the quality of their relationships and life.",
     "website": "https://www.facebook.com/solarandlunarstudio/"
@@ -234,7 +234,7 @@ let data = [
     "space_num": 2,
     "theme": "群－關係",
     "name_cht": "綿羊犬百寶箱",
-    "Name-eng": "Shepherdkit, Inc.",
+    "name_eng": "Shepherdkit, Inc.",
     "description_cht": "綿羊犬是全國第一的教育玩具與遊戲品牌，榮獲美國玩具奧斯卡、美國百大玩具獎與親子天下【教育創新100】大獎等殊榮。綿羊犬產品目前累計募資金額超過40萬美金，並有國內超過1000間學校與兩萬名訂戶使用。",
     "description_eng": "Shepherd Kit, Inc. is the top educational game and toy design brand in Taiwan, specialized in producing kits for preschool to elementary levels. We focus on \"theme creation,\" where real-world concepts or knowledge, such as culture, science and math, are converted into games and toys with educational value.",
     "website": "https://www.facebook.com/Shepherdkit"
@@ -246,7 +246,7 @@ let data = [
     "space_num": 1,
     "theme": "德－公民道德",
     "name_cht": "阿普蛙工作室",
-    "Name-eng": "Wa's up Studio",
+    "name_eng": "Wa's up Studio",
     "description_cht": "公民，是一段從「慎思明辨」到「關懷社會」的旅途。阿普蛙希望以遊戲改變世界，協助學員在遊戲中了解自我價值與情緒，進而與群體建立良善溝通、培養媒體識讀、民主政治等公民素養。",
     "description_eng": "This is \"Wa's Up Studio\" We are dedicated to educating with gamification. Our main purpose is to develop the ability of independent thinking, critical thinking, and .social distribution with \"theory\" , \"game mechanics\", and real actions.",
     "website": "https://www.facebook.com/Wasupstudio/"
@@ -258,7 +258,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "杜宅咖啡",
-    "Name-eng": "Dou Zhai Cafe & Roastery",
+    "name_eng": "Dou Zhai Cafe & Roastery",
     "description_cht": "獲得「2017年澳洲國際咖啡烘焙大賽銅牌」的杜宅咖啡懷抱著遠大的夢想，「所謂精品咖啡的真正價值，絕非遠離人群，而是該從消費者反推到生產端，共同追求更高品質的精品咖啡。」",
     "description_eng": "Dou Zhai cafe is located in the quiet lane in Taoyung city. Proudly, Our one of greater roasted coffees were rewarded with The Australian International Coffee Award in 2017.Our owner, Mr. Dou is passion about to deliver the coffee culture and knowledge into the local community and to promote an excellent and aromatic coffee right on the corner in the busy city for everyone, not only for the coffee lovers!!!!Please drop into our cafe, sit and sip with our finest coffee.",
     "website": "https://www.facebook.com/dou.zhai.homemade.roasted.cafe/?ref=bookmarks"
@@ -270,7 +270,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "失戀花園｜失落花園",
-    "Name-eng": "inbound.tw｜inner.tw",
+    "name_eng": "inbound.tw｜inner.tw",
     "description_cht": "面對失戀、失敗、失和、失親、失業等等人生失去，我們總是糾結在為什麼失去對方、失去什麼，也因此失去了自己。如果能夠把自己找回來，所有失去就有了解決的機會。",
     "description_eng": "When we are heartbroken, we seek the reasons of losing the things and the person, alone the way we lost ourselves too. inbound.tw｜inner.tw support us to understand ourselves first, the hearts will be gradually mended.",
     "website": "http://inbound.tw/"
@@ -282,7 +282,7 @@ let data = [
     "space_num": 2,
     "theme": "體－身體實踐",
     "name_cht": "財團法人新漾基金會",
-    "Name-eng": "XIN YOUNG FOUNDATION",
+    "name_eng": "XIN YOUNG FOUNDATION",
     "description_cht": "以公益服務為理念，致力青年培力工作。舉辦大小論壇、社會參與及國際志工，期待給青年發揮的平台，跳脫學校及社會框架，成為尊重、包容、能獨立思考的新世代領袖。我們相信，年輕人即將翻轉世界。",
     "description_eng": "Our goal is to promote different community services for the youth. We hope to expand the horizons of the youth and share positive attitudes through international volunteer opportunities. Furthermore, we organize different types of forums to encourage the youth to be more active. We hope by offering a new platform for the youth to think outside of the box, to think independently, and to embrace people without prejudice.We believe that the youth, Young Man, can be different! Young Man can transform the world.",
     "website": "https://www.xinyoung.org"
@@ -294,7 +294,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "虎科小花農",
-    "Name-eng": "Tigerfarmer",
+    "name_eng": "Tigerfarmer",
     "description_cht": "虎科小花農成立於2014年，在雲林虎尾設有工作室，推廣居家綠化、植物品種權、庭園規劃，翻轉既有印象，讓植物更貼近生活。 台灣人的玫瑰，準備在世界嶄露頭角，需要大家支持，藉由品種權讓台灣的玫瑰能走出去。",
     "description_eng": "About the story of Taiwanese roses, with a boy's dream",
     "website": "https://www.facebook.com/pg/Tigerfarmer.tw/about/?ref=page_internal"
@@ -306,7 +306,7 @@ let data = [
     "space_num": 1,
     "theme": "德－公民道德",
     "name_cht": "打嗝文化",
-    "Name-eng": "Burping",
+    "name_eng": "Burping",
     "description_cht": "打嗝，為城市發聲。打嗝在用視覺傳達來讓大眾看見“看不見”的城市，並開發各個視角的“城市盒子”，使其變成人與城市聯結的橋梁。",
     "description_eng": "暂无",
     "website": "https://goo.gl/fyc1gw"
@@ -318,7 +318,7 @@ let data = [
     "space_num": 2,
     "theme": "美－美感經驗",
     "name_cht": "五感計畫 / 微笑音符",
-    "Name-eng": "Senseable Studio / Smiley Rhythm",
+    "name_eng": "Senseable Studio / Smiley Rhythm",
     "description_cht": "五感計畫團隊成立於2015年，立志透過高品質的建築空間、音樂及藝術教育，讓幼兒的日常生活充滿美感，將美感教育徹底融入幼兒教育中。我們認為教育是關於如何讓孩子充分地表達自己，並尊重孩子自身的意志和選擇。",
     "description_eng": "Senseable Studio was founded in 2015. We believe all kids shall grow in a setting that nurtures creativity and musicality in a well architected, natural environment. Our philosophy derives from the saying, “The Hundred Languages of Children”. We think education is about creating an environment where kids can express themselves freely and where their will and choice are valued and respected. We believe if we show them the possibilities of various aesthetic pursuits, they will start to see every detail of life with completely new perspective.",
     "website": "https://www.facebook.com/smileyrhythmmusic/"
@@ -330,7 +330,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "摺學主義",
-    "Name-eng": "Foldism",
+    "name_eng": "Foldism",
     "description_cht": "摺學主義是一個提倡動手製作、獲得知識的品牌。而「蛻變吧！黃裳鳳蝶」是世界上第一本可自行組裝的立體書，學習立體技巧與閱讀故事、更能得到滿滿的成就感。我們將持續研發立體書，讓台灣的立體書故事更多彩多姿！",
     "description_eng": "Foldism believes that the best way to learn is through hands-on making. Golden Birdwing, Metamorphosis! is our first project, and is also the first ever DIY pop-up book. Starting with pre-cut parts, you will learn techniques that bring a pop-up book to life, at the same time, immerse yourself in the journey of a butterfly from birth to death. Our goal is to develop more original stories with 3D elements and bring the joy and excitement to our readers.",
     "website": "https://www.facebook.com/FoldismTW/"
@@ -342,7 +342,7 @@ let data = [
     "space_num": 2,
     "theme": "體－身體實踐",
     "name_cht": "WeSchool維創教育",
-    "Name-eng": "WeSchool",
+    "name_eng": "WeSchool",
     "description_cht": "WeSchool是亞洲第一個結合PBL主題式學習法與Maker創客學習法的教育品牌。WeSchool讓每位學生都能透過「從零開始動手實作的主題式學習」，培養學生的硬知識及軟實力，並找到學習熱情。",
     "description_eng": "WeSchool are the expert in providing next generation of education combining Project based learning, STEM, and Maker. WeSchool allows student to design and produce their own products from scratch. We provide only raw materials; no premade pieces. In the process they become designers and inventors. In other words, WeSchool fully utilize the concept of learning by doing, such that our students learn to resolve real problems instead of fictitious test questions, they learn to face challenges without fear and look for solutions with confidence.",
     "website": "http://www.weschool.tw/"
@@ -354,7 +354,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "心對話股份有限公司",
-    "Name-eng": "Dialogue from Heart",
+    "name_eng": "Dialogue from Heart",
     "description_cht": "心對話重視人與人從「心」交流即一個人與自我的對話。 期望集結更多青年迎向世界，從自身的實力培養出發，啟發年輕人打破自我設限，勇敢行動，累積實戰力，走進世界，創造自我價值與世界對話。",
     "description_eng": "Dialogue from Heart’s main goal is to initiate the “dialogue” between the whole world and the youth. Our core values –Define, Dialogue and Do it, are implemented in our training courses and cross-cultural experiential tours. We also take further actions to inspire the youth to consider their own career plans through our courses and network of the youth from other countries.",
     "website": "https://www.facebook.com/SEABreezers/"
@@ -366,7 +366,7 @@ let data = [
     "space_num": 2,
     "theme": "群－關係",
     "name_cht": "亮語文創教育",
-    "Name-eng": "SHININGLIFE",
+    "name_eng": "SHININGLIFE",
     "description_cht": "以孩子為根,語文為枝葉、教育為己任的社會企業，亦為獨立教育團隊，由於深感師培及教育體制之侷限與不足，希望透過「生活觀察、營隊體驗、文創設計、藝術展覽」打造孩子、家長、老師互相支持，共同演出的學習舞台。",
     "description_eng": "Education can make the world better. We do love education! But as school teachers before, we found many problems, such as the inequality of teachers' teaching ability, students without learning passions, and the limitation of textbooks. We have tried very hard and spent lots of time solving the problems. Finally, we figured out the most difficult but beautiful definition of education: Make everyone to be a better one. By observing daily life, experiencing the camps, designing the products and writing from mind, children can feel the real world",
     "website": "http://shininglife99.weebly.com/"
@@ -378,7 +378,7 @@ let data = [
     "space_num": 1,
     "theme": "智－思考批判力",
     "name_cht": "幫你優",
-    "Name-eng": "BoniO",
+    "name_eng": "BoniO",
     "description_cht": "BoniO Inc.(幫你優) 創立於2014年春天，懷抱著填補教育落差，形塑未來教育的使命，創造增進學習的最佳軟體。PaGamO是全球第一的線上遊戲學習平台，提供多元優質的題庫，豐富你的學習體驗！",
     "description_eng": "PaGamO is the world's first online gamification learning platform, providing multiple quality exams, covering English learning, license examinations, corporate training etc. There are more than 500,000 players online to learn and compete together. To enrich your learning experience by answering questions and occupying territory that combines knowledge and strategy!",
     "website": "https://www.pagamo.org/"
@@ -390,7 +390,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "尹太工作坊",
-    "Name-eng": "YINTAI",
+    "name_eng": "YINTAI",
     "description_cht": "創作理念：除了視覺，藝術也能透過其他感官融入生活。 藝術家介紹：廖凡棋，畢業於樹德科技大學生活產品設計系，是一名具有才華的年輕陶藝家，同時也是名輕度視覺障礙者，雖然視野不曾清晰，但態度卻十分堅定。",
     "description_eng": "Idea of Creation: Besides sight, it is believed that other senses, such as touch, hearing, and smell, can be used to appreciate the essence of crafts and arts. Art is not that far, but simply involves in life through senses. Introduction of Artist: Born in 1994, Fan-Chi Liao, a young and talented ceramist with mild visual impairment, graduated from Department of Product Design, Shu-Te University. Although distinct outlines of items never exist, Liao takes a firm attitude towards his life.",
     "website": "https://www.facebook.com/Yintai2017/"
@@ -402,7 +402,7 @@ let data = [
     "space_num": 1,
     "theme": "德－公民道德",
     "name_cht": "享實做樂",
-    "Name-eng": "GoodWork",
+    "name_eng": "GoodWork",
     "description_cht": "致力於「議題實做」，協助青年用「創新、創客、創業精神」解決社會問題。提出「議題導向黑客松」與大專院校及各方連結，並打造實做課程平台，加強跨領域實做能力，協助青年提專案和實做並發揮影響力。",
     "description_eng": "Good Work dedicated to “Problem Sovling”，based on issue-based project, project-based making and making-based learning, we support youth to solve critical social issue with the spirit of innovation, maker and startup. Two years before, we invented the “Issue-based Hackathon” and have collaborated with colleges, government, NGO/NPO and enterprises to establish a platform that provides courses helping strengthen the capability of making, to support projects/solution that addressed by youth, making truly impact.",
     "website": "https://www.facebook.com/GoodWork.TaiChung/"
@@ -414,7 +414,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "月釀杯（台灣月亮杯）",
-    "Name-eng": "Formoonsa Cup",
+    "name_eng": "Formoonsa Cup",
     "description_cht": "創辦人凡妮莎在台灣花費14年時間推動生理用品教育。有感於台灣女性對於生理用品相關知識較為保守，希望在攤位上提供最多元的世界生理用品，來跟我們一起學習新知吧！愛自己，就從「改善自己的生理期體驗」開始做起！",
     "description_eng": "Menstrual Cup is a commonly used environmentally friendly sanitary item for European and American woman. It is classified as grade two in the Taiwan medical device classification scale. “Formoonsa Cup” is manufactured in Taiwan and is the first menstrual cup brand from Taiwan. The dimensions are specifically tailored and designed to fit the Asian woman’s body. Come visit us and learn more about feminine hygiene products!",
     "website": "http://www.formoonsacup.com/"
@@ -426,7 +426,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "Motioner - 動態影像交流社群",
-    "Name-eng": "Motioner",
+    "name_eng": "Motioner",
     "description_cht": "Motioner分享影像創作、動態設計等所見所聞，軟硬體的技術分享，達到知識流動的目的。每日分享動態設計最新消息，讓學習跳脫教室框架。透過學習、分享、連結使人們成為心目中的那位Motioner。",
     "description_eng": "The Motion Graphics career went popular recently in Taiwan. Unfortunately, there's not to much resources for people who want to join this industry, therefore, we build a website called Motioner, sharing insights from talented artists, and motion design tips. We believe, if we can connect everyone from school and people in motion design career, we can get more inspiration, and amazing things will happen.",
     "website": "http://motioner.tw/"
@@ -438,7 +438,7 @@ let data = [
     "space_num": 2,
     "theme": "美－美感經驗",
     "name_cht": "財團法人廣達文教基金會",
-    "Name-eng": "Quanta Culture & Education Foundation",
+    "name_eng": "Quanta Culture & Education Foundation",
     "description_cht": "以藝術為媒介，營造多元學習平臺，啟發孩子創意思考及未來的無限可能；引進全球最新的教育視野，提供教學新思維，突破傳統老師教、學生學的既定模式，鼓勵教師創意教學，讓學生的學習突破框架，習得帶得走的能力。",
     "description_eng": "Since its founding in 1999, Quanta Culture and Education Foundation (QCEF) has remained committed to the promotion of creativity and art education. Over the past decade, stretching out over every corner of Taiwan, QCEF’s endless determination to ensure Taiwanese children receive equal education full of beauty and art in the school systems. QCEF determines that through innovative educational programs, students will inspire to see the world with a greater perpective.",
     "website": "http://www.quanta-edu.org/"
@@ -450,7 +450,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "小人小學兒童環境教育平台",
-    "Name-eng": "Smallkids Edu MAKE MORE KIDS HAPPIER",
+    "name_eng": "Smallkids Edu MAKE MORE KIDS HAPPIER",
     "description_cht": "「小人小學」以自然為場域、邀小農為師; 從孩子需要出發，進階親子關係新里程。 結合友善環境農家，專業家庭諮商團隊，量身打造客製化任務型態課程，陪伴親子突破瓶頸。強調親子共學，偕同家長成為孩子最棒夥伴。",
     "description_eng": "Smallkids Edu. What we do to make more kids HAPPIER. - We DO NOT have textbooks: Through the customized tasks, we encourage parents to accompany their children to overcome obstacles. - We DO NOT have a regular classroom: we select friendly environment of small farmers as our best classrooms. - We Do NOT let the children learn by themselves: we emphasize on parent-child learning and try to restore the function of family education.",
     "website": "https://smallkidsstudio.wixsite.com/smallkidsedu"
@@ -462,7 +462,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "財團法人超越文創教育基金會",
-    "Name-eng": "Eball Foundation",
+    "name_eng": "Eball Foundation",
     "description_cht": "我們相信成熟的公民是促使社會前進的動力，也相信每個人都是獨特的個體，最值得超越的對象就是自己。2012年推出超越達人公益計畫，期望以互動實作的教育方式讓青少年認識自己、認識世界，找到最適合自己的位置。",
     "description_eng": "Eball Foundation is committed to Taiwan's education reform. We believe that mature citizens are the power to make society forward, we also believe that everyone is unique and individual. Everyone should surpass himself and become better one. In 2012, We start “Super Expert” project. We invite the people who have achievement in every business area. We expect by offering a creative and interesting education model can make young people understand the world, the society and themselves more, so they can find the most suitable position they belong.",
     "website": "http://eball.tw/"
@@ -474,7 +474,7 @@ let data = [
     "space_num": 2,
     "theme": "實驗教育",
     "name_cht": "清水小校",
-    "Name-eng": "Qing Shui Youth Education School",
+    "name_eng": "Qing Shui Youth Education School",
     "description_cht": "清水小校，宜蘭三星的共學團體，但我們更覺得自己是一所另類教育的完全中學。有特別內容的學科、登山、戲劇、文學創作、還有自治會喔！總之，我們是清水小校，一個期待各位來一起創造可能性的地方。",
     "description_eng": "The QingShui school is a Community Learning school, which located at Sansxng, Yilan. Here us conscious that the QingShui school is a special secondary school. The QingShui school was established on their enthusiasm for the educational ideas and belief. It is the sixth year since its inception. This is a place to create possibility in your future, dare to dream, dare to adapt, and this is the QingShui school.",
     "website": "https://www.facebook.com/YiLanQingShuiXiaoXiao/"
@@ -486,7 +486,7 @@ let data = [
     "space_num": 2,
     "theme": "群－關係",
     "name_cht": "UDSTAND STUDIO",
-    "Name-eng": "UDSTAND STUDIO",
+    "name_eng": "UDSTAND STUDIO",
     "description_cht": "來自互動設計系的年輕團隊，專注於多元議題與跨領域的整合。「互動設計」對我們而言，就像現代世界的魔法,，也是與大眾溝通的媒介。在不同技術與創意的融合之下,它能將各式議題變得親近有趣,吸引人們並傳達理念。",
     "description_eng": "We are a young team from NTUT Interaction Design. Although we all come from the same department, but our members are expert in all kinds of skills, from Graphic Design, Illustration, Filmmaking to 2D&3D Animation and even Programing. \"Interaction Design\" is like modern magic, and a medium to communicate with the social media. Combining different technique and creativity, it can turn ordinary and mediocre things into diversified and interesting, allowing us to draw people's attention and convey our idea.",
     "website": "https://www.behance.net/understandstudio"
@@ -498,7 +498,7 @@ let data = [
     "space_num": 2,
     "theme": "智－思考批判力",
     "name_cht": "國立臺灣大學數位學習中心",
-    "Name-eng": "NTU Digital Learning Center",
+    "name_eng": "NTU Digital Learning Center",
     "description_cht": "NTUMOOC X Coursera Project 擴大規模成立「數位學習中心」，打造新時代學習體驗、啟發教師教學能量。我們目標是激發更多人認識自己：為何而學、如何學以致用、將所學貢獻於這偉大宇宙。",
     "description_eng": "Professor Yeh proposed a new project called NTUMOOC X Coursera Project in 2013. There weren’t that much details mentioned but a challenging project starting from zero to one. Most importantly, to make contribution to the society. It has been five years since the establishment of NTUMOOC X Coursera Project . The project will scale up to the Digital Learning Center at NTU. The core responsibilities include producing online course and innovative teaching training program. We hope to motivate more people to start learning on MOOC.",
     "website": "https://www.facebook.com/ntumooc2017"
@@ -510,7 +510,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "illuBase 插畫人基地",
-    "Name-eng": "illuBase",
+    "name_eng": "illuBase",
     "description_cht": "用圖去抒發、用畫來對話， 陪伴敢嘗試、不害怕失敗的插畫人一起找尋發展方向，打破插畫與商業之間的疆界，讓創作精神與涵義不只停留於表面，從創意創作到事業經營，在充滿挑戰的生態中站好我們的位置！",
     "description_eng": "According to a change in network community and reading habits,  illustration become a popular reading method. There is a group of people prefering sharing their feeling with illustration.They express in pictures; They chat on illustration.Keep going and summon up the courage to try everything!Let the illustrators who have strong persistent and passion can be seen by this world! Let everyone who want to share their stories  or all things about art, design, dreams can be known! Hello we’re illuBase.",
     "website": "http://www.otr-illubase.com/3836426044.html"
@@ -522,7 +522,7 @@ let data = [
     "space_num": 2,
     "theme": "群－關係",
     "name_cht": "社團法人社區大學全國促進會",
-    "Name-eng": "National Association for the Promotion of Community Universities",
+    "name_eng": "National Association for the Promotion of Community Universities",
     "description_cht": "全促會是支援各社區大學札根地方、催生公民社會的倡議機構，我們扮演各級政府與全國社區大學的溝通交流平台，更促成政策對話，與各地社大聯合推動各項議題，希望能讓多人畢業後仍然喜歡學習，並從學習中獲得成就感!",
     "description_eng": "National Association for the Promotion of Community University (NAPCU) is a adult liberating education initiative institution, which is aim to assist all community universities rooted locally and to arouse civil society. NAPCU is the communicating & interacting platform for policy coordination between governments & community universities, which includes: education of water resource, environment sustainability, comprehensive community development, multiculturalism, social vulnerable group caring, law-related education, and so on.",
     "website": "http://www.napcu.org.tw/index.html"
@@ -534,7 +534,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "鹿樂",
-    "Name-eng": "Ruro",
+    "name_eng": "Ruro",
     "description_cht": "「鹿樂」取自音譯rural，原意為偏鄉，是專為偏鄉教育而創的群眾協力募集平臺。我們為偏鄉小校募集所需之人事物，也為想出力的人找到真正需要的角落，致力於建立偏鄉學校與社會大眾之間交流共好的橋樑。",
     "description_eng": "Ruro is a platform for rural education. We help rural schools recruit volunteers, raise funds and collect stuff through the Internet. At the same time, we help those who want to contribute to rural education find a suitable place to practice their specialty. Ruro is a non-profit organization devoted to bridge rural schools and the public. We are devoted to shorten the distance between urban and rural areas. We hope that education can be more equitable for children in Taiwan.",
     "website": "http://fund.ruraledu.tw/home.php"
@@ -546,7 +546,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "財團法人台灣尤努斯基金會",
-    "Name-eng": "Foundation for Yunus Social Business Taiwan",
+    "name_eng": "Foundation for Yunus Social Business Taiwan",
     "description_cht": "成立於2015年的台灣尤努斯基金會，是2006年諾貝爾和平獎得主穆罕默德．尤努斯博士（Muhammad Yunus）在台灣的授權機構，期望在社會大眾心中種下善的種子，實踐尤努斯博士「無貧社會」的理想。",
     "description_eng": "The Nobel Peace Prize was awarded jointly to Muhammad Yunus and Grameen Bank in 2006 for their efforts dedicated to helping the poor to improve their lives for over 30 years. He successfully proved to the world that it is feasible to solve social problems through social business. Encouraged by Dr. Yunus and Grameen bank’s successful experiences, we decided to set up Foundation for Yunus Social Business Taiwan in 2015, with deep expectation to promote and spread the idea of Professor Yunus to achieve the goal of Zero-Poverty society in Taiwan.",
     "website": "https://www.facebook.com/FoundationforYunusSocialBusiness/"
@@ -558,7 +558,7 @@ let data = [
     "space_num": 1,
     "theme": "智－思考批判力",
     "name_cht": "First Code Academy",
-    "Name-eng": "First Code Academy",
+    "name_eng": "First Code Academy",
     "description_cht": "First Code Academy 致力於推廣程式教育，讓5-18歲的孩子在編寫App和搭建網站等程式創作的過程中，學習運算思維和邏輯思考，發揮創意並挖掘解決問題的方法，不設限地探索自己的無限可能。",
     "description_eng": "First Code Academy (FCA) is a leading education institute that teaches kids coding courses and develops curriculum for kids age from 5-18 to learn not just coding skills, but computational thinking and entrepreneurship mindset. Our team has taught mobile applications, games, 3D Printing and animation to over 4,000 students in Hong Kong, Singapore, and Taiwan. The goal is to empower children and teenagers to become creative leaders in the digital era, for their future career and for driving social change.",
     "website": "https://tw.firstcodeacademy.com/en"
@@ -570,7 +570,7 @@ let data = [
     "space_num": 2,
     "theme": "德－公民道德",
     "name_cht": "教育丸子",
-    "Name-eng": "Education One",
+    "name_eng": "Education One",
     "description_cht": "每天5分鐘，『教育丸子Education One』用影片教你學校沒教的事！由教育部支持、以「教育」為主題建置的影音平台，希望突破學習界線，以影像紀錄為媒介，激發不同思考，成為典範教育供給源！",
     "description_eng": "For 5 minutes every day, watch a video on Education One, and learn something that you'll never learn at school.Education One is the first video and audio platform in Taiwan dedicated to the theme of learning, currently promoting awareness via official website and our Facebook page, and has thus far gained nearly 7,000 followers on Facebook. Education One hopes to tear down the boundaries limiting our learning, building a new environment that is not restricted by location or age, and becomes the prime provider for paradigm education.",
     "website": "http://eduone.moe.edu.tw/main/"
@@ -582,7 +582,7 @@ let data = [
     "space_num": 2,
     "theme": "美－美感經驗",
     "name_cht": "肯夢學院",
-    "Name-eng": "Canmeng Institute",
+    "name_eng": "Canmeng Institute",
     "description_cht": "肯夢學院的使命，希望能改變台灣與「美」有關的服務業，讓更多人有機會做自己所愛、愛自己所做。我們深信大學畢業，僅是一個開始。21世紀是創意無限，文化豐沛的世代，需要能融合手感、創意與想像力的人才。",
     "description_eng": "The mission of Canmeng Institute is here to redefine service/ hospitality industry. We believe that graduating from the college is just a beginning. Therefore we provide solid curriculum for young talent to become a hairstylist, spa healer or a nail artist. Most importantly, we hope to cultivate entrepreneurs that could have a cool profession while being a lifestylist. This is the only way to redefine the service industry.",
     "website": "http://www.cistylist.com/"
@@ -594,7 +594,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "陳信安足球學校",
-    "Name-eng": "A.C Football School",
+    "name_eng": "A.C Football School",
     "description_cht": "陳信安足球學校，由前國家隊隊長、台灣唯一擁有亞足聯職業級教練陳信安創立，扎根足球教育，並引進英國足球名門切爾西足球學校系統成立台灣分校，設有代表隊、菁英班及興趣班，朝台灣第一個職業足球俱樂部邁進。",
     "description_eng": "Andy Chen footballschool by the former national team captain, Taiwan has only AFC (AFC) occupation instructor founded by Andy Chen ,The introduction of the British football name Chelsea football school system set up in Taiwan, has been built U9, U11, U12, U13, U15 on behalf of the team, Actively organized Taiwan's first professional football club.",
     "website": "https://www.facebook.com/陳信安足球學校-401507449991259/?fref=ts"
@@ -606,7 +606,7 @@ let data = [
     "space_num": 2,
     "theme": "體－身體實踐",
     "name_cht": "財團法人為台灣而教教育基金會",
-    "Name-eng": "Teach For Taiwan",
+    "name_eng": "Teach For Taiwan",
     "description_cht": "我們是一群致力改善教育不平等的行動者。短期招募具教育使命的人才，投入有需求的偏鄉小學擔任兩年全職教師。透過專業培訓與支持，長期培養各領域領導人才，為教育帶來系統化的改變，讓孩子出身不再限制他的未來。",
     "description_eng": "Teach For Taiwan (TFT) provides a 2-year full-time teaching program, recruiting young individuals with mission to devote themselves in rural elementary schools. With our training & support system, TFT fellows can not only become facilitators of excellent education but exert their long-term impacts on our society.",
     "website": "http://www.teach4taiwan.org/"
@@ -618,7 +618,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "接棒啟蒙計劃",
-    "Name-eng": "The Baton Project",
+    "name_eng": "The Baton Project",
     "description_cht": "接棒啟蒙計劃，是一個非營利組織，我們致力於讓社會各界的專業善意，轉換成學生們探索職業與了解自己天賦與熱情的價值。目前有2000位各界專業志工參與。",
     "description_eng": "The Baton Project is a non-profit organization, dedicated to transform the professional goodwill into student’s exploration and understanding of world and themselves. Now we have more than 2,000 volunteers participating our events. 1. We design activities for students and collaborate with schools. 2. We operated Facebook social media, study and share education-related knowledge.",
     "website": "https://www.facebook.com/BatonEnlightenmentProject/"
@@ -630,7 +630,7 @@ let data = [
     "space_num": 2,
     "theme": "美－美感經驗",
     "name_cht": "水顏木房—常民木工運動",
-    "Name-eng": "Shoeiyan—Chang-Min-Wood",
+    "name_eng": "Shoeiyan—Chang-Min-Wood",
     "description_cht": "常民木工，所有人都能做的木工。擺脫制式的教育規則，課程模式輔以簡單的講解，最重要的是仰賴自身的摸索。以自己的程度，用自己的雙手，做自己的家具。常民的精神是挑戰、是包容、是珍惜、是享受木作的快樂。",
     "description_eng": "Chang-Min-Wood refers to hand-made woodworking by the publics. Shoeiyan, as a guide, will assist you to make your own wood furniture. The spirit of Chang-Min-Wood is self-challenge, kindness and cherishing. All we need is your creativity and enthusiasm to create your own woodworking. You will enjoy the moment while doing the woodworking. Regardless of your age or gender, join us and inspire your creativity woodworking!",
     "website": "https://www.facebook.com/changminwood/"
@@ -642,7 +642,7 @@ let data = [
     "space_num": 2,
     "theme": "體－身體實踐",
     "name_cht": "Skyrock Projects",
-    "Name-eng": "Skyrock Projects",
+    "name_eng": "Skyrock Projects",
     "description_cht": "Skyrock Projects 擁有一個國際化且多元的團隊，來自英國、美國、印度和台灣，程式設計師、藝術家與教師，為學生量身打造課程，學習並應用創意的科技來闡述或嘗試解決真實世界的國際議題以及問題。",
     "description_eng": "Our team is made up of international educators, programmers and digital artists who have designed our own educational programs which immerse students in creative applications of technology and how they address real world topics e.g. wearable technology, 3D printing, data science and data visualization. Students aged 12 and up; learn to code, improve critical and creative thinking skills, get inspired by Science and Innovation, discover new talents and will produce a portfolio of original work.",
     "website": "www.skyrockprojects.com"
@@ -654,7 +654,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "讓狂人飛",
-    "Name-eng": "Flying Crazyer",
+    "name_eng": "Flying Crazyer",
     "description_cht": "社團是課外學習與交流的好場所，而新上任的幹部卻常在耗盡心力後，社團也隨之倒下。讓狂人飛立志重拾社團價值，藉由專業技術課程與分享知識性懶人包，讓社團人有能力經營社團，使社團持續作為學生切磋、築夢的地方！",
     "description_eng": "Flying Crazyer is a general class for all students who devote themselves to extracurricular activities. We teach and share the skills and experiences we learn from self-experience and project management to help those students who want to have a great time while they participate in extracurricular activities. For now, we mostly share our knowledge and skills through our Facebook fan page and we also hold many workshops to help those students who want to know more.",
     "website": "https://www.facebook.com/flying.crazyer/"
@@ -666,7 +666,7 @@ let data = [
     "space_num": 1,
     "theme": "智－思考批判力",
     "name_cht": "智慧鐵人創意競賽",
-    "Name-eng": "IICC (Intelligent Ironman Creativity Contest)",
+    "name_eng": "IICC (Intelligent Ironman Creativity Contest)",
     "description_cht": "1道謎題6名高中職生72小時勇闖27道關卡用120項材料，創作前所未見的作品總獎金超過百萬智慧鐵人創意競賽等你來挑戰!",
     "description_eng": "All the braves are invited to challenge the world-class Intelligent Ironman Creativity Contest. Show their intelligence, innovation, endurance, physical strength,knowledge and willpower in the 72-hour non-stop contest.",
     "website": "http://ironman.creativity.edu.tw/15th/"
@@ -678,7 +678,7 @@ let data = [
     "space_num": 2,
     "theme": "智－思考批判力",
     "name_cht": "Hahow 好學校",
-    "Name-eng": "Hahow",
+    "name_eng": "Hahow",
     "description_cht": "Hahow 愛玩、愛學，是台灣第一個募資線上課程網站。致力讓跨界自學變簡單，相信人們可以與興趣並存、與工作共生。學宋少卿展演生活、學 16 歲何孟軒玩程式⋯你的自學故事也必定精彩，快貢獻熱情於世界吧！",
     "description_eng": "Hahow is the most exciting platform for online learning. Taiwan's largest fund-raising interdisciplinary education website. Pronounced as “hahow”, which means “school” in Taiwanese, we believe that learning is a daily and lifetime experience. Through the power of technology and creativity, our mission is to create an effective learning community, empower every corner of the world to explore knowledge and skills happily.",
     "website": "https://hahow.in/"
@@ -690,7 +690,7 @@ let data = [
     "space_num": 2,
     "theme": "群－關係",
     "name_cht": "社團法人台灣四十分之一移工教育文化協會",
-    "Name-eng": "One-Forty",
+    "name_eng": "One-Forty",
     "description_cht": "一個關注東南亞移工議題的新創非營利組織，致力於東南亞移工培力教育，讓移工透過在台工作期間習得實用的知識技能，打破貧窮的惡性循環。同時籌劃各式文化交流活動，讓台灣人與東南亞移工接觸、交流，進而同理。",
     "description_eng": "One-Forty is a non-profit startup committed to SEA migrant worker issue. We are devoted to empower them with required skills and trainings, so they can regain self-awareness and self-confident with clear visions and better lives. One-Forty also curates various cultural events and engaging activities, to facilitate contacts, connections and empathy between locals and SEA migrant workers.",
     "website": "http://one-forty.org/"
@@ -702,7 +702,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "Circle 設計微誌",
-    "Name-eng": "Circle zine",
+    "name_eng": "Circle zine",
     "description_cht": "Circle 微誌以系統的方式，逐步介紹平面設計的分門別類，同時延伸實驗不同的創意與觀點，每期深入分析不同類別的內涵與應用，除了多元的視覺風格以外，也是可收藏的參考工具，歡迎加入這個圈圈，與我們分享。",
     "description_eng": "‘ Circle ’ is a graphic design publication and online platform where we share the design ideas in all different areas of practice, such as letterform, typography, brand design, packaging, information graphics… etc. It also extends to the experimental aspects and critical thinking, exploring not only the visible, stylized but also visionary aspects of graphic/communication design. We invite the design enthusiasts to join us, whether to participate in creating projects, to share their works, or just to see what design is all about.",
     "website": "https://www.facebook.com/circlezine/"
@@ -714,7 +714,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "夢想騎士計畫",
-    "Name-eng": "Dream Lighter Project",
+    "name_eng": "Dream Lighter Project",
     "description_cht": "成立於2010年，為定期辦理青年成長課程的專業團隊，致力引導迷惘的青年。團隊具國內外的豐富帶隊經驗，以結合心理輔導與體驗教育的課程，讓台灣青少年提升挫忍力、覺察自我，挖掘自身優勢與價值。",
     "description_eng": "Dream Lighter Project was founded in 2010, is a professional team which periodically conducts youth development courses in order to guide young people. Our team possesses extensive experience in leading domestically and abroad. Our courses combine counseling psychology and experiential education to enhance Taiwan’s teenager’s tolerance while facing frustration and their self-awareness, therefore they can find their advantages and value.",
     "website": "http://www.dreamlighter.asia/"
@@ -726,7 +726,7 @@ let data = [
     "space_num": 2,
     "theme": "智－思考批判力",
     "name_cht": "六書堂",
-    "Name-eng": "LIOSHUTAN",
+    "name_eng": "LIOSHUTAN",
     "description_cht": "翻挖泥土，種下教育的希望種子，夢想，從台灣這塊土地開始。 我們相信更有效率的學習會讓台灣會變得更好。藉由使用者的學習表現，建立巨大的數據模型，並以獨家開發的行動學習系統，提供更貼近使用者需求的教學服務。",
     "description_eng": "LIOSHUTAN is a Taiwan owned company that is warm and bold in innovation that adopts western cultural ideas. We are of the same mind with Malala in the belief that: \"One learner, one teacher, a gadget, and the internet can change the world.\" and we propagate it. We created a brand called “WUWOW“ to summon the members of “the Great English Squad” to help Taiwan get rid of its bottom dwellers in English ability. Now, the operation is on.",
     "website": "https://www.facebook.com/wuwowtw/"
@@ -738,7 +738,7 @@ let data = [
     "space_num": 2,
     "theme": "體－身體實踐",
     "name_cht": "野雪塾",
-    "Name-eng": "Noyuki Academy",
+    "name_eng": "Noyuki Academy",
     "description_cht": "嚮往滑雪嗎？ 想成為滑雪教練？ 野雪塾能幫助你/妳開啟人生的另一扇窗！ 逐雪而居的逍遙人生再也不是故事情節，來自亞熱帶的妳/你也可以辦到！",
     "description_eng": "Founded by two snow loving half-Taiwanese professionals in 2015 in Hakuba, Japan. With their international and multi-cultural background, Noyuki provides the most comprehensive and well-thought-of snow sports experience to customers from all over the world. Noyuki Academy aims to become the leading Chinese-speaking international snow sports education brand in Japan.",
     "website": "facebook.com/noyukia"
@@ -750,7 +750,7 @@ let data = [
     "space_num": 2,
     "theme": "實驗教育",
     "name_cht": "全人實驗學校",
-    "Name-eng": "Holistic Education School",
+    "name_eng": "Holistic Education School",
     "description_cht": "這是一個樹林環繞的住宿學校，尊重每一個學習者，鼓勵他們嘗試錯誤、挑戰權威，在對話之中思辨並學習各種領域的知識，慢慢長出追尋自由所需要的能力和勇氣。",
     "description_eng": "Holistic is a boarding school located in Miaoli, surrounded by fruit orchards and temperate forests filled with all sorts of wildlife. We offer an environment for students to have an equal share in the decision-making of a learning community based on equality and mutual respect. We believe that when people are empowered with the active ability and responsibility to decide on what to learn and how to do it, they make full use of potential and creativity.",
     "website": "http://holistic.org.tw/"
@@ -762,7 +762,7 @@ let data = [
     "space_num": 1,
     "theme": "智－思考批判力",
     "name_cht": "TimeMap",
-    "Name-eng": "TimeMap",
+    "name_eng": "TimeMap",
     "description_cht": "現今主流價值使得學生盲目崇拜特定科系職業，缺乏生涯探索動機，許多人畢業後才發現不愛所學，失去人生方向。因此我們提供了多面向生涯探索系統：生涯定向測驗與課程、生涯規劃諮詢、科系專案實作課程與入校經驗分享。",
     "description_eng": "Affected by the mainstream values, students are liable to blindly admire specific departments and occupation. Most of them don’t put personal capacity variance into consideration and used to make future plans only depends on the exam scores and parents’ expectation. We are eager to build up a well-defined career-planning educational system, including multi-oriented psychological test, systematically integrating experience website and maker lab to inspire students’ motivation and provide resource to guide their possibilities of career-exploring",
     "website": "https://www.facebook.com/pipingeducation/"
@@ -774,7 +774,7 @@ let data = [
     "space_num": 2,
     "theme": "群－關係",
     "name_cht": "BTS無界塾",
-    "Name-eng": "BTSwujieshu",
+    "name_eng": "BTSwujieshu",
     "description_cht": "無界塾是個以孩⼦學習為中心、致力於以能力為本差異化教學的自學機構。協助孩⼦發掘興趣，找到並實現⾃己的⼈生目標。希望孩⼦畢業時,具備⾃主學習、團隊合作與積極解決問題的能力，成為⼀個善良且有影響力的⼈!",
     "description_eng": "BTS is a student-centered learning environment, and we do not give up each student.We’re devoted to inspire students’ potential and achieve capacity-based differentiation of teaching. We help students to explore their own interest, build self-confidence, cultivate values , find and achieve their own life goals. We hope that every BTS graduate have independent thinking, self-learning, teamwork and problem-solving skills,and they've become a good, altruistic and influential people!",
     "website": "https://www.facebook.com/無界塾-279310215857863/"
@@ -786,7 +786,7 @@ let data = [
     "space_num": 2,
     "theme": "體－身體實踐",
     "name_cht": "深活共構有限公司",
-    "Name-eng": "Sense Life Maker",
+    "name_eng": "Sense Life Maker",
     "description_cht": "以為部落服務的精神，讓生養我們的部落更好。實踐有溫度、感動的生活，我們稱之為「深活」；共創共享是部落的核心，使用彼此的能力，才能「共構」。深活共構要傳達的是構築文化心脈動、共創回甘產業、深活從根而生。",
     "description_eng": "Uphold the spirit of \"serving the tribe\" and make our tribe better. Learn to live with the souls of Paiwan, Rukai people, the real practice of a deep, there is a temperature of life, we call it \"deep live\"; tribal core of the spirit is to create a share, link everyone's ability to \" Co-construction \"has begun to develop in the real estate industry,\" deep co-construction studio \"to convey the\" build cultural heart pulse, create back to Gan industry, deep roots from the root. ",
     "website": "https://www.facebook.com/Senselifemaker/"
@@ -798,7 +798,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "錦和堂廟宇彩繪工作室",
-    "Name-eng": "Jinho Tang",
+    "name_eng": "Jinho Tang",
     "description_cht": "我，今年21歲，將讓您看見不一樣的「龍飛鳳舞」。",
     "description_eng": "I am 21years old boy from the simple countryside of Changhua Huatan.I like painting, but beside painting, I love Taiwanese temple culture.All my drawing are about Taiwanese traditional temple image.But there the less people to do this traditional job.But now,I will use my experience and creative to make more people to accept and love this traditional painting.",
     "website": "https://www.facebook.com/燕霧堡-錦和堂-1448883068489691/"
@@ -810,7 +810,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "WIZARDENX LEE studio.",
-    "Name-eng": "WIZARDENX LEE studio.",
+    "name_eng": "WIZARDENX LEE studio.",
     "description_cht": "一個以8mm film錄像膠卷為主軸， 並期望改變世界的工作室。",
     "description_eng": "EARTH、WORLD、WE、THEY、YOU、ANIMAL、PLANT、LIFE are the same.",
     "website": "http://wizardenx-lee-studio.com/"
@@ -822,7 +822,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "來字哪裡",
-    "Name-eng": "lai zi na li",
+    "name_eng": "lai zi na li",
     "description_cht": "你來自哪裡？我們來自台灣。 「來字哪裡」由熱愛字體的兩位90後女孩，以推廣台灣正體中文字為目標。來自哪裡中間的「自」為「字」，雙關語不僅代表我們從哪裡來，也希望正體中文從台灣躍向全世界並傳達其中之美。",
     "description_eng": "“Lai zi na li” was created by two 1990s girls passionate for fonts with the goal of promoting Taiwan traditional Chinese character culture. In the hopes of driving traditional Chinese from Taiwan to the world and displaying its beauty. Lai zi na li is the transliteration of “where are you from” in Chinese. The zi in the middle is a pun on the word “font”, and conveys the concept of our team- to promote traditional Chinese characters!",
     "website": "https://business.facebook.com/laizinali"
@@ -834,7 +834,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "偶爾鏘",
-    "Name-eng": "Or Kiang",
+    "name_eng": "Or Kiang",
     "description_cht": "偶爾鏘是自由工作者的展示平台與使用空間，由線下連結到線上，提供實體工作空間的進駐，與線上個人檔案的建立。在這裡，人們可以用極少的機會成本來嘗試，並稍稍脫離現實的綑綁。歡迎聯絡我們，並預約一個夢的基地。",
     "description_eng": "Orkiang is a place where people live and work together. We believe in the possibility of life and are willing to provide space, equipment and cost predictions to help the people here build up the reputation of the new brand of their own. Then we help with quality control, matchmaking between businesses and build up social network as an extra outlet. We devote ourselves to help others to pursue their dreams and thus make the world better.",
     "website": "https://www.facebook.com/orkiang/"
@@ -846,7 +846,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "IDLC / 山夢嫻",
-    "Name-eng": "IDLC / Shan Meng-Hsien",
+    "name_eng": "IDLC / Shan Meng-Hsien",
     "description_cht": "IDLC是設計者的教育理念及心態，以自我為導向進行學習。學習者將從「心」出發，回到倫理「關係」的探尋，針對「生命關懷」找到屬於自己的答案。故定位為「交流平台」，希望分享動物保護教育及生命教育實務經驗。",
     "description_eng": "IDLC is an educational philosophy and mentality, the care of life this matter, to the teachers and learners who, so that students become self-oriented learners, the establishment of thinking about the world point of view.",
     "website": "http://blog.xuite.net/shan.way/tw"
@@ -858,7 +858,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "彰化縣南郭國小資優班",
-    "Name-eng": "Nanguo Elementary School Gifted Class ,Changhua County",
+    "name_eng": "Nanguo Elementary School Gifted Class ,Changhua County",
     "description_cht": "彰化縣南郭國小資優班以設計思考為課程核心，美感教育為課程架構，打破學科領域界線，讓學生走出教室感受日常，將學習化為實踐行動。我們用設計師般的思維改善生活中的不美好，用小小公民的行動體現生活美學。",
     "description_eng": "Let students out off the classroom feel the daily, and take the actions to solve the problems. Through interdisciplinary teamwork and learning, students can truly make some difference in life. They feel and make the change, and find out local culture to share with the world. We use “Design Thinking” to improve the life of problems, with a citizens’ actions reflect the life of aesthetics.",
     "website": "https://www.facebook.com/ngesgifted/"
@@ -870,7 +870,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "Taiwan ReDesign",
-    "Name-eng": "Taiwan ReDesign",
+    "name_eng": "Taiwan ReDesign",
     "description_cht": "設計，從一位公民開始。Taiwan ReDesign是改變臺灣未來的進行式，以聯合策劃的方式跨界尋找合作，致力於建立群眾溝通平台。持續以系列活動擾動社會氛圍，體現臺灣公民推進設計改變生活的積極參與。",
     "description_eng": "“Design should be a movement that belongs and relates to all citizens.” Taiwan ReDesign is a progress to change the future of Taiwan. Gather public opinions to create social events that encourage citizens to take part in. By holding different activities to transform the current social situation, it also will inspire the citizens to participate in the activities that are able to change their lifestyle by design.",
     "website": "https://www.facebook.com/TaiwanReDesign/"
@@ -882,7 +882,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "小玩伴食農教育顧問團隊",
-    "Name-eng": "Food and Agricultural Education Consulting Group",
+    "name_eng": "Food and Agricultural Education Consulting Group",
     "description_cht": "小玩伴的願景是：找出能在都市永續推行的食農教育模式。我們與學校、教育工作者、社區大學合作，協助學校進行課程的設計與執行，讓孩子認識食物怎麼來，建立對農業及土地的情感，同時習得團隊合作與溝通協調的能力。",
     "description_eng": "Children in cities don't know where and how their food comes from. Therefore, We hope to develop appropriate food and agricultural education models, and implement these models into elementary or high school classrooms. We look forward to make students get familiar with our motherlands, and we also train their teamwork and communication skills. Connecting schools, parents, communities, we sincerely welcome any interested educator or organization with open arms.",
     "website": "https://www.facebook.com/farmingbuddies/"
@@ -894,7 +894,7 @@ let data = [
     "space_num": 2,
     "theme": "智－思考批判力",
     "name_cht": "翻滾海貍工作室",
-    "Name-eng": "Across Beavers",
+    "name_eng": "Across Beavers",
     "description_cht": "「翻滾海貍」由致力於教育轉型的國文老師組成。 推動遊戲教育，設計特色課程活動、製作課堂桌遊； 重視價值啟發，認為學習不限年紀，課堂不拘師生。 歡迎您一起加入海貍的翻滾教室！",
     "description_eng": "Across Beavers is an educational workshop comprised of an aggregation of passionate and committed Mandarin instructors serving nation-wide educators to develop and adopt a transformational approach to classroom instruction and learning. We persistently have all ranges of solid supports for all teachers’ teaching grounds. Learning knows no bounds. We cordially welcome you! All students and teachers of all ages in our workshop. You are the most welcomed to join our Across Beavers classroom!",
     "website": "https://www.facebook.com/acrossbeaver/"
@@ -906,7 +906,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "青年迴響計畫",
-    "Name-eng": "2027RethinkTaiwan",
+    "name_eng": "2027RethinkTaiwan",
     "description_cht": "你希望 10 年後的台灣，是什麼樣子? 這是一個以問題為起點，以行動為燃料，以更好的社會為目標的「行動孵化計畫」，透過設計思考的方式引導參與青年「將想法變成行動」，以此連結這個世代的所有可能！",
     "description_eng": "2027RethinkTaiwan is a half-year student competition for social good held by Youth Development Administration and National Taiwan University D-School. With the mindset of design thinking, we connect every possibilities by putting ideas into action.",
     "website": "https://www.facebook.com/RethinkTaiwan2027/"
@@ -918,7 +918,7 @@ let data = [
     "space_num": 2,
     "theme": "實驗教育",
     "name_cht": "人文無學籍行動高中（人文展賦行動學苑）",
-    "Name-eng": "Humanity Explorational High School",
+    "name_eng": "Humanity Explorational High School",
     "description_cht": "人文行動高中透過「生存磨練、生活經營、生涯探索、生計發展、生命修持」等教育理念，規畫多次行動學習，遍及各大都會與五大洲，擴大學生視野及能力，呼應「行萬里路・讀萬卷書，動手動腦・成人成己」設校宗旨。",
     "description_eng": "As a self-learning group, our success of achieving self-management is directly linked to how our system works: incorporating a democratic system that promotes student participation in group affairs while ensuring we have a friendly educational environment.",
     "website": "https://www.facebook.com/人文無學籍行動高中-Humanities-Explorational-High-School-197428987035257/?ref=bookmarks"
@@ -930,7 +930,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "金瓜三號",
-    "Name-eng": "Pumpkinno3",
+    "name_eng": "Pumpkinno3",
     "description_cht": "一群熱愛旅行的青年，在偶然的際遇下，與坪林這塊淨土相識，毅然選擇在茶鄉紮根，試著串連當地「人文」、「產業」、「自然」資源，融入生活美學於在地體驗，試圖更多人認識這片被遺忘的淨土。",
     "description_eng": "We are a group of young adults enjoying traveling who occasionally discovered Pinling a beautiful wonderland. We then decided to stay in Pinling , and got closer to know this place. We are trying to combine local industry, nature, humanities and educational resources. And experience the local lifestyle with the aesthetics of living. Also, contribute to the community with a new experience of exploring the tea village.",
     "website": "https://www.facebook.com/pumpkinno3/?fref=ts"
@@ -942,7 +942,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "第二回合設計",
-    "Name-eng": "Round 2 Design",
+    "name_eng": "Round 2 Design",
     "description_cht": "Round 2 Design利用各式閒置木料加以設計重製，並打造一個讓學生、民眾都能安全體驗手作樂趣，激發、實現更多創意的樂創空間，同時兼顧環保與教育概念，不給環境增添負擔。",
     "description_eng": "Round 2 Design is a social enterprise that aims to build a place where creates the opportunities for students who have enthusiasm for creating their own works through repurposing the unused classrooms and reusing the recycled materials.",
     "website": "http://www.r2design.com.tw/"
@@ -954,7 +954,7 @@ let data = [
     "space_num": 1,
     "theme": "德－公民道德",
     "name_cht": "公民叮：教學影片分享平台",
-    "Name-eng": "Gong Ming Ding",
+    "name_eng": "Gong Ming Ding",
     "description_cht": "公民叮是台語光明燈的發音，我們期待在公民教育的路上扮演光明燈的角色，並致力於： 1. 製作生動的公民科教學影片。 2. 持續更新，將學習從課本內容擴大至生活周遭 3. 完全免費。不論身處何處皆能使用",
     "description_eng": "Gong Ming Ding is a platform that provides junior high school students with free vivid teaching videos about the project of Civics. Compare to other YouTube teaching videos, we have the most complete course structure and the most exhaustive content. Dedicating to cultivating students’ ability of critical thinking, we extend students’ learning from the textbooks to the real life and society. We integrate some hot topics, such as Obike, same-sex marriage, and England dropping out of EU, into our videos.",
     "website": "https://www.facebook.com/gongmingding"
@@ -966,7 +966,7 @@ let data = [
     "space_num": 2,
     "theme": "體－身體實踐",
     "name_cht": "BridgePlus",
-    "Name-eng": "BridgePlus",
+    "name_eng": "BridgePlus",
     "description_cht": "BridgePlus-30萬青年邊玩邊找工作的線上學習平臺，2015年成立於上海，打造連接青年與企業間的橋樑。通過商業模擬環境，讓你能真情實彈的演練數據分析，商業決策和團隊合作。",
     "description_eng": "BridgePlus focuses on providing online, gaming-based, higher education learning experiences and data-driven job recommendation algorithm for matching youth to career opportunities. With 300,000 learners on our platform, we've offered 2.6m MBA-level course hours, 2,000+ life coaches await for learners interacts and 2000+ internship and formal jobs opportunities in China.",
     "website": "bridgeplus.cn"
@@ -978,7 +978,7 @@ let data = [
     "space_num": 2,
     "theme": "體－身體實踐",
     "name_cht": "技職3.0",
-    "Name-eng": "Craftsmanship Insights",
+    "name_eng": "Craftsmanship Insights",
     "description_cht": "《技職3.0》渴望「每個人勇於走出自己的路」，積極推廣技藝匠人、職人精神，深耕技職政策，盼用媒體與實體活動的力量，翻轉技職教育長期不被重視的現況。希望每個人都能適才所適，找到自己發光發熱的舞台！",
     "description_eng": "Craftsmanship Insights is dedicated to promoting Technical Vocational Education and Training (TVET) which focuses on manual or practical activities. We hope that everyone can find their own way of living without being influenced by utilitarianism.Our broadcasts of TVET related news, which have been \"generally\" overlooked for a long time, have already created impacts on several policies on education. Our goal is to create a better learning environment for TVET around the world.",
     "website": "http://www.tvet3.info/"
@@ -990,7 +990,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "純粹學",
-    "Name-eng": "PureStudent",
+    "name_eng": "PureStudent",
     "description_cht": "臺灣有一群想用青春突破體制桎梏的學生，而純粹學提供全臺灣高中生彼此交流的空間，聽見多元的聲音與創造可能性。我們不定時舉辦講座與聚會，目的是將大家的價值觀匯聚成理想的種子，種在我們的家鄉--寶島臺灣。",
     "description_eng": "We are the students who don’t agree with the education we receive now. We love thinking, willing to communicate and hope to change the current situation. PureStudent offer a space to get along with students in Taiwan. We talk about current affairs or the way we’re going. Unlike other student organization, PureStudent are more likely to have diversified thinking and possibility. We held speeches and gatherings, try to converge the values to an ideal seed, plant in our hometown— Taiwan.",
     "website": "https://www.facebook.com/purestudent.tw/?ref=bookmarks"
@@ -1002,7 +1002,7 @@ let data = [
     "space_num": 1,
     "theme": "智－思考批判力",
     "name_cht": "N次坊",
-    "Name-eng": "N-powerworkshop",
+    "name_eng": "N-powerworkshop",
     "description_cht": "我們是一群對體制內教育有所不滿的學生，也是全台灣第一個以學生為講者的工作坊團隊。透過工作坊串聯起各個領域中想要分享的講者與想要自學的學生。 始終相信「不是特別才分享，單純因為分享而特別。」",
     "description_eng": "In the current education system, we’re often limited by grades and competition unconsciously . We take high school for granted,and we take college for granted. The major which is chosen just by the score results in numerous lost college students. In this year, N-Powerworkshop launches brand new types of workshops. Not only for speaker (or lecturer), we hope that every participant has their own opportunities to share their opinion with others.",
     "website": "https://www.facebook.com/npower.workshop/?fref=ts"
@@ -1014,7 +1014,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "啟夢 －教育諮詢",
-    "Name-eng": "Enlighten Dream",
+    "name_eng": "Enlighten Dream",
     "description_cht": "「啟夢－教育諮詢」以六次一對一「家教」的方式，協助高中生了解更真實的科系樣貌，並找到合適自己的選擇。課程以「求廣、求深、求透」三個層次來認識科系。期望透過客製化、陪伴式的服務，有效地協助學生探索科系。",
     "description_eng": "Enlighten Dream (ED) is a nonprofit organization dedicated to promote the familiarity between high school students and their future college majors. Through one on one tutor classes, we enhance their knowledge on majors in order to avoid inappropriate major selection. ED designed lectures include six tutor courses. The courses are designed to achieve: Generality, Profundity, and Clarity. Experts meeting is also included. We wish we could effectively help students explore majors based on conversational, internalizing and customized approaches.",
     "website": "https://goo.gl/8JAC1k"
@@ -1026,7 +1026,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "映趣國際教育有限公司",
-    "Name-eng": "YT Education International Company Limited",
+    "name_eng": "YT Education International Company Limited",
     "description_cht": "回應高齡化和公民社會的發展,世代間的溝通和了解將極為重要。 我們以退休長者的經驗和參與,配合不同的體驗式學習活動,讓年青人/學生從活動中與長者共同體會、共同分享。「學習X行動」是我們的主力項目。",
     "description_eng": "In response to ageing and the development of civil society, communication and understanding among generations will be extremely important. With the experience and participation of retired elders, we have different Experiential Learning activities for young people and students. We promote communication among generations and to understand the expectations of social development.",
     "website": ""
@@ -1038,7 +1038,7 @@ let data = [
     "space_num": 1,
     "theme": "智－思考批判力",
     "name_cht": "不來梅創意 Bremen Knowledge Academy",
-    "Name-eng": "Bremen Knowledge Academy (BKA)",
+    "name_eng": "Bremen Knowledge Academy (BKA)",
     "description_cht": "BKA是不來梅創意創立的數位知識學院，重視創新與實用。具獨到數位看法，以循序漸進、學作並重教學，鍛鍊思考與創作力，培育專案、創意、社群Smart Creative ，立即投身並活化台灣數位行銷產業。",
     "description_eng": "BKA is a digital knowledge academy that values innovation and execution. Three colleges x six theme courses aim to cultivate talents future desires. BKA has unique point of view on digital and experienced instructors. The learning is carefully planned in steps with execution and application emphasized. Thinking and creative talent are developed with knowledge and training. BKA aims to foster smart creative talents that are ready to work in digital industry for project management, creative, and social in Taiwan.",
     "website": "www.bka2learn.com"
@@ -1050,7 +1050,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "芒果遊戲",
-    "Name-eng": "Mango Game",
+    "name_eng": "Mango Game",
     "description_cht": "芒果遊戲是台灣最早結合在地文化探索的實境遊戲團隊，配合歷史故事或環境生態等在地元素進行推理解謎與觀察探索，不僅增添旅行的趣味性，更是一場知性的學習體驗，希望用遊戲吸引更多人關注在地生活與歷史文化。",
     "description_eng": "Mango Game is the first company of planning alternative reality game with exploring local culture in Taiwan. We try to plan outdoor games to make people observe our living space and search for the certain clues from the landscape, cultural heritage, or historical stories to solve the riddles. We hope that more people can pay close attention to local living and culture by interesting and knowledgeable games!",
     "website": "https://www.facebook.com/MGS.fan/"
@@ -1062,7 +1062,7 @@ let data = [
     "space_num": 2,
     "theme": "體－身體實踐",
     "name_cht": "玩轉創意教育工作坊",
-    "Name-eng": "REFUN-STUDIO",
+    "name_eng": "REFUN-STUDIO",
     "description_cht": "REFUN 玩轉教育團隊主旨在提升整體科學教育品質，提供完善的教育解決方案，供體制內老師突破創新或家長了解未來科學教育。也持續研發各項助於改善學習型態的教具與玩具。",
     "description_eng": "Refun consists of young people having high educational enthusiasm. We develop children’s critical thinking, creativity, and organizational capability by teaching them practical operating, exploring by themselves, and facing failures bravely. The conventional education deprives children’s talent. The product-line education has tamed, or depressed our children who should be full of dream and be unique, and has caused them losing competitiveness. Thus, we urge to change the education, and changing the environment without vitality. In order to achi",
     "website": "https://www.refunstudio.com/"
@@ -1074,7 +1074,7 @@ let data = [
     "space_num": 2,
     "theme": "群－關係",
     "name_cht": "行政院農業委員會水土保持局",
-    "Name-eng": "Soil and Water Conservation Bureau, Council of Agriculture, Executive Yuan",
+    "name_eng": "Soil and Water Conservation Bureau, Council of Agriculture, Executive Yuan",
     "description_cht": "水保局「大專生洄游農村系列計畫」鼓勵青年以創意或專長解決農村問題，運用青年創新及實驗精神，協助農村改善產業、文化、教育、環境等多元化議題，啟發青年有意願、有機會回到農村以新方法、新思維創造自我價值。",
     "description_eng": "In order to encourage college students to participate and to show consideration for rural affairs, Soil and Water Conservation Bureau establish a series plan and platform called \"Rural Young\". The Bureau expects college students in Taiwan can actually participate in these Taiwan rural affairs, and apply their creativities or professions in the projects to solve the rural problems of nowadays in Taiwan. Further more, the bureau wants to increase the possibility of young people coming back for starting and developing a rural enterprise.",
     "website": "https://www.facebook.com/rural.young/?fref=ts"
@@ -1086,7 +1086,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "牠牠－「浪，我幫你說」體驗式生命教育",
-    "Name-eng": "TATA",
+    "name_eng": "TATA",
     "description_cht": "「牠牠」最大的夢想是讓台灣成為亞洲第一個零棄養的國家！我們的體驗式生命教育課程，著重在讓學員能親身體會生命的價值，用愛與擁抱陪伴牠，牠就會告訴你生命的意義，讓我們一起用教育打破流浪動物的無限循環！",
     "description_eng": "TATA－ Make Taiwan become the first country in Asia with zero rate of abandon!",
     "website": "https://www.facebook.com/tatafortaiwan/"
@@ -1098,7 +1098,7 @@ let data = [
     "space_num": 2,
     "theme": "體－身體實踐",
     "name_cht": "總務の生存法則",
-    "Name-eng": "LivingCFO",
+    "name_eng": "LivingCFO",
     "description_cht": "經濟是在稀少問題下做出選擇的科學。由於資源稀少，必須透過有效決策來爭取、管理與使用。總務の生存法則有感於台灣大學生普遍缺乏相關知能，藉由舉辦講座與工作坊，喚起對資源管理的重視，提升台灣大學生的經濟力。",
     "description_eng": "Economics is a science where men make decisions under \"scarcity.\" Due to the scarcity of resources, we must make effective choices to acquire, allocate, and utilize resources. \"LivingCFO\" is a team dedicated to raise Taiwanese college students' overall awareness and knowledge towards resource allocation and management. From finance training workshops that focus on teamwork and team-learning to related forums and speeches, they aim to educate and promote the importance of financial and administrative resource management.",
     "website": "https://www.facebook.com/LivingCFO"
@@ -1110,7 +1110,7 @@ let data = [
     "space_num": 1,
     "theme": "德－公民道德",
     "name_cht": "小台江讀書會",
-    "Name-eng": "YOUNG TAIKANG BOOK CLUB",
+    "name_eng": "YOUNG TAIKANG BOOK CLUB",
     "description_cht": "小台江於2005年成立，親師生共組的環保NGO團體，如同船艦，有領航員、船長、水手（學生）、引水人（家長、老師）、乘客（實習生、民眾）。 倡議守護河川、守護家鄉，以河為師，曾榮獲環保署全國推動環保有功社團。",
     "description_eng": "We were established in 2005 World Earth Day. Organization members mainly primary school students, teachers, parents. The organization is assigned to the structure of a ship, with captains, navigators, sailors, and passengers. We have set up a purpose to protect the river, guard the environment, through education, action learning and organize the activities, hoping to let more people together to protect their hometown, guarding water resources.",
     "website": "https://www.google.com.tw/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwi2h765qOPVAhUIvrwKHf3bD74QFggkMAA&url=https%3A%2F%2Ftaichiangriver.tian.yam.com%2F&usg=AFQjCNFcGPbq6dnVCmRl004vAodEsz60JQ"
@@ -1122,7 +1122,7 @@ let data = [
     "space_num": 1,
     "theme": "智－思考批判力",
     "name_cht": "意識物 Consciousness",
-    "Name-eng": "Consciousness",
+    "name_eng": "Consciousness",
     "description_cht": "意識物，一個跨領域的科學傳播平台，並嘗試以多元的設計方法呈現與傳遞資訊。我們致力於創造科學與社會的連結，繼而與讀者共享關於科學的觀點。而在反思科學的過程中，我們將與讀者一同型塑對於這個世界的想像。",
     "description_eng": "“Consciousness” is an interdisciplinary science communication platform trying to use multiple design methods to deliver information. The connection between science and society is what we are attempting to create, and we are eager to have conversations and share different perspectives with our readers. We believed that scientific viewpoints can bring on important debates and speculations when we are confronted with various social issues. And by reflecting on science, we are going to create the imagination of the world together with our readers.",
     "website": "https://www.facebook.com/consciousness.sciwrite/"
@@ -1134,7 +1134,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "極熊設計工作室",
-    "Name-eng": "Gicuma Design Studio",
+    "name_eng": "Gicuma Design Studio",
     "description_cht": "由六位喜愛動物的設計師、兩隻米克斯犬組成，長期以設計探討動物議題，關注人與狗之間的關係，又以浪犬議題的專案最為知名，如：《終犬》、《浪孩起步走》，今年以《Joseph的紅色披風》導盲犬開路計畫為主軸。",
     "description_eng": "Gicuma Design Studio is made up of six animal-loving designers. Being good at reinterpreting animal issues by diverse design types, Gicuma is especially notable for the designing regarding the matter of stray dogs. “Changing what we care through design,” expects to wield substantial influence for this society via the power of design. In 2017, Gicuma raises a game project focusing on the issues over the guide dog—Joseph’s Red Cape, which expects to raise the public’s awareness of guide dogs.",
     "website": "https://www.facebook.com/gicumadesignstudio/"
@@ -1146,7 +1146,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "火柴青年",
-    "Name-eng": "Match Generation",
+    "name_eng": "Match Generation",
     "description_cht": "火柴青年是一個大學生團體，透過所學與產官學合作進行壯遊，探討有興趣的議題。 目前在美國、東南亞及歐洲三場壯遊計劃中，以訪談、文字影像記錄，呈現不同國家的觀點；並用設計思考，分享經驗給有意願加入的學生。",
     "description_eng": "Match Generation is a group made by university students. We are trying to use connection and our own abilities to organize grand tours, and try to “understand” ourselves during the process.",
     "website": "http://match.strikingly.com/"
@@ -1158,7 +1158,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "YK Club",
-    "Name-eng": "UNIQUE CULTURAL CLUB(英)/ Уникальный культурный клуб(俄)",
+    "name_eng": "UNIQUE CULTURAL CLUB(英)/ Уникальный культурный клуб(俄)",
     "description_cht": "YK Club致力於推廣多元文化、打破刻板印象，我們相信「沒有任何一個文化是優越的，因為每一個文化都是獨特的」！身在台灣也可以遊世界，深入體驗不同文化的各種面向。",
     "description_eng": "YK Club—Уникальный Культурный Клуб was founded in Russia in 2012 and settled in Taiwan in 2014. Our goal is to promote the diversity of cultures and to break stereotypes, because we believe all cultures are unique!  Let’s travel and meet the vigorous lives and cultures of all over the world in Taiwan. Welcome to YK Club and experience the unique cultures with us!",
     "website": "www.yk-club.com"
@@ -1170,7 +1170,7 @@ let data = [
     "space_num": 1,
     "theme": "德－公民道德",
     "name_cht": "wowAfrica阿非卡",
-    "Name-eng": "wowArica",
+    "name_eng": "wowArica",
     "description_cht": "「以你喜歡的方式，重新認識非洲」wowAfrica阿非卡是全方位的華文非洲資訊平台，藉由深度報導、趣味專題，以及各種主題的實體活動。期望以多元有趣的觀點讓大眾放下刻板印象，建立連結，促進兩端交流與認識。",
     "description_eng": "From our perspective, Africa don’t want pity but an opportunity to be known by the world. wowAfrica is an Africa information and news platform. We report Africa news and current affairs online. Also, sharing African popular music and African proverbs as an interesting way to know Africa for everyone. wowAfrica has been organizing offline event and workshop to promote Africa culture. Our vision is breaking the stereotypes and build up a connection for Africa and Taiwan.",
     "website": "www.facebook.com/wowafrica.tw"
@@ -1182,7 +1182,7 @@ let data = [
     "space_num": 1,
     "theme": "德－公民道德",
     "name_cht": "台大社會創新社",
-    "Name-eng": "NTU Net Impact",
+    "name_eng": "NTU Net Impact",
     "description_cht": "NI致力於大學生社會創新思維的養成，廣邀社企家分享其理念、夢想的商業實踐。亦從社會學角度深入議題，讓大學生們在討論及工作坊中汲取經驗，帶領學生團隊激盪創意火花，進一步提案並實際執行，實踐校園影響力。",
     "description_eng": "Net Impact is a global community of students and professionals who want to become the most effective change agents they can be.supportsing a new generation of leaders to work within business and across sectors to create a more sustainable world.We work hard on becoming an incubator of social innovation,let every youth have the spirit of social entrepreneurs in their mind. In short, we help our members turn their passions into a lifetime of world-changing action.",
     "website": "https://www.facebook.com/pg/NTUNetImpact/about/?ref=page_internal"
@@ -1194,7 +1194,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "人心解碼讀心術",
-    "Name-eng": "Mindread",
+    "name_eng": "Mindread",
     "description_cht": "獨一無二的讀心術，以心理學的行為語言學派作為基礎，再花三年以上實際深入中國考察驗證，進行無數次的教學與實驗，並揉合宗教學、哲學、命理學、NLP，整合出一套完整的程序，推測對方的過去未來。",
     "description_eng": "The globe's red hot nonverbal behavioral enterprise management In 2010, the American crime drama television series Lie to me was based on the idea by Paul Ekman who is a pioneer in the study of emotions and their relation to facial expressions. Dr. Ekman was named one of the 100 most influential people in the world by TIME magazine and in 2014 ranked fifteenth among the most influential psychologists of the 21st century. Since then, the world began to understand the psychology that is hidden behind the nonverbal behavioral communication.",
     "website": "http://mindreadingcoach.weebly.com/"
@@ -1206,7 +1206,7 @@ let data = [
     "space_num": 2,
     "theme": "體－身體實踐",
     "name_cht": "台灣潛水",
-    "Name-eng": "Taiwan Dive",
+    "name_eng": "Taiwan Dive",
     "description_cht": "台灣潛水一直以「Bring Ocean into your Life」的精神前進，不僅提供許多專業的潛水課程，也積極的投注於海洋保育及海洋文化的活動推廣，讓更多人能夠意識到台灣其實有豐富的海洋資源。",
     "description_eng": "Taiwan Dive is a renowned PADI Five Star Career Development Center, which conveniently located in the heart of Kenting’s premier dive sites. Since 1995, we have proudly provided a wide array of services to our patrons and offered the best selection of quality merchandise.",
     "website": "https://www.taiwandivecenter.com"
@@ -1218,7 +1218,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "萬華社區小學",
-    "Name-eng": "Wanhua School",
+    "name_eng": "Wanhua School",
     "description_cht": "經營出發點是教育與社區。在發展歷史深厚、社會連結強壯的萬華社區辦理活動、提供服務，重拾人們「好好生活」，「共好生活」的能力，間接回饋地方發展。",
     "description_eng": "Since 2016 , to face the gap between learning and community everyday life, Wanhua School was set up by a community planner. Now we have 3 co-workers and many community volunteers. We train young community planners and create a different experience/platform of heritage and old district regeneration by using public space or even private stores. We believe collective knowledge and sharing make our community surroundings and life better and more sustainable.",
     "website": "https://www.facebook.com/wanhuaxiaoxiao/"
@@ -1230,7 +1230,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "善步。地方教育",
-    "Name-eng": "Good Step for Place",
+    "name_eng": "Good Step for Place",
     "description_cht": "我們是一個專業的微型教育團隊，想培養下一代關愛環境與社會的心。以孩子居住的社區為基地，設計好玩有趣的課程，帶領孩子細緻的觀察探索、深刻的反思、創意發想並具體行動。改變世界，從自己的地方出發！",
     "description_eng": "Good Step for Place is a miniature educational group. We like to cultivate the love and care for environment and society for the next generation.Our program start with the place where children live in, using interesting methods to encourage children to explore the environment. We design playful ways to learn the knowledge and social issues through games. Leading children to discuss the possible solution to the actual social issue.",
     "website": "https://www.facebook.com/GoodStepforPlace/"
@@ -1242,7 +1242,7 @@ let data = [
     "space_num": 2,
     "theme": "實驗教育",
     "name_cht": "學學實驗教育機構",
-    "Name-eng": "Xue Xue Institute",
+    "name_eng": "Xue Xue Institute",
     "description_cht": "「學學」相信，最精彩的創意必經由多方不同角度來嘗試，透過有別於傳統，甚或逆向思考的眼光來啟發。這是專為高中生所設計的學「笑」─提供各式豐富藝術設計、人文省思、美學辯證的課程！邀請你進入與創意年輕師資一同腦力激盪的創意實驗室！ccschool.xuexue.tw",
     "description_eng": "Xue Xue believes that the most exciting ideas are inspired by the unconventional, the non-traditional, reverse-thinking, and wide-ranging perspectives. This is a special high school which aims to lead students in the joy of learning, the richness of the many forms of art design, developing their humanistic thinking through aesthetic dialectical courses! We invite you to take part in this creative lab and experience a new vista of creative flow as you brainstorm and invent alongside our enthusiastic young teachers!",
     "website": "http://www.xuexuefoundation.org.tw/"
@@ -1254,7 +1254,7 @@ let data = [
     "space_num": 2,
     "theme": "智－思考批判力",
     "name_cht": "[D]Science",
-    "Name-eng": "[D]Science",
+    "name_eng": "[D]Science",
     "description_cht": "融合科學、設計兩種專業領域，從傳統框架中跳脫教育本質。針對4歲以上小孩大人，串連科學實驗與設計美學的課程，在獲得科學與設計知識以外，使人養成尋找答案的毅力、對美的感知力，「思想」使人有更多自由及選擇！",
     "description_eng": "[D]Science Natural Science & Design Experiments consists of a team of teachers who have a keen interest in science and design education. Our team is committed to promoting both science and design education and developing comprehensible curriculum which allows students to think out of the box. We believe that the essence of learning not by solving complicated equations or having knowledge and facts thrust upon them but by experiment and experience.",
     "website": "https://percusion123.wixsite.com/dscience"
@@ -1266,7 +1266,7 @@ let data = [
     "space_num": 1,
     "theme": "智－思考批判力",
     "name_cht": "時習教育工作室",
-    "Name-eng": "LIFE education studio",
+    "name_eng": "LIFE education studio",
     "description_cht": "從學習中生活，在生活中學習！ 「學這個有什麼用？」的焦慮一直出現在體制中。學科知識和生活息息相關，但正規教育往往忽略了去連結二者。 時習以專業的學習活動設計，重建學科與生活的連結，點燃學生學習動機！",
     "description_eng": "Live Life in Learning, and Learn in Life: Rebuild the Connection between Subject Knowledge and Life Have you ever asked about “Why do I have to learn this?” Students frequently consider subject knowledge to be useless in life, and thus lose interest to learn. Actually, every subject knowledge is derived from real life. Our three attempts are: 1. Using AR games to arouse learning interest. 2. Writing articles about the connections between subject knowledge and life. 3. Hosting education forum about subject knowledge.",
     "website": "https://www.facebook.com/LIFEeducationstudio/"
@@ -1278,7 +1278,7 @@ let data = [
     "space_num": 2,
     "theme": "智－思考批判力",
     "name_cht": "紅點子科技",
-    "Name-eng": "VoiceTube",
+    "name_eng": "VoiceTube",
     "description_cht": "VoiceTube 是全台最大線上英語學習內容平台，利用搭配中英雙語字幕的影音庫，讓使用者熟悉英語的聽、說技巧，打破台灣英語教學長久以來以紙筆測驗為導向的教學模式。自2012年至今已累積230萬會員。",
     "description_eng": "VoiceTube is the leading online English learning brand in Taiwan, and have been accumulating more than 2,300,000 members, with more than 40,000 clips categorized into different topics, difficulty levels and accents on its platform. To become the most resourceful global language learning community, VoiceTube seeks to ally with other language service providers to offer the best language learning experience and to remain relevant in today’s rapidly-changing Education/EdTech ecosystems.",
     "website": "https://tw.voicetube.com/"
@@ -1290,7 +1290,7 @@ let data = [
     "space_num": 1,
     "theme": "德－公民道德",
     "name_cht": "社團法人中華民國夢想之家青年發展協會",
-    "Name-eng": "House Of Dreams",
+    "name_eng": "House Of Dreams",
     "description_cht": "大台北都會區中，仍有青少年無法受完整的教育？ 弱勢青少年究竟該如何翻身？ 深耕青少年工作十年，夢想之家透過課程、品格教育、全人關懷和就業輔導，期望真實幫助青少年被扶持、被成全，夢想被實現。",
     "description_eng": "Become companions to young people as they struggle through difficulties. Encourage and inspire them through moulding of character, abilities, creativity and public services into remarkable leaders of tomorrow.",
     "website": "http://www.dreams.org.tw/"
@@ -1302,7 +1302,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "遊牧行",
-    "Name-eng": "Nomadic",
+    "name_eng": "Nomadic",
     "description_cht": "「遊牧行」是專注於青康藏高原 ( 玉樹地區 ) 的社會企業。 為那些願意傾聽世界的人們，提供全然融入高原游牧生活與藏族文化的生命體驗旅行產品。",
     "description_eng": "Nomadic is a social enterprise supporting the development of the Tibetan Plateau (Yushu area). We focus on two essential goals: first - providing you with a fun, inspiring travel experience that will change the way you think about the world, connecting you to local tribes to fully explore their culture; and second – ensuring those tribes and, particularly, Tibetan youngsters directly benefit from your funds to support sustainable and practical development.",
     "website": "http://nomadicstory.net/about.html"
@@ -1314,7 +1314,7 @@ let data = [
     "space_num": 1,
     "theme": "智－思考批判力",
     "name_cht": "啟萌教育",
-    "Name-eng": "BEducation",
+    "name_eng": "BEducation",
     "description_cht": "每個孩子都擁有無法取代的天賦與價值，但現在的教育卻是工業化地製造一樣的產品。因此啟萌改變教育方式，以更多元、生動的學習環境與教學方式,讓孩子有更多探索自我的空間，在過程中找到天賦。",
     "description_eng": "BEducation believes that each child has their own talent. We completely change the way we teach and the way students learn. We provide a stimulating environment where students can explore their creativity, engage in problem-solving, develop their potential, and achieve self-awareness. We value the holistic development of the child, not just in building intellectual capacity and academic knowledge, but in cultivating good moral character, training a healthy body and mind, cultivating positive relationships and strong communication skills.",
     "website": "www.groupbe.com.tw"
@@ -1326,7 +1326,7 @@ let data = [
     "space_num": 2,
     "theme": "體－身體實踐",
     "name_cht": "職人",
-    "Name-eng": "SHOKUZiNE",
+    "name_eng": "SHOKUZiNE",
     "description_cht": "職人初期以年輕職人的故事讓更多人認識不同工作為目標，發行刊物與舉辦課程，今年開始將職人故事遊戲化，結合性向測驗、職業地圖的開發計畫，希望更快速地幫助孩子，讓更多人了解「尊重孩子」與「尊重專業」的重要！",
     "description_eng": "《Shokuzine》, started from 2015, we aimed at helping children finding their dream. When you know and do what you like, you can make it unique and irreplaceable. Many of us have been the kid that has his/her own interest but don’t know how to make a living by it. And most of us only have limited imagination and know too less about jobs. Through our magazines, courses and a game that in developing , we want to help students, their parents and teachers know more about what their dreams can be.",
     "website": "http://shokuzine.com"
@@ -1338,7 +1338,7 @@ let data = [
     "space_num": 2,
     "theme": "智－思考批判力",
     "name_cht": "橘子蘋果兒童程式學苑",
-    "Name-eng": "Apple Buds Inc.",
+    "name_eng": "Apple Buds Inc.",
     "description_cht": "橘子蘋果兒童程式學苑在2012年以遊戲化的劇情專案起家，幾個熱血的軟體人首創為期四年的PBL長期程式課程，至今已培養超過六千名學生，為台灣最大，也是首間開放內部畢業生進入研發、教學實習的創新教育團隊。",
     "description_eng": "Apple Buds is Taiwan's largest children's program innovation education team.We aims to bring children with a strong creativity in the new age, in this way, a group of enthusiastic engineers established Orange Apple, we focus on a long-term program for a period of 4 years in the concept of PBL (Problem-based-learning).Nowadays, We've trained more than 6,000 outstanding students, started opportunity for graduates into software design and teaching internship, and also encourage students be bold innovate with actuation.",
     "website": "https://orangeapple.co/"
@@ -1350,7 +1350,7 @@ let data = [
     "space_num": 1,
     "theme": "群－關係",
     "name_cht": "社會影響力製造所",
-    "Name-eng": "Impact Hub Taipei",
+    "name_eng": "Impact Hub Taipei",
     "description_cht": "Impact Hub 是由各個在地空間所串連而成的全球網絡,扮演著創新實驗室、企業孵化器和社會創新社群中心等多元的角色,更是一個提供會員各種資源、靈感、合作機會與擴大社會影響力的獨特生態系統。",
     "description_eng": "Impact Hub Taipei is where impact meets the marketplace, and a platform for local impact entrepreneurs to connect to the world. We're part of the rapidly expanding global network of over 16,000 members in 100+ shared workspaces, which the first one started in London in 2005. It is found to connect and inspire people, convene ideas, foster collaboration and enable change. We are a community and movement builder to support impact makers, finding their mission and purpose, and creating positive social and sustainable impact.",
     "website": "https://taipei.impacthub.net/"
@@ -1362,7 +1362,7 @@ let data = [
     "space_num": 1,
     "theme": "智－思考批判力",
     "name_cht": "數感實驗室",
-    "Name-eng": "Numeracy Lab",
+    "name_eng": "Numeracy Lab",
     "description_cht": "數感實驗室粉絲頁每天一則數學新知，介紹隱藏在各領域中的數學，已累積4萬4千名粉絲。並舉辦系列實體活動—數學實驗課。用生活化與操作化的活動讓國小學生看見數學，進而喜歡數學與活用數學。",
     "description_eng": "Numeracy Lab writes a daily article for public math. Currently, we have around 4,4000 fans with us. In addition to the article, we hold the course \"hands-on mathematics experiments\" to K3~K6 students. \"There was no fog in London until Whistler started painting it\" --Oscar Wilde We hope that with our efforts, everyone can aware that math appears in his/her daily life.",
     "website": "https://www.facebook.com/numeracylab/"
@@ -1374,7 +1374,7 @@ let data = [
     "space_num": 1,
     "theme": "美－美感經驗",
     "name_cht": "墨雨設計",
-    "Name-eng": "Monoame Design",
+    "name_eng": "Monoame Design",
     "description_cht": "墨雨設計用設計的力量改變既有的認知,跨足視覺形象/品牌規劃與互動網頁及教學之設計工作室,結合Motion Graphic動畫,從設計的角度教學網頁程式開發,創作新型態的互動與遊戲體驗。",
     "description_eng": "Monoame Design is committed to using the design power to change the existing knowledge, for the graphic design / brand planning and interactive web design. We combined web development with Motion Graphic animation, create a new type of interactive and gaming experience.",
     "website": "http://monoame.com/#/"
@@ -1386,7 +1386,7 @@ let data = [
     "space_num": 1,
     "theme": "德－公民道德",
     "name_cht": "國際同圓社-台灣總社",
-    "Name-eng": "Ciecle K International (Taiwan)",
+    "name_eng": "Ciecle K International (Taiwan)",
     "description_cht": "Circle K International是全世界最大的大專學生社團組織，人數12000多人，分佈在13個國家。 藉由台灣同濟會總會Kiwanis輔導台灣CKI總社，預計拍攝2000位企業家的故事。",
     "description_eng": "Circle K International is a service organization formed to help the community through various service projects. It is part of an umbrella of organizations led by Kiwanis International. Circle K International also aims to build fellowship and create leaders within the membership.",
     "website": "http://circlek.org"
@@ -1398,7 +1398,7 @@ let data = [
     "space_num": 2,
     "theme": "體－身體實踐",
     "name_cht": "滾出趣",
-    "Name-eng": "Let's Roll Out",
+    "name_eng": "Let's Roll Out",
     "description_cht": "我們相信『了解越多，就會對人生有更多選擇』。 滾出趣透過各種有趣的卡牌、手札商品、活動、展覽，讓人更深度向未知探索、跳脫表面框架去理解及思考，最後看到更不一樣的世界和人生。",
     "description_eng": "We believe that, to explore more and think more, and then you can make different decision toward your life. Let's Roll Out invites you to explore the world and yourself by interesting cards, journal, activity, and exhibition.",
     "website": "http://www.letsrollout.com.tw/"
@@ -1410,7 +1410,7 @@ let data = [
     "space_num": 1,
     "theme": "體－身體實踐",
     "name_cht": "社團法人國際城市浪人育成協會",
-    "Name-eng": "International City Wanderer Education Association",
+    "name_eng": "International City Wanderer Education Association",
     "description_cht": "城市浪人為台灣教育創新的先鋒，透過獨家的教育服務設計，直接與間接地影響從16-30歲之間的學生與社會人士，讓人們能藉由城市浪人的服務，更理解自己的使命，並開始思考人生當中重要的長遠行動。",
     "description_eng": "The youth in Asia usually lack the direction because they don’t have time to find out. Most of their time is wasted on a lot of things that they aren’t interested in at all. So we want to help people find their directions of lives. And we designed a solution called City Wanderer Competition which is actually a mission competition.",
     "website": "www.citywanderer.org"
@@ -1422,7 +1422,7 @@ let data = [
     "space_num": 2,
     "theme": "德－公民道德",
     "name_cht": "臺灣吧",
-    "Name-eng": "Taiwan Bar",
+    "name_eng": "Taiwan Bar",
     "description_cht": "臺灣吧是自產內容的新媒體公司，目標是『讓臺灣成為全球數位內容的燈塔』。 我們試著以優質的數位內容，引發大眾對知識的興趣，並進而解決教育、傳播與娛樂等產業正在面臨的困境。",
     "description_eng": "Taiwan Bar is not an actual bar, but a new media company that aims to raise the general public’s interest in knowledge with lively animations.",
     "website": "https://www.facebook.com/taiwanbarstudio/"
@@ -1434,7 +1434,7 @@ let data = [
     "space_num": 1,
     "theme": "實驗教育",
     "name_cht": "臺北市立仁愛國民中學",
-    "Name-eng": "Taipei Municipal RenAi Junior High School",
+    "name_eng": "Taipei Municipal RenAi Junior High School",
     "description_cht": "仁愛國中的教學創新團隊在教學上結合各項資訊科技推動專案，校內極富教育經驗與熱枕的老師們，精進教學、自我提升與成長，以平板、機器人課程、VR與AR等資訊科技融入教學，用互動式的教學策略，真正的翻轉學習。",
     "description_eng": "Ren-ai innovative teaching team keeps abreast of times, combining teaching with IT learning programs promoted by MOE. Our experienced and enthusiastic teachers volunteer to progress in teaching enhancement and self-development. With the latest IT materials like tablets, Robotics, VR, AR brought into learning arena, we hope to use interactive teaching strategies to accomplish Flipped Classroom learning successfully.",
     "website": "http://www.jajh.tp.edu.tw/xoops/index.php"
@@ -1446,7 +1446,7 @@ let data = [
     "space_num": 0.5,
     "theme": "實驗教育",
     "name_cht": "臺北市立南港區東新國民小學",
-    "Name-eng": "Taipei Municipal Dong-Xing Elementary School",
+    "name_eng": "Taipei Municipal Dong-Xing Elementary School",
     "description_cht": "為讓英語從學科學習，拓展為學習使用工具，增加學生接觸英語機會，東新國小自106學年度起，由低年級開始逐年推展，進行雙語教學課程實驗，提供30%英語沉浸教學，內容包含主題式生活課、體育、藝文及閱讀等。",
     "description_eng": "In order to our students can use English as a tool to expand their knowledge in subject areas and increase access to opportunities.This new academic year, we strart the bilingual program in the 1st grade. We will continue the program from grades 1 to 6.Teachers and students in the program follow a 30% Chinese and 70% English instructional model.Classes will teach multiple skills such as life skills, sports, art, reading, and others.",
     "website": "http://www.thes.tp.edu.tw/"
@@ -1458,7 +1458,7 @@ let data = [
     "space_num": 0.5,
     "theme": "實驗教育",
     "name_cht": "臺北市立士林區文昌國民小學",
-    "Name-eng": "Taipei Municipal Wenchang Elementary School",
+    "name_eng": "Taipei Municipal Wenchang Elementary School",
     "description_cht": "文昌以「深耕國語、活用英語」雙軌並重的模式，玩出有感的學習，激發好奇心與積累成功的經驗，欣賞他人、悅納自己，培養人際互動、參與合作、主動學習之行動力，讓文昌兒童徜徉快樂學習的世界。",
     "description_eng": "In response to the trend of education development and Wenchang education ideal, we believe in student-centered teaching and focus on their life experiences.We initiated the bilingual program during the academic year 106 and will continue to the transformation process progressively in consecutive years. Through cultivating our children with Chinese and English as dual components, Wenchang would inspire curiosities, accumulate successful experiences, admire self and others, and learn both autonomously and cooperatively.",
     "website": "http://www.wces.tp.edu.tw/default.asp"
@@ -1470,7 +1470,7 @@ let data = [
     "space_num": 1,
     "theme": "實驗教育",
     "name_cht": "臺北市和平實驗國民小學",
-    "Name-eng": "Taipei Heping Experimental Elementary School",
+    "name_eng": "Taipei Heping Experimental Elementary School",
     "description_cht": "和平實驗小學，為全國首座於《學校型態實驗教育條例》公布實行後，全新籌建之公辦公營實驗教育小學，以「自主學習」為教育願景，透過親師校攜手合作，陪伴孩子朝向「情緒自主」、「健康自主」、「學力自主」的境界。",
     "description_eng": "Heping Elementary School\" is the first public experimental primary school in Taipei. we take \"self- regulated learner\" as philosophy, and student will become \"emotion, health, and learning regulated learner\" by the cooperation with teachers, parents, and school.",
     "website": "https://www.facebook.com/%E8%87%BA%E5%8C%97%E5%B8%82%E5%92%8C%E5%B9%B3%E5%AF%A6%E9%A9%97%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8-337781999753357/?fref=ts"
@@ -1482,7 +1482,7 @@ let data = [
     "space_num": 0.5,
     "theme": "實驗教育",
     "name_cht": "臺北市立信義區三興國民小學",
-    "Name-eng": "Taipei Municipal Sanxing Elementary School",
+    "name_eng": "Taipei Municipal Sanxing Elementary School",
     "description_cht": "臺北市政府教育局推展「發現科學亮點課堂行動方案」，由三興國小規劃，市立新生國小、芝山國小、國語實小、忠義國小教師開發連結生活情境、解決問題之學習活動。讓學生透過親自觀察與實作的實驗活動，培養科學能力。",
     "description_eng": "The Science Brilliant Project, developed by Department of Education in Taipei City Government, intends to make instructors connect learning activities with real-life situations and problem-solving abilities. Students enhance scientific knowledge by close-up observations and hands-on experiments.",
     "website": "https://sites.google.com/mail.cups.tp.edu.tw/106tpexsci/"
@@ -1494,7 +1494,7 @@ let data = [
     "space_num": 0.5,
     "theme": "實驗教育",
     "name_cht": "臺北市立介壽國民中學",
-    "Name-eng": "Taipei Municipal Jieshou Junior High School",
+    "name_eng": "Taipei Municipal Jieshou Junior High School",
     "description_cht": "臺北市政府教育局推展「發現科學亮點課堂行動方案」，由介壽國中規劃，市立大同高中、萬芳高中、萬華國中、仁愛國中教師開發連結生活情境、解決問題之學習活動。讓學生透過親自觀察與實作的實驗活動，培養科學能力。",
     "description_eng": "The Science Brilliant Project, developed by Department of Education in Taipei City Government, intends to make instructors connect learning activities with real-life situations and problem-solving abilities. Students enhance scientific knowledge by close-up observations and hands-on experiments.",
     "website": "https://sites.google.com/mail.cups.tp.edu.tw/106tpexsci/"
@@ -1506,7 +1506,7 @@ let data = [
     "space_num": 0.5,
     "theme": "智－思考批判力",
     "name_cht": "台灣雲端書庫",
-    "Name-eng": "Taiwan Cloud Library",
+    "name_eng": "Taiwan Cloud Library",
     "description_cht": "台灣雲端書庫首創「準公共借閱權電子書平台」，採用國際級雲端服務AWS，並和 600 多間出版社合作，藏書量有 2萬7仟多本(每日持續增加)，滿足多位讀者閱讀同一種書之需求，提供優質的電子書借閱服務。",
     "description_eng": "Established since 2013, “Taiwan Cloud Library” is the pioneer of Taiwanese e-book service platform that truly practice Public Lending Rights (PLR) as its business model. We use AWS(Amazon Web Services) to provide our users for best digital reading quality. Until now “Taiwan Cloud Library” has cooperated with more than 600 publishers and features 27,457(increasing daily) items in its circulating collections.",
     "website": "https://www.facebook.com/lib.ebookservice/"
@@ -1518,7 +1518,7 @@ let data = [
     "space_num": 1,
     "theme": "智－思考批判力",
     "name_cht": "Richart 數位銀行",
-    "Name-eng": "Richart",
+    "name_eng": "Richart",
     "description_cht": "2016年4月台新銀行推出的Richart數位銀行，是臺灣首家獲得德國紅點傳達設計大獎的金融業。Richart以「簡單、便利、懂你、透明」的理念提供創新金融服務，顛覆現代人對銀行的刻板印象，致力成為最能幫年輕人存錢的銀行。",
     "description_eng": "Richart by Taishin Bank was inaugurated by Taishin International Bank in April 2016 as a new digital brand. And it’s also the first bank in Taiwan that won the Red Dot Award: Communication Design 2017. Focused on young generation, Richart wants to subvert the stereotype of banking in people’s mind. Richart provides innovative financial services based on four value propositions “simplicity, convenience, understanding your needs, transparency” . Our goal is to become the best digital banking partner of young people.",
     "website": "https://richart.tw/"
@@ -1530,7 +1530,7 @@ let data = [
     "space_num": 0.5,
     "theme": "智－思考批判力",
     "name_cht": "遠流科學人雜誌",
-    "Name-eng": "Scientific American（Taiwan）",
+    "name_eng": "Scientific American（Taiwan）",
     "description_cht": "遠流於2002年出版中文版《科學人》。《科學人》並將15年、6000多篇文章全數做成中英文知識庫，是最適合老師學生與科學愛好者參考之重要知識庫。",
     "description_eng": "Scientific American, the longest continuously published magazine in the U.S., has been bringing its readers unique insights about developments in science and technology .",
     "website": "https://www.facebook.com/ylib.sa"
@@ -1542,7 +1542,7 @@ let data = [
     "space_num": 2,
     "theme": "德－公民道德",
     "name_cht": "財團法人保德信青少年基金會",
-    "Name-eng": "Prudential Youth Foundation Taiwan",
+    "name_eng": "Prudential Youth Foundation Taiwan",
     "description_cht": "「財團法人保德信青少年基金會」致力推動「保德信青少年志工菁英獎」國際獎項，表揚在志願服務表現優異的國高中學生，提供交流平台以提升青少年對於社會公益關懷意識，透過服務行動發揮自我價值，找到未來發展志向。",
     "description_eng": "The Prudential Spirit of Community Awards (SOC) was founded in the United States in 1995. Its purpose is to praise junior high and senior high school students for excellent acts of volunteering. This is a special honor belonging to the youth volunteers. Prudential Spirit of Community Awards has been awarded in Taiwan since 2000 and ‘the Prudential Youth Foundation’ was established in 2006 to combine multiple resources and to promote the SOC and the culture of youth volunteer service more effectively.",
     "website": "http://www.soc.org.tw/"
@@ -1554,7 +1554,7 @@ let data = [
     "space_num": 1,
     "theme": "德－公民道德",
     "name_cht": "樂天Kobo",
-    "Name-eng": "RakutenKobo",
+    "name_eng": "RakutenKobo",
     "description_cht": "樂天Kobo為日本樂天集團下的一間電子書網路平台致力於提供優質的閱讀習慣。樂天Kobo始終相信，愛看書的人應自由自在地在任何載具閱讀每本書。",
     "description_eng": "Rakuten Kobo Inc. is one of the world’s fastest-growing eReading services, offering more than 5 million eBooks and magazines to millions of users across the world. It is our mission to empower booklovers to read more – because we believe reading makes the world a better place. Kobo delivers the best digital reading experience, offering one of the world's largest catalogues with millions of titles, award-winning eReaders and top-ranking apps. Kobo is owned by eCommerce company Rakuten Inc.",
     "website": "https://www.kobo.com/tw/zh"
@@ -1566,7 +1566,7 @@ let data = [
     "space_num": 2,
     "theme": "實驗教育",
     "name_cht": "親子天下股份有限公司",
-    "Name-eng": "CW Education Media ＆ Publishing Co., Ltd.",
+    "name_eng": "CW Education Media ＆ Publishing Co., Ltd.",
     "description_cht": "親子天下是全台唯一集合出版與媒體兩大專業領域的教育教養平台，也是親子家庭最信賴的教育教養領導品牌，我們期望建構一個生態圈，分齡分眾提供華人地區親子家庭最合身體貼的優質內容、活動、產品與服務。",
     "description_eng": "CW Education Media & Publishing began as a magazine and book publisher and has since evolved into the most influential education and parenting media brand in Chinese-speaking communities. Our mission is to provide schools and families professional and trustworthy solutions to education and parenting issues, and to offer online and offline content, activities, products and services carefully tailored to the needs of different groups and different ages.",
     "website": "https://www.parenting.com.tw/"
@@ -1578,7 +1578,7 @@ let data = [
     "space_num": "",
     "theme": "工作坊",
     "name_cht": "交點文化股份有限公司",
-    "Name-eng": "Crosspoint",
+    "name_eng": "Crosspoint",
     "description_cht": "交點是一個提供年輕人實踐家分享夢想、計畫的舞台，透過熱情、分享及交流能夠串連各領域的資源及力量。 有許多年輕人因著交點這個舞台獲得幫助，讓你的夢想不再天馬行空，而是能成為夢想實踐者！",
     "description_eng": "CrossPoint is a space (place) where young minds achieve their dreams and passionately share about their plans with the crowd. Bringing in and connecting different resources of various areas. Many of our attendees have benefited a lot from CrossPoint's hosted events, these experiences enabled them to execute their dreams more practically and become doers of what they planned.",
     "website": "https://www.facebook.com/crosspoint0505/"
@@ -1590,7 +1590,7 @@ let data = [
     "space_num": "",
     "theme": "工作坊",
     "name_cht": "享畫有限公司",
-    "Name-eng": "CUPOS",
+    "name_eng": "CUPOS",
     "description_cht": "享畫的核心理念為藉由圖像提升溝通與引導思考。我們運用圖像思考與創意構想的方式傳遞資訊與想法，將資訊與設計結合傳遞知識的藝術之美。 服務項目有會議與活動現場即時圖譯的視覺圖像記錄與視覺動畫等。",
     "description_eng": "The core ideal of Cupos is to use image to elevate communication effectiveness and facilitate thinking. We use visual thinking and creative conceptualization to better share information and ideas, showing the beauty of knowledge by combining information and design.",
     "website": "https://www.facebook.com/cupos.sh/"
@@ -1602,7 +1602,7 @@ let data = [
     "space_num": "",
     "theme": "智－思考批判力",
     "name_cht": "斯爾夫股份有限公司",
-    "Name-eng": "SELFPICK",
+    "name_eng": "SELFPICK",
     "description_cht": "一間以「沉浸式娛樂」為命題的新媒體公司，致力於拍攝有價值的影視內容。徐嘉凱導演以自身觀察社會面的真實題材為主題，拍攝網路影集《Mr. Bartender》與《私室》，探討世代間不同價值觀。",
     "description_eng": "We are \"SELFPICK\", a content provider, committed to offer more good choices in drama. SELFPICK, We pick our own path.",
     "website": "https://www.facebook.com/selfpick/"
