@@ -15,7 +15,9 @@ require('laravel-elixir-vue-2');
 
 elixir((mix) => {
     mix.sass('app.sass')
-       .webpack([
+       
+        .webpack([
+          './node_modules/babel-polyfill/dist/polyfill.js',
           'app.js'
         ],'public/js/app.js')
 });
