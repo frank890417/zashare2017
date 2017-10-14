@@ -39,19 +39,20 @@
             tr(v-for="event in events")
               td.text-center(v-html="replaceDash(event.time)")
               //td {{event.tag_team}}
-              td 
+              td
                 h3 {{event.title}}
                 p {{event.description}}
-                hr
-                p.mobile_info
-                  | {{event.name}}<br>({{event.tag}})<br>
-                  | {{event.place}}<br><br>
-                  | {{event.register}}<br>
-                  .btn.btn-secondary.btn-primary(
-                    @click="registerEvent(event.website)"
-                    target="_blank",
-                    v-if="event.website"
-                  ) 報名
+                .visible-xs
+                  hr
+                  p.mobile_info
+                    | {{event.name}}<br>({{event.tag}})<br>
+                    | {{event.place}}<br><br>
+                    | {{event.register}}<br>
+                    .btn.btn-secondary.btn-primary(
+                      @click="registerEvent(event.website)"
+                      target="_blank",
+                      v-if="event.website"
+                    ) 報名
               td.hidden-xs {{event.name}}<br>({{event.tag}})
               td.hidden-xs {{event.place}}
               td.hidden-xs {{event.register}}<br>
