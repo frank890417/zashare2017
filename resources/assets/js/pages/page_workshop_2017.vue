@@ -7,7 +7,14 @@
         hr
         p 工作坊報名資格：持有雜學校門票，在線上報名工作坊的同時，別忘了提前購買2017雜學校入場門票哦！
         br
-      .col-sm-12.col-cata(:class="{fixed:fixed_cata_class}")
+      .col-sm-12.col-cata.fixed(v-if="fixed_cata_class")
+        .btn-group
+          .btn.btn-secondary(
+            v-for="time in Object.keys(time_chunk)",
+            @click="now_date = time",
+            :class="{'btn-primary': now_date == time}"
+          ) {{time}}
+      .col-sm-12.col-cata
         .btn-group
           .btn.btn-secondary(
             v-for="time in Object.keys(time_chunk)",
