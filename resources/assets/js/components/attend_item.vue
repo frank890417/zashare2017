@@ -31,10 +31,9 @@ export default {
     }
   },
   methods: {
-    // click: function(title){
-      // if (ga)
-        // ga('send', 'event', '參展單位', '點擊網站',title);
-    // }            
+    click: function(title){
+      this.$ga.event('link', 'click', title.replace(/(<([^>]+)>)/ig,""));
+    }            
   },
   computed:{
     icon_url(){

@@ -7,6 +7,10 @@
 <script>
 
 export default {
+  metaInfo: {
+    title: '參展攤位2017', // set a title
+    titleTemplate: '%s - 雜學校 Zashare', // title is now "My Example App - Yay!"
+  },
   components: {
     attend_panel: require( '../components/attend_panel.vue')
   },
