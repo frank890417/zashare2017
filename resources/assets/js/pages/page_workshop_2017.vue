@@ -45,15 +45,17 @@
                 .visible-xs
                   hr
                   p.mobile_info
-                    | {{event.name}}<br>({{event.tag}})<br>
-                    | {{event.place}}<br><br>
-                    | {{event.register}}<br>
+                    | 單位：{{event.name}} <br>
+                    //({{event.tag}})
+                    | 地點：{{event.place}}<br>
+                    | 報名方式：{{event.register}}<br>
                     .btn.btn-secondary.btn-primary(
                       @click="registerEvent(event.website)"
                       target="_blank",
                       v-if="event.website"
                     ) 報名
-              td.hidden-xs {{event.name}}<br>({{event.tag}})
+              td.hidden-xs {{event.name}}
+                //<br>({{event.tag}})
               td.hidden-xs {{event.place}}
               td.hidden-xs {{event.register}}<br>
                 .btn.btn-secondary.btn-primary(

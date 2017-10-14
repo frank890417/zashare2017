@@ -28,13 +28,13 @@ nav.navbar.navbar-default.navbar-fixed-top
               router-link(to='/expo2017') 購票資訊
             li.disable_current
               router-link(to='/expo2017/attends') 攤位一覽
-            //li.disable_current
+            li.disable_current
               router-link(to='/expo2017/workshops') 工作坊
         //li(:class="{active: $router.path=='/expo2017'}", @click="toggleNav")
           router-link(to='/expo2017') 展覽購票
         li(:class="{active: $router.path=='/news'}", @click="toggleNav")
           router-link(to="/news") 最新消息
-        li.dropdown.dropdown_cata.hidden-xs(:class="{active: $router.path=='/blog'}")
+        li.dropdown.dropdown_cata(:class="{active: $router.path=='/blog'}")
           router-link(to="/blog", role='button', aria-haspopup='true', aria-expanded='true')
             | 參展報導
             span.caret
