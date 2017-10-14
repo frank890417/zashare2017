@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "axios": "^0.15.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-stage-2": "^6.24.1",
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^3.2.3",
@@ -30,6 +31,7 @@
     "vuex": "^2.4.0"
   },
   "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "slick-carousel": "^1.7.1",
     "vue-slider-component": "^2.4.3",
     "vue-youtube-embed": "^2.1.2"

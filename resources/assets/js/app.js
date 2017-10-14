@@ -32,6 +32,15 @@ Vue.component('postbox',Postbox);
 window.onload=function(){
   store.commit("setLoading",false)
 }
+
+$(window).scroll(()=>{
+  store.commit("setScrollTop",$(window).scrollTop())
+})
+
+$(window).resize(()=>{
+  store.commit('setWsize',$(window).outerWidth())
+})
+store.commit('setWsize',$(window).outerWidth())
 var vm = new Vue({
   el: "#app",
   router,

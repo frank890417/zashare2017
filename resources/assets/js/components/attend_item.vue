@@ -1,25 +1,24 @@
-<template>
-  <div class='attenditem' @click='click(item.name_cht)'>
-    <a class="cardtop" :href='item.website' :title='"前往"+item.name_cht+"的網站"' target='_blank'>
-      <img class="icon" :src='icon_url'>
-      <div class="topleft">
-        <span class=itemtag v-html='item.tag'></span>
-        <br>
-        <h3 v-html='item.name_cht'></h3>
-        <h6 class=itemtheme>{{item.theme}}</h6>
-      </div>
-    </a>
-    <div v-show="liststyle!='iconmode'">
-      <hr>
-        <p>
-          <span v-html='expand?item.description_cht:(item.description_cht.substr(0,max_len)+"...")'></span>
-          <span v-if='item.description_cht.length>max_len && !expand' class=swex @click='expand=true'>更多</span>
-      </p>
-        <hr>
-        <p class=itemteach v-html='item.teach_thing'></p>
-        <p class=itemlearn v-html='item.learn_thing'></p>
-    </div>
-  </div>
+<template lang="pug">
+  .attenditem(@click='click(item.name_cht)')
+    a.row.cardtop(:href='item.website', :title='"前往"+item.name_cht+"的網站"', target='_blank')
+      .col-sm-4.col-icon
+        img.icon(:src='icon_url')
+      .col-sm-8
+        .topleft
+          span.itemtag(v-html='item.tag')
+          br
+          h3(v-html='item.name_cht')
+          h6.itemtheme(v-html="item.theme")
+    .row(v-show="liststyle!='iconmode'")
+      .col-sm-12
+        hr
+        p
+          span(v-html='expand?item.description_cht:(item.description_cht.substr(0,max_len)+"...")')
+          span.swex(v-if='item.description_cht.length>max_len && !expand', @click='expand=true') 更多
+        //- hr
+        //- p.itemteach(v-html='item.teach_thing')
+        //- p.itemlearn(v-html='item.learn_thing')
+
 </template>
 
 <script>
@@ -39,7 +38,8 @@ export default {
   },
   computed:{
     icon_url(){
-      return "/img/2017/expo_2017/teamlogos/"+this.item.tag[0]+"/"+this.item.tag+".jpg"
+      let tag = this.item.ori_tag?this.item.ori_tag:this.item.tag
+      return "/img/2017/expo_2017/teamlogos/"+tag[0]+"/"+tag+".jpg"
     }
   }
 }
