@@ -30,7 +30,7 @@ const routes = [
   { path: '/blog', component: require( '../pages/page_blog.vue')},
 
   { path: '/expo2017', component: require( '../pages/page_expo_2017.vue') },
-  //{ path: '/expo2017/workshops', component: require( '../pages/page_workshop_2017.vue') },
+  { path: '/expo2017/workshops', component: require( '../pages/page_workshop_2017.vue') },
   { path: '/expo2017/attends', component: require( '../pages/page_attends.vue')},
   { path: '/blog/:filter_cata', component: require( '../pages/page_blog.vue') ,props: true},
   { path: '/post/n/:title', component: require( '../pages/page_post.vue') ,props: true},

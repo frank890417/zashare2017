@@ -5,6 +5,9 @@
       .col-sm-12
         h1 工作坊活動
         hr
+        p 工作坊報名資格：持有雜學校門票，在線上報名工作坊的同時，別忘了提前購買2017雜學校入場門票哦！
+        br
+      .col-sm-12.col-cata(:class="{fixed:fixed_cata_class}")
         .btn-group
           .btn.btn-secondary(
             v-for="time in Object.keys(time_chunk)",
@@ -22,35 +25,47 @@
         //h3 {{time}}
         table.table.table-hover
           thead
-            th(style="width: 10%") 時間
+            th.text-center(style="width: 10%") 時間
             //th(style="width: 5%") 參展編號
             //th(style="width: 10%") 攤位編號
-            th(style="width: 15%") 名稱
-            th(style="width: 15%") 主題
-            th(style="width: 25%") 描述
-            th(style="width: 20%") 報名方式
+            th(style="width: 45%") 主題
+            th.hidden-xs(style="width: 15%") 單位
+            th.hidden-xs(style="width: 15%") 地點
+            //th(style="width: 25%") 描述
+            th.hidden-xs(style="width: 15%") 報名方式
             //th(style="width: 5%") 報名連結
-            th(style="width: 15%") 地點
 
           tbody
             tr(v-for="event in events")
-              td.text-center {{event.time}} 
+              td.text-center(v-html="replaceDash(event.time)")
               //td {{event.tag_team}}
-              td {{event.name}} ({{event.tag}})
-              td {{event.title}}
-              td {{event.description}}
-              td {{event.register}}
-                a.btn.btn-primary(
-                  :href='event.website', 
+              td 
+                h3 {{event.title}}
+                p {{event.description}}
+                hr
+                p.mobile_info
+                  | {{event.name}}<br>({{event.tag}})<br>
+                  | {{event.place}}<br><br>
+                  | {{event.register}}<br>
+                  .btn.btn-secondary.btn-primary(
+                    @click="registerEvent(event.website)"
+                    target="_blank",
+                    v-if="event.website"
+                  ) 報名
+              td.hidden-xs {{event.name}}<br>({{event.tag}})
+              td.hidden-xs {{event.place}}
+              td.hidden-xs {{event.register}}<br>
+                .btn.btn-secondary.btn-primary(
+                  @click="registerEvent(event.website)"
                   target="_blank",
                   v-if="event.website"
                 ) 報名
-              td {{event.place}}
 
   //pre(v-html="time_chunk")
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import workshop from "../data/workshop_2017.js"
 import _ from 'lodash'
 export default {
@@ -63,11 +78,29 @@ export default {
   computed:{
     time_chunk(){
       return _.groupBy(this.workshop,o=>o.date)
+    },
+     ...mapState(['scrollTop','wsize']),
+    fixed_cata_class(){
+      let $cata_bar = $(".col-cata")
+      let _this = this
+      if (_this.scrollTop>$cata_bar.height() ){
+        return true
+      }
+      
+      return false
     }
   },
   methods:{
     place_chunk(obj){
       return _.groupBy(obj,o=>o.place)
+    },
+    replaceDash(text){
+      return text.replace('-','<br>|<br>')
+    },
+    registerEvent(website){
+      if (confirm("必須持有雜學校門票才能報名，如果沒有請先購票再報名！")){
+        window.open(website)
+      }
     }
   }
   
