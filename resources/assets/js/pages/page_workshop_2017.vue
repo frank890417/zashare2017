@@ -57,7 +57,7 @@
                     | 地點：{{event.place}}<br>
                     | 報名方式：{{event.register}}<br>
                     .btn.btn-secondary.btn-primary(
-                      @click="registerEvent(event.website)"
+                      @click="registerEvent(event)"
                       target="_blank",
                       v-if="event.website"
                     ) 報名
@@ -66,7 +66,7 @@
               td.hidden-xs {{event.place}}
               td.hidden-xs {{event.register}}<br>
                 .btn.btn-secondary.btn-primary(
-                  @click="registerEvent(event.website)"
+                  @click="registerEvent(event)"
                   target="_blank",
                   v-if="event.website"
                 ) 報名
@@ -107,9 +107,12 @@ export default {
     replaceDash(text){
       return text.replace('-','<br>|<br>')
     },
-    registerEvent(website){
+    registerEvent(event){
       if (confirm("必須持有雜學校門票才能報名，如果沒有請先購票再報名！")){
-        window.open(website)
+        if (this.$ga){
+          this.$ga.event('workshop', 'click',event.title)
+        }
+        window.open(event.website)
       }
     }
   }
