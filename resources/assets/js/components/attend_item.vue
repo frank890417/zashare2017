@@ -1,7 +1,7 @@
 <template lang="pug">
   .attenditem(@click='click(item.name_cht)')
     a.row.cardtop(:href='item.website', :title='"前往"+item.name_cht+"的網站"', target='_blank')
-      .col-sm-4.col-icon
+      .col-xs-4.col-icon
         img.icon(:src='icon_url')
       .col-sm-8
         .topleft
