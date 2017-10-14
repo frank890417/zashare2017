@@ -29,7 +29,7 @@ const routes = [
   { path: '/ticket',redirect: '/expo2017', component: require( '../pages/page_ticket.vue') },
   { path: '/about', component: require( '../pages/page_about.vue') },
   { path: '/blog', component: require( '../pages/page_blog.vue')},
-  { path: '/attends', component: require( '../pages/page_attends.vue')},
+  { path: '/expo2017/attends', component: require( '../pages/page_attends.vue')},
   { path: '/blog/:filter_cata', component: require( '../pages/page_blog.vue') ,props: true},
   { path: '/post/n/:title', component: require( '../pages/page_post.vue') ,props: true},
   // { path: '/service', component: page_service },

@@ -19,7 +19,16 @@ nav.navbar.navbar-default.navbar-fixed-top
         </ul>
       // Right Side Of Navbar
       ul.nav.navbar-nav.navbar-right
-        li(:class="{active: $router.path=='/expo2017'}", @click="toggleNav")
+        li.dropdown.dropdown_cata.hidden-xs(:class="{active: $router.path=='/expo2017'}")
+          router-link(to="/expo2017", role='button', aria-haspopup='true', aria-expanded='true')
+            | 當期展覽
+            span.caret
+          ul.dropdown-menu
+            li.disable_current
+              router-link(to='/expo2017') 購票資訊
+            li.disable_current
+              router-link(to='/expo2017/attends') 攤位一覽
+        //li(:class="{active: $router.path=='/expo2017'}", @click="toggleNav")
           router-link(to='/expo2017') 展覽購票
         li(:class="{active: $router.path=='/news'}", @click="toggleNav")
           router-link(to="/news") 最新消息
@@ -42,7 +51,9 @@ nav.navbar.navbar-default.navbar-fixed-top
               router-link(to='/blog/F') 肢體與藝術創作
             li.disable_current
               router-link(to='/blog/G') 自然與食農教育
-        li(:class="{active: $router.path=='/about'}", @click="toggleNav")
+        
+
+        //li(:class="{active: $router.path=='/about'}", @click="toggleNav")
           router-link(to='/about') 關於雜學校
         li.dropdown.dropdown_cata.visible-xs(:class="{active: $router.path=='/blog'}")
           router-link(to='/blog', role='button', aria-haspopup='true', aria-expanded='true')

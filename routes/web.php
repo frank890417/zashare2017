@@ -84,7 +84,7 @@ Route::get('/expo2017', function(){
 });
 
 
-Route::get('/attends', function(){
+Route::get('/expo2017/attends', function(){
   return view("layouts/app_spa") ->with([
           "meta_og"=>[
             "title"=>"2017展覽 - 雜學校 Zashare",

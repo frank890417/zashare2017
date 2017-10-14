@@ -1,7 +1,7 @@
 <template lang="pug">
 .page_news
   .container-fluid
-    .orange_bg
+    //.orange_bg
       .container
         .row
           .col-sm-11
@@ -72,8 +72,9 @@
               | 快來一探究竟今年入選的優秀團隊有哪些！
               br
               br
-              br
-              br
+            router-link.btn.btn-primary(to="/expo2017/attends") 查看2017攤位介紹!
+            br
+            br
           .col-sm-4.hidden-xs
             img.person(src='http://zashare.org/funding_assets/img/main/header-s3.png', alt='')
         .row
