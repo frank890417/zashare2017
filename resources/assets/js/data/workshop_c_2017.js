@@ -10,7 +10,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://www.goo.gl/ADQvF8",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜點工坊"
   },
   {
     "date": "10/20(五)",
@@ -23,7 +23,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://www.goo.gl/ADQvF8",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜點工坊"
   },
   {
     "date": "10/21(六)",
@@ -36,7 +36,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://www.goo.gl/YhY4Bh",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜點工坊"
   },
   {
     "date": "10/21(六)",
@@ -49,7 +49,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://www.goo.gl/YhY4Bh",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜點工坊"
   },
   {
     "date": "10/21(六)",
@@ -62,7 +62,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://www.goo.gl/YhY4Bh",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜點工坊"
   },
   {
     "date": "10/22(日)",
@@ -75,7 +75,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://www.goo.gl/j2m3qy",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜點工坊"
   },
   {
     "date": "10/22(日)",
@@ -88,7 +88,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://www.goo.gl/j2m3qy",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜點工坊"
   },
   {
     "date": "10/20(五)",
@@ -101,7 +101,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://goo.gl/forms/fMMRKUQEJ7AOANRL2",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜職工坊"
   },
   {
     "date": "10/20(五)",
@@ -114,7 +114,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://goo.gl/forms/49cbOnasgwnzZAAa2",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜職工坊"
   },
   {
     "date": "10/20(五)",
@@ -127,7 +127,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://goo.gl/GtSSP4",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜職工坊"
   },
   {
     "date": "10/20(五)",
@@ -140,7 +140,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://goo.gl/fsBiLU",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜點工坊"
   },
   {
     "date": "10/20(五)",
@@ -153,7 +153,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://goo.gl/k77Xcz",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜職工坊"
   },
   {
     "date": "10/21(六)",
@@ -166,7 +166,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://goo.gl/forms/fMMRKUQEJ7AOANRL2",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜職工坊"
   },
   {
     "date": "10/21(六)",
@@ -179,7 +179,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://goo.gl/forms/5Xagy5BCtLzHKLFA2",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜職工坊"
   },
   {
     "date": "10/21(六)",
@@ -192,7 +192,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://goo.gl/VCFAsG",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜職工坊"
   },
   {
     "date": "10/21(六)",
@@ -205,7 +205,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://goo.gl/3M9sof",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜職工坊"
   },
   {
     "date": "10/21(六)",
@@ -218,7 +218,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://goo.gl/x9pE4m",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜職工坊"
   },
   {
     "date": "10/22(日)",
@@ -231,7 +231,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://goo.gl/forms/VymoueMFVJ6fN2xs1",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜職工坊"
   },
   {
     "date": "10/22(日)",
@@ -244,7 +244,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://goo.gl/forms/8OlGq9kkVvv5x72H3",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜職工坊"
   },
   {
     "date": "10/22(日)",
@@ -257,7 +257,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://goo.gl/LsNRqN",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜職工坊"
   },
   {
     "date": "10/22(日)",
@@ -270,7 +270,7 @@ let data = [
     "description": "",
     "register": "線上報名＋現場報名",
     "website": "https://goo.gl/QGx9fn",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜職工坊"
   },
   {
     "date": "10/20(五)",
@@ -283,7 +283,7 @@ let data = [
     "description": "邀請在YOTTA教授Motion Graphics的動態設計師林思翰，開設「動畫師林思翰的MG學堂」，請學員提交AE素材打包檔（AEP），思翰將會提供修改建議，並且實際操作，優化在學員的MG動畫。",
     "register": "僅線上報名",
     "website": "https://goo.gl/forms/585cZDiNoa1ghoc63",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜工坊C"
   },
   {
     "date": "10/20(五)",
@@ -296,7 +296,7 @@ let data = [
     "description": "你以為在墾丁當一個潛水教練， 就真的每天都是享受陽光沙灘比基尼嗎？ 你以為當一個潛水教練， 就不需要學習更多額外的技能知識嗎？ 潛水教練真的是很愜意的職業嗎？ 就讓這些住海邊的潛水教練， 為各位來分享什麼是真正的教練生活。",
     "register": "展期間至展位現場報名",
     "website": "",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜工坊C"
   },
   {
     "date": "10/20(五)",
@@ -309,7 +309,7 @@ let data = [
     "description": "透過華山周圍的導覽，讓聽眾可以認識華山的過去與現在的連結，此外在導覽的最後，有設計簡單的解謎遊戲，可以透過遊戲的方式讓聽眾除了聽講之外，更有實際上行動的產出，去了解不熟悉的華山。",
     "register": "不需事前報名，於活動開始前十五分鐘至工坊教室C（華山-鍋爐室）外集合",
     "website": "",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜工坊C"
   },
   {
     "date": "10/21(六)",
@@ -322,7 +322,7 @@ let data = [
     "description": "如何讓孩子把城市當教室，在行動中探索自我？針對108課綱，城市浪人在今年走進高中校園，開設了一堂以學生為核心的選修課程。26名修課學生號召了將近100人參與社會行動，完成了上百項任務，更看見了學生主動說：「這是我第一次從零到一完成一個專案」我們將分享教育工作者如何開設以學生為中心的社會實踐課程",
     "register": "展期間至展位現場報名",
     "website": "",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜工坊C"
   },
   {
     "date": "10/21(六)",
@@ -335,7 +335,7 @@ let data = [
     "description": "透過華山周圍的導覽，讓聽眾可以認識華山的過去與現在的連結，此外在導覽的最後，有設計簡單的解謎遊戲，可以透過遊戲的方式讓聽眾除了聽講之外，更有實際上行動的產出，去了解不熟悉的華山。",
     "register": "不需事前報名，於活動開始前十五分鐘至工坊教室C（華山-鍋爐室）外集合",
     "website": "",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜工坊C"
   },
   {
     "date": "10/21(六)",
@@ -348,7 +348,7 @@ let data = [
     "description": "主講者在體制外中學或自學團已經打滾將近十五年，對國文教學有很多驚世駭俗的講法與實踐，歡迎各路人馬蒞臨指教。",
     "register": "展期間至展位現場報名",
     "website": "",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜工坊C"
   },
   {
     "date": "10/21(六)",
@@ -361,7 +361,7 @@ let data = [
     "description": "透過華山周圍的導覽，讓聽眾可以認識華山的過去與現在的連結，此外在導覽的最後，有設計簡單的解謎遊戲，可以透過遊戲的方式讓聽眾除了聽講之外，更有實際上行動的產出，去了解不熟悉的華山。",
     "register": "不需事前報名，於活動開始前十五分鐘至工坊教室C（華山-鍋爐室）外集合",
     "website": "",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜工坊C"
   },
   {
     "date": "10/22(日)",
@@ -374,7 +374,7 @@ let data = [
     "description": "透過華山周圍的導覽，讓聽眾可以認識華山的過去與現在的連結，此外在導覽的最後，有設計簡單的解謎遊戲，可以透過遊戲的方式讓聽眾除了聽講之外，更有實際上行動的產出，去了解不熟悉的華山。",
     "register": "不需事前報名，於活動開始前十五分鐘至工坊教室C（華山-鍋爐室）外集合",
     "website": "",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜工坊C"
   },
   {
     "date": "10/22(日)",
@@ -387,7 +387,7 @@ let data = [
     "description": "小時候，我們都曾寫過作文：「我的志願」，然而因為對各類型職業、職場的所知甚淺，只能憑藉著有限的想像，去寫下未來的志願。 嘿！別再讓分數成為你人生的限制，堅持自己喜歡的事情、成為自己想成為的人，就讓我們一起打破台灣教育的框架吧！",
     "register": "線上報名＋現場報名",
     "website": "https://goo.gl/forms/8wyTvNs2wzK9KGeL2",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜工坊C"
   },
   {
     "date": "10/22(日)",
@@ -400,7 +400,7 @@ let data = [
     "description": "透過華山周圍的導覽，讓聽眾可以認識華山的過去與現在的連結，此外在導覽的最後，有設計簡單的解謎遊戲，可以透過遊戲的方式讓聽眾除了聽講之外，更有實際上行動的產出，去了解不熟悉的華山。",
     "register": "不需事前報名，於活動開始前十五分鐘至工坊教室C｜鍋爐室外集合",
     "website": "",
-    "place": "雜點工坊-雜職工坊-雜工坊C"
+    "place": "雜工坊C"
   }
 ]
 
