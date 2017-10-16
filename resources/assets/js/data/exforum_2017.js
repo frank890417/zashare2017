@@ -1,14 +1,6 @@
 let data = [
   {
     "date": "10/20(五)",
-    "time": "10:30-12:00",
-    "place": "Exhibition for Experimental Education實驗教育論壇｜紅磚區 西5棟",
-    "name": "人文行動中學創辦人- 楊文貴 （父）學習的理由 導演- 楊逸帆 （子）",
-    "title": "父與子的幸福使命",
-    "register": "不需事前報名，活動採自由入座，敬邀提前入場"
-  },
-  {
-    "date": "10/20(五)",
     "time": "14:30-15:30",
     "place": "Exhibition for Experimental Education實驗教育論壇｜紅磚區 西5棟",
     "name": "成大資工系教授、知名創客 蘇文鈺",
@@ -46,7 +38,15 @@ let data = [
     "name": "昆蟲老師  吳沁婕",
     "title": "我的過動人生",
     "register": "不需事前報名，活動採自由入座，敬邀提前入場"
-  }
+  },
+  {
+    "date": "10/22(五)",
+    "time": "15:30-16:30",
+    "place": "Exhibition for Experimental Education實驗教育論壇｜紅磚區 西5棟",
+    "name": "人文行動中學創辦人- 楊文貴 （父）學習的理由 導演- 楊逸帆 （子）",
+    "title": "父與子的幸福使命",
+    "register": "不需事前報名，活動採自由入座，敬邀提前入場"
+  },
 ]
 
 export default data
