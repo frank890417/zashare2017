@@ -82,6 +82,10 @@ import workshop from "../data/workshop_2017.js"
 import workshop_c from "../data/workshop_c_2017.js"
 import _ from 'lodash'
 export default {
+  metaInfo: {
+    title: '工作坊', // set a title
+    titleTemplate: '%s - 雜學校 Zashare', // title is now "My Example App - Yay!"
+  },
   data() {
     return {
       workshop: workshop.default,
