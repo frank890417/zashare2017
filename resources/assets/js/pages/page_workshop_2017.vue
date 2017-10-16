@@ -158,7 +158,7 @@ export default {
     now_date(){
       $("html,body").animate({scrollTop:0})
     },
-    now_type(){
+    now_event_type(){
       $("html,body").animate({scrollTop:0})
     }
   },
