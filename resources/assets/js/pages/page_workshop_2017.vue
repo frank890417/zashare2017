@@ -65,16 +65,18 @@
               )
               //h3 {{time}}
               h4 共{{events.length}}場活動
+              br
               table.table.table-hover(v-if="now_date == time")
                 thead
-                  th.text-center(style="width: 10%") 時間
+                  th.text-center(style="width: 8%") 時間
                   //th(style="width: 5%") 參展編號
                   //th(style="width: 10%") 攤位編號
-                  th(style="width: 45%") 主題
-                  th.hidden-xs(style="width: 15%") 單位
-                  th.hidden-xs(style="width: 15%") 地點
+                  th(style="width: 40%") 主題
+                  th.hidden-xs(style="width: 12%") 單位
+                  th.hidden-xs(style="width: 12%") 講者
+                  th.hidden-xs(style="width: 8%") 地點
                   //th(style="width: 25%") 描述
-                  th.hidden-xs(style="width: 15%") 報名方式
+                  th.hidden-xs(style="width: 10%") 報名方式
                   //th(style="width: 5%") 報名連結
 
                 tbody
@@ -83,11 +85,12 @@
                     //td {{event.tag_team}}
                     td
                       h3 {{event.title}}
-                      p {{event.description}}
+                      p(style="opacity: 0.9") {{event.description}}
                       .visible-xs
                         hr
                         p.mobile_info
                           | 單位：{{event.name}} <br>
+                          span(v-if="event.speaker") 講者：{{event.speaker}}
                           //({{event.tag}})
                           | 地點：{{event.place}}<br>
                           | 報名方式：{{event.register}}<br>
@@ -98,6 +101,7 @@
                           ) 報名
                     td.hidden-xs {{event.name}}
                       //<br>({{event.tag}})
+                    td.hidden-xs {{event.speaker}}
                     td.hidden-xs {{event.place}}
                     td.hidden-xs {{event.register}}<br>
                       .btn.btn-secondary.btn-primary(
@@ -156,11 +160,8 @@ export default {
     fixed_cata_class(){
       let $cata_bar = $(".col-selector")
       let _this = this
-      if (_this.scrollTop>$cata_bar.height() ){
-        return true
-      }
       
-      return false
+      return _this.scrollTop > $cata_bar.height()
     }
   },
   watch:{
