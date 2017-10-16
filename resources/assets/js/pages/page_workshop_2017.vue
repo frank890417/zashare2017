@@ -1,20 +1,34 @@
 <template lang="pug">
 .page_workshops
-  .container
-    .row
-      .col-sm-12.col-selector
-        .row
-          .col-sm-12
-            h1 活動與講座資訊
-            //hr
-            br
-            .col-sm-12.col-cata.fixed(v-if="fixed_cata_class")
-              .btn-group
-                .btn.btn-secondary(
-                  v-for="time in Object.keys(time_chunk(workshop))",
-                  @click="now_date = time",
-                  :class="{'btn-primary': now_date == time}"
-                ) {{time}}
+  .container-fluid.col-selector
+    .container
+      .row
+        .col-sm-12
+          .row
+            .col-sm-12
+              br
+              h1 活動與講座資訊
+              //hr
+              br
+              .col-sm-12.col-cata.fixed(v-if="fixed_cata_class")
+
+                .btn-group
+                  .btn.btn-secondary(
+                    v-for="evt_type in event_types.map(o=>o.tag)",
+                    @click="now_event_type = evt_type",
+                    :class="{'btn-primary': now_event_type == evt_type}"
+                  ) {{evt_type}}
+                
+                .btn-group
+                  .btn.btn-secondary(
+                    v-for="time in Object.keys(time_chunk(workshop))",
+                    @click="now_date = time",
+                    :class="{'btn-primary': now_date == time}"
+                  ) {{time}}
+                br
+                br
+                
+            .col-sm-12.col-cata
               .btn-group
                 .btn.btn-secondary(
                   v-for="evt_type in event_types.map(o=>o.tag)",
@@ -23,40 +37,35 @@
                 ) {{evt_type}}
               br
               br
-
-              
-          .col-sm-12.col-cata
-            .btn-group
-              .btn.btn-secondary(
-                v-for="time in Object.keys(time_chunk(workshop))",
-                @click="now_date = time",
-                :class="{'btn-primary': now_date == time}"
-              ) {{time}}
-            br
-            br
-          .col-sm-12.col-cata
-            .btn-group
-              .btn.btn-secondary(
-                v-for="evt_type in event_types.map(o=>o.tag)",
-                @click="now_event_type = evt_type",
-                :class="{'btn-primary': now_event_type == evt_type}"
-              ) {{evt_type}}
-            br
-            br
+            .col-sm-12.col-cata
+              .btn-group
+                .btn.btn-secondary(
+                  v-for="time in Object.keys(time_chunk(workshop))",
+                  @click="now_date = time",
+                  :class="{'btn-primary': now_date == time}"
+                ) {{time}}
+              br
+              br
+  .container
+    .row
       .col-sm-12
         .container-table(v-for="ws in event_types.filter(o=>o.tag==now_event_type)")
           .row
             .col-sm-12
+              br
               h2 {{ws.tag}}
               p(v-if="ws.tag=='雜工坊'") 工作坊報名資格：持有雜學校門票，在線上報名工作坊的同時，別忘了提前購買2017雜學校入場門票哦！
-              
+              hr
+
+            .col-sm-12(v-if="!time_chunk(ws.data)[now_date]") 
+              h4 此時間/類型無對應活動場次
             .col-sm-12(
               v-for="(events,time) in time_chunk(ws.data)",
-              v-if="now_date == time"
+              v-if="time==now_date"
               )
               //h3 {{time}}
               h4 共{{events.length}}場活動
-              table.table.table-hover
+              table.table.table-hover(v-if="now_date == time")
                 thead
                   th.text-center(style="width: 10%") 時間
                   //th(style="width: 5%") 參展編號
@@ -145,7 +154,7 @@ export default {
   computed:{
      ...mapState(['scrollTop','wsize']),
     fixed_cata_class(){
-      let $cata_bar = $(".col-cata")
+      let $cata_bar = $(".col-selector")
       let _this = this
       if (_this.scrollTop>$cata_bar.height() ){
         return true
