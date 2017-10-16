@@ -23,10 +23,12 @@
           ) {{time}}
         br
         br
-  .container.container-table(v-for="ws in [workshop,workshop_c]")
+  .container.container-table(v-for="ws in event_types")
     .row
+      .col-sm-12
+        h2 {{ws.tag}}
       .col-sm-12(
-        v-for="(events,time) in time_chunk(ws)",
+        v-for="(events,time) in time_chunk(ws.data)",
         v-if="now_date == time"
         )
         //h3 {{time}}
@@ -80,6 +82,9 @@
 import {mapState} from 'vuex'
 import workshop from "../data/workshop_2017.js"
 import workshop_c from "../data/workshop_c_2017.js"
+import zaforum from "../data/zaforum_2017.js"
+import exforum from "../data/exforum_2017.js"
+import talk from "../data/talk_2017.js"
 import _ from 'lodash'
 export default {
   metaInfo: {
@@ -90,6 +95,25 @@ export default {
     return {
       workshop: workshop.default,
       workshop_c: workshop_c.default,
+      talk: talk.default,
+      event_types: [
+        {
+          tag: "雜工坊",
+          data: workshop.default.concat(workshop_c.default)
+        },
+        {
+          tag: "雜講堂",
+          data: talk.default
+        },
+        {
+          tag: "雜論壇",
+          data: zaforum.default
+        },
+        {
+          tag: "實驗教育論壇",
+          data: exforum.default
+        }
+      ],
       now_date: "10/19(四)"
     }
   },
