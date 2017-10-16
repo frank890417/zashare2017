@@ -40,7 +40,7 @@ let data = [
     "register": "不需事前報名，活動採自由入座，敬邀提前入場"
   },
   {
-    "date": "10/22(五)",
+    "date": "10/22(日)",
     "time": "15:30-16:30",
     "place": "Exhibition for Experimental Education實驗教育論壇｜紅磚區 西5棟",
     "name": "人文行動中學創辦人- 楊文貴 （父）學習的理由 導演- 楊逸帆 （子）",
