@@ -80,7 +80,7 @@ let data = [
     "title": "Hands On Introduction to Creative Technology",
     "description": "不論是三維列印 、Arduino還是javascript， 我們都有！歡迎大家一起來動手實做！ 如果你想打造 一個STEM(STEAM)專案、想成為一位Maker，快來參加！以免向隅。",
     "register": "線上報名＋現場報名",
-    "website": "",
+    "website": "https://skyrockprojects.typeform.com/to/zM2A07",
     "place": "雜工坊A"
   },
   {
