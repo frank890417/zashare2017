@@ -4,12 +4,12 @@
   .slick.carousel.slide(data-ride='carousel')
     // 文章輪播
     // 
-    .item(
+    router-link.item(
         style='cursor: pointer',
         v-for="(post,id) in show_posts",
-        
+        :to="(''+post.cover).indexOf('richartXhahow')!=-1?('https://goo.gl/CgwNZZ'):('post/n/'+post.title)"
       )
-      img.carousel_image(:src="post.cover",@click="openpost(post)")
+      img.carousel_image(:src="post.cover")
       //.bg_parallax.carousel_bg(:style="{'background-image':'url('+post.cover+')'}")
       .carousel_cover
       .container.text-left

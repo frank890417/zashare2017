@@ -645,7 +645,7 @@ let data = [
     "name_eng": "Skyrock Projects",
     "description_cht": "Skyrock Projects 擁有一個國際化且多元的團隊，來自英國、美國、印度和台灣，程式設計師、藝術家與教師，為學生量身打造課程，學習並應用創意的科技來闡述或嘗試解決真實世界的國際議題以及問題。",
     "description_eng": "Our team is made up of international educators, programmers and digital artists who have designed our own educational programs which immerse students in creative applications of technology and how they address real world topics e.g. wearable technology, 3D printing, data science and data visualization. Students aged 12 and up; learn to code, improve critical and creative thinking skills, get inspired by Science and Innovation, discover new talents and will produce a portfolio of original work.",
-    "website": "www.skyrockprojects.com"
+    "website": "http://www.skyrockprojects.com"
   },
   {
     "tag_team": "Z073",
