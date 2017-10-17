@@ -3,10 +3,11 @@
   
   .slick.carousel.slide(data-ride='carousel')
     // 文章輪播
+    // 
     .item(
-        @click="window.open('post/n/'+post.title ,'_self')", 
-        style='cursor: pointer'
-        v-for="(post,id) in show_posts"
+        style='cursor: pointer',
+        v-for="(post,id) in show_posts",
+        @click="openpost(post)", 
       )
       img.carousel_image(:src="post.cover")
       //.bg_parallax.carousel_bg(:style="{'background-image':'url('+post.cover+')'}")
@@ -56,6 +57,17 @@ export default {
       })
     })
     
+  },
+  methods:{
+    openpost(post){
+      if ((""+post.cover).indexOf("richartXhahow")!=-1){
+        if (this.$ga) {this.$ga.event('sponsor','click','richartXhahow')}
+        window.open( "https://goo.gl/CgwNZZ" ,'_self')
+      }else{
+        window.open('post/n/'+post.title ,'_self')
+
+      }
+    }
   }
 }
 </script>
