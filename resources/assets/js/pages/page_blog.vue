@@ -7,9 +7,9 @@
     .item(
         style='cursor: pointer',
         v-for="(post,id) in show_posts",
-        @click="openpost(post)", 
+        
       )
-      img.carousel_image(:src="post.cover")
+      img.carousel_image(:src="post.cover",@click="openpost(post)")
       //.bg_parallax.carousel_bg(:style="{'background-image':'url('+post.cover+')'}")
       .carousel_cover
       .container.text-left
