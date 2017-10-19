@@ -27,6 +27,10 @@
 import building_2017 from "../data/building_2017.js"
 import _ from "lodash"
 export default {
+  metaInfo: {
+    title: '場館介紹', // set a title
+    titleTemplate: '%s - 雜學校 Zashare', // title is now "My Example App - Yay!"
+  },
   data(){
     return {
       building: building_2017.default
