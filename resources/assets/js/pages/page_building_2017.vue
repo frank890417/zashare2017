@@ -3,14 +3,13 @@
 
   .container
     .row
-      .col-sm-12
+      .col-sm-12.panel-pics
+        br
         h1 場館介紹
-        hr
-    
-      .col-lg-12.col-md-12
+        br
         img(src="/img/2017/2017_all_map.svg")
         br
-      .col-lg-12.col-md-12
+      .col-lg-12.col-md-12.panel-infos
         .row
           .col-sm-6(v-for="dataset in [building.slice(0,8), building.slice(8)]")
             li(v-for="(row,bid) in dataset").building
