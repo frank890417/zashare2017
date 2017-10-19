@@ -6,13 +6,22 @@
       .col-sm-12
         h1 場館介紹
         hr
-    ul.row
-      li.col-sm-6(v-for="(row,bid) in building")
-        h3 {{bid+1}}
-        h2 {{row.name}}
-        h4(style="opacity: 0.4") {{row.place}}
-        p {{row.description}}
-  
+    
+      .col-lg-12.col-md-12
+        img(src="/img/2017/2017_all_map.svg")
+        br
+      .col-lg-12.col-md-12
+        .row
+          .col-sm-6(v-for="dataset in [building.slice(0,8), building.slice(8)]")
+            li(v-for="(row,bid) in dataset").building
+              .part_num
+                h3.num {{row.num}}
+              .part_info
+                h2 {{row.name}}
+                h4(style="opacity: 0.4") {{row.place}}
+                p {{row.description}}
+        br
+          
 </template>
 
 <script>
