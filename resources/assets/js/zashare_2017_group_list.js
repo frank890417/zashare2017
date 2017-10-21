@@ -686,7 +686,7 @@ let data = [
   {
     "theme": "實驗教育",
     "tag": "Z145",
-    "name": "學學文化創意基金會",
+    "name": "學學實驗教育機構",
     "website": "http://www.xuexuefoundation.org.tw/",
   },
   {

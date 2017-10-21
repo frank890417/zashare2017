@@ -7,7 +7,7 @@
         br
         h1 場館介紹
         br
-        img(src="/img/2017/2017_all_map.svg")
+        svgInline(src="/img/2017/2017_all_map.svg")
         br
       .col-lg-12.col-md-12.panel-infos
         .row
@@ -25,6 +25,7 @@
 
 <script>
 import building_2017 from "../data/building_2017.js"
+import svgInline from "../components/svgInline"
 import _ from "lodash"
 export default {
   metaInfo: {
@@ -40,6 +41,9 @@ export default {
     chunk_building(){
       return _.chunk(this.building,2)
     }
+  },
+  components: {
+    svgInline
   }
 }
 </script>
