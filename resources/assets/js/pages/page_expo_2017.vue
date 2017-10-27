@@ -4,7 +4,7 @@
     i.fa.fa-angle-up
 
   section.sectionHero.themeBlue.text-center
-    video(src="/video/za_brand_video.mp4" autoplay muted)
+    video(src="/video/za_brand_video.mp4" autoplay muted loop)
     img.logo( src='http://zashare.org/img/2017/index0829_coverLogo.svg')
     
   section.sectionPurpose.themeDarkBlue
