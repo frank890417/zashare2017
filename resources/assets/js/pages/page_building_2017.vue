@@ -7,7 +7,7 @@
         br
         h1 場館介紹
         br
-        svgInline(src="/img/2017/2017_all_map.svg")
+        img(src="/img/2017/2017_all_map.svg")
         br
       .col-lg-12.col-md-12.panel-infos
         .row
@@ -18,7 +18,7 @@
               .part_info
                 h2 {{row.name}}
                 h4(style="opacity: 0.4") {{row.place}}
-                p {{row.description}}
+                p(v-html="row.description")
         br
           
 </template>
