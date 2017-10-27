@@ -4,7 +4,8 @@
     i.fa.fa-angle-up
 
   section.sectionHero.themeBlue.text-center
-    img(style="width: 100%;max-width: 600px" src='http://zashare.org/img/2017/index0829_coverLogo.svg')
+    video(src="/video/za_brand_video.mp4" autoplay muted)
+    img.logo( src='http://zashare.org/img/2017/index0829_coverLogo.svg')
     
   section.sectionPurpose.themeDarkBlue
     .container-fluid
@@ -664,6 +665,15 @@ p
   display: flex;
   justify-content: center
   align-items: center
+
+  .logo
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%,-50%)
+    width: 80%
+    max-width: 450px
+
 
 .sectionPurpose
   background-image: url(/img/2017/expo_2017/02/宣傳圖.jpg)
