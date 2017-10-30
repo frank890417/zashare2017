@@ -309,8 +309,10 @@
                 li — KKTIX電子票券、超商購票、現場購票免手續費
                 li — 超商購票、取票一筆訂單上限為4張｜  博客來宅配取票一筆訂單上限為49張 ｜  KKTIX電子票券一筆訂單上限為20張
                 li — 超過50張以上的票券採購請聯繫主辦單位洽詢團購方案 ｜  聯繫窗口： zashare@ozzie-art.com 楊小姐
-    
-
+      
+  section.sectionSupport
+    .container
+      img(src="/img/2017/logos.jpg", style="width: 100%")
 </template>
 
 <script>
