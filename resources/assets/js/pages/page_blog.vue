@@ -9,8 +9,8 @@
         v-for="(post,id) in show_posts",
         :href="(''+post.cover).indexOf('richartXhahow')!=-1?('https://goo.gl/CgwNZZ'):('/post/n/'+post.title)"
       )
-      img.carousel_image(:src="post.cover")
-      //.bg_parallax.carousel_bg(:style="{'background-image':'url('+post.cover+')'}")
+      //- img.carousel_image(:src="post.cover")
+      .bg_parallax.carousel_bg(:style="{'background-image':'url('+post.cover+')'}")
       .carousel_cover
       .container.text-left
         .row
