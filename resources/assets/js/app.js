@@ -41,6 +41,8 @@ $(window).resize(()=>{
   store.commit('setWsize',$(window).outerWidth())
 })
 store.commit('setWsize',$(window).outerWidth())
+store.dispatch('loadCatas')
+
 var vm = new Vue({
   el: "#app",
   router,

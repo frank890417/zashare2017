@@ -40,23 +40,30 @@ nav.navbar.navbar-default.navbar-fixed-top
           router-link(to="/news") 最新消息
         li.dropdown.dropdown_cata(:class="{active: $router.path=='/blog'}")
           router-link(to="/blog", role='button', aria-haspopup='true', aria-expanded='true')
-            | 參展報導
+            | 參展報導2016
             span.caret
           ul.dropdown-menu
-            li.disable_current
-              router-link(to='/blog/A') 學校現場與實驗教育
-            li.disable_current
-              router-link(to='/blog/B') 教育倡議與實踐
-            li.disable_current
-              router-link(to='/blog/C') 媒體與資訊平台
-            li.disable_current
-              router-link(to='/blog/D') 創客與程式設計
-            li.disable_current
-              router-link(to='/blog/E') 文化與歷史生活
-            li.disable_current
-              router-link(to='/blog/F') 肢體與藝術創作
-            li.disable_current
-              router-link(to='/blog/G') 自然與食農教育
+            li.disable_current(v-for="cata in getYearCata('2016')")
+              router-link(:to='`/blog/${cata.name}`') {{cata.name}}
+        li.dropdown.dropdown_cata(:class="{active: $router.path=='/blog'}")
+          router-link(to="/blog", role='button', aria-haspopup='true', aria-expanded='true')
+            | 參展報導2017
+            span.caret
+          ul.dropdown-menu
+            li.disable_current(v-for="cata in getYearCata('2017')")
+              router-link(:to='`/blog/${cata.name}`') {{cata.name}}
+            //- li.disable_current
+            //-   router-link(to='/blog/B') 教育倡議與實踐
+            //- li.disable_current
+            //-   router-link(to='/blog/C') 媒體與資訊平台
+            //- li.disable_current
+            //-   router-link(to='/blog/D') 創客與程式設計
+            //- li.disable_current
+            //-   router-link(to='/blog/E') 文化與歷史生活
+            //- li.disable_current
+            //-   router-link(to='/blog/F') 肢體與藝術創作
+            //- li.disable_current
+            //-   router-link(to='/blog/G') 自然與食農教育
         
 
         //li(:class="{active: $router.path=='/about'}", @click="toggleNav")
@@ -87,6 +94,7 @@ nav.navbar.navbar-default.navbar-fixed-top
 
 <script>
 import $ from 'jquery'
+import {mapState} from 'vuex'
 export default {
   mounted(){
     if ($('.dropdown').length>0){
@@ -118,7 +126,13 @@ export default {
   methods: {
     toggleNav(){
       $(".navbar-collapse").collapse('hide');
+    },
+    getYearCata(year){
+      return this.catas.filter(o=>o.year==year)
     }
+  },
+  computed: {
+    ...mapState(['catas'])
   }
 }
 </script>

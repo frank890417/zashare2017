@@ -121,6 +121,10 @@
         </div>
 
         <div class='form-group'>
+          <label for='company'>年份</label>
+          <input id=year name=year class='form-control' value='{!! isset($post)?($post->year):'2017' !!}'></input>
+        </div>
+        <div class='form-group'>
           <label for='company'>撰文者</label>
           <input id=author name=author class='form-control' value='{!! isset($post)?($post->author):'' !!}'></input>
         </div>

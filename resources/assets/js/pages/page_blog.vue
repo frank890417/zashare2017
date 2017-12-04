@@ -30,7 +30,7 @@
 // import slick 
 export default {
   metaInfo: {
-    title: '展覽報導2016', // set a title
+    title: '展覽報導', // set a title
     titleTemplate: '%s - 雜學校 Zashare', // title is now "My Example App - Yay!"
   },
   props: ['filter','filter_cata'],

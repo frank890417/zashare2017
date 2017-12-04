@@ -23,6 +23,7 @@
                       <th style="width: 50px">狀態</th>
                       <th style="width: 50px">首頁置頂</th>
                       <th style="width: 50px">類別置頂</th>
+                      <th style="width: 30px">年份</th>
                       @if (!Auth::guest())
                         <th>最後編輯</th>
                         <!-- <th>檢視</th> -->
@@ -48,6 +49,7 @@
                           <td> {{ $post->status=="draft"?"草稿":"已發布" }} </td>
                           <td> {{ $post->stick_top_index?'O':'-' }} </td>
                           <td> {{ $post->stick_top_cata?$post->tag:'-' }} </td>
+                          <td> {{ $post->year }} </td>
                           <td> {{ $post->established_time }} </td>
                          <!--  <td> 
                               <a class='btn btn-default btn-md' href="{!! URL::to('manage/post/'.$post->id) !!}" >瀏覽</a>

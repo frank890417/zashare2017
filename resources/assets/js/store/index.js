@@ -5,7 +5,8 @@ const store = new Vuex.Store({
   state: {
     loading: true,
     scrollTop: 0,
-    wsize: 0
+    wsize: 0,
+    catas: []
   },
   mutations: {
     setLoading(state,value){
@@ -16,6 +17,13 @@ const store = new Vuex.Store({
     },
     setWsize(state,value){
       state.wsize=value
+    }
+  },
+  actions:{
+    loadCatas(context){
+      axios.get("/api/cata").then(res=>{
+        context.state.catas=res.data
+      })
     }
   }
 });

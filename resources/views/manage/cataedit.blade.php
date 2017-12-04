@@ -30,6 +30,7 @@
                   <th>編號</th>
                   <th>TAG</th>
                   <th>名稱</th>
+                  <th>年份</th>
                 </thead>
                 <tbody>
                   @foreach ($catas as $cata)
@@ -37,9 +38,17 @@
                     <td>{{$cata->id}}</td>
                     <td><input name="{{ 'tag_'.($cata->id) }}" value="{{$cata->tag}}"></td>
                     <td><input name="{{ 'name_'.($cata->id) }}" value="{{$cata->name}}"></td>
+                    <td><input name="{{ 'year_'.($cata->id) }}" value="{{$cata->year}}"></td>
 
                   </tr>
                   @endforeach
+                  <tr>
+                    <td><button>新增類別</button> </td>
+                    <td><input name="tag" value="" placeholder="新類別代號"></td>
+                    <td><input name="name" value="" placeholder="新類別名稱"></td>
+                    <td><input name="year" value="2017" placeholder="新類別年份"></td>
+
+                  </tr>
                   
                 </tbody>
               </table>

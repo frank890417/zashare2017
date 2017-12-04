@@ -28,6 +28,7 @@
               h5.visible-xs  / {{ company.name_short }}
               h1 {{ post.title }}
               h5.jour {{ post.author }}
+              h5.jour {{ post.updated_at.split(" ")[0] }}
           hr
           .content-area(v-html="post.content")
           .visible-xs.col_company2

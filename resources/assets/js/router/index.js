@@ -35,7 +35,8 @@ const routes = [
   { path: '/expo2017/building', component: require( '../pages/page_building_2017.vue')},
   { path: '/expo2017/expoinfos', component: require( '../pages/page_expo_infos_2017.vue')},
 
-  { path: '/blog/:filter_cata', component: require( '../pages/page_blog.vue') ,props: true},
+  { path: '/blog/:year/:filter_cata', component: require( '../pages/page_blog.vue') ,props: true},
+  { path: '/blog/:cataname', component: require('../pages/page_blog.vue'), props: true },
   { path: '/post/n/:title', component: require( '../pages/page_post.vue') ,props: true},
   // { path: '/service', component: page_service },
 

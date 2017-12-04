@@ -360,7 +360,16 @@ class PostController extends Controller
         $cata = Cata::find($i);
         $cata->tag=$input["tag_".$i];
         $cata->name=$input["name_".$i];
+        $cata->year=$input["year_".$i];
         $cata->save();
+      }
+
+      if ($input["name"]!=""){
+        $cata::create([
+          "tag"=> $input["tag"],
+          "name"=> $input["name"],
+          "year"=> $input["year"]
+        ]);
       }
       return Redirect::to('manage/cata');
     }

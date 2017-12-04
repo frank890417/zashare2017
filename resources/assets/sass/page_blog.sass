@@ -5,7 +5,8 @@
   padding: 0px 20px
   max-width: 1300px
   width: 100%
-  box-shadow: 0px 0px 20px rgba(0,0,0,0.2)
+  // box-shadow: 0px 0px 20px rgba(0,0,0,0.2)
+  
   img
     // clip: rect(0px,400px,400px,0px)
     width: 100%
@@ -53,76 +54,95 @@
 
 .page_blog
   padding-top: 0
-  background-color: $color_red
+  // background-color: $color_red
+  background-color: white
 
   .slick-dots
     bottom: 25px
 
 
-.slick-dotted.slick-slider
-  margin-bottom: 0
+  .slick-dotted.slick-slider
+    margin-bottom: 0
 
-  .slick-dots
-    li
-      button:before
-        font-size: 30px
-        color: #fff  
+    .slick-dots
+      li
+        button:before
+          font-size: 30px
+          color: #fff  
 
-    li.slick-active
-      button:before
-        font-size: 30px
-        color: #fff 
-
-
-.post-box-wrapper
-  background-color: $color_red
-  
-  
-.carousel
-  position: relative
-  margin-top: 60px
+      li.slick-active
+        button:before
+          font-size: 30px
+          color: #fff 
 
 
-.carousel_bg
-  height: 650px
-  padding-top: 60px
-  background-size: cover
-  // background-attachment: fixed
-  background-position: center center
-  
-  @media screen and (max-width: 500px)
-    height: 400px
+  .post-box-wrapper
+    background-color: white
+    
+    
+  .carousel
+    position: relative
+    margin-top: 60px
 
-.carousel_image
-  width: 100%
 
-.carousel_cover
-  background: linear-gradient(180deg,transparent 50%,rgba(black,0.2) 150%)
-  position: absolute
-  left: 0
-  top: 0
-  width: 100%
-  height: 100%
+  .carousel_bg
+    height: 650px
+    padding-top: 60px
+    background-size: cover
+    // background-attachment: fixed
+    background-position: center center
+    
+    @media screen and (max-width: 500px)
+      height: 400px
 
-.carousel-caption
-  text-align: left
-  left: 30px !important
-  +range_width(0px,800px)
-    left: 10% !important
+  .carousel_image
+    width: 100%
 
-.louder
-  position: absolute
-  left: 2%
-  max-width: 250px
-  width: 30%
-  bottom: -40px
-  z-index: 3
-  pointer-events: none
-  -webkit-pointer-events: none
+  .carousel_cover
+    background: linear-gradient(180deg,transparent 50%,rgba(black,0.2) 150%)
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
 
-  +range_width(0px,800px)
-    display: none
+  .carousel-caption
+    text-align: left
+    left: 30px !important
+    +range_width(0px,800px)
+      left: 10% !important
 
+  .louder
+    position: absolute
+    left: 2%
+    max-width: 250px
+    width: 30%
+    bottom: -40px
+    z-index: 3
+    pointer-events: none
+    -webkit-pointer-events: none
+
+    +range_width(0px,800px)
+      display: none
+
+  .container
+    background-color: white
+    padding-top: 50px
+    padding-left: 80px
+    padding-right: 80px
+    max-width: 1300px
+    width: 100%
+    // box-shadow: 0px 0px 20px rgba(0,0,0,0.2)
+    @media screen and (max-width: 1000px)
+      padding-left: 30px
+      padding-right: 30px
+    
+    @media screen and (max-width: 650px)
+      padding-left: 10px
+      padding-right: 10px
+      h2
+        font-size: 22px
+      
 
 .col_post
   padding-left: 20px
@@ -169,4 +189,162 @@
       top: 0
       width: 100%
       height: 100%
+
+
+
+
+    
+
+
+  .list-group
+    border-left: solid 3px $color_red
+    .list-group-item
+      height: 50px
+      border: none
+      &.active
+
+  .cancelbtn
+    width: 30px
+    height: 30px
+    display: inline-block
+    position: relative
+    vertical-align: middle
+    /*border: none*/
+    cursor: pointer
+    margin-top: -5px
+    &:hover
+      background-color: transparent
+      &:before,&:after
+        width: 85%
+      
+      &:before 
+        transform: translate(-50%,-50%) rotate(135deg)
+        
+      
+      &:after 
+        transform: translate(-50%,-50%) rotate(45deg)
+
+      
+    
+    &:before , &:after 
+      content: ""
+      display: block
+      width: 80%
+      height: 2px
+      transition: 0.5s
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%,-50%)
+      background-color: black
+    
+    &:before
+      transform: translate(-50%,-50%) rotate(45deg)
+      /*animation: rr 1s both*/
+    
+    &:after
+      transform: translate(-50%,-50%) rotate(-45deg)
+      /*animation: ll 1s both*/
+    
+
+
+
+  .cata_title
+    border-bottom: solid 1px black
+    padding-left: 20px
+    margin-bottom: 10px
+    padding-bottom: 8px
+    position: relative
+    
+
+    @media screen and (max-width: 800px)
+      margin-bottom: 50px
+      margin-top: 30px
+    
+    &:before
+      content: ""
+      display: block
+      position: absolute
+      bottom: 0px
+      left: 2px
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 0 5px 6px 5px
+      border-color: transparent transparent black transparent
+    
+
+    .more_btn
+      font-size: 12px
+      float: right
+      padding: 5px 12px
+      background-color: black
+      color: white
+      margin-top: 11px
+      cursor: pointer
+      font-weight: 300
+      letter-spacing: 2px
+      &:before
+        content: "More"
+        background-color: black
+        @media screen and (max-width: 350px) 
+          content: "+"
+        
+      
+
+    
+
+
+
+  .loading .postbox
+    .post_title,p,.topimg
+      background-color: #ddd
+    
+    .post_title
+      min-height: 70px
+      width: 100%
+
+    
+
+
+  .postbox
+    text-decoration: none
+    color: black
+    min-height: 360px
+    display: block
+    padding: 10px
+    margin-bottom: 40px
+
+    @media screen and (max-width: 800px)
+      margin-bottom: 40px
+      min-height: 200px
+    *
+      transition-duration: 0.5s
+
+    .company_name
+      color: transparent
+      border-left-color: transparent
+      border-right-color: transparent
+    .topimg:before
+      background-color: transparent
+    &:hover,&:focus,.topimg:focus 
+      .company_name
+        color: white
+        border-left-color: white
+        border-right-color: white
+      
+      .topimg:before
+        background-color: rgba(black,0.5)
+
+    .post_title
+      min-height: 60px
+      /*letter-spacing: 0.5px*/
+      color: #333
+      /*font-size: 1.5em*/
+      line-height: 1.5em
+    
+    .post_author
+      /*font-size: 0.7em*/
+    
+
 
