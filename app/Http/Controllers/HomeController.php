@@ -39,7 +39,9 @@ class HomeController extends Controller
         $posts = DB::table('posts')
                 ->where('status',"published")
                 ->join('companies','companies.tag','=','posts.company')
-                ->join('catas','catas.tag','posts.tag')
+                ->leftjoin('catas',function ($join) {
+                    $join->on('posts.year','=','catas.year')->on('posts.tag','=','catas.tag');
+                })
                 ->orderBy('stick_top_cata','DESC')
                 ->orderBy('tag','ASC')
                 ->select('posts.*','companies.name_cht','companies.name_short','catas.name as cataname')
@@ -51,6 +53,9 @@ class HomeController extends Controller
                    ->where('status',"published")
                    ->where('stick_top_index',"1")
                    ->join("companies",'companies.tag','=','posts.company')
+                    ->leftjoin('catas',function ($join) {
+                        $join->on('posts.year','=','catas.year')->on('posts.tag','=','catas.tag');
+                    })
                    ->where('cover','!=','')->inRandomOrder()->limit(10)
                    ->get(['posts.*' , 'companies.name_cht']);
 
@@ -73,7 +78,9 @@ class HomeController extends Controller
         $posts = DB::table('posts')
                 ->where('status',"published")
                 ->join('companies','companies.tag','=','posts.company')
-                ->join('catas','catas.tag','posts.tag')
+                ->leftjoin('catas',function ($join) {
+                    $join->on('posts.year','=','catas.year')->on('posts.tag','=','catas.tag');
+                })
                 ->orderBy('stick_top_cata','DESC')
                 ->orderBy('tag','ASC')
                 ->select('posts.*','companies.name_cht','companies.name_short','catas.name as cataname')

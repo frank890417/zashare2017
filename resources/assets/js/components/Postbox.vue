@@ -10,18 +10,18 @@
               i.fa.fa-search(style='position: absolute;top: 10px;left: 12px;')
               input#searchinput(style='width: 100%;padding: 5px 10px;border-radius: 5px;border:none;border:solid #aaa 1px;padding-left: 30px', type='text', placeholder=' 搜尋標題、內文、類別', v-model='filter')
         // 文章區域  使用vue.js渲染
-        .col-sm-12
+        .col-sm-12(v-if="filter_cata")
           // 類別標題
-          h2.cata_title(v-if="!(filter_cata=='')", :class="{specified: filter_cata!=''}")
-            | 類別-{{get_cata_name(filter_cata)}} 
-            .cancelbtn(@click="set_cata('')")
+          h2.cata_title(v-if="filter_cata", :class="{specified: filter_cata}")
+            | 類別-{{filter_cata.name}}
+            router-link.cancelbtn(:to="`/blog/${$route.params.year}`")
         br
         // 類別 三篇文章
-        div(v-for='cata in catalist', v-show="(filter_cata=='') && (limit_tag_split(filtered_post,3)[cata.tag])")
+        div(v-for='cata in catalist', v-show="(!filter_cata) && (limit_tag_split(filtered_post,3)[cata.tag])")
           .col-sm-12
             h2.cata_title
               | {{cata.name}}
-              .more_btn(@click="set_cata(cata.tag)")
+              router-link.more_btn(:to="`/blog/${$route.params.year}/${cata.name}`")
             br
           // 類別三篇文章
           .row
@@ -34,9 +34,9 @@
                 // <p class='post_author text-muted' v-text='p.author.replace(/\//g," / ")+ " " + p.established_time.split(" ")[0]'> </p>
       .row.post_wait
         .col-sm-12
-          h3.text-center(v-show="!(filter_cata=='') && filtered_post.length==0") 相關報導即將上線
+          h3.text-center(v-show="!(filter_cata) && filtered_post.length==0") 相關報導即將上線
       // 瀏覽單一類別
-      .row(v-for='fp in filtered_post_three', v-if="!(filter_cata=='')")
+      .row(v-for='fp in filtered_post_three', v-if="filter_cata")
         .col-sm-4(v-for='p in fp')
           router-link.postbox(:to="'/post/n/'+(p.ori_title?p.ori_title:p.title)")
             .topimg(:style='css_top_img(p)')
@@ -44,12 +44,13 @@
             h3.post_title(v-html='"【"+p.name_short+"】"+p.title')
             p.post_para(v-html='(p.description+"").substr(0,70)+"..."')
             // <p class='post_author text-muted' v-text='p.author.replace(/\//g," / ")+ " " + p.established_time.split(" ")[0]'> </p>
-    div(v-else='')
+    //div(v-else='')
       h2 文章載入中...
 
 </template>
 
 <script>
+import {mapState} from 'vuex'
     var temp={
       title: " ",
       authos: " ",
@@ -79,19 +80,21 @@
             return {
                 loading: true,
                 filter: "",
-                filter_cata: ""
+                filter_cata_selected: null
             }
         }
         ,
         mounted() {
-          if (this.init_filter_cata){
-            this.filter_cata=this.init_filter_cata
-          }
             console.log('Postbox mounted.');
             this.loading=false;
             // this.filter_cata=window.location.hash.slice(1) ;
 
             var vobj=this;
+
+            // Vue.nextTick(()=>{
+            //   console.log("catas",this.catas)
+            //   this.filter_cata=this.catas.find(o=>o.name==this.init_filter_cata)
+            // })
             // window.onhashchange = function(){
             //   vobj.filter_cata=window.location.hash.slice(1) ;
             //   $("html,body").animate({scrollTop: $(".cata_title").offset().top-100},'fast');
@@ -117,8 +120,11 @@
               this.filter=filter;
             },
             set_cata: function(cata){
-              this.filter_cata=cata;
+
               $("html, body").animate({ scrollTop: $($(".blog_posts_area")[0]).offset().top });
+            },
+            set_cata_name: function(cataname){
+              this.filter_cata=this.catas.find(o=>o.name==cataname);
             },
             get_cata_name: function(tag){
               var result="";
@@ -194,20 +200,30 @@
             }
         },
         computed: {
+          ...mapState(['catas']),
+          filter_cata(){
+            return this.catas.find(o=>o.name==this.init_filter_cata)
+          },
+          nofcata(){
+            return this.catas.find(o=>o.name==this.init_filter_cata)
+          } ,
           filtered_post: function(){
             //if no filter return original posts
-            if (this.filter=="" && this.filter_cata=="") return this.posts;
+            
+
+            if (this.filter=="" && !this.filter_cata) return this.posts;
 
             //else apply filter
             var npost=[];
-            var vobj=this;
+            var _this=this;
             this.posts.forEach(function(obj,index){
-              if (obj.title.toLowerCase().indexOf(vobj.filter.toLowerCase())!=-1 ||
-                  obj.description.toLowerCase().indexOf(vobj.filter.toLowerCase())!=-1 ||
-                  obj.name_short.toLowerCase().indexOf(vobj.filter.toLowerCase())!=-1 
+              if (obj.title.toLowerCase().indexOf(_this.filter.toLowerCase())!=-1 ||
+                  obj.description.toLowerCase().indexOf(_this.filter.toLowerCase())!=-1 ||
+                  obj.name_short.toLowerCase().indexOf(_this.filter.toLowerCase())!=-1 
                    ){
-                if (vobj.filter_cata=='' || obj.tag==vobj.filter_cata){
-                  npost.push(vobj.highlight_post(obj));
+                
+                if (_this.filter_cata && ( obj.tag==_this.filter_cata.tag && obj.year==_this.filter_cata.year )   ){
+                  npost.push(_this.highlight_post(obj));
                 }
               }
             });

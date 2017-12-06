@@ -21,7 +21,7 @@ nav.navbar.navbar-default.navbar-fixed-top
       ul.nav.navbar-nav.navbar-right
         li.dropdown.dropdown_cata(:class="{active: $router.path=='/expo2017'}")
           router-link(to="/expo2017" ,role='button', aria-haspopup='true', aria-expanded='true')
-            | 當期展覽
+            | 2017雜學校
             span.caret
           ul.dropdown-menu
             li.disable_current
@@ -39,19 +39,19 @@ nav.navbar.navbar-default.navbar-fixed-top
         li(:class="{active: $router.path=='/news'}", @click="toggleNav")
           router-link(to="/news") 最新消息
         li.dropdown.dropdown_cata(:class="{active: $router.path=='/blog'}")
-          router-link(to="/blog", role='button', aria-haspopup='true', aria-expanded='true')
+          router-link(to="/blog/2016", role='button', aria-haspopup='true', aria-expanded='true')
             | 參展報導2016
             span.caret
           ul.dropdown-menu
             li.disable_current(v-for="cata in getYearCata('2016')")
-              router-link(:to='`/blog/${cata.name}`') {{cata.name}}
+              router-link(:to='`/blog/${cata.year}/${cata.name}`') {{cata.name}}
         li.dropdown.dropdown_cata(:class="{active: $router.path=='/blog'}")
-          router-link(to="/blog", role='button', aria-haspopup='true', aria-expanded='true')
+          router-link(to="/blog/2017", role='button', aria-haspopup='true', aria-expanded='true')
             | 參展報導2017
             span.caret
           ul.dropdown-menu
             li.disable_current(v-for="cata in getYearCata('2017')")
-              router-link(:to='`/blog/${cata.name}`') {{cata.name}}
+              router-link(:to='`/blog/${cata.year}/${cata.name}`') {{cata.name}}
             //- li.disable_current
             //-   router-link(to='/blog/B') 教育倡議與實踐
             //- li.disable_current

@@ -3,6 +3,60 @@
   .container-fluid
     .row
       .col-carousel
+        #myCarousel3.carousel.slide(data-ride='carousel', href='http://zashare.org')
+          // Wrapper for slides
+          .carousel-inner(role='listbox')
+            .item.item_2017.active
+              .bg_img(style="background-image:url(/img/expo/2017/1.jpg);")
+              .carousel-caption
+            .item.item_2017
+              .bg_img(style='background-image:url(/img/expo/2017/2.jpg);')
+              .carousel-caption
+            .item.item_2017
+              .bg_img(style='background-image:url(/img/expo/2017/3.jpg);')
+              .carousel-caption
+            .item.item_2017
+              .bg_img(style='background-image:url(/img/expo/2017/4.jpg);')
+              .carousel-caption
+            .item.item_2017
+              .bg_img(style='background-image:url(/img/expo/2017/5.jpg);')
+              .carousel-caption
+            .item.item_2017
+              .bg_img(style='background-image:url(/img/expo/2017/6.jpg);')
+              .carousel-caption
+          // Left and right controls
+          a.left.carousel-control(href='#myCarousel3', role='button', data-slide='prev', style='background: none')
+            span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+            span.sr-only Previous
+          a.right.carousel-control(href='#myCarousel3', role='button', data-slide='next', style='background: none')
+            span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+            span.sr-only Next
+      .col-content
+        .text
+          .text_inner
+            .title
+              h2
+                | 2017
+                br
+                span 雜學校
+              .bt_line(data-color='blue')
+              h5
+                | 10/20-22 華山1914
+                br
+                | 文化創意產業園區
+            br
+            p
+              | 現在這個時代，我們不是不知道有什麼樣的途徑可以學習，而是不知道我們或生活還能「成為什麼樣子」。在打開對自己/生活的想像後，勇敢的選擇前往這個未來的學習途徑，成為你想成為的自己。
+              br
+              br
+              | 過一年一度博覽會形式，2017雜學校於台北華山全區開設 7大主題展館。4天觀展人次超過5萬人次、亞洲各國超過120個團隊參展。
+              br
+              br
+              | 動4天期間舉辦3場論壇、20場演講、6場實驗教育與自學分享、14場職人工作坊、42場教育體驗工作坊，容納最多元的創新教育內容，提供一般民眾、第一線教育者與產學界一個互動交流平台。
+
+        .blue
+    .row
+      .col-carousel
         #myCarousel.carousel.slide(data-ride='carousel', href='http://zashare.org')
           // Indicators
           ol.carousel-indicators
@@ -139,6 +193,9 @@
 </template>
 
 <script>
+import $ from 'jquery'
+import slick from 'slick-carousel'
+
 export default {
   metaInfo: {
     title: '歷屆展覽', // set a title

@@ -20,8 +20,9 @@
               h1.text-left {{post.title}}
               p.text-left(style='display: inline-block') {{  post.short_description }}
   .post-box-wrapper
-    postbox(:posts="posts",
+    postbox(:posts="YearPosts",
             :catalist="catalist",
+            :cataname="filter_cata",
             :init_filter_cata="filter_cata")
 
 </template>
@@ -33,7 +34,7 @@ export default {
     title: '展覽報導', // set a title
     titleTemplate: '%s - 雜學校 Zashare', // title is now "My Example App - Yay!"
   },
-  props: ['filter','filter_cata'],
+  props: ['filter','filter_cata','year'],
   data(){
     return {
       posts: [],
@@ -58,6 +59,11 @@ export default {
     })
     
   },
+  computed:{
+    YearPosts(){
+      return this.posts.filter(o=>o.year==this.year)
+    }
+  },
   methods:{
     openpost(post){
       if ((""+post.cover).indexOf("richartXhahow")!=-1){
@@ -67,7 +73,8 @@ export default {
         window.open('post/n/'+post.title ,'_self')
 
       }
-    }
+    },
+    
   }
 }
 </script>

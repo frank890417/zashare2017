@@ -1,6 +1,21 @@
 <template lang="pug">
 .page_news
-  .container-fluid
+  .container
+    .row.theme.blue
+      .col-sm-12
+        iframe( width="100%" height="600" src="https://www.youtube.com/embed/_oES5Y1QQ7s" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen>)
+      .col-sm-12
+        h1 【2017雜學校 謝謝五萬名師生的入學支持
+        p 當大家都在批評教育體制的僵化或混亂時，我們一直在想以我們的專業，還能為台灣的教育做些什麼?<br>同時也思考著，到底這個世代還能用什麼樣的方式，可以發揮更大的影響力。<br>
+          | 台灣不缺創新教育內容、方法與獻身教育的人，卻缺乏讓這些多元且珍貴的人與內容，有一個被看見的舞台。於是，雜學校出現了。<br>
+          | 2017年雜學校，<br>
+          | 7大主題館、10+國籍參與者、<br>
+          | 100+論壇與講座、120+海內外創新教育單位、<br>
+          | 200+跨領域KOL與講師、500+體驗式學習活動。<br>
+          | 匯集50,000+師生入學。<br>
+          | 謝謝五萬名師生的入學支持<br>
+          | 讓台灣創新教育的溫柔革命得以發生。<br>
+          | ✦ 2018建校大業火熱籌備中！✦
     //.orange_bg
       .container
         .row
@@ -59,7 +74,7 @@
                 | 立即支持建校
           .col-sm-4
             img.hidden-xs(src='http://zashare.org/funding_assets/img/main/2-right.png', alt='')
-    .blue_bg
+    //.blue_bg
       .container.area_news
         .row
           .col-sm-4.visible-xs

@@ -18,7 +18,9 @@ class PostController extends Controller
     {
         $posts = DB::table('posts')
                 ->leftjoin('companies','posts.company','=','companies.tag')
-                ->leftjoin('catas','posts.tag','=','catas.tag')
+                ->leftjoin('catas',function ($join) {
+                    $join->on('posts.year','=','catas.year')->on('posts.tag','=','catas.tag');
+                })
                 ->orderBy('tag')
                 ->select('posts.*','companies.name_cht','companies.name_short','catas.name as cataname')
                 ->get();
@@ -75,7 +77,7 @@ class PostController extends Controller
     public function show_name($title)
     {
       $post = Post::where('title',$title)->first();
-      $company = Company::where('tag',$post->company)->first();
+      $company = Company::where('tag',$post->company)->where('year',$post->year)->first();
 
       $catas = Cata::all();    
 
