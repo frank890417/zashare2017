@@ -1,11 +1,11 @@
 <template lang="pug">
 .page_news
   .container
-    .row.theme.blue
+    .theme.white
       .col-sm-12
         iframe( width="100%" height="600" src="https://www.youtube.com/embed/_oES5Y1QQ7s" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen>)
       .col-sm-12
-        h1 【2017雜學校 謝謝五萬名師生的入學支持
+        h1 2017雜學校 謝謝五萬名師生的入學支持
         p 當大家都在批評教育體制的僵化或混亂時，我們一直在想以我們的專業，還能為台灣的教育做些什麼?<br>同時也思考著，到底這個世代還能用什麼樣的方式，可以發揮更大的影響力。<br>
           | 台灣不缺創新教育內容、方法與獻身教育的人，卻缺乏讓這些多元且珍貴的人與內容，有一個被看見的舞台。於是，雜學校出現了。<br>
           | 2017年雜學校，<br>

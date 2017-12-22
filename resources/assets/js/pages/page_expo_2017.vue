@@ -316,7 +316,8 @@
 </template>
 
 <script>
-import slick from 'slick-carousel'
+
+
 import vueSlider from 'vue-slider-component'
 
 export default {
@@ -524,7 +525,7 @@ h2
   font-size: 36px
   line-height: 50px
   margin-bottom: 30px
-  font-weight: 500
+  font-weight: 700
 h3
   line-height: 45px
 h3.eng_title
@@ -811,7 +812,10 @@ p
       i
         display: none
 
-
+.sectionTicket
+  padding-top: 0
+  padding-bottom: 0
+  
 .sectionEvents,.sectionPurpose,.sectionInfo
   .row
     display: flex

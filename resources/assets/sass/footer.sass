@@ -1,14 +1,61 @@
 
 footer
-  background-color: #f3f3f7
-  color: 
+  background-color: black
+  color: white
   // margin-top: 100px
-  padding-top: 40px
+  padding-top: 80px
+  padding-bottom: 80px
+
+  h5
+    font-weight: 600
+
+  [class^="col"]
+    min-height: 250px
+    padding-left: 30px
+    padding-right: 30px
+    display: flex
+    justify-content: center
+    align-items: flex-start
+    flex-direction: column
+    
+
+    &:last-child
+      border-right: none
+
+  .logo
+    // filter: invert(100%)
+    // width: 200px
+    width: 60%
+    max-width: 140px
+    margin-left: auto
+    margin-right: auto
+    margin-bottom: 50px
+    
+  .infos
+    max-width: 350px
+    margin-left: auto
+    margin-right: auto
 
   .footer_logo
     line-height: 30px
+    display: flex
+    justify-content: center
+    width: 100%
     a
       margin-right: 10px
-      color: $color_purple
+      color: black
+      background-color: white
+      border-radius: 50%
+      +flex_center
+      font-size: 20px
+      display: inline-flex
+      +size(30px)
+      margin: 10px
+      
       &:hover
-        color: $color_purple
+        color: #eee
+        // border: solid 1px white
+        background-color: transparent
+  
+  [class^="col"]
+    border-right: 1px solid white

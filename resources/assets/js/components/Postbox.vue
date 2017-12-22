@@ -31,7 +31,9 @@
                   h3.company_name(v-html='p.name_cht')
                 h3.post_title(v-html='"【"+p.name_short+"】"+p.title')
                 p.post_para(v-html='(p.description+"").substr(0,70)+"..."')
-                // <p class='post_author text-muted' v-text='p.author.replace(/\//g," / ")+ " " + p.established_time.split(" ")[0]'> </p>
+          .col-sm-12
+            hr
+            
       .row.post_wait
         .col-sm-12
           h3.text-center(v-show="!(filter_cata) && filtered_post.length==0") 相關報導即將上線
