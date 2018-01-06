@@ -21,6 +21,11 @@ Route::get('/user', function (Request $request) {
 Route::get('/page/blog','HomeController@postpage_api');
 Route::get('/post/n/{title}','PostController@show_name_api');
 
+Route::group(['prefix'=>'spa'],function(){
+  Route::resource('post',"PostApiController");
+  Route::post('upload',"ApiController@upload_image");
+});
+
 Route::group(['middleware'=>['cors']] , function(){
   Route::resource('company', 'CompanyController');
   Route::get('/company/tag/{tag}','CompanyController@find_by_tag');
