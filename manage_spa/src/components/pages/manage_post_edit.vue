@@ -100,7 +100,7 @@ export default {
   },
   mounted(){
     if (this.$route.params.id){
-      this.axios.get("/api/post/"+this.$route.params.id).then(res=>{
+      this.axios.get("/api/spa/post/"+this.$route.params.id).then(res=>{
         this.post=res.data
       })
     }else{
@@ -114,7 +114,7 @@ export default {
     handleSave(){
       if (!this.create_mode){
         this.axios.patch(
-          "/api/post/"+this.$route.params.id,
+          "/api/spa/post/"+this.$route.params.id,
           this.post
         ).then(res=>{
           console.log(res.data)
@@ -135,7 +135,7 @@ export default {
 
       }else{
         this.axios.post(
-          "/api/post/",
+          "/api/spa/post/",
           this.post
         ).then(res=>{
 

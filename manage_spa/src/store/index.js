@@ -25,13 +25,13 @@ const store = new Vuex.Store({
       
     },
     loadPosts(context) {
-      axios.get("/api/post").then((res) => {
+      axios.get("/api/spa/post").then((res) => {
         context.commit("setPosts", res.data)
       })
-      axios.get("/api/cata").then((res) => {
+      axios.get("/api/spa/cata").then((res) => {
         context.commit("setCatas", res.data)
       })
-      axios.get("/api/company").then((res) => {
+      axios.get("/api/spa/company").then((res) => {
         context.commit("setCompanies", res.data)
       })
     },

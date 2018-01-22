@@ -48,7 +48,7 @@ export default {
     handleDelete(id,row){
       // console.log(row)
       this.$confirm("你確定要刪除嗎？").then(()=>{
-        axios.post(`/api/post/${row.id}`,{
+        axios.post(`/api/spa/post/${row.id}`,{
           _method: 'DELETE',
           // _token: this.csrf_token,
           dataType: 'JSON',
