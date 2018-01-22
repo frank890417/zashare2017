@@ -66,7 +66,7 @@
               el-form-item(label="封面圖片")
                 el-input(v-model="post.cover")
                 img(:src="post.cover", style="width: 100%")
-            .col-sm-9.offset-3.col-content
+            .col-sm-9.col-content
               el-form-item(label="標題")
                 el-input(v-model="post.title")
               //- el-form-item(label="攤位編號")
@@ -78,7 +78,8 @@
               el-form-item
                 VueEditor.ve(id ="content", v-model="post.content",
                         :useCustomImageHandler="true",
-                        @imageAdded="handleImageAdded" ) 
+                        @imageAdded="handleImageAdded",
+                        style="height: 500px;margin-bottom: 50px" ) 
               //- el-input(v-model="post.content" autosize)
 </template>
 
@@ -170,7 +171,7 @@ hr{
   margin-bottom: 30px;
 }
 .col-info{
-  position: fixed;
-  padding-right: 50px
+  /* position: fixed; */
+  /* padding-right: 50px */
 }
 </style>

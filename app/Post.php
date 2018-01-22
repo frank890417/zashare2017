@@ -26,4 +26,8 @@ class Post extends Model
         return $this->hasOne('App\Company',"id","company_id");
     }
 
+    public function cata(){
+        return $this->hasOne('App\Cata',"id","cata_id");
+    }
+
 }

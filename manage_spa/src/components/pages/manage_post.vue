@@ -11,7 +11,7 @@
     el-table(:data="filteredPosts" border)
       el-table-column(prop="id",label="#", width="60" sortable)
       el-table-column(prop="company",label="編號", width="200" sortable)
-      el-table-column(prop="tag",label="類別", width="80" sortable)
+      el-table-column(prop="cata",label="類別", width="80" sortable)
       el-table-column(prop="cover",label="封面", width="120")
         template(slot-scope="scope")
           img.cover(:src="scope.row.cover")
@@ -19,6 +19,8 @@
         :filters="[{ text: '2016', value: '2016' }, { text: '2017', value: '2017' }]",
         :filter-method="filterYear")
       el-table-column(prop="title",label="標題" )
+      el-table-column(prop="stick_top_index",label="置頂" sortable,width="50" )
+      el-table-column(prop="stick_top_cata",label="類別置頂" sortable,width="50" )
       el-table-column(label="操作", width="200")
         template(slot-scope="scope")
           el-button(@click="handleEdit(scope.row)" type="text" size="small") 編輯
@@ -74,7 +76,10 @@ export default {
         return this.now_year=="" || post.year == this.now_year
       }).map(post=>({
         ...post,
-        company: ((post.company) && post.company.name_cht) || "-"
+        cata: (post.cata && post.cata.name) || "-",
+        company: ((post.company) && post.company.name_cht) || "-",
+        stick_top_index: post.stick_top_index?"是":"",
+        stick_top_cata: post.stick_top_cata?"是":"",
       }))
     }
   }
