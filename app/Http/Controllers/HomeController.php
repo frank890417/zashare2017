@@ -38,7 +38,7 @@ class HomeController extends Controller
         $input = Input::all();
         $posts = DB::table('posts')
                 ->where('status',"published")
-                ->join('companies','companies.tag','=','posts.company')
+                ->join('companies','companies.id','=','posts.company_id')
                 ->leftjoin('catas',function ($join) {
                     $join->on('posts.year','=','catas.year')->on('posts.tag','=','catas.tag');
                 })
@@ -52,7 +52,7 @@ class HomeController extends Controller
         $show_posts= DB::table('posts')
                    ->where('status',"published")
                    ->where('stick_top_index',"1")
-                   ->join("companies",'companies.tag','=','posts.company')
+                   ->join("companies",'companies.id','=','posts.company_id')
                     ->leftjoin('catas',function ($join) {
                         $join->on('posts.year','=','catas.year')->on('posts.tag','=','catas.tag');
                     })
@@ -77,12 +77,14 @@ class HomeController extends Controller
     {
         $posts = DB::table('posts')
                 ->where('status',"published")
-                ->join('companies','companies.tag','=','posts.company')
+                ->join('companies','companies.id','=','posts.company_id')
                 ->leftjoin('catas',function ($join) {
-                    $join->on('posts.year','=','catas.year')->on('posts.tag','=','catas.tag');
+                    $join   
+                        // ->on('posts.year','=','catas.year')
+                        ->on('posts.cata_id','=','catas.id');
                 })
                 ->orderBy('stick_top_cata','DESC')
-                ->orderBy('tag','ASC')
+                // ->orderBy('tag','ASC')
                 ->select('posts.*','companies.name_cht','companies.name_short','catas.name as cataname')
                 ->get();
 
@@ -91,7 +93,7 @@ class HomeController extends Controller
         $show_posts= DB::table('posts')
                    ->where('status',"published")
                    ->where('stick_top_index',"1")
-                   ->join("companies",'companies.tag','=','posts.company')
+                   ->join("companies",'companies.id','=','posts.company_id')
                    ->where('cover','!=','')->inRandomOrder()->limit(10)
                    ->get(['posts.*' , 'companies.name_cht']);
 

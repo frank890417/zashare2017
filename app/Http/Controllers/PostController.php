@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = DB::table('posts')
-                ->leftjoin('companies','posts.old_company_tag','=','companies.tag')
+                ->leftjoin('companies','posts.company_id','=','companies.id')
                 ->leftjoin('catas',function ($join) {
                     $join->on('posts.year','=','catas.year')->on('posts.tag','=','catas.tag');
                 })
@@ -103,11 +103,11 @@ class PostController extends Controller
     public function show_name_api($title)
     {
       $post = Post::where('title',$title)->first();
-      $company = Company::where('tag',$post->company)->first();
+      $company = $post->company;
 
       $catas = Cata::all();    
 
-      $related_posts=Post::where('tag','=',$post->tag)
+      $related_posts=Post::where('cata_id','=',$post->cata_id)
                       ->inRandomOrder()
                       ->limit(2)->get();
 
@@ -134,7 +134,7 @@ class PostController extends Controller
 
     public function spa_post($title){
       $post = Post::where('title',$title)->first();
-      $company = Company::where('tag',$post->company)->first();
+      $company =  $post ->company;
       return view("layouts/app_spa")->
         with([
           "meta_og"=>[
