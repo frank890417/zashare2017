@@ -135,7 +135,7 @@ export default {
 
       }else{
         this.axios.post(
-          "/api/spa/post/",
+          "/api/spa/post",
           this.post
         ).then(res=>{
 
