@@ -8,7 +8,7 @@
           el-breadcrumb-item 文章編輯
         br
         br
-      el-form(:model="post", label-width="90px")
+      el-form(:model="post", label-width="90px").container-fluid
 
         el-header.header
           el-row
@@ -60,7 +60,9 @@
               el-form-item(label="撰文者")
                 el-input(v-model="post.author")
               el-form-item(label="上稿時間")
-                el-date-picker(v-model="post.established_time")
+                el-date-picker(v-model="post.established_time",
+                               type="date",
+                               value-format="yyyy-MM-dd HH:mm:ss")
               el-form-item(label="封面圖片")
                 el-input(v-model="post.cover")
                 img(:src="post.cover", style="width: 100%")
@@ -83,10 +85,16 @@
 <script>
 import { VueEditor } from 'vue2-editor'
 import { mapState } from 'vuex'
+
 export default {
   data(){
     return {
-      post: {},
+      post: {
+        year: "2017",
+        established_time: new Date().toLocaleDateString(),
+        short_description: "",
+
+      },
       create_mode: false
     }
   },
@@ -104,26 +112,45 @@ export default {
   },
   methods: {
     handleSave(){
-        
-      this.axios.patch(
-        "/api/post/"+this.$route.params.id,
-        this.post
-      ).then(res=>{
-        console.log(res.data)
-        if (res.data.status=="success"){
+      if (!this.create_mode){
+        this.axios.patch(
+          "/api/post/"+this.$route.params.id,
+          this.post
+        ).then(res=>{
+          console.log(res.data)
+          if (res.data.status=="success"){
+            this.$message({
+              message: '儲存成功',
+              type: 'success'
+            });
+          }else{
+            
+            this.$message.error({
+              message: '儲存失敗',
+              // type: 'error'
+            });
+  
+          }
+        })
+
+      }else{
+        this.axios.post(
+          "/api/post/",
+          this.post
+        ).then(res=>{
+
           this.$message({
-            message: '儲存成功',
+            message: '建立成功',
             type: 'success'
           });
-        }else{
-          
-          this.$message.error({
-            message: '儲存失敗',
-            // type: 'error'
-          });
+          // let _this  = this
+          console.log(res.data.data.id)
+          // setTimeout(function(){
+          this.$router.push("/post/"+res.data.data.id)
+          // },300)
+        })
 
-        }
-      })
+      }
     }
   },
   computed: {

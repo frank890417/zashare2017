@@ -42,7 +42,11 @@ class PostApiController extends Controller
     }
     public function destroy($id){
         $post = Post::find($id);
-        $post->delete();
+        // return ($id);
+        // return $post;
+        // if ($post){
+        $post -> delete();
+        // }
         return ["status"=>"success"];
     }
     public function store(){
@@ -50,7 +54,10 @@ class PostApiController extends Controller
         $post = Post::create($inputs);
         
         $post = Post::find($post->id);
-        return $post;
+        return [
+            "status"=>"success",
+            "data"=>$post
+        ];
     }
 }
 

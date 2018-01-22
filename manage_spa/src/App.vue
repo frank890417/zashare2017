@@ -14,8 +14,8 @@
             router-link(to="/cata") 類別管理 
 
       .col-sm-10.offset-2.col-content
-        transition(name="fade", mode="out-in" :key="$route.path")
-          router-view
+        transition(name="fade", mode="out-in")
+          router-view(:key="$route.path")
       .col-sm-12
         el-footer
 </template>

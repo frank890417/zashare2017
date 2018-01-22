@@ -30,7 +30,7 @@
 
 <script>
 import {mapState} from 'vuex'
-
+import axios from 'Axios'
 export default {
   data(){
     return {
@@ -45,6 +45,22 @@ export default {
     handleEdit(row){
       this.$router.push("/post/"+row.id)
     },
+    handleDelete(id,row){
+      // console.log(row)
+      this.$confirm("你確定要刪除嗎？").then(()=>{
+        axios.post(`/api/post/${row.id}`,{
+          _method: 'DELETE',
+          // _token: this.csrf_token,
+          dataType: 'JSON',
+        }).then((res)=>{
+  
+          this.$message.success("刪除完成")
+          this.$store.dispatch("loadWebsite")
+          // this.$router.push('/activity')
+        })
+
+      })
+    },
     filterYear(value,row){
       return row.year === value;
     }
@@ -58,7 +74,7 @@ export default {
         return this.now_year=="" || post.year == this.now_year
       }).map(post=>({
         ...post,
-        company: post.company.name_cht
+        company: ((post.company) && post.company.name_cht) || "-"
       }))
     }
   }
