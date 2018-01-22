@@ -12,7 +12,9 @@
 */
 
 
-// Route::get('/testspa', "HomeController@spa");
+Route::get('/test', function(){
+  
+});
 Route::get('/', function(){
   return view("layouts/app_spa") ->with([
           "meta_og"=>[

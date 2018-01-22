@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = DB::table('posts')
-                ->leftjoin('companies','posts.company','=','companies.tag')
+                ->leftjoin('companies','posts.old_company_tag','=','companies.tag')
                 ->leftjoin('catas',function ($join) {
                     $join->on('posts.year','=','catas.year')->on('posts.tag','=','catas.tag');
                 })
@@ -292,7 +292,7 @@ class PostController extends Controller
     // api / 取得所有文章
     public function get_all(){
       $posts = DB::table('posts')
-              ->join('companies','posts.company','=','companies.tag')
+              ->join('companies','posts.old_company_tag','=','companies.tag')
               ->select('posts.*','companies.name_cht','companies.name_short')
               ->get();
 
@@ -301,7 +301,7 @@ class PostController extends Controller
 
     public function get_all_published(){
       $posts = DB::table('posts')
-              ->join('companies','posts.company','=','companies.tag')
+              ->join('companies','posts.old_company_tag','=','companies.tag')
               ->select('posts.*','companies.name_cht','companies.name_short')
               ->where('status','published')
               ->get();

@@ -11,9 +11,19 @@ class PostApiController extends Controller
 {
     //
     public function index(){
-        return Post::all(
-            "id","company","tag","title","cover","year","updated_at"
-        );
+        $posts = Post::all();
+        // select(
+        //     ["id","tag","title","cover","year","updated_at"]
+        // )->get();
+
+        foreach($posts as $post){
+            // echo $post->company ;
+            $post["company"] = $post->company;
+            $post["content"] = "";
+            $post["teach_thing"] = "";
+            $post["learn_thing"] = "";
+        }
+        return $posts;
     }
     public function show($id){
         $result = Post::find($id);

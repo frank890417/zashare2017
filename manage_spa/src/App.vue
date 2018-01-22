@@ -1,19 +1,23 @@
 <template lang="pug">
 #app
-  el-container
-    el-header
-      el-menu(:default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect")
-        el-menu-item(index="1") 文章管理 
-        el-menu-item(index="2") 攤位管理 
-        el-menu-item(index="3") 類別管理 
+  .container-fluid
+    .row
+      //- el-header
+      .col-sm-2.col-nav
+        el-menu(:default-active="activeIndex" 
+          class="el-menu-demo" @select="handleSelect")
+          el-menu-item(index="1")
+            router-link(to="/post") 文章管理 
+          el-menu-item(index="2") 
+            router-link(to="/company") 攤位管理 
+          el-menu-item(index="3") 
+            router-link(to="/cata") 類別管理 
 
-    el-container
-      
-  
-      el-main
+      .col-sm-10.offset-2.col-content
         transition(name="fade", mode="out-in" :key="$route.path")
           router-view
-    el-footer
+      .col-sm-12
+        el-footer
 </template>
 
 <script>
@@ -33,6 +37,10 @@ export default {
 </script>
 
 <style>
+.col-nav{
+  position: fixed;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

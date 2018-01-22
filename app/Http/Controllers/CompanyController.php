@@ -11,13 +11,15 @@ use App\Company;
 
 class CompanyController extends Controller
 {
+
+
     //
     function index(){
-      $all = Company::all();
+      return Company::all();
 
-      return view("manage.company_manage")
-             ->with('pagename','company')
-              ->with("companies",$all);
+      // return view("manage.company_manage")
+      //        ->with('pagename','company')
+      //         ->with("companies",$all);
     }
 
      //新增攤位

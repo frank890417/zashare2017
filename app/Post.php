@@ -3,18 +3,27 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Company;
 class Post extends Model
 {
     //
     protected $fillable=[
-        'title','tag','cover',
+        'title','tag','cover','company_id',
         'short_description','description',
         'author','content','album',
         'established_time','visited_count',
-        'status','company','created_at',
+        'status','created_at',
         'updated_at','stick_top_index','stick_top_cata',
         'year'
+        // ,'company'
     ];
+
+    // public function getCompanyAttribute()
+    // {
+    //     return Company::find($this->company_id);
+    // }
+    public function company(){
+        return $this->hasOne('App\Company',"id","company_id");
+    }
 
 }

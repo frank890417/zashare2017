@@ -23,6 +23,8 @@ Route::get('/post/n/{title}','PostController@show_name_api');
 
 Route::group(['prefix'=>'spa'],function(){
   Route::resource('post',"PostApiController");
+  Route::resource('cata',"CataApiController");
+  Route::resource('company',"CompanyApiController");
   Route::post('upload',"ApiController@upload_image");
 });
 
