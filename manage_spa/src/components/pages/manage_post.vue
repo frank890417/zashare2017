@@ -5,6 +5,7 @@
     br
     router-link.btn.btn-primary(to="/post/new") + 新增文章
     el-select(v-model="now_year")
+      el-option(value="", label="2016 & 2017")
       el-option(value="2017", label="2017")
       el-option(value="2016", label="2016")
     br
@@ -38,7 +39,7 @@ export default {
     return {
       // posts: [],
       keyword: "",
-      now_year: "2016",
+      now_year: "",
     }
   },
   mounted(){

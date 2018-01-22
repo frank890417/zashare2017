@@ -18,6 +18,7 @@ Route::get('/user', function (Request $request) {
 
 })->middleware('auth:api');
 
+Route::post('upload',"ApiController@upload_image");
 Route::get('/page/blog','HomeController@postpage_api');
 Route::get('/post/n/{title}','PostController@show_name_api');
 
