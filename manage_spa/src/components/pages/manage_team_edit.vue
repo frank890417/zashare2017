@@ -8,7 +8,7 @@
           el-breadcrumb-item 單位編輯
         br
         br
-      el-form(:model="company", label-width="90px")
+      el-form(:model="company", label-width="90px").container-fluid
 
         el-header.header
           el-row
@@ -26,13 +26,19 @@
         //- hr
         .container-fluid
           .row
-            .col-sm-4.col-info
+            .col-sm-5.col-info
               //- el-switch(
                 v-model="company.status")
               el-form-item(label="中文名字")
                 el-input(v-model="company.name_cht")
               el-form-item(label="英文名字")
                 el-input(v-model="company.name_eng")
+              el-form-item(label="短名稱")
+                el-input(v-model="company.name_short")
+              el-form-item(label="主題")
+                el-input(v-model="company.theme")
+              el-form-item(label="類別")
+                el-input(v-model="company.cata")
               el-form-item(label="連結")
                 el-input(v-model="company.website")
               //el-form-item(label="發布狀態")
@@ -69,16 +75,20 @@
               //el-form-item(label="封面圖片")
                 el-input(v-model="company.cover")
                 img(:src="company.cover", style="width: 100%")
-            .col-sm-8.col-content
+            .col-sm-7.col-content
               //el-form-item(label="標題")
                 el-input(v-model="company.title")
               //- el-form-item(label="攤位編號")
               //-   el-input(v-model="company.company")
               el-form-item(label="中文簡介")
-                el-input(v-model="company.discribe_cht" type="textarea")
+                el-input(v-model="company.discribe_cht" type="textarea",rows=4)
               el-form-item(label="英文簡介")
                 el-input(v-model="company.discribe_eng" type="textarea",rows=4)
-              el-form-item
+              el-form-item(label="想要教的")
+                el-input(v-model="company.teach_thing" type="textarea",rows=2)
+              el-form-item(label="想要學的")
+                el-input(v-model="company.learn_thing" type="textarea",rows=2)
+              //el-form-item
                 VueEditor.ve(id ="content", v-model="company.content",
                         :useCustomImageHandler="true",
                         @imageAdded="handleImageAdded" ) 
