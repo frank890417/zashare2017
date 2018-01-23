@@ -3,7 +3,7 @@
     h3 管理參展單位
     el-input(v-model="keyword", placeholder="輸入關鍵字")
     br
-    //router-link.btn.btn-primary(to="/post/new") + 新增文章
+    router-link.btn.btn-primary(to="/company/new") + 新增單位
     //el-select(v-model="now_year")
       el-option(value="2017", label="2017")
       el-option(value="2016", label="2016")
@@ -53,7 +53,23 @@ export default {
     },
     filterYear(value,row){
       return row.year === value;
-    }
+    },
+    handleDelete(id,row){
+      // console.log(row)
+      this.$confirm("你確定要刪除嗎？").then(()=>{
+        this.axios.post(`/api/spa/company/${row.id}`,{
+          _method: 'DELETE',
+          // _token: this.csrf_token,
+          dataType: 'JSON',
+        }).then((res)=>{
+  
+          this.$message.success("刪除完成")
+          this.$store.dispatch("loadWebsite")
+          // this.$router.push('/activity')
+        })
+
+      })
+    },
   },
   computed:{
     ...mapState(['companies']),

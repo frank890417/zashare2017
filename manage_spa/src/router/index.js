@@ -5,6 +5,7 @@ import manage_post from '@/components/pages/manage_post'
 import manage_team from '@/components/pages/manage_team'
 import manage_cata from '@/components/pages/manage_cata'
 import manage_post_edit from '@/components/pages/manage_post_edit'
+import manage_company_edit from '@/components/pages/manage_team_edit'
 
 Vue.use(Router)
 
@@ -34,6 +35,9 @@ export default new Router({
     },{
       path: '/post/:id',
       component: manage_post_edit
+    }, {
+      path: '/company/:id',
+      component: manage_company_edit
     }
   ]
 })
