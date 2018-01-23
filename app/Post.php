@@ -14,7 +14,7 @@ class Post extends Model
         'established_time','visited_count',
         'status','created_at',
         'updated_at','stick_top_index','stick_top_cata',
-        'year'
+        'year','hashtag'
         // ,'company'
     ];
 

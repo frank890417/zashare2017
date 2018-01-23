@@ -3,8 +3,8 @@
     h3 管理參展單位
     el-input(v-model="keyword", placeholder="輸入關鍵字")
     br
-    router-link.btn.btn-primary(to="/post/new") + 新增文章
-    el-select(v-model="now_year")
+    //router-link.btn.btn-primary(to="/post/new") + 新增文章
+    //el-select(v-model="now_year")
       el-option(value="2017", label="2017")
       el-option(value="2016", label="2016")
     br

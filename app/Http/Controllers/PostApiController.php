@@ -32,6 +32,7 @@ class PostApiController extends Controller
     }
     public function update($id){
         $inputs = Input::all();
+        $inputs["hashtag"]=json_encode($inputs["hashtag"]);
         $post = Post::find($id);
         $post->update($inputs);
         $result =  $post;
@@ -52,6 +53,7 @@ class PostApiController extends Controller
     }
     public function store(){
         $inputs = Input::all();
+        $inputs["hashtag"]=json_encode($inputs["hashtag"]);
         $post = Post::create($inputs);
         
         $post = Post::find($post->id);

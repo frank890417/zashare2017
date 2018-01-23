@@ -51,7 +51,18 @@
                     :key="item.id"
                     :label="item.name_cht"
                     :value="item.id")
-
+              el-form-item(label="Hashtag")
+                el-select(v-model="post.hashtag"
+                          multiple
+                          filterable
+                          allow-create
+                          default-first-option
+                          placeholder="請選擇Hashtag或建立")
+                  el-option(
+                    v-for="item in defaut_hashtags.split(',')"
+                    :key="item"
+                    :label="item"
+                    :value="item")
 
               el-form-item(label="年份")
                 el-select(v-model="post.year")
@@ -100,15 +111,23 @@ export default {
         year: "2017",
         established_time: new Date().toLocaleDateString(),
         short_description: "",
+        hashtag: []
 
       },
-      create_mode: false
+      create_mode: false,
+      defaut_hashtags: "測試,好玩"
     }
   },
   mounted(){
     if (this.$route.params.id){
       this.axios.get("/api/spa/post/"+this.$route.params.id).then(res=>{
         this.post=res.data
+        if (!this.post.hashtag){
+          this.post.hashtag=[]
+        }
+        if (typeof this.post.hashtag=="string"){
+          this.post.hashtag=JSON.parse(this.post.hashtag)
+        }
       })
     }else{
       this.create_mode=true
