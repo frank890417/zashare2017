@@ -5,13 +5,11 @@
       //- el-header
       .col-sm-2.col-nav
         el-menu(:default-active="activeIndex" 
-          class="el-menu-demo" @select="handleSelect")
-          el-menu-item(index="1")
-            router-link(to="/post") 文章管理 
-          el-menu-item(index="2") 
-            router-link(to="/company") 攤位管理 
-          el-menu-item(index="3") 
-            router-link(to="/cata") 類別管理 
+          class="el-menu-demo" @select="handleSelect",
+          router="true")
+          el-menu-item(index="/post") 文章管理 
+          el-menu-item(index="/company") 攤位管理 
+          el-menu-item(index="/cata") 類別管理 
 
       .col-sm-10.offset-2.col-content
         transition(name="fade", mode="out-in")

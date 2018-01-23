@@ -49,7 +49,7 @@
                   el-option(
                     v-for="item in companies"
                     :key="item.id"
-                    :label="item.name_cht"
+                    :label="item.name_cht+'('+item.year+')'"
                     :value="item.id")
               el-form-item(label="Hashtag")
                 el-select(v-model="post.hashtag"
@@ -59,7 +59,7 @@
                           default-first-option
                           placeholder="請選擇Hashtag或建立")
                   el-option(
-                    v-for="item in defaut_hashtags.split(',')"
+                    v-for="item in defaut_hashtags.split('、')"
                     :key="item"
                     :label="item"
                     :value="item")
@@ -115,7 +115,7 @@ export default {
 
       },
       create_mode: false,
-      defaut_hashtags: "測試,好玩"
+      defaut_hashtags: "師培、教具、國小學童、偏鄉、國中生、高中生、大學生、實驗教育、媒體、線上、空間、工作坊、技職、美感、文化、出走、輔導、maker"
     }
   },
   mounted(){
