@@ -9,16 +9,16 @@
       el-option(value="2016", label="2016")
     br
     el-table(:data="filteredCompany" border)
-      el-table-column(prop="id",label="#", width="60" sortable)
+      el-table-column(prop="id",label="#", width="60" :sortable="true")
       //- el-table-column(prop="tag",label="類別", width="80" sortable)
-      el-table-column(prop="name_cht",label="名字", width="200" sortable)
+      el-table-column(prop="name_cht",label="名字", width="200" :sortable="true")
       el-table-column(prop="cover",label="封面", width="120")
         template(slot-scope="scope")
           img.cover(:src="scope.row.cover")
-      el-table-column(prop="year",label="年度", width="100" sortable,
+      el-table-column(prop="year",label="年度", width="100" :sortable="true",
         :filters="[{ text: '2016', value: '2016' }, { text: '2017', value: '2017' }]",
         :filter-method="filterYear")
-      el-table-column(prop="discribe_cht",label="中文敘述" sortable)
+      el-table-column(prop="discribe_cht",label="中文敘述" )
       el-table-column(label="操作", width="200")
         template(slot-scope="scope")
           el-button(@click="handleEdit(scope.row)" type="text" size="small") 編輯
@@ -42,7 +42,7 @@ export default {
     return {
       // posts: [],
       keyword: "",
-      now_year: "2016",
+      now_year: "",
     }
   },
   mounted(){
