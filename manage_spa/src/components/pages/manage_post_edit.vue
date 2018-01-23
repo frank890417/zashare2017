@@ -65,7 +65,12 @@
                                value-format="yyyy-MM-dd HH:mm:ss")
               el-form-item(label="封面圖片")
                 el-input(v-model="post.cover")
-                img(:src="post.cover", style="width: 100%")
+                  default_pic_selector(@select_pic="select_pic" slot="append")
+              
+                img(:src="post.cover", style="width: 100%;max-width: 100px")
+                //el-form-item(label="封面圖片")
+                //el-input(v-model="post.cover")
+                //img(:src="post.cover", style="width: 100%")
             .col-sm-9.col-content
               el-form-item(label="標題")
                 el-input(v-model="post.title")
@@ -84,6 +89,7 @@
 </template>
 
 <script>
+import default_pic_selector from '../default_pic_selector.vue'
 import { VueEditor } from 'vue2-editor'
 import { mapState } from 'vuex'
 
@@ -109,9 +115,14 @@ export default {
     }
   },
   components:{
-    VueEditor
+    VueEditor,
+    default_pic_selector, 
   },
   methods: {
+    select_pic(obj){
+      console.log(obj)
+      this.post.cover=obj.url
+    },
     handleSave(){
       if (!this.create_mode){
         this.axios.patch(
