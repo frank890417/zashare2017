@@ -10,4 +10,8 @@ composer dump-autoload
 php artisan config:cache
 php artisan route:cache
 php artisan optimize --force
+
 gulp --production
+cd manage_spa
+npm run build
+cd ..

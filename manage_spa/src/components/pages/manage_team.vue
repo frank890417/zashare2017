@@ -19,11 +19,11 @@
         :filters="[{ text: '2016', value: '2016' }, { text: '2017', value: '2017' }]",
         :filter-method="filterYear")
       el-table-column(prop="discribe_cht",label="中文敘述" )
-      el-table-column(label="操作", width="200")
+      el-table-column(label="操作", width="100")
         template(slot-scope="scope")
-          el-button(@click="handleEdit(scope.row)" type="text" size="small") 編輯
-          el-button(size="small" type="danger" @click="handleDelete(scope.$index, scope.row)") 刪除
-      
+          el-button(size="mini",@click="handleEdit(scope.$index, scope.row)") 編輯
+          el-button(size="mini",type="danger",@click="handleDelete(scope.$index, scope.row)") 刪除
+    
       //- el-table-column(prop="title",label="標題" )
       //- el-table-column(label="操作", width="200")
       //-   template(slot-scope="scope")
