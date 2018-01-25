@@ -38,6 +38,7 @@ export default new Router({
       meta: {
         type: "news",
         action: "back",
+        navWidth: "350px",
         back: {
           name: "INDEX",
           path: "/"

@@ -7,7 +7,7 @@
     .fullPage(v-if="menuState")
       .row.row-page
         .col-menu.col-sm-9
-          .container
+          .container.container-menu
             .row.row-search
               .col-sm-12
                 input(placeholder="搜尋雜學校")
@@ -23,19 +23,19 @@
                 p 2018年起，我們試圖匯聚各個領域的燈塔，建立起教育與時俱進的指標，讓學習的方向更加明確與有邏輯。提供線下至線上、各種多元面向的課程選擇，以脈絡式的課程大綱進行規劃，讓自主學習這件事不是茫然地像在汪洋中學習。
             .row(@click="setMenuState(false)")
               router-link.col-sm-4(to="/course")
-                h2 ZA COURSE
+                h2.nav-course ZA COURSE
                 p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化值、沒有框架...
               router-link.col-sm-4(to="/base")
-                h2 ZA BASE
+                h2.nav-base ZA BASE
                 p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、框架...
               router-link.col-sm-4(to="/expo")
-                h2 ZA EXPO
+                h2.nav-expo ZA EXPO
                 p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、框架...
             .row
               .col-sm-12
                 hr
               .col-sm-8
-                ul 
+                ul.infos
                   li 聯絡資訊　Contact Info
                   li 
                   li Tel. +886-2-2729-7122
@@ -44,7 +44,7 @@
               .col-sm-4
                 p 網站製作：墨雨設計<br>© 2018 雜学校 Za Share All Rights Reserved.
         .col-member.col-sm-3
-
+          h5 會員登入
 
 </template>
 
@@ -133,7 +133,7 @@ export default {
   .col-menu
     padding: 50px
     .container
-      margin-top: 50px
+      margin-top: 20px
   .col-member
     background-color: #eee
 
@@ -145,7 +145,26 @@ export default {
         margin: 10px
         background-color: #eee
         padding: 5px 10px
+  .container-menu
+    display: flex
+    flex-direction: column
+    height: 100%
+    justify-content: space-between
           
+  .nav-course
+    &:hover,&.router-link-active
+      color: #8135f9
+  .nav-base
+    &:hover,&.router-link-active
+      color: #8af187
+  .nav-expo
+    &:hover,&.router-link-active
+      color: #1161ef
+
+.infos
+  list-style: none
+  margin-bottom: 30px
+  padding: 0
 
 
 </style>

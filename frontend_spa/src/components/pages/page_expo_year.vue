@@ -34,6 +34,12 @@ export default {
 <style lang="sass">
 .page-expo-year
   padding-left: 300px
+  text-align: left
+  .cover
+    height: 300px
+    background-color: #aaa
+    margin-top: 50px
+    margin-bottom: 50px
   .container
     margin-left: auto
     margin-right: auto

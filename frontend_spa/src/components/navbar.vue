@@ -30,7 +30,7 @@
                         )
     
     .row-bottom
-      .col-login(v-if="$route.path=='/'") 學生登入/註冊
+      .col-login(v-if="$route.path=='/'",@click="setMenuState(true)") 學生登入/註冊
       router-link.col-theme-nav.nav-course(to="/course") 
         //- span ZA<br>Course
         img(src="/static/img/Home/za-course.svg")
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState, mapMutations} from 'vuex'
 export default {
   computed:{
     ...mapState(['themes']),
@@ -62,6 +62,10 @@ export default {
         right: this.$route.meta.navPosition!='left'?"0px":`calc(100% - ${width})`
       }
     }
+  },
+  methods: {
+
+      ...mapMutations(['setMenuState'])
   }
 }
 </script>
@@ -107,11 +111,13 @@ export default {
       width: 2px
       background-color: #333
       transition: 0.5s
+
       margin: 
         bottom: 20px
         top: 20px
       &.nolen
-        flex: 0
+        flex: 0.5
+        opacity: 0
 
   .col-theme-nav,.col-login
     padding: 35px 50px
