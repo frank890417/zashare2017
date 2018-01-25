@@ -4,21 +4,39 @@
     .row-logo
       router-link.col-sm-12(to="/" v-if="$route.path=='/'")
         img(src="/static/img/Home/za-logo.svg") 
-      h4 “ 雜學校，一個有效行動的學習場域。 ”
-      .longline(v-if="$route.path!='/'", :style="{'background-color': theme.color}")
-      router-link.explore(v-if="$route.path!='/'", :to="'/'+$route.name+'/all'") 
-        .textout
-          .textExplore Explore the
-        div.themename 
-          span.text ZA {{$route.name}}  
+      h4(v-if="$route.meta.action!='back'") “ 雜學校，一個有效行動的學習場域。 ”
+      .longline(
+          v-if="$route.path!='/'", 
+          :style="{'background-color': theme.color}",
+          :class="{nolen: $route.meta.action=='back'}")
+      router-link.explore(
+        v-if="$route.meta.type=='theme'", 
+        :to="$route.meta.next.path",
+        :key="$route.path") 
+        .ovh
+          .animated.slideInUp Explore the
+        div.themename.ovh
+          span.text.animated.slideInUp ZA {{$route.name}}  
           .arrow-right( :style="{'background-color': theme.color}")
+      router-link.explore(
+        v-if="$route.meta.action=='back'", 
+        :to="$route.meta.back.path",
+        :key="$route.path") 
+        .ovh
+          .animated.slideInUp Back to the
+        div.themename.ovh
+          span.text.animated.slideInUp {{$route.meta.back.name}}  
+          .arrow-right.reverse( :style="{'background-color': theme.color}", 
+                        )
     
     .row-bottom
       .col-login(v-if="$route.path=='/'") 學生登入/註冊
       router-link.col-theme-nav.nav-course(to="/course") 
         //- span ZA<br>Course
         img(src="/static/img/Home/za-course.svg")
-        router-link.upCircle.animated.zoomIn(to="/",v-if="$route.path!='/'") 
+        router-link.upCircle.animated.zoomIn(
+          to="/",v-if="$route.path!='/'"
+        ) 
       router-link.col-theme-nav.nav-base(to="/base")
         //- span ZA<br>Base
         img(src="/static/img/Home/za-base.svg")
@@ -35,12 +53,13 @@ export default {
     ...mapState(['themes']),
     theme(){
       // console.log((this.$route).split("/")[1])
-      return this.themes[ (this.$route.path).split("/")[1]]
+      return this.themes[ (this.$route.path).split("/")[1]] || {}
     },
     navbarStyle(){
+      let width = this.$route.meta.navWidth || "450px"
       return {
-        width: this.$route.path=='/'? "350px":"450px",
-        right: this.$route.path!='/expo/all'?"0px":"calc(100% - 450px)"
+        width,
+        right: this.$route.meta.navPosition!='left'?"0px":`calc(100% - ${width})`
       }
     }
   }
@@ -54,7 +73,7 @@ export default {
   top: 0
   width: 300px
   height: 100vh
-  transition: 0.5s
+  transition: 0.5s, right 1s
 
   @keyframes textOut
   0%
@@ -87,9 +106,12 @@ export default {
       flex: 4
       width: 2px
       background-color: #333
+      transition: 0.5s
       margin: 
         bottom: 20px
         top: 20px
+      &.nolen
+        flex: 0
 
   .col-theme-nav,.col-login
     padding: 35px 50px
@@ -144,7 +166,9 @@ export default {
           right: 0
         &:after
           transform: rotate(-45deg)
-
+        &.reverse
+          transform-origin: center center
+          transform: rotate(180deg)
 
 
 

@@ -1,12 +1,16 @@
 <template lang="pug">
-.page-course
+.page-course.animated
   .container-fluid
     .row
-      .col-info
+      .col-info(v-for="theme in [theme]", :key="theme.title")
         .info
-          img.slogan_image(:src="theme.slogan_image")
-          p(v-html="theme.description")
-          .btn more
+          .slogan
+            img.slogan_image.animated.slideInUp(:src="theme.slogan_image")
+          p.animated.fadeIn(v-html="theme.description")
+          router-link.nostyle.btn(
+            v-if="$route.meta.type=='theme'", 
+            :to="$route.meta.next.path",
+            :key="$route.path") more
       .col-image(:style="coverStyle")
 
 </template>
@@ -50,22 +54,31 @@ export default {
   justify-content: center
   align-items: center
   box-sizing: border-box
+
   .info
     width: 350px
+    text-align: left
+  
+    .slogan
+      overflow: hidden
+      margin-bottom: 60px
     .slogan_image
       width: 100%
-
+  .btn
+    margin-top: 30px
+  
+      
 @keyframes flexIn
   0%
     flex: 0
   100%
-    flex: 1
+    flex: 1.2
 .col-image
   animation: flexIn 1s 
   transition: 0.5s
-  flex: 1
+  flex: 1.2
   
   &:hover
-    flex: 1.2
+    flex: 1.4
   // background-color: #8135f9
 </style>

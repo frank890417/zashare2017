@@ -14,21 +14,21 @@
               .col-sm-12
                 .tags
                   .tag(v-for="i in 10") 地瓜
-            .row
-              .col-sm-4
+            .row(@click="setMenuState(false)")
+              router-link.col-sm-4(to="/news")
                 h2 News
                 p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化值、沒有框架...
-              .col-sm-8
+              router-link.col-sm-8(to="/about")
                 h2 雜學校
                 p 2018年起，我們試圖匯聚各個領域的燈塔，建立起教育與時俱進的指標，讓學習的方向更加明確與有邏輯。提供線下至線上、各種多元面向的課程選擇，以脈絡式的課程大綱進行規劃，讓自主學習這件事不是茫然地像在汪洋中學習。
-            .row
-              .col-sm-4
+            .row(@click="setMenuState(false)")
+              router-link.col-sm-4(to="/course")
                 h2 ZA COURSE
                 p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化值、沒有框架...
-              .col-sm-4
+              router-link.col-sm-4(to="/base")
                 h2 ZA BASE
                 p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、框架...
-              .col-sm-4
+              router-link.col-sm-4(to="/expo")
                 h2 ZA EXPO
                 p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、框架...
             .row
@@ -65,8 +65,8 @@ export default {
 
 
 .hambergur
-  width: 50px
-  height: 50px
+  width: 72px
+  height: 72px
   position: fixed
   left: 0px
   top: 50px
@@ -94,7 +94,7 @@ export default {
   
 .icon-bar
   width: 40px
-  height: 6px
+  height: 4px
   // margin: 8px 0px
   position: absolute
   left: 50%
@@ -104,9 +104,9 @@ export default {
   transform-origin: center center
   transition: 0.5s
   &:nth-child(1)
-    top: 40%
+    top: 35%
   &:nth-child(2)
-    top: 60%
+    top: 65%
 
 .fullPage
   position: fixed
@@ -118,6 +118,10 @@ export default {
   z-index: 40
   box-sizing: border-box
   text-align: left
+  a
+    display: inline-block
+    color: inherit
+    text-decoration: none
   h2
     font-size: 40px
     font-weight: 900

@@ -1,6 +1,6 @@
 <template lang="pug">
   #app
-    router-view
+    router-view(:key="$route.path")
     navbar
     full_menu
 
@@ -26,6 +26,12 @@ html,body
   display: inline-block
   &:hover
     background-color: #eee
+
+.ovh
+  overflow: hidden
+
+// .animated
+  // animation-duration: 2.5s
 
 #app
   font-family: 'Avenir', Helvetica, Arial, sans-serif
@@ -54,6 +60,10 @@ p
   text-align: left
   font-size: 15px
   line-height: 1.8
+
+a.nostyle
+  text-decoration: none
+  color: inherit
 
 .flex
   display: flex

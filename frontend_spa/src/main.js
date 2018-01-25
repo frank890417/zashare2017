@@ -14,6 +14,17 @@ import full_menu from './components/full_menu.vue'
 Vue.component("navbar", navbar)
 Vue.component("full_menu", full_menu)
 
+Vue.mixin({
+  methods: {
+    bgcss(url){
+      return {
+        'background-image': `url("${url}")`
+      }
+
+    }
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
