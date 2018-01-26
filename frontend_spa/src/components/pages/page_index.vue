@@ -148,7 +148,7 @@ export default {
       background-color: #fff
 
     .col-right
-      border-left: solid #eee 2px
+      border-left: solid #ddd 2px
       padding-left: 60px
       .num
         float: right

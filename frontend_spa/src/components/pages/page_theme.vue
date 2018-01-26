@@ -11,7 +11,7 @@
             v-if="$route.meta.type=='theme'", 
             :to="$route.meta.next.path",
             :key="$route.path") more
-      .col-image(:style="coverStyle")
+      .col-image.animated.fadeIn(:style="coverStyle")
 
 </template>
 
