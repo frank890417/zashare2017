@@ -94,6 +94,7 @@
               el-form-item
                 VueEditor.ve(id ="content", v-model="post.content",
                         :useCustomImageHandler="true",
+                        :editorToolbar="customToolbar",
                         @imageAdded="handleImageAdded",
                         style="height: 500px;margin-bottom: 50px" ) 
               //- el-input(v-model="post.content" autosize)
@@ -107,12 +108,31 @@ import { mapState } from 'vuex'
 export default {
   data(){
     return {
+       customToolbar: [
+          ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+          ['blockquote', 'code-block','image','video','link'],
+
+          // [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+          [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+          [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+          [{ 'direction': 'rtl' }],                         // text direction
+
+          // [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+          [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+          [{ 'font': [] }],
+          [{ 'align': [] }],
+
+          ['clean']                                         // remove formatting button
+],
       post: {
         year: "2017",
         established_time: new Date().toLocaleDateString(),
         short_description: "",
-        hashtag: []
-
+        hashtag: [],
+       
       },
       create_mode: false,
       defaut_hashtags: "師培、教具、國小學童、偏鄉、國中生、高中生、大學生、實驗教育、媒體、線上、空間、工作坊、技職、美感、文化、出走、輔導、maker"
