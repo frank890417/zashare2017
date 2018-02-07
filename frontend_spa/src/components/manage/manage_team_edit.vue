@@ -140,7 +140,7 @@ export default {
     handleSave(){
       if (!this.create_mode){
         this.axios.patch(
-          "/api/spa/company/"+this.$route.params.id,
+          "/api/company/"+this.$route.params.id,
           this.company
         ).then(res=>{
           console.log(res.data)
@@ -161,7 +161,7 @@ export default {
 
       }else{
         this.axios.post(
-          "/api/spa/company",
+          "/api/company",
           this.company
         ).then(res=>{
 

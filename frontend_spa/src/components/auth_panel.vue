@@ -30,12 +30,22 @@
       button.btn.fw.nobg(@click="mode='login'") 我已經有帳號了！ 前往登入
     .bottom(v-if="auth.user")
       h4 學生簡介
-      label 學生證卡號：
-        .float.right 100999
-      label 學生證級別：
-        .float.right 建校元老
-      label 會員效期：
-        .float.right 2018/12/31
+      div(v-if="auth.user.studentcard")
+        label.info-group
+          span 學生證卡號：
+          span {{ auth.user.studentcard.card_id }}
+        label 
+          span 學生證級別：
+          span {{ auth.user.studentcard.type }}
+        label 
+          span 會員效期：
+          span {{ auth.user.studentcard.expiry_datetime }}
+      div(v-else)
+        label.info-group
+          span 學生證卡號：
+          span 尚未綁定
+
+      br
     
       .btn-group
         button.btn.fw.black(@click="logout") 登出
@@ -143,6 +153,9 @@ export default {
   .bottom
     background-color: white
     padding: 25px
+    label
+      display: flex
+      justify-content: space-between
   .photo
     width: 100px
     height: 100px

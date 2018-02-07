@@ -44,19 +44,19 @@ export default {
             {
               title: "謝謝五萬名師生的入學支持，讓台灣創新教育的溫柔革命得...",
               description: "我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、沒有世俗的框架、沒有年齡的限制，充滿了各種想像？",
-              cover: "http://zashare.org/img/expo/2017/2.jpg"
+              cover: "http://service.zashare.org/img/expo/2017/2.jpg"
             },{
               title: "讓台灣創新教育的溫柔革命得...",
               description: "我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、沒有世俗的框架、沒有年齡的限制，充滿了各種想像？",
-              cover: "http://zashare.org/img/expo/2017/3.jpg"
+              cover: "http://service.zashare.org/img/expo/2017/3.jpg"
             },{
               title: "謝謝五萬名師生的入學支持，",
               description: "我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、沒有世俗的框架、沒有年齡的限制，充滿了各種想像？",
-              cover: "http://zashare.org/img/expo/2017/4.jpg"
+              cover: "http://service.zashare.org/img/expo/2017/4.jpg"
             },{
               title: "五萬名師生的入學支持讓台灣創新教育的溫柔革命得...",
               description: "我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、沒有世俗的框架、沒有年齡的限制，充滿了各種想像？",
-              cover: "http://zashare.org/img/expo/2017/5.jpg"
+              cover: "http://service.zashare.org/img/expo/2017/5.jpg"
             }
           ],
           currentSlideId: 0
@@ -170,7 +170,7 @@ export default {
   .cover
     width: 100%
     height: 100%
-    // background-image: url("http://zashare.org/img/2017/expo_2017/event/%E5%AF%A6%E9%A9%97%E6%95%99%E8%82%B2%E9%A4%A8.jpg")
+    // background-image: url("http://service.zashare.org/img/2017/expo_2017/event/%E5%AF%A6%E9%A9%97%E6%95%99%E8%82%B2%E9%A4%A8.jpg")
     background-size: cover
     background-position: center center
 .btns

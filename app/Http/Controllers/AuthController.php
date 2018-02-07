@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 // use App\Http\Controllers\Controller;
 use Socialite;
 use App\User;
+use App\Studentcard;
 use JWTAuth;
 class AuthController extends Controller
 {
@@ -83,7 +84,18 @@ class AuthController extends Controller
      */
     public function me()
     {
-        return response()->json($this->guard()->user());
+        $userdata = $this->guard()->user();
+        $studentcard =  User::find($userdata->id)->studentcard;
+        if ( !$studentcard ){
+            $findcard = Studentcard::where("email",$userdata->email)->first();
+            if ($findcard){
+                $findcard->user_id = $userdata->id;
+                $findcard->save();
+                $studentcard=$findcard;
+            }
+        }
+        $userdata["studentcard"] = $studentcard;
+        return response()->json($userdata);
     }
 
     /**

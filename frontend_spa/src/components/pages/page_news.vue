@@ -72,7 +72,7 @@ export default {
     }
   },
   mounted(){
-    axios.get("http://zashare2017.test/api/spa/post").then(res=>{
+    axios.get("/api/post").then(res=>{
       this.posts=res.data
     })
     this.$nextTick(() => {

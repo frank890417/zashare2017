@@ -20,6 +20,8 @@
               
             el-col(:span="6")
               el-button(type="primary", @click="handleSave") 儲存更新 
+              router-link(:to="`/post/n/${post.title}`" ,target="_blank")
+                el-button(type="primary") 前往文章
           hr
           br
           br
@@ -166,7 +168,7 @@ export default {
     handleSave(){
       if (!this.create_mode){
         this.axios.patch(
-          "/api/spa/post/"+this.$route.params.id,
+          "/api/post/"+this.$route.params.id,
           this.post
         ).then(res=>{
           console.log(res.data)
@@ -187,7 +189,7 @@ export default {
 
       }else{
         this.axios.post(
-          "/api/spa/post",
+          "/api/post",
           this.post
         ).then(res=>{
 
