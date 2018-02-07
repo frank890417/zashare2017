@@ -168,7 +168,6 @@ return [
          */
         
         Intervention\Image\ImageServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class,
         //
 
         /*
@@ -179,6 +178,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
     ],
 
@@ -231,6 +232,11 @@ return [
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'COllective\Html\HtmlFacade',
         'Image' => Intervention\Image\Facades\Image::class,
+
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuthFacades\JWTFactory::class,
+
+        'Cors' => Barryvdh\Cors\ServiceProvider::class,
     ],
 
 ];

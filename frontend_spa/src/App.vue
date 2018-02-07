@@ -1,31 +1,66 @@
 <template lang="pug">
-  #app
+  #app(:class="{noScroll: menuState}")
     router-view(:key="$route.path")
     navbar
     full_menu
-
+    
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
-  name: 'App'
+  name: 'App',
+  computed: {
+    ...mapState(['menuState'])
+  }
 }
 </script>
 
 <style lang="sass">
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css)
+
+
 html,body
   margin: 0
   padding: 0
   width: 100%
   height: 100%
 
+.noScroll
+  // overflow-y: hidden
+
 .btn
   cursor: pointer
   padding: 8px 40px
   border: solid 1px #ccc
   display: inline-block
+  margin-top: 10px
   &:hover
     background-color: #eee
+
+  &.fw
+    width: 100%
+
+  @mixin colorSet($frontColor,$backColor)
+    
+  &.black
+    background-color: black
+    color: white
+    &:hover
+      background-color: 
+  &.nobg
+    color: #333
+    background-color: transparent
+    border: none
+
+.btn-group
+  display: flex
+  justify-content: space-between
+  .btn
+    
+    margin-right: 10px
+    &:last-child
+      margin-right: 0
 
 .ovh
   overflow: hidden
@@ -34,7 +69,7 @@ html,body
   // animation-duration: 2.5s
 
 #app
-  font-family: 'Avenir', Helvetica, Arial, sans-serif
+  font-family: 'Noto Sans TC','Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   text-align: center
@@ -45,6 +80,16 @@ html,body
   position: absolute
   left: 0
   top: 0
+
+.float-right
+  float: right
+
+.float-left
+  float: left
+
+.page
+  &.right
+    padding-left: 350px
 
 .fade-enter-active, .fade-leave-active 
   transition: opacity .5s

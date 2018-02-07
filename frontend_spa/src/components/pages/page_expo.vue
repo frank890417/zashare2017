@@ -6,7 +6,7 @@
         h2 {{expo.title}}
           .year {{expo.year}}
         hr
-        .row
+        .row.row-content
           router-link.col-sm-6(:to="`/expo/${expo.year}`")
             .cover(:style="bgcss(expo.cover)")
           .col-sm-6
@@ -16,29 +16,15 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   data(){
     return {
-      expos: [
-        {
-          year: 2018,
-          title: "有敢擇學 - Try Try See !",
-          cover: "http://zashare.org/img/expo/2017/1.jpg", 
-          report_cover: "http://zashare.org/img/expo/2017/3.jpg", 
-        },{
-          year: 2017,
-          title: "學你想學、學你想成為。 - Learn to be, not taught to fit.",
-          cover: "https://az796311.vo.msecnd.net/userupload/afe7351a4adc41ca8a828fd5b606798f.jpg",
-          report_cover: "http://zashare.org/img/expo/2016/2.jpg",  
-        },
-        {
-          year: 2016,
-          title: "不太乖教育節 - Naughty Education",
-          cover: "http://img.accupass.com/userupload/dcfc34cde62f4340aae2dd00452b0ef9.jpg", 
-          report_cover: "http://zashare.org/img/expo/2015/4.jpg", 
-        },
-      ]
+      
     } 
+  },
+  computed: {
+    ...mapState(['expos'])
   }
 }
 </script>

@@ -8,7 +8,7 @@ transition(name="fade")
             .cover(:style="bgcss(slide.cover)")
       .row-news
         .row
-          router-link.nostyle.col-sm-3.col-left(to="/news")
+          router-link.btn-news.nostyle.col-sm-3.col-left(to="/news")
             h2 News
             h4 最新消息
           
@@ -20,7 +20,7 @@ transition(name="fade")
             p.ovh
               .animated.slideInUp  {{ currentSlide.description }}
             br
-            .btn 閱讀更多
+            router-link.nostyle.btn(to="/news/1") 閱讀更多
             
             .btns
               .prev(@click="prev") <
@@ -129,6 +129,9 @@ export default {
     flex: 400px
     overflow: hidden
     background-color: #ddd
+  .btn-news
+    &:hover
+      background-color: #eee
   .row-news
     animation: flexIn 1s both
     transition: 0.5s

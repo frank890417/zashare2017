@@ -3,7 +3,7 @@
   .container-fluid
     .row-logo
       router-link.col-sm-12(to="/" v-if="$route.path=='/'")
-        img(src="/static/img/Home/za-logo.svg") 
+        img(src="/static/img/Home/za-logo.svg", @click="loginAjax") 
       h4(v-if="$route.meta.action!='back'") “ 雜學校，一個有效行動的學習場域。 ”
       .longline(
           v-if="$route.path!='/'", 
@@ -30,7 +30,10 @@
                         )
     
     .row-bottom
-      .col-login(v-if="$route.path=='/'",@click="setMenuState(true)") 學生登入/註冊
+      span.col-login(v-if="$route.path=='/'",@click="setMenuState(true)") 
+        span(v-if="auth.user") Hello 雜學校學生 {{auth.user.name}}
+        span(v-else) 學生登入 / 註冊
+
       router-link.col-theme-nav.nav-course(to="/course") 
         //- span ZA<br>Course
         img(src="/static/img/Home/za-course.svg")
@@ -48,9 +51,10 @@
 
 <script>
 import {mapState, mapMutations} from 'vuex'
+import axios from 'axios'
 export default {
   computed:{
-    ...mapState(['themes']),
+    ...mapState(['themes','auth']),
     theme(){
       // console.log((this.$route).split("/")[1])
       return this.themes[ (this.$route.path).split("/")[1]] || {}
@@ -64,8 +68,15 @@ export default {
     }
   },
   methods: {
-
-      ...mapMutations(['setMenuState'])
+      ...mapMutations(['setMenuState']),
+      loginAjax(){
+        axios.post("/api/spa/login",{
+          email: "frank890417@gmail.com",
+          password: "@##434frt))"
+        }).then(res=>{
+          console.log(res)
+        })
+      }
   }
 }
 </script>

@@ -8,6 +8,8 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+store.dispatch("auth/init")
+
 Vue.config.productionTip = false
 
 import navbar from './components/navbar.vue'

@@ -181,6 +181,8 @@ Route::get('/funding',"HomeController@funding");
 Route::get('/pacman',"HomeController@pacman");
 
 Auth::routes();
+
+
 // Route::get('/post/n/{title}',"PostController@show_name");
 // Route::get('/post/{id}',"PostController@show");
 use App\Post;

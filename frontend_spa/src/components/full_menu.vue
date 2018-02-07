@@ -15,12 +15,16 @@
                 .tags
                   .tag(v-for="i in 10") 地瓜
             .row(@click="setMenuState(false)")
+              router-link.col-sm-4(to="/")
+                h2 Home
+                p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化值、沒有框架...
               router-link.col-sm-4(to="/news")
                 h2 News
                 p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化值、沒有框架...
-              router-link.col-sm-8(to="/about")
-                h2 雜學校
+              router-link.col-sm-4(to="/about")
+                h2 About
                 p 2018年起，我們試圖匯聚各個領域的燈塔，建立起教育與時俱進的指標，讓學習的方向更加明確與有邏輯。提供線下至線上、各種多元面向的課程選擇，以脈絡式的課程大綱進行規劃，讓自主學習這件事不是茫然地像在汪洋中學習。
+            
             .row(@click="setMenuState(false)")
               router-link.col-sm-4(to="/course")
                 h2.nav-course ZA COURSE
@@ -44,18 +48,91 @@
               .col-sm-4
                 p 網站製作：墨雨設計<br>© 2018 雜学校 Za Share All Rights Reserved.
         .col-member.col-sm-3
-          h5 會員登入
+          .card
+            transition(name="fade")
+              .card-loading(v-if="auth.processing")
+            .top
+              .photo(:style="bgcss(getUserPhoto(auth.user))")
+              h3.name
+                span(v-if="auth.user") Hello ! 雜學校學生　{{auth.user.name}}
+                span(v-else) 這名學生未登入哦！
+            .bottom(v-if="mode=='login' && !auth.user")
+              h4 登入雜學校
+              //- label 信箱
+              input(v-model="loginData.email", placeholder="信箱")
+              //- label 密碼
+              input(v-model="loginData.password", placeholder="密碼")
+              button.btn.fw.black(@click="login(loginData)") 登入
+              button.btn.fw(@click="loginFacebook") 使用 Facebook 登入
+              button.btn.fw.nobg 忘記密碼
+              button.btn.fw.nobg(@click="mode='register'") 註冊為雜學校學生
+            .bottom(v-if="mode=='register' && !auth.user")
+              h4 會員註冊
+              //- label email
+              input(v-model="registerData.email", placeholder="信箱")
+              //- label name
+              input(v-model="registerData.name", placeholder="名字")
+              input(v-model="registerData.password", placeholder="密碼", type="password")
+              button.btn.fw.black(@click="register(registerData)") 註冊
+              label(v-if="auth.status") {{auth.status}}
+              button.btn.fw.nobg(@click="mode='login'") 我已經有帳號了！ 前往登入
+            .bottom(v-if="auth.user")
+              h4 學生簡介
+              label 學生證卡號：
+                .float.right 100999
+              label 學生證級別：
+                .float.right 建校元老
+              label 會員效期：
+                .float.right 2018/12/31
+            
+              .btn-group
+                button.btn.fw.black(@click="logout") 登出
+                router-link.btn.fw(to="/member/setting") 設定
+
+                          
+              //pre {{auth}}
+
+
 
 </template>
 
 <script>
-import {mapState,mapMutations} from 'vuex'
+import {mapState,mapMutations, mapActions, mapGetters} from 'vuex'
 export default {
+  data() {
+    return {
+      registerData: {
+        email: "test12345@gmail.com",
+        name: "test",
+        password: "test1234",
+        
+      },
+      loginData: {
+        email: "frank890417@gmail.com",
+        password: "@##434frt))",
+        
+      },
+      mode: "login"
+    }
+  },
   computed: {
-    ...mapState(['menuState'])
+    ...mapState(['menuState','auth'])
   },
   methods: {
-    ...mapMutations(['setMenuState'])
+    ...mapMutations(['setMenuState']),
+    ...mapActions({
+      register: 'auth/register',
+      login: 'auth/login',
+      logout: 'auth/logout',
+      loginFacebook: "auth/loginFacebook",
+      authInit: "auth/init"
+    }),
+    ...mapGetters({
+      getUserPhoto: 'auth/getUserPhoto'
+    })
+  },
+  mounted(){
+    // this.authInit()
   }
 }
 </script>
@@ -77,9 +154,12 @@ export default {
 .menu
   input
     border: none
-    border-bottom: solid 4px black
     outline: none
     width: 100%
+    background-color: transparent
+    padding: 5px 10px
+    border-bottom: solid 1px rgba(#131116,0.2)
+    margin-bottom: 10px
 
 
   &.open
@@ -131,12 +211,56 @@ export default {
   .col-menu,.col-member
     height: 100%
   .col-menu
-    padding: 50px
+    padding: 50px 60px
+    padding-left: 100px
     .container
       margin-top: 20px
   .col-member
     background-color: #eee
+    padding: 40px
+    box-sizing: border-box
+    display: flex
+    justify-content: center
+    align-items: center
+    .card
+      text-align: center
+      display: flex
+      justify-content: center
+      width: 100%
+      box-sizing: border-box
+      flex-direction: column
+      .card-loading
+        position: absolute
+        width: 100%
+        height: 100%
+        background-color: rgba(#eee,0.6)
+        // opacity: 0.5
+        left: 0
+        top: 0
 
+      .top
+        display: flex
+        justify-content: center
+        flex-direction: column
+        align-items: center
+        margin-bottom: 3px
+        background-color: white
+        padding: 25px
+        padding-bottom: 0
+        .name
+          font-size: 18px
+      .bottom
+        background-color: white
+        padding: 25px
+      .photo
+        width: 100px
+        height: 100px
+        margin-top: 55px
+        margin-bottom: 40px
+        background-color: black
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: 80% auto
   .row-search
     .tags
       display: flex
