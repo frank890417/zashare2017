@@ -9,7 +9,7 @@
         .row.row-content
           router-link.col-sm-6(:to="`/expo/${expo.year}`")
             .cover(:style="bgcss(expo.cover)")
-          .col-sm-6
+          router-link.col-sm-6(:to="`/expo/${expo.year}/blog`")
             .cover(:style="bgcss(expo.report_cover)")
     
         

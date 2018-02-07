@@ -3,46 +3,66 @@
   .container
     .row.row-banner
       .col-sm-12
-        .cover(style="background-image: url('http://zashare.org/img/expo/2017/3.jpg')") BANNER
+        .cover(:style="bgcss(post.cover)")
     .row.row-header
       .col-sm-12
         .tag ZA COURSE
-        h1 地瓜校長的雜入學先修開課定案 !
-        h2 Ｃourse ００ ：不只知道，更能做到的練習
+        h1 {{ post.title }}
+        h2 {{ post.subtitle }}
       .col-sm-12
         div
-          p TIME: ２０１７/１０/２０-２２<br>PLACE: 華山1914文化創意產業園區
-          .tags #影音　#影音　#影音
+          p 上搞時間: {{ post.established_time }} 
+          span {{post.author}}
+          .tags
+            .hashtag(v-for="tag in hashtags") {{tag}}
     .row
       .col-sm-12
         hr
     .row.row-content
-      .col-sm-12
-        p 2018年雜選課Ｃourse 00 將於1月2號於線上開課囉！<br>想知道如何在學校、補習班以外學到其他能力、靠自己找出自己學習路徑的其他可能？就讓雜學校<br>校長－也是一人兼多職的雜學代表來談談他如何雜學？怎麼實踐雜學？
-        .quote 「給他魚不如教他做釣具，<br>與生活結合的知識提升孩童實踐力」
-        h2 每個孩子都該是第一名
-        p 在人生狂飆期的國高中階段，孩子需要甚麼？清水小校是一個共學團體，一所體制外的完全中學，以培養能獨立思考的現代公民為宗旨，採取師生共治校園共享知識，一同在宜蘭三星共創多元教育的可能。最特別的是，在清水小校中，學生能夠直接參與校園民主及學習組織、規劃與領導，而此次參展「雜學校」也是由學生親手規劃！
-        img
-        blockquote 清水小校登山課程學習搭帳篷、露宿帳。照片/取自清水手札粉絲專頁   楊宜臻/台北報導
-        h2 家鄉是核心，跳脫升學主義框架
-        p 在偏鄉其實有許多自然資源與機會，是都市的快步調生活中講求速成所不可能獲得的。既然如此，設計教學時更不該只想著如何讓偏鄉的孩子與都市競爭或是融入都市，而是要能夠幫助發展學生自力更生的能力。這樣的理念的核心就是擺在「以家為出發點，為家鄉融入新活力」，甚至，如果偏鄉學校發揮更大的功能，可以讓孩子把所學的知識可以帶回家中，幫助家中的經濟發展，一旦偏鄉家庭生計得到維持，偏鄉小校才有永續發展的機會。漁光的家長瞭解黃老師的理念，也看到孩子的成長，都非常支持這樣的教學模式。
-        img
-        blockquote 同樣是做實驗，如果只有溫度計、燒杯、 等臂天平那似乎少了些溫度也與學生的生活少了些連結，所以黃老師認為既然要做『水的三態』單元霜和露的實驗，不如延伸一個步驟來作炒冰，瞬間書本上的知識就一躍成為能與生活經驗結合的技能　　　照片提供／黃鴻志臉書 洪璿岳/台北報導
-        .quote 「給他魚不如教他做釣具，<br>與生活結合的知識提升孩童實踐力」
-        p 在偏鄉其實有許多自然資源與機會，是都市的快步調生活中講求速成所不可能獲得的。既然如此，設計教學時更不該只想著如何讓偏鄉的孩子與都市競爭或是融入都市，而是要能夠幫助發展學生自家庭生計得到維持，偏教學模式。
+      .col-sm-12(v-html="content")
+      
     .row.row-related
       .col-sm-12
         h3 相關消息
         hr
     .row
-      .col-sm-4(v-for="i in 3") 
-        
-        h4 阿滴英文
+      .col-sm-4(v-for="post in relatedPost") 
+        newsbox(:post='post', :target='`/expo/${$route.params.year}/blog/${post.id}`',tag)
 </template>
 
 <script>
-export default {
 
+import {mapState } from 'vuex'
+export default {
+  computed: {
+    ...mapState({
+      posts: state=>state.post.posts
+    }),
+    post(){
+      let result =  this.posts.find(o=>o.id==this.$route.params.post_id) || 
+        {
+          cover: "http://service.zashare.org/img/expo/2017/3.jpg",
+          title: "地瓜校長的雜入學先修開課定案 !",
+          subtitle: "Ｃourse ００ ：不只知道，更能做到的練習",
+          established_time: "2017/10/20-22",
+          content: `<p>2018年雜選課Ｃourse 00 將於1月2號於線上開課囉！<br>想知道如何在學校、補習班以外學到其他能力、靠自己找出自己學習路徑的其他可能？就讓雜學校<br>校長－也是一人兼多職的雜學代表來談談他如何雜學？怎麼實踐雜學？</p><div class="quote">「給他魚不如教他做釣具，<br>與生活結合的知識提升孩童實踐力」</div><h2>每個孩子都該是第一名</h2><p>在人生狂飆期的國高中階段，孩子需要甚麼？清水小校是一個共學團體，一所體制外的完全中學，以培養能獨立思考的現代公民為宗旨，採取師生共治校園共享知識，一同在宜蘭三星共創多元教育的可能。最特別的是，在清水小校中，學生能夠直接參與校園民主及學習組織、規劃與領導，而此次參展「雜學校」也是由學生親手規劃！</p><img><blockquote>清水小校登山課程學習搭帳篷、露宿帳。照片/取自清水手札粉絲專頁   楊宜臻/台北報導</blockquote><h2>家鄉是核心，跳脫升學主義框架</h2><p>在偏鄉其實有許多自然資源與機會，是都市的快步調生活中講求速成所不可能獲得的。既然如此，設計教學時更不該只想著如何讓偏鄉的孩子與都市競爭或是融入都市，而是要能夠幫助發展學生自力更生的能力。這樣的理念的核心就是擺在「以家為出發點，為家鄉融入新活力」，甚至，如果偏鄉學校發揮更大的功能，可以讓孩子把所學的知識可以帶回家中，幫助家中的經濟發展，一旦偏鄉家庭生計得到維持，偏鄉小校才有永續發展的機會。漁光的家長瞭解黃老師的理念，也看到孩子的成長，都非常支持這樣的教學模式。</p><img><blockquote>同樣是做實驗，如果只有溫度計、燒杯、 等臂天平那似乎少了些溫度也與學生的生活少了些連結，所以黃老師認為既然要做『水的三態』單元霜和露的實驗，不如延伸一個步驟來作炒冰，瞬間書本上的知識就一躍成為能與生活經驗結合的技能　　　照片提供／黃鴻志臉書 洪璿岳/台北報導</blockquote><div class="quote">「給他魚不如教他做釣具，<br>與生活結合的知識提升孩童實踐力」</div><p>在偏鄉其實有許多自然資源與機會，是都市的快步調生活中講求速成所不可能獲得的。既然如此，設計教學時更不該只想著如何讓偏鄉的孩子與都市競爭或是融入都市，而是要能夠幫助發展學生自家庭生計得到維持，偏教學模式。</p>`
+        }
+      return result
+    },
+    hashtags(){
+      return JSON.parse(this.post.hashtag || "[]")
+    },
+    content(){
+      return this.post.content
+        .replace(/\.\.\/\.\.\//g,"/")
+        .replace(/\/dropzone\/uploads/g,"http://service.zashare.org/dropzone/uploads")
+        // .replace(/..\/..\//g,"/")
+    },
+    relatedPost(){
+      return this.posts.slice(0,3)
+    }
+
+  }
 }
 </script>
 
@@ -59,10 +79,12 @@ export default {
 
   .row-banner
     .cover
-      min-height: 500px
+      min-height: 530px
       background-color: #eee
       margin-bottom: 60px
-      background-attachment: fixed
+      // background-attachment: fixed
+      background-position: center center
+      background-size: cover
       
   .row-header
     padding-left: 105px
@@ -81,6 +103,18 @@ export default {
       padding: 3px 10px
       display: inline-block
       font-weight: 900
+    .hashtag
+      background-color: black
+      color: white
+      padding: 3px 10px
+      border-radius: 5px
+      margin-left: 5px
+      letter-spacing: 2px
+      display: inline-block
+      font-weight: 600
+      
+      &:before
+        content: "#"
     .tags
       position: absolute
       right: 0
@@ -111,15 +145,16 @@ export default {
     p
       font-size: 16px
       line-height: 1.88
+      &+blockquote
+        margin-top: -35px
+        margin-bottom: 42px
+        line-height: 2
     img
       width: 100%
       min-height: 300px
       background-color: #eee
       margin-top: 42px
       margin-bottom: 42px
-      &+blockquote
-        margin-top: -14px
-        margin-bottom: 42px
 
     .quote
       font-size: 30px

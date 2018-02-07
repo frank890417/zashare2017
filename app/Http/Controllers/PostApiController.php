@@ -20,9 +20,9 @@ class PostApiController extends Controller
             // echo $post->company ;
             $post["company"] = $post->company;
             $post["cata"] = $post->cata;
-            $post["content"] = "";
-            $post["teach_thing"] = "";
-            $post["learn_thing"] = "";
+            // $post["content"] = "";
+            // $post["teach_thing"] = "";
+            // $post["learn_thing"] = "";
         }
         return $posts;
     }

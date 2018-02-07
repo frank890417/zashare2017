@@ -18,6 +18,15 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+
+import VueAnalytics from 'vue-analytics'
+if (document.domain =="zashare.org") {
+  Vue.use(VueAnalytics, {
+    id: 'UA-52977512-12',
+    router
+  })
+}
+
 // import VueQuillEditor from 'vue-quill-editor'
 
 // Vue.use(VueQuillEditor, /* { default global options } */)
@@ -31,7 +40,8 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 axios.defaults.baseURL = process.env.API_DOMAIN;
 
 store.dispatch("auth/init")
-store.dispatch("manage/loadWebsite")
+store.dispatch("post/loadWebsite")
+
 
 Vue.config.productionTip = false
 
@@ -46,9 +56,15 @@ Vue.component("auth_panel", auth_panel)
 
 Vue.mixin({
   methods: {
+    replaceBr(text){
+      return text.replace(/\n/g,"<br>")
+    },
     bgcss(url){
+      let trans_url = (url || "")
+        .replace(/..\/..\//g,"/")
+        .replace(/\/dropzone\/uploads/g, "http://service.zashare.org/dropzone/uploads/")
       return {
-        'background-image': `url("${url}")`
+        'background-image': `url("${trans_url}")`
       }
 
     }, strip_tags(txt) {

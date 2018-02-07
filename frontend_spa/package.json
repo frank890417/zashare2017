@@ -15,7 +15,9 @@
   "dependencies": {
     "element-ui": "^2.1.0",
     "vue": "^2.5.2",
+    "vue-analytics": "^5.8.0",
     "vue-axios": "^2.0.2",
+    "vue-meta": "^1.4.2",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

@@ -7,7 +7,7 @@ const moduleAuth = {
     user: null,
     processing: false,
     status: "",
-    domain: "/api/auth"
+    domain: "api/auth"
   },
   mutations: {
     setUserToken(state, value) {
@@ -92,7 +92,7 @@ const moduleAuth = {
       if (state.user){
         return state.user.cover
       } else {
-        return "http://zashare.org/img/2017/index_za_logo_white.svg"
+        return "http://service.zashare.org/img/2017/index_za_logo_white.svg"
 
       }
 

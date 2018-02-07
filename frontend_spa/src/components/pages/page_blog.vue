@@ -3,7 +3,7 @@
   .container
     .row
       .col-sm-12
-        h2 News
+        //- h2 News
     .row
       .col-sm-12
         .row.row-head-news
@@ -14,9 +14,11 @@
             //- .cover(:style="bgcss('http://via.placeholder.com/800x600')")
           .col-sm-4.col-info
             .tag ZA COURSE
-            h2 地瓜校長的雜入學先修開課定案 !
+            h3.slide-company {{ slides[currentSlideId].company.name_cht }}
+            h2.slide-title {{ slides[currentSlideId].title }}
             hr
-            p 2018年雜選課Ｃourse 00 即將於 1月2號正式上線...
+            p {{ strip_tags(slides[currentSlideId].content).slice(0,60) }}...
+            router-link.btn.nostyle(:to="`/expo/${$route.params.year}/blog/${slides[currentSlideId].id}`") 閱讀更多
     .row
       .col-sm-12
         h4.cata-title 文章分類
@@ -31,14 +33,14 @@
              @click="nowCata='expo'") ZA EXPO
     .row
       .col-sm-4(v-for="post in use_posts").col-news
-        newsbox(:post='post', :target='`/news/${post.id}`',tag)
-        router-link.news_box.animated.fadeIn(to="/news/test")
-          .row
-            .col-sm-12.col-cover
-              .cover(:style="bgcss(post.cover)")
-                .tag ZA EXPO
-            .col-sm-12.col-info
-              h3 {{post.title}}
+        newsbox(:post='post', :target='`/expo/${$route.params.year}/blog/${post.id}`',tag)
+        //- router-link.news_box.animated.fadeIn(to="/news/test")
+        //-   .row
+        //-     .col-sm-12.col-cover
+        //-       .cover(:style="bgcss(post.cover)")
+        //-         .tag ZA EXPO
+        //-     .col-sm-12.col-info
+        //-       h3 {{post.title}}
               //- p {{ post.description.slice(0,50) }}
 </template>
 
@@ -46,46 +48,61 @@
 import axios from 'axios'
 import $ from 'jquery'
 import slick from 'slick-carousel'
+import {mapState } from 'vuex'
 export default {
   data(){
     return {
       nowCata: "",
-      posts: [],
+      // posts: [],
         slickOptions: {
             slidesToShow: 1,
             arrows: false,
             autoplay: true
             // Any other options that can be got from plugin documentation
         },
+      currentSlideId: 0
     }
   },
   computed: {
+    ...mapState({
+      posts: state=>state.post.posts
+    }),
     use_posts(){
-      return this.posts.slice(3,12).map(o=> 
-        ({...o,cover: "http://zashare.org/"+o.cover})
-      )
+      let use_source = []
+      if (this.$route.params.year){
+        use_source = this.posts.filter(o=>o.year==this.$route.params.year)
+      }
+      use_source = use_source.filter(o=>o.status=="published")
+      return use_source.slice(3,15)
 
     },
     slides(){
-      return this.posts.slice(0,3).map(o=> 
-        ({...o,cover: "http://zashare.org/"+o.cover}))
+      return this.posts.slice(0,3)
+    },
+
+  },
+  watch: {
+    slides(){
+      if (this.slides.length>0){
+        this.$nextTick(() => {
+          $(".slick").slick(
+            this.slickOptions
+          )
+          let _this=this
+          $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+            console.log(nextSlide)
+            _this.currentSlideId=nextSlide
+          })
+
+        });
+      }
     }
   },
   mounted(){
-    axios.get("/api/post").then(res=>{
-      this.posts=res.data
-    })
-    this.$nextTick(() => {
-      $(".slick").slick(
-        this.slickOptions
-      )
-      let _this=this
-      $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-        console.log(nextSlide)
-        _this.currentSlideId=nextSlide
-      })
-
-    });
+    // axios.get("/api/post").then(res=>{
+    //   this.posts=res.data
+    // })
+    
      
   }
 }
@@ -95,11 +112,19 @@ export default {
 <style lang="sass">
 
 .page-news
+  padding-top: 60px
   text-align: left
   background-color: #fafafa
-
+  .slide-company
+    margin-bottom: 0
+  .slide-title
+    font-size: 24px
+    font-weight: 900
+    margin-bottom: 0
+    border-bottom: solid 1px rgba(black,0.3)
+    padding-bottom: 20px
   .cover
-    min-height: 250px
+    min-height: 240px
     background-size: cover
     background-position: center center
     position: relative
@@ -119,25 +144,9 @@ export default {
       position: relative
       margin: -15px
 
-    .news_box
-      background-color: #fff
-      box-sizing: border-box
-      position: relative
-      margin-bottom: 50px
-      border-bottom: solid 5px #999
-      cursor: pointer
-      display: block
-
-      text-decoration: none
-      color: black
-      // margin: 10px
-      h3
-        line-height: 1.67
-      .col-info
-        // padding: 10px
-        padding: 30px
-          top: 0px
-        box-sizing: border-box
+  a.btn
+    display: inline-block
+    
 
 .row-head-news
   .cover
