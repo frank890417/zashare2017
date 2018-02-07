@@ -4,7 +4,7 @@
     .row
       .col-sm-12
         el-breadcrumb(separator="/")
-          el-breadcrumb-item(:to="{ path: '/post' }") 文章列表
+          el-breadcrumb-item(:to="{ path: '/manage/post' }") 文章列表
           el-breadcrumb-item 文章編輯
         br
         br
@@ -141,7 +141,7 @@ export default {
   },
   mounted(){
     if (this.$route.params.id){
-      this.axios.get("/api/spa/post/"+this.$route.params.id).then(res=>{
+      this.axios.get("/api/post/"+this.$route.params.id).then(res=>{
         this.post=res.data
         if (!this.post.hashtag){
           this.post.hashtag=[]

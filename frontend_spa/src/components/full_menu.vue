@@ -48,52 +48,7 @@
               .col-sm-4
                 p 網站製作：墨雨設計<br>© 2018 雜学校 Za Share All Rights Reserved.
         .col-member.col-sm-3
-          .card
-            transition(name="fade")
-              .card-loading(v-if="auth.processing")
-            .top
-              .photo(:style="bgcss(getUserPhoto(auth.user))")
-              h3.name
-                span(v-if="auth.user") Hello ! 雜學校學生　{{auth.user.name}}
-                span(v-else) 這名學生未登入哦！
-            .bottom(v-if="mode=='login' && !auth.user")
-              h4 登入雜學校
-              //- label 信箱
-              input(v-model="loginData.email", placeholder="信箱")
-              //- label 密碼
-              input(v-model="loginData.password", placeholder="密碼", type="password")
-              button.btn.fw.black(@click="login(loginData)") 登入
-              button.btn.fw(@click="loginFacebook") 使用 Facebook 登入
-              button.btn.fw.nobg 忘記密碼
-              button.btn.fw.nobg(@click="mode='register'") 註冊為雜學校學生
-            .bottom(v-if="mode=='register' && !auth.user")
-              h4 會員註冊
-              //- label email
-              input(v-model="registerData.email", placeholder="信箱")
-              //- label name
-              input(v-model="registerData.name", placeholder="名字")
-              input(v-model="registerData.password", placeholder="密碼", type="password")
-              button.btn.fw.black(@click="register(registerData)") 註冊
-              label(v-if="auth.status") {{auth.status}}
-              button.btn.fw.nobg(@click="mode='login'") 我已經有帳號了！ 前往登入
-            .bottom(v-if="auth.user")
-              h4 學生簡介
-              label 學生證卡號：
-                .float.right 100999
-              label 學生證級別：
-                .float.right 建校元老
-              label 會員效期：
-                .float.right 2018/12/31
-            
-              .btn-group
-                button.btn.fw.black(@click="logout") 登出
-                router-link.btn.fw(to="/member/setting") 設定
-
-                          
-              //pre {{auth}}
-
-
-
+          auth_panel
 </template>
 
 <script>
@@ -128,7 +83,8 @@ export default {
       authInit: "auth/init"
     }),
     ...mapGetters({
-      getUserPhoto: 'auth/getUserPhoto'
+      getUserPhoto: 'auth/getUserPhoto',
+      isAdmin: 'auth/isAdmin'
     })
   },
   mounted(){

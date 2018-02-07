@@ -36,8 +36,11 @@ html,body
   border: solid 1px #ccc
   display: inline-block
   margin-top: 10px
-  &:hover
-    background-color: #eee
+  font-size: 12px
+  text-decoration: none
+  // color: inherit
+  // &:hover
+    // background-color: #eee
 
   &.fw
     width: 100%
@@ -48,7 +51,7 @@ html,body
     background-color: black
     color: white
     &:hover
-      background-color: 
+      background-color: #333
   &.nobg
     color: #333
     background-color: transparent

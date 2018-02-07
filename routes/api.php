@@ -18,25 +18,7 @@ use Illuminate\Http\Request;
 
 // })->middleware('auth:api');
 
-Route::group([
-    // 'middleware' => 'jwt.auth',
-    // 'namespace' => 'App\Http\Controllers',
-    'prefix' => 'auth'
-], function ($router) {
-    Route::get('login/facebook', 'AuthController@redirectToProvider');
-    Route::get('login/facebook/callback', 'AuthController@handleProviderCallback');
-    
-    Route::post('register', 'AuthController@register');
-    Route::post('login', 'AuthController@login');
-    Route::post('logout', 'AuthController@logout');
-    Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
 
-});
-
-Route::post('upload',"ApiController@upload_image");
-Route::get('/page/blog','HomeController@postpage_api');
-Route::get('/post/n/{title}','PostController@show_name_api');
 
 Route::group(['middleware'=>['cors']],function(){
   Route::resource('post',"PostApiController");
@@ -45,6 +27,26 @@ Route::group(['middleware'=>['cors']],function(){
   Route::post('upload',"ApiController@upload_image");
   // Auth::routes();
   Route::post("login","Auth\LoginController@postLogin");
+
+  Route::post('upload',"ApiController@upload_image");
+// Route::get('/page/blog','HomeController@postpage_api');
+// Route::get('/post/n/{title}','PostController@show_name_api');
+
+  Route::group([
+      // 'middleware' => 'jwt.auth',
+      // 'namespace' => 'App\Http\Controllers',
+      'prefix' => 'auth'
+  ], function ($router) {
+      Route::get('login/facebook', 'AuthController@redirectToProvider');
+      Route::get('login/facebook/callback', 'AuthController@handleProviderCallback');
+      
+      Route::post('register', 'AuthController@register');
+      Route::post('login', 'AuthController@login');
+      Route::post('logout', 'AuthController@logout');
+      Route::post('refresh', 'AuthController@refresh');
+      Route::post('me', 'AuthController@me');
+
+  });
 });
 
 // Route::group(['middleware'=>['cors']] , function(){

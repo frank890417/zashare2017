@@ -115,7 +115,7 @@ export default {
   },
   mounted(){
     if (this.$route.params.id){
-      this.axios.get("/api/spa/company/"+this.$route.params.id).then(res=>{
+      this.axios.get("/api/company/"+this.$route.params.id).then(res=>{
         this.company=res.data
         // if (!this.company.hashtag){
         //   this.company.hashtag=[]

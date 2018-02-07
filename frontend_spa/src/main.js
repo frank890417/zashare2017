@@ -38,9 +38,11 @@ Vue.config.productionTip = false
 import navbar from './components/navbar.vue'
 import full_menu from './components/full_menu.vue'
 import newsbox from './components/newsbox.vue'
+import auth_panel from './components/auth_panel.vue'
 Vue.component("navbar", navbar)
 Vue.component("full_menu", full_menu)
 Vue.component("newsbox", newsbox)
+Vue.component("auth_panel", auth_panel)
 
 Vue.mixin({
   methods: {
