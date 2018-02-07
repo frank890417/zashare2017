@@ -61,7 +61,7 @@
               //- label 信箱
               input(v-model="loginData.email", placeholder="信箱")
               //- label 密碼
-              input(v-model="loginData.password", placeholder="密碼")
+              input(v-model="loginData.password", placeholder="密碼", type="password")
               button.btn.fw.black(@click="login(loginData)") 登入
               button.btn.fw(@click="loginFacebook") 使用 Facebook 登入
               button.btn.fw.nobg 忘記密碼
@@ -102,14 +102,14 @@ export default {
   data() {
     return {
       registerData: {
-        email: "test12345@gmail.com",
-        name: "test",
-        password: "test1234",
+        email: "",
+        name: "",
+        password: "",
         
       },
       loginData: {
-        email: "frank890417@gmail.com",
-        password: "@##434frt))",
+        email: "",
+        password: "",
         
       },
       mode: "login"
