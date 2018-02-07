@@ -2,9 +2,11 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
 Vue.use(Vuex);
+
 const store = new Vuex.Store({
   modules: {
     auth: require("./modules/auth.js").default,
+    manage: require("./modules/manage.js").default
   },
   state: {
     themes: require("../data/themes.js").default,

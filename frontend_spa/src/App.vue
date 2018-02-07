@@ -1,5 +1,6 @@
 <template lang="pug">
   #app(:class="{noScroll: menuState}")
+    //- transition(name="page")
     router-view(:key="$route.path")
     navbar
     full_menu

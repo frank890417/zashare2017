@@ -63,7 +63,8 @@ export default {
       let width = this.$route.meta.navWidth || "450px"
       return {
         width,
-        right: this.$route.meta.navPosition!='left'?"0px":`calc(100% - ${width})`
+        right: this.$route.meta.navPosition!='left'?"0px":`calc(100% - ${width})`,
+        display: this.$route.path.indexOf("/manage")==0 ? "none":"block"
       }
     }
   },

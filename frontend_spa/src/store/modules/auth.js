@@ -5,7 +5,8 @@ const moduleAuth = {
     token: localStorage.zashare_auth_user_token || null,
     user: null,
     processing: false,
-    status: ""
+    status: "",
+    domain: "/api/auth"
   },
   mutations: {
     setUserToken(state, value) {
@@ -33,7 +34,7 @@ const moduleAuth = {
     },
     register(context, user) {
       context.commit("setProcessing",true)
-      axios.post("/api/auth/register", user).then((res) => {
+      axios.post(context.state.domain+"/register", user).then((res) => {
         context.commit("setUserToken", res.data)
         context.dispatch("getUser")
       }).catch((res) => {
@@ -48,13 +49,13 @@ const moduleAuth = {
     },
     login(context, user) {
       context.commit("setProcessing", true)
-      axios.post("/api/auth/login", user).then((res) => {
+      axios.post(context.state.domain+"/login", user).then((res) => {
         context.commit("setUserToken", res.data.access_token)
         context.dispatch("getUser")
       })
     },
     getUser(context) {
-      axios.post("/api/auth/me", {
+      axios.post(context.state.domain+"/me", {
         token: context.state.token
       }).then((res) => {
         context.commit("setUser", res.data)
@@ -65,7 +66,7 @@ const moduleAuth = {
     },
     logout(context) {
       context.commit("setProcessing", true)
-      axios.post("/api/auth/logout", {
+      axios.post(context.state.domain+"/logout", {
         token: context.state.token
       }).then((res) => {
         if (res.data.status == "success") {
@@ -78,7 +79,7 @@ const moduleAuth = {
       })
     },
     loginFacebook(context){
-      window.open("/api/auth/login/facebook")
+      window.open(context.state.domain+"/login/facebook")
     },
   },
   getters: {

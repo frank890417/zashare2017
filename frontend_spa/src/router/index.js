@@ -9,6 +9,14 @@ import pageExpoYear from '@/components/pages/page_expo_year.vue'
 
 Vue.use(Router)
 
+import manage_layout from '@/components/manage/manage_layout'
+import manage_post from '@/components/manage/manage_post'
+import manage_team from '@/components/manage/manage_team'
+import manage_cata from '@/components/manage/manage_cata'
+import manage_post_edit from '@/components/manage/manage_post_edit'
+import manage_company_edit from '@/components/manage/manage_team_edit'
+
+
 export default new Router({
   // mode: "history",
   routes: [
@@ -49,7 +57,6 @@ export default new Router({
     },
     {
       path: '/news/:id',
-      name: 'news',
       component: pagePost,
       meta: {
         type: "news",
@@ -115,7 +122,45 @@ export default new Router({
         navPosition: "left"
       }
     },
-
+    {
+      path: '/manage',
+      meta: {
+        manage: true,
+        navHide: true
+      },
+      component: manage_layout,
+      children: [
+        {
+          path: '',
+          redirect: '/manage/post',
+          // component: manage_post
+        },
+        {
+          path: 'post',
+          name: 'post list',
+          component: manage_post
+        }, {
+          path: 'company',
+          name: 'company list',
+          component: manage_team
+        }, {
+          path: 'cata',
+          name: 'cata list',
+          component: manage_cata
+        },
+        {
+          path: 'post/new',
+          name: 'HelloWorld',
+          component: manage_post_edit
+        }, {
+          path: 'post/:id',
+          component: manage_post_edit
+        }, {
+          path: 'company/:id',
+          component: manage_company_edit
+        },
+      ]
+    }
 
   ]
 })

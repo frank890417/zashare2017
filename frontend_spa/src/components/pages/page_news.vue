@@ -31,6 +31,7 @@
              @click="nowCata='expo'") ZA EXPO
     .row
       .col-sm-4(v-for="post in use_posts").col-news
+        newsbox(:post='post', :target='`/news/${post.id}`',tag)
         router-link.news_box.animated.fadeIn(to="/news/test")
           .row
             .col-sm-12.col-cover

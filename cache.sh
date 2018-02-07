@@ -12,6 +12,6 @@ composer dump-autoload
 # php artisan optimize --force
 
 gulp --production
-cd manage_spa
+cd frontend_spa
 npm run build
 cd ..
