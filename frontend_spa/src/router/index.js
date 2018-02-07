@@ -18,7 +18,7 @@ import manage_company_edit from '@/components/manage/manage_team_edit'
 
 
 export default new Router({
-  // mode: "history",
+  mode: "history",
   routes: [
     {
       path: '/',
