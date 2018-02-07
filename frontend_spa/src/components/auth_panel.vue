@@ -6,14 +6,14 @@
     .top
       .photo(:style="bgcss(getUserPhoto(auth.user))")
       h3.name
-        span(v-if="auth.user") Hello ! 雜學校學生　{{auth.user.name}}
-        span(v-else) 這名學生未登入哦！
+        span(v-if="auth.user") {{ auth.status ||  `Hello ! 雜學校學生　${auth.user.name}` }}
+        span(v-else) {{ auth.status || '這名學生未登入哦！' }}
     .bottom(v-if="mode=='login' && !auth.user")
       h4 登入雜學校
       //- label 信箱
       input(v-model="loginData.email", placeholder="信箱")
       //- label 密碼
-      input(v-model="loginData.password", placeholder="密碼", type="password")
+      input(v-model="loginData.password", placeholder="密碼" , type="password")
       button.btn.fw.black(@click="login(loginData)") 登入
       button.btn.fw(@click="loginFacebook") 使用 Facebook 登入
       button.btn.fw.nobg 忘記密碼

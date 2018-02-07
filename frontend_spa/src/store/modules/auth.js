@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const moduleAuth = {
   namespaced: true,
   state: {
@@ -52,6 +53,10 @@ const moduleAuth = {
       axios.post(context.state.domain+"/login", user).then((res) => {
         context.commit("setUserToken", res.data.access_token)
         context.dispatch("getUser")
+      }).catch(res => {
+        context.commit("setProcessing", false)
+        context.commit("setStatus", "登入失敗..")
+        
       })
     },
     getUser(context) {
