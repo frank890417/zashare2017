@@ -13,7 +13,7 @@
                 input(placeholder="搜尋雜學校")
               .col-sm-12
                 .tags
-                  .tag(v-for="i in 10") 地瓜
+                  .tag(v-for="tag in tags") {{tag}}
             .row(@click="setMenuState(false)")
               router-link.col-sm-4(to="/")
                 h2 Home
@@ -56,18 +56,7 @@ import {mapState,mapMutations, mapActions, mapGetters} from 'vuex'
 export default {
   data() {
     return {
-      registerData: {
-        email: "",
-        name: "",
-        password: "",
-        
-      },
-      loginData: {
-        email: "",
-        password: "",
-        
-      },
-      mode: "login"
+      tags: "師培、教具、國小學童、偏鄉、國中生、高中生、大學生、實驗教育、媒體、線上、空間、工作坊".split("、"),
     }
   },
   computed: {

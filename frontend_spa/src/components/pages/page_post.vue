@@ -159,6 +159,12 @@ export default {
         margin-top: -35px
         margin-bottom: 42px
         line-height: 2
+
+    a
+      color: #0F57ED
+      text-decoration: none
+      font-weight: 600
+
     img
       width: 100%
       min-height: 300px

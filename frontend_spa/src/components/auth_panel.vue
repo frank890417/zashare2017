@@ -11,7 +11,7 @@
     .bottom(v-if="mode=='login' && !auth.user")
       h4 登入雜學校
       //- label 信箱
-      input(v-model="loginData.email", placeholder="信箱")
+      input(v-model="loginData.email", placeholder="信箱", type="email")
       //- label 密碼
       input(v-model="loginData.password", placeholder="密碼" , type="password")
       button.btn.fw.black(@click="login(loginData)") 登入
@@ -21,9 +21,9 @@
     .bottom(v-if="mode=='register' && !auth.user")
       h4 會員註冊
       //- label email
-      input(v-model="registerData.email", placeholder="信箱")
+      input(v-model="registerData.email", placeholder="信箱", type="email")
       //- label name
-      input(v-model="registerData.name", placeholder="名字")
+      input(v-model="registerData.name", placeholder="名字", type="name")
       input(v-model="registerData.password", placeholder="密碼", type="password")
       button.btn.fw.black(@click="register(registerData)") 註冊
       label(v-if="auth.status") {{auth.status}}

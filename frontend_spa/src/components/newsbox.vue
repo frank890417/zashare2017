@@ -30,12 +30,19 @@ export default {
   text-decoration: none
   color: black
   // margin: 10px
+  &:hover
+    .col-cover .cover
+      background-size: 120% auto
+      
   .col-cover
     .cover
       min-height: 240px
-      background-size: cover
+      background-size: 110% auto
+
       background-position: center center
       position: relative
+      transition: 0.5s
+
     .tag
       position: absolute
       left: 0
@@ -46,6 +53,10 @@ export default {
       font-weight: 900
   h3
     line-height: 1.67
+    letter-spacing: 1px
+    font-size: 18px
+    text-align: left
+    // background-color: #fafafa
   .col-info
     // padding: 10px
     padding: 30px

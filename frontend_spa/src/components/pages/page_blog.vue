@@ -83,26 +83,43 @@ export default {
   },
   watch: {
     slides(){
+      let _this = this
+      console.log("slide change")
       if (this.slides.length>0){
-        this.$nextTick(() => {
-          $(".slick").slick(
-            this.slickOptions
-          )
-          let _this=this
-          $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-            console.log(nextSlide)
-            _this.currentSlideId=nextSlide
-          })
+        setTimeout(()=>{
+          _this.$nextTick(() => {
+            $(".slick").slick(
+              this.slickOptions
+            )
+            let _this=this
+            $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+              console.log(nextSlide)
+              _this.currentSlideId=nextSlide
+            })
 
-        });
+          });
+
+        },500)
       }
     }
   },
   mounted(){
-    // axios.get("/api/post").then(res=>{
-    //   this.posts=res.data
-    // })
-    
+    let _this = this
+    setTimeout(()=>{
+      _this.$nextTick(() => {
+        $(".slick").slick(
+          this.slickOptions
+        )
+        let _this=this
+        $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+          console.log(nextSlide)
+          _this.currentSlideId=nextSlide
+        })
+
+      });
+
+    },200)
+
      
   }
 }
