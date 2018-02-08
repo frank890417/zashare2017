@@ -160,9 +160,9 @@ export default {
           ['clean']                                         // remove formatting button
       ],
       editorSettings: {
-        modules: {
-          counter: true
-        }
+        // modules: {
+        //   counter: true
+        // }
       },
       post: {
         year: "2017",
