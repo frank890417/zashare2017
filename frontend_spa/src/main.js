@@ -35,7 +35,7 @@ Vue.use(VueAxios, axios)
 
 Vue.use(ElementUI)
 
-axios.defaults.timeout = 5000;
+// axios.defaults.timeout = 5000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 axios.defaults.baseURL = process.env.API_DOMAIN;
 
