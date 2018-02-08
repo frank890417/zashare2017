@@ -41,7 +41,7 @@ axios.defaults.baseURL = process.env.API_DOMAIN;
 
 store.dispatch("auth/init")
 store.dispatch("post/loadWebsite")
-
+store.dispatch("manage/loadWebsite")
 
 Vue.config.productionTip = false
 

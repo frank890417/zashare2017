@@ -98,7 +98,10 @@ const moduleAuth = {
 
     },
     isAdmin: state => {
-      return state.user && state.user.group=='admin'
+      if (state.user){
+        return state.user.group == 'admin'
+      }
+      return false
     }
 
   }

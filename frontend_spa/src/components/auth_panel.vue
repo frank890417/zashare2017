@@ -50,13 +50,13 @@
       .btn-group
         button.btn.fw.black(@click="logout") 登出
         router-link.btn.fw(to="/member/setting") 設定
-      .btn-group(v-if="isAdmin", @click="setMenuState(false)")
+      .btn-group(v-if="isAdmin()", @click="setMenuState(false)")
         router-link.btn.fw.black(to="/manage") 前往後台
   div(v-if="layout=='function'")
     .btn-group
       button.btn.fw.black(@click="logout") 登出
       router-link.btn.fw(to="/member/setting") 設定
-    .btn-group(v-if="isAdmin", @click="setMenuState(false)")
+    .btn-group(v-if="isAdmin()", @click="setMenuState(false)")
       router-link.btn.fw.black(to="/manage") 前往後台
     //pre {{auth}}
 

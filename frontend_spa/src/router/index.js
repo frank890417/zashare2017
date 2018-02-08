@@ -206,7 +206,7 @@ router.beforeEach((to, from, next) => {
 
 
   if (to.path.indexOf("/manage") == 0) {
-    store.dispatch("manage/loadWebsite")
+    
     window.softScrollDisable = true
   } else {
     window.softScrollDisable = false
