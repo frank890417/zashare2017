@@ -2,8 +2,8 @@
 router-link.news_box.animated.fadeIn(:to="target")
   .row
     .col-sm-12.col-cover
-      .cover(:style="bgcss(post.cover)")
-        .tag {{ 'ZA SHARE' || tag}}
+      .cover.news_box_cover(:style="bgcss(post.cover)")
+        .tag {{ tag || 'ZA SHARE'}}
     .col-sm-12.col-info
       h3 {{post.title}}
       //- p {{ post.description.slice(0,50) }}
@@ -23,7 +23,6 @@ export default {
   box-sizing: border-box
   position: relative
   margin-bottom: 50px
-  border-bottom: solid 5px #999
   cursor: pointer
   display: block
 
@@ -31,17 +30,21 @@ export default {
   color: black
   // margin: 10px
   &:hover
-    .col-cover .cover
+    .col-cover .cover.news_box_cover
       background-size: 120% auto
       
   .col-cover
-    .cover
-      min-height: 240px
+    .cover.news_box_cover
+      height: 0
+      width: 100%
+      min-height: 0
+      padding-bottom: 60%
       background-size: 110% auto
 
       background-position: center center
       position: relative
       transition: 0.5s
+      
 
     .tag
       position: absolute
@@ -55,6 +58,7 @@ export default {
     line-height: 1.67
     letter-spacing: 1px
     font-size: 18px
+    min-height: 2em
     text-align: left
     // background-color: #fafafa
   .col-info
@@ -62,4 +66,15 @@ export default {
     padding: 30px
       top: 0px
     box-sizing: border-box
+    position: relative
+    &:after
+      content: ""
+      display: block
+      position: absolute
+      width: calc(100% - 30px)
+      height: 5px
+      left: 50%
+      bottom: 0
+      transform: translate(-50%)
+      background-color: #ccc
 </style>

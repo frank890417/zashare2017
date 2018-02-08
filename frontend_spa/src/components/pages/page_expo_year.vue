@@ -12,7 +12,7 @@
       .col-sm-12
         div
           p TIME: {{expo.year}}/{{expo.time}}<br>PLACE: {{expo.place}}
-          .tags #影音　#影音　#影音
+          //- .tags #影音　#影音　#影音
     .row
       .col-sm-12
         hr
@@ -24,9 +24,8 @@
         h3 推薦參展報導
         hr
     .row
-      .col-sm-4(v-for="i in 3") 
-        
-        h4 阿滴英文
+      .col-sm-4(v-for="post in recommandPosts") 
+        newsbox(:post='post', :target='`/expo/${$route.params.year}/blog/${post.id}`',tag="ZA EXPO")
         
 </template>
 
@@ -39,10 +38,18 @@ export default {
     } 
   },
   computed: {
-    ...mapState(['expos']),
+    ...mapState({
+      expos: state=>state.expos,
+      posts: state=>state.post.posts
+
+    }),
     expo(){
       return this.expos.find(o=>o.year==this.$route.params.year)
+    },
+    recommandPosts(){
+      return this.posts.filter(o=>o.year==this.$route.params.year).slice(0,3)
     }
+
   }
 }
 </script>

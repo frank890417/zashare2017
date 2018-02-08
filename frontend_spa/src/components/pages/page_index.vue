@@ -23,8 +23,10 @@ transition(name="fade")
             router-link.nostyle.btn(to="/news/1") 閱讀更多
             
             .btns
-              .prev(@click="prev") <
-              .next(@click="next") >
+              .prev(@click="prev")
+                i.fa.fa-chevron-left
+              .next(@click="next")
+                i.fa.fa-chevron-right
 </template>
 
 <script>
@@ -187,8 +189,11 @@ export default {
     margin: 20px
     cursor: pointer
     color: white
+    display: flex
+    justify-content: center
+    align-items: center
     &:hover
-      background-color: #eee
+      background-color: #444
 
   .prev
   .next

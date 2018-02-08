@@ -10,11 +10,14 @@
           .container.container-menu
             .row.row-search
               .col-sm-12
-                input(placeholder="搜尋雜學校")
+                input(placeholder="搜尋雜學校", v-model="searchKeyword")
+                div.clearInput(@click="searchKeyword=''" ,v-if="searchKeyword!=''")
+                  i.fas.fa-times
+                              
               .col-sm-12
-                .tags
-                  .tag(v-for="tag in tags") {{tag}}
-            .row(@click="setMenuState(false)")
+                .tags.scrollX
+                  .tag(v-for="tag in tags", @click="searchKeyword=tag") {{tag}}
+            .row( @click="setMenuState(false)" v-if="searchKeyword==''")
               router-link.col-sm-4(to="/")
                 h2 Home
                 p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化值、沒有框架...
@@ -25,7 +28,7 @@
                 h2 About
                 p 2018年起，我們試圖匯聚各個領域的燈塔，建立起教育與時俱進的指標，讓學習的方向更加明確與有邏輯。提供線下至線上、各種多元面向的課程選擇，以脈絡式的課程大綱進行規劃，讓自主學習這件事不是茫然地像在汪洋中學習。
             
-            .row(@click="setMenuState(false)")
+            .row(@click="setMenuState(false)" v-if="searchKeyword==''")
               router-link.col-sm-4(to="/course")
                 h2.nav-course ZA COURSE
                 p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化值、沒有框架...
@@ -35,6 +38,14 @@
               router-link.col-sm-4(to="/expo")
                 h2.nav-expo ZA EXPO
                 p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、框架...
+            div.row(v-if="searchKeyword!=''" 
+                    @click="setMenuState(false)").scrollY
+              newsbox.col-lg-4.col-md-6.col-sm-12(v-for="post in filteredPost", 
+                              :post = "post" ,
+                               :target='`/expo/blog/${post.id}`',
+                               :key="post.title",
+                              :tag="post.tag")
+
             .row
               .col-sm-12
                 hr
@@ -56,11 +67,18 @@ import {mapState,mapMutations, mapActions, mapGetters} from 'vuex'
 export default {
   data() {
     return {
-      tags: "師培、教具、國小學童、偏鄉、國中生、高中生、大學生、實驗教育、媒體、線上、空間、工作坊".split("、"),
+      tags: "師培、教具、國小學童、偏鄉、國中生、高中生、大學生、實驗教育、媒體".split("、"),
+      searchKeyword: ""
     }
   },
   computed: {
-    ...mapState(['menuState','auth'])
+    ...mapState({
+      menuState: state=>state.menuState,
+      posts: state => state.post.posts
+    }),
+    filteredPost(){
+      return this.posts.map(o=>({...o,tag: "ZA EXPO"})).filter(o=>JSON.stringify(o).indexOf(this.searchKeyword)!=-1)
+    }
   },
   methods: {
     ...mapMutations(['setMenuState']),
@@ -207,13 +225,33 @@ export default {
         background-repeat: no-repeat
         background-size: 80% auto
   .row-search
+    flex-shrink: 0
+    padding-bottom: 20px
+    .clearInput
+      position: absolute
+      font-size: 20px
+      top: 50%
+      right: -40px
+      transform: translateY(-50%)
+      cursor: pointer
+      transition: 0.5s
+      transform-origin: center center
+      &:hover
+        font-size: 25px
+      
+    input
+      font-size: 24px
     .tags
       display: flex
 
       .tag
+        white-space: nowrap
         margin: 10px
         background-color: #eee
         padding: 5px 10px
+        cursor: pointer
+        &:hover
+          background-color: #ddd
   .container-menu
     display: flex
     flex-direction: column

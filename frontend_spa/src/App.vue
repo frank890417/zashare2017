@@ -20,7 +20,6 @@ export default {
 <style lang="sass">
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css)
 
-
 html,body
   margin: 0
   padding: 0
@@ -29,7 +28,10 @@ html,body
 
 .noScroll
   // overflow-y: hidden
-
+.scrollY
+  overflow-y: scroll
+.scrollX
+  overflow-x: scroll
 .btn
   cursor: pointer
   padding: 8px 40px
@@ -77,7 +79,7 @@ html,body
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   text-align: center
-  color: #2c3e50
+  color: #000
   height: 100%
   width: 100%
   margin-top: 0

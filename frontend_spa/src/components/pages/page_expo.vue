@@ -34,6 +34,7 @@ export default {
   padding-left: 350px 
   box-sizing: border-box
   text-align: left
+  background-color: #fafafa
   .container-fluid
     padding: 50px
 

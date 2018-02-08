@@ -1,5 +1,5 @@
 <template lang="pug">
-.page.right.page-news.animated.slideInRight
+.page.right.page-blog.animated.slideInRight
   .container
     .row
       .col-sm-12
@@ -128,9 +128,10 @@ export default {
 
 <style lang="sass">
 
-.page-news
+.page-blog
   padding-top: 60px
   text-align: left
+  background-color: #fafafa
   background-color: #fafafa
   .slide-company
     margin-bottom: 0

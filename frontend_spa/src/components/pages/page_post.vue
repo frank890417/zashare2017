@@ -81,7 +81,7 @@ export default {
 .page-post
   padding-top: 100px
   padding-bottom: 100px
-
+  background-color: #fafafa
   hr
     margin-top: 30px
     margin-bottom: 30px
@@ -167,7 +167,8 @@ export default {
 
     img
       width: 100%
-      min-height: 300px
+      // min-height: 300px
+      height: auto
       background-color: #eee
       margin-top: 42px
       margin-bottom: 42px

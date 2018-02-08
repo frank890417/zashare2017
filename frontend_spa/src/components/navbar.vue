@@ -38,7 +38,7 @@
         //- span ZA<br>Course
         img(src="/static/img/Home/za-course.svg")
         router-link.upCircle.animated.zoomIn(
-          to="/",v-if="$route.path!='/'"
+          to="/",v-if="$route.meta.type=='theme'"
         ) 
       router-link.col-theme-nav.nav-base(to="/base")
         //- span ZA<br>Base
@@ -83,6 +83,8 @@ export default {
 </script>
 
 <style lang="sass">
+.animated.slideInUp
+  animation-delay: 0.8s
 .navbar
   position: fixed
   right: 0
@@ -108,7 +110,7 @@ export default {
     display: flex
     height: 100vh
     flex-direction: column
-    background-color: #fafafa
+    background-color: #fff
     justify-content: space-between
     
   .row-logo

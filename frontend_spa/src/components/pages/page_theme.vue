@@ -4,8 +4,8 @@
     .row
       .col-info(v-for="theme in [theme]", :key="theme.title")
         .info
-          .slogan
-            img.slogan_image.animated.slideInUp(:src="theme.slogan_image")
+          .slogan.animated.fadeIn
+            img.slogan_image.animated.slideInLeft(:src="theme.slogan_image")
           p.animated.fadeIn(v-html="theme.description")
           router-link.nostyle.btn(
             v-if="$route.meta.type=='theme'", 
@@ -37,6 +37,7 @@ export default {
 <style lang="sass" scoped>
 .page-course
   padding-right: 300px
+  background-color: #fafafa
 .row
   display: flex
   height: 100vh
@@ -48,7 +49,9 @@ export default {
   align-items: center
   // border: solid 1px
   flex: 1
-
+  
+  p.animated.fadeIn
+    animation-delay: 0.5s
 .col-info
   padding: 50px
   justify-content: center
@@ -70,15 +73,18 @@ export default {
       
 @keyframes flexIn
   0%
-    flex: 0
+    flex: 1
+    opacity: 0
   100%
-    flex: 1.2
+    flex: 1.1
+    opacity: 1
 .col-image
-  animation: flexIn 1s 
+  animation: flexIn 1s both
   transition: 0.5s
   flex: 1.2
+  animation-delay: 0.6s
   
   &:hover
-    flex: 1.4
+    flex: 1.2
   // background-color: #8135f9
 </style>
