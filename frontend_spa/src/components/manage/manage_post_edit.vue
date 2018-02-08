@@ -98,6 +98,7 @@
                 VueEditor.ve(id ="content", v-model="post.content",
                         :useCustomImageHandler="true",
                         :editorToolbar="customToolbar",
+                        :editorOptions="editorSettings",
                         @imageAdded="handleImageAdded",
                         style="height: 500px;margin-bottom: 50px" ) 
               //- el-input(v-model="post.content" autosize)
@@ -105,14 +106,42 @@
 
 <script>
 import default_pic_selector from '../default_pic_selector.vue'
-import { VueEditor } from 'vue2-editor'
+import { VueEditor, Quill  } from 'vue2-editor'
 import { mapState } from 'vuex'
+import $ from 'jquery'
+let quill_editor = null
+var Block = Quill.import('blots/block');
 
+class MyThing extends Block {}
+MyThing.blotName = 'my-thing';
+MyThing.className = 'quote';
+MyThing.tagName = 'div';
+
+Quill.register(MyThing);
+
+// Quill.register('modules/counter', function(quill, options) {
+//   // var container = document.querySelector('#counter');
+//   quill.on('editor-change', function() {
+//     quill_editor=quill
+//     console.log(quill_editor)
+//   //   var text = quill.getText();
+//   //   // There are a couple issues with counting words
+//   //   // this way but we'll fix these later
+//   //   // console.log(Quill)
+//   //   var range = quill.getSelection();
+//   //   if (range) {
+//   //     quill.insertText(range.index, "<div class='quote'>"+range+"</div>");
+//   //   }
+//   //   // container.innerText = text.split(/\s+/).length;
+//   });
+// });
 export default {
   data(){
     return {
        customToolbar: [
           ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+          
+          ['my-thing'],
           ['blockquote', 'code-block','image','video','link'],
 
           // [{ 'header': 1 }, { 'header': 2 }],               // custom button values
@@ -129,7 +158,12 @@ export default {
           [{ 'align': [] }],
 
           ['clean']                                         // remove formatting button
-],
+      ],
+      editorSettings: {
+        modules: {
+          counter: true
+        }
+      },
       post: {
         year: "2017",
         established_time: new Date().toLocaleDateString(),
@@ -138,7 +172,8 @@ export default {
        
       },
       create_mode: false,
-      defaut_hashtags: "師培、教具、國小學童、偏鄉、國中生、高中生、大學生、實驗教育、媒體、線上、空間、工作坊、技職、美感、文化、出走、輔導、maker"
+      defaut_hashtags: "師培、教具、國小學童、偏鄉、國中生、高中生、大學生、實驗教育、媒體、線上、空間、工作坊、技職、美感、文化、出走、輔導、maker",
+      quill_editor: null
     }
   },
   mounted(){
@@ -156,6 +191,20 @@ export default {
     }else{
       this.create_mode=true
     }
+    let _this = this
+    
+    // setTimeout(function(){
+    //   $(".ql-formats").eq(0).append("<button type='button'><div class='ql-box qicon ql-strike ql-active'></div></button>")
+    //   var customButton = document.querySelector('.ql-box');
+      
+    //   customButton.addEventListener('click', function() {
+    //     console.log(quill_editor)
+    //     var range = quill_editor.getSelection();
+    //     if (range) {
+    //       quill_editor.insertText(range.index, "<div class='quote'>"+range+"</div>");
+    //     }
+    //   });
+    // },1000)
   },
   components:{
     VueEditor,
@@ -220,15 +269,45 @@ export default {
 }
 </script>
 
-<style>
-hr{
-  margin-bottom: 30px;
-}
-.header{
-  margin-bottom: 30px;
-}
-.col-info{
+<style lang="sass">
+hr
+  margin-bottom: 30px
+.header
+  margin-bottom: 30px
+.col-info
   /* position: fixed; */
   /* padding-right: 50px */
-}
+button
+.ql-box
+.qicon
+  width: 16px 
+  height: 16px
+  border: solid 3px #333
+.ql-toolbar
+  text-align: left
+.ql-toolbar .ql-my-thing 
+  width: 60px !important
+
+.ql-toolbar .ql-my-thing:before 
+  content: ""
+  display: block
+  width: 16px 
+  height: 16px
+  border: solid 3px #333
+
+.quote
+  font-size: 20px
+  font-weight: 900
+  line-height: 1.6
+  text-align: center
+  
+  padding: 15px 15px
+  border: solid 6px
+  margin-top: 30px
+  margin-bottom: 30px
+  
+.my-thing 
+  background: #f00
+  color: #fff
+
 </style>
