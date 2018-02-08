@@ -6,7 +6,7 @@
         .cover(:style="bgcss(post.cover)")
     .row.row-header
       .col-sm-12
-        .tag ZA COURSE
+        .tag ZA EXPO
         h1 {{ post.title }}
         h2 {{ post.subtitle }}
       .col-sm-12

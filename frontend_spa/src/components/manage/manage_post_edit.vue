@@ -20,7 +20,7 @@
               
             el-col(:span="6")
               el-button(type="primary", @click="handleSave") 儲存更新 
-              router-link(:to="`/post/n/${post.title}`" ,target="_blank")
+              router-link(:to="`/expo/blog/${post.id}`" ,target="_blank")
                 el-button(type="primary") 前往文章
           hr
           br
@@ -145,6 +145,7 @@ export default {
     if (this.$route.params.id){
       this.axios.get("/api/post/"+this.$route.params.id).then(res=>{
         this.post=res.data
+        // if (this.post.cover.indexOf(""))
         if (!this.post.hashtag){
           this.post.hashtag=[]
         }

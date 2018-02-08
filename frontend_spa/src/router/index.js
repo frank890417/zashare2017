@@ -153,6 +153,20 @@ let router = new Router({
       }
     },
     {
+      path: '/expo/blog/:post_id',
+      name: 'expo_indep',
+      component: pagePost,
+      meta: {
+        navWidth: "350px",
+        action: "back",
+        back: {
+          name: "ZA EXPO",
+          path: "/expo"
+        },
+        navPosition: "left"
+      }
+    },
+    {
       path: '/manage',
       meta: {
         manage: true,
