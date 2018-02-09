@@ -43,7 +43,7 @@ class ApiController extends Controller
            Storage::put($path.$filename,$img->__toString());
   
   
-           return 'http://service.zashare.org/storage/'.$path.str_replace(" ","%20",$filename);
+           return '/storage/'.$path.str_replace(" ","%20",$filename);
        
                // Image::make($image->getRealPath())->resize(200, 200)->save($path);
                // $user->image = $filename;
