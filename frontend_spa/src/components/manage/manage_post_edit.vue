@@ -216,11 +216,11 @@ export default {
       this.post.cover=obj.url
     },
     getPreviewRoute(post){
-      if (this.meta.type=="post"){
-        return `/expo/${this.meta.year}/blog/${post.id}`
+      if (this.$route.meta.type=="post"){
+        return `/expo/${this.$route.meta.year}/blog/${post.id}`
       }
 
-      if (this.meta.type=="news"){
+      if (this.$route.meta.type=="news"){
         return `/news/${post.id}`
       }
     },
