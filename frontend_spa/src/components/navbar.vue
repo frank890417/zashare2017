@@ -4,7 +4,7 @@
     .row-logo
       router-link.col-sm-12(to="/" v-if="$route.path=='/'")
         img(src="/static/img/Home/za-logo.svg", @click="loginAjax") 
-      h4(v-if="$route.meta.action!='back'") “ 雜學校，一個有效行動的學習場域。 ”
+      //- h4(v-if="$route.meta.action!='back'") “ 雜學校，一個有效行動的學習場域。 ”
       .longline(
           v-if="$route.path!='/'", 
           :style="{'background-color': theme.color}",

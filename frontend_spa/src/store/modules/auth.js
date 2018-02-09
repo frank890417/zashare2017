@@ -29,7 +29,8 @@ const moduleAuth = {
   },
   actions: {
     init(context){
-      if (context.state.token){
+      if (context.state.token) {
+        context.commit("setProcessing", true)
         context.dispatch("getUser")
       }
     },
