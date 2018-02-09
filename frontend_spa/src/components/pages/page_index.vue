@@ -19,7 +19,7 @@
           p.ovh
             .animated.slideInUp  {{ currentSlide.description }}
           br
-          router-link.nostyle.btn(to="/news/1") 閱讀更多
+          router-link.nostyle.btn(:to="`/news/${currentSlide.id}`") 閱讀更多
           
           .btns
             .prev(@click="prev")
@@ -41,25 +41,25 @@ export default {
               arrows: false,
               // Any other options that can be got from plugin documentation
           },
-          slides: [
-            {
-              title: "謝謝五萬名師生的入學支持，讓台灣創新教育的溫柔革命得...",
-              description: "我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、沒有世俗的框架、沒有年齡的限制，充滿了各種想像？",
-              cover: "http://service.zashare.org/img/expo/2017/2.jpg"
-            },{
-              title: "讓台灣創新教育的溫柔革命得...",
-              description: "我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、沒有世俗的框架、沒有年齡的限制，充滿了各種想像？",
-              cover: "http://service.zashare.org/img/expo/2017/3.jpg"
-            },{
-              title: "謝謝五萬名師生的入學支持，",
-              description: "我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、沒有世俗的框架、沒有年齡的限制，充滿了各種想像？",
-              cover: "http://service.zashare.org/img/expo/2017/4.jpg"
-            },{
-              title: "五萬名師生的入學支持讓台灣創新教育的溫柔革命得...",
-              description: "我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、沒有世俗的框架、沒有年齡的限制，充滿了各種想像？",
-              cover: "http://service.zashare.org/img/expo/2017/5.jpg"
-            }
-          ],
+          // slides: [
+            // {
+            //   title: "謝謝五萬名師生的入學支持，讓台灣創新教育的溫柔革命得...",
+            //   description: "我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、沒有世俗的框架、沒有年齡的限制，充滿了各種想像？",
+            //   cover: "http://service.zashare.org/img/expo/2017/2.jpg"
+            // },{
+            //   title: "讓台灣創新教育的溫柔革命得...",
+            //   description: "我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、沒有世俗的框架、沒有年齡的限制，充滿了各種想像？",
+            //   cover: "http://service.zashare.org/img/expo/2017/3.jpg"
+            // },{
+            //   title: "謝謝五萬名師生的入學支持，",
+            //   description: "我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、沒有世俗的框架、沒有年齡的限制，充滿了各種想像？",
+            //   cover: "http://service.zashare.org/img/expo/2017/4.jpg"
+            // },{
+            //   title: "五萬名師生的入學支持讓台灣創新教育的溫柔革命得...",
+            //   description: "我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、沒有世俗的框架、沒有年齡的限制，充滿了各種想像？",
+            //   cover: "http://service.zashare.org/img/expo/2017/5.jpg"
+            // }
+          // ],
           currentSlideId: 0
       };
   },
@@ -81,17 +81,7 @@ export default {
       
   },
   mounted(){
-    this.$nextTick(() => {
-      $(".slick").slick(
-        this.slickOptions
-      )
-      let _this=this
-      $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-        console.log(nextSlide)
-        _this.currentSlideId=nextSlide
-      })
-
-    });
+    
      
     
 // $(".slider").slick({
@@ -102,8 +92,31 @@ export default {
  
   },
   computed: {
+    ...mapState({
+      news: state=>state.post.news
+    }),
+    slides(){
+      return this.news
+    },
     currentSlide(){
       return this.slides[this.currentSlideId]
+    }
+  },
+  watch:{
+    slides(){
+      if (this.slides.length){
+        this.$nextTick(() => {
+          $(".slick").slick(
+            this.slickOptions
+          )
+          let _this=this
+          $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+            console.log(nextSlide)
+            _this.currentSlideId=nextSlide
+          })
+
+        });
+      }
     }
   }
 }
