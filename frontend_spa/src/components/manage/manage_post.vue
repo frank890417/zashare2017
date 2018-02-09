@@ -13,6 +13,9 @@
     el-table(:data="filteredPosts" border max-height="800",
                :default-sort = "{prop: 'id', order: 'descending'}")
       el-table-column(prop="id",label="#", width="60" :sortable="true")
+      el-table-column(prop="status",label="狀態", width="100",
+        :filters="[{ text: '草稿', value: '草稿' }, { text: '已發布', value: '已發布' }]",
+        :filter-method="filterStatus" :sortable="true")
       el-table-column(prop="company",label="單位", width="200",:sortable="true")
       el-table-column(prop="cata",label="類別", width="80" :sortable="true")
       el-table-column(prop="cover",label="封面", width="120")
@@ -70,6 +73,11 @@ export default {
     filterYear(value,row){
       return row.year === value;
     },
+    filterStatus(value,row){
+      return row.status === value;
+    },
+
+    
     filterStickIndex(value,row){
       return row.stick_top_index==value;
     },
@@ -88,6 +96,7 @@ export default {
         return this.now_year=="" || post.year == this.now_year
       }).map(post=>({
         ...post,
+        status: post.status=="draft"?"草稿":"已發佈",
         cata: (post.cata && post.cata.name) || "-",
         updated_at: (post.updated_at ) || "-",
         company: ((post.company) && post.company.name_cht) || "-",
