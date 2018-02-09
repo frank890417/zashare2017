@@ -76,6 +76,7 @@ export default {
         use_source = this.posts.filter(o=>o.year==this.$route.params.year)
       }
       use_source = use_source.filter(o=>o.status=="published")
+                             .slice().sort(o=>o.stick_top_index)
       return use_source.slice(3,3+this.showCount)
 
     },
