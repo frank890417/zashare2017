@@ -2,8 +2,9 @@
 .navbar(:style="navbarStyle")
   .container-fluid
     .row-logo
-      router-link.col-sm-12(to="/" v-if="$route.path=='/'")
-        img(src="/static/img/Home/za-logo.svg", @click="loginAjax") 
+      router-link.col-sm-12.logo-part(to="/" v-if="$route.path=='/'")
+        img.logo-img(src="/static/img/Home/za-logo.svg", @click="loginAjax") 
+        h1.nav-cht-logo 雜學校
       //- h4(v-if="$route.meta.action!='back'") “ 雜學校，一個有效行動的學習場域。 ”
       .longline(
           v-if="$route.path!='/'", 
@@ -93,8 +94,6 @@ export default {
 </script>
 
 <style lang="sass">
-.animated.slideInUp
-  animation-delay: 0.8s
 .navbar
   position: fixed
   right: 0
@@ -102,6 +101,25 @@ export default {
   width: 300px
   height: 100vh
   transition: 0.5s, right 1s
+  .animated.slideInUp
+    animation-delay: 0.8s
+  a
+    text-decoration: none
+  .nav-cht-logo
+    font-size: 54px
+    white-space: nowrap
+    font-weight: 900
+    text-decoration: none
+    color: black
+    margin-top: -20px
+  .logo-img
+    width: 200px
+    margin-right: -40px
+  .logo-part
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
 
   @keyframes textOut
   0%
