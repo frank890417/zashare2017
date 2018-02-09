@@ -13,9 +13,9 @@
       el-table-column(prop="id",label="#", width="60" :sortable="true")
       //- el-table-column(prop="tag",label="類別", width="80" sortable)
       el-table-column(prop="name_cht",label="名字", width="200" :sortable="true")
-      el-table-column(prop="cover",label="封面", width="120")
+      el-table-column(prop="cover",label="Logo", width="120")
         template(slot-scope="scope")
-          img.cover(:src="scope.row.cover")
+          img.cover(:src="scope.row.logo")
       el-table-column(prop="year",label="年度", width="100" :sortable="true",
         :filters="[{ text: '2016', value: '2016' }, { text: '2017', value: '2017' }]",
         :filter-method="filterYear")

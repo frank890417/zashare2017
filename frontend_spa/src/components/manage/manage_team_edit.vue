@@ -41,6 +41,11 @@
                 el-input(v-model="company.cata")
               el-form-item(label="連結")
                 el-input(v-model="company.website")
+              el-form-item(label="封面圖片")
+                el-input(v-model="company.logo")
+                  default_pic_selector(@select_pic="select_pic" slot="append")
+              
+                img(:src="company.logo", style="width: 100%;max-width: 100px")
               //el-form-item(label="發布狀態")
                 el-select(v-model="company.status")
                   el-option(:key="'draft'",:value="'draft'", :label="'草稿'")
@@ -135,7 +140,7 @@ export default {
   methods: {
     select_pic(obj){
       console.log(obj)
-      this.company.cover=obj.url
+      this.company.logo=obj.url
     },
     handleSave(){
       if (!this.create_mode){
