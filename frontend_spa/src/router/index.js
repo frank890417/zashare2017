@@ -59,7 +59,7 @@ let router = new Router({
       }
     },
     {
-      path: '/news/:id',
+      path: '/news/:post_id',
       component: pagePost,
       meta: {
         type: "news",
@@ -144,6 +144,7 @@ let router = new Router({
       name: 'expo_indep',
       component: pagePost,
       meta: {
+        type: "expo",
         navWidth: "350px",
         action: "back",
         back: {

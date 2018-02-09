@@ -33,7 +33,7 @@
              @click="nowCata='expo'") ZA EXPO
     .row
       .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12(v-for="post in use_posts").col-news
-        newsbox(:post='post', :target='`/expo/${$route.params.year}/blog/${post.id}`',tag="ZA EXPO")
+        newsbox(:post='post', :target='postTarget(post)',tag="ZA EXPO")
     .row.lazy-detector
         //- router-link.news_box.animated.fadeIn(to="/news/test")
         //-   .row
@@ -89,8 +89,19 @@ export default {
     },
     slides(){
       return this.use_source.filter(post=>post.stick_top_index).slice(0,3)
-    },
+    }
 
+  },
+  methods:{
+    postTarget(post){
+      if (this.$route.meta.type=="post"){
+        return `/expo/${this.$route.params.year}/blog/${post.id}`
+      }
+
+      if (this.$route.meta.type=="news"){
+        return `/news/${post.id}`
+      }
+    }
   },
   watch: {
     slides(){

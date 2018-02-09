@@ -47,7 +47,7 @@ export default {
     }
   },
   mounted(){
-    axios.get("/api/post/"+this.$route.params.post_id).then(res=>{
+    axios.get(`/api/${this.$route.meta.type}/`+this.$route.params.post_id).then(res=>{
       this.post=res.data
     })
   },
@@ -70,7 +70,7 @@ export default {
       return JSON.parse(this.post.hashtag || "[]")
     },
     content(){
-      return this.post.content
+      return (this.post.content || "")
         .replace(/\.\.\/\.\.\//g,"/")
         .replace(/\/dropzone\/uploads/g,"http://service.zashare.org/dropzone/uploads")
         // .replace(/..\/..\//g,"/")
