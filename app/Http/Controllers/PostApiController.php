@@ -27,7 +27,7 @@ class PostApiController extends Controller
         return $posts;
     }
     public function show($id){
-        $result = Post::find($id);
+        $result = Post::where("id",$id)->with("company")->first();
         return $result;
     }
     public function update($id){

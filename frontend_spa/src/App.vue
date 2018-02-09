@@ -71,6 +71,11 @@ html,body
 .ovh
   overflow: hidden
 
+.text-left
+  text-align: left
+.text-right
+  text-align: right
+
 // .animated
   // animation-duration: 2.5s
 

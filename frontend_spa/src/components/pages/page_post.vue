@@ -20,7 +20,14 @@
         hr
     .row.row-content
       .col-sm-12(v-html="content")
-      
+    .row.row-company.text-left(v-if="post.company")
+      .col-sm-12
+        a.row.company-box.nostyle(:href="post.company.website", target="_blank")
+          .col-md-3.col-sm-4.col-xs-12
+            .logo
+          .col-md-9.col-sm-8.col-xs-12
+            h3 {{post.company.name_cht}}
+            p {{post.company.discribe_cht}}
     .row.row-related
       .col-sm-12
         h3 相關消息
@@ -184,11 +191,25 @@ export default {
       margin-top: 70px
       margin-bottom: 70px
       
+  .row-company
+    padding-left: 105px
+    padding-right: 105px
+    h3
+      font-size: 24px
+    .logo
+      background-color: #aaa5b5
+      width: 100%
+      padding-bottom: 100%
+    .company-box
+      margin-top: 160px
+      background-color: #e4e3e8
+      padding: 30px
   .row-related
     h3
       margin-top: 100px
       font-size: 24px
   .cover
     min-height: 50px
+  
 
 </style>
