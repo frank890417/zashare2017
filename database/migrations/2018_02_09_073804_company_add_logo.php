@@ -13,22 +13,11 @@ class CompanyAddLogo extends Migration
      */
     public function up()
     {
-<<<<<<< HEAD
-        
         Schema::table('companies',function($table){
 
           $table->string('logo')->nullable();
 
         });
-=======
-        //
-        // Schema::table('companies',function($table){
-
-        //   $table->string('logo')->nullable();
-
-        // });
->>>>>>> a28b65e... update company add logo (2017)
-        
         $company2017 = Company::where("year","2017")->get();
         foreach($company2017 as $company){
             $tag = preg_replace("/\p{Han}+/u", '', $company->tag);
@@ -36,7 +25,6 @@ class CompanyAddLogo extends Migration
             $company->save();
         }
 
-<<<<<<< HEAD
         $company2016 = Company::where("year","2016")->get();
         foreach($company2016 as $company){
             $tag = preg_replace("/\p{Han}+/u", '', $company->tag);
@@ -44,13 +32,6 @@ class CompanyAddLogo extends Migration
             $company->save();
         }
 
-
-=======
->>>>>>> a28b65e... update company add logo (2017)
-        // $company2016 = Company::where("year","2017")->get();
-        // foreach($company2016 as $company){
-        //     $company->logo = "https://service.zashare.org/img/2017/expo_2017/teamlogos/".substr($company->tag,0,1)."/".$company->tag.".jpg";
-        // }
     }
 
     /**
@@ -60,18 +41,11 @@ class CompanyAddLogo extends Migration
      */
     public function down()
     {
-<<<<<<< HEAD
-        
+
         Schema::table('companies',function($table){
 
           $table->dropColumn('logo');
         });
-=======
-        //
-        // Schema::table('companies',function($table){
 
-        //   $table->dropColumn('logo');
-        // });
->>>>>>> a28b65e... update company add logo (2017)
     }
 }
