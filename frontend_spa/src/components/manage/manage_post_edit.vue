@@ -20,7 +20,7 @@
               
             el-col(:span="6")
               el-button(type="primary", @click="handleSave") 儲存更新 
-              router-link(:to="`/expo/blog/${post.id}`" ,target="_blank")
+              router-link(:to="getPreviewRoute(post)" ,target="_blank")
                 el-button(type="primary") 前往{{editType.label}}
           hr
           br
@@ -214,6 +214,15 @@ export default {
     select_pic(obj){
       console.log(obj)
       this.post.cover=obj.url
+    },
+    getPreviewRoute(post){
+      if (this.meta.type=="post"){
+        return `/expo/${this.meta.year}/blog/${post.id}`
+      }
+
+      if (this.meta.type=="news"){
+        return `/news/${post.id}`
+      }
     },
     handleSave(){
       if (!this.create_mode){

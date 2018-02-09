@@ -130,6 +130,7 @@ let router = new Router({
       name: 'expo_indep',
       component: pageBlog,
       meta: {
+        type: "expo",
         navWidth: "350px",
         action: "back",
         back: {

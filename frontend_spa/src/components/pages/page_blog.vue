@@ -94,7 +94,7 @@ export default {
   },
   methods:{
     postTarget(post){
-      if (this.$route.meta.type=="post"){
+      if (this.$route.meta.type=="expo"){
         return `/expo/${this.$route.params.year}/blog/${post.id}`
       }
 

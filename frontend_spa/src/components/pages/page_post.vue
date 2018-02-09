@@ -47,7 +47,8 @@ export default {
     }
   },
   mounted(){
-    axios.get(`/api/${this.$route.meta.type}/`+this.$route.params.post_id).then(res=>{
+    let type = this.$route.meta.type=="expo"?"post":"news"
+    axios.get(`/api/${type}/`+this.$route.params.post_id).then(res=>{
       this.post=res.data
     })
   },
