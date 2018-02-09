@@ -81,7 +81,7 @@ Vue.mixin({
       console.log(file)
 
       axios({
-        url: '/api/upload',
+        url: process.env.API_DOMAIN+'/api/upload',
         method: 'POST',
         data: formData
       })
@@ -94,7 +94,7 @@ Vue.mixin({
         })
     },
     cssbg(url) {
-      let use_url = url.replace("http://dschool.ntu.edu.tw/assets/", "/dschool_old_assets/")
+      let use_url = url.replace("http://service.zashare.org/assets/", "/dschool_old_assets/")
       let result = {
         'background-image': `url("${use_url}")`
       }
