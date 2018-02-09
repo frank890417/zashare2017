@@ -13,12 +13,12 @@ class CompanyAddLogo extends Migration
      */
     public function up()
     {
-        //
-        // Schema::table('companies',function($table){
+        
+        Schema::table('companies',function($table){
 
-        //   $table->string('logo')->nullable();
+          $table->string('logo')->nullable();
 
-        // });
+        });
         
         $company2017 = Company::where("year","2017")->get();
         foreach($company2017 as $company){
@@ -26,6 +26,14 @@ class CompanyAddLogo extends Migration
             $company->logo = "https://service.zashare.org/img/2017/expo_2017/teamlogos/".substr($tag,0,1)."/".$tag.".jpg";
             $company->save();
         }
+
+        $company2016 = Company::where("year","2016")->get();
+        foreach($company2016 as $company){
+            $tag = preg_replace("/\p{Han}+/u", '', $company->tag);
+            $company->logo = "http://2016.zashare.org/img/square_logos/".$tag.".jpg";
+            $company->save();
+        }
+
 
         // $company2016 = Company::where("year","2017")->get();
         // foreach($company2016 as $company){
@@ -40,10 +48,10 @@ class CompanyAddLogo extends Migration
      */
     public function down()
     {
-        //
-        // Schema::table('companies',function($table){
+        
+        Schema::table('companies',function($table){
 
-        //   $table->dropColumn('logo');
-        // });
+          $table->dropColumn('logo');
+        });
     }
 }
