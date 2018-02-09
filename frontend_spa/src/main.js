@@ -39,6 +39,7 @@ Vue.use(ElementUI)
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 axios.defaults.baseURL = process.env.API_DOMAIN;
 
+store.dispatch("scroll/init")
 store.dispatch("auth/init")
 store.dispatch("post/loadWebsite")
 store.dispatch("manage/loadWebsite")

@@ -1,19 +1,35 @@
 <template lang="pug">
 router-link.news_box.animated.fadeIn(:to="target")
-  .row
+  .row(v-if="post")
     .col-sm-12.col-cover
       .cover.news_box_cover(:style="bgcss(post.cover)")
         .tag {{ tag || 'ZA SHARE'}}
     .col-sm-12.col-info
+      h4.company(v-if="post.company") {{post.company.name_cht}}
       h3 {{post.title}}
+      .bottom-info
+        .hashtags 
+          .hashtag(v-for="tag in hashtags") \#{{tag}}
+        .date {{showDate}}
       //- p {{ post.description.slice(0,50) }}
     
 </template>
 
 <script>
+import moment from 'moment'
 export default {
   props: ['post','target','tag'],
-  
+  computed:{
+    showDate(){
+      return moment(this.post.established_time).format('YYYY[ 年 ]MM[ 月 ]DD[ 日 ]')
+    },
+    hashtags(){
+      if (this.post.hashtags){
+        return JSON.parse(this.post.hashtags)
+      }
+      return []
+    }
+  }
 }
 </script>
 
@@ -25,6 +41,7 @@ export default {
   margin-bottom: 50px
   cursor: pointer
   display: block
+  box-shadow: 0px 0px 25px rgba(black,0.02)
 
   text-decoration: none
   color: black
@@ -54,13 +71,33 @@ export default {
       color: white
       padding: 5px 10px
       font-weight: 900
+  h4.company
+    margin-bottom: 5px
+    opacity: 0.4
+    font-weight: normal
+    letter-spacing: 0.3px
   h3
     line-height: 1.67
     letter-spacing: 1px
-    font-size: 18px
-    min-height: 2em
+    font-size: 20px
+    min-height: 3.2em
     text-align: left
-    // background-color: #fafafa
+    margin-top: 0
+  .bottom-info
+    .hashtag
+      margin-right: 10px
+    .hashtag,.hashtags
+      display: inline-block
+    .date,.hashtag
+      color: #4b4854
+      font-size: 14px
+      line-height: 2
+      letter-spacing: 0.3px
+    .hashtag
+      color: #aaa5b5
+    .date
+      float: right
+      // background-color: #fafafa
   .col-info
     // padding: 10px
     padding: 30px

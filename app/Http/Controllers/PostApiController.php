@@ -20,7 +20,7 @@ class PostApiController extends Controller
             // echo $post->company ;
             $post["company"] = $post->company;
             $post["cata"] = $post->cata;
-            $post["content"] = "";
+            $post["content"] = str_replace("&nbsp;","",mb_substr(strip_tags($post->content),0,100,"utf-8"));
             $post["teach_thing"] = "";
             $post["learn_thing"] = "";
         }

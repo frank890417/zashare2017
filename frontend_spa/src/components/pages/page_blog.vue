@@ -32,8 +32,9 @@
           li(:class="{active: nowCata=='expo'}", 
              @click="nowCata='expo'") ZA EXPO
     .row
-      .col-sm-4(v-for="post in use_posts").col-news
+      .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12(v-for="post in use_posts").col-news
         newsbox(:post='post', :target='`/expo/${$route.params.year}/blog/${post.id}`',tag="ZA EXPO")
+    .row.lazy-detector
         //- router-link.news_box.animated.fadeIn(to="/news/test")
         //-   .row
         //-     .col-sm-12.col-cover
@@ -60,12 +61,14 @@ export default {
             autoplay: true
             // Any other options that can be got from plugin documentation
         },
-      currentSlideId: 0
+      currentSlideId: 0,
+      showCount: 6
     }
   },
   computed: {
     ...mapState({
-      posts: state=>state.post.posts
+      posts: state=>state.post.posts,
+      scrollY: state=>state.scroll.position
     }),
     use_posts(){
       let use_source = []
@@ -73,11 +76,11 @@ export default {
         use_source = this.posts.filter(o=>o.year==this.$route.params.year)
       }
       use_source = use_source.filter(o=>o.status=="published")
-      return use_source.slice(3,15)
+      return use_source.slice(3,3+this.showCount)
 
     },
     slides(){
-      return this.posts.slice(0,3)
+      return this.use_posts.slice(0,3)
     },
 
   },
@@ -100,6 +103,14 @@ export default {
           });
 
         },500)
+      }
+    },
+    scrollY(){
+      let detectorPos = $(".lazy-detector").offset().top
+      let scrollPos = this.scrollY+$(window).height()*1.5
+      console.log(detectorPos,scrollPos)
+      if (detectorPos<scrollPos ){
+        this.showCount+=3
       }
     }
   },
@@ -176,7 +187,7 @@ export default {
 
     // align-items: flex-end
 .cata-title
-  margin-top: 70px
+  margin-top: 50px
 .catas
   display: flex
   margin: 0
