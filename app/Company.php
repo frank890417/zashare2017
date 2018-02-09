@@ -14,7 +14,7 @@ class Company extends Model
         "discribe_cht","discribe_cht",
         "website",
         "teach_thing","learn_thing",
-        "year"
+        "year","logo"
     ];
 
     public static function getByTag($tag){

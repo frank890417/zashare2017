@@ -23,8 +23,8 @@
     .row.row-company.text-left(v-if="post.company")
       .col-sm-12
         a.row.company-box.nostyle(:href="post.company.website", target="_blank")
-          .col-md-3.col-sm-4.col-xs-12
-            .logo
+          .col-md-3.col-sm-4.col-xs-12.col-logo
+            .logo(:style="bgcss(post.company.logo)")
           .col-md-9.col-sm-8.col-xs-12
             h3 {{post.company.name_cht}}
             p {{post.company.discribe_cht}}
@@ -200,10 +200,14 @@ export default {
       background-color: #aaa5b5
       width: 100%
       padding-bottom: 100%
+      background-size: cover
     .company-box
       margin-top: 160px
       background-color: #e4e3e8
       padding: 30px
+      .col-logo
+        display: flex
+        align-items: center
   .row-related
     h3
       margin-top: 100px
