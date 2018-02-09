@@ -11,7 +11,7 @@
         h2 {{ post.subtitle }}
       .col-sm-12
         div
-          p 上搞時間: {{ post.established_time }} 
+          p 上搞時間: {{ post.established_time.split(" ")[0] }} 
           span {{post.author}}
           .tags
             .hashtag(v-for="tag in hashtags") {{tag}}
@@ -141,6 +141,9 @@ export default {
     padding-left: 105px
     padding-right: 105px
     text-align: left
+    iframe
+      width: 100%
+      height: 300px
     hr
       margin-left: -105px
       margin-right: -105px
