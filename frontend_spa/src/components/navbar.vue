@@ -38,7 +38,9 @@
         //- span ZA<br>Course
         img(src="/static/img/Home/za-course.svg")
         router-link.upCircle.animated.zoomIn(
-          to="/",v-if="$route.meta.type=='theme'"
+          :to="upCircleTo",
+          v-if="$route.meta.type=='theme' || $route.path=='/'",
+          :class="{downCircle: $route.path=='/' }"
         ) 
       router-link.col-theme-nav.nav-base(to="/base")
         //- span ZA<br>Base
@@ -65,6 +67,14 @@ export default {
         width,
         right: this.$route.meta.navPosition!='left'?"0px":`calc(100% - ${width})`,
         display: this.$route.path.indexOf("/manage")==0 ? "none":"block"
+      }
+    },
+    upCircleTo(){
+      if (this.$route.path=="/"){
+        return "/course"
+      }
+      if (this.$route.meta.type=="theme"){
+        return "/"
       }
     }
   },
@@ -224,6 +234,7 @@ export default {
     left: -35px
     bottom: -35px
     z-index: 10
+    box-shadow: 0px 0px 20px rgba(black,0.3)
 
     width: 70px
     height: 70px
@@ -244,8 +255,11 @@ export default {
       border-style: solid
       border-width: 0 10px 17.3px 10px
       border-color: transparent transparent #000000 transparent
-
-
+      transition: 0.5s
+      transform-origin: center center
+    &.downCircle
+      &:before
+        transform: rotate(180deg)
 
   .router-link-active
     

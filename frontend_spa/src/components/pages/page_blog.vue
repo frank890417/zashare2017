@@ -1,5 +1,5 @@
 <template lang="pug">
-.page.right.page-blog.animated.slideInRight
+.page.right.page-blog.animated.fadeIn
   .container
     .row
       .col-sm-12

@@ -1,32 +1,31 @@
 <template lang="pug">
-transition(name="fade")
-  .page-index
-    .container-fluid
-      .row-cover.animated.fadeIn
-        .slick
-          .slide(v-for="slide in slides") 
-            .cover(:style="bgcss(slide.cover)")
-      .row-news
-        .row
-          router-link.btn-news.nostyle.col-sm-3.col-left(to="/news")
-            h2 News
-            h4 最新消息
+.page-index.animated.fadeIn
+  .container-fluid
+    .row-cover.animated.fadeIn
+      .slick
+        .slide(v-for="slide in slides") 
+          .cover(:style="bgcss(slide.cover)")
+    .row-news
+      .row
+        router-link.btn-news.nostyle.col-sm-3.col-left(to="/news")
+          h2 News
+          h4 最新消息
+        
           
-            
-          .col-sm-9.col-right
-            h3.ovh
-              .animated.slideInUp {{ currentSlide.title }}
-                .num {{ "0"+currentSlideId }}
-            p.ovh
-              .animated.slideInUp  {{ currentSlide.description }}
-            br
-            router-link.nostyle.btn(to="/news/1") 閱讀更多
-            
-            .btns
-              .prev(@click="prev")
-                i.fa.fa-chevron-left
-              .next(@click="next")
-                i.fa.fa-chevron-right
+        .col-sm-9.col-right
+          h3.ovh
+            .animated.slideInUp {{ currentSlide.title }}
+              .num {{ "0"+currentSlideId }}
+          p.ovh
+            .animated.slideInUp  {{ currentSlide.description }}
+          br
+          router-link.nostyle.btn(to="/news/1") 閱讀更多
+          
+          .btns
+            .prev(@click="prev")
+              i.fa.fa-chevron-left
+            .next(@click="next")
+              i.fa.fa-chevron-right
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template lang="pug">
-.page.right.page-post.animated.slideInRight
+.page.right.page-post.animated.fadeIn
   .container(v-if="post")
     .row.row-banner
       .col-sm-12

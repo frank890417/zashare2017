@@ -29,9 +29,9 @@ html,body
 .noScroll
   // overflow-y: hidden
 .scrollY
-  overflow-y: scroll
+  overflow-y: auth
 .scrollX
-  overflow-x: scroll
+  overflow-x: auth
 .btn
   cursor: pointer
   padding: 8px 40px
