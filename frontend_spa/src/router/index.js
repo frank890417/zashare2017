@@ -14,6 +14,7 @@ import pageExpoYear from '@/components/pages/page_expo_year.vue'
 
 import manage_layout from '@/components/manage/manage_layout'
 import manage_post from '@/components/manage/manage_post'
+import manage_news from '@/components/manage/manage_news'
 import manage_team from '@/components/manage/manage_team'
 import manage_cata from '@/components/manage/manage_cata'
 import manage_post_edit from '@/components/manage/manage_post_edit'
@@ -183,6 +184,11 @@ let router = new Router({
           path: 'post',
           name: 'post list',
           component: manage_post
+        },
+        {
+          path: 'news',
+          name: 'news list',
+          component: manage_news
         }, {
           path: 'company',
           name: 'company list',
@@ -193,12 +199,30 @@ let router = new Router({
           component: manage_cata
         },
         {
+          path: 'news/new',
+          component: manage_post_edit,
+          meta: {
+            type: "news"
+          }
+        },
+        {
           path: 'post/new',
-          name: 'HelloWorld',
-          component: manage_post_edit
+          component: manage_post_edit,
+          meta:{
+            type: "post"
+          }
         }, {
           path: 'post/:id',
-          component: manage_post_edit
+          component: manage_post_edit,
+          meta: {
+            type: "post"
+          }
+        }, {
+          path: 'news/:id',
+          component: manage_post_edit,
+          meta: {
+            type: "news"
+          }
         }, {
           path: 'company/:id',
           component: manage_company_edit

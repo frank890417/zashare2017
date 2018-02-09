@@ -22,6 +22,7 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware'=>['cors']],function(){
   Route::resource('post',"PostApiController");
+  Route::resource('news',"NewsController");
   Route::resource('cata',"CataApiController");
   Route::resource('company',"CompanyApiController");
   Route::post('upload',"ApiController@upload_image");

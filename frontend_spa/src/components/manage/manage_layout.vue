@@ -8,6 +8,7 @@
         el-menu(:default-active="activeIndex" 
           class="el-menu-demo" @select="handleSelect",
           :router="true")
+          el-menu-item(index="/manage/news") 新聞管理 
           el-menu-item(index="/manage/post") 文章管理 
           el-menu-item(index="/manage/company") 攤位管理 
           el-menu-item(index="/manage/cata") 類別管理 

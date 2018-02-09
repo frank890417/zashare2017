@@ -7,11 +7,11 @@ use App\Post;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
-class PostApiController extends Controller
+class NewsController extends Controller
 {
     //
     public function index(){
-        $posts = Post::where("type","expo")->get();
+        $posts = Post::where("type","news")->get();
         // select(
         //     ["id","tag","title","cover","year","updated_at"]
         // )->get();
@@ -27,7 +27,7 @@ class PostApiController extends Controller
         return $posts;
     }
     public function show($id){
-        $result = Post::where("type","expo")->where("id",$id)->with("company")->first();
+        $result = Post::where("type","news")->where("id",$id)->with("company")->first();
         return $result;
     }
     public function update($id){
@@ -54,7 +54,7 @@ class PostApiController extends Controller
     public function store(){
         $inputs = Input::all();
         $inputs["hashtag"]=json_encode($inputs["hashtag"]);
-        $inputs["type"]="expo";
+        $inputs["type"]="news";
         $post = Post::create($inputs);
         
         

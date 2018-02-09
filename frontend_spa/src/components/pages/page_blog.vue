@@ -5,20 +5,20 @@
       .col-sm-12
         //- h2 News
     .row
-      .col-sm-12
+      .col-sm-12(v-if="slides.length")
         .row.row-head-news
           .col-sm-8
             .slick
               .slide(v-for="slide in slides") 
                 .cover(:style="bgcss(slide.cover)")
             //- .cover(:style="bgcss('http://via.placeholder.com/800x600')")
-          .col-sm-4.col-info
+          .col-sm-4.col-info(v-if="slides[currentSlideId]")
             .tag ZA COURSE
             h3.slide-company {{ slides[currentSlideId].company.name_cht }}
             h2.slide-title {{ slides[currentSlideId].title }}
             hr
             p {{ strip_tags(slides[currentSlideId].content).slice(0,60) }}...
-            router-link.btn.nostyle(:to="`/expo/${$route.params.year}/blog/${slides[currentSlideId].id}`") 閱讀更多
+            router-link.btn.nostyle(:to="`/news/${slides[currentSlideId].id}`") 閱讀更多
     .row
       .col-sm-12
         h4.cata-title 文章分類
@@ -68,20 +68,27 @@ export default {
   computed: {
     ...mapState({
       posts: state=>state.post.posts,
-      scrollY: state=>state.scroll.position
+      scrollY: state=>state.scroll.position,
+      news: state=>state.post.news
     }),
-    use_posts(){
+    use_source(){
       let use_source = []
+      
       if (this.$route.params.year){
         use_source = this.posts.filter(o=>o.year==this.$route.params.year)
       }
       use_source = use_source.filter(o=>o.status=="published")
                              .slice().sort(o=>o.stick_top_index)
-      return use_source.slice(3,3+this.showCount)
-
+      if (this.$route.meta.type=="news"){
+        use_source = this.news
+      }
+      return use_source
+    },
+    use_posts(){
+      return this.use_source.filter(post=>!post.stick_top_index).slice(0,this.showCount)
     },
     slides(){
-      return this.use_posts.slice(0,3)
+      return this.use_source.filter(post=>post.stick_top_index).slice(0,3)
     },
 
   },

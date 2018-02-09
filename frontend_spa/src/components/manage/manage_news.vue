@@ -1,11 +1,11 @@
 <template lang="pug">
   .page.manage-post.text-left
-    h3 管理文章
+    h3 管理新聞
     el-input(v-model="keyword", placeholder="輸入關鍵字")
     br
-    router-link(to="/manage/post/new")
-      el-button.btn.btn-primary( type="primary") + 新增文章
-    el-select(v-model="now_year")
+    router-link(to="/manage/news/new")
+      el-button.btn.btn-primary( type="primary") + 新增新聞
+    //- el-select(v-model="now_year")
       el-option(value="", label="2016 & 2017")
       el-option(value="2017", label="2017")
       el-option(value="2016", label="2016")
@@ -21,12 +21,12 @@
       el-table-column(prop="cover",label="封面", width="120")
         template(slot-scope="scope")
           img.cover(:src="scope.row.cover")
-      el-table-column(prop="year",label="年度", width="100",
+      //- el-table-column(prop="year",label="年度", width="100",
         :filters="[{ text: '2016', value: '2016' }, { text: '2017', value: '2017' }]",
         :filter-method="filterYear" :sortable="true")
       el-table-column(prop="title",label="標題" :sortable="true")
       el-table-column(prop="stick_top_index",label="置頂",width="100" :sortable="true")
-      el-table-column(prop="stick_top_cata",label="類置頂",width="100" , :sortable="true")
+      //- el-table-column(prop="stick_top_cata",label="類置頂",width="100" , :sortable="true")
       el-table-column(prop="updated_at",label="更新時間",width="100" , :sortable="true")
       el-table-column(label="操作", width="200")
         template(slot-scope="scope")
@@ -52,12 +52,12 @@ export default {
   },
   methods: {
     handleEdit(row){
-      this.$router.push("/manage/post/"+row.id)
+      this.$router.push("/manage/news/"+row.id)
     },
     handleDelete(id,row){
       // console.log(row)
       this.$confirm("你確定要刪除嗎？").then(()=>{
-        axios.post(`/api/post/${row.id}`,{
+        axios.post(`/api/news/${row.id}`,{
           _method: 'DELETE',
           // _token: this.csrf_token,
           dataType: 'JSON',
@@ -87,7 +87,7 @@ export default {
   },
   computed:{
     ...mapState({
-      posts: state=>state.manage.posts
+      posts: state=>state.manage.news
     }),
     filteredPosts(){
       return this.posts.filter(post=>{

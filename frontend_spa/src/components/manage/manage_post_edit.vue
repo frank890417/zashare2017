@@ -4,8 +4,8 @@
     .row
       .col-sm-12
         el-breadcrumb(separator="/")
-          el-breadcrumb-item(:to="{ path: '/manage/post' }") 文章列表
-          el-breadcrumb-item 文章編輯
+          el-breadcrumb-item(:to="{ path: '/manage/post' }") {{editType.label}}列表
+          el-breadcrumb-item {{editType.label}}編輯
         br
         br
       el-form(:model="post", label-width="90px").container-fluid
@@ -14,14 +14,14 @@
           el-row
             el-col(:span="18")
               h2(style="text-align: left")
-                span(v-if="create_mode") 新增文章 -
-                span(v-else) 編輯文章 -
+                span(v-if="create_mode") 新增{{editType.label}} -
+                span(v-else) 編輯{{editType.label}} -
                 | {{post.title}}
               
             el-col(:span="6")
               el-button(type="primary", @click="handleSave") 儲存更新 
               router-link(:to="`/expo/blog/${post.id}`" ,target="_blank")
-                el-button(type="primary") 前往文章
+                el-button(type="primary") 前往{{editType.label}}
           hr
           br
           br
@@ -178,7 +178,7 @@ export default {
   },
   mounted(){
     if (this.$route.params.id){
-      this.axios.get("/api/post/"+this.$route.params.id).then(res=>{
+      this.axios.get(`/api/${this.$route.meta.type}/`+this.$route.params.id).then(res=>{
         this.post=res.data
         // if (this.post.cover.indexOf(""))
         if (!this.post.hashtag){
@@ -218,7 +218,7 @@ export default {
     handleSave(){
       if (!this.create_mode){
         this.axios.patch(
-          "/api/post/"+this.$route.params.id,
+          `/api/${this.$route.meta.type}/`+this.$route.params.id,
           this.post
         ).then(res=>{
           console.log(res.data)
@@ -239,7 +239,7 @@ export default {
 
       }else{
         this.axios.post(
-          "/api/post",
+          `/api/${this.$route.meta.type}`,
           this.post
         ).then(res=>{
 
@@ -250,7 +250,7 @@ export default {
           // let _this  = this
           console.log(res.data.data.id)
           // setTimeout(function(){
-          this.$router.push("/post/"+res.data.data.id)
+          this.$router.push(`/manage/${this.$route.meta.type}/`+res.data.data.id)
           // },300)
         })
 
@@ -264,6 +264,20 @@ export default {
     }),
     year_catas(){
       return this.catas.filter(o=>o.year==this.post.year)
+    },
+    editType(){
+      if (this.$route.meta.type=="news"){
+        return {
+          label: "新聞",
+          route: "news"
+        }
+      }
+      if (this.$route.meta.type=="post"){
+        return {
+          label: "文章",
+          route: "post"
+        }
+      }
     }
   }
 }
