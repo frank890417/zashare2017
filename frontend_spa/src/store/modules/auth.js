@@ -37,12 +37,22 @@ const moduleAuth = {
     register(context, user) {
       context.commit("setProcessing",true)
       axios.post(context.state.domain+"/register", user).then((res) => {
+
+        // console.log(res.data)
         context.commit("setUserToken", res.data)
         context.dispatch("getUser")
+
+        if (res.data.status=="fail"){
+          console.log(res)
+          context.commit("setProcessing", false)
+          context.commit("setStatus", "註冊失敗.." + res.data.error)
+
+        }
       }).catch((res) => {
+        console.log(res)
         context.commit("setProcessing", false)
         context.commit("setStatus", "註冊失敗..")
-        
+
         return {
           success: false,
           log: res.data

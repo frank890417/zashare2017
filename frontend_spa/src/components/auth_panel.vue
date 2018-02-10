@@ -24,9 +24,13 @@
       input(v-model="registerData.email", placeholder="信箱", type="email")
       //- label name
       input(v-model="registerData.name", placeholder="名字", type="name")
+      select(v-model="registerData.jobcata", placeholder="產業別")
+        option(v-for= "(jb,jbid) in jobcatas", 
+              :value="jb") {{jb}}
+      input(v-model="registerData.job", placeholder="職稱", type="job")
       input(v-model="registerData.password", placeholder="密碼", type="password")
       button.btn.fw.black(@click="register(registerData)") 註冊
-      label(v-if="auth.status") {{auth.status}}
+      //- label(v-if="auth.status") {{auth.status}}
       button.btn.fw.nobg(@click="mode='login'") 我已經有帳號了！ 前往登入
     .bottom(v-if="auth.user")
       h4 學生簡介
@@ -70,15 +74,18 @@ export default {
   props: {
     layout: {
       type: String,
-      default: "card"
+      default: "card",
     }
   },
   data() {
     return {
+      jobcatas: ["產業別","政府機關、公部門","非營利組織相關","教育業","學生","自由接案","大眾傳播、出版相關","設計與文創相關","藝術文化相關","流行與時尚文化相關","旅遊、休閒、運動產業","金融投顧、保險相關","法律相關","一般服務業","一般傳統製造","運輸物流、倉儲、貿易","農、林、漁、牧業","礦業土石、水電能源","建築營造、不動產相關","醫療照護、環境衛生","批發零售","電子科技、資訊、軟體、半導體","其他"],
       registerData: {
         email: "",
         name: "",
         password: "",
+        jobcata: "",
+        job: "",
         
       },
       loginData: {
@@ -122,7 +129,7 @@ export default {
   box-sizing: border-box
   flex-direction: column
   max-width: 500px
-  input
+  input,select
     border: none
     outline: none
     width: 100%

@@ -50,8 +50,19 @@ class AuthController extends Controller
         $newUser = [
             'email' => $request->input('email'),
             'name' => $request->input('name'),
+            'job' => $request->input('job'),
+            'jobcata' => $request->input('jobcata'),
             'password' => bcrypt($request->input('password'))
         ];
+        $require_fields = ["email","name","job","jobcata","password"];
+        foreach($require_fields as $field){
+            if (!$newUser[$field]){
+                return response()->json([
+                    "status" => "fail",
+                    "error" => "欄位未填".$field
+                ]);
+            }
+        }
 
         $user = User::create($newUser);
         $token = JWTAuth::fromUser($user);
