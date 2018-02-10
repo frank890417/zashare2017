@@ -77,7 +77,8 @@ const moduleAuth = {
         context.commit("setUser", res.data)
         context.commit("setProcessing", false)
       }).catch((res)=>{
-        context.commit("setUserToken", "" )
+        context.commit("setUserToken", "")
+        context.commit("setProcessing", false)
       })
     },
     logout(context) {

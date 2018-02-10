@@ -16,7 +16,7 @@
       el-table-column(prop="status",label="狀態", width="100",
         :filters="[{ text: '草稿', value: '草稿' }, { text: '已發布', value: '已發布' }]",
         :filter-method="filterStatus" :sortable="true")
-      el-table-column(prop="company",label="單位", width="200",:sortable="true")
+      //- el-table-column(prop="company",label="單位", width="200",:sortable="true")
       el-table-column(prop="cata",label="類別", width="80" :sortable="true")
       el-table-column(prop="cover",label="封面", width="120")
         template(slot-scope="scope")
