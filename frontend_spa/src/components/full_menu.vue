@@ -11,8 +11,11 @@
             .row.row-search
               .col-sm-12
                 input(placeholder="搜尋雜學校", v-model="searchKeyword")
-                div.clearInput(@click="searchKeyword=''" ,v-if="searchKeyword!=''")
-                  i.fas.fa-times
+                
+                div.clearInput(@click="searchKeyword=''")
+                  i.fas.fa-search(v-show="searchKeyword==''")
+                  i.fas.fa-times(v-show="searchKeyword!=''")
+                
                               
               .col-sm-12
                 .tags.scrollX
@@ -227,11 +230,16 @@ export default {
   .row-search
     flex-shrink: 0
     padding-bottom: 20px
+    .fa-search,.fa-times
+      // position: absolute
+      // right: 30px
+      font-size: 28px
+
     .clearInput
       position: absolute
       font-size: 20px
-      top: 50%
-      right: -40px
+      top: calc( 50% - 10px)
+      right: 30px
       transform: translateY(-50%)
       cursor: pointer
       transition: 0.5s
@@ -256,6 +264,7 @@ export default {
     display: flex
     flex-direction: column
     height: 100%
+    max-width: 900px
     justify-content: space-between
           
   .nav-course

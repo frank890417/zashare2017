@@ -10,9 +10,11 @@
         router-link.btn-news.nostyle.col-sm-3.col-left(to="/news")
           h2 News
           h4 最新消息
-        
+          .btn-more
+            span more
+            span.arrowRight
           
-        .col-sm-9.col-right
+        .col-sm-9.col-right(:key="currentSlideId")
           h3.ovh
             .animated.slideInUp {{ currentSlide.title }}
               .num {{ "0"+currentSlideId }}
@@ -151,6 +153,7 @@ export default {
     transition: 0.5s
     flex: 1
     text-align: left
+    height: 228px 
     // background-color: #fafafa
     h3
       font-size: 24px
@@ -159,19 +162,64 @@ export default {
       top: -60px
       margin-left: -15px
 
-      padding-left: 60px
-      padding-right: 60px
+      padding-left: 50px
+      padding-right: 50px
       height: calc(100% + 60px)
       background-color: #fff
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      h2
+        margin-bottom: 0
+      h4
+        margin-top: 0
+        font-weight: 400
+      .btn-more
+        // margin-top: 60px
+        font-weight: 800
+        display: flex
+        align-items: center
+        transform: translateY(70px)
+        .arrowRight
+          display: block
+          height: 2px
+          width: 100%
+          background-color: #333
+          position: relative
+          margin-left: 40px
+          &:before,&:after
+            content: ""
+            display: block
+            width: 10px
+            height: 2px
+            background-color: inherit
+            position: absolute
+            transform-origin: right center
+            transform: rotate(45deg)
+            right: 0
+          &:after
+            transform: rotate(-45deg)
+          &.reverse
+            transform-origin: center center
+            transform: rotate(180deg)
 
     .col-right
-      border-left: solid #ddd 2px
+      // border-left: solid #ddd 2px
+
       padding-left: 60px
       .num
         float: right
         
       // background-color: #fafafa
-
+      &:before
+        content: ""
+        display: block
+        position: absolute
+        left: 0
+        width: 2px
+        background-color: #ddd
+        height: 236px
+        top: -30px
     &>*
       padding: 30px
       box-sizing: border-box

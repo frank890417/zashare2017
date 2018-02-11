@@ -27,7 +27,9 @@ export default {
     coverStyle(){
       return {
         'background-color': this.theme.color,
-        'background-image': `url("${this.theme.cover}")`
+        'background-image': `url("${this.theme.cover}")`,
+        'background-size': `cover`,
+        'background-position': `center center`
       }
     }
   }
@@ -36,7 +38,7 @@ export default {
 
 <style lang="sass" scoped>
 .page-course
-  padding-right: 300px
+  padding-right: 450px
   background-color: #fafafa
 .row
   display: flex
@@ -48,7 +50,7 @@ export default {
   justify-content: center
   align-items: center
   // border: solid 1px
-  flex: 1
+  flex: 1.2
   
   p.animated.fadeIn
     animation-delay: 0.5s
@@ -83,6 +85,8 @@ export default {
   transition: 0.5s
   flex: 1.2
   animation-delay: 0.6s
+  background-position: center center
+  background-size: 100% auto
   
   &:hover
     flex: 1.2

@@ -18,18 +18,25 @@
           .animated.slideInUp Explore the
         div.themename.ovh
           span.text.animated.slideInUp ZA {{$route.name}}  
-          .arrow-right( :style="{'background-color': theme.color}")
+          .arrow-right( :style="{'background-color': theme.color}", key="main_arrow")
       router-link.explore(
         v-if="$route.meta.action=='back'", 
         :to="$route.meta.back.path",
-        :key="$route.path") 
+        :key="$route.meta.back.path") 
+        .arrow-right.reverse( :style="{'background-color': theme.color}", key="sub_arrow")
         .ovh
           .animated.slideInUp Back to the
         div.themename.ovh
           span.text.animated.slideInUp {{$route.meta.back.name}}  
-          .arrow-right.reverse( :style="{'background-color': theme.color}", 
+          //- .arrow-right.reverse( :style="{'background-color': theme.color}", 
                         )
-    
+      router-link.subBack.nostyle.animated.fadeIn(
+        v-if="$route.meta.subBack", 
+        :to="$route.meta.subBack.path",
+        :key="$route.meta.subBack.path")
+        h3 {{$route.meta.subBack.name}}
+        .arrow-right.reverse( :style="{'background-color': theme.color}", key="sub_arrow")
+
     .row-bottom
       span.col-login(v-if="$route.path=='/'",@click="setMenuState(true)") 
         span(v-if="auth.user") Hello 雜學校學生 {{auth.user.name}}
@@ -146,6 +153,7 @@ export default {
     display: flex
     flex-direction: column
     padding: 80px 75px
+    position: relative
     // justify-content: space-between
     align-items: space-between
     .longline
@@ -187,39 +195,88 @@ export default {
       .text
         flex-shrink: 0
         
-      @keyframes widthani
-        0%
-          width: 0
-        100%
-          width: 20px
+  @keyframes widthani
+    0%
+      width: 0
+    100%
+      width: 20px
 
-      .arrow-right
-        display: block
-        height: 2px
-        width: 100%
-        background-color: #333
-        margin-bottom: 15px
-        position: relative
-        margin-left: 20px
-        &:before,&:after
-          animation: widthani 1s 0.2s both
-          content: ""
-          display: block
-          width: 20px
-          height: 2px
-          background-color: inherit
-          position: absolute
-          transform-origin: right center
-          transform: rotate(45deg)
-          right: 0
-        &:after
-          transform: rotate(-45deg)
-        &.reverse
-          transform-origin: center center
-          transform: rotate(180deg)
+  @keyframes widthaniSmall
+    0%
+      width: 0
+    100%
+      width: 10px
 
+  @keyframes widthani100
+    0%
+      width: 0
+      margin-left: 100px
+    100%
+      width: 100px
+      margin-left: 0px
 
+  .arrow-right
+    display: block
+    height: 2px
+    width: 100%
+    background-color: #333
+    margin-bottom: 15px
+    position: relative
+    margin-left: 20px
+    &:before,&:after
+      animation: widthani 1s 0.2s both
+      content: ""
+      display: block
+      width: 20px
+      height: 2px
+      background-color: inherit
+      position: absolute
+      transform-origin: right center
+      transform: rotate(45deg)
+      right: 0
+    &:after
+      transform: rotate(-45deg)
+    &.reverse
+      animation: widthani100 1s 1.5s both
+      &:before,&:after
+        animation: widthaniSmall 1s 1.7s both
+      transform-origin: center center
+      transform: rotate(180deg)
+      width: 100px
+      margin-left: 0
+      margin-bottom: 60px
 
+      //back to (arrow)
+      // .arrow-right.reverse
+      //   position: absolute
+      //   width: 100%
+                
+
+  @keyframes widthani50
+    0%
+      width: 0
+      margin-left: 40px
+    100%
+      width: 40px
+      margin-left: 10px
+  .subBack
+    position: absolute
+    bottom: 30px 
+    font-weight: 300
+    letter-spacing: 2px
+    display: flex
+    align-items: center
+
+    .arrow-right
+      margin-top: 0
+      margin-bottom: 0
+      margin-left: 20px
+      animation: widthani50 1s 1s both
+      background-color: black !important
+      &:before,&:after
+        background-color: black
+      width: 50px
+      display: inline-block
   .col-theme-nav
     background-color: black
     color: white

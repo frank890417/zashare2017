@@ -21,13 +21,13 @@
     .bottom(v-if="mode=='register' && !auth.user")
       h4 會員註冊
       //- label email
-      input(v-model="registerData.email", placeholder="信箱", type="email")
+      input(v-model="registerData.email", placeholder="信箱", type="email", name="email", autocomplete="on")
       //- label name
-      input(v-model="registerData.name", placeholder="名字", type="name")
-      select(v-model="registerData.jobcata", placeholder="產業別")
+      input(v-model="registerData.name", placeholder="名字", type="name", name="name", autocomplete="on")
+      select(v-model="registerData.jobcata", placeholder="產業別" , name="jobcata", autocomplete="on")
         option(v-for= "(jb,jbid) in jobcatas", 
               :value="jb") {{jb}}
-      input(v-model="registerData.job", placeholder="職稱", type="job")
+      input(v-model="registerData.job", placeholder="職稱", type="job", name="job", autocomplete="on")
       input(v-model="registerData.password", placeholder="密碼", type="password")
       button.btn.fw.black(@click="register(registerData)") 註冊
       //- label(v-if="auth.status") {{auth.status}}

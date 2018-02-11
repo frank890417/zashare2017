@@ -52,8 +52,13 @@ let router = new Router({
         action: "back",
         navWidth: "350px",
         back: {
-          name: "INDEX",
+          name: "NEWS",
+          path: "/news"
+        },
+        subBack: {
+          name: "回首頁",
           path: "/"
+
         },
         navPosition: "left"
       }
@@ -66,8 +71,13 @@ let router = new Router({
         action: "back",
         navWidth: "350px",
         back: {
-          name: "INDEX",
+          name: "NEWS",
+          path: "/news"
+        },
+        subBack: {
+          name: "回首頁",
           path: "/"
+
         },
         navPosition: "left"
       }
@@ -137,6 +147,11 @@ let router = new Router({
           name: "ZA EXPO",
           path: "/expo"
         },
+        subBack: {
+          name: "回總表",
+          path: "/expo/main"
+
+        },
         navPosition: "left"
       }
     },
@@ -151,6 +166,11 @@ let router = new Router({
         back: {
           name: "ZA EXPO",
           path: "/expo"
+        },
+        subBack: {
+          name: "回總表",
+          path: "/expo/main"
+
         },
         navPosition: "left"
       }

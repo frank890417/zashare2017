@@ -92,6 +92,9 @@ html,body
   left: 0
   top: 0
 
+.container
+  max-width: 960px
+
 .float-right
   float: right
 

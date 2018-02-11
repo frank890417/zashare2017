@@ -12,13 +12,16 @@
               .slide(v-for="slide in slides") 
                 .cover(:style="bgcss(slide.cover)")
             //- .cover(:style="bgcss('http://via.placeholder.com/800x600')")
-          .col-sm-4.col-info(v-if="slides[currentSlideId]")
+
+          .col-sm-4.col-info(v-if="slides[currentSlideId]", :key="currentSlideId")
             .tag ZA COURSE
-            h3.slide-company {{ slides[currentSlideId].company.name_cht }}
-            h2.slide-title {{ slides[currentSlideId].title }}
+            .ovh
+              h3.slide-company.animated.slideInUp {{ slides[currentSlideId].company.name_cht }}
+            .ovh
+              h2.slide-title {{ slides[currentSlideId].title }}
             hr
             p {{ strip_tags(slides[currentSlideId].content).slice(0,60) }}...
-            router-link.btn.nostyle(:to="`/news/${slides[currentSlideId].id}`") 閱讀更多
+            //- router-link.btn.nostyle(:to="`/news/${slides[currentSlideId].id}`") 閱讀更多
     .row
       .col-sm-12
         h4.cata-title 文章分類
@@ -121,7 +124,7 @@ export default {
 
           });
 
-        },500)
+        },300)
       }
     },
     scrollY(){
@@ -203,7 +206,15 @@ export default {
     flex-direction: column
     display: flex
     justify-content: flex-end
-
+    h2
+      min-height: 2.5em
+    h3
+      min-height: 1.5em
+    p
+      min-height: 5em
+    .btn
+      display: inline-block
+      width: auto
     // align-items: flex-end
 .cata-title
   margin-top: 50px
