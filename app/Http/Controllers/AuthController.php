@@ -28,7 +28,8 @@ class AuthController extends Controller
      */
     public function redirectToProvider()
     {
-        return Socialite::driver('facebook')->stateless()->redirect();
+        $redirectUrl = "https://service.zashare.org/api/auth/login/facebook/";
+        return Socialite::driver('facebook')->stateless()->redirectUrl($redirectUrl)->redirect();
     }
 
     /**

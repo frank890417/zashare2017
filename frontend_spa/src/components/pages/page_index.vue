@@ -130,7 +130,7 @@ export default {
   0%
     flex: 0
   100%
-    flex: 1
+    flex: 228px
 .page-index
   padding-right: 350px
   width: 100%
@@ -149,11 +149,12 @@ export default {
     &:hover
       background-color: #eee
   .row-news
-    animation: flexIn 1s both
+    // animation: flexIn 1s both
     transition: 0.5s
-    flex: 1
+    flex: 228px
+    flex-grow: 0
     text-align: left
-    height: 228px 
+    // height: 200px 
     // background-color: #fafafa
     h3
       font-size: 24px
@@ -179,7 +180,7 @@ export default {
         font-weight: 800
         display: flex
         align-items: center
-        transform: translateY(70px)
+        transform: translateY(60px)
         .arrowRight
           display: block
           height: 2px
