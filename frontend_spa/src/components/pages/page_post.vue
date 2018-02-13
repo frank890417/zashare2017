@@ -11,7 +11,7 @@
         h2 {{ post.subtitle }}
       .col-sm-12
         div
-          p 上搞時間: {{ post.established_time.split(" ")[0] }} 
+          p {{ post.established_time.split(" ")[0] }} 
           span {{post.author}}
           .tags
             .hashtag(v-for="tag in hashtags") {{tag}}
@@ -77,7 +77,9 @@ export default {
         // .replace(/..\/..\//g,"/")
     },
     relatedPost(){
-      return this.posts.filter(p=>p.year==this.post.year).slice().sort((a,b)=>Math.random()-0.5).slice(0,3)
+      let type = this.$route.meta.type=="expo"?"post":"news"
+      return this.posts.filter(p=>p.year==this.post.year)
+                       .filter(o=>o.type==type).slice().sort((a,b)=>Math.random()-0.5).slice(0,3)
     }
 
   }

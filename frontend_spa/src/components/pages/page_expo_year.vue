@@ -1,6 +1,6 @@
 <template lang="pug">
 .page.page-post.page-expo-year.right.animated.fadeIn
-  .container
+  .container.text-left
     .row.row-banner
       .col-sm-12
         .cover(:style="bgcss(expo.cover)")
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState, mapGetters} from 'vuex'
 export default {
   data(){
     return {
@@ -40,8 +40,11 @@ export default {
   computed: {
     ...mapState({
       expos: state=>state.expos,
-      posts: state=>state.post.posts
+      // posts: state=>state.post.posts
 
+    }),
+    ...mapGetters({
+      posts: "post/availblePosts"
     }),
     expo(){
       return this.expos.find(o=>o.year==this.$route.params.year)
@@ -57,7 +60,7 @@ export default {
 <style lang="sass">
 .page-expo-year
   .cover
-    min-height: 400px
+    padding-bottom: 40%
     background-size: cover
     background-position: center center
     

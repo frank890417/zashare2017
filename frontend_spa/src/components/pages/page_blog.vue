@@ -6,7 +6,7 @@
         //- h2 News
     .row
       .col-sm-12(v-if="slides.length")
-        .row.row-head-news
+        router-link.nostyle.row.row-head-news(:to="postTarget(slides[currentSlideId])")
           .col-sm-8
             .slick
               .slide(v-for="slide in slides") 
@@ -20,10 +20,10 @@
             .ovh
               h2.slide-title {{ slides[currentSlideId].title }}
             hr
-            p {{ strip_tags(slides[currentSlideId].content).slice(0,60) }}...
+            p {{ strip_tags(slides[currentSlideId].short_description).slice(0,60) }}...
             //- router-link.btn.nostyle(:to="`/news/${slides[currentSlideId].id}`") 閱讀更多
     .row
-      .col-sm-12
+      .col-sm-12(v-if="$route.meta.type=='news'")
         h4.cata-title 文章分類
         ul.catas
           li(:class="{active: nowCata==''}", 
@@ -34,6 +34,9 @@
              @click="nowCata='base'") ZA BASE
           li(:class="{active: nowCata=='expo'}", 
              @click="nowCata='expo'") ZA EXPO
+      div(v-else)
+        br
+        br
     .row
       .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12(v-for="post in use_posts").col-news
         newsbox(:post='post', :target='postTarget(post)',tag="ZA EXPO")
@@ -88,7 +91,8 @@ export default {
       return use_source
     },
     use_posts(){
-      return this.use_source.filter(post=>!post.stick_top_index).slice(0,this.showCount)
+      // .filter(post=>!post.stick_top_index)
+      return this.use_source.slice(0,this.showCount)
     },
     slides(){
       return this.use_source.filter(post=>post.stick_top_index).slice(0,3)

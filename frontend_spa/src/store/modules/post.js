@@ -42,6 +42,11 @@ const post = {
       })
     },
 
+  },
+  getters: {
+    availblePosts(state){
+      return state.posts.filter(o=>o.status=="published")
+    }
   }
 }
 export default post

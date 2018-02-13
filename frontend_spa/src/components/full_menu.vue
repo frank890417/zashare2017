@@ -23,13 +23,13 @@
             .row( @click="setMenuState(false)" v-if="searchKeyword==''")
               router-link.col-sm-4(to="/")
                 h2 Home
-                p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化值、沒有框架...
+                p 回首頁
               router-link.col-sm-4(to="/news")
                 h2 News
-                p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化值、沒有框架...
+                p 最新消息
               router-link.col-sm-4(to="/about")
                 h2 About
-                p 2018年起，我們試圖匯聚各個領域的燈塔，建立起教育與時俱進的指標，讓學習的方向更加明確與有邏輯。提供線下至線上、各種多元面向的課程選擇，以脈絡式的課程大綱進行規劃，讓自主學習這件事不是茫然地像在汪洋中學習。
+                p 關於雜學校
             
             .row(@click="setMenuState(false)" v-if="searchKeyword==''")
               router-link.col-sm-4(to="/course")

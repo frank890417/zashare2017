@@ -7,10 +7,10 @@
           .year {{expo.year}}
         hr
         .row.row-content
-          router-link.col-sm-6(:to="`/expo/${expo.year}`")
-            .cover(:style="bgcss(expo.cover)")
-          router-link.col-sm-6(:to="`/expo/${expo.year}/blog`")
-            .cover(:style="bgcss(expo.report_cover)")
+          router-link.col-sm-12.col-lg-6(:to="`/expo/${expo.year}`")
+            .cover(:style="bgcss(expo.cover)", data-cover-tag = "展覽資訊")
+          router-link.col-sm-12.col-lg-6(:to="`/expo/${expo.year}/blog`")
+            .cover(:style="bgcss(expo.report_cover)", data-cover-tag = "參展報導")
     
         
 </template>
@@ -40,9 +40,32 @@ export default {
 
   .cover
     width: 100%
-    height: 300px
+    padding-bottom: 60%
     background-color: #eee
     background-size: cover
+    background-position: center center
+    position: relative
+    color: white
+    text-decoration: none
+    &:before
+      content: attr(data-cover-tag)
+      display: block
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      background-color: rgba(black,0.6)
+      opacity: 0
+      transition: 0.5s
+      font-size: 18px
+      letter-spacing: 1px
+      display: flex
+      justify-content: center
+      align-items: center
+    &:hover
+      &:before
+        opacity: 1
   .container
     padding: 50px
   .year
@@ -55,5 +78,8 @@ export default {
     margin-top: 5px
     margin-bottom: 40px
   .col-sm-12
-    margin-bottom: 100px
+
+    margin-bottom: 20px
+  .row
+    margin-bottom: 50px
 </style>

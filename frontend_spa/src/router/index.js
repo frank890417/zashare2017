@@ -9,6 +9,8 @@ import pageIndex from '@/components/pages/page_index.vue'
 import pageBlog from '@/components/pages/page_blog.vue'
 import pagePost from '@/components/pages/page_post.vue'
 import pageTheme from '@/components/pages/page_theme.vue'
+import pageBase from '@/components/pages/page_base.vue'
+import pageCourse from '@/components/pages/page_course.vue'
 import pageExpo from '@/components/pages/page_expo.vue'
 import pageExpoYear from '@/components/pages/page_expo_year.vue'
 
@@ -38,7 +40,7 @@ let router = new Router({
       meta: {
         type: "theme",
         next: {
-          path: '/expo/main'
+          path: '/course/main'
 
         }
       }
@@ -89,7 +91,7 @@ let router = new Router({
       meta: {
         type: "theme",
         next: {
-          path: '/expo/main'
+          path: '/base/main'
 
         }
       }
@@ -107,6 +109,37 @@ let router = new Router({
         }
       }
     },
+
+    
+    {
+      path: '/base/main',
+      name: 'base_indep',
+      component: pageBase,
+      meta: {
+        navWidth: "350px",
+        action: "back",
+        back: {
+          name: "ZA BASE",
+          path: "/base"
+        },
+        navPosition: "left"
+      }
+    },
+    {
+      path: '/course/main',
+      name: 'course_indep',
+      component: pageCourse,
+      meta: {
+        navWidth: "350px",
+        action: "back",
+        back: {
+          name: "ZA COURSE",
+          path: "/course"
+        },
+        navPosition: "left"
+      }
+    },
+
     {
       path: '/expo/main',
       name: 'expo_main',
@@ -132,6 +165,11 @@ let router = new Router({
           name: "ZA EXPO",
           path: "/expo"
         },
+        subBack: {
+          name: "回總表",
+          path: "/expo/main"
+
+        },
         navPosition: "left"
       }
     },
@@ -148,7 +186,7 @@ let router = new Router({
           path: "/expo"
         },
         subBack: {
-          name: "回總表",
+          name: "返回歷屆導覽",
           path: "/expo/main"
 
         },
@@ -168,7 +206,7 @@ let router = new Router({
           path: "/expo"
         },
         subBack: {
-          name: "回總表",
+          name: "返回歷屆導覽",
           path: "/expo/main"
 
         },
@@ -189,6 +227,7 @@ let router = new Router({
         navPosition: "left"
       }
     },
+    
     {
       path: '/manage',
       meta: {

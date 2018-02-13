@@ -15,13 +15,13 @@
       //- label 密碼
       input(v-model="loginData.password", placeholder="密碼" , type="password")
       button.btn.fw.black(@click="login(loginData)") 登入
-      button.btn.fw(@click="loginFacebook") 使用 Facebook 登入
+      //- button.btn.fw(@click="loginFacebook") 使用 Facebook 登入
       button.btn.fw.nobg 忘記密碼
       button.btn.fw.nobg(@click="mode='register'") 註冊為雜學校學生
     .bottom(v-if="mode=='register' && !auth.user")
       h4 會員註冊
       //- label email
-      input(v-model="registerData.email", placeholder="信箱", type="email", name="email", autocomplete="on")
+      input(v-model="registerData.email", placeholder="電子郵件(帳號)", type="email", name="email", autocomplete="on")
       //- label name
       input(v-model="registerData.name", placeholder="名字", type="name", name="name", autocomplete="on")
       select(v-model="registerData.jobcata", placeholder="產業別" , name="jobcata", autocomplete="on")
