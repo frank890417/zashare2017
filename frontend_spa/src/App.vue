@@ -102,6 +102,7 @@ html,body
   float: left
 
 .page
+  min-height: 100vh
   &.right
     padding-left: 350px
 

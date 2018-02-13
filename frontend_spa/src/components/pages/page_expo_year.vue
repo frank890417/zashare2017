@@ -19,14 +19,14 @@
     .row.row-content
       .col-sm-12
         p(v-html="replaceBr(expo.content)")
-    .row
+    .row(v-if="recommandPosts.length")
       .col-sm-12
         h3 推薦參展報導
         hr
-    .row
+    .row(v-if="recommandPosts.length")
       .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12(v-for="post in recommandPosts") 
         newsbox(:post='post', :target='`/expo/${$route.params.year}/blog/${post.id}`',tag="ZA EXPO")
-        
+
 </template>
 
 <script>
