@@ -127,6 +127,8 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../../assets/_mixins.sass"
+
 
 @keyframes flexIn
   0%
@@ -138,6 +140,10 @@ export default {
   width: 100%
   height: 100%
   box-sizing: border-box
+  +rwd_md
+    padding-right: 0
+    .row-bottom
+      margin-left: 0
   .container-fluid
     width: 100%
     height: 100%
@@ -147,6 +153,9 @@ export default {
     flex: 400px
     overflow: hidden
     background-color: #ddd
+    +rwd_md
+      flex: 350px
+      flex-grow: 0
   .btn-news
     &:hover
       background-color: #eee
@@ -172,6 +181,8 @@ export default {
       display: flex
       flex-direction: column
       justify-content: space-between
+      +rwd_md
+        display: none
       h2
         margin-bottom: 0
       h4
@@ -229,9 +240,19 @@ export default {
     h2
       font-size: 40px
       font-weight: 900
+    +rwd_md
+
+      .col-right
+        border-left: none
+        padding-left: 20px
+        padding-top: 30px
+        &:before
+          display: none
   .slide
     width: 100%
     height: 700px
+    +rwd_md
+      height: 300px
   .cover
     width: 100%
     height: 100%

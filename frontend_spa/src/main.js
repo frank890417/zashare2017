@@ -22,7 +22,7 @@ import VueAxios from 'vue-axios'
 import VueAnalytics from 'vue-analytics'
 if (document.domain =="zashare.org") {
   Vue.use(VueAnalytics, {
-    id: 'UA-52977512-12',
+    id: 'UA-52977512-16',
     router
   })
 }

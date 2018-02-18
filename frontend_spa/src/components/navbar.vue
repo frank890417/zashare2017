@@ -101,6 +101,7 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../assets/_mixins.sass"
 .navbar
   position: fixed
   right: 0
@@ -108,6 +109,7 @@ export default {
   width: 300px
   height: 100vh
   transition: 0.5s, right 1s
+    
   .animated.slideInUp
     animation-delay: 0.8s
   a
@@ -128,6 +130,8 @@ export default {
     align-items: center
     justify-content: center
 
+  
+      
   @keyframes textOut
   0%
     top: 100px
@@ -148,6 +152,7 @@ export default {
     background-color: #fff
     justify-content: space-between
     
+
   .row-logo
     height: 100%
     display: flex
@@ -168,6 +173,7 @@ export default {
       &.nolen
         flex: 0.5
         opacity: 0
+
 
   .col-theme-nav,.col-login
     padding: 35px 50px
@@ -194,6 +200,49 @@ export default {
 
       .text
         flex-shrink: 0
+        
+
+  +rwd_md
+    +size(100%,60px)
+    background-color: transparent
+    .explore
+      color: white
+    .logo-img
+      +size(60px,36px)
+    .row-logo
+      padding: 0
+      height: 60px
+      background-color: transparent
+      flex-direction: row
+      display: none
+    .logo-part
+      display: flex
+    .nav-cht-logo
+      display: none
+    .container-fluid
+      +size(100%,60px)
+      padding: 0
+    .col-image
+      flex: 300px
+      flex-grow: 0
+    .row-bottom
+      position: relative
+      height: 100%
+      margin-left: 60px
+      background-color: transparent
+      
+      .col-theme-nav,.col-login
+        position: absolute
+        
+        background-color: transparent
+        left: 60px
+        top: 0
+        padding: 0
+        height: 100%
+      .col-theme-nav
+        display: none
+
+
         
   @keyframes widthani
     0%
@@ -320,6 +369,12 @@ export default {
     display: flex
     justify-content: center
     align-items: center
+
+    +rwd_md
+      position: fixed
+      left: initial
+      top: 320px
+      right: 30px
 
     &:before
       content: ""

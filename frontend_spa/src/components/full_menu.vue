@@ -23,24 +23,24 @@
             .row( @click="setMenuState(false)" v-if="searchKeyword==''")
               router-link.col-sm-4(to="/")
                 h2 Home
-                p 回首頁
+                p.nav-short-description 回首頁
               router-link.col-sm-4(to="/news")
                 h2 News
-                p 最新消息
+                p.nav-short-description 最新消息
               router-link.col-sm-4(to="/about")
                 h2 About
-                p 關於雜學校
+                p.nav-short-description 關於雜學校
             
             .row(@click="setMenuState(false)" v-if="searchKeyword==''")
               router-link.col-sm-4(to="/course")
                 h2.nav-course ZA COURSE
-                p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化值、沒有框架...
+                p.nav-short-description 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化值、沒有框架...
               router-link.col-sm-4(to="/base")
                 h2.nav-base ZA BASE
-                p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、框架...
+                p.nav-short-description 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、框架...
               router-link.col-sm-4(to="/expo")
                 h2.nav-expo ZA EXPO
-                p 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、框架...
+                p.nav-short-description 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、框架...
             div.row(v-if="searchKeyword!=''" 
                     @click="setMenuState(false)").scrollY
               newsbox.col-lg-4.col-md-6.col-sm-12(v-for="post in filteredPost", 
@@ -104,12 +104,11 @@ export default {
 </script>
 
 <style lang="sass">
-
+@import "../assets/_mixins.sass"
 
 
 .hambergur
-  width: 72px
-  height: 72px
+  +size(72px)
   position: fixed
   left: 0px
   top: 50px
@@ -117,6 +116,16 @@ export default {
   padding: 10px
   cursor: pointer
   z-index: 50
+  +rwd_md
+    left: 0
+    top: 0
+    +size(60px)
+    .icon-bar
+      +size(30px,3px)
+      &:nth-child(1)
+        top: 40%
+      &:nth-child(2)
+        top: 60%
 .menu
   input
     border: none
@@ -168,10 +177,13 @@ export default {
     display: inline-block
     color: inherit
     text-decoration: none
+
+    
   h2
     font-size: 40px
     font-weight: 900
     margin-bottom: 20px
+
   .row-page
     height: 100%
   .col-menu,.col-member
@@ -181,6 +193,24 @@ export default {
     padding-left: 100px
     .container
       margin-top: 20px
+
+
+  +rwd_md
+    width: 100vw
+    .nav-short-description
+      display: none
+    h2
+      margin-top: 10px
+      margin-bottom: 30px
+      font-size: 24px
+    .col-menu
+      padding: 20px 60px
+    .container-menu
+      .row
+        flex-shrink: 0
+    .row-search
+      width: 100%
+
   .col-member
     background-color: #eee
     padding: 40px

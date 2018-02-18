@@ -1,5 +1,9 @@
 <template lang="pug">
   #app(:class="{noScroll: menuState}")
+    .mobileBlock(v-if="mobile_mask_show")
+      .logo-container.animated.swing
+        img.logo(src="/static/img/Home/za-logo.svg")
+      h2 手機版本還在開發中...<br>請使用電腦版瀏覽：）
     //- transition(name="page")
     router-view(:key="$route.path")
     navbar
@@ -11,21 +15,53 @@
 import {mapState} from 'vuex'
 export default {
   name: 'App',
+  
   computed: {
-    ...mapState(['menuState'])
+    ...mapState(['menuState','mobile_mask_show'])
   }
 }
 </script>
 
 <style lang="sass">
+@import "assets/_mixins.sass"
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css)
+
+.mobileBlock
+  position: fixed
+  width: 100vw
+  height: 100vh
+  left: 0
+  top: 0
+  background-color: rgba(black,0.8)
+  line-height: 1.8
+  color: white
+  z-index: 5000
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  display: none
+  +rwd_md
+    display: flex
+  .logo-container
+    background-color: white
+    padding-left: 25px
+    padding-top: 20px
+    animation-iteration-count: infinite
+    animation-duration: 2s
+    margin-bottom: 50px
+  .logo
+    width: 100px
+    // height: 50px
+
+    // padding: 10px
 
 html,body
   margin: 0
   padding: 0
-  width: 100%
-  height: 100%
-
+  width: 100vw
+  height: 100vh
+  overflow: hidden
 .noScroll
   // overflow-y: hidden
 .scrollY

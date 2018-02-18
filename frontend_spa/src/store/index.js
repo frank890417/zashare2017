@@ -8,11 +8,12 @@ const store = new Vuex.Store({
     auth: require("./modules/auth.js").default,
     manage: require("./modules/manage.js").default,
     post: require("./modules/post.js").default,
-    scroll: require("./modules/scroll.js").default
+    scroll: require("./modules/scroll.js").default,
   },
   state: {
     themes: require("../data/themes.js").default,
     menuState: false,
+    mobile_mask_show: process.env.NODE_ENV=="production"?true:false,
     expos: [
       {
         year: 2017,
