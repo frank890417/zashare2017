@@ -14,6 +14,8 @@ const store = new Vuex.Store({
     themes: require("../data/themes.js").default,
     menuState: false,
     mobile_mask_show: process.env.NODE_ENV=="production"?true:false,
+
+    loading: true,
     expos: [
       {
         year: 2017,
@@ -64,6 +66,9 @@ const store = new Vuex.Store({
     setMenuState(state, value) {
       state.menuState = value
     },
+    setLoading(state, value) {
+      state.loading = value
+    }
 
   },
   actions: {

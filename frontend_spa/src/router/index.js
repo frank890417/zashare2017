@@ -166,7 +166,7 @@ let router = new Router({
           path: "/expo"
         },
         subBack: {
-          name: "回總表",
+          name: "返回歷屆導覽",
           path: "/expo/main"
 
         },

@@ -14,7 +14,7 @@
             //- .cover(:style="bgcss('http://via.placeholder.com/800x600')")
 
           .col-sm-4.col-info(v-if="slides[currentSlideId]", :key="currentSlideId")
-            .tag ZA COURSE
+            //- .tag ZA COURSE
             .ovh
               h3.slide-company.animated.slideInUp {{ slides[currentSlideId].company.name_cht }}
             .ovh

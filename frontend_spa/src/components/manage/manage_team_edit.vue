@@ -72,6 +72,7 @@
 
               el-form-item(label="年份")
                 el-select(v-model="company.year")
+                  el-option(value="2015",label="2015")
                   el-option(value="2016",label="2016")
                   el-option(value="2017",label="2017")
               

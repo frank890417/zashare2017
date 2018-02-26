@@ -9,6 +9,7 @@
       el-option(value="", label="2016 & 2017")
       el-option(value="2017", label="2017")
       el-option(value="2016", label="2016")
+      el-option(value="2015", label="2015")
     br
     el-table(:data="filteredPosts" border max-height="800",
                :default-sort = "{prop: 'id', order: 'descending'}")
@@ -22,7 +23,7 @@
         template(slot-scope="scope")
           img.cover(:src="scope.row.cover")
       el-table-column(prop="year",label="年度", width="100",
-        :filters="[{ text: '2016', value: '2016' }, { text: '2017', value: '2017' }]",
+        :filters="[{ text: '2015', value: '2015' },{ text: '2016', value: '2016' }, { text: '2017', value: '2017' }]",
         :filter-method="filterYear" :sortable="true")
       el-table-column(prop="title",label="標題" :sortable="true")
       el-table-column(prop="stick_top_index",label="置頂",width="100" :sortable="true")

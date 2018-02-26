@@ -10,7 +10,7 @@
           router-link.col-sm-12.col-lg-6(:to="`/expo/${expo.year}`")
             .cover(:style="bgcss(expo.cover)", data-cover-tag = "展覽資訊")
           router-link.col-sm-12.col-lg-6(:to="`/expo/${expo.year}/blog`")
-            .cover(:style="bgcss(expo.report_cover)", data-cover-tag = "參展報導")
+            .cover(:style="bgcss(expo.report_cover)", data-cover-tag = "參展單位報導")
     
         
 </template>

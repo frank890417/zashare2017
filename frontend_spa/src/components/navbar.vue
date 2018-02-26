@@ -42,9 +42,9 @@
         span(v-if="auth.user") Hello 雜學校學生 {{auth.user.name}}
         span(v-else) 學生登入 / 註冊
 
-      router-link.col-theme-nav.nav-course(to="/course") 
-        //- span ZA<br>Course
-        img(src="/static/img/Home/za-course.svg")
+      router-link.col-theme-nav.nav-expo(to="/expo")
+        //- span ZA<br>Expo
+        img(src="/static/img/Home/za-expo.svg")
         router-link.upCircle.animated.zoomIn(
           :to="upCircleTo",
           v-if="$route.meta.type=='theme' || $route.path=='/'",
@@ -53,9 +53,9 @@
       router-link.col-theme-nav.nav-base(to="/base")
         //- span ZA<br>Base
         img(src="/static/img/Home/za-base.svg")
-      router-link.col-theme-nav.nav-expo(to="/expo")
-        //- span ZA<br>Expo
-        img(src="/static/img/Home/za-expo.svg")
+      router-link.col-theme-nav.nav-course(to="/course") 
+        //- span ZA<br>Course
+        img(src="/static/img/Home/za-course.svg")
         
 </template>
 
@@ -79,7 +79,7 @@ export default {
     },
     upCircleTo(){
       if (this.$route.path=="/"){
-        return "/course"
+        return "/expo"
       }
       if (this.$route.meta.type=="theme"){
         return "/"

@@ -69,6 +69,7 @@
 
               el-form-item(label="年份")
                 el-select(v-model="post.year")
+                  el-option(value="2015",label="2015")
                   el-option(value="2016",label="2016")
                   el-option(value="2017",label="2017")
               el-form-item(label="撰文者")

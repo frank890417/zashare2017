@@ -27,6 +27,7 @@ if (document.domain =="zashare.org") {
   })
 }
 
+
 // import VueQuillEditor from 'vue-quill-editor'
 
 // Vue.use(VueQuillEditor, /* { default global options } */)
@@ -46,10 +47,12 @@ store.dispatch("manage/loadWebsite")
 
 Vue.config.productionTip = false
 
+import page_loading from './components/pages/page_loading.vue'
 import navbar from './components/navbar.vue'
 import full_menu from './components/full_menu.vue'
 import newsbox from './components/newsbox.vue'
 import auth_panel from './components/auth_panel.vue'
+Vue.component("page_loading", page_loading)
 Vue.component("navbar", navbar)
 Vue.component("full_menu", full_menu)
 Vue.component("newsbox", newsbox)
@@ -115,11 +118,24 @@ Vue.mixin({
 })
 
 
+if (process.env.NODE_ENV == "development") {
+  setTimeout(() => {
+    store.commit("setLoading", false)
+  }, 500);
+}
+if (process.env.NODE_ENV == "production") {
+  setTimeout(() => {
+    store.commit("setLoading", false)
+  }, 3000);
+}
+
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   store,
-  components: { App, navbar, full_menu },
+  components: { App, navbar, full_menu, page_loading},
   template: '<App/>'
 })

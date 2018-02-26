@@ -1,13 +1,15 @@
 <template lang="pug">
-  #app(:class="{noScroll: menuState}")
-    .mobileBlock(v-if="mobile_mask_show")
-      .logo-container.animated.swing
-        img.logo(src="/static/img/Home/za-logo.svg")
-      h2 手機版本還在開發中...<br>請使用電腦版瀏覽：）
-    //- transition(name="page")
-    router-view(:key="$route.path")
-    navbar
-    full_menu
+#app(:class="{noScroll: menuState}")
+  transition(name="fade")
+    page_loading(v-if="loading")
+  .mobileBlock(v-if="mobile_mask_show")
+    .logo-container.animated.swing
+      img.logo(src="/static/img/Home/za-logo.svg")
+    h2 手機版本還在開發中...<br>請使用電腦版瀏覽：）
+  //- transition(name="page")
+  router-view(:key="$route.path")
+  navbar
+  full_menu
     
 </template>
 
@@ -17,7 +19,7 @@ export default {
   name: 'App',
   
   computed: {
-    ...mapState(['menuState','mobile_mask_show'])
+    ...mapState(['menuState','mobile_mask_show','loading'])
   }
 }
 </script>
