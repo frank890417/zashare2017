@@ -273,6 +273,10 @@ export default {
       catas: state=>state.manage.catas,
     }),
     year_catas(){
+      if (this.$route.meta.type=="news"){
+        return this.catas.filter(o=>o.year=="news")
+
+      }
       return this.catas.filter(o=>o.year==this.post.year)
     },
     editType(){

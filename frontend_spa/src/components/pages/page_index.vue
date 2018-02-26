@@ -41,6 +41,7 @@ export default {
           slickOptions: {
               slidesToShow: 1,
               arrows: false,
+              // dots: true
               // Any other options that can be got from plugin documentation
           },
           // slides: [
@@ -153,6 +154,8 @@ export default {
     flex: 400px
     overflow: hidden
     background-color: #ddd
+    .slick
+      height: 100%
     +rwd_md
       flex: 350px
       flex-grow: 0

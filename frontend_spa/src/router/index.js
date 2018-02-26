@@ -166,7 +166,7 @@ let router = new Router({
           path: "/expo"
         },
         subBack: {
-          name: "返回歷屆導覽",
+          name: "返回歷屆展覽",
           path: "/expo/main"
 
         },
@@ -186,7 +186,7 @@ let router = new Router({
           path: "/expo"
         },
         subBack: {
-          name: "返回歷屆導覽",
+          name: "返回歷屆展覽",
           path: "/expo/main"
 
         },
@@ -206,7 +206,7 @@ let router = new Router({
           path: "/expo"
         },
         subBack: {
-          name: "返回歷屆導覽",
+          name: "返回歷屆展覽",
           path: "/expo/main"
 
         },

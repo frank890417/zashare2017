@@ -170,6 +170,33 @@ a.nostyle
   &.row
     flex-direction: row
 
+.slick-dots
+  display: flex
+  list-style: none
+  position: absolute
+  left: 50%
+  bottom: 20px
+  padding-left: 0
+  transform: translateX(-50%)
+  padding: 0
+  margin: 0
+  button
+    border: none
+    +size(20px)
+    transform: scale(0.5)
+    border-radius: 50%
+    background-color: #fff
+    color: transparent
+    font-size: 0
+    margin: 2px
+    outline: none
+    cursor: pointer
+    opacity: 0.6
+
+    &:hover
+      opacity: 1
+
+
 @for $i from 1 through 15
   .col-#{$i}
     flex: $i

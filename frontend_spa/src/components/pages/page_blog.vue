@@ -6,14 +6,16 @@
         //- h2 News
     .row
       .col-sm-12(v-if="slides.length")
-        router-link.nostyle.row.row-head-news(:to="postTarget(slides[currentSlideId])")
+        .nostyle.row.row-head-news(:to="postTarget(slides[currentSlideId])")
           .col-sm-8
             .slick
               .slide(v-for="slide in slides") 
                 .cover(:style="bgcss(slide.cover)")
             //- .cover(:style="bgcss('http://via.placeholder.com/800x600')")
 
-          .col-sm-4.col-info(v-if="slides[currentSlideId]", :key="currentSlideId")
+          router-link.nostyle.col-sm-4.col-info(
+            v-if="slides[currentSlideId]", :key="currentSlideId",
+            :to="postTarget(slides[currentSlideId])")
             //- .tag ZA COURSE
             .ovh
               h3.slide-company.animated.slideInUp {{ slides[currentSlideId].company.name_cht }}
@@ -64,7 +66,8 @@ export default {
         slickOptions: {
             slidesToShow: 1,
             arrows: false,
-            autoplay: true
+            autoplay: true,
+            dots: true
             // Any other options that can be got from plugin documentation
         },
       currentSlideId: 0,
