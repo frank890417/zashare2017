@@ -297,19 +297,20 @@ let router = new Router({
 var savePositions = {}
 router.beforeEach((to, from, next) => {
   console.log(to);
+
+  if (to.meta.preload_img){
+    console.log(to.meta.preload_img)
+  }
+
   if (to.path.indexOf("/manage") == 0) {
   } else {
     window.softScrollDisable = false
   }
 
-
-
   if (to.path.indexOf("/manage") == 0) {
-    
     window.softScrollDisable = true
   } else {
     window.softScrollDisable = false
-
   }
   savePositions[from.path] = $(window).scrollTop()
 

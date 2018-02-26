@@ -129,6 +129,44 @@ if (process.env.NODE_ENV == "production") {
   }, 3000);
 }
 
+function preload_all(array_img){
+  let promises = array_img.map(url => {
+    return new Promise((resolve, reject) => {
+      let i = new Image()
+      i.onload = function () {
+        // console.log("loaded")
+        resolve("ok")
+        console.log(url)
+      }
+      i.src = url
+    })
+  })
+  return Promise.all(promises)
+  // window.array_img = array_img
+  // window.promises = promises
+  // window.allpromise = allpromise
+  // return allpromise
+}
+
+import themes from "@/data/themes.js"
+let loadgroups = 
+  [
+    Object.values(themes).map(v => v.cover),
+    Object.values(themes).map(v => v.slogan_image),
+    store.state.expos.map(v => v.cover),
+    store.state.expos.map(v => v.report_cover),
+    ["https://service.zashare.org/img/2017/index_za_logo_white.svg"]
+  
+  ].reduce((pre, cur) => {
+    return pre = pre.concat(cur)
+  }, [])
+
+preload_all(loadgroups).then(() => {
+  console.log('load all success!')
+  // store.commit("setLoading", false)
+}).catch(() => {
+  console.log("oh no")
+})
 
 
 /* eslint-disable no-new */

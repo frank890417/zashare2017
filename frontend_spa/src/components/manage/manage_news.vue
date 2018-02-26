@@ -40,6 +40,7 @@
 <script>
 import {mapState} from 'vuex'
 import axios from 'axios'
+import store from "../../store"
 export default {
   data(){
     return {
@@ -49,6 +50,7 @@ export default {
     }
   },
   mounted(){
+    store.dispatch("manage/loadWebsite")
   },
   methods: {
     handleEdit(row){
