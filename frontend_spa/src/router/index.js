@@ -350,8 +350,11 @@ router.afterEach((route) => {
       $("html, body").animate({ scrollTop: 0 }, 50);
     }, 600)
 
-  }
+    setTimeout(() => {
+      _jf.flush();
+    }, 0);
 
+  }
 
 });
 

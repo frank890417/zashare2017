@@ -2,7 +2,7 @@
 .navbar(:style="navbarStyle")
   .container-fluid
     .row-logo
-      router-link.col-sm-12.logo-part(to="/" v-if="$route.path=='/'")
+      router-link.col-sm-12.logo-part.fadeIn.animated(to="/" v-if="$route.path=='/'")
         img.logo-img(src="/static/img/Home/za-logo.svg", @click="loginAjax") 
         h1.nav-cht-logo 雜學校
       //- h4(v-if="$route.meta.action!='back'") “ 雜學校，一個有效行動的學習場域。 ”
