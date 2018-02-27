@@ -17,7 +17,7 @@
             v-if="slides[currentSlideId]", :key="currentSlideId",
             :to="postTarget(slides[currentSlideId])")
             //- .tag ZA COURSE
-            .ovh
+            .ovh(v-if="slides[currentSlideId].company")
               h3.slide-company.animated.slideInUp {{ slides[currentSlideId].company.name_cht }}
             .ovh
               h2.slide-title {{ slides[currentSlideId].title }}
@@ -41,7 +41,7 @@
         br
     .row
       .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12(v-for="post in use_posts").col-news
-        newsbox(:post='post', :target='postTarget(post)',tag="ZA EXPO")
+        newsbox(:post='post', :target='postTarget(post)',:tag="(post.cata && post.cata.name) || ''")
     .row.lazy-detector
         //- router-link.news_box.animated.fadeIn(to="/news/test")
         //-   .row
@@ -89,7 +89,7 @@ export default {
       use_source = use_source.filter(o=>o.status=="published")
                              .slice().sort(o=>o.stick_top_index)
       if (this.$route.meta.type=="news"){
-        use_source = this.news
+        use_source = this.news.filter(o=>o.status=="published")
       }
       return use_source
     },

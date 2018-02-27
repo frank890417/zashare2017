@@ -6,6 +6,7 @@ Vue.use(Router)
 
 
 import pageIndex from '@/components/pages/page_index.vue'
+import pageAbout from '@/components/pages/page_about.vue'
 import pageBlog from '@/components/pages/page_blog.vue'
 import pagePost from '@/components/pages/page_post.vue'
 import pageTheme from '@/components/pages/page_theme.vue'
@@ -107,6 +108,20 @@ let router = new Router({
           path: '/expo/main'
 
         }
+      }
+    }, 
+    {
+      path: '/about',
+      name: 'about',
+      component: pageAbout,
+      meta: {
+        navWidth: "350px",
+        action: "back",
+        back: {
+          name: "INDEX",
+          path: "/"
+        },
+        navPosition: "left"
       }
     },
 

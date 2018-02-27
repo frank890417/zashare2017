@@ -24,6 +24,7 @@
       input(v-model="registerData.email", placeholder="電子郵件(帳號)", type="email", name="email", autocomplete="on")
       //- label name
       input(v-model="registerData.name", placeholder="名字", type="name", name="name", autocomplete="on")
+      label.mention ※若您持有「雜學校學生證」，請務必填寫您的真實姓名，方便核對身分及保障您的權益。
       select(v-model="registerData.jobcata", placeholder="產業別" , name="jobcata", autocomplete="on")
         option(v-for= "(jb,jbid) in jobcatas", 
               :value="jb") {{jb}}
@@ -129,6 +130,9 @@ export default {
   box-sizing: border-box
   flex-direction: column
   max-width: 500px
+  label.mention
+    font-size: 13px
+    opacity: 0.5
   input,select
     border: none
     outline: none
@@ -137,6 +141,7 @@ export default {
     padding: 5px 10px
     border-bottom: solid 1px rgba(#131116,0.2)
     margin-bottom: 10px
+    font-size: 14px
   .card-loading
     position: absolute
     width: 100%
