@@ -6,7 +6,7 @@
         .cover(:style="bgcss(post.cover)")
     .row.row-header
       .col-sm-12
-        .tag {{ post.company.cata }}
+        .tag {{ (post.company && post.company.cata) || (post.cata && post.cata.name) }}
         h1 {{ post.title }}
         h2 {{ post.subtitle }}
       .col-sm-12
@@ -34,7 +34,7 @@
         hr
     .row
       .col-sm-4(v-for="post in relatedPost") 
-        newsbox(:post='post', :target='`/expo/${$route.params.year}/blog/${post.id}`',:tag="post.cata.name")
+        newsbox(:post='post', :target='`/expo/${$route.params.year}/blog/${post.id}`',:tag="post.cata && post.cata.name")
 </template>
 
 <script>

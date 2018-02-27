@@ -32,15 +32,16 @@
                 p.nav-short-description 關於雜學校
             
             .row(@click="setMenuState(false)" v-if="searchKeyword==''")
-              router-link.col-sm-4(to="/course")
-                h2.nav-course ZA COURSE
-                p.nav-short-description 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化值、沒有框架...
-              router-link.col-sm-4(to="/base")
-                h2.nav-base ZA BASE
-                p.nav-short-description 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、框架...
               router-link.col-sm-4(to="/expo")
                 h2.nav-expo ZA EXPO
                 p.nav-short-description 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、框架...
+              router-link.col-sm-4(to="/base")
+                h2.nav-base ZA BASE
+                p.nav-short-description 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、框架...
+              router-link.col-sm-4(to="/course")
+                h2.nav-course ZA COURSE
+                p.nav-short-description 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化值、沒有框架...
+              
             div.row(v-if="searchKeyword!=''" 
                     @click="setMenuState(false)").scrollY
               newsbox.col-lg-4.col-md-6.col-sm-12(v-for="post in filteredPost", 

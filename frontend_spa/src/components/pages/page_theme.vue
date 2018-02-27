@@ -58,6 +58,7 @@ export default {
 
 <style lang="sass">
 @import "../../assets/_mixins.sass"
+$cubic: ease
 
 .page-theme
   padding-right: 450px
@@ -149,7 +150,7 @@ export default {
       flex: 150px
       opacity: 1
   .col-image
-    animation: flexIn 1s both
+    animation: flexIn 1s both $cubic
     transition: 0.5s
     flex: 1.2
     animation-delay: 0.6s

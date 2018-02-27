@@ -27,7 +27,7 @@ class NewsController extends Controller
         return $posts;
     }
     public function show($id){
-        $result = Post::where("type","news")->where("id",$id)->with("company")->first();
+        $result = Post::where("type","news")->where("id",$id)->with("cata")->with("company")->first();
         return $result;
     }
     public function update($id){

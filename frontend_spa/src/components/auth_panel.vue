@@ -21,7 +21,7 @@
     .bottom(v-if="mode=='register' && !auth.user")
       h4 會員註冊
       //- label email
-      input(v-model="registerData.email", placeholder="電子郵件(帳號)", type="email", name="email", autocomplete="on")
+      input(v-model="registerData.email", placeholder="電子郵件(登入帳號)", type="email", name="email", autocomplete="on")
       //- label name
       input(v-model="registerData.name", placeholder="名字", type="name", name="name", autocomplete="on")
       label.mention ※若您持有「雜學校學生證」，請務必填寫您的真實姓名，方便核對身分及保障您的權益。
