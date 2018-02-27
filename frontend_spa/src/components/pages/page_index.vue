@@ -63,11 +63,14 @@ export default {
             //   cover: "http://service.zashare.org/img/expo/2017/5.jpg"
             // }
           // ],
-          currentSlideId: 0
+          currentSlideId: 0,
+          slickEl: null
       };
   },
   methods: {
       next() {
+          // console.log(this.slickEl)
+          // console.log($(".slick"))
           $(".slick").slick("next");
       },
 
@@ -85,7 +88,35 @@ export default {
   },
   mounted(){
     
-     
+     if (this.slides.length>0){
+        setTimeout(()=>{
+          this.$nextTick(() => {
+            this.slickEl=$(".slick").slick(
+              this.slickOptions
+            )
+            let _this=this
+            $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+              console.log(nextSlide)
+              _this.currentSlideId=nextSlide
+            })
+
+          });
+        },200)
+      }else{
+        setTimeout(()=>{
+          this.$nextTick(() => {
+            this.slickEl=$(".slick").slick(
+              this.slickOptions
+            )
+            let _this=this
+            $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+              console.log(nextSlide)
+              _this.currentSlideId=nextSlide
+            })
+
+          });
+        },500)
+      }
     
 // $(".slider").slick({
     // $(this.$el).children(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
@@ -107,21 +138,21 @@ export default {
   },
   watch:{
     slides(){
-      if (this.slides.length>0){
-        setTimeout(()=>{
-          this.$nextTick(() => {
-            $(".slick").slick(
-              this.slickOptions
-            )
-            let _this=this
-            $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-              console.log(nextSlide)
-              _this.currentSlideId=nextSlide
-            })
+      // if (this.slides.length>0){
+      //   setTimeout(()=>{
+      //     this.$nextTick(() => {
+      //       _this.slickEl=$(".slick").slick(
+      //         this.slickOptions
+      //       )
+      //       let _this=this
+      //       $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+      //         console.log(nextSlide)
+      //         _this.currentSlideId=nextSlide
+      //       })
 
-          });
-        },200)
-      }
+      //     });
+      //   },200)
+      // }
     }
   }
 }
