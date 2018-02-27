@@ -73,6 +73,7 @@ let router = new Router({
         type: "news",
         action: "back",
         navWidth: "350px",
+        font_flush_delay: 400,
         back: {
           name: "NEWS",
           path: "/news"
@@ -235,6 +236,7 @@ let router = new Router({
       meta: {
         navWidth: "350px",
         action: "back",
+        font_flush_delay: 400,
         back: {
           name: "ZA EXPO",
           path: "/expo"
@@ -350,9 +352,10 @@ router.afterEach((route) => {
       $("html, body").animate({ scrollTop: 0 }, 50);
     }, 600)
 
+    
     setTimeout(() => {
       _jf.flush();
-    }, 0);
+    }, route.meta.font_flush_delay ||  0);
 
   }
 

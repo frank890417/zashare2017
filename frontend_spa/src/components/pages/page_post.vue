@@ -1,12 +1,12 @@
 <template lang="pug">
-.page.right.page-post.animated.fadeIn
-  .container(v-if="post")
+.page.right.page-post
+  .container(v-if="post && ready").animated.fadeIn
     .row.row-banner
       .col-sm-12
         .cover(:style="bgcss(post.cover)")
     .row.row-header
       .col-sm-12
-        .tag ZA EXPO
+        .tag {{ post.company.cata }}
         h1 {{ post.title }}
         h2 {{ post.subtitle }}
       .col-sm-12
@@ -40,16 +40,26 @@
 <script>
 import axios from 'axios'
 import {mapState } from 'vuex'
+
 export default {
   data(){
     return {
-      post: null
+      post: null,
+      ready: false
     }
   },
   mounted(){
     let type = this.$route.meta.type=="expo"?"post":"news"
+    let _this = this
     axios.get(`/api/${type}/`+this.$route.params.post_id).then(res=>{
-      this.post=res.data
+      _this.post=res.data
+      // _this.$nextTick(()=>{
+      //   setTimeout(()=>{
+      //     window._jf.flush();
+      _this.ready=true
+
+      //   },400)
+      // })      
     })
   },
   computed: {
