@@ -143,6 +143,8 @@ html,body
   min-height: 100vh
   &.right
     padding-left: 350px
+    +rwd_md
+      padding-left: 0
 
 .fade-enter-active, .fade-leave-active 
   transition: opacity .5s
@@ -201,4 +203,13 @@ a.nostyle
   .col-#{$i}
     flex: $i
 
+.text-center
+  text-align: center
+.hidden-md
+  +rwd_md
+    display: none
+.visible-md
+  display: none
+  +rwd_md
+    display: block
 </style>

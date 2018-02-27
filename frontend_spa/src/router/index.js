@@ -234,6 +234,7 @@ let router = new Router({
       name: 'expo_indep',
       component: pagePost,
       meta: {
+        type: "post",
         navWidth: "350px",
         action: "back",
         font_flush_delay: 400,
@@ -323,6 +324,9 @@ router.beforeEach((to, from, next) => {
   } else {
     window.softScrollDisable = false
   }
+  // if (to.meta.type=="news" || to.meta.type=="post"){
+    
+  // }
 
   if (to.path.indexOf("/manage") == 0) {
     window.softScrollDisable = true

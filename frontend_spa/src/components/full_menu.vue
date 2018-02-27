@@ -53,8 +53,8 @@
               .col-sm-12
                 hr
               .col-sm-8
+                h3 聯絡資訊　Contact Info
                 ul.infos
-                  li 聯絡資訊　Contact Info
                   li 
                   li Tel. +886-2-2729-7122
                   li Mail. zashare@ozzie-art.com
@@ -183,9 +183,12 @@ export default {
     font-size: 40px
     font-weight: 900
     margin-bottom: 20px
+    text-transform: Uppercase
 
   .row-page
     height: 100%
+    +rwd_md
+      overflow-y: auto
   .col-menu,.col-member
     height: 100%
   .col-menu
@@ -193,10 +196,16 @@ export default {
     padding-left: 100px
     .container
       margin-top: 20px
+      +rwd_md
+        margin-top: 0
+        padding-top: 0
+
 
 
   +rwd_md
     width: 100vw
+    overflow-y: auto
+    height: auto
     .nav-short-description
       display: none
     h2
@@ -206,6 +215,9 @@ export default {
     .col-menu
       padding: 20px 60px
     .container-menu
+      overflow-y: auto
+      height: 100vh
+      margin-bottom: 100px
       .row
         flex-shrink: 0
     .row-search
@@ -280,7 +292,9 @@ export default {
     input
       font-size: 24px
     .tags
-      display: flex
+      display: none
+      +rwd_lg
+        display: flex
 
       .tag
         white-space: nowrap

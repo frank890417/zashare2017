@@ -2,7 +2,7 @@
 .page.right.page-post
   .container(v-if="post && ready").animated.fadeIn
     .row.row-banner
-      .col-sm-12
+      .col-sm-12.animated.fadeIn
         .cover(:style="bgcss(post.cover)")
     .row.row-header
       .col-sm-12
@@ -34,7 +34,7 @@
         hr
     .row
       .col-sm-4(v-for="post in relatedPost") 
-        newsbox(:post='post', :target='`/expo/${$route.params.year}/blog/${post.id}`',tag)
+        newsbox(:post='post', :target='`/expo/${$route.params.year}/blog/${post.id}`',:tag="post.cata.name")
 </template>
 
 <script>
@@ -87,9 +87,12 @@ export default {
         // .replace(/..\/..\//g,"/")
     },
     relatedPost(){
-      let type = this.$route.meta.type=="expo"?"post":"news"
-      return this.posts.filter(p=>p.year==this.post.year)
+      let type = this.$route.meta.type=="expo"?"expo":"news"
+      // console.log(this.posts)
+      let result =  this.posts.filter(p=>p.year==this.post.year)
                        .filter(o=>o.type==type).slice().sort((a,b)=>Math.random()-0.5).slice(0,3)
+      console.log(result)
+      return result
     }
 
   }
@@ -97,11 +100,22 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../../assets/_mixins.sass"
 
 .page-post
   padding-top: 100px
   padding-bottom: 100px
   background-color: #fafafa
+
+  [class^="row-"]
+    padding-left: 105px
+    padding-right: 105px
+    +rwd_md
+      padding-left: 20px
+      padding-right: 20px
+
+  +rwd_sm
+    padding-top: 0
   hr
     margin-top: 30px
     margin-bottom: 30px
@@ -109,16 +123,18 @@ export default {
 
   .row-banner
     .cover
+      background-color: #eee
       min-height: 530px
       background-color: #eee
       margin-bottom: 60px
       // background-attachment: fixed
       background-position: center center
       background-size: cover
-      
+      +rwd_md
+        min-height: 40vh
+        margin-left: -20px
+        margin-right: -20px
   .row-header
-    padding-left: 105px
-    padding-right: 105px
     text-align: left
     position: relative
     p
@@ -150,8 +166,6 @@ export default {
       right: 0
       bottom: 0
   .row-content
-    padding-left: 105px
-    padding-right: 105px
     text-align: left
     iframe
       width: 100%
@@ -208,8 +222,6 @@ export default {
       margin-bottom: 70px
       
   .row-company
-    padding-left: 105px
-    padding-right: 105px
     h3
       font-size: 24px
     .logo

@@ -205,6 +205,8 @@ export default {
   +rwd_md
     +size(100%,60px)
     background-color: transparent
+    .container-fluid
+      background-color: transparent
     .explore
       color: white
     .logo-img

@@ -1,16 +1,21 @@
 <template lang="pug">
-.page-expo.animated.slideInRight
+.page.right.page-expo.animated.slideInRight
   .container
     .row(v-for="expo in expos")
       .col-sm-12
         h2 {{expo.title}}
+          span.title_eng
+            span.dash &nbsp;-&nbsp;
+            span.eng {{expo.title_eng}}
           .year {{expo.year}}
         hr
         .row.row-content
           router-link.col-sm-12.col-lg-6(:to="`/expo/${expo.year}`")
             .cover(:style="bgcss(expo.cover)", data-cover-tag = "展覽資訊")
+          h3.text-center.visible-md 展覽介紹
           router-link.col-sm-12.col-lg-6(:to="`/expo/${expo.year}/blog`")
             .cover(:style="bgcss(expo.report_cover)", data-cover-tag = "參展單位報導")
+          h3.text-center.visible-md 參展報導
     
         
 </template>
@@ -30,11 +35,30 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../../assets/_mixins.sass"
 .page-expo
-  padding-left: 350px 
   box-sizing: border-box
   text-align: left
   background-color: #fafafa
+  +rwd_md
+    padding-top: 30px
+  h2
+    position: relative
+    +rwd_md
+      font-size: 18px
+      margin-bottom: 0
+      .dash
+        display: none
+      .title_eng
+        position: absolute
+        left: 0
+        font-size: 16px
+        margin-top: -10px
+        top: 50px
+  h3
+    width: 100%
+    margin-top: 0px
+    margin-bottom: 30px
   .container-fluid
     padding: 50px
 
@@ -68,6 +92,8 @@ export default {
         opacity: 1
   .container
     padding: 50px
+    +rwd_md
+      padding: 20px
   .year
     float: right
   hr
@@ -82,4 +108,6 @@ export default {
     margin-bottom: 20px
   .row
     margin-bottom: 50px
+    +rwd_md
+      margin-bottom:: 0px
 </style>

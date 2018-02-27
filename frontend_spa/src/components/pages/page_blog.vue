@@ -167,12 +167,21 @@ export default {
 
 
 <style lang="sass">
+@import "../../assets/_mixins.sass"
 
 .page-blog
   padding-top: 60px
   text-align: left
   background-color: #fafafa
   background-color: #fafafa
+  +rwd_md
+    padding-top: 0
+    .row
+      margin-left: -15px
+      margin-right: -15px
+    .col-sm-8
+      padding-left: 0
+      padding-right: 0
   .slide-company
     margin-bottom: 0
   .slide-title
@@ -186,6 +195,8 @@ export default {
     background-size: cover
     background-position: center center
     position: relative
+    // margin-left: -15px
+    // margin-right: -15px
   .tag
     position: absolute
     left: 0
@@ -209,6 +220,8 @@ export default {
 .row-head-news
   .cover
     height: 400px
+    +rwd_md
+      height: 40vh
   .col-info
     flex-direction: column
     display: flex

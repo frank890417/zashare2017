@@ -12,6 +12,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
+
 import Vue from 'vue'
 import App from './App'
 import router from './router'
@@ -150,6 +152,7 @@ function preload_all(array_img){
   // window.allpromise = allpromise
   // return allpromise
 }
+window.preload_all = preload_all
 
 import themes from "@/data/themes.js"
 let loadgroups = 
@@ -171,6 +174,9 @@ preload_all(loadgroups).then(() => {
   console.log("oh no")
 })
 
+window.onresize=function(){
+  store.commit("setMobile", window.innerWidth < 1200)
+}
 
 /* eslint-disable no-new */
 new Vue({

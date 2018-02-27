@@ -13,13 +13,15 @@ const store = new Vuex.Store({
   state: {
     themes: require("../data/themes.js").default,
     menuState: false,
-    mobile_mask_show: process.env.NODE_ENV=="production"?true:false,
-
+    mobile: window.innerWidth<1200,
+    mobile_mask_show: false,
+    // process.env.NODE_ENV == "production" ? true : false
     loading: true,
     expos: [
       {
         year: 2017,
-        title: "有敢擇學 - Try Try See !",
+        title: "有敢擇學",
+        title_eng: "Try Try See !",
         time: "10/20-22",
         place: "華山1914 文化創意產業園區",
         cover: "http://service.zashare.org/img/expo/2017/1.jpg",
@@ -31,7 +33,8 @@ const store = new Vuex.Store({
         活動4天期間舉辦3場論壇、20場演講、6場實驗教育與自學分享、14場職人工作坊、42場教育體驗工作坊，容納最多元的創新教育內容，提供一般民眾、第一線教育者與產學界一個互動交流平台。`
       }, {
         year: 2016,
-        title: "學你想學、學你想成為。 - Learn to be, not taught to fit.",
+        title: "學你想學、學你想成為。",
+        title_eng: "Learn to be, not taught to fit.",
         time: "11/26-27",
         place: "華山1914 文化創意產業園區",
         cover: "https://az796311.vo.msecnd.net/userupload/afe7351a4adc41ca8a828fd5b606798f.jpg",
@@ -44,7 +47,8 @@ const store = new Vuex.Store({
       },
       {
         year: 2015,
-        title: "不太乖教育節 - Naughty Education",
+        title: "不太乖教育節",
+        title_eng: "Naughty Education",
         time: "05/09-10",
         place: "華山1914 文化創意產業園區",
         cover: "http://img.accupass.com/userupload/dcfc34cde62f4340aae2dd00452b0ef9.jpg",
@@ -68,7 +72,13 @@ const store = new Vuex.Store({
     },
     setLoading(state, value) {
       state.loading = value
-    }
+    },
+    setMobileMask(state,value){
+      state.mobile_mask_show=value
+    },
+    setMobile(state, value) {
+      state.mobile = value
+    },
 
   },
   actions: {

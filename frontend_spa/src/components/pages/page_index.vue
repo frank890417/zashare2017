@@ -28,6 +28,7 @@
               i.fa.fa-chevron-left
             .next(@click="next")
               i.fa.fa-chevron-right
+        .black_area
 </template>
 
 <script>
@@ -176,6 +177,7 @@ export default {
     padding-right: 0
     .row-bottom
       margin-left: 0
+      display: none
   .container-fluid
     width: 100%
     height: 100%
@@ -250,7 +252,16 @@ export default {
           &.reverse
             transform-origin: center center
             transform: rotate(180deg)
-
+      .black_area
+        position: absolute
+        top: 0
+        right: 0
+        background-color: black
+        height: 100
+        width: 50px
+        display: none
+        +rwd_md
+          display: block
     .col-right
       // border-left: solid #ddd 2px
 
@@ -293,6 +304,9 @@ export default {
     // background-image: url("http://service.zashare.org/img/2017/expo_2017/event/%E5%AF%A6%E9%A9%97%E6%95%99%E8%82%B2%E9%A4%A8.jpg")
     background-size: cover
     background-position: center center
+    +rwd_md
+      background-size: auto 100%
+
 .btns
   position: absolute
   right: 0px
