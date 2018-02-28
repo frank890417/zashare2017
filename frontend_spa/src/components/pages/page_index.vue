@@ -21,7 +21,7 @@
           div.ovh
             p.animated.slideInUp(v-html="currentSlide.description")
           br
-          router-link.nostyle.btn(:to="`/news/${currentSlide.id}`") 閱讀更多
+          router-link.nostyle.btn-more.fadeIn.animated(:to="`/news/${currentSlide.id}`") 閱讀更多
           
           .btns
             .prev(@click="prev")
@@ -272,9 +272,21 @@ export default {
       // border-left: solid #ddd 2px
 
       padding-left: 60px
+
       .num
         float: right
-        
+      h3
+        margin-top: 10px
+        margin-bottom: 10px
+      p
+        margin-top: 0
+        margin-bottom: 0
+
+      .btn-more
+        font-size: 14px
+        color: rgba(black,0.5)
+        margin-top: -20px
+
       // background-color: #fafafa
       &:before
         content: ""
