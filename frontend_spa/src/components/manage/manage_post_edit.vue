@@ -113,10 +113,15 @@ import $ from 'jquery'
 let quill_editor = null
 var Block = Quill.import('blots/block');
 
+var Parchment = Quill.import('parchment');
+var Delta = Quill.import('delta');
+let Break = Quill.import('blots/break');
+let Embed = Quill.import('blots/embed');
+
 class MyThing extends Block {}
 MyThing.blotName = 'my-thing';
 MyThing.className = 'quote';
-MyThing.tagName = 'div';
+MyThing.tagName = 'p';
 
 Quill.register(MyThing);
 
@@ -136,6 +141,22 @@ Quill.register(MyThing);
 //   //   // container.innerText = text.split(/\s+/).length;
 //   });
 // });
+function lineBreakMatcher() {
+  var newDelta = new Delta();
+  newDelta.insert({'break': ''});
+  return newDelta;
+}
+
+Break.prototype.insertInto = function(parent, ref) {
+    Embed.prototype.insertInto.call(this, parent, ref)
+};
+Break.prototype.length= function() {
+    return 1;
+}
+Break.prototype.value= function() {
+    return '\n';
+}
+
 export default {
   data(){
     return {
@@ -161,9 +182,62 @@ export default {
           ['clean']                                         // remove formatting button
       ],
       editorSettings: {
-        // modules: {
+        modules: {
+          clipboard: {
+            matchers: [
+              ['BR', lineBreakMatcher] 
+            ]
+          },
+          keyboard: {
+            bindings: {
+              handleEnter: {
+                key: 13,
+                handler: function (range, context) {
+                  if (range.length > 0) {
+                    this.quill.scroll.deleteAt(range.index, range.length);  // So we do not trigger text-change
+                  }
+                  let lineFormats = Object.keys(context.format).reduce(function(lineFormats, format) {
+                    if (Parchment.query(format, Parchment.Scope.BLOCK) && !Array.isArray(context.format[format])) {
+                      lineFormats[format] = context.format[format];
+                    }
+                    return lineFormats;
+                  }, {});
+                  var previousChar = this.quill.getText(range.index - 1, 1);
+                  // Earlier scroll.deleteAt might have messed up our selection,
+                  // so insertText's built in selection preservation is not reliable
+                  this.quill.insertText(range.index, '\n', lineFormats, Quill.sources.USER);
+                  if (previousChar == '' || previousChar == '\n') {
+                    this.quill.setSelection(range.index + 2, Quill.sources.SILENT);
+                  } else {
+                    this.quill.setSelection(range.index + 1, Quill.sources.SILENT);
+                  }
+                  this.quill.selection.scrollIntoView();
+                  Object.keys(context.format).forEach((name) => {
+                    if (lineFormats[name] != null) return;
+                    if (Array.isArray(context.format[name])) return;
+                    if (name === 'link') return;
+                    this.quill.format(name, context.format[name], Quill.sources.USER);
+                  });
+                }
+              },
+              linebreak: {
+                key: 13,
+                shiftKey: true,
+                  handler: function (range, context) {
+                    var nextChar = this.quill.getText(range.index + 1, 1)
+                    var ee = this.quill.insertEmbed(range.index, 'break', true, 'user');
+                    if (nextChar.length == 0) {
+                      // second line break inserts only at the end of parent element
+                      var ee = this.quill.insertEmbed(range.index, 'break', true, 'user');
+                    }
+                    this.quill.setSelection(range.index + 1, Quill.sources.SILENT);
+                  }
+                }
+              }
+            }
+          }
         //   counter: true
-        // }
+        
       },
       post: {
         year: "2017",

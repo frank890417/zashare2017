@@ -18,8 +18,8 @@
           h3.ovh
             .animated.slideInUp {{ currentSlide.title }}
           //-     .num {{ "0"+currentSlideId }}
-          p.ovh
-            .animated.slideInUp  {{ currentSlide.description }}
+          div.ovh
+            p.animated.slideInUp(v-html="currentSlide.description")
           br
           router-link.nostyle.btn(:to="`/news/${currentSlide.id}`") 閱讀更多
           
