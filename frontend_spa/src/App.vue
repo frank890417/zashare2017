@@ -157,7 +157,7 @@ html,body
   padding: 0
 
 p 
-  text-align: left
+  text-align: justify
   font-size: 15px
   line-height: 1.8
 

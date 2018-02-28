@@ -172,6 +172,12 @@ export default {
       width: 100%
       position: relative
       padding-bottom: 56.25%
+      margin-top: 30px
+      margin-bottom: 30px
+      &+blockquote
+        margin-top: -35px
+        margin-bottom: 42px
+        line-height: 2
       // padding-right: 15px
     iframe
       position: absolute
