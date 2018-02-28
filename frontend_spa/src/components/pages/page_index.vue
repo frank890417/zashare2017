@@ -15,8 +15,8 @@
             span.arrowRight
           
         .col-sm-9.col-right(:key="currentSlideId")
-          //- h3.ovh
-          //-   .animated.slideInUp {{ currentSlide.title }}
+          h3.ovh
+            .animated.slideInUp {{ currentSlide.title }}
           //-     .num {{ "0"+currentSlideId }}
           p.ovh
             .animated.slideInUp  {{ currentSlide.description }}
