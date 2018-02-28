@@ -84,6 +84,7 @@ export default {
       return (this.post.content || "")
         .replace(/\.\.\/\.\.\//g,"/")
         .replace(/\/dropzone\/uploads/g,"http://service.zashare.org/dropzone/uploads")
+        .replace(/(\<iframe.*?http.*?\"\><\/iframe>)/g,"<div class='video-wrapper'>$1</div>")
         // .replace(/..\/..\//g,"/")
     },
     relatedPost(){
@@ -167,9 +168,17 @@ export default {
       bottom: 0
   .row-content
     text-align: left
-    iframe
+    .video-wrapper
       width: 100%
-      height: 300px
+      position: relative
+      padding-bottom: 56.25%
+      // padding-right: 15px
+    iframe
+      position: absolute
+      width: 100%
+      height: 100%
+      // width: 100%
+      // height: 300px
     hr
       margin-left: -105px
       margin-right: -105px

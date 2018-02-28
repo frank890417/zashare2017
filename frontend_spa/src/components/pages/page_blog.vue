@@ -30,12 +30,9 @@
         ul.catas
           li(:class="{active: nowCata==''}", 
              @click="nowCata=''") ALL
-          li(:class="{active: nowCata=='course'}", 
-             @click="nowCata='course'") ZA COURSE
-          li(:class="{active: nowCata=='base'}", 
-             @click="nowCata='base'") ZA BASE
-          li(:class="{active: nowCata=='expo'}", 
-             @click="nowCata='expo'") ZA EXPO
+          li(v-for="cata in newsCatas",
+             :class="{active: nowCata==cata}", 
+             @click="nowCata=cata") {{cata}}
       div(v-else)
         br
         br
@@ -71,7 +68,8 @@ export default {
             // Any other options that can be got from plugin documentation
         },
       currentSlideId: 0,
-      showCount: 6
+      showCount: 6,
+      newsCatas: ["ZA COURSE","ZA BASE","ZA EXPO"]
     }
   },
   computed: {
@@ -93,10 +91,16 @@ export default {
       }
       return use_source
     },
+    //Filtered by cata
+    filtered_posts(){
+      return this.use_source.filter(post=>post.cata.name==this.nowCata || this.nowCata=="")
+    },
+    //Limit filtered posts by count
     use_posts(){
       // .filter(post=>!post.stick_top_index)
-      return this.use_source.slice(0,this.showCount)
+      return this.filtered_posts.slice(0,this.showCount)
     },
+    //Genertae slide data
     slides(){
       return this.use_source.filter(post=>post.stick_top_index).slice(0,3)
     }
