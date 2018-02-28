@@ -52,12 +52,12 @@ let router = new Router({
       component: pageBlog,
       meta: {
         type: "news",
-        action: "back",
+        // action: "back",
         navWidth: "350px",
-        back: {
-          name: "NEWS",
-          path: "/news"
-        },
+        // back: {
+        //   name: "INDEX",
+        //   path: "/"
+        // },
         subBack: {
           name: "回首頁",
           path: "/"

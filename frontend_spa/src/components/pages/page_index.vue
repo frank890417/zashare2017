@@ -173,6 +173,12 @@ export default {
   width: 100%
   height: 100%
   box-sizing: border-box
+  .slick-list,.slick-track ,.slick-slide
+    position: relative
+    height: 100%
+  .slick-slide div
+    height: 100%
+
   +rwd_md
     padding-right: 0
     .row-bottom
@@ -295,9 +301,10 @@ export default {
           display: none
   .slide
     width: 100%
-    height: 700px
+    height: 100%
+    // height: 700px
     +rwd_md
-      height: 300px
+      height: 100%
   .cover
     width: 100%
     height: 100%
