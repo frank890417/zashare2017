@@ -182,6 +182,7 @@ a.nostyle
   transform: translateX(-50%)
   padding: 0
   margin: 0
+
   button
     border: none
     +size(20px)
@@ -193,11 +194,15 @@ a.nostyle
     margin: 2px
     outline: none
     cursor: pointer
-    opacity: 0.6
+    opacity: 0.4
+    +trans
 
     &:hover
       opacity: 1
 
+  .slick-active button
+    opacity: 1
+      
 
 @for $i from 1 through 15
   .col-#{$i}

@@ -42,7 +42,8 @@ export default {
           slickOptions: {
               slidesToShow: 1,
               arrows: false,
-              // dots: true
+              autoplay: true,
+              dots: true
               // Any other options that can be got from plugin documentation
           },
           // slides: [
@@ -314,15 +315,28 @@ export default {
   .slide
     width: 100%
     height: 100%
+    position: relative
     // height: 700px
     +rwd_md
       height: 100%
+
+  
+  .slick-dots
+    position: absolute
+    right: 20px
+    bottom: 20px
+    left: initial
+    text-align: right
+    justify-content: flex-end
+
+
   .cover
     width: 100%
     height: 100%
     // background-image: url("http://service.zashare.org/img/2017/expo_2017/event/%E5%AF%A6%E9%A9%97%E6%95%99%E8%82%B2%E9%A4%A8.jpg")
     background-size: cover
     background-position: center center
+    position: relative
     +rwd_md
       background-size: auto 100%
 

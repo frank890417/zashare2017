@@ -61,7 +61,7 @@
                   li Mail. zashare@ozzie-art.com
                   li Business hours. 10:00-19:00 Mon. - Fri.
               .col-sm-4
-                p 網站製作：墨雨設計<br>© 2018 雜学校 Za Share All Rights Reserved.
+                p 網站製作：墨雨設計<br>© 2018 雜學校 Za Share All Rights Reserved.
         .col-member.col-sm-3
           auth_panel
 </template>
