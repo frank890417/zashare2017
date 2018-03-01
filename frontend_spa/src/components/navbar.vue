@@ -133,6 +133,9 @@ export default {
     position: fixed
     top: 0
     left: 70px
+    display: none
+    +rwd_md
+      display: block
     .wrapper
       height: 60px
       overflow: hidden
