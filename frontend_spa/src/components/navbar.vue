@@ -56,6 +56,11 @@
       router-link.col-theme-nav.nav-course(to="/course") 
         //- span ZA<br>Course
         img(src="/static/img/Home/za-course.svg")
+    .row-mobile-cata(v-if="this.$route.meta.type=='theme'")
+      .wrapper
+        .mt(:style="mobile_nav_style")
+        img(v-for="theme in themes", :src="theme.nav_image")
+        
         
 </template>
 
@@ -84,6 +89,21 @@ export default {
       if (this.$route.meta.type=="theme"){
         return "/"
       }
+    },
+    mobile_nav_style(){
+      let mt = 0
+      if (this.$route.path.indexOf("/expo")==0){
+        mt= -160
+      }
+      if (this.$route.path.indexOf("/base")==0){
+        mt= -80
+      }
+      if (this.$route.path.indexOf("/course")==0){
+        mt= 0
+      }
+      return {
+        'margin-top': mt+"px"
+      }
     }
   },
   methods: {
@@ -109,7 +129,20 @@ export default {
   width: 300px
   height: 100vh
   transition: 0.5s, right 1s
-    
+  .row-mobile-cata
+    position: fixed
+    top: 0
+    left: 70px
+    .wrapper
+      height: 60px
+      overflow: hidden
+      box-sizing: border-box
+    img
+      height: 60px
+      display: block
+      margin: 10px
+      margin-top: 16px
+      // margin-bottom: 10px
   .animated.slideInUp
     animation-delay: 0.8s
   a

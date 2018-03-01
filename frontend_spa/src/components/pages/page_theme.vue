@@ -1,6 +1,6 @@
 <template lang="pug">
 .page-theme.animated
-  .container-fluid(v-for="now_theme in mobile?Object.values(this.themes):[theme]",:key="theme.title")
+  .container-fluid(v-for="now_theme in [theme]",:key="theme.title")
     .row
       .col-info
         .info
@@ -156,13 +156,15 @@ $cubic: ease
     animation-delay: 0.6s
     background-position: center center
     background-size: cover
+
     +rwd_md
       animation: none
       flex-grow: 0
-      background-size: 80% auto
+      background-size: 55% auto
       background-repeat: no-repeat
       flex: 1
       max-height: 300px
+
     &:hover
       flex: 1.2
     // background-color: #8135f9
