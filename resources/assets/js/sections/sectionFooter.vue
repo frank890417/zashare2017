@@ -39,7 +39,7 @@ footer
         .infos
           span 網站製作：
             a(href="http://monoame.com" target="_blank" @click="$ga.event('link', 'click', '墨雨設計')") 墨雨設計
-          p © 2017 雜学校 Za Share All Rights Reserved.    
+          p © 2017 雜學校 Za Share All Rights Reserved.    
     //
       <h6>電話:  02-2346-7122 # 109</h6>
       <h6>信箱:  zashare@ozzie-art.com</h6>

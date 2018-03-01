@@ -19,7 +19,7 @@
     .row.row-content
       .col-sm-12
         p(v-html="replaceBr(expo.content)")
-    .row(v-if="recommandPosts.length")
+    .row.row-recommand(v-if="recommandPosts.length")
       .col-sm-12
         h3 推薦參展報導
         hr
@@ -63,5 +63,7 @@ export default {
     padding-bottom: 40%
     background-size: cover
     background-position: center center
+  .row-recommand
+    margin-top: 60px
     
 </style>
