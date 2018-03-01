@@ -6,7 +6,7 @@
         .cover(:style="bgcss(post.cover)")
     .row.row-header
       .col-sm-12
-        .tag {{ (post.company && post.company.cata) || (post.cata && post.cata.name) }}
+        .tag {{postTag}}
         h1 {{ post.title }}
         h2 {{ post.subtitle }}
       .col-sm-12
@@ -66,6 +66,13 @@ export default {
     ...mapState({
       posts: state=>state.post.posts
     }),
+    postTag(){
+      if (this.post.cata && this.post.cata.year=="news"){
+        return this.post.cata.name
+      }
+      return this.post.year
+
+    },
     // post(){
     //   let result =  this.posts.find(o=>o.id==this.$route.params.post_id) || 
     //     {
