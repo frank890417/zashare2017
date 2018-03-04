@@ -347,14 +347,14 @@ router.afterEach((route) => {
     setTimeout(function () {
       // window.scrollTo(0, savePositions[route.path])
       console.log("Scroll To Saved Path:" + savePositions[route.path])
-      $("html, body").animate({ scrollTop: savePositions[route.path] }, 50);
-    }, 600)
+      $("html, body").animate({ scrollTop: savePositions[route.path] }, 0);
+    }, 0)
   } else {
     setTimeout(function () {
       // window.scrollTo(0, savePositions[route.path])
       console.log("Scroll To 0")
-      $("html, body").animate({ scrollTop: 0 }, 50);
-    }, 600)
+      $("html, body").animate({ scrollTop: 0 }, 0);
+    }, 0)
 
     
     setTimeout(() => {

@@ -12,7 +12,10 @@
             v-if="$route.meta.type=='theme'", 
             :to="$route.meta.next.path",
             :key="$route.path") more
-      .col-image.animated.fadeIn(:style="getCoverStyle(now_theme)",:key="$route.path")
+      router-link.col-image.animated.fadeIn(
+        :style="getCoverStyle(now_theme)",:key="$route.path",
+        :to="$route.meta.next.path")
+        //- .readmore-mobile -> More
 
 </template>
 
@@ -145,6 +148,7 @@ $cubic: ease
       margin-top: 30px
       +rwd_md
         margin-top: 10px
+        // display: none
         // margin-bottom: 50px
 
   h1.slogan_text
@@ -156,6 +160,7 @@ $cubic: ease
       display: block
       letter-spacing: -1px
       margin-bottom: 0
+      margin-top: 0px
     // margin-bottom: 30px
   +rwd_md
     padding-right: 0
@@ -168,6 +173,7 @@ $cubic: ease
       // padding-right: 20px  
     .col-info 
       padding: 25px
+      align-items: flex-start
       // width: calc(100% - 40px)
 
       .info .slogan
