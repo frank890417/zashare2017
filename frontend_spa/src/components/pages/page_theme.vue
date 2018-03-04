@@ -36,7 +36,7 @@ export default {
       }else{
         delta = evt.touches[0].pageY-lastY
       }
-      if (Math.abs(delta)>80 && !lock){
+      if (Math.abs(delta)>35 && !lock){
         lock=true
         let cid = _this.themes.map(t=>t.title).indexOf(_this.theme.title)
         let d = Math.sign(delta)
