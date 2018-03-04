@@ -233,12 +233,12 @@ export default {
       margin-bottom: 42px
 
     .quote
-      font-size: 30px
+      font-size: 24px
       font-weight: 900
       line-height: 1.6
       text-align: center
       
-      padding: 37px 110px
+      padding: 20px 50px
       border: solid 6px
       margin-top: 70px
       margin-bottom: 70px

@@ -134,25 +134,8 @@ if (process.env.NODE_ENV == "production") {
   // window._jf = _jf
 }
 
-function preload_all(array_img){
-  let promises = array_img.map(url => {
-    return new Promise((resolve, reject) => {
-      let i = new Image()
-      i.onload = function () {
-        // console.log("loaded")
-        resolve("ok")
-        console.log(url)
-      }
-      i.src = url
-    })
-  })
-  return Promise.all(promises)
-  // window.array_img = array_img
-  // window.promises = promises
-  // window.allpromise = allpromise
-  // return allpromise
-}
-window.preload_all = preload_all
+import ImageProloader from "./plugins/image-preloader"
+window.preload_all = ImageProloader.preload_all
 
 import themes from "@/data/themes.js"
 let loadgroups = 

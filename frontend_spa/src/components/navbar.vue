@@ -57,7 +57,7 @@
         //- span ZA<br>Course
         img(src="/static/img/Home/za-course.svg")
     .row-mobile-cata(v-if="this.$route.meta.type=='theme'")
-      .wrapper
+      .wrapper.ovh.animated.slideInUp
         .mt(:style="mobile_nav_style")
         img(v-for="theme in themes", :src="theme.nav_image")
         
@@ -431,5 +431,7 @@ export default {
 
   .router-link-active
     
+  .mt
+    +trans
   // background-color: black
 </style>

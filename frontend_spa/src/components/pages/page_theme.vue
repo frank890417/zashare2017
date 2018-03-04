@@ -12,8 +12,7 @@
             v-if="$route.meta.type=='theme'", 
             :to="$route.meta.next.path",
             :key="$route.path") more
-      .col-image.animated.fadeIn(:style="getCoverStyle(now_theme)")
-      .lazy-detector
+      .col-image.animated.fadeIn(:style="getCoverStyle(now_theme)",:key="$route.path")
 
 </template>
 
@@ -21,6 +20,46 @@
 import {mapState} from 'vuex'
 import $ from 'jquery'
 export default {
+  mounted(){
+    let _this = this
+    let lastY = null
+    let delta = 0
+    let lock = false
+    document.querySelector(".page-theme").addEventListener("touchmove",function(evt){
+      
+      // console.log(delta)
+      if (!lastY){
+        delta = 0
+      }else{
+        delta = evt.touches[0].pageY-lastY
+      }
+      if (Math.abs(delta)>80 && !lock){
+        lock=true
+        let cid = _this.themes.map(t=>t.title).indexOf(_this.theme.title)
+        let d = Math.sign(delta)
+        console.log(cid+d)
+        if (_this.themes[cid+d]){
+          _this.$router.push('/'+ _this.themes[cid+d].title.toLowerCase())
+        }
+        setTimeout(()=>{
+          lock=false
+        },100)
+      }
+      lastY = evt.touches[0].pageY
+    })
+    document.querySelector(".page-theme").addEventListener("touchend",function(){
+      lastY=null
+    })
+
+
+    // $('.page-theme').on('swipedown',function(){
+    //   let id = Object.keys(_this.themes).indexOf(this.$route.name)+1
+    //   if (_this.themes[id]){
+    //     _this.$route.push('/theme/')
+    //   }
+    // } );
+    // $('.page-theme').on('swipeup',function(){alert("swipeup..");} );
+  },
   computed:{
     ...mapState({
       themes: state=>state.themes,
@@ -28,18 +67,19 @@ export default {
       mobile: state=>state.mobile
     }),
     theme(){
-      return this.themes[this.$route.name]
+      return this.themes.find(o=>o.title==this.$route.name)
      
-    }
+    },
+    
   },
   watch:{
     scrollY(){
-      let detectorPos = $(".lazy-detector").offset().top
-      let scrollPos = this.scrollY+$(window).height()*1.5
-      console.log(detectorPos,scrollPos)
-      if (detectorPos<scrollPos ){
-        console.log("change theme")
-      }
+      // let detectorPos = $(".lazy-detector").offset().top
+      // let scrollPos = this.scrollY+$(window).height()*1.5
+      // console.log(detectorPos,scrollPos)
+      // if (detectorPos<scrollPos ){
+      //   console.log("change theme")
+      // }
     }
   },
   methods: {
@@ -64,8 +104,8 @@ $cubic: ease
   padding-right: 450px
   background-color: #fafafa
 
-  +rwd_sm
-    padding-bottom: 100px
+  // +rwd_sm
+  //   padding-bottom: 100px
   .row
     display: flex
     height: 100vh
@@ -88,7 +128,6 @@ $cubic: ease
     justify-content: center
     align-items: center
     box-sizing: border-box
-
     .info
       width: 350px
       text-align: left
@@ -105,6 +144,7 @@ $cubic: ease
     .btn
       margin-top: 30px
       +rwd_md
+        margin-top: 10px
         // margin-bottom: 50px
 
   h1.slogan_text
@@ -115,6 +155,7 @@ $cubic: ease
     +rwd_md
       display: block
       letter-spacing: -1px
+      margin-bottom: 0
     // margin-bottom: 30px
   +rwd_md
     padding-right: 0
@@ -126,7 +167,7 @@ $cubic: ease
       // padding-left: 20px
       // padding-right: 20px  
     .col-info 
-      padding: 40px
+      padding: 25px
       // width: calc(100% - 40px)
 
       .info .slogan
@@ -150,9 +191,9 @@ $cubic: ease
       flex: 150px
       opacity: 1
   .col-image
-    animation: flexIn 1s both $cubic
+    animation: flexIn 1s both
     transition: 0.5s
-    flex: 1.2
+    flex: 1
     animation-delay: 0.6s
     background-position: center center
     background-size: cover

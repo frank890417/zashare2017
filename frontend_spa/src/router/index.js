@@ -36,7 +36,7 @@ let router = new Router({
     },
     {
       path: '/course',
-      name: 'course',
+      name: 'COURSE',
       component: pageTheme,
       meta: {
         type: "theme",
@@ -88,7 +88,7 @@ let router = new Router({
     },
     {
       path: '/base',
-      name: 'base',
+      name: 'BASE',
       component: pageTheme,
       meta: {
         type: "theme",
@@ -101,7 +101,7 @@ let router = new Router({
 
     {
       path: '/expo',
-      name: 'expo',
+      name: 'EXPO',
       component: pageTheme,
       meta: {
         type: "theme",

@@ -28,7 +28,7 @@
       select(v-model="registerData.jobcata", placeholder="產業別" , name="jobcata", autocomplete="on")
         option(v-for= "(jb,jbid) in jobcatas", 
               :value="jb") {{jb}}
-      input(v-model="registerData.job", placeholder="職稱", type="job", name="job", autocomplete="on")
+      input(v-model="registerData.job", :placeholder="jobInforLabel", type="job", name="job", autocomplete="on")
       input(v-model="registerData.password", placeholder="密碼", type="password")
       button.btn.fw.black(@click="register(registerData)") 註冊
       //- label(v-if="auth.status") {{auth.status}}
@@ -98,7 +98,13 @@ export default {
     }
   },
   computed: {
-    ...mapState(['menuState','auth'])
+    ...mapState(['menuState','auth']),
+    jobInforLabel(){
+      if (this.registerData.jobcata=="學生"){
+        return "學校系所"
+      }
+      return "職稱"
+    }
   },
   methods: {
     ...mapMutations(['setMenuState']),

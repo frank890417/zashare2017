@@ -23,6 +23,5 @@ export default {
   color: white
   flex-direction: column
   img
-    width: 80%
-    max-width: 220px
+    height: 120px
 </style>

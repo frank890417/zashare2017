@@ -5,6 +5,13 @@
       .slick
         .slide(v-for="slide in slides") 
           .cover(:style="bgcss(slide.cover)")
+          //- .cover
+          //-   .slice.s1(:style="bgcss(slide.cover)")
+          //-   .slice.s2(:style="bgcss(slide.cover)")
+          //-   .slice.s3(:style="bgcss(slide.cover)")
+          //-   .slice.s4(:style="bgcss(slide.cover)")
+          //-   .slice.s5(:style="bgcss(slide.cover)")
+
     .row-news
       .row
         router-link.btn-news.nostyle.col-sm-3.col-left(to="/news")
@@ -339,7 +346,24 @@ export default {
     position: relative
     +rwd_md
       background-size: auto 100%
-
+    display: flex
+    flex-direction: column
+    .slice
+      flex: 1
+      $count: 5
+      +trans
+    
+      @for $i from 1 through $count
+        &.s#{$i}
+          transition-duration: #{0.5+random(1)}s
+          // background-size: auto 500%
+          background-position: #{ 50 + random(500)-250 }% #{100%/$count*$i}
+  .slick-active .slice
+    $count: 5
+    @for $i from 1 through $count
+      &.s#{$i}
+        background-position: 50% #{100%/$count*$i}
+  
 .btns
   position: absolute
   right: 0px
