@@ -180,6 +180,7 @@ export default {
   background-color: #fafafa
   +rwd_md
     padding-top: 0
+    padding-top: 60px
     .row
       margin-left: -15px
       margin-right: -15px
@@ -249,6 +250,7 @@ export default {
   margin-bottom: 40px
   padding: 0
 
+
   li
     flex: 1
     border-top: solid 5px rgba(black,0.2)
@@ -258,9 +260,26 @@ export default {
     padding-top: 10px
     font-weight: 900
     cursor: pointer
+    +trans
     
     &.active 
       border-top: solid 10px #333
+
+  +rwd_md
+    position: fixed
+    top: 60px
+    width: 100vw
+    left: 0
+    background-color: #fff
+    font-size: 14px
+    li
+      border-top: none
+      border-bottom: solid 3px rgba(black,0.2)
+      padding-bottom: 8px
+      +trans
+      &.active 
+        border-top: none
+        border-bottom: solid 5px #333
 
 
 </style>

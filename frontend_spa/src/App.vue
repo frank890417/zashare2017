@@ -183,6 +183,7 @@ a.nostyle
   padding: 0
   margin: 0
 
+
   button
     border: none
     +size(20px)
@@ -196,6 +197,10 @@ a.nostyle
     cursor: pointer
     opacity: 0.4
     +trans
+    +rwd_md
+      transform: scale(0.35)
+      margin: -2px
+
 
     &:hover
       opacity: 1

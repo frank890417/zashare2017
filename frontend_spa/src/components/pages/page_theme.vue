@@ -39,10 +39,14 @@ export default {
       if (Math.abs(delta)>35 && !lock){
         lock=true
         let cid = _this.themes.map(t=>t.title).indexOf(_this.theme.title)
-        let d = Math.sign(delta)
+        let d = -Math.sign(delta)
+        
         console.log(cid+d)
         if (_this.themes[cid+d]){
           _this.$router.push('/'+ _this.themes[cid+d].title.toLowerCase())
+        }
+        if (cid+d==-1){
+          _this.$router.push('/')
         }
         setTimeout(()=>{
           lock=false

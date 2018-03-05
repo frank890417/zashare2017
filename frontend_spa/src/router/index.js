@@ -4,6 +4,7 @@ import store from '../store'
 import $ from 'jquery'
 Vue.use(Router)
 
+import pageLogin from '@/components/pages/page_login.vue'
 
 import pageIndex from '@/components/pages/page_index.vue'
 import pageAbout from '@/components/pages/page_about.vue'
@@ -31,7 +32,12 @@ let router = new Router({
       name: 'index',
       component: pageIndex,
       meta: {
-        navWidth: "350px"
+        navWidth: "350px",
+        mobilenav: {
+          color: "white",
+          // text: "INDEX",
+          img: "/static/img/Home/za-logo.svg"
+        },
       }
     },
     {
@@ -63,6 +69,10 @@ let router = new Router({
           path: "/"
 
         },
+        mobilenav: {
+          color: "white",
+          text: "NEWS"
+        },
         navPosition: "left"
       }
     },
@@ -82,6 +92,10 @@ let router = new Router({
           name: "回首頁",
           path: "/"
 
+        },
+        mobilenav:{
+          color: "white",
+          text: "NEWS"
         },
         navPosition: "left"
       }
@@ -121,6 +135,10 @@ let router = new Router({
         back: {
           name: "INDEX",
           path: "/"
+        },
+        mobilenav: {
+          color: "white",
+          text: "關於雜學校"
         },
         navPosition: "left"
       }
@@ -238,6 +256,22 @@ let router = new Router({
         navWidth: "350px",
         action: "back",
         font_flush_delay: 400,
+        back: {
+          name: "ZA EXPO",
+          path: "/expo"
+        },
+        navPosition: "left"
+      }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: pageLogin,
+      meta: {
+        type: "post",
+        navWidth: "350px",
+        action: "back",
+        // font_flush_delay: 400,
         back: {
           name: "ZA EXPO",
           path: "/expo"

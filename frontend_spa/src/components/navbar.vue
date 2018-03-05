@@ -56,7 +56,18 @@
       router-link.col-theme-nav.nav-course(to="/course") 
         //- span ZA<br>Course
         img(src="/static/img/Home/za-course.svg")
-    .row-mobile-cata(v-if="this.$route.meta.type=='theme'")
+    .row-mobile-cata(
+      v-if="$route.meta.type=='theme' || $route.path.indexOf('/expo')==0 || $route.meta.mobilenav",
+      :style="mobileCataStyle")
+      .ovh(v-if="$route.meta.mobilenav")
+        .page-label.animated.slideInUp(
+                    v-if="$route.meta.mobilenav.text",
+                    :key="$route.meta.mobilenav.text") {{$route.meta.mobilenav.text}}
+        .page-label.animated.slideInUp(
+                    v-if="$route.meta.mobilenav.img",
+                    :key="$route.meta.mobilenav.img") 
+            img(:src="$route.meta.mobilenav.img")
+        router-link.loginbtn(to="/login") 登入
       .wrapper.ovh.animated.slideInUp
         .mt(:style="mobile_nav_style")
         img(v-for="theme in themes", :src="theme.nav_image")
@@ -72,7 +83,7 @@ export default {
     ...mapState(['themes','auth']),
     theme(){
       // console.log((this.$route).split("/")[1])
-      return this.themes[ (this.$route.path).split("/")[1]] || {}
+      return this.themes.find(o=> (this.$route.path).split("/")[1]) || {}
     },
     navbarStyle(){
       let width = this.$route.meta.navWidth || "450px"
@@ -104,6 +115,21 @@ export default {
       return {
         'margin-top': mt+"px"
       }
+    },
+    mobileCataStyle(){
+      if (this.$route.meta.type=="theme"){
+        return {
+          'background-color': "transparent"
+        }
+      }else if (this.$route.path.indexOf('/expo')==0){
+        return {
+          'background-color': this.theme.color
+        }
+      }else if (this.$route.meta.mobilenav.color){
+        return {
+          'background-color': this.$route.meta.mobilenav.color
+        }
+      }
     }
   },
   methods: {
@@ -132,8 +158,12 @@ export default {
   .row-mobile-cata
     position: fixed
     top: 0
-    left: 70px
+    left: 60px
+    height: 60px
+    width: calc(100% - 60px)
     display: none
+    background-color: black
+    overflow: hidden
     +rwd_md
       display: block
     .wrapper
@@ -146,6 +176,24 @@ export default {
       margin: 10px
       margin-top: 16px
       // margin-bottom: 10px
+    .page-label
+      font-weight: 900
+      text-align: left
+      vertical-align: middle
+      height: 60px
+      font-size: 30px
+      padding-left: 10px
+      line-height: 60px
+      img
+        height: 40px
+    .loginbtn
+      position: absolute
+      right: 30px
+      top: 20px
+      color: black
+      letter-spacing: 2px
+      opacity: 0.5
+
   .animated.slideInUp
     animation-delay: 0.8s
   a

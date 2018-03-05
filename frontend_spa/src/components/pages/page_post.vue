@@ -124,6 +124,7 @@ export default {
 
   +rwd_sm
     padding-top: 0
+    padding-top: 60px
   hr
     margin-top: 30px
     margin-bottom: 30px

@@ -58,11 +58,19 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../../assets/_mixins.sass"
+
 .page-expo-year
   .cover
     padding-bottom: 40%
     background-size: cover
     background-position: center center
+    height: 250px
+    margin-top: 60px
+    +rwd_md
+      margin-left: -15px
+      margin-right: -15px
+      width: 100vw
   .row-recommand
     margin-top: 60px
     

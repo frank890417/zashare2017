@@ -1,69 +1,70 @@
 <template lang="pug">
 .auth-card
-  div(v-if="layout=='card'")
-    transition(name="fade")
-      .card-loading(v-if="auth.processing")
-    .top
-      .photo(:style="bgcss(getUserPhoto(auth.user))")
-      h3.name
-        span(v-if="auth.user") {{ auth.status ||  `Hello ! 雜學校學生　${auth.user.name}` }}
-        span(v-else) {{ auth.status || '這名學生未登入哦！' }}
-    .bottom(v-if="mode=='login' && !auth.user")
-      h4 登入雜學校
-      //- label 信箱
-      input(v-model="loginData.email", placeholder="信箱", type="email")
-      //- label 密碼
-      input(v-model="loginData.password", placeholder="密碼" , type="password")
-      button.btn.fw.black(@click="login(loginData)") 登入
-      //- button.btn.fw(@click="loginFacebook") 使用 Facebook 登入
-      button.btn.fw.nobg 忘記密碼
-      button.btn.fw.nobg(@click="mode='register'") 註冊為雜學校學生
-    .bottom(v-if="mode=='register' && !auth.user")
-      h4 會員註冊
-      //- label email
-      input(v-model="registerData.email", placeholder="電子郵件(登入帳號)", type="email", name="email", autocomplete="on")
-      //- label name
-      input(v-model="registerData.name", placeholder="名字", type="name", name="name", autocomplete="on")
-      label.mention ※若您持有「雜學校學生證」，請務必填寫您的真實姓名，方便核對身分及保障您的權益。
-      select(v-model="registerData.jobcata", placeholder="產業別" , name="jobcata", autocomplete="on")
-        option(v-for= "(jb,jbid) in jobcatas", 
-              :value="jb") {{jb}}
-      input(v-model="registerData.job", :placeholder="jobInforLabel", type="job", name="job", autocomplete="on")
-      input(v-model="registerData.password", placeholder="密碼", type="password")
-      button.btn.fw.black(@click="register(registerData)") 註冊
-      //- label(v-if="auth.status") {{auth.status}}
-      button.btn.fw.nobg(@click="mode='login'") 我已經有帳號了！ 前往登入
-    .bottom(v-if="auth.user")
-      h4 學生簡介
-      div(v-if="auth.user.studentcard")
-        label.info-group
-          span 學生證卡號：
-          span {{ auth.user.studentcard.card_id }}
-        label 
-          span 學生證級別：
-          span {{ auth.user.studentcard.type }}
-        label 
-          span 會員效期：
-          span {{ auth.user.studentcard.expiry_datetime }}
-      div(v-else)
-        label.info-group
-          span 學生證卡號：
-          span 尚未綁定
+  transition(name="fade")
+    div(v-if="layout=='card'")
+      transition(name="fade")
+        .card-loading(v-if="auth.processing")
+      .top
+        .photo(:style="bgcss(getUserPhoto(auth.user))")
+        h3.name
+          span(v-if="auth.user") {{ auth.status ||  `Hello ! 雜學校學生　${auth.user.name}` }}
+          span(v-else) {{ auth.status || '這名學生未登入哦！' }}
+      .bottom(v-if="mode=='login' && !auth.user")
+        h4 登入雜學校
+        //- label 信箱
+        input(v-model="loginData.email", placeholder="信箱", type="email")
+        //- label 密碼
+        input(v-model="loginData.password", placeholder="密碼" , type="password")
+        button.btn.fw.black(@click="login(loginData)") 登入
+        //- button.btn.fw(@click="loginFacebook") 使用 Facebook 登入
+        button.btn.fw.nobg 忘記密碼
+        button.btn.fw.nobg(@click="mode='register'") 註冊為雜學校學生
+      .bottom(v-if="mode=='register' && !auth.user")
+        h4 會員註冊
+        //- label email
+        input(v-model="registerData.email", placeholder="電子郵件(登入帳號)", type="email", name="email", autocomplete="on")
+        //- label name
+        input(v-model="registerData.name", placeholder="名字", type="name", name="name", autocomplete="on")
+        label.mention ※若您持有「雜學校學生證」，請務必填寫您的真實姓名，方便核對身分及保障您的權益。
+        select(v-model="registerData.jobcata", placeholder="產業別" , name="jobcata", autocomplete="on")
+          option(v-for= "(jb,jbid) in jobcatas", 
+                :value="jb") {{jb}}
+        input(v-model="registerData.job", :placeholder="jobInforLabel", type="job", name="job", autocomplete="on")
+        input(v-model="registerData.password", placeholder="密碼", type="password")
+        button.btn.fw.black(@click="register(registerData)") 註冊
+        //- label(v-if="auth.status") {{auth.status}}
+        button.btn.fw.nobg(@click="mode='login'") 我已經有帳號了！ 前往登入
+      .bottom(v-if="auth.user")
+        h4 學生簡介
+        div(v-if="auth.user.studentcard")
+          label.info-group
+            span 學生證卡號：
+            span {{ auth.user.studentcard.card_id }}
+          label 
+            span 學生證級別：
+            span {{ auth.user.studentcard.type }}
+          label 
+            span 會員效期：
+            span {{ auth.user.studentcard.expiry_datetime }}
+        div(v-else)
+          label.info-group
+            span 學生證卡號：
+            span 尚未綁定
 
-      br
-    
+        br
+      
+        .btn-group
+          button.btn.fw.black(@click="logout") 登出
+          router-link.btn.fw(to="/member/setting") 設定
+        .btn-group(v-if="isAdmin()", @click="setMenuState(false)")
+          router-link.btn.fw.black(to="/manage") 前往後台
+    div(v-if="layout=='function'")
       .btn-group
         button.btn.fw.black(@click="logout") 登出
         router-link.btn.fw(to="/member/setting") 設定
       .btn-group(v-if="isAdmin()", @click="setMenuState(false)")
         router-link.btn.fw.black(to="/manage") 前往後台
-  div(v-if="layout=='function'")
-    .btn-group
-      button.btn.fw.black(@click="logout") 登出
-      router-link.btn.fw(to="/member/setting") 設定
-    .btn-group(v-if="isAdmin()", @click="setMenuState(false)")
-      router-link.btn.fw.black(to="/manage") 前往後台
-    //pre {{auth}}
+      //pre {{auth}}
 
 
 
