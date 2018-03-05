@@ -15,7 +15,7 @@
           h3.text-center.visible-md 展覽介紹
           router-link.col-sm-12.col-lg-6(:to="`/expo/${expo.year}/blog`")
             .cover(:style="bgcss(expo.report_cover)", data-cover-tag = "參展單位報導")
-          h3.text-center.visible-md 參展報導
+          h3.text-center.visible-md 參展單位報導
     
         
 </template>

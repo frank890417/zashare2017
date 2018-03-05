@@ -243,6 +243,11 @@ export default {
       border: solid 6px
       margin-top: 70px
       margin-bottom: 70px
+
+      +rwd_md
+        font-size: 20px
+        padding: 20px 40px
+
       
   .row-company
     h3

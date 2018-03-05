@@ -6,7 +6,7 @@
         //- h2 News
     .row
       .col-sm-12(v-if="slides.length")
-        .nostyle.row.row-head-news(:to="postTarget(slides[currentSlideId])")
+        router-link.nostyle.row.row-head-news(:to="postTarget(slides[currentSlideId])")
           .col-sm-8
             .slick
               .slide(v-for="slide in slides") 
