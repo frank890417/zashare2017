@@ -226,6 +226,9 @@ export default {
       position: absolute
       right: 20px
       top: -35px
+      display: none
+      +rwd_md
+        display: flex
     // height: 200px 
     // background-color: #fafafa
     h3
@@ -391,6 +394,7 @@ export default {
     cursor: pointer
     color: white
     display: flex
+    font-size: 12px
     justify-content: center
     align-items: center
     &:hover
