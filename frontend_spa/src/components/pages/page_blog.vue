@@ -272,6 +272,7 @@ export default {
     left: 0
     background-color: #fff
     font-size: 14px
+    z-index: 1
     li
       border-top: none
       border-bottom: solid 3px rgba(black,0.2)

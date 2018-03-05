@@ -305,6 +305,7 @@ export default {
         background-color: #ddd
         height: 236px
         top: -30px
+
     &>*
       padding: 30px
       box-sizing: border-box
@@ -316,7 +317,7 @@ export default {
       .col-right
         border-left: none
         padding-left: 20px
-        padding-top: 30px
+        padding-top: 10px
         &:before
           display: none
   .slide
@@ -383,7 +384,10 @@ export default {
     align-items: center
     &:hover
       background-color: #444
-
+  +rwd_md
+    position: fixed
+    right: 20px
+    bottom: 30px
   .prev
   .next
     // background-color: #aaa

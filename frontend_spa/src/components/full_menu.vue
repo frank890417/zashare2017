@@ -46,7 +46,7 @@
                     @click="setMenuState(false)").scrollY
               newsbox.col-lg-4.col-md-6.col-sm-12(v-for="post in filteredPost", 
                               :post = "post" ,
-                               :target='`/expo/blog/${post.id}`',
+                               :target="postTarget(post)",
                                :key="post.title",
                               :tag="post.tag")
 
@@ -96,7 +96,16 @@ export default {
     ...mapGetters({
       getUserPhoto: 'auth/getUserPhoto',
       isAdmin: 'auth/isAdmin'
-    })
+    }),
+    postTarget(post){
+      // if (this.$route.meta.type=="expo"){
+        return `/expo/${this.$route.params.year}/blog/${post.id}`
+      // }
+
+      // if (this.$route.meta.type=="news"){
+      //   return `/news/${post.id}`
+      // }
+    }
   },
   mounted(){
     // this.authInit()
@@ -195,11 +204,14 @@ export default {
   .col-menu
     padding: 50px 60px
     padding-left: 100px
+    box-sizing: border-box
     .container
       margin-top: 20px
       +rwd_md
         margin-top: 0
         padding-top: 0
+    +rwd_md
+      padding-right: 20px
 
 
 
@@ -215,6 +227,7 @@ export default {
       font-size: 24px
     .col-menu
       padding: 20px 60px
+      padding-right: 20px
     .container-menu
       overflow-y: auto
       height: 100vh

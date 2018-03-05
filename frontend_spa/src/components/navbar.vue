@@ -83,7 +83,7 @@ export default {
     ...mapState(['themes','auth']),
     theme(){
       // console.log((this.$route).split("/")[1])
-      return this.themes.find(o=> (this.$route.path).split("/")[1]) || {}
+      return this.themes.find(o=> o.title.toLowerCase()==(this.$route.path).split("/")[1]) || {}
     },
     navbarStyle(){
       let width = this.$route.meta.navWidth || "450px"
