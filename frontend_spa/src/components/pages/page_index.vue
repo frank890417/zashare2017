@@ -13,6 +13,11 @@
           //-   .slice.s5(:style="bgcss(slide.cover)")
 
     .row-news
+      router-link.upCircle.animated.zoomIn(
+        to="/expo",
+        v-if="$route.meta.type=='theme' || $route.path=='/'",
+        :class="{downCircle: $route.path=='/' }"
+      ) 
       .row
         router-link.btn-news.nostyle.col-sm-3.col-left(to="/news")
           h2 News
@@ -181,6 +186,7 @@ export default {
   width: 100%
   height: 100%
   box-sizing: border-box
+  
   .slick-list,.slick-track ,.slick-slide
     position: relative
     height: 100%
@@ -215,6 +221,11 @@ export default {
     flex: 228px
     flex-grow: 0
     text-align: left
+    position: relative
+    .upCircle
+      position: absolute
+      right: 20px
+      top: -35px
     // height: 200px 
     // background-color: #fafafa
     h3

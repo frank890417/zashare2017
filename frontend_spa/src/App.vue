@@ -172,6 +172,38 @@ a.nostyle
   &.row
     flex-direction: row
 
+
+.upCircle
+  // transform: translate(-50%,50%)
+  transform-origin: center center
+  z-index: 10
+  box-shadow: 0px 0px 20px rgba(black,0.3)
+
+  width: 70px
+  height: 70px
+  background-color: white
+  border-radius: 50%
+  color: black
+
+  +flexCenter
+
+  &:before
+    content: ""
+    display: block
+    
+    width: 10px
+    height: 10px
+    border-style: solid
+    border-width: 0 10px 17.3px 10px
+    border-color: transparent transparent #000000 transparent
+    transition: 0.5s
+    transform-origin: center center
+  &.downCircle
+    &:before
+      transform: rotate(180deg)
+
+
+
 .slick-dots
   display: flex
   list-style: none

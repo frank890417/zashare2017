@@ -23,6 +23,6 @@ export default {
   color: white
   flex-direction: column
   img
-    width: 50vw
-    max-width: 200px
+    width: 40vw
+    max-width: 120px
 </style>

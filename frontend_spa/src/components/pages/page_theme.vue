@@ -12,6 +12,11 @@
             v-if="$route.meta.type=='theme'", 
             :to="$route.meta.next.path",
             :key="$route.path") more
+        router-link.upCircle.animated.zoomIn(
+          to="/",
+          v-if="$route.meta.type=='theme' || $route.path=='/'",
+          :class="{downCircle: $route.path=='/' }"
+        ) 
       router-link.col-image.animated.fadeIn(
         :style="getCoverStyle(now_theme)",:key="$route.path",
         :to="$route.meta.next.path")
@@ -119,12 +124,20 @@ $cubic: ease
 
     +rwd_md
       flex-direction: column-reverse
-
+  .upCircle
+    display: none
+    +rwd_md
+      display: flex
+      position: absolute
+      right: 20px
+      top: -35px
+      z-index: 1
   .col-info,.col-image
     height: 100vh
     display: flex
     justify-content: center
     align-items: center
+    position: relative
     // border: solid 1px
     flex: 1.2
     
