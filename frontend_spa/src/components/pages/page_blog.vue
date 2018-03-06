@@ -81,7 +81,6 @@ export default {
     }),
     use_source(){
       let use_source = []
-      
       if (this.$route.params.year){
         use_source = this.posts.filter(o=>o.year==this.$route.params.year)
       }
@@ -94,7 +93,7 @@ export default {
     },
     //Filtered by cata
     filtered_posts(){
-      return this.use_source.filter(post=>post.cata.name==this.nowCata || this.nowCata=="")
+      return this.use_source.filter(post=>this.nowCata=="" || post.cata.name==this.nowCata)
     },
     //Limit filtered posts by count
     use_posts(){
