@@ -177,7 +177,7 @@ export default {
       margin-top: 16px
       // margin-bottom: 10px
     .page-label
-      font-weight: 900
+      // font-weight: 900
       text-align: left
       vertical-align: middle
       height: 60px
@@ -201,7 +201,7 @@ export default {
   .nav-cht-logo
     font-size: 54px
     white-space: nowrap
-    font-weight: 900
+    // font-weight: 900
     text-decoration: none
     color: black
     margin-top: -20px
@@ -277,7 +277,7 @@ export default {
     
     .themename
       font-size: 34px
-      font-weight: 900
+      font-weight: bold
       text-transform: uppercase
       display: flex
       align-items: flex-end
@@ -416,7 +416,7 @@ export default {
     background-color: black
     color: white
     font-size: 32px
-    font-weight: 900
+    font-weight: bold
     text-align: left
     line-height: 1
     position: relative

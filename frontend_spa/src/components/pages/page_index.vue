@@ -251,7 +251,7 @@ export default {
         margin-bottom: 0
       h4
         margin-top: 0
-        font-weight: 400
+        // font-weight: 400
       .btn-more
         // margin-top: 60px
         font-weight: 800
@@ -325,7 +325,7 @@ export default {
       box-sizing: border-box
     h2
       font-size: 40px
-      font-weight: 900
+      // font-weight: 900
     +rwd_md
 
       .col-right
