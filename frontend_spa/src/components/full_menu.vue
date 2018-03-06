@@ -71,7 +71,7 @@ import {mapState,mapMutations, mapActions, mapGetters} from 'vuex'
 export default {
   data() {
     return {
-      tags: "師培、教具、國小學童、偏鄉、國中生、高中生、大學生、實驗教育、媒體".split("、"),
+      tags: "師培、教具、國小、偏鄉、國中、高中、大學、實驗教育、媒體".split("、"),
       searchKeyword: ""
     }
   },

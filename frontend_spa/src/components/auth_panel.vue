@@ -14,7 +14,7 @@
         //- label 信箱
         input(v-model="loginData.email", placeholder="信箱", type="email")
         //- label 密碼
-        input(v-model="loginData.password", placeholder="密碼" , type="password")
+        input.loginPwd(v-model="loginData.password", placeholder="密碼" , type="password")
         button.btn.fw.black(@click="login(loginData)") 登入
         //- button.btn.fw(@click="loginFacebook") 使用 Facebook 登入
         button.btn.fw.nobg 忘記密碼
@@ -72,6 +72,7 @@
 
 <script>
 import {mapState,mapMutations, mapActions, mapGetters} from 'vuex'
+import $ from 'jquery'
 export default {
   props: {
     layout: {
@@ -91,7 +92,7 @@ export default {
         
       },
       loginData: {
-        email: "",
+        email:  localStorage.zashare_auth_user_email || "",
         password: "",
         
       },
@@ -123,6 +124,12 @@ export default {
   },
   mounted(){
     // this.authInit()
+    $("input.loginPwd").keypress((ev)=> {
+          var keycode = (ev.keyCode ? ev.keyCode : ev.which);
+          if (keycode == '13') {
+            this.login(this.loginData)
+          }
+      })
   }
 }
 </script>

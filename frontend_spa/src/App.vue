@@ -101,11 +101,14 @@ html,body
   display: flex
   justify-content: space-between
   .btn
-    
+    padding: 10px
     margin-right: 10px
     &:last-child
       margin-right: 0
-
+  +rwd_md
+    // flex-direction: column
+    .btn
+      // margin-right: 0
 .ovh
   overflow: hidden
 

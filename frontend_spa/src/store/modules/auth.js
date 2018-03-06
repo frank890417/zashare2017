@@ -16,6 +16,10 @@ const moduleAuth = {
     },
     setUser(state, value) {
       state.user = value
+      if (state.user) {
+        localStorage.setItem("zashare_auth_user_email", state.user.email);
+
+      }
     },
     setStatus(state, value) {
       state.status = value

@@ -11,13 +11,13 @@
       el-option(value="2016", label="2016")
       el-option(value="2015", label="2015")
     br
-    el-table(:data="filteredPosts" border max-height="800",
+    el-table.table(:data="filteredPosts" border max-height="800",
                :default-sort = "{prop: 'id', order: 'descending'}")
       el-table-column(prop="id",label="#", width="60" :sortable="true")
-      el-table-column(prop="status",label="狀態", width="100",
+      el-table-column(prop="status",label="狀態", width="60",
         :filters="[{ text: '草稿', value: '草稿' }, { text: '已發布', value: '已發布' }]",
         :filter-method="filterStatus" :sortable="true")
-      el-table-column(prop="company",label="單位", width="200",:sortable="true")
+      el-table-column(prop="company",label="單位", width="160",:sortable="true")
       el-table-column(prop="cata",label="類別", width="80" :sortable="true")
       el-table-column(prop="cover",label="封面", width="120")
         template(slot-scope="scope")
@@ -25,11 +25,12 @@
       el-table-column(prop="year",label="年度", width="100",
         :filters="[{ text: '2015', value: '2015' },{ text: '2016', value: '2016' }, { text: '2017', value: '2017' }]",
         :filter-method="filterYear" :sortable="true")
-      el-table-column(prop="title",label="標題" :sortable="true")
+      el-table-column(prop="title",label="標題" width="200" :sortable="true")
+      el-table-column(prop="hashtag",label="#Hash" :sortable="true")
       el-table-column(prop="stick_top_index",label="置頂",width="100" :sortable="true")
-      el-table-column(prop="stick_top_cata",label="類置頂",width="100" , :sortable="true")
+      //- el-table-column(prop="stick_top_cata",label="類置頂",width="100" , :sortable="true")
       el-table-column(prop="updated_at",label="更新時間",width="100" , :sortable="true")
-      el-table-column(label="操作", width="200")
+      el-table-column(label="操作", width="150")
         template(slot-scope="scope")
           el-button(@click="handleEdit(scope.row)" type="text" size="small") 編輯
           el-button(size="small" type="danger" @click="handleDelete(scope.$index, scope.row)") 刪除
@@ -103,6 +104,7 @@ export default {
         status: post.status=="draft"?"草稿":"已發佈",
         cata: (post.cata && post.cata.name) || "-",
         updated_at: (post.updated_at ) || "-",
+        hashtag: JSON.parse(post.hashtag || '[]').join(" , "),
         company: ((post.company) && post.company.name_cht) || "-",
         stick_top_index: post.stick_top_index?"是":"",
         stick_top_cata: post.stick_top_cata?"是":"",
@@ -113,6 +115,9 @@ export default {
 </script>
 
 <style lang="sass">
+.manage-post
+  .table
+    font-size: 13px
 .cell
   position: relative
   .cover
