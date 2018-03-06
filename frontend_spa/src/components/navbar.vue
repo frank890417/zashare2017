@@ -32,9 +32,9 @@
                         )
       router-link.subBack.nostyle.animated.fadeIn(
         v-if="$route.meta.subBack", 
-        :to="$route.meta.subBack.path",
-        :key="$route.meta.subBack.path")
-        h3 {{$route.meta.subBack.name}}
+        :to="subBack.path",
+        :key="$route.meta.subBack.name")
+        h3 {{subBack.name}}
         .arrow-right.reverse( :style="{'background-color': theme.color}", key="sub_arrow")
 
     .row-bottom
@@ -130,6 +130,22 @@ export default {
           'background-color': this.$route.meta.mobilenav.color
         }
       }
+    },
+    subBack(){
+
+      // console.warn(this.$route.meta.subBack)
+      let meta = this.$route.meta
+      let name = meta.subBack.name
+      let path = meta.subBack.path
+      if (meta.subBack.params){
+        meta.subBack.params.forEach(paramKey=>{
+          name = name.replace("{"+paramKey+"}",this.$route.params[paramKey])
+          path = path.replace("{"+paramKey+"}",this.$route.params[paramKey])
+        })
+      }
+      return {
+        name , path
+      }
     }
   },
   methods: {
@@ -199,8 +215,9 @@ export default {
   a
     text-decoration: none
   .nav-cht-logo
-    font-size: 54px
+    font-size: 52px
     white-space: nowrap
+    margin-left: -10px
     // font-weight: 900
     text-decoration: none
     color: black

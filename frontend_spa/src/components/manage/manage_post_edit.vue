@@ -62,7 +62,7 @@
                           default-first-option
                           placeholder="請選擇Hashtag或建立")
                   el-option(
-                    v-for="item in defaut_hashtags.split('、')"
+                    v-for="item in default_hashtags.split('、')"
                     :key="item"
                     :label="item"
                     :value="item")
@@ -247,7 +247,6 @@ export default {
        
       },
       create_mode: false,
-      defaut_hashtags: "師培、教具、國小、偏鄉、國中、高中、大學、實驗教育、媒體、線上、空間、工作坊、技職、美感、文化、出走、輔導、maker、青少年、教師、親子、新媒體、影視、非營利、追求夢想、美感教育、思辨能力、性別平等、尊重生命、遊戲、感官體驗",
       quill_editor: null
     }
   },
@@ -345,6 +344,7 @@ export default {
     ...mapState({
       companies: state=>state.manage.companies,
       catas: state=>state.manage.catas,
+      default_hashtags: state=>state.manage.default_hashtags
     }),
     year_catas(){
       if (this.$route.meta.type=="news"){

@@ -221,7 +221,8 @@ let router = new Router({
         },
         subBack: {
           name: "返回歷屆展覽",
-          path: "/expo/main"
+          path: "/expo/main",
+          params: ["year"]
 
         },
         navPosition: "left"
@@ -240,8 +241,9 @@ let router = new Router({
           path: "/expo"
         },
         subBack: {
-          name: "返回歷屆展覽",
-          path: "/expo/main"
+          name: "返回{year}展覽報導",
+          path: "/expo/{year}/blog",
+          params: ["year"]
 
         },
         navPosition: "left"

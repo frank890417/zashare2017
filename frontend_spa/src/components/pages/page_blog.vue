@@ -1,45 +1,46 @@
 <template lang="pug">
 .page.right.page-blog.animated.fadeIn
-  .container
-    .row
-      .col-sm-12
-        //- h2 News
-    .row
-      .col-sm-12(v-if="slides.length")
-        router-link.nostyle.row.row-head-news(:to="postTarget(slides[currentSlideId])")
-          .col-sm-8
-            .slick
-              .slide(v-for="slide in slides") 
-                .cover(:style="bgcss(slide.cover)")
-            //- .cover(:style="bgcss('http://via.placeholder.com/800x600')")
+  section.container-fluid.container-slider
+    .container
+      .row
+        .col-sm-12(v-if="slides.length")
+          router-link.nostyle.row.row-head-news(:to="postTarget(slides[currentSlideId])")
+            .col-sm-8
+              .slick
+                .slide(v-for="slide in slides") 
+                  .cover(:style="bgcss(slide.cover)")
+              //- .cover(:style="bgcss('http://via.placeholder.com/800x600')")
 
-          router-link.nostyle.col-sm-4.col-info(
-            v-if="slides[currentSlideId]", :key="currentSlideId",
-            :to="postTarget(slides[currentSlideId])")
-            //- .tag ZA COURSE
-            .ovh(v-if="slides[currentSlideId].company")
-              h3.slide-company.animated.slideInUp {{ slides[currentSlideId].company.name_cht }}
-            .ovh
-              h2.slide-title {{ slides[currentSlideId].title }}
-            hr
-            p {{ strip_tags(slides[currentSlideId].short_description).slice(0,60) }}...
-            //- router-link.btn.nostyle(:to="`/news/${slides[currentSlideId].id}`") 閱讀更多
-    .row
-      .col-sm-12(v-if="$route.meta.type=='news'")
-        h4.cata-title 文章分類
-        ul.catas
-          li(:class="{active: nowCata==''}", 
-             @click="nowCata=''") ALL
-          li(v-for="cata in newsCatas",
-             :class="{active: nowCata==cata}", 
-             @click="nowCata=cata") {{cata}}
-      div(v-else)
-        br
-        br
-    .row
-      .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12(v-for="post in use_posts").col-news
-        newsbox(:post='post', :target='postTarget(post)',:tag=" ((post.cata && post.cata.year)!='news')?post.year:(post.cata && post.cata.name)")
-    .row.lazy-detector
+            router-link.nostyle.col-sm-4.col-info(
+              v-if="slides[currentSlideId]", :key="currentSlideId",
+              :to="postTarget(slides[currentSlideId])")
+              //- .tag ZA COURSE
+              .ovh(v-if="slides[currentSlideId].company")
+                h3.slide-company.animated.slideInUp {{ slides[currentSlideId].company.name_cht }}
+              .ovh
+                h2.slide-title {{ slides[currentSlideId].title }}
+              hr
+              p {{ strip_tags(slides[currentSlideId].short_description).slice(0,60) }}...
+              //- router-link.btn.nostyle(:to="`/news/${slides[currentSlideId].id}`") 閱讀更多
+
+  section.container.container-posts
+    .container
+      .row
+        .col-sm-12(v-if="$route.meta.type=='news'")
+          h4.cata-title 文章分類
+          ul.catas
+            li(:class="{active: nowCata==''}", 
+              @click="nowCata=''") ALL
+            li(v-for="cata in newsCatas",
+              :class="{active: nowCata==cata}", 
+              @click="nowCata=cata") {{cata}}
+        div(v-else)
+          br
+          br
+      .row
+        .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12(v-for="post in use_posts").col-news
+          newsbox(:post='post', :target='postTarget(post)',:tag=" ((post.cata && post.cata.year)!='news')?post.year:(post.cata && post.cata.name)")
+      .row.lazy-detector
         //- router-link.news_box.animated.fadeIn(to="/news/test")
         //-   .row
         //-     .col-sm-12.col-cover
@@ -187,6 +188,12 @@ export default {
     .col-sm-8
       padding-left: 0
       padding-right: 0
+  .container-slider
+    // background-color: white
+    padding-bottom: 30px
+    +rwd_md
+      border-bottom: solid 1px #ccc
+      background-color: #fff
   .slide-company
     margin-bottom: 0
   .slide-title
@@ -195,6 +202,7 @@ export default {
     margin-bottom: 0
     border-bottom: solid 1px rgba(black,0.3)
     padding-bottom: 20px
+  
   .cover
     min-height: 240px
     background-size: cover
