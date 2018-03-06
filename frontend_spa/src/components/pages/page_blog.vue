@@ -191,7 +191,7 @@ export default {
     margin-bottom: 0
   .slide-title
     font-size: 24px
-    font-weight: 900
+    font-weight: bold
     margin-bottom: 0
     border-bottom: solid 1px rgba(black,0.3)
     padding-bottom: 20px
@@ -209,7 +209,7 @@ export default {
     background-color: black
     color: white
     padding: 5px 10px
-    font-weight: 900
+    font-weight: bold
   .col-news
     padding: 20px
     box-sizing: border-box
@@ -258,7 +258,7 @@ export default {
     justify-content: center
     align-items: center 
     padding-top: 10px
-    font-weight: 900
+    font-weight: bold
     cursor: pointer
     +trans
     

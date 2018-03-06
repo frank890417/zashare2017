@@ -170,7 +170,7 @@ $cubic: ease
 
   h1.slogan_text
     font-size: 30px
-    font-weight: 900
+    font-weight: bold
     margin-top: 30px
     display: none
     +rwd_md

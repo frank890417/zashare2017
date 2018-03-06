@@ -150,14 +150,14 @@ export default {
       margin-bottom: 0
     h1
       font-size: 36px
-      font-weight: 900
+      font-weight: bold
       letter-spacing: 0.9px
     .tag
       background-color: black
       color: white
       padding: 3px 10px
       display: inline-block
-      font-weight: 900
+      font-weight: bold
     .hashtag
       background-color: black
       color: white
@@ -199,7 +199,7 @@ export default {
       width: calc(100% + 210px)
     h1
       font-size: 36px
-      font-weight: 900
+      font-weight: bold
       line-height: 1
       letter-spacing: 0.9px
 
@@ -207,7 +207,7 @@ export default {
       margin-top: 78px
       font-size: 30px
       line-height: 1.6
-      font-weight: 900
+      font-weight: bold
     blockquote
       font-size: 14px
       opacity: 0.5
@@ -235,7 +235,7 @@ export default {
 
     .quote
       font-size: 24px
-      font-weight: 900
+      font-weight: bold
       line-height: 1.6
       text-align: center
       

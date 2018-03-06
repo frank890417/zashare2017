@@ -325,7 +325,7 @@ export default {
       box-sizing: border-box
     h2
       font-size: 40px
-      // font-weight: 900
+      // font-weight: bold
     +rwd_md
 
       .col-right
