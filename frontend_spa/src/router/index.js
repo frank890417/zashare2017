@@ -83,6 +83,7 @@ let router = new Router({
         type: "news",
         action: "back",
         navWidth: "350px",
+        no_font_flush: true,
         font_flush_delay: 400,
         back: {
           name: "NEWS",
@@ -236,6 +237,7 @@ let router = new Router({
         type: "expo",
         navWidth: "350px",
         action: "back",
+        no_font_flush: true,
         back: {
           name: "ZA EXPO",
           path: "/expo"
@@ -349,6 +351,7 @@ let router = new Router({
 })
 
 var savePositions = {}
+var jfFontLoaded = {}
 router.beforeEach((to, from, next) => {
   console.log(to);
 
@@ -392,11 +395,13 @@ router.afterEach((route) => {
       $("html, body").animate({ scrollTop: 0 }, 0);
     }, 0)
 
-    
-    setTimeout(() => {
-      _jf.flush();
-    }, route.meta.font_flush_delay ||  0);
 
+    if (!jfFontLoaded[route.path] && !route.meta.no_font_flush){
+      setTimeout(() => {
+        _jf.flush();
+        window.jfFontLoaded[route.path] = true;
+      }, route.meta.font_flush_delay || 100);
+    }
   }
 
 });

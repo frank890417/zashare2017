@@ -58,6 +58,8 @@ export default {
       //     window._jf.flush();
       _this.ready=true
 
+      
+
       //   },400)
       // })      
     })
@@ -103,6 +105,14 @@ export default {
       return result
     }
 
+  },
+  watch:{
+    
+    ready(){
+      this.$nextTick(()=>{
+        _jf.flush()
+      })
+    }
   }
 }
 </script>
