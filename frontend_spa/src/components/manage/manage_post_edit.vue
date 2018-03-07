@@ -344,7 +344,7 @@ export default {
     ...mapState({
       companies: state=>state.manage.companies,
       catas: state=>state.manage.catas,
-      default_hashtags: state=>state.manage.default_hashtags
+      default_hashtags: state=>state.default_hashtags
     }),
     year_catas(){
       if (this.$route.meta.type=="news"){
