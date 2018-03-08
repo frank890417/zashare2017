@@ -8,8 +8,8 @@ import {mapState} from 'vuex'
 export default {
   mounted(){
     if (this.mobile){
-      window.open("https://www.zashare.com.tw")
-      this.$router.go(-1)
+      // window.open("https://www.zashare.com.tw")
+      document.location = "https://www.zashare.com.tw"
     }
   },
   computed: {
