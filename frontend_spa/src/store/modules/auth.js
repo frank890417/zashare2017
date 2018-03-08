@@ -115,10 +115,17 @@ const moduleAuth = {
     },
     isAdmin: state => {
       if (state.user){
-        return state.user.group == 'admin'
+        return state.user.group == 'admin' || state.user.group == 'editor'
       }
       return false
+    },
+    userGroup: state => {
+      if (state.user) {
+        return state.user.group 
+      }
+      return null
     }
+
 
   }
 }

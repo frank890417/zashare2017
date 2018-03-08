@@ -60,7 +60,7 @@ export default {
     handleDelete(id,row){
       // console.log(row)
       this.$confirm("你確定要刪除嗎？").then(()=>{
-        this.axios.post(`/api/spa/company/${row.id}`,{
+        this.axios.post(`/api/company/${row.id}`,{
           _method: 'DELETE',
           // _token: this.csrf_token,
           dataType: 'JSON',

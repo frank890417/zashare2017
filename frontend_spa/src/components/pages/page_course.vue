@@ -7,6 +7,10 @@
 import {mapState} from 'vuex'
 export default {
   mounted(){
+    if (this.mobile){
+      // window.open("https://www.zashare.com.tw")
+      document.location = "https://www.zashare.com.tw/pages/%E9%9B%9C%E9%81%B8%E8%AA%B2"
+    }
   },
   computed: {
     ...mapState(['mobile'])
