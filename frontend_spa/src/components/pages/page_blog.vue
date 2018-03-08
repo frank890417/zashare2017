@@ -102,7 +102,7 @@ export default {
     },
     //Genertae slide data
     slides(){
-      return this.use_source.filter(post=>post.stick_top_index).slice(0,3)
+      return this.use_source.filter(post=>post.stick_top_index)
     }
 
   },

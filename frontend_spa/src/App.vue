@@ -130,6 +130,7 @@ html,body
   width: 100%
   margin-top: 0
   position: absolute
+  overflow-x: hidden
   left: 0
   top: 0
 

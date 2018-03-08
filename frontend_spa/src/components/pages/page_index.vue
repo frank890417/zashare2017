@@ -30,8 +30,8 @@
           h3.ovh
             .animated.slideInUp {{ currentSlide.title }}
           //-     .num {{ "0"+currentSlideId }}
-          div.ovh
-            p.animated.slideInUp(v-html="currentSlide.description")
+          div.ovh.content-container
+            p.animated.slideInUp.content-slide(v-html="mobile?(currentSlide.description.slice(0,70)+'...'):currentSlide.description")
           br
           router-link.nostyle.btn-more.fadeIn.animated(:to="`/news/${currentSlide.id}`") 閱讀更多
           
@@ -141,7 +141,9 @@ export default {
   },
   computed: {
     ...mapState({
-      news: state=>state.post.news
+      news: state=>state.post.news,
+      scrollTop: state=>state.scroll.position,
+      mobile: state=>state.mobile
     }),
     slides(){
       return this.news
@@ -151,6 +153,11 @@ export default {
     }
   },
   watch:{
+    scrollTop(){
+      if (this.scrollTop>window.innerHeight-$(".page-index").height()+50){
+        this.$router.push("/theme/expo")
+      }
+    },
     slides(){
       // if (this.slides.length>0){
       //   setTimeout(()=>{
@@ -222,6 +229,18 @@ export default {
     flex-grow: 0
     text-align: left
     position: relative
+    .content-slide
+      line-height: 2em
+      height: calc(2em * 2)
+      +rwd_md
+        height: calc(2em * 3.5)
+
+    .content-container
+      line-height: 2em
+      height: calc(2em * 2)
+      margin-top: 20px
+      +rwd_md
+        height: calc(2em * 3.5)
     .upCircle
       position: absolute
       right: 20px

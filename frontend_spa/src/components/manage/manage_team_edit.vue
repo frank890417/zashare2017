@@ -41,6 +41,8 @@
                 el-input(v-model="company.cata")
               el-form-item(label="連結")
                 el-input(v-model="company.website")
+              el-form-item(label="標籤")
+                el-input(v-model="company.tag")
               el-form-item(label="封面圖片")
                 el-input(v-model="company.logo")
                   default_pic_selector(@select_pic="select_pic" slot="append")
@@ -120,7 +122,7 @@ export default {
     }
   },
   mounted(){
-    if (this.$route.params.id){
+    if (this.$route.params.id!="new"){
       this.axios.get("/api/company/"+this.$route.params.id).then(res=>{
         this.company=res.data
         // if (!this.company.hashtag){
@@ -176,11 +178,13 @@ export default {
             type: 'success'
           });
           // let _this  = this
-          console.log(res.data.data.id)
+          console.log(res.data.id)
           // setTimeout(function(){
-          this.$router.push("/company/"+res.data.data.id)
+          this.$router.push("/manage/company/"+res.data.id)
           // },300)
         })
+
+        
 
       }
     }
@@ -191,7 +195,7 @@ export default {
       catas: state=>state.manage.catas,
     }),
     year_catas(){
-      return this.catas.filter(o=>o.year==this.post.year)
+      return this.catas.filter(o=>o.year==this.company.year)
     }
   }
 }

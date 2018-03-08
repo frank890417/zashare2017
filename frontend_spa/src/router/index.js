@@ -399,7 +399,10 @@ router.afterEach((route) => {
     if (!jfFontLoaded[route.path] && !route.meta.no_font_flush){
       setTimeout(() => {
         _jf.flush();
-        window.jfFontLoaded[route.path] = true;
+        if (window.jfFontLoaded) {
+          window.jfFontLoaded[route.path] = true;
+
+        }
       }, route.meta.font_flush_delay || 100);
     }
   }
