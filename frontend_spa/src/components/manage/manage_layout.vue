@@ -1,7 +1,7 @@
 <template lang="pug">
 #manage_app
   
-  .container-fluid(v-if="isAdmin")
+  .container-fluid(v-if="canManage")
     .row
       //- el-header
       .col-sm-2.col-nav
@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isAdmin: 'auth/isAdmin'
+      canManage: 'auth/canManage'
     })
   }
 }

@@ -15,7 +15,8 @@ class Post extends Model
         'status','created_at',
         'updated_at','stick_top_index','stick_top_cata',
         'year','hashtag','cata_id',
-        'type'
+        'type',
+        'admin_lock'
         // ,'company'
     ];
 

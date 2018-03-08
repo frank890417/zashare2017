@@ -113,9 +113,15 @@ const moduleAuth = {
       }
 
     },
-    isAdmin: state => {
+    canManage: state => {
       if (state.user){
         return state.user.group == 'admin' || state.user.group == 'editor'
+      }
+      return false
+    },
+    isAdmin: state => {
+      if (state.user) {
+        return state.user.group == 'admin'
       }
       return false
     },

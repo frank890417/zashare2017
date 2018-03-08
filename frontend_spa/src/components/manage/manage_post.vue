@@ -14,9 +14,14 @@
     el-table.table(:data="filteredPosts" border max-height="800",
                :default-sort = "{prop: 'id', order: 'descending'}")
       el-table-column(prop="id",label="#", width="60" :sortable="true")
-      el-table-column(prop="status",label="狀態", width="60",
-        :filters="[{ text: '草稿', value: '草稿' }, { text: '已發布', value: '已發布' }]",
+      el-table-column(prop="status",label="狀態", width="70",
+        :filters="[{ text: '草稿', value: '草稿' }, { text: '已發佈', value: '已發佈' }]",
         :filter-method="filterStatus" :sortable="true")
+        template(slot-scope="scope")
+          span.post_status(:data-status="scope.row.status") {{scope.row.status}}
+          span(v-if="scope.row.admin_lock")
+            span &nbsp;
+            i.fa.fa-lock(title="總編輯已鎖定")
       el-table-column(prop="company",label="單位", width="160",:sortable="true")
       el-table-column(prop="cata",label="類別", width="80" :sortable="true")
       el-table-column(prop="cover",label="封面", width="120")
@@ -27,13 +32,16 @@
         :filter-method="filterYear" :sortable="true")
       el-table-column(prop="title",label="標題" width="200" :sortable="true")
       el-table-column(prop="hashtag",label="#Hash" :sortable="true")
-      el-table-column(prop="stick_top_index",label="置頂",width="100" :sortable="true")
+      el-table-column(prop="stick_top_index",label="置頂",width="70" :sortable="true")
       //- el-table-column(prop="stick_top_cata",label="類置頂",width="100" , :sortable="true")
       el-table-column(prop="updated_at",label="更新時間",width="100" , :sortable="true")
       el-table-column(label="操作", width="150")
         template(slot-scope="scope")
-          el-button(@click="handleEdit(scope.row)" type="text" size="small") 編輯
-          el-button(size="small" type="danger" @click="handleDelete(scope.$index, scope.row)") 刪除
+          span(v-if="!(scope.row.admin_lock && !isAdmin)")
+            el-button(@click="handleEdit(scope.row)" type="secondary" size="small") 編輯
+            el-button(size="small" type="danger" @click="handleDelete(scope.$index, scope.row)") 刪除
+          div(v-else) 文章已鎖定&nbsp;
+            i.fa.fa-lock(title="總編輯已鎖定")
       //- el-table-column(prop="title",label="標題", width="180")
       //- el-table-column(prop="title",label="標題", width="180")
       
@@ -118,8 +126,21 @@ export default {
 .manage-post
   .table
     font-size: 13px
-.cell
-  position: relative
-  .cover
-    width: 80px
+  .cell
+    position: relative
+    .cover
+      width: 80px
+  .post_status
+    display: inline-block
+    padding-left: 4px
+    padding-right: 4px
+    border-radius: 4px
+    text-align: center
+    
+    &[data-status="已發佈"]
+      background-color: #ffde9e
+      color: #222
+    &[data-status="草稿"]
+      background-color: #eee
+      color: #222
 </style>

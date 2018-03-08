@@ -56,14 +56,14 @@
         .btn-group
           button.btn.fw.black(@click="logout") 登出
           router-link.btn.fw(to="/member/setting") 設定
-        .btn-group(v-if="isAdmin()", @click="setMenuState(false)")
-          router-link.btn.fw.black(to="/manage") 前往後台
+        .btn-group(v-if="canManage()", @click="setMenuState(false)")
+          router-link.btn.fw.black(to="/manage") 前往後台({{userGroup()}})
     div(v-if="layout=='function'")
       .btn-group
         button.btn.fw.black(@click="logout") 登出
         router-link.btn.fw(to="/member/setting") 設定
-      .btn-group(v-if="isAdmin()", @click="setMenuState(false)")
-        router-link.btn.fw.black(to="/manage") 前往後台
+      .btn-group(v-if="canManage()", @click="setMenuState(false)")
+        router-link.btn.fw.black(to="/manage") 前往後台({{userGroup()}})
       //pre {{auth}}
 
 
@@ -119,7 +119,10 @@ export default {
     }),
     ...mapGetters({
       getUserPhoto: 'auth/getUserPhoto',
-      isAdmin: 'auth/isAdmin'
+      isAdmin: 'auth/isAdmin',
+      isEditor: 'auth/isEditor',
+      canManage: 'auth/canManage',
+      userGroup: 'auth/userGroup'
     })
   },
   mounted(){

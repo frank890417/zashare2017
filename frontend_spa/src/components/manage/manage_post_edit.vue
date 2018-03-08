@@ -1,5 +1,6 @@
 <template lang='pug'>
-.page.manage-post-edit(v-show="post || create_mode")
+.page.manage-post-edit(
+      v-show="post || create_mode")
   .container-fluid.text-left
     .row
       .col-sm-12
@@ -8,6 +9,7 @@
           el-breadcrumb-item {{editType.label}}編輯
         br
         br
+    .row.row-edit-part(:class="{lock: (post && post.admin_lock) && !isAdmin}")
       el-form(:model="post", label-width="90px").container-fluid
 
         el-header.header
@@ -15,13 +17,17 @@
             el-col(:span="18")
               h2(style="text-align: left")
                 span(v-if="create_mode") 新增{{editType.label}} -
-                span(v-else) 編輯{{editType.label}} -
+                span(v-else) 
+                  span(v-if="post.admin_lock")
+                    i.fa.fa-lock
+                    span &nbsp;
+                  span 編輯 {{editType.label}} -
                 | {{post.title}}
               
             el-col(:span="6")
               el-button(type="primary", @click="handleSave") 儲存更新 
               router-link(:to="getPreviewRoute(post)" ,target="_blank")
-                el-button(type="primary") 前往{{editType.label}}
+                el-button(type="secondary") 前往{{editType.label}}
           hr
           br
           br
@@ -35,6 +41,9 @@
                 el-select(v-model="post.status")
                   el-option(:key="'draft'",:value="'draft'", :label="'草稿'")
                   el-option(:key="'published'",:value="'published'", :label="'已發布'")
+              el-form-item(label="文章鎖定", v-if="isAdmin")
+                el-switch(v-model="post.admin_lock")
+              
               el-form-item(label="首頁置頂")
                 el-switch(v-model="post.stick_top_index")
               el-form-item(label="類別置頂")
@@ -108,7 +117,7 @@
 <script>
 import default_pic_selector from '../default_pic_selector.vue'
 import { VueEditor, Quill  } from 'vue2-editor'
-import { mapState } from 'vuex'
+import { mapState,mapGetters } from 'vuex'
 import $ from 'jquery'
 let quill_editor = null
 var Block = Quill.import('blots/block');
@@ -251,12 +260,22 @@ export default {
     }
   },
   mounted(){
+
     if (this.$route.params.id){
       this.axios.get(`/api/${this.$route.meta.type}/`+this.$route.params.id).then(res=>{
         this.post=res.data
+        //el-radio type convert
+        this.post.stick_top_index = this.post.stick_top_index?true:false
+        this.post.stick_top_cata = this.post.stick_top_cata?true:false
+        this.post.admin_lock = this.post.admin_lock?true:false
+        
         // if (this.post.cover.indexOf(""))
         if (!this.post.hashtag){
           this.post.hashtag=[]
+        }
+        if (this.post.admin_lock && this.isAdmin==false){
+          this.$message.error("此文章已經鎖定(總編)")
+          this.$router.push(-1)
         }
         if (typeof this.post.hashtag=="string"){
           this.post.hashtag=JSON.parse(this.post.hashtag)
@@ -344,14 +363,17 @@ export default {
     ...mapState({
       companies: state=>state.manage.companies,
       catas: state=>state.manage.catas,
-      default_hashtags: state=>state.default_hashtags
+      default_hashtags: state=>state.default_hashtags,
+    }),
+    ...mapGetters({
+      isAdmin: 'auth/isAdmin',
+      isEditor: 'auth/isEditor'
     }),
     year_catas(){
       if (this.$route.meta.type=="news"){
-        return this.catas.filter(o=>o.year=="news")
-
+        return (this.catas || []).filter(o=>o.year=="news")
       }
-      return this.catas.filter(o=>o.year==this.post.year)
+      return (this.catas || []).filter(o=>o.year==this.post.year)
     },
     editType(){
       if (this.$route.meta.type=="news"){
@@ -372,6 +394,25 @@ export default {
 </script>
 
 <style lang="sass">
+.row-edit-part
+  position: relative
+  &.lock
+    &:after
+      left: 0
+      top: 0
+      position: absolute
+      width: 100%
+      height: 100%
+      background-color: rgba(#fdfdfd,0.85)
+      content: "總編輯已鎖定"
+      font-size: 40px
+      display: flex
+      justify-content: center
+      align-items: center
+      z-index: 10
+
+
+    
 hr
   margin-bottom: 30px
 .header

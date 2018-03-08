@@ -172,7 +172,7 @@ export default {
           "/api/company",
           this.company
         ).then(res=>{
-
+          
           this.$message({
             message: '建立成功',
             type: 'success'
