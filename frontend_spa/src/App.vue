@@ -62,7 +62,7 @@ html,body
   margin: 0
   padding: 0
   width: 100vw
-  height: 100vh
+  // height: 100vh
   overflow-x: hidden
 .noScroll
   // overflow-y: hidden

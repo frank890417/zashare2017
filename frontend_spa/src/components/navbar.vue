@@ -70,7 +70,7 @@
         router-link.loginbtn(to="/login") 登入
       .wrapper.ovh.animated.slideInUp
         .mt(:style="mobile_nav_style")
-        img(v-for="theme in themes", :src="theme.nav_image")
+        img(v-for="theme in themes.slice().reverse()", :src="theme.nav_image")
         
         
 </template>
@@ -104,13 +104,13 @@ export default {
     mobile_nav_style(){
       let mt = 0
       if (this.$route.path.indexOf("/expo")==0){
-        mt= -160
+        mt= 0
       }
       if (this.$route.path.indexOf("/base")==0){
         mt= -80
       }
       if (this.$route.path.indexOf("/course")==0){
-        mt= 0
+        mt= -160
       }
       return {
         'margin-top': mt+"px"

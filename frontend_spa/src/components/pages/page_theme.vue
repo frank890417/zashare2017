@@ -41,7 +41,7 @@ export default {
       }else{
         delta = evt.touches[0].pageY-lastY
       }
-      if (Math.abs(delta)>35 && !lock){
+      if (Math.abs(delta)>20 && !lock){
         lock=true
         let cid = _this.themes.map(t=>t.title).indexOf(_this.theme.title)
         let d = -Math.sign(delta)
@@ -75,7 +75,7 @@ export default {
   computed:{
     ...mapState({
       themes: state=>state.themes,
-      scrollY: state=>state.scroll.position,
+      scrollTop: state=>state.scroll.position,
       mobile: state=>state.mobile
     }),
     theme(){
@@ -85,14 +85,12 @@ export default {
     
   },
   watch:{
-    scrollY(){
-      // let detectorPos = $(".lazy-detector").offset().top
-      // let scrollPos = this.scrollY+$(window).height()*1.5
-      // console.log(detectorPos,scrollPos)
-      // if (detectorPos<scrollPos ){
-      //   console.log("change theme")
-      // }
-    }
+
+    // scrollTop(){
+    //   if (this.scrollTop<-5){
+    //     this.$router.push("/")
+    //   }
+    // },
   },
   methods: {
 

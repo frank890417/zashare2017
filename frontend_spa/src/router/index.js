@@ -38,6 +38,7 @@ let router = new Router({
           // text: "INDEX",
           img: "/static/img/Home/za-logo.svg"
         },
+        font_flush_delay: 800,
       }
     },
     {
