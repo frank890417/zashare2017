@@ -104,10 +104,10 @@ export default {
     mobile_nav_style(){
       let mt = 0
       if (this.$route.path.indexOf("/expo")==0){
-        mt= 0
+        mt= -5
       }
       if (this.$route.path.indexOf("/base")==0){
-        mt= -80
+        mt= -83
       }
       if (this.$route.path.indexOf("/course")==0){
         mt= -160

@@ -4,8 +4,17 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
-
+  mounted(){
+    if (this.mobile){
+      window.open("https://www.zashare.com.tw")
+      this.$router.go(-1)
+    }
+  },
+  computed: {
+    ...mapState(['mobile'])
+  }
 }
 </script>
 
