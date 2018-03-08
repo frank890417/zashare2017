@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState, mapGetters} from 'vuex'
 import axios from 'axios'
 import store from "../../store"
 export default {
@@ -101,6 +101,9 @@ export default {
   computed:{
     ...mapState({
       posts: state=>state.manage.posts
+    }),
+    ...mapGetters({
+      isAdmin: 'auth/isAdmin'
     }),
     filteredPosts(){
       return this.posts.filter(post=>{
