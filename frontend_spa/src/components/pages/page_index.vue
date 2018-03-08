@@ -155,7 +155,7 @@ export default {
   watch:{
     scrollTop(){
       if (this.scrollTop>window.innerHeight-$(".page-index").height()+50){
-        this.$router.push("/theme/expo")
+        this.$router.push("/expo")
       }
     },
     slides(){
