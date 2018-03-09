@@ -18,6 +18,7 @@ const store = new Vuex.Store({
     default_hashtags: "師培、教具、國小、偏鄉、國中、高中、大學、實驗教育、媒體、線上、空間、工作坊、技職、美感、文化、出走、輔導、maker、青少年、教師、親子、新媒體、影視、非營利、追求夢想、美感教育、思辨能力、性別平等、尊重生命、遊戲、感官體驗",
     // process.env.NODE_ENV == "production" ? true : false
     loading: true,
+    searchKeyword: "",
     expos: [
       {
         year: 2017,
@@ -85,10 +86,16 @@ const store = new Vuex.Store({
     setMobile(state, value) {
       state.mobile = value
     },
+    setSearchKeyword(state, value) {
+      state.searchKeyword = value
+    },
 
   },
   actions: {
-    
+    openSearch(context,value){
+      context.state.searchKeyword = value
+      context.commit("setMenuState",true)
+    }
     // loadWebsite(context) {
     //   context.dispatch("loadPosts")
 

@@ -10,7 +10,7 @@
           .container.container-menu
             .row.row-search
               .col-sm-12
-                input(placeholder="搜尋雜學校", v-model="searchKeyword")
+                input(placeholder="搜尋雜學校", v-model="tempSearchKeyword")
                 
                 div.clearInput(@click="searchKeyword=''")
                   i.fas.fa-search(v-show="searchKeyword==''")
@@ -72,20 +72,21 @@ export default {
   data() {
     return {
       tags: "師培、教具、國小、偏鄉、國中、高中、大學、實驗教育、媒體".split("、"),
-      searchKeyword: ""
+      tempSearchKeyword: ""
     }
   },
   computed: {
     ...mapState({
       menuState: state=>state.menuState,
-      posts: state => state.post.posts
+      posts: state => state.post.posts,
+      searchKeyword: state=>state.searchKeyword
     }),
     filteredPost(){
       return this.posts.map(o=>({...o,tag: "ZA EXPO"})).filter(o=>JSON.stringify(o).indexOf(this.searchKeyword)!=-1)
     }
   },
   methods: {
-    ...mapMutations(['setMenuState']),
+    ...mapMutations(['setMenuState','setSearchKeyword']),
     ...mapActions({
       register: 'auth/register',
       login: 'auth/login',
@@ -99,7 +100,7 @@ export default {
     }),
     postTarget(post){
       // if (this.$route.meta.type=="expo"){
-        return `/expo/${this.$route.params.year}/blog/${post.id}`
+        return `/expo/${post.year}/blog/${post.id}`
       // }
 
       // if (this.$route.meta.type=="news"){
@@ -109,6 +110,16 @@ export default {
   },
   mounted(){
     // this.authInit()
+  },
+  watch: {
+    tempSearchKeyword(){
+      this.setSearchKeyword(this.tempSearchKeyword)
+    },
+    searchKeyword(){
+      if (this.tempSearchKeyword!=this.searchKeyword){
+        this.tempSearchKeyword=this.searchKeyword
+      }
+    }
   }
 }
 </script>

@@ -14,7 +14,7 @@
           p {{ post.established_time.split(" ")[0] }} 
           span {{post.author}}
           .tags
-            .hashtag(v-for="tag in hashtags") {{tag}}
+            .hashtag(v-for="tag in hashtags", @click="openSearch(tag)") {{tag}}
     .row
       .col-sm-12
         hr
@@ -39,7 +39,7 @@
 
 <script>
 import axios from 'axios'
-import {mapState } from 'vuex'
+import {mapState, mapActions} from 'vuex'
 
 export default {
   data(){
@@ -63,6 +63,9 @@ export default {
       //   },400)
       // })      
     })
+  },
+  methods: {
+    ...mapActions(['openSearch'])
   },
   computed: {
     ...mapState({
@@ -177,7 +180,9 @@ export default {
       letter-spacing: 2px
       display: inline-block
       font-weight: 600
-      
+      cursor: pointer
+      &:hover
+        background-color: #222
       &:before
         content: "#"
     .tags
