@@ -1,9 +1,9 @@
 <template lang="pug">
 .page-index.animated.fadeIn
   .container-fluid
-    router-link.row-cover.animated.fadeIn(:to="`/news/${currentSlide.id}`")
+    .row-cover.animated.fadeIn()
       .slick
-        .slide(v-for="slide in slides") 
+        router-link.slide(v-for="slide in slides", :to="`/news/${currentSlide.id}`") 
           .cover(:style="bgcss(slide.cover)")
           //- .cover
           //-   .slice.s1(:style="bgcss(slide.cover)")

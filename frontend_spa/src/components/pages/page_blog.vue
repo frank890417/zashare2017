@@ -4,9 +4,9 @@
     .container
       .row
         .col-sm-12(v-if="slides.length")
-          router-link.nostyle.row.row-head-news(:to="postTarget(slides[currentSlideId])")
+          .nostyle.row.row-head-news
             .col-sm-8
-              .slick
+              router-link.slick(:to="postTarget(slides[currentSlideId])")
                 .slide(v-for="slide in slides") 
                   .cover(:style="bgcss(slide.cover)")
               //- .cover(:style="bgcss('http://via.placeholder.com/800x600')")
