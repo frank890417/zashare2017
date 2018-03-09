@@ -190,7 +190,7 @@ export default {
     flex: 228px
 .page-index
   padding-right: 350px
-  width: 100%
+  width: 100vw
   height: 100%
   box-sizing: border-box
   
@@ -410,6 +410,7 @@ export default {
     border-radius: 50%
     background-color: black
     margin: 20px
+    margin-bottom: 10px
     cursor: pointer
     color: white
     display: flex
@@ -421,7 +422,7 @@ export default {
   +rwd_md
     position: fixed
     right: 20px
-    bottom: 30px
+    bottom: 20px
   .prev
   .next
     // background-color: #aaa

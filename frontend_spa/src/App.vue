@@ -26,8 +26,8 @@ export default {
 
 <style lang="sass">
 @import "assets/_mixins.sass"
-@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css)
-
+// @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css)
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700)
 .mobileBlock
   position: fixed
   width: 100vw
@@ -119,9 +119,12 @@ html,body
 
 // .animated
   // animation-duration: 2.5s
+.jf-active 
+  h1,h2,h3,h4,h5,h6,p
+    font-family:  'Open Sans','xingothic-tc', 'Avenir', Helvetica , sans-serif !important
 
 #app
-  font-family: 'Noto Sans TC','Avenir', Helvetica, Arial, sans-serif
+  font-family:  'Open Sans','xingothic-tc', 'Avenir', Helvetica , sans-serif !important
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   text-align: center

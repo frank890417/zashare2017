@@ -121,11 +121,13 @@ Vue.mixin({
 
 
 if (process.env.NODE_ENV == "development") {
+  
   setTimeout(() => {
     store.commit("setLoading", false)
   }, 500);
 }
 if (process.env.NODE_ENV == "production") {
+
   setTimeout(() => {
     store.commit("setLoading", false)
   }, 3000);
