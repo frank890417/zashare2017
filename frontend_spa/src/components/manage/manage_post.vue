@@ -14,6 +14,9 @@
     el-table.table(:data="filteredPosts" border max-height="800",
                :default-sort = "{prop: 'id', order: 'descending'}")
       el-table-column(prop="id",label="#", width="60" :sortable="true")
+      el-table-column(prop="admin_lock",label="鎖定", width="60" :sortable="true", v-if="isAdmin")
+        template(slot-scope="scope")
+          el-switch(v-model="scope.row.admin_lock", @change="(value)=>{set_admin_lock(scope.row)}")
       el-table-column(prop="status",label="狀態", width="70",
         :filters="[{ text: '草稿', value: '草稿' }, { text: '已發佈', value: '已發佈' }]",
         :filter-method="filterStatus" :sortable="true")
@@ -97,6 +100,16 @@ export default {
     filterStickCata(value,row){
       return row.stick_top_cata==value;
     },
+    set_admin_lock(post){
+      if (this.isAdmin){
+        this.axios.patch(
+          `/api/post/`+post.id,
+          {admin_lock:post.admin_lock}
+        ).then(()=>{
+          this.$message.success("文章"+post.admin_lock?"鎖定":"解鎖"+"成功")
+        })
+      }
+    }
   },
   computed:{
     ...mapState({
@@ -115,12 +128,16 @@ export default {
         status: post.status=="draft"?"草稿":"已發佈",
         cata: (post.cata && post.cata.name) || "-",
         updated_at: (post.updated_at ) || "-",
+        admin_lock: post.admin_lock?true:false,
         hashtag: JSON.parse(post.hashtag || '[]').join(" , "),
         company: ((post.company) && post.company.name_cht) || "-",
         stick_top_index: post.stick_top_index?"是":"",
         stick_top_cata: post.stick_top_cata?"是":"",
       }))
     }
+  },
+  watch:{
+    
   }
 }
 </script>
