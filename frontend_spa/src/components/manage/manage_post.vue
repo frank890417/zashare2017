@@ -14,23 +14,29 @@
     el-table.table(:data="filteredPosts" border max-height="800",
                :default-sort = "{prop: 'id', order: 'descending'}")
       el-table-column(prop="id",label="#", width="60" :sortable="true")
+        template(slot-scope="scope")
+          span {{scope.row.id}}
+          span(v-if="scope.row.admin_lock")
+            span &nbsp;
+            i.fa.fa-lock(title="總編輯已鎖定")
       el-table-column(prop="admin_lock",label="鎖定", width="60" :sortable="true", v-if="isAdmin")
         template(slot-scope="scope")
           el-switch(v-model="scope.row.admin_lock", @change="(value)=>{set_admin_lock(scope.row)}")
+          
       el-table-column(prop="status",label="狀態", width="70",
         :filters="[{ text: '草稿', value: '草稿' }, { text: '已發佈', value: '已發佈' }]",
         :filter-method="filterStatus" :sortable="true")
         template(slot-scope="scope")
           span.post_status(:data-status="scope.row.status") {{scope.row.status}}
-          span(v-if="scope.row.admin_lock")
-            span &nbsp;
-            i.fa.fa-lock(title="總編輯已鎖定")
+          //- span(v-if="scope.row.admin_lock && !isAdmin")
+          //-   span &nbsp;
+          //-   i.fa.fa-lock(title="總編輯已鎖定")
       el-table-column(prop="company",label="單位", width="160",:sortable="true")
       el-table-column(prop="cata",label="類別", width="80" :sortable="true")
       el-table-column(prop="cover",label="封面", width="120")
         template(slot-scope="scope")
           img.cover(:src="scope.row.cover")
-      el-table-column(prop="year",label="年度", width="100",
+      el-table-column(prop="year",label="年度", width="60",
         :filters="[{ text: '2015', value: '2015' },{ text: '2016', value: '2016' }, { text: '2017', value: '2017' }]",
         :filter-method="filterYear" :sortable="true")
       el-table-column(prop="title",label="標題" width="200" :sortable="true")
@@ -106,7 +112,7 @@ export default {
           `/api/post/`+post.id,
           {admin_lock:post.admin_lock}
         ).then(()=>{
-          this.$message.success("文章"+post.admin_lock?"鎖定":"解鎖"+"成功")
+          this.$message.success("文章"+(post.admin_lock?"鎖定":"解鎖")+"成功!")
         })
       }
     }
