@@ -42,8 +42,26 @@ class AuthController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('facebook')->stateless()->user();
-        $token = JWTAuth::fromUser($user);
+        if (!$request->has('code') || $request->has('denied')) {
+            return redirect('/');
+        }
+
+        $socialUser = Socialite::driver('facebook')->user();
+
+         $user = User::where('facebook_id', $socialUser->getID())->first();
+
+        if(!$user){
+            User::create ([
+                'facebook_id'   => $socialUser->getID(),
+                'name'      => $socialUser->getName(),
+                'email'         => $socialUser->getEmail(), 
+                        'avatar'        => $socialUser->getAvatar()             
+            ]);
+        }
+        
+        // auth()->login($user); 
+        $token = JWTAuth::fromUser($socialUser);
+
 
         return $token;
 
