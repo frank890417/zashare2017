@@ -90,7 +90,7 @@ export default {
       return {
         width,
         right: this.$route.meta.navPosition!='left'?"0px":`calc(100% - ${width})`,
-        display: this.$route.path.indexOf("/manage")==0 ? "none":"block"
+        display: (this.$route.path.indexOf("/manage")==0) || (this.$route.path.indexOf("/member")==0) ? "none":"block"
       }
     },
     upCircleTo(){

@@ -27,7 +27,7 @@
         input(v-model="registerData.name", placeholder="名字", type="name", name="name", autocomplete="on")
         label.mention ※若您持有「雜學校學生證」，請務必填寫您的真實姓名，方便核對身分及保障您的權益。
         select(v-model="registerData.jobcata", placeholder="產業別" , name="jobcata", autocomplete="on")
-          option(v-for= "(jb,jbid) in jobcatas", 
+          option(v-for= "(jb,jbid) in auth.jobcatas", 
                 :value="jb") {{jb}}
         input(v-model="registerData.job", :placeholder="jobInforLabel", type="job", name="job", autocomplete="on")
         input(v-model="registerData.password", placeholder="密碼", type="password")
@@ -53,15 +53,15 @@
 
         br
       
-        .btn-group
+        .btn-group( @click="setMenuState(false)")
           button.btn.fw.black(@click="logout") 登出
-          router-link.btn.fw(to="/member/setting") 設定
+          router-link.btn.fw(to="/member/info") 設定
         .btn-group(v-if="canManage()", @click="setMenuState(false)")
           router-link.btn.fw.black(to="/manage") 前往後台({{userGroup()}})
     div(v-if="layout=='function'")
       .btn-group
         button.btn.fw.black(@click="logout") 登出
-        router-link.btn.fw(to="/member/setting") 設定
+        router-link.btn.fw(to="/member/info") 設定
       .btn-group(v-if="canManage()", @click="setMenuState(false)")
         router-link.btn.fw.black(to="/manage") 前往後台({{userGroup()}})
       //pre {{auth}}
@@ -82,7 +82,6 @@ export default {
   },
   data() {
     return {
-      jobcatas: ["產業別","政府機關、公部門","非營利組織相關","教育業","學生","自由接案","大眾傳播、出版相關","設計與文創相關","藝術文化相關","流行與時尚文化相關","旅遊、休閒、運動產業","金融投顧、保險相關","法律相關","一般服務業","一般傳統製造","運輸物流、倉儲、貿易","農、林、漁、牧業","礦業土石、水電能源","建築營造、不動產相關","醫療照護、環境衛生","批發零售","電子科技、資訊、軟體、半導體","其他"],
       registerData: {
         email: "",
         name: "",

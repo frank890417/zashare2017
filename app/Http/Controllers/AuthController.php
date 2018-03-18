@@ -9,6 +9,9 @@ use Socialite;
 use App\User;
 use App\Studentcard;
 use JWTAuth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 class AuthController extends Controller
 {
     /**
@@ -107,7 +110,38 @@ class AuthController extends Controller
             }
         }
         $userdata["studentcard"] = $studentcard;
+
         return response()->json($userdata);
+    }
+
+     /**
+     * Update user info (job / jobcata / name)
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updateUserInfo()
+    {
+        $inputs = Input::all();
+        $newdata = $inputs['user'];
+        if ($newdata){
+            $userdata = $this->guard()->user();
+            $userdata['name'] = $newdata['name'];
+            $userdata['job'] = $newdata['job'];
+            $userdata['jobcata'] = $newdata['jobcata'];
+            // $studentcard =  User::find($userdata->id)->studentcard;
+            // if ( !$studentcard ){
+            //     $findcard = Studentcard::where("email",$userdata->email)->first();
+            //     if ($findcard){
+            //         $findcard->user_id = $userdata->id;
+            //         $findcard->save();
+            //         $studentcard=$findcard;
+            //     }
+            // }
+            // $userdata["studentcard"] = $studentcard;
+            $userdata->save();
+            return response()->json($userdata);
+        }
+        
     }
 
     /**

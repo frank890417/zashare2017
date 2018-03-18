@@ -42,6 +42,7 @@ Route::group(['middleware'=>['cors']],function(){
       Route::get('login/facebook/callback', 'AuthController@handleProviderCallback');
       
       Route::post('register', 'AuthController@register');
+      Route::post('user/update/info', 'AuthController@updateUserInfo');
       Route::post('login', 'AuthController@login');
       Route::post('logout', 'AuthController@logout');
       Route::post('refresh', 'AuthController@refresh');
