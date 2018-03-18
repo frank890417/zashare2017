@@ -40,13 +40,13 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($request)
     {
         // if (!$request->has('code') || $request->has('denied')) {
         //     return redirect('/');
         // }
 
-        $socialUser = Socialite::driver('facebook')->user();
+        $socialUser = Socialite::driver('facebook')->stateless()->user();
 
          $user = User::where('facebook_id', $socialUser->getID())->first();
 
