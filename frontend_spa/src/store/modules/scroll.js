@@ -14,9 +14,13 @@ const post = {
   actions: {
     init(context) {
       console.log("Scroll Module init")
-      $(window).scroll(o=>{
-        // console.log(context.state.position)
-        context.commit("setPosition",$(window).scrollTop())
+      $("#app").scroll(o=>{
+        console.log(context.state.position)
+        context.commit("setPosition", $("#app").scrollTop() )
+      })
+      $(window).scroll(o => {
+        console.log(context.state.position)
+        context.commit("setPosition", $(window).scrollTop())
       })
 
     },

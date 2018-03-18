@@ -121,7 +121,7 @@ export default {
   watch: {
     slides(){
       let _this = this
-      console.log("slide change")
+      // console.log("slide change")
       if (this.slides.length>0){
         setTimeout(()=>{
           _this.$nextTick(() => {
@@ -130,7 +130,7 @@ export default {
             )
             let _this=this
             $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-              console.log(nextSlide)
+              // console.log(nextSlide)
               _this.currentSlideId=nextSlide
             })
 
@@ -142,14 +142,26 @@ export default {
     scrollY(){
       let detectorPos = $(".lazy-detector").offset().top
       let scrollPos = this.scrollY+$(window).height()*1.5
-      console.log(detectorPos,scrollPos)
+      // console.log(detectorPos,scrollPos)
       if (detectorPos<scrollPos ){
         this.showCount+=3
       }
     }
   },
   mounted(){
+
+    //detect lazt scrollng show more post
     let _this = this
+
+    $("#app").scroll(function(evt){
+      // console.log(evt)
+      let detectorPos = $(".lazy-detector").offset().top
+      let scrollPos =  $("#app").scrollTop()+$(window).height()*1.5
+      // console.log(detectorPos,scrollPos)
+      if (detectorPos<scrollPos ){
+        _this.showCount+=3
+      }
+    })
     setTimeout(()=>{
       _this.$nextTick(() => {
         $(".slick").slick(
@@ -157,7 +169,7 @@ export default {
         )
         let _this=this
         $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-          console.log(nextSlide)
+          // console.log(nextSlide)
           _this.currentSlideId=nextSlide
         })
 
