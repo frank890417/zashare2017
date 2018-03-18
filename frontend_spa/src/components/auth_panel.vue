@@ -16,7 +16,7 @@
         //- label 密碼
         input.loginPwd(v-model="loginData.password", placeholder="密碼" , type="password")
         button.btn.fw.black(@click="login(loginData)") 登入
-        //- button.btn.fw(@click="loginFacebook") 使用 Facebook 登入
+        button.btn.fw(@click="loginFacebook") 使用 Facebook 登入
         button.btn.fw.nobg 忘記密碼
         button.btn.fw.nobg(@click="mode='register'") 註冊為雜學校學生
       .bottom(v-if="mode=='register' && !auth.user")
