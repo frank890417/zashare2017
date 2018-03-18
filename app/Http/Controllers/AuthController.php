@@ -40,7 +40,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($request)
     {
         if (!$request->has('code') || $request->has('denied')) {
             return redirect('/');
