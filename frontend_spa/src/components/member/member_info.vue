@@ -25,8 +25,8 @@
       el-form(label-width="100px")
         el-form-item(label="登記名")
           el-input(v-model="userClone.studentcard.name" ,disabled = true)
-        el-form-item(label="序號")
-          el-input(v-model="userClone.studentcard.id" ,disabled = true)
+        el-form-item(label="學生證序號")
+          el-input(v-model="userClone.studentcard.card_id" ,disabled = true)
         el-form-item(label="使用期限")
           el-input(v-model="userClone.studentcard.expiry_datetime",disabled = true)
     //- pre {{userClone}}
