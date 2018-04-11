@@ -12,7 +12,6 @@ let router = new Router({
     require("./manage_routes").default,
     require("./member_routes").default
     
-
   ]
 })
 

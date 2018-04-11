@@ -12,6 +12,7 @@
           el-menu-item(index="/manage/post") 文章管理 
           el-menu-item(index="/manage/company") 攤位管理 
           el-menu-item(index="/manage/cata") 類別管理 
+          el-menu-item(index="/manage/coupon") Coupon管理 
         auth_panel(layout="function")
 
       .col-sm-10.offset-2.col-content

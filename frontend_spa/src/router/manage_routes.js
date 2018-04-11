@@ -4,6 +4,7 @@ import manage_post from '@/components/manage/manage_post'
 import manage_news from '@/components/manage/manage_news'
 import manage_team from '@/components/manage/manage_team'
 import manage_cata from '@/components/manage/manage_cata'
+import manage_coupon from '@/components/manage/manage_coupon'
 import manage_post_edit from '@/components/manage/manage_post_edit'
 import manage_company_edit from '@/components/manage/manage_team_edit'
 
@@ -37,6 +38,11 @@ let routes = {
         path: 'cata',
         name: 'cata list',
         component: manage_cata
+      },
+      {
+        path: 'coupon',
+        name: 'coupon list',
+        component: manage_coupon
       },
       {
         path: 'news/new',

@@ -25,6 +25,13 @@ Route::group(['middleware'=>['cors']],function(){
   Route::resource('news',"NewsController");
   Route::resource('cata',"CataApiController");
   Route::resource('company',"CompanyApiController");
+
+  Route::resource('coupon',"CouponController");
+
+  Route::post('coupontype/userget/{id}',"CoupontypeController@getCoupon");
+  Route::post('coupontype/user',"CoupontypeController@userindex");
+  Route::resource('coupontype',"CoupontypeController");
+
   Route::post('upload',"ApiController@upload_image");
   // Auth::routes();
   Route::post("login","Auth\LoginController@postLogin");
@@ -38,6 +45,9 @@ Route::group(['middleware'=>['cors']],function(){
       // 'namespace' => 'App\Http\Controllers',
       'prefix' => 'auth'
   ], function ($router) {
+
+
+
       Route::get('login/facebook', 'AuthController@redirectToProvider');
       Route::get('login/facebook/callback', 'AuthController@handleProviderCallback');
       
