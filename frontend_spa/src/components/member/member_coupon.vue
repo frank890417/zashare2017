@@ -5,7 +5,7 @@
     ul.list-group.row
       li.list-group-item.col-sm-4(v-for="ct in coupontypes")
         .coupon-box-inner
-          img(:src="ct.cover")
+          img.cover(:src="ct.cover")
           h3 名稱：{{ct.title}}
           p(v-html="ct.description")
           p 
@@ -98,13 +98,17 @@ export default {
 </script>
 
 <style lang="sass">
-.el-select
-  width: 100%
 .member-coupon
-  .list-group
-    list-style: none
-.coupon-box-inner
-  margin: 10px
-  border: solid 1px #666
-  padding: 10px
+  
+  .cover
+    width: 100%
+  .el-select
+    width: 100%
+  .member-coupon
+    .list-group
+      list-style: none
+  .coupon-box-inner
+    margin: 10px
+    border: solid 1px #666
+    padding: 10px
 </style>
