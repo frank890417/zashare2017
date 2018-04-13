@@ -1,6 +1,6 @@
 <template lang="pug">
-.page-index.animated.fadeIn
-  .container-fluid
+.page.right.page-index.animated.fadeIn
+  .container
     .row-cover.animated.fadeIn()
       .slick
         router-link.slide(v-for="slide in slides", :to="`/news/${currentSlide.id}`") 
@@ -189,7 +189,7 @@ export default {
   100%
     flex: 228px
 .page-index
-  padding-right: 350px
+  // padding-right: 350px
   width: 100vw
   height: 100%
   box-sizing: border-box

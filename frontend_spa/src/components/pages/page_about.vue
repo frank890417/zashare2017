@@ -1,35 +1,171 @@
 <template lang="pug">
 .page.right.page-about
-  .container
-    .row
-      //- .col-sm-12
-      //-   br
-      //-   br
-      //-   br
-      //-   img.logo-img(src="/static/img/Home/za-logo.svg")
-      //-   br
+  section.section-hero
+    .container-fluid
+      .row.row-cover(:style="bgcss('/static/img/About/about-banner.png')")
+        //- .col-sm-12
+        //-   br
+        //-   br
+        //-   br
+        //-   img.logo-img(src="/static/img/Home/za-logo.svg")
+        //-   br
+        .col-sm-12
+          h1 Make Education Different
+          h3 奇特有趣的議題場景及考究嚴選的創新體驗，令雜學校成為亞洲最具影響力的教育創新博覽會品牌
+   
+    .container.container-feature
+      .row
+        .col-sm-2(v-for="f in features")
+          img(:src="f.img")
+          h3 {{f.num}}
+          h4 {{f.title}}
+  section.section-description
+    .container
       .col-sm-12
-        h1 關於雜學校
-        p 自2015年起，連續三年的雜學校年度博覽會（ZA EXPO）已串聯超過數百個來自海內外產官學界創新教育單位的力量，更有超過十萬人次到場參與這場年度教育盛會。展現多元價值的學習場域
-        p 雜學校的『雜』：不設限學科、單位，只要教育理念相近，任何教育新創團隊都有機會參展！自2015年起、收到上千份來自海內外參展申請－看見各領域的人在為台灣教育努力，也許各自分享的知識很雜很不一樣，但這正展現這島上的多元與包容。
-        p 當聽見參展單位感謝回饋、看見每個參展民眾的興奮與發亮眼神，我們開始希望這不僅在一年一度的博覽會（ZA EXPO）才有，更盼望這股誘發學習動能在每日發生：雜學校持續以最擅長的『策展』打造每季主題式展覽、學習與生活結合的實驗基地（ZA BASE），將看似嚴肅的議題，轉換為有趣並具有知識性的體驗，以『議題』為切入點，集結不同新創單位『內容』、共同創造以『學習者』為核心，從線上傳播到線下實踐的展覽與課程（ZA COURSE），觸發更多對話、理解、想像、行動，讓教育有更多不同的可能。
-        p 這是一間奇怪的學校
-          | <br>不逼成績，只想創造學習動機。
-          | <br>不看排名，只期待你用行動來證明。
-          | <br>不寫習題，只拋議題讓你發掘解決問題。
-          | <br>不存在教師評鑑，只看教的是否有趣有料有體驗。
-          | <br>沒有任何一科有加權，
-          | <br>只希望每一個人，都能拿回學習的快樂與自主權。
-          | <br>每個人都有更多選擇，學著乖乖做自己、成為自己想成為的自己。
+        p 雜學，是未來人才的基本能力，多樣多元的聚集混種才能有肥沃的土壤造就人才創新的生態。這是一所以城市為單位，以生活為內容，以人為主體的社會學校。ZA是雜的音譯，也是從Z到A由下而上的概念，SHARE 是各種串連與分享。
+        img(src="/static/img/About/about-pic.png")
+        p 雜學校是從台灣民間發起教育文化創新的社會運動，由蘇仰志先生於2015年創立，希望建構一個讓1-99歲能找到生命熱情的各種學習路徑的烏托邦。因此籌備一年一度的創新教育博覽會，公開徵集了華人世界各種非典型教育與文化的創新，透過全新的策展思維創造出一個多元多樣的舞台，打破框架讓人與人在這各種跨域的串連與交流中共好，同時讓更多的探索與驚喜發生，促使教育轉化為多樣生活型態的獨創展現，培養更多人才與機會的可能。持續建構起教育新創加速器，協助更多教育創新理念與新創事業，往創辦的初心一步一步邁進：「如果每一個人都可以在熱情裡面做事，這個社會將會有多強大」！
+  section.section-theme
+    .container-fluid
+      .row
+        .col-sm-4.col-explore
+          .fimg(:style="bgcss('/static/img/About/about-spirit-explore.png')")
+          h3 Explore 探索
+        .col-sm-4.col-diverse
+          .fimg(:style="bgcss('/static/img/About/about-spirit-diverse.png')")
+          h3 Diverse 多樣
+        .col-sm-4.col-unique
+          .fimg(:style="bgcss('/static/img/About/about-spirit-unique.png')")
+          h3 Unique 獨創
+  section.section-log
+    .container
+      .row
+        .col-sm-12 
+          h2 品牌大事記
+        .col-sm-12
+          .row.row-expo(v-for="expo in expos")
+            .col-cover(:style="bgcss(expo.report_cover)")
+            .col-content
+              h2 {{expo.year}}
+              h3 {{expo.label}}
+              p(v-html="expo.feature")
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
-
+  data(){
+    return {
+      features: [
+        {
+          img: "/static/img/About/icon-1.svg",
+          num: "3",
+          title: "博覽會屆數",
+        },{
+          img: "/static/img/About/icon-2.svg",
+          num: "1.062",
+          title: "報名件數",
+        },{
+          img: "/static/img/About/icon-3.svg",
+          num: "386",
+          title: "入選團隊",
+        },{
+          img: "/static/img/About/icon-4.svg",
+          num: "31",
+          title: "海外城市串聯參與",
+        },{
+          img: "/static/img/About/icon-5.svg",
+          num: "102,683",
+          title: "累計觀展人數",
+        },{
+          img: "/static/img/About/icon-6.svg",
+          num: "40,000,000",
+          title: "網路社群觸及人次",
+        }
+      ]
+    }
+  },
+  computed: {
+    ...mapState(['expos'])
+  }
 
 }
 </script>
 
 <style lang="sass">
+.page-about
+  background-color: #fafafa
+  .col-cover
+    background-size: cover
+
+
+  .section-hero
+    background-color: black
+    color: white
+    min-height: 100vh
+    h1
+      font-size: 60px
+    h3
+      font-size: 18px
+    .row-cover
+      background-size: cover
+      min-height: calc(100vh - 300px)
+      display: flex
+      justify-content: center
+      align-items: center
+    .container-feature
+      padding-top: 60px
+      padding-bottom: 60px
+      img
+        width: 90px
+
+  .section-theme
+    color: white
+    .fimg
+      position: absolute
+      width: 100%
+      height: 100%
+      left: 0
+      top: 0
+    [class*=col]
+      display: flex
+      justify-content: center
+      align-items: flex-end
+      min-height: 540px
+      h3
+        font-size: 48px
+        position: relative
+
+    .col-explore
+      background-color: #1161ef
+    .col-diverse
+      background-color: #8af187
+    .col-unique
+      background-color: #8135f9
+  
+  .section-description,.section-theme,.section-log
+    padding-top: 60px
+    padding-bottom: 60px
+
+  .section-description
+    img,p
+      margin-top: 30px
+      margin-bottom: 30px
+  
+  .row-expo
+    display: flex
+    height: 270px
+    margin-bottom: 50px
+    background-color: #fff
+    .col-cover 
+      flex: 592
+
+    .col-content
+      flex: 478
+      padding: 20px
+
+    &:nth-child(2n)
+      flex-direction: row-reverse
+    
 
 </style>

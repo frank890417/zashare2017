@@ -1,5 +1,5 @@
 <template lang="pug">
-.page.right.page-expo.animated.slideInRight
+.page.right.page-expo
   .container
     .row(v-for="expo in expos")
       .col-sm-12

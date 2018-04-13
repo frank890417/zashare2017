@@ -2,60 +2,71 @@
 .navbar(:style="navbarStyle")
   .container-fluid
     .row-logo
-      router-link.col-sm-12.logo-part.fadeIn.animated(to="/" v-if="$route.path=='/'")
+      router-link.col-sm-12.logo-part(to="/")
         img.logo-img(src="/static/img/Home/za-logo.svg", @click="loginAjax") 
         h1.nav-cht-logo 雜學校
+
+      //- router-link.col-sm-12.logo-part.fadeIn.animated(to="/" v-if="$route.path=='/'")
+      //-   img.logo-img(src="/static/img/Home/za-logo.svg", @click="loginAjax") 
+      //-   h1.nav-cht-logo 雜學校
       //- h4(v-if="$route.meta.action!='back'") “ 雜學校，一個有效行動的學習場域。 ”
-      .longline(
-          v-if="$route.path!='/'", 
-          :style="{'background-color': theme.color}",
-          :class="{nolen: $route.meta.action=='back'}")
-      router-link.explore(
-        v-if="$route.meta.type=='theme'", 
-        :to="$route.meta.next.path",
-        :key="$route.path") 
-        .ovh
-          .animated.slideInUp Explore the
-        div.themename.ovh
-          span.text.animated.slideInUp ZA {{$route.name}}  
-          .arrow-right( :style="{'background-color': theme.color}", key="main_arrow")
-      router-link.explore(
-        v-if="$route.meta.action=='back'", 
-        :to="$route.meta.back.path",
-        :key="$route.meta.back.path") 
-        .arrow-right.reverse( :style="{'background-color': theme.color}", key="sub_arrow")
-        .ovh
-          .animated.slideInUp Back to the
-        div.themename.ovh
-          span.text.animated.slideInUp {{$route.meta.back.name}}  
-          //- .arrow-right.reverse( :style="{'background-color': theme.color}", 
+      //- .longline(
+      //-     v-if="$route.path!='/'", 
+      //-     :style="{'background-color': theme.color}",
+      //-     :class="{nolen: $route.meta.action=='back'}")
+      //- router-link.explore(
+      //-   v-if="$route.meta.type=='theme'", 
+      //-   :to="$route.meta.next.path",
+      //-   :key="$route.path") 
+      //-   .ovh
+      //-     .animated.slideInUp Explore the
+      //-   div.themename.ovh
+      //-     span.text.animated.slideInUp ZA {{$route.name}}  
+      //-     .arrow-right( :style="{'background-color': theme.color}", key="main_arrow")
+      //- router-link.explore(
+      //-   v-if="$route.meta.action=='back'", 
+      //-   :to="$route.meta.back.path",
+      //-   :key="$route.meta.back.path") 
+      //-   .arrow-right.reverse( :style="{'background-color': theme.color}", key="sub_arrow")
+      //-   .ovh
+      //-     .animated.slideInUp Back to the
+      //-   div.themename.ovh
+      //-     span.text.animated.slideInUp {{$route.meta.back.name}}  
+      //-     //- .arrow-right.reverse( :style="{'background-color': theme.color}", 
                         )
-      router-link.subBack.nostyle.animated.fadeIn(
-        v-if="$route.meta.subBack", 
-        :to="subBack.path",
-        :key="$route.meta.subBack.name")
-        h3 {{subBack.name}}
-        .arrow-right.reverse( :style="{'background-color': theme.color}", key="sub_arrow")
+      //- router-link.subBack.nostyle.animated.fadeIn(
+      //-   v-if="$route.meta.subBack", 
+      //-   :to="subBack.path",
+      //-   :key="$route.meta.subBack.name")
+      //-   h3 {{subBack.name}}
+      //-   .arrow-right.reverse( :style="{'background-color': theme.color}", key="sub_arrow")
 
     .row-bottom
-      span.col-login(v-if="$route.path=='/'",@click="setMenuState(true)") 
+      span.col-login(@click="setMenuState(true)") 
         span(v-if="auth.user") Hello 雜學校學生 {{auth.user.name}}
         span(v-else) 學生登入 / 註冊
 
-      router-link.col-theme-nav.nav-expo(to="/expo")
-        //- span ZA<br>Expo
-        img(src="/static/img/Home/za-expo.svg")
-        router-link.upCircle.animated.zoomIn(
-          :to="upCircleTo",
-          v-if="$route.meta.type=='theme' || $route.path=='/'",
-          :class="{downCircle: $route.path=='/' }"
-        ) 
-      router-link.col-theme-nav.nav-base(to="/base")
-        //- span ZA<br>Base
-        img(src="/static/img/Home/za-base.svg")
-      router-link.col-theme-nav.nav-course(to="/course") 
-        //- span ZA<br>Course
-        img(src="/static/img/Home/za-course.svg")
+      router-link.col-theme-nav(to="/about")
+        span 關於雜學校
+      router-link.col-theme-nav(to="/expo/main")
+        span 歷屆展覽
+      a.col-theme-nav(href="https://www.zashare.com.tw", target="_blank")
+        span 線上商店
+
+      // router-link.col-theme-nav.nav-expo(to="/expo")
+      //   //- span ZA<br>Expo
+      //   img(src="/static/img/Home/za-expo.svg")
+      //   router-link.upCircle.animated.zoomIn(
+      //     :to="upCircleTo",
+      //     v-if="$route.meta.type=='theme' || $route.path=='/'",
+      //     :class="{downCircle: $route.path=='/' }"
+      //   ) 
+      // router-link.col-theme-nav.nav-base(to="/base")
+      //   //- span ZA<br>Base
+      //   img(src="/static/img/Home/za-base.svg")
+      // router-link.col-theme-nav.nav-course(to="/course") 
+      //   //- span ZA<br>Course
+      //   img(src="/static/img/Home/za-course.svg")
     .row-mobile-cata(
       v-if="$route.meta.type=='theme' || $route.path.indexOf('/expo')==0 || $route.meta.mobilenav",
       :style="mobileCataStyle")
@@ -283,6 +294,7 @@ export default {
     border-bottom: solid 1px #333
     cursor: pointer
     transition: 0.5s
+    font-size: 24px
     &:hover 
       background-color: #aaa
 
@@ -432,7 +444,7 @@ export default {
   .col-theme-nav
     background-color: black
     color: white
-    font-size: 32px
+    font-size: 24px
     font-weight: bold
     text-align: left
     line-height: 1

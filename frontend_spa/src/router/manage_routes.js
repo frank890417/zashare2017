@@ -12,7 +12,7 @@ let routes = {
   path: '/manage',
   meta: {
     manage: true,
-      navHide: true
+    navHide: true
   },
   component: manage_layout,
     children: [

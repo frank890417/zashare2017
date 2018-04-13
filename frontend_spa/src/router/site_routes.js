@@ -14,16 +14,26 @@ let routes =
   {
     path: '/',
     name: 'index',
-    component: pageIndex,
-    meta: {
-      navWidth: "350px",
-      mobilenav: {
-        color: "white",
-        // text: "INDEX",
-        img: "/static/img/Home/za-logo.svg"
-      },
-      font_flush_delay: 800,
-    }
+    component: pageBlog,
+      meta: {
+        type: "news",
+        // action: "back",
+        navWidth: "350px",
+        // back: {
+        //   name: "INDEX",
+        //   path: "/"
+        // },
+        subBack: {
+          name: "回首頁",
+          path: "/"
+
+        },
+        mobilenav: {
+          color: "white",
+          text: "NEWS"
+        },
+        navPosition: "left"
+      }
   },
   {
     path: '/course',
