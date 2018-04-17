@@ -171,6 +171,7 @@ export default {
       padding: 3px 10px
       display: inline-block
       font-weight: bold
+      margin-bottom: 20px
     .hashtag
       background-color: black
       color: white
@@ -191,6 +192,9 @@ export default {
       bottom: 0
   .row-content
     text-align: left
+    .col-sm-12
+      h2:first-child 
+        margin-top: 0
     .video-wrapper
       width: 100%
       position: relative
@@ -220,6 +224,7 @@ export default {
 
     h2
       margin-top: 78px
+      margin-bottom: 36px
       font-size: 30px
       line-height: 1.6
       font-weight: bold

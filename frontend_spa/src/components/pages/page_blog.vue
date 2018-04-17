@@ -47,7 +47,10 @@
               @click="nowCata=cata.value") {{cata.label}}
       .row
         .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12(v-for="post in use_posts").col-news
-          newsbox(:post='post', :target='postTarget(post)',:tag=" ((post.cata && post.cata.year)!='news')?post.year:(post.cata && post.cata.name)")
+          newsbox(:post='post', 
+                :target='postTarget(post)',
+                :tag=" ((post.cata && post.cata.year)!='news')?post.year:(post.cata && post.cata.name)",
+                :hideTag="$route.meta.type=='news'")
       .row.lazy-detector
         //- router-link.news_box.animated.fadeIn(to="/news/test")
         //-   .row
@@ -179,7 +182,7 @@ export default {
 
           });
 
-        },300)
+        },100)
       }
     },
     scrollY(){
@@ -321,6 +324,8 @@ export default {
     // align-items: flex-end
 .row-index-news
   .col-info
+    padding-left: 15px
+    padding-right: 15px
     h2.slide-title
       width: 100%
       background-color: #ddd

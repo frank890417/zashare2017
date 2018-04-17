@@ -63,6 +63,18 @@
           i.fa.fa-weixin
 
 
+        //- a(href='https://www.facebook.com/zashare.expo/', target='_blank')
+        //-   svg(src="/static/img/social-icon/social-fb.svg")
+        //- a(href='https://www.youtube.com/channel/UCiCIqDTmahczFvmg8iNUVow', target='_blank')
+        //-   svg(src="/static/img/social-icon/social-yt.svg")
+        //- a(href='https://www.instagram.com/zashare_edu/', target='_blank')
+        //-   svg(src="/static/img/social-icon/social-ig.svg")
+        //- a(href='http://weibo.com/6020066115/profile?rightmod=1&wvr=6&mod=personnumber&is_all=1', target='_blank')
+        //-   svg(src="/static/img/social-icon/social-fl.svg")
+        //- a(href='http://open.weixin.qq.com/qr/code/?username=zashare_edu', target='_blank')
+        //-   svg(src="/static/img/social-icon/social-wc.svg")
+
+
       router-link.col-theme-nav.text-center.nav-course(to="/about")
         span 關於雜學校
       router-link.col-theme-nav.text-center.nav-base(to="/expo")

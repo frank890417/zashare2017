@@ -74,9 +74,9 @@ router.afterEach((route) => {
     }
   }
 
-  setTimeout(() => {
-    new WOW().init();
-  }, 300);
+  // setTimeout(() => {
+  //   new WOW().init();
+  // }, 300);
 });
 
 export default router

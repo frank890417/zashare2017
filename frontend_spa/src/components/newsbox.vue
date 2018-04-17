@@ -3,7 +3,7 @@ router-link.news_box.animated.fadeIn(:to="target")
   .row(v-if="post")
     .col-sm-12.col-cover
       .cover.news_box_cover(:style="bgcss(post.cover)")
-        .tag {{ tag || 'ZA SHARE'}}
+        .tag(v-if="!hideTag") {{ tag || 'ZA SHARE'}}
     .col-sm-12.col-info
       h4.company(v-if="post.company") {{post.company.name_cht}}
       h3 {{post.title}}
@@ -18,7 +18,7 @@ router-link.news_box.animated.fadeIn(:to="target")
 <script>
 import moment from 'moment'
 export default {
-  props: ['post','target','tag'],
+  props: ['post','target','tag',"hideTag"],
   computed:{
     showDate(){
       return moment(this.post.established_time).format('YYYY[ 年 ]MM[ 月 ]DD[ 日 ]')
