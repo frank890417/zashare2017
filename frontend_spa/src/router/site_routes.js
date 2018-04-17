@@ -109,18 +109,18 @@ let routes =
     }
   },
 
-  {
-    path: '/expo',
-    name: 'EXPO',
-    component: pageTheme,
-    meta: {
-      type: "theme",
-      next: {
-        path: '/expo/main'
+  // {
+  //   path: '/expo',
+  //   name: 'EXPO',
+  //   component: pageTheme,
+  //   meta: {
+  //     type: "theme",
+  //     next: {
+  //       path: '/expo/main'
 
-        }
-    }
-  },
+  //       }
+  //   }
+  // },
   {
     path: '/about',
     name: 'about',
@@ -171,18 +171,25 @@ let routes =
   },
 
   {
-    path: '/expo/main',
+    path: '/expo',
     name: 'expo_main',
-    component: pageExpo,
+    component: pageBlog,
     meta: {
+      type: "expo",
       navWidth: "350px",
       action: "back",
       back: {
         name: "ZA EXPO",
         path: "/expo"
-        },
+      },
+      // subBack: {
+      //   name: "返回歷屆展覽",
+      //   path: "/expo/main",
+      //   params: ["year"]
+
+      // },
       navPosition: "left"
-      }
+    }
   },
   {
     path: '/expo/:year',

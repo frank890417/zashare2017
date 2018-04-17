@@ -42,9 +42,10 @@ export default {
   cursor: pointer
   display: block
   box-shadow: 0px 0px 25px rgba(black,0.02)
-
+  border-radius: 5px 5px 0 0
   text-decoration: none
   color: black
+  transition: 0.5s
   // margin: 10px
   &:hover
     .col-cover .cover.news_box_cover
@@ -65,16 +66,22 @@ export default {
 
     .tag
       position: absolute
-      left: 0
+      left: 15px
       top: 0
       background-color: black
       color: white
       padding: 5px 10px
       font-weight: 900
+  &:hover
+    text-decoration: none
+    color: inherit
+    box-shadow: 0px 0px 20px rgba(black,0.1)
+    transform: translate(0px,-1px)
   h4.company
     margin-bottom: 5px
     opacity: 0.4
     font-weight: normal
+    font-size: 1em
     letter-spacing: 0.3px
   h3
     line-height: 1.67

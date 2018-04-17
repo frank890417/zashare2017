@@ -48,7 +48,7 @@
 
       router-link.col-theme-nav.text-center(to="/about")
         span 關於雜學校
-      router-link.col-theme-nav.text-center(to="/expo/main")
+      router-link.col-theme-nav.text-center(to="/expo")
         span 歷屆展覽
       a.col-theme-nav.text-center(href="https://www.zashare.com.tw", target="_blank")
         span 線上商店

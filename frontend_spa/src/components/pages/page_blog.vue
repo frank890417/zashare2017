@@ -27,17 +27,14 @@
   section.container.container-posts
     .container
       .row
-        .col-sm-12(v-if="$route.meta.type=='news'")
+        .col-sm-12
           h4.cata-title 文章分類
           ul.catas
             li(:class="{active: nowCata==''}", 
               @click="nowCata=''") ALL
-            li(v-for="cata in newsCatas",
+            li(v-for="cata in useCatas",
               :class="{active: nowCata==cata}", 
               @click="nowCata=cata") {{cata}}
-        div(v-else)
-          br
-          br
       .row
         .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12(v-for="post in use_posts").col-news
           newsbox(:post='post', :target='postTarget(post)',:tag=" ((post.cata && post.cata.year)!='news')?post.year:(post.cata && post.cata.name)")
@@ -80,10 +77,18 @@ export default {
       scrollY: state=>state.scroll.position,
       news: state=>state.post.news
     }),
+    useCatas(){
+      if (this.$route.meta.type=="expo"){
+        return this.posts.map(p=>parseInt(p.year) ).sort((a,b)=>(a-b)).filter((y,id,arr)=>arr.indexOf(y)==id )
+      }
+      if (this.$route.meta.type=="news"){
+        return this.newsCatas
+      }
+    },
     use_source(){
       let use_source = []
-      if (this.$route.params.year){
-        use_source = this.posts.filter(o=>o.year==this.$route.params.year)
+      if (this.$route.meta.type=="expo"){
+        use_source = this.posts.filter(o=>o.status=="published")
       }
       use_source = use_source.filter(o=>o.status=="published")
                              .slice().sort(o=>o.stick_top_index)
@@ -94,7 +99,7 @@ export default {
     },
     //Filtered by cata
     filtered_posts(){
-      return this.use_source.filter(post=>this.nowCata=="" || post.cata.name==this.nowCata)
+      return this.use_source.filter(post=>this.nowCata=="" || (post.cata && post.cata.name==this.nowCata) || (post.year==this.nowCata) )
     },
     //Limit filtered posts by count
     use_posts(){
