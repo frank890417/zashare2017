@@ -4,7 +4,7 @@
     .row-logo
       router-link.col-sm-12.logo-part(to="/")
         img.logo-img(src="/static/img/Home/za-logo.svg", @click="loginAjax") 
-        h1.nav-cht-logo 雜學校
+        //- h1.nav-cht-logo 雜學校
 
       //- router-link.col-sm-12.logo-part.fadeIn.animated(to="/" v-if="$route.path=='/'")
       //-   img.logo-img(src="/static/img/Home/za-logo.svg", @click="loginAjax") 
@@ -46,11 +46,11 @@
         span(v-if="auth.user") Hello 雜學校學生 {{auth.user.name}}
         span(v-else) 學生登入 / 註冊
 
-      router-link.col-theme-nav(to="/about")
+      router-link.col-theme-nav.text-center(to="/about")
         span 關於雜學校
-      router-link.col-theme-nav(to="/expo/main")
+      router-link.col-theme-nav.text-center(to="/expo/main")
         span 歷屆展覽
-      a.col-theme-nav(href="https://www.zashare.com.tw", target="_blank")
+      a.col-theme-nav.text-center(href="https://www.zashare.com.tw", target="_blank")
         span 線上商店
 
       // router-link.col-theme-nav.nav-expo(to="/expo")
@@ -179,9 +179,12 @@ export default {
   position: fixed
   right: 0
   top: 0
+  padding: 0
   width: 300px
   height: 100vh
   transition: 0.5s, right 1s
+  .row-bottom
+    width: 100%
   .row-mobile-cata
     position: fixed
     top: 0
@@ -266,7 +269,7 @@ export default {
     
 
   .row-logo
-    height: 100%
+    flex: 1
     display: flex
     flex-direction: column
     padding: 80px 75px
@@ -343,6 +346,7 @@ export default {
     .row-bottom
       position: relative
       height: 100%
+      // width: 100%
       margin-left: 60px
       background-color: transparent
       

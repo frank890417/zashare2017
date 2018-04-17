@@ -13,12 +13,14 @@
           h1 Make Education Different
           h3 奇特有趣的議題場景及考究嚴選的創新體驗，令雜學校成為亞洲最具影響力的教育創新博覽會品牌
    
-    .container.container-feature
+    .container-fluid.container-feature
       .row
         .col-sm-2(v-for="f in features")
           img(:src="f.img")
-          h3 {{f.num}}
-          h4 {{f.title}}
+          br
+          br
+          h2 {{f.num}}
+          h5 {{f.title}}
   section.section-description
     .container
       .col-sm-12
@@ -42,12 +44,14 @@
       .row
         .col-sm-12 
           h2 品牌大事記
+          br
         .col-sm-12
           .row.row-expo(v-for="expo in expos")
             .col-cover(:style="bgcss(expo.report_cover)")
-            .col-content
+            .col-content.text-left
               h2 {{expo.year}}
               h3 {{expo.label}}
+              h5 {{expo.spirit}}
               p(v-html="expo.feature")
 </template>
 
@@ -116,6 +120,9 @@ export default {
     .container-feature
       padding-top: 60px
       padding-bottom: 60px
+      padding-left: 50px
+      padding-right: 50px
+
       img
         width: 90px
 
@@ -132,6 +139,7 @@ export default {
       justify-content: center
       align-items: flex-end
       min-height: 540px
+      padding-bottom: 20px
       h3
         font-size: 48px
         position: relative
@@ -148,6 +156,11 @@ export default {
     padding-bottom: 60px
 
   .section-description
+    max-width: 687px
+    margin-right: auto
+    margin-left: auto
+    img
+      width: 100%
     img,p
       margin-top: 30px
       margin-bottom: 30px

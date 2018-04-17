@@ -1,12 +1,12 @@
 <template lang="pug">
 .menu(:class="{open: menuState}")
-  .hambergur(@click="setMenuState(!menuState)")
+  .hambergur(@click="setMenuState(!menuState)", v-if="menuState")
     .icon-bar
     .icon-bar
   transition(name="fade")
     .fullPage(v-if="menuState")
       .row.row-page
-        .col-menu.col-sm-9
+        //.col-menu.col-sm-9
           .container.container-menu
             .row.row-search
               .col-sm-12
@@ -62,7 +62,7 @@
                   li Business hours. 10:00-19:00 Mon. - Fri.
               .col-sm-4
                 p 網站製作：墨雨設計<br>© 2018 雜學校 Za Share All Rights Reserved.
-        .col-member.col-sm-3
+        .col-member.col-sm-12
           auth_panel
 </template>
 
@@ -131,8 +131,8 @@ export default {
 .hambergur
   +size(72px)
   position: fixed
-  left: 0px
-  top: 50px
+  right: 0px
+  top: 0px
   background-color: black
   padding: 10px
   cursor: pointer
@@ -255,6 +255,11 @@ export default {
     display: flex
     justify-content: center
     align-items: center
+
+    .auth-card
+      background-color: transparent 
+      .top,.bottom
+        background-color: transparent 
     .card
       text-align: center
       display: flex

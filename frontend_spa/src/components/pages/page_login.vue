@@ -10,6 +10,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang="sass">
+.page-login
+  .auth-card
+    background-color: transparent 
+    .top,.bottom
+      background-color: transparent 
 
 </style>
