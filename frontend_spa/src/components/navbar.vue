@@ -44,13 +44,30 @@
     .row-bottom
       span.col-login(@click="setMenuState(true)") 
         span(v-if="auth.user") Hello 雜學校學生 {{auth.user.name}}
-        span(v-else) 學生登入 / 註冊
+        span(v-else) 
+          b 雜學校 
+          span 登入 / 註冊
+        span &nbsp;&nbsp;|&nbsp;&nbsp;
+        span 
+          b 搜尋
+      .footer_logo
+        a(href='https://www.facebook.com/zashare.expo/', target='_blank')
+          i.fa.fa-facebook
+        a(href='https://www.youtube.com/channel/UCiCIqDTmahczFvmg8iNUVow', target='_blank')
+          i.fa.fa-youtube
+        a(href='https://www.instagram.com/zashare_edu/', target='_blank')
+          i.fa.fa-instagram
+        a(href='http://weibo.com/6020066115/profile?rightmod=1&wvr=6&mod=personnumber&is_all=1', target='_blank')
+          i.fa.fa-weibo
+        a(href='http://open.weixin.qq.com/qr/code/?username=zashare_edu', target='_blank')
+          i.fa.fa-weixin
 
-      router-link.col-theme-nav.text-center(to="/about")
+
+      router-link.col-theme-nav.text-center.nav-course(to="/about")
         span 關於雜學校
-      router-link.col-theme-nav.text-center(to="/expo")
+      router-link.col-theme-nav.text-center.nav-base(to="/expo")
         span 歷屆展覽
-      a.col-theme-nav.text-center(href="https://www.zashare.com.tw", target="_blank")
+      a.col-theme-nav.text-center.nav-expo(href="https://www.zashare.com.tw", target="_blank")
         span 線上商店
 
       // router-link.col-theme-nav.nav-expo(to="/expo")
@@ -297,9 +314,44 @@ export default {
     border-bottom: solid 1px #333
     cursor: pointer
     transition: 0.5s
-    font-size: 24px
+    // font-size: 24px
+  .col-theme-nav
     &:hover 
       background-color: #aaa
+  .col-login
+    border: none
+  .footer_logo
+    line-height: 30px
+    display: -webkit-box
+    display: flex
+    -webkit-box-pack: center
+    justify-content: center
+    width: 100%
+    margin-top: -20px
+    margin-bottom: 20px
+    a
+      display: block
+      +size(30px)
+      color: #bbb
+      background-color: #fff
+      border: solid 1px #bbb
+      border-radius: 50%
+      -webkit-box-pack: center
+      justify-content: center
+      -webkit-box-align: center
+      align-items: center
+      font-size: 20px
+      display: -webkit-inline-box
+      display: inline-flex
+      width: 30px
+      height: 30px
+      margin: 10px
+      &:hover
+        color: white
+        background-color: black
+        border-color: black
+    i
+      font-size: 20px
 
   .explore
     text-align: left
@@ -457,7 +509,7 @@ export default {
       height: 70px
       margin-bottom: -30px
 
-
+  //hover的特別顏色
   .nav-course
     &:hover,&.router-link-active
       background-color: #8135f9

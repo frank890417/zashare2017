@@ -4,7 +4,7 @@
     .container
       .row
         .col-sm-12(v-if="slides.length")
-          .nostyle.row.row-head-news
+          .nostyle.row.row-head-news(v-if="$route.meta.type!='news'")
             .col-sm-8.col-cover
               .slick
                 router-link.slide(v-for="slide in slides",
@@ -26,7 +26,14 @@
               p(v-if="$route.meta.type!='expo'") {{ strip_tags(slides[currentSlideId].short_description).slice(0,60) }}...
               p(v-else , v-html="slides[currentSlideId].short_description")
               //- router-link.btn.nostyle(:to="`/news/${slides[currentSlideId].id}`") 閱讀更多
-
+          .nostype.row.row-index-news(v-else)
+            .col-sm-12.col-cover
+              .slick
+                router-link.slide(v-for="slide in slides",
+                                  :to="postTarget(slides[currentSlideId])") 
+                  .cover.cover_21(:style="bgcss(slide.cover)")
+            .col-sm-12.col-info
+              h2.slide-title {{ slides[currentSlideId].title }}
   section.container.container-posts
     .container
       .row
@@ -257,6 +264,11 @@ export default {
     position: relative
     // margin-left: -15px
     // margin-right: -15px
+    &.cover_21
+      width: 100%
+      height: 0
+      padding-bottom: 50%
+      background-color: #eee
   .tag
     position: absolute
     left: 0
@@ -307,6 +319,15 @@ export default {
       display: inline-block
       width: auto
     // align-items: flex-end
+.row-index-news
+  .col-info
+    h2.slide-title
+      width: 100%
+      background-color: #ddd
+      text-align: center
+      padding: 20px 
+      margin-top: -10px
+    
 .cata-title
   margin-top: 50px
 .catas

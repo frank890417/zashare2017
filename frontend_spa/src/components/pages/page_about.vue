@@ -16,11 +16,11 @@
     .container-fluid.container-feature
       .row
         .col-xs-6.col-sm-6.col-md-3.col-lg-2(v-for="f in features")
-          img(:src="f.img")
+          img(:src="f.img").animated.fadeIn
           br
           br
-          h2 {{f.num}}
-          h5 {{f.title}}
+          h2.running-number.animated.fadeIn {{f.num}}
+          h5.animated.fadeIn {{f.title}}
   section.section-description
     .container
       .col-sm-12
@@ -46,17 +46,20 @@
           h2 品牌大事記
           br
         .col-sm-12
-          .row.row-expo(v-for="expo in expos")
+          router-link.row.row-expo(v-for="expo in expos", :to="`/expo/${expo.year}`")
             .col-cover(:style="bgcss(expo.report_cover)")
             .col-content.text-left
-              h2 {{expo.year}}
-              h3 {{expo.label}}
+              h3 {{expo.year}}
+              br
+              h4 {{expo.label}}
               h5 {{expo.spirit}}
+              br
               p(v-html="expo.feature")
 </template>
 
 <script>
 import {mapState} from 'vuex'
+import $ from 'jquery'
 export default {
   data(){
     return {
@@ -67,7 +70,7 @@ export default {
           title: "博覽會屆數",
         },{
           img: "/static/img/About/icon-2.svg",
-          num: "1.062",
+          num: "1062",
           title: "報名件數",
         },{
           img: "/static/img/About/icon-3.svg",
@@ -79,11 +82,11 @@ export default {
           title: "海外城市串聯參與",
         },{
           img: "/static/img/About/icon-5.svg",
-          num: "102,683",
+          num: "102683",
           title: "累計觀展人數",
         },{
           img: "/static/img/About/icon-6.svg",
-          num: "40,000,000",
+          num: "40000000",
           title: "網路社群觸及人次",
         }
       ]
@@ -97,20 +100,38 @@ export default {
     styleBgOffset(){
       return {
         "background": "url("+"/static/img/About/about-banner.png"+")",
-        "background-position": "0 "+ this.scrollY+"px"
+        "background-position": "center center"
       }
     }
   },
   mounted(){
     new WOW().init();
+    $(".running-number").each((id,obj)=>{
+      let target = parseInt($(obj).text())
+      let current = 0
+      if (current<0){current=0}
+      let timer = setInterval(()=>{
+        current += (target-current)*0.2
+        let shownum = Math.ceil(current)
+        $(obj).text(shownum<0?0:shownum )
+        if (current>=target){
+          current=target
+          clearInterval(timer)
+        }
+      },30)
+    })
   }
 
 }
 </script>
 
 <style lang="sass">
+@import "../../assets/_mixins.sass"
 .page-about
   background-color: #f2f2f2
+  a
+    color: inherit
+    text-decoration: none
   .col-cover
     background-size: cover
 
@@ -130,10 +151,7 @@ export default {
       justify-content: center
       align-items: center
     .container-feature
-      padding-top: 60px
-      padding-bottom: 60px
-      padding-left: 50px
-      padding-right: 50px
+      padding: 50px
 
       img
         width: 90px
@@ -184,10 +202,14 @@ export default {
     background-color: #fff
     .col-cover 
       flex: 592
+      +trans
 
     .col-content
       flex: 478
       padding: 20px
+    &:hover
+      .col-cover
+        flex: 650
 
     &:nth-child(2n)
       flex-direction: row-reverse
