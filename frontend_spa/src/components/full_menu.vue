@@ -3,24 +3,25 @@
   .hambergur(@click="setMenuState(!menuState)", v-if="menuState")
     .icon-bar
     .icon-bar
+
   transition(name="fade")
     .fullPage(v-if="menuState")
       .row.row-page
-        //.col-menu.col-sm-9
+        .col-menu.col-sm-12(v-if="menuType=='search'")
           .container.container-menu
             .row.row-search
               .col-sm-12
                 input(placeholder="搜尋雜學校", v-model="tempSearchKeyword")
-                
-                div.clearInput(@click="searchKeyword=''")
-                  i.fas.fa-search(v-show="searchKeyword==''")
-                  i.fas.fa-times(v-show="searchKeyword!=''")
+                div.pull-right.clearInput(@click="setSearchKeyword('')")
+                  i.fa.fa-search(v-show="searchKeyword==''")
+                  i.fa.fa-times(v-show="searchKeyword!=''")
+                h3.input-text-count.pull-right(v-if="searchKeyword!=''") 共有 {{ filteredPost.length }} 項結果
                 
                               
               .col-sm-12
                 .tags.scrollX
-                  .tag(v-for="tag in tags", @click="searchKeyword=tag") {{tag}}
-            .row( @click="setMenuState(false)" v-if="searchKeyword==''")
+                  .tag(v-for="tag in tags", @click="setSearchKeyword(tag)") {{tag}}
+            //- .row( @click="setMenuState(false)" v-if="searchKeyword==''")
               router-link.col-sm-4(to="/")
                 h2 Home
                 p.nav-short-description 回首頁
@@ -31,7 +32,7 @@
                 h2 About
                 p.nav-short-description 關於雜學校
             
-            .row(@click="setMenuState(false)" v-if="searchKeyword==''")
+            //- .row(@click="setMenuState(false)" v-if="searchKeyword==''")
               router-link.col-sm-4(to="/expo")
                 h2.nav-expo ZA EXPO
                 p.nav-short-description 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、框架...
@@ -50,7 +51,7 @@
                                :key="post.title",
                               :tag="post.tag")
 
-            .row
+            //.row
               .col-sm-12
                 hr
               .col-sm-8
@@ -62,7 +63,7 @@
                   li Business hours. 10:00-19:00 Mon. - Fri.
               .col-sm-4
                 p 網站製作：墨雨設計<br>© 2018 雜學校 Za Share All Rights Reserved.
-        .col-member.col-sm-12
+        .col-member.col-sm-12(v-if="menuType=='login'")
           auth_panel
 </template>
 
@@ -79,7 +80,8 @@ export default {
     ...mapState({
       menuState: state=>state.menuState,
       posts: state => state.post.posts,
-      searchKeyword: state=>state.searchKeyword
+      searchKeyword: state=>state.searchKeyword,
+      menuType: state=>state.menuType
     }),
     filteredPost(){
       return this.posts.map(o=>({...o,tag: "ZA EXPO"})).filter(o=>JSON.stringify(o).indexOf(this.searchKeyword)!=-1)
@@ -308,21 +310,30 @@ export default {
       font-size: 28px
 
     .clearInput
-      position: absolute
+      // position: absolute
       font-size: 20px
-      top: calc( 50% - 10px)
-      right: 30px
-      transform: translateY(-50%)
+      // top: calc( 50% - 10px)
+      // right: 30px
+      // transform: translateY(-50%)
       cursor: pointer
       transition: 0.5s
       transform-origin: center center
+      margin-top: -45px
       &:hover
-        font-size: 25px
+        transform: scale(1.1)
+    .input-text-count
+      opacity: 0.5
+      font-weight: 500
+      font-size: 22px
+      margin-right: 40px
+      margin-top: -45px
+      
       
     input
       font-size: 24px
     .tags
-      display: none
+      // display: none
+      display: flex
       +rwd_lg
         display: flex
 

@@ -42,14 +42,14 @@
       //-   .arrow-right.reverse( :style="{'background-color': theme.color}", key="sub_arrow")
 
     .row-bottom
-      span.col-login(@click="setMenuState(true)") 
+      span.col-login
         span(v-if="auth.user") Hello 雜學校學生 {{auth.user.name}}
         span(v-else) 
           b 雜學校 
-          span 登入 / 註冊
+          span(@click="openMenu('login')")  登入 / 註冊
         span &nbsp;&nbsp;|&nbsp;&nbsp;
         span 
-          b 搜尋
+          b(@click="openMenu('search')")  搜尋
       .footer_logo
         a(href='https://www.facebook.com/zashare.expo/', target='_blank')
           i.fa.fa-facebook
@@ -177,7 +177,7 @@ export default {
     }
   },
   methods: {
-      ...mapMutations(['setMenuState']),
+      ...mapMutations(['setMenuState','openMenu']),
       loginAjax(){
         axios.post("/api/spa/login",{
           email: "frank890417@gmail.com",

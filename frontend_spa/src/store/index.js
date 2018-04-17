@@ -9,10 +9,12 @@ const store = new Vuex.Store({
     manage: require("./modules/manage.js").default,
     post: require("./modules/post.js").default,
     scroll: require("./modules/scroll.js").default,
+    
   },
   state: {
     themes: require("../data/themes.js").default,
     menuState: false,
+    menuType: "search",
     mobile: window.innerWidth<1200,
     mobile_mask_show: false,
     default_hashtags: "師培、教具、國小、偏鄉、國中、高中、大學、實驗教育、媒體、線上、空間、工作坊、技職、美感、文化、出走、輔導、maker、青少年、教師、親子、新媒體、影視、非營利、追求夢想、美感教育、思辨能力、性別平等、尊重生命、遊戲、感官體驗",
@@ -78,6 +80,9 @@ const store = new Vuex.Store({
     // setPosts(state, value) {
     //   state.posts = value
     // },
+    setMenuType(state,value){
+      state.menuType=value
+    },
     setMenuState(state, value) {
       window.jf_menu_loaded=true
       if(value == true && !window.jf_menu_loaded){
@@ -98,6 +103,10 @@ const store = new Vuex.Store({
     setSearchKeyword(state, value) {
       state.searchKeyword = value
     },
+    openMenu(state, value) {
+      state.menuType = value
+      state.menuState = true
+    }
 
   },
   actions: {
