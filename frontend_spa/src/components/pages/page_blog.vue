@@ -33,11 +33,11 @@
         .col-sm-12
           h4.cata-title 文章分類
           ul.catas
-            li(:class="{active: nowCata==''}", 
-              @click="nowCata=''") ALL
+            //- li(:class="{active: nowCata==''}", 
+            //-   @click="nowCata=''") ALL
             li(v-for="cata in useCatas",
-              :class="{active: nowCata==cata}", 
-              @click="nowCata=cata") {{cata}}
+              :class="{active: nowCata==cata.value}", 
+              @click="nowCata=cata.value") {{cata.label}}
       .row
         .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12(v-for="post in use_posts").col-news
           newsbox(:post='post', :target='postTarget(post)',:tag=" ((post.cata && post.cata.year)!='news')?post.year:(post.cata && post.cata.name)")
@@ -71,7 +71,14 @@ export default {
         },
       currentSlideId: 0,
       showCount: 6,
-      newsCatas: ["ZA COURSE","ZA BASE","ZA EXPO"]
+      newsCatas: [
+        {label: "全部", value: ""},
+        {label: "展覽公告", value: "expo"},
+        {label: "活動公告", value: "activity"},
+        {label: "一般公告", value: "normal"},
+        {label: "媒體報導", value: "media"},
+      ]
+      // newsCatas: ["ZA COURSE","ZA BASE","ZA EXPO"]
     }
   },
   computed: {
@@ -83,19 +90,28 @@ export default {
     }),
     useCatas(){
       if (this.$route.meta.type=="expo"){
-        return this.posts.map(p=>parseInt(p.year) ).sort((a,b)=>(a-b)).filter((y,id,arr)=>arr.indexOf(y)==id )
+        let catas = this.posts
+                          .map(p=>parseInt(p.year) )
+                          .sort((a,b)=>(a-b)).filter((y,id,arr)=>arr.indexOf(y)==id )
+                          .map(year=>({label: year,value: year}))
+        catas.unshift({
+          label: "全部",value: ""
+        })
+        return catas
       }
       if (this.$route.meta.type=="news"){
         return this.newsCatas
       }
     },
     use_source(){
-      let use_source = []
-      if (this.$route.meta.type=="expo"){
-        use_source = this.posts.filter(o=>o.status=="published")
-      }
+      let use_source = this.posts
       use_source = use_source.filter(o=>o.status=="published")
-                             .slice().sort(o=>o.stick_top_index)
+      if (this.$route.meta.type=="expo"){
+        use_source = use_source.slice().sort((a,b)=> -(parseInt(a.year)-parseInt(b.year)) )
+        return use_source
+      }
+      
+                            //  .slice().sort(o=>o.stick_top_index)
       if (this.$route.meta.type=="news"){
         use_source = this.news.filter(o=>o.status=="published")
       }
