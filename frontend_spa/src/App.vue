@@ -149,10 +149,13 @@ html,body
 
 .page
   min-height: 100vh
+  // padding-left: 30px
+  // padding-right: 30px
   &.right
     padding-left: 350px
     +rwd_md
-      padding-left: 0
+      padding-left: 0px
+      padding-right: 0px
 
 .fade-enter-active, .fade-leave-active 
   transition: opacity .5s

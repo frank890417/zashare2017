@@ -2,20 +2,20 @@
 .page.right.page-about
   section.section-hero
     .container-fluid
-      .row.row-cover(:style="bgcss('/static/img/About/about-banner.png')")
+      .row.row-cover(:style="styleBgOffset")
         //- .col-sm-12
         //-   br
         //-   br
         //-   br
         //-   img.logo-img(src="/static/img/Home/za-logo.svg")
         //-   br
-        .col-sm-12
+        .col-sm-12.animated.fadeInUp
           h1 Make Education Different
           h3 奇特有趣的議題場景及考究嚴選的創新體驗，令雜學校成為亞洲最具影響力的教育創新博覽會品牌
    
     .container-fluid.container-feature
       .row
-        .col-sm-2(v-for="f in features")
+        .col-xs-6.col-sm-6.col-md-3.col-lg-2(v-for="f in features")
           img(:src="f.img")
           br
           br
@@ -90,7 +90,19 @@ export default {
     }
   },
   computed: {
-    ...mapState(['expos'])
+    ...mapState({
+      expos: state=>state.expos,
+      scrollY: state=>state.scroll.position,
+    }),
+    styleBgOffset(){
+      return {
+        "background": "url("+"/static/img/About/about-banner.png"+")",
+        "background-position": "0 "+ this.scrollY+"px"
+      }
+    }
+  },
+  mounted(){
+    new WOW().init();
   }
 
 }
@@ -98,7 +110,7 @@ export default {
 
 <style lang="sass">
 .page-about
-  background-color: #fafafa
+  background-color: #f2f2f2
   .col-cover
     background-size: cover
 

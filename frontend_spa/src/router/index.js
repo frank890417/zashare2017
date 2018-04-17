@@ -44,6 +44,8 @@ router.beforeEach((to, from, next) => {
 
 //送出pageview
 router.afterEach((route) => {
+  
+
   if (window.ga) {
     ga('send', 'pageview', route.path);
   }
@@ -72,6 +74,9 @@ router.afterEach((route) => {
     }
   }
 
+  setTimeout(() => {
+    new WOW().init();
+  }, 300);
 });
 
 export default router
