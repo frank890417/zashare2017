@@ -83,6 +83,7 @@ export default {
     font-weight: normal
     font-size: 1em
     letter-spacing: 0.3px
+    margin-top: 20px
   h3
     line-height: 1.67
     letter-spacing: 1px

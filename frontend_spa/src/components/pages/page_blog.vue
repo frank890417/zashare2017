@@ -5,7 +5,7 @@
       .row
         .col-sm-12(v-if="slides.length")
           .nostyle.row.row-head-news
-            .col-sm-8
+            .col-sm-8.col-cover
               .slick
                 router-link.slide(v-for="slide in slides",
                                   :to="postTarget(slides[currentSlideId])") 
@@ -16,12 +16,15 @@
               v-if="slides[currentSlideId]", :key="currentSlideId",
               :to="postTarget(slides[currentSlideId])")
               //- .tag ZA COURSE
+              .tagwrap
+                .tag(v-if="$route.meta.type=='expo'") {{ slides[currentSlideId].year }}
               .ovh(v-if="slides[currentSlideId].company")
                 h3.slide-company.animated.slideInUp {{ slides[currentSlideId].company.name_cht }}
               .ovh
                 h2.slide-title {{ slides[currentSlideId].title }}
-              hr
-              p {{ strip_tags(slides[currentSlideId].short_description).slice(0,60) }}...
+              //- hr
+              p(v-if="$route.meta.type!='expo'") {{ strip_tags(slides[currentSlideId].short_description).slice(0,60) }}...
+              p(v-else , v-html="slides[currentSlideId].short_description")
               //- router-link.btn.nostyle(:to="`/news/${slides[currentSlideId].id}`") 閱讀更多
 
   section.container.container-posts
@@ -75,7 +78,8 @@ export default {
     ...mapState({
       posts: state=>state.post.posts,
       scrollY: state=>state.scroll.position,
-      news: state=>state.post.news
+      news: state=>state.post.news,
+      expos: state=>state.expos
     }),
     useCatas(){
       if (this.$route.meta.type=="expo"){
@@ -108,12 +112,23 @@ export default {
     },
     //Genertae slide data
     slides(){
+      if (this.$route.meta.type=="expo"){
+        return this.expos.map(expo=>({
+          ...expo,
+          targetType: "expoyear",
+          short_description: "時間："+expo.time+"<br>地點："+expo.place+"<hr><p>"+expo.feature+"</p>"
+        }))
+
+      }
       return this.use_source.filter(post=>post.stick_top_index)
     }
 
   },
   methods:{
     postTarget(post){
+      if (post.targetType=="expoyear"){
+        return `/expo/`+post.year
+      }
       if (this.$route.meta.type=="expo"){
         return `/expo/${this.$route.params.year}/blog/${post.id}`
       }
@@ -194,8 +209,7 @@ export default {
 .page-blog
   padding-top: 60px
   text-align: left
-  background-color: #fafafa
-  background-color: #fafafa
+  background-color: #f2f2f2
   +rwd_md
     padding-top: 0
     padding-top: 60px
@@ -217,7 +231,7 @@ export default {
     font-size: 24px
     font-weight: bold
     margin-bottom: 0
-    border-bottom: solid 1px rgba(black,0.3)
+    // border-bottom: solid 1px rgba(black,0.3)
     padding-bottom: 20px
   
   .cover
@@ -252,10 +266,21 @@ export default {
     height: 400px
     +rwd_md
       height: 40vh
+  .col-cover
+    padding-right: 0
   .col-info
     flex-direction: column
     display: flex
-    justify-content: flex-end
+    justify-content: center
+    background-color: #fff
+    .tagwrap
+      .tag
+        // display: block
+        position: relative
+        display: inline-block
+        margin-bottom: 20px
+        width: auto
+
     h2
       min-height: 2.5em
     h3
