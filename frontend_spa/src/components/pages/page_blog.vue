@@ -341,11 +341,13 @@ export default {
   list-style: none
   margin-bottom: 40px
   padding: 0
+  margin-top: 10px
 
 
   li
     flex: 1
-    border-top: solid 5px rgba(black,0.2)
+    border-top: solid 1px rgba(black,0.2)
+    color: rgba(black,0.2)
     display: flex
     justify-content: center
     align-items: center 
@@ -356,6 +358,7 @@ export default {
     
     &.active 
       border-top: solid 10px #333
+      color: #333
 
   +rwd_md
     position: fixed

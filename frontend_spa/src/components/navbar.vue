@@ -266,7 +266,7 @@ export default {
     color: black
     margin-top: -20px
   .logo-img
-    width: 160px
+    width: 130px
     margin-right: -40px
   .logo-part
     display: flex

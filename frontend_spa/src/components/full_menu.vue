@@ -32,7 +32,7 @@
               .col-login
                 span(v-if="auth.user") Hello 雜學校學生 {{auth.user.name}}
                 span(v-else) 
-                  b 雜學校 
+                  b(style="margin-right: 30px") 雜學校 
                   span(@click="openMenu('login')")  登入 / 註冊
                 span &nbsp;&nbsp;|&nbsp;&nbsp;
                 span 
@@ -90,7 +90,8 @@ export default {
       auth: state=>state.auth
     }),
     filteredPost(){
-      return this.posts.map(o=>({...o,tag: "ZA EXPO"})).filter(o=>JSON.stringify(o).indexOf(this.searchKeyword)!=-1)
+      return 
+        this.posts.map(o=>({...o,tag: "ZA EXPO"})).filter(o=>JSON.stringify(o).indexOf(this.searchKeyword)!=-1)
     }
   },
   methods: {

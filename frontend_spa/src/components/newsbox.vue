@@ -5,7 +5,7 @@ router-link.news_box.animated.fadeIn(:to="target")
       .cover.news_box_cover(:style="bgcss(post.cover)")
         .tag(v-if="!hideTag") {{ tag || 'ZA SHARE'}}
     .col-sm-12.col-info
-      h4.company(v-if="post.company") {{post.company.name_cht}}
+      h4.company {{post.company ? post.company.name_cht : ""}}
       h3 {{post.title}}
       .bottom-info
         .hashtags 
@@ -84,6 +84,7 @@ export default {
     font-size: 1em
     letter-spacing: 0.3px
     margin-top: 20px
+    min-height: 1em
   h3
     line-height: 1.67
     letter-spacing: 1px
