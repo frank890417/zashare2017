@@ -1,6 +1,6 @@
 <template lang="pug">
 .menu(:class="{open: menuState}")
-  .hambergur(@click="setMenuState(!menuState)", v-if="menuState")
+  .hambergur(@click="hambergurAction ", v-if="menuState || mobile")
     .icon-bar
     .icon-bar
 
@@ -21,28 +21,31 @@
               .col-sm-12
                 .tags.scrollX
                   .tag(v-for="tag in tags", @click="setSearchKeyword(tag)") {{tag}}
-            //- .row( @click="setMenuState(false)" v-if="searchKeyword==''")
-              router-link.col-sm-4(to="/")
-                h2 Home
-                p.nav-short-description 回首頁
-              router-link.col-sm-4(to="/news")
-                h2 News
-                p.nav-short-description 最新消息
-              router-link.col-sm-4(to="/about")
-                h2 About
-                p.nav-short-description 關於雜學校
-            
-            //- .row(@click="setMenuState(false)" v-if="searchKeyword==''")
-              router-link.col-sm-4(to="/expo")
-                h2.nav-expo ZA EXPO
-                p.nav-short-description 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、框架...
-              router-link.col-sm-4(to="/base")
-                h2.nav-base ZA BASE
-                p.nav-short-description 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化的價值、框架...
-              router-link.col-sm-4(to="/course")
-                h2.nav-course ZA COURSE
-                p.nav-short-description 我們想著有沒有一間學校，沒有制式的選擇、沒有標準化值、沒有框架...
+        .col-mobile-menu.col-sm-12(v-if="menuType=='nav'")
+          .container.container-menu
+            .row( @click="setMenuState(false)" v-if="searchKeyword==''")
+                      
+            .row-logo
+              router-link.col-sm-12.logo-part(to="/")
+                img.logo-img(src="/static/img/Home/za-logo.svg", @click="loginAjax") 
+            .row-bottom(@click="setMenuState(false)")
+              .col-login
+                span(v-if="auth.user") Hello 雜學校學生 {{auth.user.name}}
+                span(v-else) 
+                  b 雜學校 
+                  span(@click="openMenu('login')")  登入 / 註冊
+                span &nbsp;&nbsp;|&nbsp;&nbsp;
+                span 
+                  b(@click="openMenu('search')")  搜尋
               
+              router-link.col-theme-nav.text-center.nav-course(to="/about")
+                span 關於雜學校
+              router-link.col-theme-nav.text-center.nav-base(to="/expo")
+                span 歷屆展覽
+              a.col-theme-nav.text-center.nav-expo(href="https://www.zashare.com.tw", target="_blank")
+                span 線上商店
+          
+        .col-menu.col-sm-12(v-if="menuType=='search'")
             div.row(v-if="searchKeyword!=''" 
                     @click="setMenuState(false)").scrollY
               newsbox.col-lg-4.col-md-6.col-sm-12(v-for="post in filteredPost", 
@@ -69,6 +72,7 @@
 
 <script>
 import {mapState,mapMutations, mapActions, mapGetters} from 'vuex'
+import navbar from './navbar.vue'
 export default {
   data() {
     return {
@@ -81,14 +85,16 @@ export default {
       menuState: state=>state.menuState,
       posts: state => state.post.posts,
       searchKeyword: state=>state.searchKeyword,
-      menuType: state=>state.menuType
+      menuType: state=>state.menuType,
+      mobile: state=>state.mobile,
+      auth: state=>state.auth
     }),
     filteredPost(){
       return this.posts.map(o=>({...o,tag: "ZA EXPO"})).filter(o=>JSON.stringify(o).indexOf(this.searchKeyword)!=-1)
     }
   },
   methods: {
-    ...mapMutations(['setMenuState','setSearchKeyword']),
+    ...mapMutations(['setMenuState','setSearchKeyword','openMenu']),
     ...mapActions({
       register: 'auth/register',
       login: 'auth/login',
@@ -108,6 +114,13 @@ export default {
       // if (this.$route.meta.type=="news"){
       //   return `/news/${post.id}`
       // }
+    },
+    hambergurAction(){
+      if (!this.menuState){
+        this.openMenu('nav')
+      }else{
+        this.setMenuState(false)
+      }
     }
   },
   mounted(){
@@ -122,6 +135,9 @@ export default {
         this.tempSearchKeyword=this.searchKeyword
       }
     }
+  },
+  components: {
+    navbar
   }
 }
 </script>
@@ -129,7 +145,11 @@ export default {
 <style lang="sass">
 @import "../assets/_mixins.sass"
 
-
+.menu-nav-mobile
+  position: relative
+  width: 100%
+  height: 100%
+  
 .hambergur
   +size(72px)
   position: fixed
@@ -231,7 +251,7 @@ export default {
   +rwd_md
     width: 100vw
     overflow-y: auto
-    height: auto
+    // height: auto
     .nav-short-description
       display: none
     h2
@@ -245,6 +265,7 @@ export default {
       overflow-y: auto
       height: 100vh
       margin-bottom: 100px
+      // min-height: 100vh
       .row
         flex-shrink: 0
     .row-search
@@ -367,5 +388,36 @@ export default {
   margin-bottom: 30px
   padding: 0
 
+.col-mobile-menu
+  padding-left: 0
+  padding-right: 0
+  .logo-img
+    margin: auto
+  .logo-part
+    +flexCenter
+  .col-login
+    padding: 35px 50px
+    text-align: center
+  .col-theme-nav
+    padding: 35px 50px
+    display: block
+    text-decoration: none
+    border-bottom: solid 1px #333
+    cursor: pointer
+    transition: 0.5s
+    background-color: black
+    color: white
+    // font-size: 24px
+  .row-logo
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+
+    img
+      width: 150px
+  .col-theme-nav
+    &:hover 
+      background-color: #aaa
 
 </style>

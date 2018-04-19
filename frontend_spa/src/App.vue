@@ -151,6 +151,8 @@ html,body
   min-height: 100vh
   // padding-left: 30px
   // padding-right: 30px
+  +rwd_sm
+    padding-top: 60px
   &.right
     padding-left: 350px
     +rwd_md

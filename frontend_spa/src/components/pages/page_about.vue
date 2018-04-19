@@ -100,7 +100,8 @@ export default {
     styleBgOffset(){
       return {
         "background": "url("+"/static/img/About/about-banner.png"+")",
-        "background-position": "center center"
+        "background-position": "center center",
+        "background-size":"cover"
       }
     }
   },
@@ -140,16 +141,26 @@ export default {
     background-color: black
     color: white
     min-height: 100vh
+    +rwd_sm
+      padding: 0
+      min-height: initial
     h1
       font-size: 60px
+      +rwd_sm
+        font-size: 40px
     h3
       font-size: 18px
+      +rwd_sm
+        font-size: 16px
+        margin-top: 20px
     .row-cover
       background-size: cover
       min-height: calc(100vh - 300px)
       display: flex
       justify-content: center
       align-items: center
+      +rwd_sm
+        padding: 100px 20px
     .container-feature
       padding: 50px
 

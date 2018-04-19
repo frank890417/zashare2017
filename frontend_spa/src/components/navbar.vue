@@ -107,7 +107,7 @@
                     v-if="$route.meta.mobilenav.img",
                     :key="$route.meta.mobilenav.img") 
             img(:src="$route.meta.mobilenav.img")
-        router-link.loginbtn(to="/login") 登入
+        .loginbtn(@click="openMenu('login')") {{auth.user?"登出":"登入"}}
       .wrapper.ovh.animated.slideInUp
         .mt(:style="mobile_nav_style")
         img(v-for="theme in themes.slice().reverse()", :src="theme.nav_image")
@@ -266,7 +266,7 @@ export default {
     color: black
     margin-top: -20px
   .logo-img
-    width: 200px
+    width: 160px
     margin-right: -40px
   .logo-part
     display: flex

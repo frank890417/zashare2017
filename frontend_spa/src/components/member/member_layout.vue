@@ -4,7 +4,7 @@
   .container-fluid(v-if="auth.user")
     .row
       //- el-header
-      .col-sm-2.col-nav
+      .col-sm-2.col-nav(v-if="!mobile")
         el-menu(:default-active="activeIndex" 
           class="el-menu-demo" @select="handleSelect",
           :router="true")
@@ -15,7 +15,7 @@
           //- el-menu-item(index="/manage/cata") 類別管理 
         auth_panel(layout="function")
 
-      .col-sm-10.offset-2.col-content
+      .col-sm-10.col-content(:class="{'offset-2': !mobile}")
         transition(name="fade", mode="out-in")
           router-view(:key="$route.path")
       .col-sm-12
@@ -48,6 +48,7 @@ export default {
     ...mapState({
       auth: 'auth',
       user: state=>state.auth.user,
+      mobile: state=>state.mobile
     })
   }
 }
