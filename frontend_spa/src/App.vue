@@ -65,6 +65,9 @@ html,body
   width: 100vw
   // height: 100vh
   overflow-x: hidden
+i
+  position: relative
+
 .noScroll
   // overflow-y: hidden
 .scrollY

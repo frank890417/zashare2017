@@ -368,6 +368,8 @@ export default {
     background-color: #fff
     font-size: 14px
     z-index: 1
+
+    margin-top: 0
     li
       border-top: none
       border-bottom: solid 3px rgba(black,0.2)

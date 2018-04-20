@@ -6,8 +6,8 @@
 
   transition(name="fade")
     .fullPage(v-if="menuState")
-      .row.row-page
-        .col-menu.col-sm-12(v-if="menuType=='search'")
+      .row.row-page(v-if="menuType=='search'")
+        .col-menu.col-sm-12
           .container.container-menu
             .row.row-search
               .col-sm-12
@@ -21,34 +21,37 @@
               .col-sm-12
                 .tags.scrollX
                   .tag(v-for="tag in tags", @click="setSearchKeyword(tag)") {{tag}}
-        .col-mobile-menu.col-sm-12(v-if="menuType=='nav'")
+      
+      .row.row-page.h100(v-if="menuType=='nav'")
+        .col-mobile-menu.col-sm-12
           .container.container-menu
             .row( @click="setMenuState(false)" v-if="searchKeyword==''")
                       
             .row-logo
               router-link.col-sm-12.logo-part(to="/")
                 img.logo-img(src="/static/img/Home/za-logo.svg", @click="loginAjax") 
-            .row-bottom(@click="setMenuState(false)")
+            .row-bottom
               .col-login
                 span(v-if="auth.user") 
                   span Hello
                   span(@click="openMenu('login')") 雜學校學生 
                     b {{auth.user.name}}
-                span(v-else) 
+                span(v-else, @click="setMenuState(false)") 
                   b(style="margin-right: 30px") 雜學校 
                   span(@click="openMenu('login')")  登入 / 註冊
                 span &nbsp;&nbsp;|&nbsp;&nbsp;
                 span 
                   b(@click="openMenu('search')")  搜尋
-              
-              router-link.col-theme-nav.text-center.nav-course(to="/about")
-                span 關於雜學校
-              router-link.col-theme-nav.text-center.nav-base(to="/expo")
-                span 歷屆展覽
-              a.col-theme-nav.text-center.nav-expo(href="https://www.zashare.com.tw", target="_blank")
-                span 線上商店
-          
-        .col-menu.col-sm-12(v-if="menuType=='search'")
+              div(@click="setMenuState(false)")
+                router-link.col-theme-nav.text-center.nav-course(to="/about")
+                  span 關於雜學校
+                router-link.col-theme-nav.text-center.nav-base(to="/expo")
+                  span 歷屆展覽
+                a.col-theme-nav.text-center.nav-expo(href="https://www.zashare.com.tw", target="_blank")
+                  span 線上商店
+      .row.row-page(v-if="menuType=='search'")
+        .col-menu.col-sm-12
+          .container
             div.row(v-if="searchKeyword!=''" 
                     @click="setMenuState(false)").scrollY
               newsbox.col-lg-4.col-md-6.col-sm-12(v-for="post in filteredPost", 
@@ -71,7 +74,8 @@
                 p 網站製作：墨雨設計<br>© 2018 雜學校 Za Share All Rights Reserved.
 
         //登入跟會員頁面
-        .col-member.col-sm-12(v-if="menuType=='login'")
+      .row.row-page(v-if="menuType=='login'")
+        .col-member.col-sm-12
           auth_panel(v-if="!auth.user")
           .container(v-else)
             .row
@@ -100,7 +104,7 @@
                         //- li 生日： 
                     span
                   .col-sm-4
-                  .col-sm-4
+                  .col-sm-4(@click="setMenuState(false)" )
                     h4 雜學校公布欄
                     .row
                       newsbox(v-for="post in [latestNews]", 
@@ -154,8 +158,7 @@ export default {
       news: state=>state.post.news
     }),
     filteredPost(){
-      return 
-        this.posts.map(o=>({...o,tag: "ZA EXPO"})).filter(o=>JSON.stringify(o).indexOf(this.searchKeyword)!=-1)
+      return this.posts.map(o=>({...o,tag: "ZA EXPO"})).filter(o=>JSON.stringify(o).indexOf(this.searchKeyword)!=-1)
     },
     latestNews(){
       return this.news.slice(-1)[0]
@@ -325,9 +328,17 @@ export default {
       text-transform: Uppercase
 
     .row-page
-      height: 100%
+      
+      height: auto
+      &.h100
+        height: 100vh
       +rwd_md
+        height: auto
         overflow-y: auto
+      &.h100
+        +rwd_md
+          height: 100vh
+      
     .col-menu,.col-member
       height: 100%
     .col-menu
@@ -340,7 +351,9 @@ export default {
           margin-top: 0
           padding-top: 0
       +rwd_md
-        padding-right: 20px
+        padding: 0px
+
+        height: auto
 
 
 
@@ -471,13 +484,13 @@ export default {
             
     .nav-course
       &:hover,&.router-link-active
-        color: #8135f9
+        background-color: #8135f9
     .nav-base
       &:hover,&.router-link-active
-        color: #8af187
+        background-color: #8af187
     .nav-expo
       &:hover,&.router-link-active
-        color: #1161ef
+        background-color: #1161ef
 
   .infos
     list-style: none
