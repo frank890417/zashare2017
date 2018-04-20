@@ -74,6 +74,8 @@ i
   overflow-y: auto
 .scrollX
   overflow-x: auto
+.curp
+  cursor: pointer
 .btn
   cursor: pointer
   padding: 8px 40px

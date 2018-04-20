@@ -117,7 +117,7 @@ export default {
       let use_source = this.posts
       use_source = use_source.filter(o=>o.status=="published")
       if (this.$route.meta.type=="expo"){
-        use_source = use_source.slice().sort((a,b)=> -(parseInt(a.year)-parseInt(b.year)) )
+        use_source = use_source.slice().sort((a,b)=> -(parseInt(a.year)-parseInt(b.year)) ).reverse()
         return use_source
       }
       

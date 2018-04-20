@@ -85,17 +85,17 @@
 
                     .photo.small(:style="bgcss(getUserPhoto(auth.user))")
                     span Hello! {{auth.user.name}}
-                      span(@click="logout", style="opacity: 0.5") &nbsp;登出
+                      span(@click="logout", style="opacity: 0.5").curp &nbsp;登出
                     div(v-if="auth.user.studentcard")
                       h4 學生證資訊
                       ul
                         li 學生證卡號： {{auth.user.studentcard.card_id}}
-                        li 學生證級別： {{auth.user.studentcard.type}}
+                        li 學生證級別： {{auth.user.studentcard.type=="normal"?"創校元老":"會員"}}
                         li 會員效期： {{auth.user.studentcard.expiry_datetime}}
-                        li 會員ID碼： {{auth.user.studentcard.id}}
                     div
                       h4 學生資訊
                       ul
+                        li 會員ID碼： {{auth.user.id}}
                         li 職稱： {{auth.user.jobcata}}
                         li 工作： {{auth.user.job}} 
                         li 聯絡信箱：{{auth.user.email}}
@@ -110,7 +110,7 @@
                         :target="postTarget(post)",
                         :key="post.title",
                         :tag="post.tag")
-            .row.row-coupon
+            .row.row-coupon( v-if="auth.user.studentcard || isAdmin")
               .col-sm-12(v-if="coupontypes.length")
                 .tag ZA COURSE
                 i.fa.fa-info
@@ -118,7 +118,7 @@
               .col-sm-4.mt-3(v-for="(ct,ctid) in coupontypes")
                 .coupon-box-inner
                   .cover(:style="bgcss(ct.cover)")
-                    .num 00{{ctid}}
+                    //.num 00{{ctid+1}}
                   .info
                     h4 {{ct.title}}
                     p(v-html="ct.description")

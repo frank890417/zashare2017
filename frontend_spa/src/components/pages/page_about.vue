@@ -11,7 +11,7 @@
         //-   br
         .col-sm-12.animated.fadeInUp
           h1 Make Education Different
-          h3 奇特有趣的議題場景及考究嚴選的創新體驗，令雜學校成為亞洲最具影響力的教育創新博覽會品牌
+          h3 奇特的場景及多元的探索，令雜學校成為亞洲最具影響力的教育創新博覽會品牌。
    
     .container-fluid.container-feature
       .row
