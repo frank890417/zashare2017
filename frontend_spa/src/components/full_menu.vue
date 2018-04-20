@@ -211,7 +211,7 @@ export default {
             type: 'success'
           });
           // let _this  = this
-          this.loadAll();
+          this.loadAllCoupon();
         })
     }
   },
@@ -603,6 +603,8 @@ export default {
         height: 150px        
         background-color: #b7b7b7
         position: relative
+        background-position: center center
+        background-size: cover
         .num
           position: absolute
           left: 0
