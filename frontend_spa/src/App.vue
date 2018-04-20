@@ -133,7 +133,7 @@ i
   -moz-osx-font-smoothing: grayscale
   text-align: center
   color: #000
-  height: 100%
+  height: auto
   width: 100%
   margin-top: 0
   position: absolute

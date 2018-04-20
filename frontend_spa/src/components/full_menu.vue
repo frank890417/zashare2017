@@ -7,7 +7,7 @@
   transition(name="fade")
     .fullPage(v-if="menuState")
       .row.row-page(v-if="menuType=='search'")
-        .col-menu.col-sm-12
+        .col-sm-12
           .container.container-menu
             .row.row-search
               .col-sm-12
@@ -21,7 +21,16 @@
               .col-sm-12
                 .tags.scrollX
                   .tag(v-for="tag in tags", @click="setSearchKeyword(tag)") {{tag}}
-      
+        br
+        .col-sm-12
+          .container.container-posts
+            div.row(v-if="searchKeyword!=''" 
+                    @click="setMenuState(false)")
+              newsbox.col-lg-4.col-md-6.col-sm-12(v-for="post in filteredPost", 
+                              :post = "post" ,
+                               :target="postTarget(post)",
+                               :key="post.title",
+                              :tag="post.tag")
       .row.row-page.h100(v-if="menuType=='nav'")
         .col-mobile-menu.col-sm-12
           .container.container-menu
@@ -36,7 +45,7 @@
                   span Hello
                   span(@click="openMenu('login')") 雜學校學生 
                     b {{auth.user.name}}
-                span(v-else, @click="setMenuState(false)") 
+                span(v-else) 
                   b(style="margin-right: 30px") 雜學校 
                   span(@click="openMenu('login')")  登入 / 註冊
                 span &nbsp;&nbsp;|&nbsp;&nbsp;
@@ -49,17 +58,6 @@
                   span 歷屆展覽
                 a.col-theme-nav.text-center.nav-expo(href="https://www.zashare.com.tw", target="_blank")
                   span 線上商店
-      .row.row-page(v-if="menuType=='search'")
-        .col-menu.col-sm-12
-          .container
-            div.row(v-if="searchKeyword!=''" 
-                    @click="setMenuState(false)").scrollY
-              newsbox.col-lg-4.col-md-6.col-sm-12(v-for="post in filteredPost", 
-                              :post = "post" ,
-                               :target="postTarget(post)",
-                               :key="post.title",
-                              :tag="post.tag")
-
             //.row
               .col-sm-12
                 hr
@@ -288,6 +286,10 @@ export default {
         top: 50%
         transform: translate(-50%,-50%) rotate(-45deg)
 
+  .container-posts
+    max-height: 60vh
+    overflow: hidden
+    overflow-y: auto
     
   .icon-bar
     width: 40px
@@ -307,14 +309,19 @@ export default {
 
   .fullPage
     position: fixed
-    width: 100%
-    height: 100%
+    width: 100vw
+    // height: auto
+    // min-height: 100vh
+    height: 100vh
+    // padding: 20px
+
     top: 0
     left: 0
     background-color: #fff
     z-index: 40
     box-sizing: border-box
     text-align: left
+
     a
       display: inline-block
       color: inherit
@@ -330,6 +337,9 @@ export default {
     .row-page
       
       height: auto
+      min-height: 100vh
+      overflow: hidden
+      position: relative
       &.h100
         height: 100vh
       +rwd_md
@@ -339,8 +349,12 @@ export default {
         +rwd_md
           height: 100vh
       
-    .col-menu,.col-member
-      height: 100%
+    .col-menu
+      height: 100vh
+    .col-member
+      height: 100vh
+      min-height: 100vh
+      overflow-y: scroll
     .col-menu
       padding: 50px 60px
       padding-left: 100px
@@ -353,12 +367,14 @@ export default {
       +rwd_md
         padding: 0px
 
-        height: auto
+        // height: auto
+        overflow-y: auto
 
 
 
     +rwd_md
       width: 100vw
+      // padding-top: 80px
       overflow-y: auto
       // height: auto
       .nav-short-description
@@ -372,8 +388,9 @@ export default {
         padding-right: 20px
       .container-menu
         overflow-y: auto
-        height: 100vh
-        margin-bottom: 100px
+        height: auto
+        
+        // margin-bottom: 100px
         // min-height: 100vh
         .row
           flex-shrink: 0
@@ -388,6 +405,8 @@ export default {
       justify-content: center
       align-items: center
 
+      +rwd_md
+        display: block
       .auth-card
         background-color: transparent 
         .top,.bottom
@@ -434,6 +453,7 @@ export default {
     .row-search
       flex-shrink: 0
       padding-bottom: 20px
+      padding-top: 100px
       .fa-search,.fa-times
         // position: absolute
         // right: 30px
@@ -480,6 +500,7 @@ export default {
       flex-direction: column
       height: 100%
       max-width: 900px
+      padding: 20px
       justify-content: space-between
             
     .nav-course
