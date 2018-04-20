@@ -216,6 +216,10 @@ export default {
     }
   },
   mounted(){
+    if (this.menuState && this.menuType=="login" && this.auth.user){
+        this.loadAllCoupon()
+
+      }
   },
   watch: {
     tempSearchKeyword(){
@@ -227,6 +231,12 @@ export default {
       }
     },
     menuState(){
+      if (this.menuState && this.menuType=="login" && this.auth.user){
+        this.loadAllCoupon()
+
+      }
+    },
+    user(){
       if (this.menuState && this.menuType=="login" && this.auth.user){
         this.loadAllCoupon()
 
