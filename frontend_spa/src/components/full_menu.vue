@@ -83,7 +83,7 @@
                   
                   .col-sm-4
 
-                    .photo(:style="bgcss(getUserPhoto(auth.user))")
+                    .photo.small(:style="bgcss(getUserPhoto(auth.user))")
                     span Hello! {{auth.user.name}}
                       span(@click="logout", style="opacity: 0.5") &nbsp;登出
                     div(v-if="auth.user.studentcard")
@@ -575,7 +575,7 @@ export default {
       margin-left: 20px
       font-size: 15px
 
-    .photo
+    .photo.small
       +size(36px)
 
     h4
