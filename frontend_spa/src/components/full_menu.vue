@@ -118,9 +118,9 @@
               .col-sm-4.mt-3(v-for="(ct,ctid) in coupontypes")
                 .coupon-box-inner
                   .cover(:style="bgcss(ct.cover)")
-                    .num 0{{ctid}}
+                    .num 00{{ctid}}
                   .info
-                    h4 名稱：{{ct.title}}
+                    h4 {{ct.title}}
                     p(v-html="ct.description")
                     //p 
                       span 啟用時間：{{ct.active_datetime}}<br>
