@@ -525,6 +525,8 @@ export default {
 
       img
         width: 150px
+      +rwd_md
+        height: 100%
     .col-theme-nav
       &:hover 
         background-color: #aaa
