@@ -98,7 +98,7 @@
                       ul
                         li 職稱： {{auth.user.jobcata}}
                         li 工作： {{auth.user.job}} 
-                        li 聯絡信箱：{{auth.user.studentcard.email}}
+                        li 聯絡信箱：{{auth.user.email}}
                         //- li 生日： 
                     span
                   .col-sm-4

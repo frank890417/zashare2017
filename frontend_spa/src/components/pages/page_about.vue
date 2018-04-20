@@ -15,12 +15,13 @@
    
     .container-fluid.container-feature
       .row
-        .col-xs-6.col-sm-6.col-md-3.col-lg-2(v-for="f in features")
+        .col-6.col-xs-6.col-sm-6.col-md-3.col-lg-2(v-for="f in features")
           img(:src="f.img").animated.fadeIn
           br
           br
           h2.running-number.animated.fadeIn {{f.num}}
           h5.animated.fadeIn {{f.title}}
+          br
   section.section-description
     .container
       .col-sm-12
@@ -184,6 +185,14 @@ export default {
       h3
         font-size: 48px
         position: relative
+      +rwd_sm
+        min-height: auto
+        padding: 50px
+        h3
+          font-size: 28px
+        .fimg
+          background-position: center center
+          background-size: cover
 
     .col-explore
       background-color: #1161ef
@@ -209,7 +218,7 @@ export default {
   .row-expo
     display: flex
     height: 270px
-    margin-bottom: 50px
+    margin-bottom: 100px
     background-color: #fff
     .col-cover 
       flex: 592
@@ -224,6 +233,19 @@ export default {
 
     &:nth-child(2n)
       flex-direction: row-reverse
+    +rwd_sm
+      display: block
+      height: auto
+      margin: 10px
+      padding: 20px
+      .col-cover
+
+        min-height: 200px
+        margin: -20px
+      .col-content
+        padding: 10px
+        padding-top: 40px
+        
     
 
 </style>
