@@ -25,7 +25,7 @@
       .row.row-page.h100(v-if="menuType=='nav'")
         .col-mobile-menu.col-sm-12
           .container.container-menu
-            .row( @click="setMenuState(false)" v-if="searchKeyword==''")
+            .row( v-if="searchKeyword==''")
                       
             .row-logo
               router-link.col-sm-12.logo-part(to="/")
