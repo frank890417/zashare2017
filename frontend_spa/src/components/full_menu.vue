@@ -30,7 +30,10 @@
                 img.logo-img(src="/static/img/Home/za-logo.svg", @click="loginAjax") 
             .row-bottom(@click="setMenuState(false)")
               .col-login
-                span(v-if="auth.user") Hello 雜學校學生 {{auth.user.name}}
+                span(v-if="auth.user") 
+                  span Hello
+                  span(@click="openMenu('login')") 雜學校學生 
+                    b {{auth.user.name}}
                 span(v-else) 
                   b(style="margin-right: 30px") 雜學校 
                   span(@click="openMenu('login')")  登入 / 註冊
@@ -66,8 +69,65 @@
                   li Business hours. 10:00-19:00 Mon. - Fri.
               .col-sm-4
                 p 網站製作：墨雨設計<br>© 2018 雜學校 Za Share All Rights Reserved.
+
+        //登入跟會員頁面
         .col-member.col-sm-12(v-if="menuType=='login'")
-          auth_panel
+          auth_panel(v-if="!auth.user")
+          .container(v-else)
+            .row
+              .col-sm-12
+                .row
+
+                  
+                  .col-sm-4
+
+                    .photo(:style="bgcss(getUserPhoto(auth.user))")
+                    span Hello! {{auth.user.name}}
+                      span(@click="logout", style="opacity: 0.5") &nbsp;登出
+                    div(v-if="auth.user.studentcard")
+                      h4 學生證資訊
+                      ul
+                        li 學生證卡號： {{auth.user.studentcard.card_id}}
+                        li 學生證級別： {{auth.user.studentcard.type}}
+                        li 會員效期： {{auth.user.studentcard.expiry_datetime}}
+                        li 會員ID碼： {{auth.user.studentcard.id}}
+                    div
+                      h4 學生資訊
+                      ul
+                        li 職稱： {{auth.user.jobcata}}
+                        li 工作： {{auth.user.job}} 
+                        li 聯絡信箱：{{auth.user.studentcard.email}}
+                        //- li 生日： 
+                    span
+                  .col-sm-4
+                  .col-sm-4
+                    h4 雜學校公布欄
+                    .row
+                      newsbox(v-for="post in [latestNews]", 
+                        :post = "post" ,
+                        :target="postTarget(post)",
+                        :key="post.title",
+                        :tag="post.tag")
+            .row.row-coupon
+              .col-sm-12(v-if="coupontypes.length")
+                .tag ZA COURSE
+                i.fa.fa-info
+                br
+              .col-sm-4.mt-3(v-for="(ct,ctid) in coupontypes")
+                .coupon-box-inner
+                  .cover(:style="bgcss(ct.cover)")
+                    .num 0{{ctid}}
+                  .info
+                    h4 名稱：{{ct.title}}
+                    p(v-html="ct.description")
+                    //p 
+                      span 啟用時間：{{ct.active_datetime}}<br>
+                      span 結束時間：{{ct.expiry_datetime}}<br>
+                  div(v-if="ct.can_get")
+                    .btn.btn-primary.text-center(v-if="!ct.my",@click="getCoupon(ct)") 點擊以索取兌課序號
+                  div(v-else)
+                    h4.text-center 無法領取(不符合資格)
+                  h4.text-center(v-if="ct.my") 序號：{{ct.my.coupon}}
 </template>
 
 <script>
@@ -77,7 +137,8 @@ export default {
   data() {
     return {
       tags: "師培、教具、國小、偏鄉、國中、高中、大學、實驗教育、媒體".split("、"),
-      tempSearchKeyword: ""
+      tempSearchKeyword: "",
+      coupontypes: []
     }
   },
   computed: {
@@ -87,11 +148,17 @@ export default {
       searchKeyword: state=>state.searchKeyword,
       menuType: state=>state.menuType,
       mobile: state=>state.mobile,
-      auth: state=>state.auth
+      auth: state=>state.auth,
+
+      token: state=>state.auth.token,
+      news: state=>state.post.news
     }),
     filteredPost(){
       return 
         this.posts.map(o=>({...o,tag: "ZA EXPO"})).filter(o=>JSON.stringify(o).indexOf(this.searchKeyword)!=-1)
+    },
+    latestNews(){
+      return this.news.slice(-1)[0]
     }
   },
   methods: {
@@ -122,10 +189,32 @@ export default {
       }else{
         this.setMenuState(false)
       }
+    },
+
+    loadAllCoupon(){
+      this.axios.post("/api/coupontype/user",{
+        token: this.token,
+      }).then(res=>{
+        this.coupontypes = res.data
+      })
+    },
+    getCoupon(coupontype){
+      this.axios.post(
+          `/api/coupontype/userget/`+coupontype.id,
+          { 
+            token: this.token,
+          }
+        ).then(res=>{
+          this.$message({
+            message: '資料更新成功',
+            type: 'success'
+          });
+          // let _this  = this
+          this.loadAll();
+        })
     }
   },
   mounted(){
-    // this.authInit()
   },
   watch: {
     tempSearchKeyword(){
@@ -134,6 +223,12 @@ export default {
     searchKeyword(){
       if (this.tempSearchKeyword!=this.searchKeyword){
         this.tempSearchKeyword=this.searchKeyword
+      }
+    },
+    menuState(){
+      if (this.menuState && this.menuType=="login" && this.auth.user){
+        this.loadAllCoupon()
+
       }
     }
   },
@@ -190,235 +285,288 @@ export default {
         top: 50%
         transform: translate(-50%,-50%) rotate(-45deg)
 
-  
-.icon-bar
-  width: 40px
-  height: 4px
-  // margin: 8px 0px
-  position: absolute
-  left: 50%
-  top: 50%
-  transform: translate(-50%,-50%)
-  background-color: #fff
-  transform-origin: center center
-  transition: 0.5s
-  &:nth-child(1)
-    top: 35%
-  &:nth-child(2)
-    top: 65%
-
-.fullPage
-  position: fixed
-  width: 100%
-  height: 100%
-  top: 0
-  left: 0
-  background-color: #fff
-  z-index: 40
-  box-sizing: border-box
-  text-align: left
-  a
-    display: inline-block
-    color: inherit
-    text-decoration: none
-
     
-  h2
-    font-size: 40px
-    font-weight: 900
-    margin-bottom: 20px
-    text-transform: Uppercase
+  .icon-bar
+    width: 40px
+    height: 4px
+    // margin: 8px 0px
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%,-50%)
+    background-color: #fff
+    transform-origin: center center
+    transition: 0.5s
+    &:nth-child(1)
+      top: 35%
+    &:nth-child(2)
+      top: 65%
 
-  .row-page
+  .fullPage
+    position: fixed
+    width: 100%
     height: 100%
-    +rwd_md
-      overflow-y: auto
-  .col-menu,.col-member
-    height: 100%
-  .col-menu
-    padding: 50px 60px
-    padding-left: 100px
+    top: 0
+    left: 0
+    background-color: #fff
+    z-index: 40
     box-sizing: border-box
-    .container
-      margin-top: 20px
-      +rwd_md
-        margin-top: 0
-        padding-top: 0
-    +rwd_md
-      padding-right: 20px
+    text-align: left
+    a
+      display: inline-block
+      color: inherit
+      text-decoration: none
 
-
-
-  +rwd_md
-    width: 100vw
-    overflow-y: auto
-    // height: auto
-    .nav-short-description
-      display: none
+      
     h2
-      margin-top: 10px
-      margin-bottom: 30px
-      font-size: 24px
+      font-size: 40px
+      font-weight: 900
+      margin-bottom: 20px
+      text-transform: Uppercase
+
+    .row-page
+      height: 100%
+      +rwd_md
+        overflow-y: auto
+    .col-menu,.col-member
+      height: 100%
     .col-menu
-      padding: 20px 60px
-      padding-right: 20px
-    .container-menu
+      padding: 50px 60px
+      padding-left: 100px
+      box-sizing: border-box
+      .container
+        margin-top: 20px
+        +rwd_md
+          margin-top: 0
+          padding-top: 0
+      +rwd_md
+        padding-right: 20px
+
+
+
+    +rwd_md
+      width: 100vw
       overflow-y: auto
-      height: 100vh
-      margin-bottom: 100px
-      // min-height: 100vh
-      .row
-        flex-shrink: 0
-    .row-search
-      width: 100%
+      // height: auto
+      .nav-short-description
+        display: none
+      h2
+        margin-top: 10px
+        margin-bottom: 30px
+        font-size: 24px
+      .col-menu
+        padding: 20px 60px
+        padding-right: 20px
+      .container-menu
+        overflow-y: auto
+        height: 100vh
+        margin-bottom: 100px
+        // min-height: 100vh
+        .row
+          flex-shrink: 0
+      .row-search
+        width: 100%
 
-  .col-member
-    background-color: #eee
-    padding: 40px
-    box-sizing: border-box
-    display: flex
-    justify-content: center
-    align-items: center
-
-    .auth-card
-      background-color: transparent 
-      .top,.bottom
-        background-color: transparent 
-    .card
-      text-align: center
+    .col-member
+      background-color: #eee
+      padding: 40px
+      box-sizing: border-box
       display: flex
       justify-content: center
-      width: 100%
-      box-sizing: border-box
-      flex-direction: column
-      .card-loading
-        position: absolute
-        width: 100%
-        height: 100%
-        background-color: rgba(#eee,0.6)
-        // opacity: 0.5
-        left: 0
-        top: 0
+      align-items: center
 
-      .top
+      .auth-card
+        background-color: transparent 
+        .top,.bottom
+          background-color: transparent 
+      .card
+        text-align: center
         display: flex
         justify-content: center
+        width: 100%
+        box-sizing: border-box
         flex-direction: column
-        align-items: center
-        margin-bottom: 3px
-        background-color: white
-        padding: 25px
-        padding-bottom: 0
-        .name
-          font-size: 18px
-      .bottom
-        background-color: white
-        padding: 25px
-      .photo
-        width: 100px
-        height: 100px
-        margin-top: 55px
-        margin-bottom: 40px
-        background-color: black
-        background-position: center center
-        background-repeat: no-repeat
-        background-size: 80% auto
-  .row-search
-    flex-shrink: 0
-    padding-bottom: 20px
-    .fa-search,.fa-times
-      // position: absolute
-      // right: 30px
-      font-size: 28px
+        .card-loading
+          position: absolute
+          width: 100%
+          height: 100%
+          background-color: rgba(#eee,0.6)
+          // opacity: 0.5
+          left: 0
+          top: 0
 
-    .clearInput
-      // position: absolute
-      font-size: 20px
-      // top: calc( 50% - 10px)
-      // right: 30px
-      // transform: translateY(-50%)
+        .top
+          display: flex
+          justify-content: center
+          flex-direction: column
+          align-items: center
+          margin-bottom: 3px
+          background-color: white
+          padding: 25px
+          padding-bottom: 0
+          .name
+            font-size: 18px
+        .bottom
+          background-color: white
+          padding: 25px
+        .photo
+          width: 100px
+          height: 100px
+          margin-top: 55px
+          margin-bottom: 40px
+          background-color: black
+          background-position: center center
+          background-repeat: no-repeat
+          background-size: 80% auto
+    .row-search
+      flex-shrink: 0
+      padding-bottom: 20px
+      .fa-search,.fa-times
+        // position: absolute
+        // right: 30px
+        font-size: 28px
+
+      .clearInput
+        // position: absolute
+        font-size: 20px
+        // top: calc( 50% - 10px)
+        // right: 30px
+        // transform: translateY(-50%)
+        cursor: pointer
+        transition: 0.5s
+        transform-origin: center center
+        margin-top: -45px
+        &:hover
+          transform: scale(1.1)
+      .input-text-count
+        opacity: 0.5
+        font-weight: 500
+        font-size: 22px
+        margin-right: 40px
+        margin-top: -45px
+        
+        
+      input
+        font-size: 24px
+      .tags
+        // display: none
+        display: flex
+        +rwd_lg
+          display: flex
+
+        .tag
+          white-space: nowrap
+          margin: 10px
+          background-color: #eee
+          padding: 5px 10px
+          cursor: pointer
+          &:hover
+            background-color: #ddd
+    .container-menu
+      display: flex
+      flex-direction: column
+      height: 100%
+      max-width: 900px
+      justify-content: space-between
+            
+    .nav-course
+      &:hover,&.router-link-active
+        color: #8135f9
+    .nav-base
+      &:hover,&.router-link-active
+        color: #8af187
+    .nav-expo
+      &:hover,&.router-link-active
+        color: #1161ef
+
+  .infos
+    list-style: none
+    margin-bottom: 30px
+    padding: 0
+
+  .col-mobile-menu
+    padding-left: 0
+    padding-right: 0
+    .logo-img
+      margin: auto
+    .logo-part
+      +flexCenter
+    .col-login
+      padding: 35px 50px
+      text-align: center
+    .col-theme-nav
+      padding: 35px 50px
+      display: block
+      text-decoration: none
+      border-bottom: solid 1px #333
       cursor: pointer
       transition: 0.5s
-      transform-origin: center center
-      margin-top: -45px
-      &:hover
-        transform: scale(1.1)
-    .input-text-count
-      opacity: 0.5
-      font-weight: 500
-      font-size: 22px
-      margin-right: 40px
-      margin-top: -45px
-      
-      
-    input
-      font-size: 24px
-    .tags
-      // display: none
+      background-color: black
+      color: white
+      // font-size: 24px
+    .row-logo
       display: flex
-      +rwd_lg
-        display: flex
+      justify-content: center
+      align-items: center
+      width: 100%
 
+      img
+        width: 150px
+    .col-theme-nav
+      &:hover 
+        background-color: #aaa
+
+
+  .col-member
+    position: relative
+    .fa-info
+      +size(20px)
+      +flexCenter
+      background-color: black
+      color: white
+      border-radius: 50%
+      display: inline-flex
+      margin-left: 20px
+      font-size: 15px
+
+    .photo
+      +size(36px)
+
+    h4
+      font-size: 1em
+      opacity: 0.3
+      margin-top: 30px
+    ul
+      list-style: none
+      padding: 0
+      li
+        margin-bottom: 10px
+        
+    .row-coupon
+      border-top: 1px solid rgba(black,0.1)
+      padding-top: 30px
       .tag
-        white-space: nowrap
-        margin: 10px
-        background-color: #eee
-        padding: 5px 10px
-        cursor: pointer
-        &:hover
-          background-color: #ddd
-  .container-menu
-    display: flex
-    flex-direction: column
-    height: 100%
-    max-width: 900px
-    justify-content: space-between
-          
-  .nav-course
-    &:hover,&.router-link-active
-      color: #8135f9
-  .nav-base
-    &:hover,&.router-link-active
-      color: #8af187
-  .nav-expo
-    &:hover,&.router-link-active
-      color: #1161ef
-
-.infos
-  list-style: none
-  margin-bottom: 30px
-  padding: 0
-
-.col-mobile-menu
-  padding-left: 0
-  padding-right: 0
-  .logo-img
-    margin: auto
-  .logo-part
-    +flexCenter
-  .col-login
-    padding: 35px 50px
-    text-align: center
-  .col-theme-nav
-    padding: 35px 50px
-    display: block
-    text-decoration: none
-    border-bottom: solid 1px #333
-    cursor: pointer
-    transition: 0.5s
-    background-color: black
-    color: white
-    // font-size: 24px
-  .row-logo
-    display: flex
-    justify-content: center
-    align-items: center
-    width: 100%
-
-    img
-      width: 150px
-  .col-theme-nav
-    &:hover 
-      background-color: #aaa
-
+        background-color: black
+        color: white
+        padding: 0px 10px
+        display: inline-block
+        font-weight: 800
+    .coupon-box-inner
+      .cover
+        width: 100%
+        height: 150px        
+        background-color: #b7b7b7
+        position: relative
+        .num
+          position: absolute
+          left: 0
+          top: 0
+          background-color: black
+          color: white
+          padding: 5px 10px
+          font-size: 15px
+      .info
+        background-color: #ddd
+        padding: 10px
+        margin-top: -20px
 </style>
