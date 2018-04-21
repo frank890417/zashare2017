@@ -15,7 +15,7 @@
    
     .container-fluid.container-feature
       .row
-        .col-6.col-xs-6.col-sm-6.col-md-3.col-lg-2(v-for="f in features")
+        .col-6.col-xs-6.col-sm-6.col-md-3.col-lg-2.wow.fadeIn(v-for="f in features")
           img(:src="f.img").animated.fadeIn
           br
           br
@@ -25,21 +25,21 @@
   section.section-description
     .container
       .col-sm-12
-        p 雜學，是未來人才的基本能力，多樣多元的聚集混種才能有肥沃的土壤造就人才創新的生態。這是一所以城市為單位，以生活為內容，以人為主體的社會學校。ZA是雜的音譯，也是從Z到A由下而上的概念，SHARE 是各種串連與分享。
-        img(src="/static/img/About/about-pic.png")
-        p 雜學校是從台灣民間發起教育文化創新的社會運動，由蘇仰志先生於2015年創立，希望建構一個讓1-99歲能找到生命熱情的各種學習路徑的烏托邦。因此籌備一年一度的創新教育博覽會，公開徵集了華人世界各種非典型教育與文化的創新，透過全新的策展思維創造出一個多元多樣的舞台，打破框架讓人與人在這各種跨域的串連與交流中共好，同時讓更多的探索與驚喜發生，促使教育轉化為多樣生活型態的獨創展現，培養更多人才與機會的可能。持續建構起教育新創加速器，協助更多教育創新理念與新創事業，往創辦的初心一步一步邁進：「如果每一個人都可以在熱情裡面做事，這個社會將會有多強大」！
+        p.wow.fadeIn 雜學，是未來人才的基本能力，多樣多元的聚集混種才能有肥沃的土壤造就人才創新的生態。這是一所以城市為單位，以生活為內容，以人為主體的社會學校。ZA是雜的音譯，也是從Z到A由下而上的概念，SHARE 是各種串連與分享。
+        img.wow.fadeIn(src="/static/img/About/about-pic.png")
+        p.wow.fadeIn 雜學校是從台灣民間發起教育文化創新的社會運動，由蘇仰志先生於2015年創立，希望建構一個讓1-99歲能找到生命熱情的各種學習路徑的烏托邦。因此籌備一年一度的創新教育博覽會，公開徵集了華人世界各種非典型教育與文化的創新，透過全新的策展思維創造出一個多元多樣的舞台，打破框架讓人與人在這各種跨域的串連與交流中共好，同時讓更多的探索與驚喜發生，促使教育轉化為多樣生活型態的獨創展現，培養更多人才與機會的可能。持續建構起教育新創加速器，協助更多教育創新理念與新創事業，往創辦的初心一步一步邁進：「如果每一個人都可以在熱情裡面做事，這個社會將會有多強大」！
   section.section-theme
     .container-fluid
       .row
-        .col-sm-4.col-explore
+        .col-sm-4.col-explore.wow.fadeInUp(data-wow-delay="0s")
           .fimg(:style="bgcss('/static/img/About/about-spirit-explore.png')")
-          h3 Explore 探索
-        .col-sm-4.col-diverse
+          h3.wow.fadeIn Explore 探索
+        .col-sm-4.col-diverse.wow.fadeInUp(data-wow-delay="0.3s")
           .fimg(:style="bgcss('/static/img/About/about-spirit-diverse.png')")
-          h3 Diverse 多樣
-        .col-sm-4.col-unique
+          h3.wow.fadeIn Diverse 多樣
+        .col-sm-4.col-unique.wow.fadeInUp(data-wow-delay="0.6s")
           .fimg(:style="bgcss('/static/img/About/about-spirit-unique.png')")
-          h3 Unique 獨創
+          h3.wow.fadeIn Unique 獨創
   section.section-log
     .container
       .row
@@ -47,7 +47,7 @@
           h2 品牌大事記
           br
         .col-sm-12
-          router-link.row.row-expo(v-for="expo in expos", :to="`/expo/${expo.year}`")
+          router-link.row.row-expo.wow.fadeInUp(v-for="expo in expos", :to="`/expo/${expo.year}`")
             .col-cover(:style="bgcss(expo.report_cover)")
             .col-content.text-left
               h3 {{expo.year}}

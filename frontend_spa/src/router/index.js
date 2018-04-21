@@ -44,7 +44,7 @@ router.beforeEach((to, from, next) => {
 
 //送出pageview
 router.afterEach((route) => {
-  
+  new WOW().init();
 
   if (window.ga) {
     ga('send', 'pageview', route.path);

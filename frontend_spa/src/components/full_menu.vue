@@ -1,8 +1,9 @@
 <template lang="pug">
 .menu(:class="{open: menuState}")
-  .hambergur(@click="hambergurAction ", v-if="menuState || mobile")
-    .icon-bar
-    .icon-bar
+  transition(name="fade")
+    .hambergur(@click="hambergurAction ", v-if="menuState || mobile")
+      .icon-bar
+      .icon-bar
 
   transition(name="fade")
     .fullPage(v-if="menuState")
