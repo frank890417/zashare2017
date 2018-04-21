@@ -116,7 +116,7 @@
                 .tag ZA COURSE
                 i.fa.fa-info
                 br
-              .col-sm-4.mt-3(v-for="(ct,ctid) in coupontypes")
+              .col-sm-6.col-md-4.mt-3(v-for="(ct,ctid) in coupontypes")
                 .coupon-box-inner
                   .cover(:style="bgcss(ct.cover)")
                     //.num 00{{ctid+1}}
