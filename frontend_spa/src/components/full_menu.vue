@@ -417,10 +417,12 @@ export default {
       justify-content: center
       align-items: center
 
+
       +rwd_md
         display: block
       .auth-card
         background-color: transparent 
+        max-width: 350px
         .top,.bottom
           background-color: transparent 
       .card

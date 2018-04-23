@@ -5,7 +5,7 @@ router-link.news_box.animated.fadeIn(:to="target")
       .cover.animated.fadeIn.news_box_cover(:style="bgcss(post.cover)")
         .tag(v-if="!hideTag") {{ tag || 'ZA SHARE'}}
     .col-sm-12.col-info
-      h4.company(v-if="!hideDetail") {{post.company ? post.company.name_cht : ""}}
+      h4.company(v-if="post.company && !hideDetail") {{post.company ? post.company.name_cht : ""}}
       h3 {{post.title}}
       .bottom-info(v-if="!hideDetail")
         .hashtags 

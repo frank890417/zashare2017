@@ -1,5 +1,30 @@
-<template>
-  
+<template lang="pug">
+.section_footer
+  .container
+    .row
+      .col-sm-4
+        br
+      .col-sm-4
+        br
+      .col-sm-4
+        .footer_logo
+          a(href='https://www.facebook.com/zashare.expo/', target='_blank')
+            img(src="/static/img/social-icon/social-fb.svg")
+          a(href='https://www.youtube.com/channel/UCiCIqDTmahczFvmg8iNUVow', target='_blank')
+            img(src="/static/img/social-icon/social-fl.svg")
+          a(href='https://www.instagram.com/zashare_edu/', target='_blank')
+            img(src="/static/img/social-icon/social-ig.svg")
+          a(href='http://weibo.com/6020066115/profile?rightmod=1&wvr=6&mod=personnumber&is_all=1', target='_blank')
+            img(src="/static/img/social-icon/social-wc.svg")
+          a(href='http://open.weixin.qq.com/qr/code/?username=zashare_edu', target='_blank')
+            img(src="/static/img/social-icon/social-yt.svg")
+    .row
+      .col-sm-4
+        h3 Tel. +886-2-2729-7122<br>Mail. zashare@ozzie-art.com<br>Business hours. 10:00-19:00 Mon. - Fri.
+      .col-sm-4
+        h3 <br>雜選課 ZA COURSE<br>雜學起義 ZA SHARE Revolution<br>
+      .col-sm-4
+        h3 網站製作：墨雨設計<br>© 2018 雜学校 Za Share All Rights Reserved.<br>
 </template>
 
 <script>
@@ -8,6 +33,33 @@ export default {
 }
 </script>
 
-<style>
+<style lang="sass">
+@import "../assets/_mixins.sass"
+.section_footer
+  padding-left: 350px
+  padding-top: 50px
+  padding-bottom: 50px
+  background-color: #fafafa
+  border-top: 1px solid #aaa
 
+  .container
+    max-width: calc(1200px)
+    margin-left: auto
+    margin-right: auto
+    padding-left: 100px
+    padding-right: 100px
+  .footer_logo
+    justify-content: flex-start
+  h3
+    font-weight: 300
+    font-size: 14px
+    text-align: left
+    line-height: 1.5
+    letter-spacing: 0.3px
+  +rwd_md
+    padding-left: 0
+    .container
+      padding-left: 30px
+      padding-right: 30px
+      // max-width: calc(100vw - 50px)
 </style>

@@ -54,11 +54,13 @@ import navbar from './components/navbar.vue'
 import full_menu from './components/full_menu.vue'
 import newsbox from './components/newsbox.vue'
 import auth_panel from './components/auth_panel.vue'
+import section_footer from './components/section_footer.vue'
 Vue.component("page_loading", page_loading)
 Vue.component("navbar", navbar)
 Vue.component("full_menu", full_menu)
 Vue.component("newsbox", newsbox)
 Vue.component("auth_panel", auth_panel)
+Vue.component("section_footer", section_footer)
 
 Vue.mixin({
   methods: {
@@ -70,7 +72,8 @@ Vue.mixin({
         .replace(/..\/..\//g,"/")
         .replace(/\/dropzone\/uploads/g, "http://service.zashare.org/dropzone/uploads/")
       return {
-        'background-image': `url("${trans_url}")`
+        'background-image': `url("${trans_url}")`,
+        'background-position': 'center center'
       }
 
     }, strip_tags(txt) {

@@ -379,46 +379,6 @@ export default {
   .col-login
     border: none
     letter-spacing: 0.6px
-  .footer_logo
-    line-height: 30px
-    display: -webkit-box
-    display: flex
-    -webkit-box-pack: center
-    justify-content: center
-    width: 100%
-    margin-top: -20px
-    margin-bottom: 20px
-    img
-      width: 28px
-      opacity: 0.6
-      +trans
-    a
-      display: block
-      +size(28px)
-      color: #bbb
-      background-color: #fff
-      border: solid 1px #bbb
-      border-radius: 50%
-      -webkit-box-pack: center
-      justify-content: center
-      -webkit-box-align: center
-      align-items: center
-      font-size: 18px
-      display: -webkit-inline-box
-      display: inline-flex
-      width: 30px
-      height: 30px
-      margin: 8px
-      +trans
-      &:hover
-        color: white
-        background-color: black
-        border-color: black
-        img
-          filter: contrast(0%) brightness(200%)
-          opacity: 0.8
-    i
-      font-size: 20px
 
   .explore
     text-align: left

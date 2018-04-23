@@ -102,9 +102,10 @@ export default {
     useCatas(){
       if (this.$route.meta.type=="expo"){
         let catas = this.posts
-                          .map(p=>parseInt(p.year) )
-                          .sort((a,b)=>(a-b)).filter((y,id,arr)=>arr.indexOf(y)==id )
-                          .map(year=>({label: year,value: year}))
+                        .map(p=>parseInt(p.year) )
+                        .sort((a,b)=>-(a-b)).filter((y,id,arr)=>arr.indexOf(y)==id )
+                        .map(year=>({label: year,value: year}))
+
         catas.unshift({
           label: "全部",value: ""
         })

@@ -109,7 +109,7 @@ const moduleAuth = {
       if (state.user){
         return state.user.cover
       } else {
-        return "http://service.zashare.org/img/2017/index_za_logo_white.svg"
+        return "/static/img/Home/za-logo.svg"
 
       }
 

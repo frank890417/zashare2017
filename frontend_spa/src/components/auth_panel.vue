@@ -10,7 +10,7 @@
           span(v-if="auth.user") {{ auth.status ||  `Hello ! 雜學校學生　${auth.user.name}` }}
           span(v-else) {{ auth.status || '這名學生未登入哦！' }}
       .bottom(v-if="mode=='login' && !auth.user")
-        h4 登入雜學校
+        h4.login-title 登入雜學校
         //- label 信箱
         input(v-model="loginData.email", placeholder="信箱", type="email")
         //- label 密碼
@@ -146,6 +146,9 @@ export default {
   box-sizing: border-box
   flex-direction: column
   max-width: 500px
+  h4.login-title
+    margin-top: -20px
+    margin-bottom: 30px
   label.mention
     font-size: 13px
     opacity: 0.5
@@ -185,14 +188,15 @@ export default {
       display: flex
       justify-content: space-between
   .photo
-    width: 100px
-    height: 100px
+    width: 136px
+    height: 136px
+    overflow: hidden
     margin-top: 55px
     margin-bottom: 40px
-    background-color: black
+    // background-color: black
     background-position: center center
     background-repeat: no-repeat
-    background-size: 80% auto
+    background-size: 100% auto
 
 
 
