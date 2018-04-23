@@ -40,7 +40,7 @@ export default {
   padding-top: 50px
   padding-bottom: 50px
   background-color: #fafafa
-  border-top: 1px solid #aaa
+  border-top: 1px solid #ddd
 
   .container
     max-width: calc(1200px)

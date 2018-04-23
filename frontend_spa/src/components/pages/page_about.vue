@@ -15,7 +15,7 @@
    
     .container-fluid.container-feature
       .row
-        .col-6.col-xs-6.col-sm-6.col-md-3.col-lg-2.wow.fadeIn(v-for="f in features")
+        .col-6.col-xs-6.col-sm-6.col-md-3.col-lg-2.wow.fadeIn(v-for="(f,fid) in features", class="'delay-ani-'+(fid*2+2)")
           img(:src="f.img").animated.fadeIn
           br
           br
@@ -34,10 +34,10 @@
         .col-sm-4.col-explore.wow.fadeInUp(data-wow-delay="0s")
           .fimg(:style="bgcss('/static/img/About/about-spirit-explore.png')")
           h3.wow.fadeIn Explore 探索
-        .col-sm-4.col-diverse.wow.fadeInUp(data-wow-delay="0.3s")
+        .col-sm-4.col-diverse.wow.fadeInUp(data-wow-delay="0.2s")
           .fimg(:style="bgcss('/static/img/About/about-spirit-diverse.png')")
           h3.wow.fadeIn Diverse 多樣
-        .col-sm-4.col-unique.wow.fadeInUp(data-wow-delay="0.6s")
+        .col-sm-4.col-unique.wow.fadeInUp(data-wow-delay="0.4s")
           .fimg(:style="bgcss('/static/img/About/about-spirit-unique.png')")
           h3.wow.fadeIn Unique 獨創
   section.section-log
