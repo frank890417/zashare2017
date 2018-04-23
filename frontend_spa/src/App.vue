@@ -178,6 +178,7 @@ p
   text-align: justify
   font-size: 15px
   line-height: 1.8
+  font-weight: 300
 
 a.nostyle
   text-decoration: none

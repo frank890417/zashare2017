@@ -46,11 +46,12 @@
               :class="{active: nowCata==cata.value}", 
               @click="nowCata=cata.value") {{cata.label}}
       .row
-        .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12(v-for="post in use_posts").col-news
+        .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12(v-for="(post,pid) in use_posts").col-news
           newsbox(:post='post', 
                 :target='postTarget(post)',
                 :tag=" ((post.cata && post.cata.year)!='news')?post.year:(post.cata && post.cata.name)",
-                :hideTag="$route.meta.type=='news'")
+                :hideTag="$route.meta.type=='news'",
+                :class="'delay-ani-'+(pid % 3)*2")
       .row.lazy-detector
         //- router-link.news_box.animated.fadeIn(to="/news/test")
         //-   .row

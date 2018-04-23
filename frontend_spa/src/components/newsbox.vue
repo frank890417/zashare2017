@@ -2,12 +2,12 @@
 router-link.news_box.animated.fadeIn(:to="target")
   .row(v-if="post")
     .col-sm-12.col-cover
-      .cover.news_box_cover(:style="bgcss(post.cover)")
+      .cover.animated.fadeIn.news_box_cover(:style="bgcss(post.cover)")
         .tag(v-if="!hideTag") {{ tag || 'ZA SHARE'}}
     .col-sm-12.col-info
-      h4.company {{post.company ? post.company.name_cht : ""}}
+      h4.company(v-if="!hideDetail") {{post.company ? post.company.name_cht : ""}}
       h3 {{post.title}}
-      .bottom-info
+      .bottom-info(v-if="!hideDetail")
         .hashtags 
           .hashtag(v-for="tag in hashtags") \#{{tag}}
         .date {{showDate}}
@@ -18,14 +18,14 @@ router-link.news_box.animated.fadeIn(:to="target")
 <script>
 import moment from 'moment'
 export default {
-  props: ['post','target','tag',"hideTag"],
+  props: ['post','target','tag',"hideTag","hideDetail"],
   computed:{
     showDate(){
       return moment(this.post.established_time).format('YYYY[ 年 ]MM[ 月 ]DD[ 日 ]')
     },
     hashtags(){
-      if (this.post.hashtags){
-        return JSON.parse(this.post.hashtags)
+      if (this.post.hashtag){
+        return JSON.parse(this.post.hashtag)
       }
       return []
     }
@@ -42,14 +42,15 @@ export default {
   cursor: pointer
   display: block
   box-shadow: 0px 0px 25px rgba(black,0.02)
-  border-radius: 5px 5px 0 0
+  border-radius: 6px 6px 0 0
   text-decoration: none
   color: black
   transition: 0.5s
+  
   // margin: 10px
   &:hover
     .col-cover .cover.news_box_cover
-      background-size: 120% auto
+      background-size: 115% auto
       
   .col-cover
     .cover.news_box_cover
@@ -57,11 +58,12 @@ export default {
       width: 100%
       min-height: 0
       padding-bottom: 60%
-      background-size: 110% auto
+      background-size: 115% auto
 
       background-position: center center
       position: relative
       transition: 0.5s
+      border-radius: 6px 6px 0 0
       
 
     .tag
@@ -91,7 +93,7 @@ export default {
     font-size: 20px
     min-height: 3.2em
     text-align: left
-    margin-top: 0
+    margin-top: 10px
   .bottom-info
     .hashtag
       margin-right: 10px
@@ -122,5 +124,5 @@ export default {
       left: 50%
       bottom: 0
       transform: translate(-50%)
-      background-color: #ccc
+      background-color: #555
 </style>

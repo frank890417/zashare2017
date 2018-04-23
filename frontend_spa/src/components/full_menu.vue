@@ -31,7 +31,8 @@
                               :post = "post" ,
                                :target="postTarget(post)",
                                :key="post.title",
-                              :tag="post.tag")
+                              :tag="post.tag",
+                              :hideDetail="true")
       .row.row-page.h100(v-if="menuType=='nav'")
         .col-mobile-menu.col-sm-12
           .container.container-menu

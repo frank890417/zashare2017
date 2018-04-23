@@ -48,22 +48,22 @@
           span(@click="openMenu('login')") 雜學校學生 
             b {{auth.user.name}}
         span(v-else) 
-          b 雜學校 
+          b 雜學校&nbsp;
           span(@click="openMenu('login')")  登入 / 註冊
         span &nbsp;&nbsp;|&nbsp;&nbsp;
         span 
           b(@click="openMenu('search')")  搜尋
       .footer_logo
         a(href='https://www.facebook.com/zashare.expo/', target='_blank')
-          i.fa.fa-facebook
+          img(src="/static/img/social-icon/social-fb.svg")
         a(href='https://www.youtube.com/channel/UCiCIqDTmahczFvmg8iNUVow', target='_blank')
-          i.fa.fa-youtube
+          img(src="/static/img/social-icon/social-fl.svg")
         a(href='https://www.instagram.com/zashare_edu/', target='_blank')
-          i.fa.fa-instagram
+          img(src="/static/img/social-icon/social-ig.svg")
         a(href='http://weibo.com/6020066115/profile?rightmod=1&wvr=6&mod=personnumber&is_all=1', target='_blank')
-          i.fa.fa-weibo
+          img(src="/static/img/social-icon/social-wc.svg")
         a(href='http://open.weixin.qq.com/qr/code/?username=zashare_edu', target='_blank')
-          i.fa.fa-weixin
+          img(src="/static/img/social-icon/social-yt.svg")
 
 
         //- a(href='https://www.facebook.com/zashare.expo/', target='_blank')
@@ -82,6 +82,10 @@
         span 關於雜學校
       router-link.col-theme-nav.text-center.nav-base(to="/expo")
         span 歷屆展覽
+        ul.years
+          router-link.year-item.delay-ani-3(to="/expo/2015") 2015
+          router-link.year-item.delay-ani-6(to="/expo/2016") 2016
+          router-link.year-item.delay-ani-9(to="/expo/2017") 2017
       a.col-theme-nav.text-center.nav-expo(href="https://www.zashare.com.tw", target="_blank")
         span 線上商店
 
@@ -330,11 +334,51 @@ export default {
     cursor: pointer
     transition: 0.5s
     // font-size: 24px
+
+    .years
+      position: absolute
+      left: 100%
+      top: 0
+      // transform: translateY(-50%)
+      list-style: none
+      padding: 0
+      font-size: 15px
+      .year-item
+        display: block
+        color: inherit
+        padding: 15px 30px
+        background-color: #8af187
+        opacity: 0 
+        pointer-events: none
+        &:nth-child(1)
+          transition: opacity 0.5s 0.3s
+        &:nth-child(2)
+          transition: opacity 0.5s 0.2s
+        &:nth-child(3)
+          transition: opacity 0.5s 0.1s
+        +trans
+        border-bottom: solid 1px rgba(white,0.5)
+        border-left: solid 1px rgba(white,0.5)
+        &:hover
+          background-color: lighten(#8af187,5)
+        
   .col-theme-nav
     &:hover 
       background-color: #aaa
+
+      .years .year-item
+        opacity: 1
+        pointer-events: initial
+        &:nth-child(1)
+          transition: opacity 0.5s 0.1s
+        &:nth-child(2)
+          transition: opacity 0.5s 0.2s
+        &:nth-child(3)
+          transition: opacity 0.5s 0.3s
+
   .col-login
     border: none
+    letter-spacing: 0.6px
   .footer_logo
     line-height: 30px
     display: -webkit-box
@@ -344,9 +388,13 @@ export default {
     width: 100%
     margin-top: -20px
     margin-bottom: 20px
+    img
+      width: 28px
+      opacity: 0.6
+      +trans
     a
       display: block
-      +size(30px)
+      +size(28px)
       color: #bbb
       background-color: #fff
       border: solid 1px #bbb
@@ -355,16 +403,20 @@ export default {
       justify-content: center
       -webkit-box-align: center
       align-items: center
-      font-size: 20px
+      font-size: 18px
       display: -webkit-inline-box
       display: inline-flex
       width: 30px
       height: 30px
-      margin: 10px
+      margin: 8px
+      +trans
       &:hover
         color: white
         background-color: black
         border-color: black
+        img
+          filter: contrast(0%) brightness(200%)
+          opacity: 0.8
     i
       font-size: 20px
 
@@ -512,17 +564,6 @@ export default {
         background-color: black
       width: 50px
       display: inline-block
-  .col-theme-nav
-    background-color: black
-    color: white
-    font-size: 24px
-    font-weight: bold
-    text-align: left
-    line-height: 1
-    position: relative
-    img
-      height: 70px
-      margin-bottom: -30px
 
   //hover的特別顏色
   .nav-course
@@ -535,8 +576,19 @@ export default {
     &:hover,&.router-link-active
       background-color: #1161ef
     
+  .col-theme-nav
+    background-color: black
+    color: white
+    font-size: 24px
+    font-weight: bold
+    text-align: left
+    line-height: 1
+    position: relative
+    img
+      height: 70px
+      margin-bottom: -30px
 
-
+ 
   .upCircle
     position: absolute
     // transform: translate(-50%,50%)

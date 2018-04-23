@@ -70,3 +70,9 @@ $break_xs: 500px
 =rwd_xs
   +range_width(0px,$break_xs)
     @content
+
+@for $i from 1 through 100
+  .delay-ani-#{$i}
+    animation-delay: #{$i*0.1}s
+  .delay-trans-#{$i}
+    transition-delay: #{$i*0.1}s
