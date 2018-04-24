@@ -86,11 +86,10 @@ const store = new Vuex.Store({
     setMenuState(state, value) {
       window.jf_menu_loaded=true
       if(value == true && !window.jf_menu_loaded){
-
         _jf.flush();
       }
-      softscroll.set(!state.menuState)
       state.menuState = value
+      softscroll.set(!state.menuState)
     },
     setLoading(state, value) {
       state.loading = value
