@@ -233,13 +233,13 @@ export default {
       }
     },
     menuState(){
-      if (this.menuState && this.menuType=="login" && this.auth.user){
+      if (this.menuState && this.auth.user){
         this.loadAllCoupon()
 
       }
     },
     user(){
-      if (this.menuState && this.menuType=="login" && this.auth.user){
+      if (this.menuState && this.auth.user){
         this.loadAllCoupon()
 
       }
