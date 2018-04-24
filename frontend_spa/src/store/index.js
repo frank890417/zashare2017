@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
 Vue.use(Vuex);
-
+import softscroll from 'monoame-softscroll'
 const store = new Vuex.Store({
   modules: {
     auth: require("./modules/auth.js").default,
@@ -89,6 +89,7 @@ const store = new Vuex.Store({
 
         _jf.flush();
       }
+      softscroll.set(!state.menuState)
       state.menuState = value
     },
     setLoading(state, value) {

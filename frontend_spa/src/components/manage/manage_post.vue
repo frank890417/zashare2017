@@ -32,19 +32,19 @@
           //-   span &nbsp;
           //-   i.fa.fa-lock(title="總編輯已鎖定")
       el-table-column(prop="company",label="單位", width="160",:sortable="true")
-      el-table-column(prop="cata",label="類別", width="80" :sortable="true")
+      el-table-column(prop="title",label="標題" width="200" :sortable="true")
       el-table-column(prop="cover",label="封面", width="120")
         template(slot-scope="scope")
           img.cover(:src="scope.row.cover")
+      el-table-column(prop="cata",label="類別", width="80" :sortable="true")
       el-table-column(prop="year",label="年度", width="60",
         :filters="[{ text: '2015', value: '2015' },{ text: '2016', value: '2016' }, { text: '2017', value: '2017' }]",
         :filter-method="filterYear" :sortable="true")
-      el-table-column(prop="title",label="標題" width="200" :sortable="true")
       el-table-column(prop="hashtag",label="#Hash" :sortable="true")
       el-table-column(prop="stick_top_index",label="置頂",width="70" :sortable="true")
       //- el-table-column(prop="stick_top_cata",label="類置頂",width="100" , :sortable="true")
       el-table-column(prop="updated_at",label="更新時間",width="100" , :sortable="true")
-      el-table-column(label="操作", width="150")
+      el-table-column(label="操作", width="150"  fixed="right")
         template(slot-scope="scope")
           span(v-if="!(scope.row.admin_lock && !isAdmin)")
             el-button(@click="handleEdit(scope.row)" type="secondary" size="small") 編輯
@@ -126,7 +126,7 @@ export default {
     }),
     filteredPosts(){
       return this.posts.filter(post=>{
-        return this.keyword=="" || JSON.stringify(post).indexOf(this.keyword)!=-1
+        return this.keyword=="" || JSON.stringify([post.title,post.company,post.hashtag,post.cata]).indexOf(this.keyword)!=-1
       }).filter(post=>{
         return this.now_year=="" || post.year == this.now_year
       }).map(post=>({

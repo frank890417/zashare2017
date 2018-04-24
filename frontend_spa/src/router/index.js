@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import store from '../store'
 import $ from 'jquery'
 Vue.use(Router)
-
+import softscroll from 'monoame-softscroll'
 
 let router = new Router({
   mode: "history",
@@ -26,16 +26,16 @@ router.beforeEach((to, from, next) => {
 
   if (to.path.indexOf("/manage") == 0) {
   } else {
-    window.softScrollDisable = false
+    // window.softScrollDisable = false
   }
   // if (to.meta.type=="news" || to.meta.type=="post"){
     
   // }
 
   if (to.path.indexOf("/manage") == 0) {
-    window.softScrollDisable = true
+    softscroll.set(false)
   } else {
-    window.softScrollDisable = false
+    softscroll.set(true)
   }
   savePositions[from.path] = $(window).scrollTop()
 
