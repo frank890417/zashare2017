@@ -1,35 +1,37 @@
 <template lang="pug">
-.page.member-info
+.page.member-info.text-left
   .container
-    h2 會員資料修改
-    el-form(v-if="userClone", label-width="100px")
-      el-form-item(label="姓名")
-        el-input(v-model="userClone.name")
-      el-form-item(label="Email")
-        el-input(v-model="userClone.email",disabled = true)
-      el-form-item(label="帳號類別",disabled = true)
-        el-input(v-model="userClone.group",disabled = true)
-      el-form-item(label="工作類別",disabled = true)
-        el-select(v-model="userClone.jobcata", placeholder="產業別" , name="jobcata", autocomplete="on")
-          el-option(v-for= "(jb,jbid) in auth.jobcatas", 
-                :value="jb") {{jb}}
-      el-form-item(label="工作職稱",disabled = true , placeholder="e.g. 建築師 / 設計師 / 法官...")
-        el-input(v-model="userClone.job")
-      el-form-item(label="註冊時間")
-        el-input(v-model="userClone.created_at",disabled = true)
-    br
-    el-button(type="primary",@click="updateUserInfo") 更新會員資料
-    br
-    div(v-if="userClone && userClone.studentcard")
-      h3 學生證資訊
-      el-form(label-width="100px")
-        el-form-item(label="登記名")
-          el-input(v-model="userClone.studentcard.name" ,disabled = true)
-        el-form-item(label="學生證序號")
-          el-input(v-model="userClone.studentcard.card_id" ,disabled = true)
-        el-form-item(label="使用期限")
-          el-input(v-model="userClone.studentcard.expiry_datetime",disabled = true)
-    //- pre {{userClone}}
+    .row
+      .col-sm-12
+        h2.mt-5 會員資料修改
+        el-form(v-if="userClone", label-width="100px")
+          el-form-item(label="姓名")
+            el-input(v-model="userClone.name")
+          el-form-item(label="Email")
+            el-input(v-model="userClone.email",disabled = true)
+          el-form-item(label="帳號類別",disabled = true)
+            el-input(v-model="userClone.group",disabled = true)
+          el-form-item(label="工作類別",disabled = true)
+            el-select(v-model="userClone.jobcata", placeholder="產業別" , name="jobcata", autocomplete="on")
+              el-option(v-for= "(jb,jbid) in auth.jobcatas", 
+                    :value="jb") {{jb}}
+          el-form-item(label="工作職稱",disabled = true , placeholder="e.g. 建築師 / 設計師 / 法官...")
+            el-input(v-model="userClone.job")
+          el-form-item(label="註冊時間")
+            el-input(v-model="userClone.created_at",disabled = true)
+        br
+        el-button(type="primary",@click="updateUserInfo") 更新會員資料
+        br
+        div(v-if="userClone && userClone.studentcard")
+          h3 學生證資訊
+          el-form(label-width="100px")
+            el-form-item(label="登記名")
+              el-input(v-model="userClone.studentcard.name" ,disabled = true)
+            el-form-item(label="學生證序號")
+              el-input(v-model="userClone.studentcard.card_id" ,disabled = true)
+            el-form-item(label="使用期限")
+              el-input(v-model="userClone.studentcard.expiry_datetime",disabled = true)
+        //- pre {{userClone}}
 </template>
 
 <script>

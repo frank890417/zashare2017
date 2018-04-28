@@ -70,7 +70,9 @@ i
   position: relative
 
 .noScroll
-  // overflow-y: hidden
+  overflow-y: hidden
+  height: 100vh
+
 .scrollY
   overflow-y: auto
 .scrollX
@@ -139,10 +141,11 @@ i
   height: auto
   width: 100%
   margin-top: 0
-  position: absolute
+  // position: absolute
   overflow-x: hidden
-  left: 0
-  top: 0
+  overflow-y: auto
+  // left: 0
+  // top: 0
 
 .container
   max-width: 960px

@@ -37,6 +37,16 @@ Route::group(['middleware'=>['cors']],function(){
   Route::post("login","Auth\LoginController@postLogin");
 
   Route::post('upload',"ApiController@upload_image");
+
+  Route::group(['expo'=>'manage'],function(){
+    Route::resource('registexpo', 'RegistExpoController');
+    Route::resource('paidrecord', 'PaidRecordController');
+    Route::resource('registworkshop', 'RegistWorkshopController');
+    Route::resource('registexpospeak', 'RegistExpoSpeakController');
+  });
+
+
+
 // Route::get('/page/blog','HomeController@postpage_api');
 // Route::get('/post/n/{title}','PostController@show_name_api');
 

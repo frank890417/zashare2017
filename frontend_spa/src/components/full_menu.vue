@@ -75,68 +75,15 @@
 
         //登入跟會員頁面
       .row.row-page(v-if="menuType=='login'")
-        .col-member.col-sm-12
-          auth_panel(v-if="!auth.user")
-          .container(v-else)
-            .row
-              .col-sm-12
-                .row
-
-                  
-                  .col-sm-4
-
-                    .photo.small(:style="bgcss(getUserPhoto(auth.user))")
-                    span Hello! {{auth.user.name}}
-                      span(@click="logout", style="opacity: 0.5").curp &nbsp;登出
-                    div(v-if="auth.user.studentcard")
-                      h4 學生證資訊
-                      ul
-                        li 學生證卡號： {{auth.user.studentcard.card_id}}
-                        li 學生證級別： {{auth.user.studentcard.type=="normal"?"創校元老":"會員"}}
-                        li 會員效期： {{auth.user.studentcard.expiry_datetime}}
-                    div
-                      h4 學生資訊
-                      ul
-                        li 會員ID碼： {{auth.user.id}}
-                        li 職稱： {{auth.user.jobcata}}
-                        li 工作： {{auth.user.job}} 
-                        li 聯絡信箱：{{auth.user.email}}
-                        //- li 生日： 
-                    span
-                  .col-sm-4
-                  .col-sm-4(@click="setMenuState(false)" )
-                    h4 雜學校公布欄
-                    .row
-                      newsbox(v-for="post in [latestNews]", 
-                        :post = "post" ,
-                        :target="postTarget(post)",
-                        :key="post.title",
-                        :tag="post.tag")
-            .row.row-coupon( v-if="auth.user.studentcard || isAdmin")
-              .col-sm-12(v-if="coupontypes.length")
-                .tag ZA COURSE
-                i.fa.fa-info
-                br
-              .col-sm-6.col-md-4.mt-3(v-for="(ct,ctid) in coupontypes")
-                .coupon-box-inner
-                  .cover(:style="bgcss(ct.cover)")
-                    //.num 00{{ctid+1}}
-                  .info
-                    h4 {{ct.title}}
-                    p(v-html="ct.description")
-                    //p 
-                      span 啟用時間：{{ct.active_datetime}}<br>
-                      span 結束時間：{{ct.expiry_datetime}}<br>
-                  div(v-if="ct.can_get")
-                    .btn.btn-primary.text-center(v-if="!ct.my",@click="getCoupon(ct)") 點擊以索取兌課序號
-                  div(v-else)
-                    h4.text-center 無法領取(不符合資格)
-                  h4.text-center(v-if="ct.my") 序號：{{ct.my.coupon}}
+        panel_member.mt-5
+                
 </template>
 
 <script>
 import {mapState,mapMutations, mapActions, mapGetters} from 'vuex'
 import navbar from './navbar.vue'
+import panel_member from './panels/panel_member.vue'
+
 export default {
   data() {
     return {
@@ -246,7 +193,7 @@ export default {
     }
   },
   components: {
-    navbar
+    navbar,panel_member
   }
 }
 </script>
@@ -350,7 +297,8 @@ export default {
       
       height: auto
       min-height: 100vh
-      overflow: hidden
+      // overflow: hidden
+      overflow-y: auto
       position: relative
       &.h100
         height: 100vh
