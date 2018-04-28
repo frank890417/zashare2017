@@ -73,6 +73,8 @@
               el-input(v-model="registExpoWorkshop.secondary_contact_email")
 
 
+    div(v-show="active==2") 
+      pre(v-html="registExpoWorkshop")
     div
       .btn(@click="prev") 上一步
       .btn(@click="next") 下一步
@@ -148,11 +150,11 @@ export default {
         })
     },
     prev() {
-      if (this.active-- < 0) this.active = 1;
+      if (this.active-- < 0) this.active = 2;
       window.scrollTo(0,0)
     }, 
     next() {
-      if (this.active++ > 1) this.active = 0;
+      if (this.active++ > 2) this.active = 0;
       window.scrollTo(0,0)
     }
   }

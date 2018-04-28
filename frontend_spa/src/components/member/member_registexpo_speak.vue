@@ -82,6 +82,9 @@
             el-form-item(label="Email")
               el-input(v-model="registExpoSpeak.secondary_contact_email")
 
+    div(v-show="active==3") 
+      pre(v-html="registExpoSpeak")
+
     div
       .btn(@click="prev") 上一步
       .btn(@click="next") 下一步
@@ -156,11 +159,11 @@ export default {
         })
     },
     prev() {
-      if (this.active-- < 0) this.active = 1;
+      if (this.active-- < 0) this.active = 3;
       window.scrollTo(0,0)
     }, 
     next() {
-      if (this.active++ > 1) this.active = 0;
+      if (this.active++ > 3) this.active = 0;
       window.scrollTo(0,0)
     }
   }

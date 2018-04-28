@@ -64,6 +64,9 @@
         el-form-item(label="發票寄送：郵遞區號")
           el-input(v-model="registExpoPaid.receipt_postcode")
 
+    div(v-show="active==2") 
+      pre(v-html="registExpoPaid")
+
 
     div
       .btn(@click="prev") 上一步
@@ -115,11 +118,11 @@ export default {
         })
     },
     prev() {
-      if (this.active-- < 0) this.active = 1;
+      if (this.active-- < 0) this.active = 2;
       window.scrollTo(0,0)
     }, 
     next() {
-      if (this.active++ > 1) this.active = 0;
+      if (this.active++ > 2) this.active = 0;
       window.scrollTo(0,0)
     }
   }

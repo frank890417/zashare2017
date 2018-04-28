@@ -103,6 +103,9 @@
               el-input(v-model="registExpo.secondary_contact_phone")
             el-form-item(label="Email")
               el-input(v-model="registExpo.secondary_contact_email")
+
+    div(v-show="active==3") 
+      pre(v-html="registExpo")
     div
       .btn(@click="prev") 上一步
       .btn(@click="next") 下一步
