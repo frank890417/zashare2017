@@ -40,7 +40,7 @@
         .tag ZA COURSE
         i.fa.fa-info
         br
-      .col-sm-6.col-md-4.mt-3(v-for="(ct,ctid) in coupontypes")
+      .col-sm-6.col-md-4.mt-3(v-for="(ct,ctid) in coupontypes", v-if="ct.can_get")
         .coupon-box-inner
           .cover(:style="bgcss(ct.cover)")
             //.num 00{{ctid+1}}
@@ -179,17 +179,12 @@ export default {
 @import "../../assets/_mixins.sass"
 
 .col-member
-  height: 100vh
-  min-height: 100vh
-  overflow-y: scroll
-
   background-color: #eee
   padding: 40px
-  padding-top: 100px
-  box-sizing: border-box
-  display: flex
-  justify-content: center
-  align-items: center
+  padding-top: 50px
+  padding-bottom: 50px
+  height: auto
+  // box-sizing: border-box
 
   a.box
     padding: 20px

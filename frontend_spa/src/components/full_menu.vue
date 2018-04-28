@@ -7,7 +7,7 @@
 
   transition(name="fade")
     .fullPage(v-if="menuState")
-      .row.row-page(v-if="menuType=='search'")
+      div(v-if="menuType=='search'")
         .col-sm-12
           .container.container-menu
             .row.row-search
@@ -24,7 +24,7 @@
                   .tag(v-for="tag in tags", @click="setSearchKeyword(tag)") {{tag}}
         br
         .col-sm-12
-          .container.container-posts
+          .container
             div.row(v-if="searchKeyword!=''" 
                     @click="setMenuState(false)")
               newsbox.col-lg-4.col-md-6.col-sm-12(v-for="post in filteredPost", 
@@ -74,8 +74,8 @@
                 p 網站製作：墨雨設計<br>© 2018 雜學校 Za Share All Rights Reserved.
 
         //登入跟會員頁面
-      .row.row-page(v-if="menuType=='login'")
-        panel_member.mt-5
+      div(v-if="menuType=='login'")
+        panel_member
                 
 </template>
 
@@ -270,6 +270,7 @@ export default {
     position: fixed
     width: 100vw
     // height: auto
+    overflow-y: auto
     // min-height: 100vh
     height: 100vh
     // padding: 20px
@@ -295,7 +296,7 @@ export default {
 
     .row-page
       
-      height: auto
+      height: 100vh
       min-height: 100vh
       // overflow: hidden
       overflow-y: auto
@@ -311,10 +312,6 @@ export default {
       
     .col-menu
       height: 100vh
-    .col-member
-      height: 100vh
-      min-height: 100vh
-      overflow-y: scroll
     .col-menu
       padding: 50px 60px
       padding-left: 100px
@@ -357,61 +354,6 @@ export default {
       .row-search
         width: 100%
 
-    .col-member
-      background-color: #eee
-      padding: 40px
-      box-sizing: border-box
-      display: flex
-      justify-content: center
-      align-items: center
-
-
-      +rwd_md
-        display: block
-      .auth-card
-        background-color: transparent 
-        max-width: 350px
-        .top,.bottom
-          background-color: transparent 
-      .card
-        text-align: center
-        display: flex
-        justify-content: center
-        width: 100%
-        box-sizing: border-box
-        flex-direction: column
-        .card-loading
-          position: absolute
-          width: 100%
-          height: 100%
-          background-color: rgba(#eee,0.6)
-          // opacity: 0.5
-          left: 0
-          top: 0
-
-        .top
-          display: flex
-          justify-content: center
-          flex-direction: column
-          align-items: center
-          margin-bottom: 3px
-          background-color: white
-          padding: 25px
-          padding-bottom: 0
-          .name
-            font-size: 18px
-        .bottom
-          background-color: white
-          padding: 25px
-        .photo
-          width: 100px
-          height: 100px
-          margin-top: 55px
-          margin-bottom: 40px
-          background-color: black
-          background-position: center center
-          background-repeat: no-repeat
-          background-size: 80% auto
     .row-search
       flex-shrink: 0
       padding-bottom: 20px

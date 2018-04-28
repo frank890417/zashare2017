@@ -14,6 +14,7 @@
           el-menu-item(index="/manage/cata") 類別管理 
           el-menu-item(index="/manage/coupon") Coupon管理 
         auth_panel(layout="function")
+        router-link.btn(to="/") 返回首頁
 
       .col-sm-10.offset-2.col-content
         transition(name="fade", mode="out-in")
