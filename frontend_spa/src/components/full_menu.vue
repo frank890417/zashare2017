@@ -105,7 +105,9 @@ export default {
       news: state=>state.post.news
     }),
     filteredPost(){
-      return this.posts.map(o=>({...o,tag: "ZA EXPO"})).filter(o=>JSON.stringify(o).indexOf(this.searchKeyword)!=-1)
+      return this.posts.map(o=>({...o,tag: "ZA EXPO"}))
+            .filter(o=>JSON.stringify(o).indexOf(this.searchKeyword)!=-1)
+            .filter(o=>o.status=="published")
     },
     latestNews(){
       return this.news.slice(-1)[0]
@@ -459,6 +461,9 @@ export default {
 
   .col-member
     position: relative
+    display: flex
+    justify-content: center
+    min-height: 100vh
     .fa-info
       +size(20px)
       +flexCenter
