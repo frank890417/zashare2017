@@ -8,9 +8,14 @@ use App\RegistExpoSpeak;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class RegistExpoSpeakController extends Controller {
 
   // 
+    public function __construct()
+    {
+        $this->middleware('jwt.auth');
+    }
     public function index(){
         return  RegistExpoSpeak::all();
     }
@@ -40,6 +45,15 @@ class RegistExpoSpeakController extends Controller {
         
         $RegistExpoSpeak = RegistExpoSpeak::find($RegistExpoSpeak->id);
         return $RegistExpoSpeak;
+    }
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\Guard
+     */
+    public function guard()
+    {
+        return Auth::guard();
     }
 
 }

@@ -6,7 +6,7 @@
       .col-sm-12
         .row.mt-5
           .col-sm-4
-            .photo.small(:style="bgcss(getUserPhoto(auth.user))")
+            .photo.small(:style="bgcss(getUserPhoto)")
             span Hello! {{auth.user.name}}
               span(@click="logout", style="opacity: 0.5").curp &nbsp;登出
               span.ml-5(@click="setMenuState(false)")
@@ -97,7 +97,11 @@ export default {
     },
     latestNews(){
       return this.news.slice(-1)[0]
-    }
+    },
+    ...mapGetters({
+      getUserPhoto: 'auth/getUserPhoto',
+      isAdmin: 'auth/isAdmin'
+    }),
   },
   methods: {
     ...mapMutations(['setMenuState','setSearchKeyword','openMenu']),
@@ -107,10 +111,6 @@ export default {
       logout: 'auth/logout',
       loginFacebook: "auth/loginFacebook",
       authInit: "auth/init"
-    }),
-    ...mapGetters({
-      getUserPhoto: 'auth/getUserPhoto',
-      isAdmin: 'auth/isAdmin'
     }),
     postTarget(post){
       // if (this.$route.meta.type=="expo"){

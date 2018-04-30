@@ -106,6 +106,8 @@
 
     div(v-show="active==3") 
       pre(v-html="registExpo")
+      button(@click="sendRegistForm") 送出報名
+
     div
       .btn(@click="prev") 上一步
       .btn(@click="next") 下一步
@@ -136,20 +138,25 @@ export default {
     this.userClone = JSON.parse(JSON.stringify(this.user))
   },
   methods: {
-    updateUserInfo(){
-       this.axios.post(
-          `/api/auth/user/update/info`,
-          { 
-            token: this.token,
-            user: this.userClone
-          }
-        ).then(res=>{
+    sendRegistForm(){
+       let senddata = JSON.parse(JSON.stringify(this.registExpo))
+       Object.keys(senddata).forEach(key=>{
+         if (typeof senddata[key]=="object"){
+           senddata[key]=JSON.stringify(senddata[key])
+         }
+       })
+       this.axios.post(`/api/registexpo`,
+        {
+          token: this.token,
+          registexpo: senddata
+        }
+       ).then(res=>{
           this.$message({
-            message: '資料更新成功',
+            message: '報名成功',
             type: 'success'
           });
           // let _this  = this
-          console.log(res.data.user)
+          // console.log(res.data.user)
           // setTimeout(function(){
           // this.$router.push(`/manage/${this.$route.meta.type}/`+res.data.data.id)
           // },300)

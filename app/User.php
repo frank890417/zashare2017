@@ -54,4 +54,23 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasOne('App\Studentcard',"user_id","id");
     }
     
+
+    public function PaidRecord(){
+        return $this->hasOne('App\PaidRecord',"user_id","id");
+    }
+
+    public function RegistExpo(){
+        return $this->hasOne('App\RegistExpo',"user_id","id");
+    }
+
+
+    public function RegistExpoSpeak(){
+        return $this->hasOne('App\RegistExpoSpeak',"user_id","id");
+    }
+
+
+    public function RegistWorkshop(){
+        return $this->hasOne('App\RegistWorkshop',"user_id","id");
+    }
+    
 }

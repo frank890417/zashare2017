@@ -45,7 +45,7 @@
               .col-login
                 span(v-if="auth.user") 
                   span Hello
-                  span(@click="openMenu('login')") 雜學校學生 
+                  span(@click="openMenu('login')") 雜學校學生
                     b {{auth.user.name}}
                 span(v-else) 
                   b(style="margin-right: 30px") 雜學校 
@@ -111,7 +111,11 @@ export default {
     },
     latestNews(){
       return this.news.slice(-1)[0]
-    }
+    },
+    ...mapGetters({
+      getUserPhoto: 'auth/getUserPhoto',
+      isAdmin: 'auth/isAdmin'
+    }),
   },
   methods: {
     ...mapMutations(['setMenuState','setSearchKeyword','openMenu']),
@@ -121,10 +125,6 @@ export default {
       logout: 'auth/logout',
       loginFacebook: "auth/loginFacebook",
       authInit: "auth/init"
-    }),
-    ...mapGetters({
-      getUserPhoto: 'auth/getUserPhoto',
-      isAdmin: 'auth/isAdmin'
     }),
     postTarget(post){
       // if (this.$route.meta.type=="expo"){

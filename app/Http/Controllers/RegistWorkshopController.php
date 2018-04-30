@@ -7,10 +7,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\RegistWorkshop;
 class RegistWorkshopController extends Controller {
 
    // 
+    public function __construct()
+    {
+        $this->middleware('jwt.auth');
+    }
     public function index(){
         return  RegistWorkshop::all();
     }
@@ -42,6 +47,15 @@ class RegistWorkshopController extends Controller {
         return $RegistWorkshop;
     }
 
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\Guard
+     */
+    public function guard()
+    {
+        return Auth::guard();
+    }
   
 }
 

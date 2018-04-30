@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class RegistWorkshop extends Model {
 
 	protected $table = 'regist_workshops';
+	protected $guarded = array();
 	public $timestamps = true;
 
 	// use SoftDeletingTrait;

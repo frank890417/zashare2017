@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PaidRecord extends Model {
 
 	protected $table = 'paid_records';
+	protected $guarded = array();
 	public $timestamps = true;
 
 	// use SoftDeletingTrait;

@@ -7,6 +7,7 @@ use App\PaidRecord;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PaidRecordController extends BaseController {
 
@@ -42,6 +43,15 @@ class PaidRecordController extends BaseController {
         return $PaidRecord;
     }
 
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\Guard
+     */
+    public function guard()
+    {
+        return Auth::guard();
+    }
   
 }
 
