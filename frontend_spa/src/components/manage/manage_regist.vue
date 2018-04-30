@@ -1,6 +1,6 @@
 <template lang="pug">
   .page.manage-post.text-left
-    h3 管理類別
+    h3 管理2018報名紀錄
     el-input(v-model="keyword", placeholder="輸入關鍵字")
     br
     //router-link.btn.btn-primary(to="/post/new") + 新增文章
@@ -8,17 +8,25 @@
       el-option(value="2017", label="2017")
       el-option(value="2016", label="2016")
     br
-    el-table(:data="catas" border)
+    el-table(:data="filteredRegistexpo" border)
       el-table-column(prop="id",label="#", width="60" sortable)
       //- el-table-column(prop="tag",label="類別", width="80" sortable)
-      el-table-column(prop="name",label="名字", width="200" sortable)
+      el-table-column(prop="name_cht",label="中文", width="200" sortable)
+      el-table-column(prop="name_eng",label="英文", width="200" sortable)
+
+      el-table-column(prop="description",label="描述", width="200" sortable)
+      el-table-column(prop="attend_reason",label="參與原因", width="200" sortable)
+      el-table-column(prop="paid_record",label="繳款", width="80" sortable)
+      el-table-column(prop="file_proposal",label="簡報", width="80")
+        template(slot-scope="scope")
+          a(:href="apiDomain+'storage'+scope.row.file_proposal", target="_href") 連結
       //- el-table-column(prop="cover",label="封面", width="120")
         template(slot-scope="scope")
           img.cover(:src="scope.row.cover")
       //- el-table-column(prop="year",label="年度", width="100" sortable,
         :filters="[{ text: '2016', value: '2016' }, { text: '2017', value: '2017' }]",
         :filter-method="filterYear")
-      el-table-column(prop="year",label="年份" width="60" sortable)
+      //- el-table-column(prop="year",label="年份" width="60" sortable)
       //- el-table-column(label="操作", width="200")
         template(slot-scope="scope")
           el-button(@click="handleEdit(scope.row)" type="text" size="small") 編輯
@@ -36,38 +44,51 @@
 
 <script>
 import {mapState} from 'vuex'
-
+import axios from 'axios'
 export default {
   data(){
     return {
       // posts: [],
       keyword: "",
       now_year: "2016",
+      registexpos: []
     }
   },
   mounted(){
+    console.log("loag")
+    this.loadAll()
   },
   methods: {
-    handleEdit(row){
-      this.$router.push("/company/"+row.id)
-    },
+    // handleEdit(row){
+    //   this.$router.push("/api/registexpo")
+    // },
     filterYear(value,row){
       return row.year === value;
-    }
+    },
+
+    loadAll(){
+      axios.get("/api/registexpo",{
+        params: {
+          token: this.token,
+        }
+      }).then(res=>{
+        this.$set(this,"registexpos",res.data)
+      })
+    },
   },
   computed:{
      ...mapState({
-      catas: state=>state.manage.catas
+      catas: state=>state.manage.catas,
+      token: state=>state.auth.token
     }),
-    // filteredCompany(){
-    //   return this.companies.filter(company=>{
-    //     return this.keyword=="" || JSON.stringify(company).indexOf(this.keyword)!=-1
-    //   }).filter(company=>{
-    //     return this.now_year=="" || company.year == this.now_year
-    //   }).map(company=>({
-    //     ...company,
-    //   }))
-    // }
+    filteredRegistexpo(){
+      return (this.registexpos || []).filter(regist=>{
+        return this.keyword=="" || JSON.stringify(regist).indexOf(this.keyword)!=-1
+      }).map(regist=>({
+        ...regist,
+        paid_record: (regist.paid_record && regist.paid_record.id)?"未繳款":"已繳款",
+      }))
+    }
   }
 }
 </script>
