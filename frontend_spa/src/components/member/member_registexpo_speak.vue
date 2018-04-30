@@ -16,28 +16,28 @@
         el-step(title="填寫完成" , @click="active=4")
         
         
-    div(v-show="active==0")
-      h4.mt-5 ㄧ、申請基本資訊
-      el-form(v-if="registExpoSpeak")
-      
+    el-form(v-if="registExpoSpeak",  :disabled = "typeof registExpoSpeak.id=='number'")
+      div(v-show="active==0")
+        h4.mt-5 ㄧ、申請基本資訊
+        
         el-form-item(label="1. 評選入圍之單位，是否同意策展權益交由給主辦單位規劃與設計")
-          el-radio(label="1" v-model="registExpoSpeak.agree_plan" ) 是
-          el-radio(label="0" v-model="registExpoSpeak.agree_plan" ) 否
+          el-radio(:label="1" v-model="registExpoSpeak.agree_plan" ) 是
+          el-radio(:label="0" v-model="registExpoSpeak.agree_plan" ) 否
           
-       
+      
         el-form-item(label="2. 團隊人數")
           el-input-number(v-model="registExpoSpeak.team_person_count")
 
         el-form-item(label="3. 是否已有獲得資金挹注")
-          el-radio(label="1" v-model="registExpoSpeak.has_money" ) 是
-          el-radio(label="0" v-model="registExpoSpeak.has_money" ) 否
-                    
+          el-radio(:label="1" v-model="registExpoSpeak.has_money" ) 是
+          el-radio(:label="0" v-model="registExpoSpeak.has_money" ) 否
+                      
 
 
-    div(v-show="active==1")
-      h4.mt-5 二、申請資料填寫
+      div(v-show="active==1")
+        h4.mt-5 二、申請資料填寫
 
-      el-form(v-if="registExpoSpeak")
+
         el-form-item(label="1. 請簡述你的具體創業內容（200-300字內）")
           el-input(v-model="registExpoSpeak.startup_content", type="textarea" rows="5")
 
@@ -57,13 +57,13 @@
           el-upload
 
 
-    div(v-show="active==2")
-      h4.mt-5 三、申請人聯絡資料
-      .row
-        .col-sm-12
-          p 1.	主要聯絡人（請優先填寫執行窗口）
-        .col-sm-12
-          el-form(v-if="registExpoSpeak", label-width="150px")
+      div(v-show="active==2")
+        h4.mt-5 三、申請人聯絡資料
+        .row
+          .col-sm-12
+            p 1.	主要聯絡人（請優先填寫執行窗口）
+          .col-sm-12
+
             el-form-item(label="姓名")
               el-input(v-model="registExpoSpeak.main_contact_name")
             el-form-item(label="手機")
@@ -71,11 +71,11 @@
             el-form-item(label="Email")
               el-input(v-model="registExpoSpeak.main_contact_email")
 
-      .row
-        .col-sm-12
-          p 2.	次要聯絡人
-        .col-sm-12
-          el-form(v-if="registExpoSpeak", label-width="150px")
+        .row
+          .col-sm-12
+            p 2.	次要聯絡人
+          .col-sm-12
+
             el-form-item(label="姓名")
               el-input(v-model="registExpoSpeak.secondary_contact_name")
             el-form-item(label="手機")
@@ -83,16 +83,16 @@
             el-form-item(label="Email")
               el-input(v-model="registExpoSpeak.secondary_contact_email")
 
-    div(v-show="active==3") 
-      pre(v-html="registExpoSpeak")
-      el-button(@click="sendRegistForm") 送出雜短講申請
-    div(v-show="active==4") 
-      p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
-      panel_expo2018
+      div(v-show="active==3") 
+        pre(v-html="registExpoSpeak")
+        el-button(@click="sendRegistForm") 送出雜短講申請
+      div(v-show="active==4") 
+        p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
+        panel_expo2018
 
-    div
-      .btn(@click="prev") 上一步
-      .btn(@click="next") 下一步
+      div
+        .btn(@click="prev") 上一步
+        .btn(@click="next") 下一步
 
 </template>
 

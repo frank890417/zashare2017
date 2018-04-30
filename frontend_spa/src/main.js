@@ -64,6 +64,11 @@ Vue.component("auth_panel", auth_panel)
 Vue.component("section_footer", section_footer)
 
 Vue.mixin({
+  computed: {
+    apiDomain(){
+      return process.env.API_DOMAIN
+    }
+  },
   methods: {
     replaceBr(text){
       return text.replace(/\n/g,"<br>")
@@ -103,6 +108,30 @@ Vue.mixin({
           console.log(err);
         })
     },
+
+    uploadFile(filedata) {
+      // An example of using FormData
+      // NOTE: Your key could be different such as:
+      // formData.append('file', file)
+      console.log(filedata)
+      var formData = new FormData();
+      formData.append('file', filedata.file)
+      formData.append('token', store.state.auth.token)
+      console.log(formData)
+
+      axios({
+        url: process.env.API_DOMAIN + 'api/registexpo/uploadtemp',
+        method: 'POST',
+        data: formData
+      })
+      .then((result) => {
+        let url = result.data // Get url from response
+        console.log(result.data)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    }, 
     cssbg(url) {
       let use_url = url.replace("http://service.zashare.org/assets/", "/dschool_old_assets/")
       let result = {

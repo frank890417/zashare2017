@@ -9,7 +9,7 @@
     .col-sm-12
       .row(@click="setMenuState(false)")
         .col-sm-6
-          router-link.box.big(to="/member/registexpo") 
+          router-link.box.big(to="/member/registexpo").animated.fadeIn.delay-3
             .cover(:style="bgcss('/static/img/regist2018/ZAEXPO.jpg')")
               span 申請及繳費狀態：
               span(v-if="registExpo.id && !registExpo.paid_record") 已報名 未繳費
@@ -19,7 +19,7 @@
               div
                 h5 參展申請
                 router-link.float-right.btn(to="/member/registexpo/paid",
-                                                v-if="registExpo.id ") 繳費確認
+                                                v-if="registExpo.id ").animated.fadeIn.delay-6 繳費確認
               span(v-if="registExpo") 參展編碼： 
                 span(v-if="registExpo.id") {{ registId }}
               br
@@ -27,7 +27,7 @@
                 span(v-if="registExpo.id") {{ registExpo.name_cht }}
 
         .col-sm-6
-          router-link.box(to="/member/registexpo/workshop") 
+          router-link.box(to="/member/registexpo/workshop").animated.fadeIn.delay-9
             .cover(:style="bgcss('/static/img/regist2018/ZAWORKSHOP.jpg')")
               span 申請狀態：
               span(v-if="registExpo.regist_workshop") 已報名

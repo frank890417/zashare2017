@@ -21,7 +21,7 @@
         el-step(title="填寫完成" , @click="active=3")
       div(v-show="active==0")
         h4.mt-5 ㄧ、匯款資訊
-        el-form(v-if="registExpoPaid")
+        el-form(v-if="registExpoPaid",  :disabled = "typeof registExpoPaid.id=='number'")
           el-form-item(label="匯款日期/時間")
             el-date-picker(v-model="registExpoPaid.paid_datetime" type="datetime",
                           value-format="yyyy-MM-dd HH:mm:ss")

@@ -12,7 +12,8 @@
         el-step(title="工坊聯絡資料" , @click="active=1")
         el-step(title="確認與送出" , @click="active=2")
         el-step(title="填寫完成" , @click="active=3")
-    el-form(v-if="registExpoWorkshop", :disabled = "typeof registExpoWorkshop.id=='number'")
+    //:disabled = "typeof registExpoWorkshop.id=='number'"
+    el-form(v-if="registExpoWorkshop", )
       div(v-show="active==0")
         h4.mt-5 ㄧ、申請基本資訊
           el-form-item(label="1.	課程類型")
@@ -42,8 +43,21 @@
               | <br>二、主題或議題設定（如本次體驗活動重點與品牌本身並無直接關聯，可詳加補述）
               | <br>三、活動內容（目標族群、活動企劃、執行方式、人力分工配置等）
               | <br>四、過往活動經驗或舉辦成果
-          el-upload
+          el-upload(
+            drag
+            auto-upload
+            ref="upload"
+            accept="pdf"
+            :data="{token: auth.token}"
+            :on-success="(url)=>{registExpoWorkshop.class_proposal = url}"
+            :action="apiDomain+'api/registexpo/uploadtemp'"
             
+          )
+            i.el-icon-upload
+            div.el-upload__text 將文件拖曳到此處或<em>點擊上傳</em>
+            div.el-upload__tip(slot="tip") 只能上傳不超過20MB的PDF文件
+        // :action "apiDomain+'api/registexpo/uploadtemp'"
+                  
 
 
       div(v-show="active==1")

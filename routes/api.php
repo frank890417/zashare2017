@@ -39,6 +39,7 @@ Route::group(['middleware'=>['cors']],function(){
   Route::post('upload',"ApiController@upload_image");
 
   
+  Route::post('registexpo/uploadtemp','RegistExpoController@uploadtemp');
   Route::get('registexpo/my','RegistExpoController@my');
   Route::resource('registexpo', 'RegistExpoController');
   Route::patch('registexpo','RegistExpoController@updateMyData');

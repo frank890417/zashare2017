@@ -12,8 +12,8 @@
         el-step(title="參展聯絡資料" , @click="active=2")
         el-step(title="確認與送出" , @click="active=3")
         el-step(title="報名完成" , @click="active=4")
-    
-    el-form(v-if="registExpo" :disabled="typeof registExpo.id=='number'")
+    //- :disabled="typeof registExpo.id=='number'"
+    el-form(v-if="registExpo" )
       div(v-show="active==0")
         h4.mt-5 ㄧ、參展資訊
         el-form-item(label="申請攤位類型")
@@ -77,6 +77,22 @@
             li 七、過往參展經驗或活動成果
             li 八、如會在展位現場進行銷售或名單資料搜集，需提交商品介紹與現場售價或名單搜集方式（例如遊戲互動、傳單、coupon）
 
+        el-upload(
+            drag
+            auto-upload
+            ref="upload"
+            accept="pdf"
+            :data="{token: auth.token}"
+            :on-success="(url)=>{registExpo.file_proposal = url}"
+            :action="apiDomain+'api/registexpo/uploadtemp'"
+            
+          )
+            i.el-icon-upload
+            div.el-upload__text 將文件拖曳到此處或<em>點擊上傳</em>
+            div.el-upload__tip(slot="tip") 只能上傳不超過20MB的PDF文件
+        // :action "apiDomain+'api/registexpo/uploadtemp'"
+  
+
         el-form-item(label="請簡述參與雜學校的原因（100字以內）" :maxlength="100")
           el-input(v-model="registExpo.attend_reason", type="textarea" :rows="5")
 
@@ -115,9 +131,7 @@
 
     div(v-show="active==4") 
       p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
-      router-link.btn(to="/member/registexpo/workshop") 雜工坊
-      router-link.btn(to="/member/registexpo/speak") Zac. 教育新創短講評選
-
+      panel_expo2018
     div()
       .btn(@click="prev") 上一步
       .btn(@click="next" , v-if="active!=4") 下一步

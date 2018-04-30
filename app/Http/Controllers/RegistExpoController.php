@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Storage;
+use File;
 use App\RegistExpo;
 use App\RegistExpoSpeak;
 use App\RegistWorkshop;
@@ -94,14 +96,51 @@ class RegistExpoController extends Controller {
                 $regist_workshop = $inputs['regist_workshop'];
                 $obj = RegistWorkshop::updateOrCreate(['registexpos_id'=>$RegistExpo->id]);
                 $obj->registexpos_id= $RegistExpo->id;
-                $obj->update( $regist_workshop);               
+                $obj->update( $regist_workshop);      
+                
+                //將工坊簡報搬移到資料夾
+                try{
+                    if (strrpos( $obj->class_proposal, "雜工坊報名(已送出)")==false){
+                        $newname = "ZA".str_pad($RegistExpo->id,3,'0').'-'.$RegistExpo->name_cht.'-工坊報名.pdf';
+                        $fullpath = "雜工坊報名(已送出)/".$newname;
+                        
+                        try{
+                            Storage::disk('public')->delete($fullpath);
+                        } catch(Exception $e){
+                        }
+                        Storage::disk('public')->copy($obj->class_proposal,$fullpath);
+                        $obj->class_proposal="/stroage/app/public/".$fullpath;
+                    }
+                } catch(Exception $e){
+                    
+                }
+
                 $obj->save();
             }
+
+            
+            
+
             unset($inputs['regist_workshop']); 
         }
 
 
         $RegistExpo->update($inputs);
+        try{
+            if (strrpos($RegistExpo->file_proposal, "參展簡報(已送出)")==false){
+                $newname = "ZA".str_pad($RegistExpo->id,3,'0').'-'.$RegistExpo->name_cht.'-參展簡報.pdf';
+                $fullpath = "參展簡報(已送出)/".$newname;
+                
+                try{
+                    Storage::disk('public')->delete($fullpath);
+                } catch(Exception $e){
+                }
+                Storage::disk('public')->copy($RegistExpo->file_proposal,$fullpath);
+                $RegistExpo->file_proposal="/stroage/app/public/".$fullpath;
+            }
+        } catch(Exception $e){
+            
+        }
         $result= RegistExpo::where('user_id',$user->id) ->with(['PaidRecord','RegistExpoSpeak','RegistWorkshop'])->get() ->first();
         
         return [
@@ -120,6 +159,22 @@ class RegistExpoController extends Controller {
         $inputs['user_id']=$user->id;
         if ( !RegistExpo::find($user->id)){
             $RegistExpo = RegistExpo::forceCreate($inputs);
+            //搬移參展簡報到正式資料夾
+            try{
+                if (strrpos($RegistExpo->file_proposal, "參展簡報(已送出)")==false){
+                    $newname = "ZA".str_pad($RegistExpo->id,3,'0').'-'.$RegistExpo->name_cht.'-參展簡報.pdf';
+                    $fullpath = "參展簡報(已送出)/".$newname;
+                    
+                    try{
+                        Storage::disk('public')->delete($fullpath);
+                    } catch(Exception $e){
+                    }
+                    Storage::disk('public')->copy($RegistExpo->file_proposal,$fullpath);
+                    $RegistExpo->file_proposal="/stroage/app/public/".$fullpath;
+                }
+            } catch(Exception $e){
+                
+            }
         }else{
             return ["status"=>"fail, user has already registed"];
         }
@@ -135,6 +190,22 @@ class RegistExpoController extends Controller {
         return Auth::guard();
     }
 
+
+
+    public function uploadtemp(){
+        //上傳暫時檔案
+        $input_file = Input::file('file');
+        $user = $this->guard()->user();
+        // var_dump($input_file );
+        // exit;
+        $folder="/2018/展覽報名/".$user->id."/";
+        $use_filename=date("Y-m-d H:i:s")."-參展暫存資料.".$input_file->getClientOriginalExtension();
+        Storage::disk('public')->putFileAs($folder,$input_file ,$use_filename);
+
+        
+        return $folder.$use_filename;
+
+    }
   
 }
 
