@@ -14,7 +14,7 @@ class CreateRegistExposTable extends Migration {
 			$table->softDeletes();
 			$table->string('type', 200)->nullable();
 			$table->string('theme')->nullable();
-			$table->boolean('atteneded')->nullable()->default(false);
+			$table->string('attended')->nullable();
 			$table->string('name_eng')->nullable();
 			$table->string('name_cht')->nullable();
 			$table->string('description', 500)->nullable();

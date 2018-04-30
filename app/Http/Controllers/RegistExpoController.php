@@ -25,10 +25,25 @@ class RegistExpoController extends Controller {
     }
     public function update($id){
         // $studentcard =  User::find($user->id)->studentcard;
-
+        
         $inputs = Input::get(["registexpo"]);
         
         $RegistExpo = RegistExpo::find($id);
+        $RegistExpo->update($inputs);
+        $result =  $RegistExpo;
+
+        return [
+            "status"=>"success",
+            "data"=>$result
+        ];
+    }
+    public function updateMyData(){
+        
+        $inputs = Input::get(["registexpo"]);
+        $user = $this->guard()->user();
+        
+        $inputs['user_id']=$user->id;
+        $RegistExpo = RegistExpo::find($user->id);
         $RegistExpo->update($inputs);
         $result =  $RegistExpo;
 
@@ -46,9 +61,12 @@ class RegistExpoController extends Controller {
         $inputs = Input::get(["registexpo"]);
         $user = $this->guard()->user();
         $inputs['user_id']=$user->id;
-        $RegistExpo = RegistExpo::create($inputs);
-        
-        $RegistExpo = RegistExpo::find($RegistExpo->id);
+        if ( !RegistExpo::find($user->id)){
+            $RegistExpo = RegistExpo::create($inputs);
+            $RegistExpo = RegistExpo::find($RegistExpo->id);
+        }else{
+            return ["status"=>"fail, user has already registed"];
+        }
         return $RegistExpo;
     }
     /**

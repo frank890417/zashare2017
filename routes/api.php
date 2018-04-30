@@ -40,6 +40,7 @@ Route::group(['middleware'=>['cors']],function(){
 
   Route::group(['expo'=>'manage'],function(){
     Route::resource('registexpo', 'RegistExpoController');
+    Route::patch('registexpo','RegistExpoController@updateMyData');
     Route::resource('paidrecord', 'PaidRecordController');
     Route::resource('registworkshop', 'RegistWorkshopController');
     Route::resource('registexpospeak', 'RegistExpoSpeakController');

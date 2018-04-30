@@ -27,7 +27,7 @@
                   v-for='v in ["教育創新","文化實踐","生活探索","專業培育"]') {{v}}
 
         el-form-item(label="是否曾參展雜學校？")
-          el-select(v-model="registExpo.atteneded")
+          el-select(v-model="registExpo.attended")
             el-option(:value="v"
                   v-for='v in ["首次參展","2015不太乖教育節","2016雜學校","2017雜學校"]') {{v}}
 
@@ -45,12 +45,14 @@
                     :maxlength="300")
 
         el-form-item(label="你目前所經營/接觸的目標受眾（取前2個最接近的對話群、消費群）")
-          el-select(v-model="registExpo.target_audience" multiple)
+          el-select(v-model="registExpo.target_audience" multiple,
+                    multiple-limit="2")
             el-option(:value="v"
                   v-for='v in audiences') {{v}}
 
         el-form-item(label="最希望在雜學校接觸/開放的目標受眾（取前2個最想開發的對話群、消費群）")
-          el-select(v-model="registExpo.want_audience" multiple)
+          el-select(v-model="registExpo.want_audience" multiple,
+                    multiple-limit="2")
             el-option(:value="v"
                   v-for='v in audiences') {{v}}
 
@@ -107,7 +109,8 @@
 
     div(v-show="active==3") 
       pre(v-html="registExpo")
-      button(@click="sendRegistForm") 送出報名
+      .btn(@click="sendRegistForm") 送出報名
+      .btn(@click="saveRegistForm") 更新報名
 
     div
       .btn(@click="prev") 上一步
@@ -137,6 +140,17 @@ export default {
   mounted(){
     console.log(this.user)
     this.userClone = JSON.parse(JSON.stringify(this.user))
+    this.axios.get(`/api/registexpo`,
+      {
+        params: {token: this.token}
+        // registexpo: senddata
+      }
+    ).then(res=>{
+      if (res.data){
+        this.$set(this,"registExpo",res.data)
+      }
+    })
+
   },
   methods: {
     sendRegistForm(){
@@ -154,6 +168,30 @@ export default {
        ).then(res=>{
           this.$message({
             message: '報名成功',
+            type: 'success'
+          });
+          // let _this  = this
+          // console.log(res.data.user)
+          // setTimeout(function(){
+          // this.$router.push(`/manage/${this.$route.meta.type}/`+res.data.data.id)
+          // },300)
+        })
+    },
+    saveRegistForm(){
+      let senddata = JSON.parse(JSON.stringify(this.registExpo))
+       Object.keys(senddata).forEach(key=>{
+         if (typeof senddata[key]=="object"){
+           senddata[key]=JSON.stringify(senddata[key])
+         }
+       })
+       this.axios.patch(`/api/registexpo`,
+        {
+          token: this.token,
+          registexpo: senddata
+        }
+       ).then(res=>{
+          this.$message({
+            message: '更新成功',
             type: 'success'
           });
           // let _this  = this

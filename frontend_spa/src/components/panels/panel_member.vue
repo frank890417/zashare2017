@@ -63,10 +63,16 @@
       .col-sm-12
         .row(@click="setMenuState(false)")
           .col-sm-6
-            router-link.box(to="/member/registexpo") 參展申請
+            router-link.box.big(to="/member/registexpo") 
+              .cover(:style="bgcss('/static/img/regist2018/ZAEXPO.jpg')")
+              .info 參展申請<br>參展編碼：
           .col-sm-6
-            router-link.box(to="/member/registexpo/workshop") 雜工坊
-            router-link.box(to="/member/registexpo/speak") Zac. 教育新創短講評選
+            router-link.box(to="/member/registexpo/workshop") 
+              .cover(:style="bgcss('/static/img/regist2018/ZAWORKSHOP.jpg')")
+              .info 雜工坊
+            router-link.box(to="/member/registexpo/speak") 
+              .cover(:style="bgcss('/static/img/regist2018/Zac.jpg')")
+              .info Zac. 教育新創短講評選
         
 </template>
 
@@ -187,11 +193,19 @@ export default {
   // box-sizing: border-box
 
   a.box
-    padding: 20px
     margin-top: 30px
     box-shadow: 0px 0px 20px 5px rgba(black,0.1)
     border-radius: 5px
     display: block
+    .cover
+      height: 100px
+      background-size: cover
+    .info
+      padding: 20px
+    &.big
+      .cover
+        height: 200px
+
   +rwd_md
     display: block
   .auth-card

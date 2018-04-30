@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 use Socialite;
 use App\User;
 use App\Studentcard;
+use App\RegistExpo;
+use App\RegistExpoSpeak;
+use App\RegistWorkshop;
+use App\PaidRecord;
 use JWTAuth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -126,6 +130,10 @@ class AuthController extends Controller
                 $findcard->save();
                 $studentcard=$findcard;
             }
+        }
+        $registexpo = RegistExpo::find($userdata->id);
+        if ($registexpo){
+            $registexpo = $registexpo->with(['Paidrecord','Registworkshop','RegistExpoSpeak']);
         }
         $userdata["studentcard"] = $studentcard;
 

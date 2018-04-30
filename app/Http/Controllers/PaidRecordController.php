@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-class PaidRecordController extends BaseController {
+class PaidRecordController extends Controller {
 
    // 
     public function index(){

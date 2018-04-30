@@ -15,17 +15,17 @@ class RegistExpo extends Model {
 
 	protected $dates = ['deleted_at'];
 
-	public function Paidrecords()
+	public function Paidrecord()
 	{
 		return $this->hasMany('PaidRecord', '"registexpos_id"');
 	}
 
-	public function Registworkshops()
+	public function Registworkshop()
 	{
 		return $this->hasMany('RegistWorkshop', '"registexpos_id"');
 	}
 
-	public function RegistExpoSpeaks()
+	public function RegistExpoSpeak()
 	{
 		return $this->hasMany('RegistExpoSpeak', 'registexpos_id');
 	}
