@@ -109,8 +109,8 @@
 
     div(v-show="active==3") 
       pre(v-html="registExpo")
-      .btn(@click="sendRegistForm") 送出報名
-      .btn(@click="saveRegistForm") 更新報名
+      el-button(@click="sendRegistForm") 送出報名
+      el-button(@click="saveRegistForm") 更新報名
 
     div
       .btn(@click="prev") 上一步
@@ -147,6 +147,8 @@ export default {
       }
     ).then(res=>{
       if (res.data){
+        res.data.target_audience =res.data.target_audience? JSON.parse(res.data.target_audience):[]
+        res.data.want_audience = res.data.want_audience? JSON.parse(res.data.want_audience):[]
         this.$set(this,"registExpo",res.data)
       }
     })
@@ -194,11 +196,6 @@ export default {
             message: '更新成功',
             type: 'success'
           });
-          // let _this  = this
-          // console.log(res.data.user)
-          // setTimeout(function(){
-          // this.$router.push(`/manage/${this.$route.meta.type}/`+res.data.data.id)
-          // },300)
         })
     },
     prev() {
