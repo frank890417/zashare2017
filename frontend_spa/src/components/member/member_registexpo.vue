@@ -41,7 +41,8 @@
             el-input(v-model="registExpo.name_eng")
 
         el-form-item(label="申請單位/個人簡介 （請以200-300字讓我們能更認識你）")
-          el-input(v-model="registExpo.description", type="textarea" rows="5")
+          el-input(v-model="registExpo.description", type="textarea" rows="5",
+                    :maxlength="300")
 
         el-form-item(label="你目前所經營/接觸的目標受眾（取前2個最接近的對話群、消費群）")
           el-select(v-model="registExpo.target_audience" multiple)
@@ -71,10 +72,10 @@
             li 七、過往參展經驗或活動成果
             li 八、如會在展位現場進行銷售或名單資料搜集，需提交商品介紹與現場售價或名單搜集方式（例如遊戲互動、傳單、coupon）
 
-        el-form-item(label="請簡述參與雜學校的原因（100字以內）")
+        el-form-item(label="請簡述參與雜學校的原因（100字以內）" :maxlength="100")
           el-input(v-model="registExpo.attend_reason", type="textarea" rows="5")
 
-        el-form-item(label="備註－其他補充事項（200字以內）")
+        el-form-item(label="備註－其他補充事項（200字以內）" :maxlength="200")
           el-input(v-model="registExpo.other", type="textarea" rows="5")
 
 
