@@ -61,7 +61,7 @@
 
 
         el-form-item(label="是否在展位進行銷售行為？")
-          el-radio(:label="1" v-model="registExpo.have_sell" ) 是
+          el-radio(:label="1" v-model="registExpo.have_sell" ) 是（請於參展規劃簡報中介紹商品與現場售價）
           el-radio(:label="0" v-model="registExpo.have_sell" ) 否
 
         el-form-item(label="請以一份20頁(內)電子簡報檔闡述參展規劃（主辦單位將以此份檔案作為雜星賞評選依據）")

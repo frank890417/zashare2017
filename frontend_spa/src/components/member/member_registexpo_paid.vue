@@ -2,7 +2,7 @@
 .page.member-regist-expo.text-left
   .container
     .col-sm-12
-      h2.mt-5 2018 雜學校繳費確認
+      h2.mt-5 2018 雜學校繳費確認 
       
       .row
         .col-sm-12
@@ -19,9 +19,10 @@
         el-step(title="發票資訊" , @click="active=1")
         el-step(title="確認送出" , @click="active=2")
         el-step(title="填寫完成" , @click="active=3")
-      div(v-show="active==0")
-        h4.mt-5 ㄧ、匯款資訊
-        el-form(v-if="registExpoPaid",  :disabled = "typeof registExpoPaid.id=='number'")
+    .col-sm-12
+      el-form(v-if="registExpoPaid",  :disabled = "typeof registExpoPaid.id=='number'")
+        div(v-show="active==0")
+          h4.mt-5 ㄧ、匯款資訊
           el-form-item(label="匯款日期/時間")
             el-date-picker(v-model="registExpoPaid.paid_datetime" type="datetime",
                           value-format="yyyy-MM-dd HH:mm:ss")
@@ -42,9 +43,9 @@
           el-form-item(label="請輸入匯款帳號後五碼")
             el-input(v-model="registExpoPaid.paid_last_number")
 
-      div(v-show="active==1")
-        h4.mt-5 二、發票資訊
-        el-form(v-if="registExpoPaid")
+        div(v-show="active==1")
+          h4.mt-5 二、發票資訊
+
           el-form-item(label="種類")
             p 如需報帳請選擇「三聯式發票」，並繼續填寫統編資訊。
             div
@@ -68,17 +69,17 @@
           el-form-item(label="發票寄送：郵遞區號")
             el-input(v-model="registExpoPaid.receipt_postcode")
 
-      div(v-show="active==2") 
-        pre(v-html="registExpoPaid")
-        el-button(@click="sendRegistForm") 送出繳費紀錄
-      div(v-show="active==3") 
-        p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
-        panel_expo2018
-        
+        div(v-show="active==2") 
+          pre(v-html="registExpoPaid")
+          el-button(@click="sendRegistForm") 送出繳費紀錄
+        div(v-show="active==3") 
+          p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
+          panel_expo2018
+          
 
-      div
-        .btn(@click="prev") 上一步
-        .btn(@click="next") 下一步
+        div
+          .btn(@click="prev") 上一步
+          .btn(@click="next") 下一步
 
 </template>
 

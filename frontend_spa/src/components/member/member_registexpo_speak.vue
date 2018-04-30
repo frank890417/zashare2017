@@ -54,7 +54,19 @@
           el-input(v-model="registExpoSpeak.startup_power", type="textarea" rows="5")
 
         el-form-item(label="6. 請檢附一份20頁(內)提案計畫書（主辦單位將以此份檔案作為「Zac.新創教育短講評選」初選評比依據。）")
-          el-upload
+          el-upload(
+            drag
+            auto-upload
+            ref="upload"
+            accept="pdf"
+            :data="{token: auth.token}"
+            :on-success="(url)=>{registExpoSpeak.startup_proposal = url}"
+            :action="apiDomain+'api/registexpo/uploadtemp'"
+            
+          )
+            i.el-icon-upload
+            div.el-upload__text 將文件拖曳到此處或<em>點擊上傳</em>
+            div.el-upload__tip(slot="tip") 只能上傳不超過20MB的PDF文件
 
 
       div(v-show="active==2")

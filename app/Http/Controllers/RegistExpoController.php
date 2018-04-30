@@ -87,6 +87,25 @@ class RegistExpoController extends Controller {
                 $obj = RegistExpoSpeak::updateOrCreate(['registexpos_id'=>$RegistExpo->id]);
                 $obj->registexpos_id= $RegistExpo->id;
                 $obj->update( $regist_expo_speak);               
+
+                //將講座簡報搬移到資料夾
+                try{
+                    if (strrpos( $obj->startup_proposal, "雜講堂報名(已送出)")==false){
+                        $newname = "ZA".str_pad($RegistExpo->id,3,'0',STR_PAD_LEFT).'-'.$RegistExpo->name_cht.'-講堂報名.pdf';
+                        $fullpath = "雜講堂報名(已送出)/".$newname;
+                        
+                        try{
+                            Storage::disk('public')->delete($fullpath);
+                        } catch(Exception $e){
+                        }
+                        Storage::disk('public')->copy($obj->startup_proposal,$fullpath);
+                        $obj->startup_proposal="/stroage/app/public/".$fullpath;
+                    }
+                } catch(Exception $e){
+                    
+                }
+
+
                 $obj->save();
             }
             unset($inputs['regist_expo_speak']);
@@ -101,7 +120,7 @@ class RegistExpoController extends Controller {
                 //將工坊簡報搬移到資料夾
                 try{
                     if (strrpos( $obj->class_proposal, "雜工坊報名(已送出)")==false){
-                        $newname = "ZA".str_pad($RegistExpo->id,3,'0').'-'.$RegistExpo->name_cht.'-工坊報名.pdf';
+                        $newname = "ZA".str_pad($RegistExpo->id,3,'0',STR_PAD_LEFT).'-'.$RegistExpo->name_cht.'-工坊報名.pdf';
                         $fullpath = "雜工坊報名(已送出)/".$newname;
                         
                         try{
@@ -128,7 +147,7 @@ class RegistExpoController extends Controller {
         $RegistExpo->update($inputs);
         try{
             if (strrpos($RegistExpo->file_proposal, "參展簡報(已送出)")==false){
-                $newname = "ZA".str_pad($RegistExpo->id,3,'0').'-'.$RegistExpo->name_cht.'-參展簡報.pdf';
+                $newname = "ZA".str_pad($RegistExpo->id,3,'0',STR_PAD_LEFT).'-'.$RegistExpo->name_cht.'-參展簡報.pdf';
                 $fullpath = "參展簡報(已送出)/".$newname;
                 
                 try{
@@ -162,7 +181,7 @@ class RegistExpoController extends Controller {
             //搬移參展簡報到正式資料夾
             try{
                 if (strrpos($RegistExpo->file_proposal, "參展簡報(已送出)")==false){
-                    $newname = "ZA".str_pad($RegistExpo->id,3,'0').'-'.$RegistExpo->name_cht.'-參展簡報.pdf';
+                    $newname = "ZA".str_pad($RegistExpo->id,3,'0',STR_PAD_LEFT).'-'.$RegistExpo->name_cht.'-參展簡報.pdf';
                     $fullpath = "參展簡報(已送出)/".$newname;
                     
                     try{

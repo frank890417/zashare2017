@@ -13,7 +13,7 @@
         el-step(title="確認與送出" , @click="active=2")
         el-step(title="填寫完成" , @click="active=3")
     //:disabled = "typeof registExpoWorkshop.id=='number'"
-    el-form(v-if="registExpoWorkshop", :disabled="typeof registExpo.id=='number'")
+    el-form(v-if="registExpoWorkshop", :disabled="typeof registExpoWorkshop.id=='number'")
       div(v-show="active==0")
         h4.mt-5 ㄧ、申請基本資訊
           el-form-item(label="1.	課程類型")
@@ -117,7 +117,7 @@ export default {
               "科學動手實驗",
               "創新教案分享與教學",
               "小型分享座談",
-              "戶外園區導覽",
+              "戶外活動",
               "其他"],
       timespans: [
         "10/5 (五) 13:00-14:30",
@@ -184,7 +184,7 @@ export default {
       
       if (this.registExpoWorkshop==null){
         console.log("init paid")
-        this.registExpoWorkshop={}
+        this.registExpoWorkshop={class_time: []}
       }
     }
   },

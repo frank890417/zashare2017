@@ -20,6 +20,8 @@ class CreateRegistExpoSpeaksTable extends Migration {
 			$table->string('startup_difficult', 500)->nullable();
 			$table->string('startup_problem', 500)->nullable();
 			$table->string('startup_power', 500)->nullable();
+			$table->string('startup_proposal', 500)->nullable();
+
 			$table->string('main_contact_name')->nullable();
 			$table->string('main_contact_phone')->nullable();
 			$table->string('main_contact_email')->nullable();
