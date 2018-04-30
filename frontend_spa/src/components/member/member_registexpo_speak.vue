@@ -20,16 +20,16 @@
       el-form(v-if="registExpoSpeak")
       
         el-form-item(label="1. 評選入圍之單位，是否同意策展權益交由給主辦單位規劃與設計")
-          el-radio(label="1" v-model="registExpoSpeak.have_sell" ) 是
-          el-radio(label="0" v-model="registExpoSpeak.have_sell" ) 否
+          el-radio(label="1" v-model="registExpoSpeak.agree_plan" ) 是
+          el-radio(label="0" v-model="registExpoSpeak.agree_plan" ) 否
           
        
         el-form-item(label="2. 團隊人數")
-          el-input-number(v-model="registExpoWorkshop.team_person_count")
+          el-input-number(v-model="registExpoSpeak.team_person_count")
 
         el-form-item(label="3. 是否已有獲得資金挹注")
-          el-radio(label="1" v-model="registExpoSpeak.have_sell" ) 是
-          el-radio(label="0" v-model="registExpoSpeak.have_sell" ) 否
+          el-radio(label="1" v-model="registExpoSpeak.has_money" ) 是
+          el-radio(label="0" v-model="registExpoSpeak.has_money" ) 否
                     
 
 

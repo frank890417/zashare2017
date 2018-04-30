@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\RegistExpo;
+use App\RegistExpoSpeak;
+use App\RegistWorkshop;
+use App\PaidRecord;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +20,7 @@ class RegistExpoController extends Controller {
         $this->middleware('jwt.auth');
     }
     public function index(){
-        return  RegistExpo::with(['PaidRecord','RegistWorkshop','RegistExpoSpeak'])->get();
+        return  RegistExpo::with(['PaidRecord','RegistWorkshop','RegistExpoSpeak'])->first();
     }
     public function show($id){
         $result = RegistExpo::find($id);

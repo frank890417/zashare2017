@@ -5,6 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 // use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
+use App\RegistExpo;
+use App\RegistExpoSpeak;
+use App\RegistWorkshop;
+use App\PaidRecord;
 class RegistExpo extends Model {
 
 	protected $table = 'regist_expos';
@@ -17,17 +21,17 @@ class RegistExpo extends Model {
 
 	public function Paidrecord()
 	{
-		return $this->hasMany('PaidRecord', '"registexpos_id"');
+		return $this->hasMany('App\PaidRecord', 'registexpos_id');
 	}
 
 	public function Registworkshop()
 	{
-		return $this->hasMany('RegistWorkshop', '"registexpos_id"');
+		return $this->hasMany('App\RegistWorkshop', 'registexpos_id');
 	}
 
 	public function RegistExpoSpeak()
 	{
-		return $this->hasMany('RegistExpoSpeak', 'registexpos_id');
+		return $this->hasMany('App\RegistExpoSpeak', 'registexpos_id');
 	}
 
 }
