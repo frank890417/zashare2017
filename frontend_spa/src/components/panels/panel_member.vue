@@ -274,6 +274,7 @@ export default {
       padding: 0px 10px
       display: inline-block
       font-weight: 800
+      
   .coupon-box-inner
     .cover
       width: 100%

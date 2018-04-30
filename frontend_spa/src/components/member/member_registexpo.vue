@@ -26,7 +26,9 @@
             el-option(:value="v"
                   v-for='v in ["教育創新","文化實踐","生活探索","專業培育"]') {{v}}
 
-        el-form-item(label="是否曾參展雜學校？")
+        p 是否曾參展雜學校？
+        p 若參展過2屆以上，請填寫「最近一次」的參展年份。
+        el-form-item()
           el-select(v-model="registExpo.attended")
             el-option(:value="v"
                   v-for='v in ["首次參展","2015不太乖教育節","2016雜學校","2017雜學校"]') {{v}}
@@ -112,9 +114,14 @@
       el-button(@click="sendRegistForm") 送出報名
       el-button(@click="saveRegistForm") 更新報名
 
-    div
+    div(v-show="active==4") 
+      p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
+      router-link.btn(to="/member/registexpo/workshop") 雜工坊
+      router-link.btn(to="/member/registexpo/speak") Zac. 教育新創短講評選
+
+    div()
       .btn(@click="prev") 上一步
-      .btn(@click="next") 下一步
+      .btn(@click="next" , v-if="active!=4") 下一步
 
 </template>
 

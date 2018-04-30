@@ -5,13 +5,13 @@
       h2.mt-5 雜工坊申請表
       .row
         .col-sm-12
-      p 每一工坊場次時限為90分鐘(含進、退場時間)、可容納座位數30人為上限。<br>如成功登記到雜工坊場次，開課單位須支付10000元場次費，並由主辦單位統籌各場次報名、收費（每一參與者收500元/場）事宜，如課堂衍生材料須由開課單位協力提供。 （詳細說明請見徵展手冊 P.XX）
-
-    .col-sm-12.text-left
+      p.mt-5 每一工坊場次時限為90 分鐘( 含進、退場時間)、可容納座位數30 人為上限。<br>如成功登記到雜工坊場次，開課單位須支付10,000 元場次費，並由主辦單位統籌各場次報名、收費（每一參與者收500 元/ 場）事宜，如課堂衍生材料須由開課單位協力提供。（ 詳細說明請見徵展手冊 P.18）
+    .col-sm-12.text-left.mt-3
       el-steps(:active="active" finish-status="success")
         el-step(title="申請基本資訊" , @click="active=0")
         el-step(title="工坊聯絡資料" , @click="active=1")
-        el-step(title="填寫完成" , @click="active=2")
+        el-step(title="確認與送出" , @click="active=2")
+        el-step(title="填寫完成" , @click="active=3")
     div(v-show="active==0")
       h4.mt-5 ㄧ、申請基本資訊
       el-form(v-if="registExpoWorkshop")
@@ -21,21 +21,22 @@
             el-option(:value="v"
                   v-for='v in types') {{v}}
 
-        h5 2.	活動招生族群
-        p 請填寫是否有報名身份、年齡等限制資格，如為限定親子參加、限定特定年齡層等可選擇「其他」，並簡述。
+        p 2.	活動招生族群
+        p 請確認是否有報名身份/年齡等限制資格，如為限定親子參加、限定特定年齡層等請將「勾選取消」，並簡述。
         el-form-item(label="無限制（一般大眾皆可）")
           el-checkbox(v-model="audience_normal")
         div(v-if="!audience_normal")
           el-input(v-model="registExpoWorkshop.class_audience")
 
         el-form-item(label="3.	活動預計招生人數(場地建議容納人數以30人為限)")
-          el-input-number(v-model="registExpoWorkshop.class_person_count")
+          el-input-number(v-model="registExpoWorkshop.class_person_count", :max="30")
 
         el-form-item(label="4.	登記場次")
           el-select(v-model="registExpoWorkshop.class_time" multiple)
             el-option(:value="t", v-for="t in timespans" ) {{t}}
-
-        h5 5.	檢附一份10頁(內)提案活動企劃書（主辦單位將以此份檔案作為「雜工坊」徵選依據。）
+        p 請複選可配合安排之場次，若確定有登記到工坊場次，主辦單位會以此做為時段安排的參考。 主辦方保有最終審定權，參展方不得有異議。
+        br
+        p 5.	檢附一份10頁(內)提案活動企劃書（主辦單位將以此份檔案作為「雜工坊」徵選依據。）
           p 檔案大小限制 20MB 內，請輸出成PDF格式。
           p 建議內容設定：
             | <br>一、背景介紹（含品牌/團隊/講師介紹）
