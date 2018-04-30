@@ -13,7 +13,7 @@
         el-step(title="確認與送出" , @click="active=3")
         el-step(title="報名完成" , @click="active=4")
     //- :disabled="typeof registExpo.id=='number'"
-    el-form(v-if="registExpo" )
+    el-form(v-if="registExpo"  :disabled="typeof registExpo.id=='number'")
       div(v-show="active==0")
         h4.mt-5 ㄧ、參展資訊
         el-form-item(label="申請攤位類型")

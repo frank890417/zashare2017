@@ -13,7 +13,7 @@
         el-step(title="確認與送出" , @click="active=2")
         el-step(title="填寫完成" , @click="active=3")
     //:disabled = "typeof registExpoWorkshop.id=='number'"
-    el-form(v-if="registExpoWorkshop", )
+    el-form(v-if="registExpoWorkshop", :disabled="typeof registExpo.id=='number'")
       div(v-show="active==0")
         h4.mt-5 ㄧ、申請基本資訊
           el-form-item(label="1.	課程類型")

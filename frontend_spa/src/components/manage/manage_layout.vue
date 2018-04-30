@@ -13,6 +13,7 @@
           el-menu-item(index="/manage/company") 攤位管理 
           el-menu-item(index="/manage/cata") 類別管理 
           el-menu-item(index="/manage/coupon") Coupon管理 
+          el-menu-item(index="/manage/regist") 餐展報名管理 
         auth_panel(layout="function")
         router-link.btn(to="/") 返回首頁
 

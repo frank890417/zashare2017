@@ -127,7 +127,7 @@ const store = new Vuex.Store({
         }
       ).then(res => {
         //workshop
-        if (res.data.regist_workshop.class_time){
+        if (res.data.regist_workshop && res.data.regist_workshop.class_time){
           res.data.regist_workshop.class_time = JSON.parse(res.data.regist_workshop.class_time || [])
         }
         if (res.data) {
