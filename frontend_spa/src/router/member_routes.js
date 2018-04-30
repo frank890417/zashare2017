@@ -6,6 +6,7 @@ import member_registexpo from '@/components/member/member_registexpo'
 import member_registexpo_paid from '@/components/member/member_registexpo_paid'
 import member_registexpo_workshop from '@/components/member/member_registexpo_workshop'
 import member_registexpo_speak from '@/components/member/member_registexpo_speak'
+import panel_expo2018 from '@/components/panels/panel_expo2018'
 let routes = {
   path: '/member',
   meta: {
@@ -24,6 +25,9 @@ let routes = {
     }, {
       path: 'coupon',
       component: member_coupon
+    }, {
+      path: 'registexpo2018',
+      component: panel_expo2018
     }, {
       path: 'registexpo',
       component: member_registexpo

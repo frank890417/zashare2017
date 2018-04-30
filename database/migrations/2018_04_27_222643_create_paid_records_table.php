@@ -12,7 +12,7 @@ class CreatePaidRecordsTable extends Migration {
 			$table->integer('registexpos_id')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
-			$table->datetime('paid_datetime');
+			$table->datetime('paid_datetime')->nullable();
 			$table->boolean('paid_direct')->nullable()->default(false);
 			$table->string('paid_name')->nullable();
 			$table->string('paid_last_number')->nullable();

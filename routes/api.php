@@ -38,13 +38,13 @@ Route::group(['middleware'=>['cors']],function(){
 
   Route::post('upload',"ApiController@upload_image");
 
-  Route::group(['expo'=>'manage'],function(){
-    Route::resource('registexpo', 'RegistExpoController');
-    Route::patch('registexpo','RegistExpoController@updateMyData');
-    Route::resource('paidrecord', 'PaidRecordController');
-    Route::resource('registworkshop', 'RegistWorkshopController');
-    Route::resource('registexpospeak', 'RegistExpoSpeakController');
-  });
+  
+  Route::get('registexpo/my','RegistExpoController@my');
+  Route::resource('registexpo', 'RegistExpoController');
+  Route::patch('registexpo','RegistExpoController@updateMyData');
+  Route::resource('paidrecord', 'PaidRecordController');
+  Route::resource('registworkshop', 'RegistWorkshopController');
+  Route::resource('registexpospeak', 'RegistExpoSpeakController');
 
 
 

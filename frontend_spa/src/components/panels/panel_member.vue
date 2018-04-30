@@ -185,14 +185,18 @@ export default {
     box-shadow: 0px 0px 20px 5px rgba(black,0.1)
     border-radius: 5px
     display: block
+    +trans
+    &:hover
+      transform: translate(-2px,-2px)
     .cover
       height: 100px
       background-size: cover
+      border-radius: 5px 5px 0px 0px
     .info
       padding: 20px
     &.big
       .cover
-        height: 200px
+        height: 240px
 
   +rwd_md
     display: block
@@ -268,13 +272,14 @@ export default {
   .row-coupon
     border-top: 1px solid rgba(black,0.1)
     padding-top: 30px
-    .tag
-      background-color: black
-      color: white
-      padding: 0px 10px
-      display: inline-block
-      font-weight: 800
-      
+  .tag
+    margin-top: 50px
+    background-color: black
+    color: white
+    padding: 0px 10px
+    display: inline-block
+    font-weight: 800
+    
   .coupon-box-inner
     .cover
       width: 100%

@@ -10,7 +10,7 @@
           :router="true")
           el-menu-item(index="/member/info") 會員資料管理 
           //- el-menu-item(index="/member/coupon", v-if="user.studentcard || isAdmin") 領取Coupon 
-          el-menu-item(index="/member/registexpo") 報名2018展覽
+          el-menu-item(index="/member/registexpo2018") 報名2018展覽
           //- el-menu-item(index="/manage/company") 攤位管理 
           //- el-menu-item(index="/manage/cata") 類別管理 
         auth_panel(layout="function")

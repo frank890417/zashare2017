@@ -21,6 +21,7 @@ const store = new Vuex.Store({
     // process.env.NODE_ENV == "production" ? true : false
     loading: true,
     searchKeyword: "",
+    registExpo: {},
     expos: [
       {
         year: 2017,
@@ -106,6 +107,9 @@ const store = new Vuex.Store({
     openMenu(state, value) {
       state.menuType = value
       state.menuState = true
+    },
+    updateRegistData(state,value){
+      state.registExpo=value
     }
 
   },
@@ -113,6 +117,69 @@ const store = new Vuex.Store({
     openSearch(context,value){
       context.state.searchKeyword = value
       context.commit("setMenuState",true)
+    },
+    loadRegistData(context,value){
+      console.log(value)
+      axios.get(`/api/registexpo/my`,
+        {
+          params: { token: context.state.auth.token }
+          // registexpo: senddata
+        }
+      ).then(res => {
+        //workshop
+        if (res.data.regist_workshop.class_time){
+          res.data.regist_workshop.class_time = JSON.parse(res.data.regist_workshop.class_time || [])
+        }
+        if (res.data) {
+          res.data.target_audience = res.data.target_audience ? JSON.parse(res.data.target_audience) : []
+          res.data.want_audience = res.data.want_audience ? JSON.parse(res.data.want_audience) : []
+          context.state.registExpo = res.data
+          console.log(res.data)
+        }
+
+      })
+    },
+    updateRegistForm(context,args){
+      //如果有資料，報名資料就更新，不然就創建
+      let apiMethod = context.state.registExpo.id?axios.patch:axios.post
+      let senddata = JSON.parse(JSON.stringify(args.data))
+      let filteredData = {}
+
+      //過濾掉沒有值的資料
+      Object.keys(senddata).filter(key => senddata[key] !== null).forEach(key => {
+        if (Array.isArray(senddata[key])) {
+          senddata[key] = JSON.stringify(senddata[key])
+        }
+        filteredData[key] = senddata[key]
+      })
+
+      //子清單扁平化
+      let sublist = ['paid_record', 'regist_expo_speak','regist_workshop']
+      sublist.forEach(sub => {
+        let data = filteredData[sub]
+        if (data){
+          Object.keys(data).filter(key => data[key] !== null).forEach(key => {
+            if (Array.isArray(data[key])) {
+              data[key] = JSON.stringify(data[key])
+            }
+          })
+
+        }
+
+      })
+      // console.log(filteredData)
+      apiMethod(`/api/registexpo`,
+        {
+          token: context.state.auth.token,
+          registexpo: filteredData
+        }
+        ).then(res => {
+          // console.log(args.callback)
+          if (args.callback){
+            args.callback()
+          }
+        })
+      context.dispatch('loadRegistData')
     }
     // loadWebsite(context) {
     //   context.dispatch("loadPosts")

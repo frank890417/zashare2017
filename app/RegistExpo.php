@@ -21,17 +21,17 @@ class RegistExpo extends Model {
 
 	public function Paidrecord()
 	{
-		return $this->hasMany('App\PaidRecord', 'registexpos_id');
+		return $this->hasOne('App\PaidRecord', 'registexpos_id','id');
 	}
 
 	public function Registworkshop()
 	{
-		return $this->hasMany('App\RegistWorkshop', 'registexpos_id');
+		return $this->hasOne('App\RegistWorkshop', 'registexpos_id','id');
 	}
 
 	public function RegistExpoSpeak()
 	{
-		return $this->hasMany('App\RegistExpoSpeak', 'registexpos_id');
+		return $this->hasOne('App\RegistExpoSpeak', 'registexpos_id','id');
 	}
 
 }

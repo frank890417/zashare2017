@@ -12,9 +12,10 @@
         el-step(title="參展聯絡資料" , @click="active=2")
         el-step(title="確認與送出" , @click="active=3")
         el-step(title="報名完成" , @click="active=4")
-    div(v-show="active==0")
-      h4.mt-5 ㄧ、參展資訊
-      el-form(v-if="registExpo")
+    
+    el-form(v-if="registExpo" :disabled="typeof registExpo.id=='number'")
+      div(v-show="active==0")
+        h4.mt-5 ㄧ、參展資訊
         el-form-item(label="申請攤位類型")
           el-select(v-model="registExpo.type")
             el-option(value="基礎單位 (1m*1m 限高2.5m)") 基礎單位 (1m*1m 限高2.5m)
@@ -33,9 +34,9 @@
             el-option(:value="v"
                   v-for='v in ["首次參展","2015不太乖教育節","2016雜學校","2017雜學校"]') {{v}}
 
-    div(v-show="active==1")
-      h4.mt-5 二、申請單位資訊
-      el-form(v-if="registExpo")
+      div(v-show="active==1")
+        h4.mt-5 二、申請單位資訊
+        
         el-form-item(label="申請單位/個人名稱")
           el-form-item(label="中文")
             el-input(v-model="registExpo.name_cht")
@@ -43,25 +44,25 @@
             el-input(v-model="registExpo.name_eng")
 
         el-form-item(label="申請單位/個人簡介 （請以200-300字讓我們能更認識你）")
-          el-input(v-model="registExpo.description", type="textarea" rows="5",
+          el-input(v-model="registExpo.description", type="textarea" :rows="5",
                     :maxlength="300")
 
         el-form-item(label="你目前所經營/接觸的目標受眾（取前2個最接近的對話群、消費群）")
           el-select(v-model="registExpo.target_audience" multiple,
-                    multiple-limit="2")
+                    :multiple-limit="2")
             el-option(:value="v"
                   v-for='v in audiences') {{v}}
 
         el-form-item(label="最希望在雜學校接觸/開放的目標受眾（取前2個最想開發的對話群、消費群）")
           el-select(v-model="registExpo.want_audience" multiple,
-                    multiple-limit="2")
+                    :multiple-limit="2")
             el-option(:value="v"
                   v-for='v in audiences') {{v}}
 
 
         el-form-item(label="是否在展位進行銷售行為？")
-          el-radio(label="1" v-model="registExpo.have_sell" ) 是
-          el-radio(label="0" v-model="registExpo.have_sell" ) 否
+          el-radio(:label="1" v-model="registExpo.have_sell" ) 是
+          el-radio(:label="0" v-model="registExpo.have_sell" ) 否
 
         el-form-item(label="請以一份20頁(內)電子簡報檔闡述參展規劃（主辦單位將以此份檔案作為雜星賞評選依據）")
         div.text-left
@@ -77,19 +78,18 @@
             li 八、如會在展位現場進行銷售或名單資料搜集，需提交商品介紹與現場售價或名單搜集方式（例如遊戲互動、傳單、coupon）
 
         el-form-item(label="請簡述參與雜學校的原因（100字以內）" :maxlength="100")
-          el-input(v-model="registExpo.attend_reason", type="textarea" rows="5")
+          el-input(v-model="registExpo.attend_reason", type="textarea" :rows="5")
 
         el-form-item(label="備註－其他補充事項（200字以內）" :maxlength="200")
-          el-input(v-model="registExpo.other", type="textarea" rows="5")
+          el-input(v-model="registExpo.other", type="textarea" :rows="5")
 
 
-    div(v-show="active==2")
-      h4.mt-5 三、參展聯絡資料
-      .row
-        .col-sm-12
-          p 1.	主要聯絡人（請優先填寫執行窗口）
-        .col-sm-12
-          el-form(v-if="registExpo", label-width="150px")
+      div(v-show="active==2")
+        h4.mt-5 三、參展聯絡資料
+        .row
+          .col-sm-12
+            p 1.	主要聯絡人（請優先填寫執行窗口）
+          .col-sm-12
             el-form-item(label="姓名")
               el-input(v-model="registExpo.main_contact_name")
             el-form-item(label="手機")
@@ -97,11 +97,10 @@
             el-form-item(label="Email")
               el-input(v-model="registExpo.main_contact_email")
 
-      .row
-        .col-sm-12
-          p 2.	次要聯絡人
-        .col-sm-12
-          el-form(v-if="registExpo", label-width="150px")
+        .row
+          .col-sm-12
+            p 2.	次要聯絡人
+          .col-sm-12
             el-form-item(label="姓名")
               el-input(v-model="registExpo.secondary_contact_name")
             el-form-item(label="手機")
@@ -110,9 +109,9 @@
               el-input(v-model="registExpo.secondary_contact_email")
 
     div(v-show="active==3") 
-      pre(v-html="registExpo")
+      //- pre(v-html="registExpo")
+      p 我確認資料已經正確無誤
       el-button(@click="sendRegistForm") 送出報名
-      el-button(@click="saveRegistForm") 更新報名
 
     div(v-show="active==4") 
       p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
@@ -126,7 +125,8 @@
 </template>
 
 <script>
-import {mapState, mapGetters} from 'vuex'
+import {mapState, mapGetters, mapActions} from 'vuex'
+import panel_expo2018 from '@/components/panels/panel_expo2018'
 export default {
   data(){
     return {
@@ -140,70 +140,30 @@ export default {
     ...mapState({
       auth: 'auth',
       user: state=>state.auth.user,
-
-      token: state=>state.auth.token
+      token: state=>state.auth.token,
+      registExpoOriginal: state=>state.registExpo
     }),
   },
   mounted(){
-    console.log(this.user)
-    this.userClone = JSON.parse(JSON.stringify(this.user))
-    this.axios.get(`/api/registexpo`,
-      {
-        params: {token: this.token}
-        // registexpo: senddata
-      }
-    ).then(res=>{
-      if (res.data){
-        res.data.target_audience =res.data.target_audience? JSON.parse(res.data.target_audience):[]
-        res.data.want_audience = res.data.want_audience? JSON.parse(res.data.want_audience):[]
-        this.$set(this,"registExpo",res.data)
-      }
-    })
+    // console.log(this.user)
+    // this.userClone = JSON.parse(JSON.stringify(this.user))
+    this.loadRegistData()
 
   },
   methods: {
+    ...mapActions(['loadRegistData','updateRegistForm']),
     sendRegistForm(){
-       let senddata = JSON.parse(JSON.stringify(this.registExpo))
-       Object.keys(senddata).forEach(key=>{
-         if (typeof senddata[key]=="object"){
-           senddata[key]=JSON.stringify(senddata[key])
-         }
-       })
-       this.axios.post(`/api/registexpo`,
-        {
-          token: this.token,
-          registexpo: senddata
-        }
-       ).then(res=>{
-          this.$message({
-            message: '報名成功',
+      let _this = this
+      this.updateRegistForm({
+        data: this.registExpo,
+        callback(){
+          _this.$message({
+            message: '資料更新成功',
             type: 'success'
           });
-          // let _this  = this
-          // console.log(res.data.user)
-          // setTimeout(function(){
-          // this.$router.push(`/manage/${this.$route.meta.type}/`+res.data.data.id)
-          // },300)
-        })
-    },
-    saveRegistForm(){
-      let senddata = JSON.parse(JSON.stringify(this.registExpo))
-       Object.keys(senddata).forEach(key=>{
-         if (typeof senddata[key]=="object"){
-           senddata[key]=JSON.stringify(senddata[key])
-         }
-       })
-       this.axios.patch(`/api/registexpo`,
-        {
-          token: this.token,
-          registexpo: senddata
+          _this.active=4
         }
-       ).then(res=>{
-          this.$message({
-            message: '更新成功',
-            type: 'success'
-          });
-        })
+      })
     },
     prev() {
       if (this.active-- < 0) this.active = 3;
@@ -213,6 +173,14 @@ export default {
       if (this.active++ > 3) this.active = 0;
       window.scrollTo(0,0)
     }
+  },
+  watch: {
+    registExpoOriginal(){
+      this.$set(this,"registExpo",JSON.parse(JSON.stringify(this.registExpoOriginal)))
+    }
+  },
+  components: {
+    panel_expo2018
   }
 }
 </script>

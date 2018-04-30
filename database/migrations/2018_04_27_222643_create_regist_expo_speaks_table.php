@@ -12,9 +12,9 @@ class CreateRegistExpoSpeaksTable extends Migration {
 			$table->timestamps();
 			$table->softDeletes();
 			$table->integer('registexpos_id')->nullable();
-			$table->boolean('agree_plan');
+			$table->boolean('agree_plan')->nullable();
 			$table->integer('team_person_count')->nullable();
-			$table->boolean('has_money');
+			$table->boolean('has_money')->nullable();
 			$table->string('startup_content', 500)->nullable();
 			$table->string('startup_audience', 500)->nullable();
 			$table->string('startup_difficult', 500)->nullable();

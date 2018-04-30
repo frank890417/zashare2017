@@ -12,7 +12,8 @@
         el-step(title="申請基本資訊" , @click="active=0")
         el-step(title="申請資料填寫" , @click="active=1")
         el-step(title="申請人聯絡資料" , @click="active=2")
-        el-step(title="填寫完成" , @click="active=3")
+        el-step(title="確認送出" , @click="active=3")
+        el-step(title="填寫完成" , @click="active=4")
         
         
     div(v-show="active==0")
@@ -84,6 +85,10 @@
 
     div(v-show="active==3") 
       pre(v-html="registExpoSpeak")
+      el-button(@click="sendRegistForm") 送出雜短講申請
+    div(v-show="active==4") 
+      p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
+      panel_expo2018
 
     div
       .btn(@click="prev") 上一步
@@ -95,7 +100,8 @@
 
 
 <script>
-import {mapState, mapGetters} from 'vuex'
+import {mapState, mapGetters, mapActions} from 'vuex'
+import panel_expo2018 from '@/components/panels/panel_expo2018'
 export default {
   data(){
     return {
@@ -130,33 +136,33 @@ export default {
     ...mapState({
       auth: 'auth',
       user: state=>state.auth.user,
-
+      registExpoOriginal: state=>state.registExpo,
       token: state=>state.auth.token
     }),
   },
   mounted(){
-    console.log(this.user)
-    this.userClone = JSON.parse(JSON.stringify(this.user))
+    // console.log(this.user)
+    // this.userClone = JSON.parse(JSON.stringify(this.user))
+    this.loadRegistData()
+
   },
   methods: {
-    updateUserInfo(){
-       this.axios.post(
-          `/api/auth/user/update/info`,
-          { 
-            token: this.token,
-            user: this.userClone
-          }
-        ).then(res=>{
-          this.$message({
-            message: '資料更新成功',
+    ...mapActions(['loadRegistData','updateRegistForm']),
+    sendRegistForm(){
+      let _this = this
+      this.updateRegistForm({
+        data:{
+          regist_expo_speak: this.registExpoSpeak
+        },
+        callback(){
+          _this.$message({
+            message: '雜講堂報名更新成功',
             type: 'success'
           });
-          // let _this  = this
-          console.log(res.data.user)
-          // setTimeout(function(){
-          // this.$router.push(`/manage/${this.$route.meta.type}/`+res.data.data.id)
-          // },300)
-        })
+
+          _this.active=4
+        }
+      })
     },
     prev() {
       if (this.active-- < 0) this.active = 3;
@@ -166,6 +172,21 @@ export default {
       if (this.active++ > 3) this.active = 0;
       window.scrollTo(0,0)
     }
+  },
+  watch: {
+    registExpoOriginal(){
+      let newdata = JSON.parse(JSON.stringify(this.registExpoOriginal.regist_expo_speak))
+      console.log(newdata)
+      this.$set(this,"registExpoSpeak",newdata)
+      
+      if (this.registExpoSpeak==null){
+        console.log("init paid")
+        this.registExpoSpeak={}
+      }
+    }
+  },
+  components: {
+    panel_expo2018
   }
 }
 </script>
