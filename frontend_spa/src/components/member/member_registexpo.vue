@@ -1,5 +1,5 @@
 <template lang="pug">
-.page.member-regist-expo.text-left
+.page.member-regist-expo.text-left(:key="user || user.id")
   .container
     .col-sm-12
       h2.mt-5 2018 雜學校報名表單

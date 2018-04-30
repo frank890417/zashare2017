@@ -40,7 +40,7 @@
         .tag ZA COURSE
         i.fa.fa-info
         br
-      .col-sm-6.col-md-4.mt-3(v-for="(ct,ctid) in coupontypes", v-if="ct.can_get")
+      .col-sm-6.col-md-4.mt-3(v-for="(ct,ctid) in coupontypes", v-if="ct.can_get || isAdmin")
         .coupon-box-inner
           .cover(:style="bgcss(ct.cover)")
             //.num 00{{ctid+1}}
@@ -55,29 +55,14 @@
           div(v-else)
             h4.text-center 無法領取(不符合資格)
           h4.text-center(v-if="ct.my") 序號：{{ct.my.coupon}}
-    .row.row-coupon( v-if="isAdmin")
-      .col-sm-12(v-if="coupontypes.length")
-        .tag 2018 ZA EXPO
-        i.fa.fa-info
-        | &nbsp;&nbsp;2018 年 6 月 15 日 申請截止
-      .col-sm-12
-        .row(@click="setMenuState(false)")
-          .col-sm-6
-            router-link.box.big(to="/member/registexpo") 
-              .cover(:style="bgcss('/static/img/regist2018/ZAEXPO.jpg')")
-              .info 參展申請<br>參展編碼：
-          .col-sm-6
-            router-link.box(to="/member/registexpo/workshop") 
-              .cover(:style="bgcss('/static/img/regist2018/ZAWORKSHOP.jpg')")
-              .info 雜工坊
-            router-link.box(to="/member/registexpo/speak") 
-              .cover(:style="bgcss('/static/img/regist2018/Zac.jpg')")
-              .info Zac. 教育新創短講評選
+    panel_expo2018.row( v-if="isAdmin")
+      
         
 </template>
 
 <script>
 import {mapState,mapMutations, mapActions, mapGetters} from 'vuex'
+import panel_expo2018 from './panel_expo2018'
 export default {
   data() {
     return {
@@ -177,6 +162,9 @@ export default {
 
       }
     }
+  },
+  components: {
+    panel_expo2018
   }
 }
 </script>
@@ -276,7 +264,7 @@ export default {
     padding: 0
     li
       margin-bottom: 10px
-      
+    
   .row-coupon
     border-top: 1px solid rgba(black,0.1)
     padding-top: 30px
@@ -294,6 +282,11 @@ export default {
       position: relative
       background-position: center center
       background-size: cover
+      color: white
+      display: flex
+      justify-content: flex-start
+      align-items: flex-start
+      padding: 10px
       .num
         position: absolute
         left: 0
