@@ -23,12 +23,12 @@
       el-form(v-if="registExpoPaid",  :disabled = "typeof registExpoPaid.id=='number'")
         div(v-show="active==0")
           h4.mt-5 ㄧ、匯款資訊
-          el-form-item(label="匯款日期/時間")
+          el-form-item(required label="匯款日期/時間")
             el-date-picker(v-model="registExpoPaid.paid_datetime" type="datetime",
                           value-format="yyyy-MM-dd HH:mm:ss")
           p //此為協助我們確認款項之作業流程，  請務必填寫正確日期。
 
-          el-form-item(label="是否使用銀行/郵局臨櫃匯款")
+          el-form-item(required label="是否使用銀行/郵局臨櫃匯款")
             div
               el-radio(label="1" v-model="registExpoPaid.paid_direct" ) 是
               el-radio(label="0" v-model="registExpoPaid.paid_direct" ) 否
@@ -38,35 +38,35 @@
           p 舉例：
             | <br>個人戶/陳雜兒
             | <br>公司戶/雜學股份有限公司
-          el-form-item()
+          el-form-item(required )
             el-input(v-model="registExpoPaid.paid_name")
-          el-form-item(label="請輸入匯款帳號後五碼")
+          el-form-item(required label="請輸入匯款帳號後五碼")
             el-input(v-model="registExpoPaid.paid_last_number")
 
         div(v-show="active==1")
           h4.mt-5 二、發票資訊
 
-          el-form-item(label="種類")
+          el-form-item(required label="種類")
             p 如需報帳請選擇「三聯式發票」，並繼續填寫統編資訊。
             div
               el-radio(label="二聯式發票" v-model="registExpoPaid.receipt_type" ) 二聯式發票
               el-radio(label="三聯式發票" v-model="registExpoPaid.receipt_type" ) 三聯式發票
-          el-form-item(label="請輸入統編 （三聯式發票者須填）")
+          el-form-item(required label="請輸入統編 （三聯式發票者須填）")
             el-input(v-model="registExpoPaid.receipt_number")
             
-          el-form-item(label="請輸入抬頭 （三聯式發票者須填）")
+          el-form-item(required label="請輸入抬頭 （三聯式發票者須填）")
             el-input(v-model="registExpoPaid.receipt_title")
 
           p 發票寄送：收件人姓名
           p 雜學校團隊會於甄選階段開立發票，若最終無入選參展，發票將於甄選結果釋出後一個月內以掛號寄出；<br>入選參選者，則於佈展日現場簽到領取發票。
-          el-form-item
+          el-form-item(required)
             el-input(v-model="registExpoPaid.receipt_name")
 
-          el-form-item(label="發票寄送：收件人電話")
+          el-form-item(required label="發票寄送：收件人電話")
             el-input(v-model="registExpoPaid.receipt_phone")
-          el-form-item(label="發票寄送：收件人地址")
+          el-form-item(required label="發票寄送：收件人地址")
             el-input(v-model="registExpoPaid.receipt_address")
-          el-form-item(label="發票寄送：郵遞區號")
+          el-form-item(required label="發票寄送：郵遞區號")
             el-input(v-model="registExpoPaid.receipt_postcode")
 
         div(v-show="active==2") 

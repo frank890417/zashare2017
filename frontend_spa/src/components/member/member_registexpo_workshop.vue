@@ -16,22 +16,22 @@
     el-form(v-if="registExpoWorkshop", :disabled="typeof registExpoWorkshop.id=='number'")
       div(v-show="active==0")
         h4.mt-5 ㄧ、申請基本資訊
-          el-form-item(label="1.	課程類型")
+          el-form-item(required label="1.	課程類型")
             el-select(v-model="registExpoWorkshop.class_type")
               el-option(:value="v"
                     v-for='v in types') {{v}}
 
           p 2.	活動招生族群
           p 請確認是否有報名身份/年齡等限制資格，如為限定親子參加、限定特定年齡層等請將「勾選取消」，並簡述。
-          el-form-item(label="無限制（一般大眾皆可）")
+          el-form-item(required label="無限制（一般大眾皆可）")
             el-checkbox(v-model="audience_normal")
           div(v-if="!audience_normal")
             el-input(v-model="registExpoWorkshop.class_audience")
 
-          el-form-item(label="3.	活動預計招生人數(場地建議容納人數以30人為限)")
+          el-form-item(required label="3.	活動預計招生人數(場地建議容納人數以30人為限)")
             el-input-number(v-model="registExpoWorkshop.class_person_count", :max="30")
 
-          el-form-item(label="4.	登記場次")
+          el-form-item(required label="4.	登記場次")
             el-select(v-model="registExpoWorkshop.class_time" multiple)
               el-option(:value="t", v-for="t in timespans" ) {{t}}
           p 請複選可配合安排之場次，若確定有登記到工坊場次，主辦單位會以此做為時段安排的參考。 主辦方保有最終審定權，參展方不得有異議。
@@ -43,19 +43,20 @@
               | <br>二、主題或議題設定（如本次體驗活動重點與品牌本身並無直接關聯，可詳加補述）
               | <br>三、活動內容（目標族群、活動企劃、執行方式、人力分工配置等）
               | <br>四、過往活動經驗或舉辦成果
-          el-upload(
-            drag
-            auto-upload
-            ref="upload"
-            accept="pdf"
-            :data="{token: auth.token}"
-            :on-success="(url)=>{registExpoWorkshop.class_proposal = url}"
-            :action="apiDomain+'api/registexpo/uploadtemp'"
-            
-          )
-            i.el-icon-upload
-            div.el-upload__text 將文件拖曳到此處或<em>點擊上傳</em>
-            div.el-upload__tip(slot="tip") 只能上傳不超過20MB的PDF文件
+          el-form-item(required)
+            el-upload(
+              drag
+              auto-upload
+              ref="upload"
+              accept="pdf"
+              :data="{token: auth.token}"
+              :on-success="(url)=>{registExpoWorkshop.class_proposal = url}"
+              :action="apiDomain+'api/registexpo/uploadtemp'"
+              
+            )
+              i.el-icon-upload
+              div.el-upload__text 將文件拖曳到此處或<em>點擊上傳</em>
+              div.el-upload__tip(slot="tip") 只能上傳不超過20MB的PDF文件
         // :action "apiDomain+'api/registexpo/uploadtemp'"
                   
 
@@ -66,22 +67,22 @@
           .col-sm-12
             p 1.	主要聯絡人（請優先填寫執行窗口）
           .col-sm-12
-            el-form-item(label="姓名")
+            el-form-item(required label="姓名")
               el-input(v-model="registExpoWorkshop.main_contact_name")
-            el-form-item(label="手機")
+            el-form-item(required label="手機")
               el-input(v-model="registExpoWorkshop.main_contact_phone")
-            el-form-item(label="Email")
+            el-form-item(required label="Email")
               el-input(v-model="registExpoWorkshop.main_contact_email")
 
         .row
           .col-sm-12
             p 2.	次要聯絡人
           .col-sm-12
-            el-form-item(label="姓名")
+            el-form-item(required label="姓名")
               el-input(v-model="registExpoWorkshop.secondary_contact_name")
-            el-form-item(label="手機")
+            el-form-item(required label="手機")
               el-input(v-model="registExpoWorkshop.secondary_contact_phone")
-            el-form-item(label="Email")
+            el-form-item(required label="Email")
               el-input(v-model="registExpoWorkshop.secondary_contact_email")
 
 

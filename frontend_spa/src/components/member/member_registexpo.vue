@@ -16,20 +16,20 @@
     el-form(v-if="registExpo"  :disabled="typeof registExpo.id=='number'")
       div(v-show="active==0")
         h4.mt-5 ㄧ、參展資訊
-        el-form-item(label="申請攤位類型")
+        el-form-item(required label="申請攤位類型")
           el-select(v-model="registExpo.type")
             el-option(value="基礎單位 (1m*1m 限高2.5m)") 基礎單位 (1m*1m 限高2.5m)
             el-option(value="標準單位 (2m*3m 限高2.5m)") 標準單位 (2m*3m 限高2.5m)
             el-option(value="進階單位 (2m*6m 限高2.5m)") 進階單位 (2m*6m 限高2.5m)
 
-        el-form-item(label="申請類別（主辦方保留最後分配權）")
+        el-form-item(required label="申請類別（主辦方保留最後分配權）")
           el-select(v-model="registExpo.theme")
             el-option(:value="v"
                   v-for='v in ["教育創新","文化實踐","生活探索","專業培育"]') {{v}}
 
         p 是否曾參展雜學校？
         p 若參展過2屆以上，請填寫「最近一次」的參展年份。
-        el-form-item()
+        el-form-item(required )
           el-select(v-model="registExpo.attended")
             el-option(:value="v"
                   v-for='v in ["首次參展","2015不太乖教育節","2016雜學校","2017雜學校"]') {{v}}
@@ -37,34 +37,34 @@
       div(v-show="active==1")
         h4.mt-5 二、申請單位資訊
         
-        el-form-item(label="申請單位/個人名稱")
-          el-form-item(label="中文")
+        el-form-item(required label="申請單位/個人名稱")
+          el-form-item(required label="中文")
             el-input(v-model="registExpo.name_cht")
-          el-form-item(label="英文")
+          el-form-item(required label="英文")
             el-input(v-model="registExpo.name_eng")
 
-        el-form-item(label="申請單位/個人簡介 （請以200-300字讓我們能更認識你）")
+        el-form-item(required label="申請單位/個人簡介 （請以200-300字讓我們能更認識你）")
           el-input(v-model="registExpo.description", type="textarea" :rows="5",
                     :maxlength="300")
 
-        el-form-item(label="你目前所經營/接觸的目標受眾（取前2個最接近的對話群、消費群）")
+        el-form-item(required label="你目前所經營/接觸的目標受眾（取前2個最接近的對話群、消費群）")
           el-select(v-model="registExpo.target_audience" multiple,
                     :multiple-limit="2")
             el-option(:value="v"
                   v-for='v in audiences') {{v}}
 
-        el-form-item(label="最希望在雜學校接觸/開放的目標受眾（取前2個最想開發的對話群、消費群）")
+        el-form-item(required label="最希望在雜學校接觸/開放的目標受眾（取前2個最想開發的對話群、消費群）")
           el-select(v-model="registExpo.want_audience" multiple,
                     :multiple-limit="2")
             el-option(:value="v"
                   v-for='v in audiences') {{v}}
 
 
-        el-form-item(label="是否在展位進行銷售行為？")
+        el-form-item(required label="是否在展位進行銷售行為？")
           el-radio(:label="1" v-model="registExpo.have_sell" ) 是（請於參展規劃簡報中介紹商品與現場售價）
           el-radio(:label="0" v-model="registExpo.have_sell" ) 否
 
-        el-form-item(label="請以一份20頁(內)電子簡報檔闡述參展規劃（主辦單位將以此份檔案作為雜星賞評選依據）")
+        el-form-item(required label="請以一份20頁(內)電子簡報檔闡述參展規劃（主辦單位將以此份檔案作為雜星賞評選依據）")
         div.text-left
           p 檔案大小限制 20MB 內，請輸出成PDF格式。
           ul 建議內容設定：
@@ -76,27 +76,27 @@
             li 六、展位規劃示意圖
             li 七、過往參展經驗或活動成果
             li 八、如會在展位現場進行銷售或名單資料搜集，需提交商品介紹與現場售價或名單搜集方式（例如遊戲互動、傳單、coupon）
-
-        el-upload(
-            drag
-            auto-upload
-            ref="upload"
-            accept="pdf"
-            :data="{token: auth.token}"
-            :on-success="(url)=>{registExpo.file_proposal = url}"
-            :action="apiDomain+'api/registexpo/uploadtemp'"
-            
-          )
-            i.el-icon-upload
-            div.el-upload__text 將文件拖曳到此處或<em>點擊上傳</em>
-            div.el-upload__tip(slot="tip") 只能上傳不超過20MB的PDF文件
+        el-form-item(required)
+          el-upload(
+              drag
+              auto-upload
+              ref="upload"
+              accept="pdf"
+              :data="{token: auth.token}"
+              :on-success="(url)=>{registExpo.file_proposal = url}"
+              :action="apiDomain+'api/registexpo/uploadtemp'"
+              
+            )
+              i.el-icon-upload
+              div.el-upload__text 將文件拖曳到此處或<em>點擊上傳</em>
+              div.el-upload__tip(slot="tip") 只能上傳不超過20MB的PDF文件
         // :action "apiDomain+'api/registexpo/uploadtemp'"
   
 
-        el-form-item(label="請簡述參與雜學校的原因（100字以內）" :maxlength="100")
+        el-form-item(required label="請簡述參與雜學校的原因（100字以內）" :maxlength="100")
           el-input(v-model="registExpo.attend_reason", type="textarea" :rows="5")
 
-        el-form-item(label="備註－其他補充事項（200字以內）" :maxlength="200")
+        el-form-item(required label="備註－其他補充事項（200字以內）" :maxlength="200")
           el-input(v-model="registExpo.other", type="textarea" :rows="5")
 
 
@@ -106,22 +106,22 @@
           .col-sm-12
             p 1.	主要聯絡人（請優先填寫執行窗口）
           .col-sm-12
-            el-form-item(label="姓名")
+            el-form-item(required label="姓名")
               el-input(v-model="registExpo.main_contact_name")
-            el-form-item(label="手機")
+            el-form-item(required label="手機")
               el-input(v-model="registExpo.main_contact_phone")
-            el-form-item(label="Email")
+            el-form-item(required label="Email")
               el-input(v-model="registExpo.main_contact_email")
 
         .row
           .col-sm-12
             p 2.	次要聯絡人
           .col-sm-12
-            el-form-item(label="姓名")
+            el-form-item(required label="姓名")
               el-input(v-model="registExpo.secondary_contact_name")
-            el-form-item(label="手機")
+            el-form-item(required label="手機")
               el-input(v-model="registExpo.secondary_contact_phone")
-            el-form-item(label="Email")
+            el-form-item(required label="Email")
               el-input(v-model="registExpo.secondary_contact_email")
 
     div(v-show="active==3") 
