@@ -15,96 +15,105 @@
         el-step(title="確認送出" , @click="active=3")
         el-step(title="填寫完成" , @click="active=4")
         
-        
-    el-form(v-if="registExpoSpeak",  :disabled = "typeof registExpoSpeak.id=='number'")
-      div(v-show="active==0")
-        h4.mt-5 ㄧ、申請基本資訊
-        
-        el-form-item(required label="1. 評選入圍之單位，是否同意策展權益交由給主辦單位規劃與設計")
-          el-radio(:label="1" v-model="registExpoSpeak.agree_plan" ) 是
-          el-radio(:label="0" v-model="registExpoSpeak.agree_plan" ) 否
+    .col-sm-12    
+      el-form(v-if="registExpoSpeak",  :disabled = "typeof registExpoSpeak.id=='number'",
+              label-position="left",
+              :model="registExpoSpeak")
+        div(v-show="active==0")
+          h4.mt-5.mb-5 ㄧ、申請基本資訊
           
-      
-        el-form-item(required label="2. 團隊人數")
-          el-input-number(v-model="registExpoSpeak.team_person_count")
-
-        el-form-item(required label="3. 是否已有獲得資金挹注")
-          el-radio(:label="1" v-model="registExpoSpeak.has_money" ) 是
-          el-radio(:label="0" v-model="registExpoSpeak.has_money" ) 否
-                      
-
-
-      div(v-show="active==1")
-        h4.mt-5 二、申請資料填寫
-
-
-        el-form-item(required label="1. 請簡述你的具體創業內容（200-300字內）")
-          el-input(v-model="registExpoSpeak.startup_content", type="textarea" rows="5")
-
-        el-form-item(required label="2. 請簡述你的目標族群（200-300字內）")
-          el-input(v-model="registExpoSpeak.startup_audience", type="textarea" rows="5")
-
-        el-form-item(required label="3. 請簡述你目前的創業困境（200-300字內）")
-          el-input(v-model="registExpoSpeak.startup_difficult", type="textarea" rows="5")
-
-        el-form-item(required label="4. 請敘述你想解決的教育問題（200-300字內）")
-          el-input(v-model="registExpoSpeak.startup_problem", type="textarea" rows="5")
-
-        el-form-item(required label="5. 請敘述你認為團隊/產品賦予社會的影響力是（200-300字內）")
-          el-input(v-model="registExpoSpeak.startup_power", type="textarea" rows="5")
-
-        el-form-item(required label="6. 請檢附一份20頁(內)提案計畫書（主辦單位將以此份檔案作為「Zac.新創教育短講評選」初選評比依據。）")
-          el-upload(
-            drag
-            auto-upload
-            ref="upload"
-            accept="pdf"
-            :data="{token: auth.token}"
-            :on-success="(url)=>{registExpoSpeak.startup_proposal = url}"
-            :action="apiDomain+'api/registexpo/uploadtemp'"
+          el-form-item(required label="1. 評選入圍之單位，是否同意策展權益交由給主辦單位規劃與設計")
+            br
+            br
+            el-radio(:label="0" v-model="registExpoSpeak.agree_plan" ) 否
+            el-radio(:label="1" v-model="registExpoSpeak.agree_plan" ) 是
             
-          )
-            i.el-icon-upload
-            div.el-upload__text 將文件拖曳到此處或<em>點擊上傳</em>
-            div.el-upload__tip(slot="tip") 只能上傳不超過20MB的PDF文件
+        
+          el-form-item(required label="2. 團隊人數")
+            br
+            br
+            el-input-number(v-model="registExpoSpeak.team_person_count")
+
+          el-form-item(required label="3. 是否已有獲得資金挹注")
+            br
+            br
+            el-radio(:label="0" v-model="registExpoSpeak.has_money" ) 否
+            el-radio(:label="1" v-model="registExpoSpeak.has_money" ) 是
+                        
 
 
-      div(v-show="active==2")
-        h4.mt-5 三、申請人聯絡資料
-        .row
-          .col-sm-12
-            p 1.	主要聯絡人（請優先填寫執行窗口）
-          .col-sm-12
+        div(v-show="active==1")
+          h4.mt-5.mb-5 二、申請資料填寫
 
-            el-form-item(required label="姓名")
-              el-input(v-model="registExpoSpeak.main_contact_name")
-            el-form-item(required label="手機")
-              el-input(v-model="registExpoSpeak.main_contact_phone")
-            el-form-item(required label="Email")
-              el-input(v-model="registExpoSpeak.main_contact_email")
 
-        .row
-          .col-sm-12
-            p 2.	次要聯絡人
-          .col-sm-12
+          el-form-item(required label="1. 請簡述你的具體創業內容（200-300字內）")
+            el-input(v-model="registExpoSpeak.startup_content", type="textarea" rows="5")
 
-            el-form-item(required label="姓名")
-              el-input(v-model="registExpoSpeak.secondary_contact_name")
-            el-form-item(required label="手機")
-              el-input(v-model="registExpoSpeak.secondary_contact_phone")
-            el-form-item(required label="Email")
-              el-input(v-model="registExpoSpeak.secondary_contact_email")
+          el-form-item(required label="2. 請簡述你的目標族群（200-300字內）")
+            el-input(v-model="registExpoSpeak.startup_audience", type="textarea" rows="5")
 
-      div(v-show="active==3") 
-        pre(v-html="registExpoSpeak")
-        el-button(@click="sendRegistForm") 送出雜短講申請
-      div(v-show="active==4") 
-        p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
-        panel_expo2018
+          el-form-item(required label="3. 請簡述你目前的創業困境（200-300字內）")
+            el-input(v-model="registExpoSpeak.startup_difficult", type="textarea" rows="5")
 
-      div
-        .btn(@click="prev") 上一步
-        .btn(@click="next") 下一步
+          el-form-item(required label="4. 請敘述你想解決的教育問題（200-300字內）")
+            el-input(v-model="registExpoSpeak.startup_problem", type="textarea" rows="5")
+
+          el-form-item(required label="5. 請敘述你認為團隊/產品賦予社會的影響力是（200-300字內）")
+            el-input(v-model="registExpoSpeak.startup_power", type="textarea" rows="5")
+
+          el-form-item(required label="6. 請檢附一份20頁(內)提案計畫書（主辦單位將以此份檔案作為「Zac.新創教育短講評選」初選評比依據。）")
+            el-upload(
+              drag
+              auto-upload
+              ref="upload"
+              accept="pdf"
+              :data="{token: auth.token}"
+              :on-success="(url)=>{registExpoSpeak.startup_proposal = url}"
+              :action="apiDomain+'api/registexpo/uploadtemp'"
+              
+            )
+              i.el-icon-upload
+              div.el-upload__text 將文件拖曳到此處或<em>點擊上傳</em>
+              div.el-upload__tip(slot="tip") 只能上傳不超過20MB的PDF文件
+
+
+        div(v-show="active==2")
+          h4.mt-5.mb-5 三、申請人聯絡資料
+          .row
+            .col-sm-12
+              h6 1.	主要聯絡人（請優先填寫執行窗口）
+            .col-sm-12
+
+              el-form-item(required label="姓名")
+                el-input(v-model="registExpoSpeak.main_contact_name")
+              el-form-item(required label="手機")
+                el-input(v-model="registExpoSpeak.main_contact_phone")
+              el-form-item(required label="Email")
+                el-input(v-model="registExpoSpeak.main_contact_email")
+
+          .row.mt-5
+            .col-sm-12
+              h6 2.	次要聯絡人
+            .col-sm-12
+
+              el-form-item(required label="姓名")
+                el-input(v-model="registExpoSpeak.secondary_contact_name")
+              el-form-item(required label="手機")
+                el-input(v-model="registExpoSpeak.secondary_contact_phone")
+              el-form-item(required label="Email")
+                el-input(v-model="registExpoSpeak.secondary_contact_email")
+
+        div(v-show="active==3") 
+          //- pre(v-html="registExpoSpeak")
+          el-button(@click="sendRegistForm" type="primary" size="medium") 送出雜短講申請
+        div(v-show="active==4") 
+          p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
+          panel_expo2018
+
+      hr
+      div.mt-5
+        el-button.float-left(@click="prev", v-if="active>0") 上一步
+        el-button.float-right(@click="next" , v-if="active<3") 下一步
 
 </template>
 

@@ -19,11 +19,15 @@
           a(href='https://www.youtube.com/channel/UCiCIqDTmahczFvmg8iNUVow/playlists', target='_blank')
             img(src="/static/img/social-icon/social-yt.svg")
     .row
-      .col-sm-4
+      .col-sm-4.footer-text 
         h3 Tel. +886-2-2729-7122<br>Mail. zashare@ozzie-art.com<br>Business hours. 10:00-19:00 Mon. - Fri.
-      .col-sm-4
-        h3 <br>雜選課 ZA COURSE<br>雜學起義 ZA SHARE Revolution<br>
-      .col-sm-4
+      .col-sm-4.footer-text 
+        h3
+          a(href="https://www.yottau.com.tw/partner/344" target="_blank") 雜選課 ZA COURSE
+          br
+          a(href="http://revolution.zashare.org/" target="_blank")  雜學起義 ZA SHARE Revolution
+
+      .col-sm-4.footer-text 
         h3 網站製作：墨雨設計<br>© 2018 雜学校 Za Share All Rights Reserved.<br>
 </template>
 
@@ -50,12 +54,19 @@ export default {
     padding-right: 100px
   .footer_logo
     justify-content: flex-start
+  .footer-text
+    min-height: 4em
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
   h3
     font-weight: 300
     font-size: 14px
     text-align: left
     line-height: 1.5
     letter-spacing: 0.3px
+    a
+      color: black
   +rwd_md
     padding-left: 0
     .container

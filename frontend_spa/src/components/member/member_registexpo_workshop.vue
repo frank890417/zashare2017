@@ -13,37 +13,48 @@
         el-step(title="確認與送出" , @click="active=2")
         el-step(title="填寫完成" , @click="active=3")
     //:disabled = "typeof registExpoWorkshop.id=='number'"
-    el-form(v-if="registExpoWorkshop", :disabled="typeof registExpoWorkshop.id=='number'")
-      div(v-show="active==0")
-        h4.mt-5 ㄧ、申請基本資訊
+    .col-sm-12
+      el-form(v-if="registExpoWorkshop", :disabled="typeof registExpoWorkshop.id=='number'",
+              label-position="left",
+              :model="registExpoWorkshop")
+        div(v-show="active==0")
+          h4.mt-5.mb-5 ㄧ、申請基本資訊
           el-form-item(required label="1.	課程類型")
             el-select(v-model="registExpoWorkshop.class_type")
               el-option(:value="v"
                     v-for='v in types') {{v}}
-
-          p 2.	活動招生族群
-          p 請確認是否有報名身份/年齡等限制資格，如為限定親子參加、限定特定年齡層等請將「勾選取消」，並簡述。
-          el-form-item(required label="無限制（一般大眾皆可）")
-            el-checkbox(v-model="audience_normal")
-          div(v-if="!audience_normal")
-            el-input(v-model="registExpoWorkshop.class_audience")
+          el-form-item(required label="2. 活動招生族群")
+            br
+            br
+            p 請確認是否有報名身份/年齡等限制資格，如為限定親子參加、指定年齡層等請將「勾選取消」，並簡述。&nbsp;&nbsp;&nbsp;
+            div 
+              el-checkbox(v-model="audience_normal")
+              span(v-if="audience_normal") &nbsp;&nbsp;無限制（一般大眾皆可）
+              span(v-else) &nbsp;&nbsp;其他
+            
+            el-input(v-if="!audience_normal" ,v-model="registExpoWorkshop.class_audience")
 
           el-form-item(required label="3.	活動預計招生人數(場地建議容納人數以30人為限)")
+            br
+            br
             el-input-number(v-model="registExpoWorkshop.class_person_count", :max="30")
 
           el-form-item(required label="4.	登記場次")
+            br
+            br
+            p 請複選可配合安排之場次，若確定有登記到工坊場次，主辦單位會以此做為時段安排的參考。 <br>主辦方保有最終審定權，參展方不得有異議。
             el-select(v-model="registExpoWorkshop.class_time" multiple)
               el-option(:value="t", v-for="t in timespans" ) {{t}}
-          p 請複選可配合安排之場次，若確定有登記到工坊場次，主辦單位會以此做為時段安排的參考。 主辦方保有最終審定權，參展方不得有異議。
-          br
-          p 5.	檢附一份10頁(內)提案活動企劃書（主辦單位將以此份檔案作為「雜工坊」徵選依據。）
+          
+          el-form-item(required label="5. 檢附一份10頁(內)提案活動企劃書（主辦單位將以此份檔案作為「雜工坊」徵選依據。）")
+            br
+            br
             p 檔案大小限制 20MB 內，請輸出成PDF格式。
             p 建議內容設定：
               | <br>一、背景介紹（含品牌/團隊/講師介紹）
               | <br>二、主題或議題設定（如本次體驗活動重點與品牌本身並無直接關聯，可詳加補述）
               | <br>三、活動內容（目標族群、活動企劃、執行方式、人力分工配置等）
               | <br>四、過往活動經驗或舉辦成果
-          el-form-item(required)
             el-upload(
               drag
               auto-upload
@@ -61,41 +72,42 @@
                   
 
 
-      div(v-show="active==1")
-        h4.mt-5 工坊聯絡資料
-        .row
-          .col-sm-12
-            p 1.	主要聯絡人（請優先填寫執行窗口）
-          .col-sm-12
-            el-form-item(required label="姓名")
-              el-input(v-model="registExpoWorkshop.main_contact_name")
-            el-form-item(required label="手機")
-              el-input(v-model="registExpoWorkshop.main_contact_phone")
-            el-form-item(required label="Email")
-              el-input(v-model="registExpoWorkshop.main_contact_email")
+        div(v-show="active==1")
+          h4.mt-5.mb-5 工坊聯絡資料
+          .row
+            .col-sm-12
+              h6 1.	主要聯絡人（請優先填寫執行窗口）
+            .col-sm-12
+              el-form-item(required label="姓名")
+                el-input(v-model="registExpoWorkshop.main_contact_name")
+              el-form-item(required label="手機")
+                el-input(v-model="registExpoWorkshop.main_contact_phone")
+              el-form-item(required label="Email")
+                el-input(v-model="registExpoWorkshop.main_contact_email")
 
-        .row
-          .col-sm-12
-            p 2.	次要聯絡人
-          .col-sm-12
-            el-form-item(required label="姓名")
-              el-input(v-model="registExpoWorkshop.secondary_contact_name")
-            el-form-item(required label="手機")
-              el-input(v-model="registExpoWorkshop.secondary_contact_phone")
-            el-form-item(required label="Email")
-              el-input(v-model="registExpoWorkshop.secondary_contact_email")
+          .row.mt-5
+            .col-sm-12
+              h6 2. 次要聯絡人
+            .col-sm-12
+              el-form-item(required label="姓名")
+                el-input(v-model="registExpoWorkshop.secondary_contact_name")
+              el-form-item(required label="手機")
+                el-input(v-model="registExpoWorkshop.secondary_contact_phone")
+              el-form-item(required label="Email")
+                el-input(v-model="registExpoWorkshop.secondary_contact_email")
 
 
-      div(v-show="active==2") 
-        pre(v-html="registExpoWorkshop")
-        el-button(@click="sendRegistForm") 送出雜工坊申請
-      div(v-show="active==3") 
-        p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
-        panel_expo2018
+        div(v-show="active==2") 
+          //- pre(v-html="registExpoWorkshop")
+          el-button(@click="sendRegistForm" type="primary" size="medium") 送出雜工坊申請
+        div(v-show="active==3") 
+          p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
+          panel_expo2018
 
-    .btn(@click="prev") 上一步
-    .btn(@click="next") 下一步
-
+        hr
+        div.mt-5
+          el-button.float-left(@click="prev", v-if="active>0") 上一步
+          el-button.float-right(@click="next" , v-if="active<2") 下一步
 </template>
 
 
@@ -107,7 +119,7 @@ import panel_expo2018 from '@/components/panels/panel_expo2018'
 export default {
   data(){
     return {
-      registExpoWorkshop: {},
+      registExpoWorkshop: {class_person_count: 0},
       // audiences: "學齡前幼兒／國小生／國中生／高中生／自學生／大專以上學生／職場新鮮人／青壯年／家長／教育工作者／投資人／創業者／學校單位／公部門／其他".split("／"),
       active: 0,
       audience_normal: true,

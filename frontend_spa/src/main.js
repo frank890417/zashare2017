@@ -1,8 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "slick-carousel/slick/slick.css"
+import 'element-ui/lib/theme-chalk/index.css'
 
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import locale from 'element-ui/lib/locale/lang/zh-TW'
+Vue.use(ElementUI, { locale })
 
 // require styles
 // import 'quill/dist/quill.core.css'
@@ -21,6 +23,7 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+
 
 import VueAnalytics from 'vue-analytics'
 if (document.domain =="zashare.org") {

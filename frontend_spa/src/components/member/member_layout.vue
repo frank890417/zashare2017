@@ -13,7 +13,7 @@
           el-menu-item(index="/member/registexpo2018") 報名2018展覽
           //- el-menu-item(index="/manage/company") 攤位管理 
           //- el-menu-item(index="/manage/cata") 類別管理 
-        auth_panel(layout="function")
+        //- auth_panel(layout="function")
         router-link.btn(to="/") 返回首頁
 
       .col-sm-10.col-content(:class="{'offset-2': !mobile}")
@@ -22,7 +22,7 @@
       .col-sm-12
         el-footer
   .container-fluid.login(v-else)
-    h1 請先登入後再使用會員功能哦！
+    h3 請先登入後再使用會員功能哦！
     auth_panel
     
 </template>
@@ -81,4 +81,11 @@ export default {
     top: 150px
   .auth-card
     box-shadow: 0px 0px 20px rgba(black,0.1)
+  label
+    font-size: 15px
+    font-weight: 800
+    color: rgb(44, 62, 80)
+    margin-top: 15px
+    // display: block
+
 </style>

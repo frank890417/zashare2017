@@ -4,7 +4,7 @@
     .row
       .col-sm-12
         h2.mt-5 會員資料修改
-        el-form(v-if="userClone", label-width="100px")
+        el-form(v-if="userClone")
           el-form-item(label="姓名")
             el-input(v-model="userClone.name")
           el-form-item(label="Email")
