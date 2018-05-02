@@ -3,10 +3,6 @@
 .row.row-expo2018( v-if="isAdmin", :key="menuState").text-left
   .container
     .col-sm-12
-      .tag 2018 ZA EXPO
-      i.fa.fa-info
-      | &nbsp;&nbsp;2018 年 6 月 15 日 申請截止
-    .col-sm-12
       .row(@click="setMenuState(false)")
         .col-sm-6
           router-link.box.big(to="/member/registexpo").animated.fadeIn.delay-3

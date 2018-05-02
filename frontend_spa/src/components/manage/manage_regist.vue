@@ -15,11 +15,19 @@
       el-table-column(prop="name_eng",label="英文", width="200" sortable)
 
       el-table-column(prop="description",label="描述", width="200" sortable)
+      el-table-column(prop="target_audience",label="目標受眾", width="200" sortable)
+      el-table-column(prop="want_audience",label="希望觸及受眾", width="200" sortable)
+      el-table-column(prop="hahve_sell",label="有銷售", width="200" sortable)
       el-table-column(prop="attend_reason",label="參與原因", width="200" sortable)
       el-table-column(prop="paid_record",label="繳款", width="80" sortable)
       el-table-column(prop="file_proposal",label="簡報", width="80")
         template(slot-scope="scope")
           a(:href="apiDomain+'storage'+scope.row.file_proposal", target="_href") 連結
+      el-table-column(prop="main_contact_name",label="主要聯絡人", width="200" sortable)
+      el-table-column(prop="main_contact_phone",label="電話", width="200" sortable)
+      el-table-column(prop="main_contact_email",label="信箱", width="200" sortable)
+
+
       //- el-table-column(prop="cover",label="封面", width="120")
         template(slot-scope="scope")
           img.cover(:src="scope.row.cover")

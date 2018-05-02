@@ -55,7 +55,13 @@
           div(v-else)
             h4.text-center 無法領取(不符合資格)
           h4.text-center(v-if="ct.my") 序號：{{ct.my.coupon}}
-    panel_expo2018.row( v-if="isAdmin")
+    .row
+      .col-sm-12
+        .tag.mt-5.mb-3 2018 ZA EXPO
+        i.fa.fa-info
+        | &nbsp;&nbsp;2018 年 6 月 15 日 申請截止
+      .col-sm-12
+        panel_expo2018.row( v-if="isAdmin")
       
         
 </template>
@@ -273,7 +279,7 @@ export default {
     border-top: 1px solid rgba(black,0.1)
     padding-top: 30px
   .tag
-    margin-top: 50px
+    // margin-top: 50px
     background-color: black
     color: white
     padding: 0px 10px

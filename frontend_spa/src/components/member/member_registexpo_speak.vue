@@ -25,10 +25,8 @@
           el-form-item(required label="1. 評選入圍之單位，是否同意策展權益交由給主辦單位規劃與設計")
             br
             br
-            el-radio(:label="0" v-model="registExpoSpeak.agree_plan" ) 否，維持在雜博覽展出（參展團隊自行規劃展位）
-
-             
             el-radio(:label="1" v-model="registExpoSpeak.agree_plan" ) 是，移展至雜學校概念館（由雜學校團隊量身規劃展位）
+            el-radio(:label="0" v-model="registExpoSpeak.agree_plan" ) 否，維持在雜博覽展出（參展團隊自行規劃展位）             
             
             
         
@@ -40,8 +38,8 @@
           el-form-item(required label="3. 是否已有獲得資金挹注")
             br
             br
-            el-radio(:label="0" v-model="registExpoSpeak.has_money" ) 否
             el-radio(:label="1" v-model="registExpoSpeak.has_money" ) 是
+            el-radio(:label="0" v-model="registExpoSpeak.has_money" ) 否
                         
 
 

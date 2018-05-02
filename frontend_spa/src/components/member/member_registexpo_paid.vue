@@ -9,9 +9,9 @@
           p.mt-5 提交申請表單後，務必於三日內繳交參展報名費($1,200，早鳥優惠$800)，並繼續填寫此份表單，提供匯款資訊協助我們進行款項確認後，才算申請參展成功呦！（報名費為申請參展之審核評選費用，若最終無入選參展，費用將不退還。）<br>＊海外參展優惠(含中國、香港、澳門等地區)免繳納報名費。
         .col-sm-12
           p 繳款帳戶：
-            |<br> 開戶行－007第一銀行 永春分行
-            |<br> 帳戶名－奧茲藝術顧問有限公司
-            |<br> 帳號－157-10-031073
+            |<br> 銀行名稱－007 第一銀行 永春分行
+            |<br> 帳戶名稱－雜學股份有限公司
+            |<br> 帳號－157-10-029362
 
     .col-sm-12.text-left
       el-steps(:active="active" finish-status="success")
@@ -38,7 +38,7 @@
             br
             div
               el-radio(label="1" v-model="registExpoPaid.paid_direct" ) 是
-              el-radio(label="0" v-model="registExpoPaid.paid_direct" ) 否
+              el-radio(label="0" v-model="registExpoPaid.paid_direct" ) 否，使用非臨櫃匯款（如ATM、網路轉帳等）
 
 
           el-form-item(required label="3. 請填寫使用匯款之戶名")
@@ -82,9 +82,10 @@
 
         div(v-show="active==2") 
           //- pre(v-html="registExpoPaid")
+          p.mt-5 請再次確認所有填寫資料後按下「確認送出」，主辦單位將於收到表單回填三日內進行款項確認，並以E-mail回覆確認。若提交後三日內未收到相關回覆，請主動聯繫主辦單位查詢。
           el-button.mt-5(@click="sendRegistForm" type="primary" size="medium") 送出繳費紀錄
         div(v-if="active==3") 
-          p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
+          p.mt-5 非常感謝您的填寫！<br>我們會於三日內確認款項，並寄出確認信。
           panel_expo2018
           
         hr
