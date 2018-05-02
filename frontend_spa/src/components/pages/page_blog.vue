@@ -272,6 +272,7 @@ export default {
     &.cover_21
       width: 100%
       height: 0
+      min-height: 0px
       padding-bottom: 50%
       background-color: #eee
   .tag

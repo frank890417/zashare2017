@@ -3,7 +3,7 @@
   .container(v-if="post && ready").animated.fadeIn
     .row.row-banner
       .col-sm-12.animated.fadeIn
-        .cover(:style="bgcss(post.cover)")
+        .cover.cover_21(:style="bgcss(post.cover)")
     .row.row-header
       .col-sm-12
         .tag {{postTag}}
@@ -127,7 +127,7 @@ export default {
   padding-top: 100px
   padding-bottom: 100px
   background-color: #fafafa
-
+  
   [class^="row-"]
     padding-left: 105px
     padding-right: 105px
@@ -156,6 +156,12 @@ export default {
         min-height: 40vh
         margin-left: -20px
         margin-right: -20px
+      &.cover_21
+        width: 100%
+        height: 0
+        min-height: 0px
+        padding-bottom: 50%
+        background-color: #eee
   .row-header
     text-align: left
     position: relative
