@@ -25,8 +25,11 @@
           el-form-item(required label="1. 評選入圍之單位，是否同意策展權益交由給主辦單位規劃與設計")
             br
             br
-            el-radio(:label="0" v-model="registExpoSpeak.agree_plan" ) 否
-            el-radio(:label="1" v-model="registExpoSpeak.agree_plan" ) 是
+            el-radio(:label="0" v-model="registExpoSpeak.agree_plan" ) 否，維持在雜博覽展出（參展團隊自行規劃展位）
+
+             
+            el-radio(:label="1" v-model="registExpoSpeak.agree_plan" ) 是，移展至雜學校概念館（由雜學校團隊量身規劃展位）
+            
             
         
           el-form-item(required label="2. 團隊人數")
@@ -47,19 +50,19 @@
 
 
           el-form-item(required label="1. 請簡述你的具體創業內容（200-300字內）")
-            el-input(v-model="registExpoSpeak.startup_content", type="textarea" rows="5")
+            el-input(v-model="registExpoSpeak.startup_content", type="textarea" rows="5" :maxlength="300")
 
           el-form-item(required label="2. 請簡述你的目標族群（200-300字內）")
-            el-input(v-model="registExpoSpeak.startup_audience", type="textarea" rows="5")
+            el-input(v-model="registExpoSpeak.startup_audience", type="textarea" rows="5" :maxlength="300")
 
           el-form-item(required label="3. 請簡述你目前的創業困境（200-300字內）")
-            el-input(v-model="registExpoSpeak.startup_difficult", type="textarea" rows="5")
+            el-input(v-model="registExpoSpeak.startup_difficult", type="textarea" rows="5" :maxlength="300")
 
           el-form-item(required label="4. 請敘述你想解決的教育問題（200-300字內）")
-            el-input(v-model="registExpoSpeak.startup_problem", type="textarea" rows="5")
+            el-input(v-model="registExpoSpeak.startup_problem", type="textarea" rows="5" :maxlength="300")
 
           el-form-item(required label="5. 請敘述你認為團隊/產品賦予社會的影響力是（200-300字內）")
-            el-input(v-model="registExpoSpeak.startup_power", type="textarea" rows="5")
+            el-input(v-model="registExpoSpeak.startup_power", type="textarea" rows="5" :maxlength="300")
 
           el-form-item(required label="6. 請檢附一份20頁(內)提案計畫書（主辦單位將以此份檔案作為「Zac.新創教育短講評選」初選評比依據。）")
             el-upload(
