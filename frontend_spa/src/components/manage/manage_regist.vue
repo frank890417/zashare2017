@@ -17,7 +17,7 @@
       el-table-column(prop="description",label="描述", width="200" sortable)
       el-table-column(prop="target_audience",label="目標受眾", width="200" sortable)
       el-table-column(prop="want_audience",label="希望觸及受眾", width="200" sortable)
-      el-table-column(prop="hahve_sell",label="有銷售", width="200" sortable)
+      el-table-column(prop="have_sell",label="有銷售", width="200" sortable)
       el-table-column(prop="attend_reason",label="參與原因", width="200" sortable)
       el-table-column(prop="paid_record",label="繳款", width="80" sortable)
       el-table-column(prop="file_proposal",label="簡報", width="80")

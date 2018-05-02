@@ -42,8 +42,8 @@
         | &nbsp;&nbsp;2018 年 6 月 15 日 申請截止
       .col-sm-12
         panel_expo2018.row( v-if="isAdmin")
-        
-    .row.row-coupon( v-if="auth.user.studentcard || isAdmin")
+
+    .row.row-coupon.mt-5( v-if="auth.user.studentcard || isAdmin")
       .col-sm-12(v-if="coupontypes.length")
         .tag ZA COURSE
         i.fa.fa-info
