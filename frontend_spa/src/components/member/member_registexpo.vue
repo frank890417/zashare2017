@@ -85,6 +85,7 @@
                   auto-upload
                   ref="upload"
                   accept="pdf"
+                  :limit="1"
                   :data="{token: auth.token}"
                   :on-success="(url)=>{registExpo.file_proposal = url}"
                   :action="apiDomain+'api/registexpo/uploadtemp'"

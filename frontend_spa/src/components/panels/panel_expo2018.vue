@@ -13,7 +13,7 @@
             .cover(:style="bgcss('/static/img/regist2018/ZAEXPO.jpg')")
               span 申請/繳費狀態：
               span(v-if="registExpo.id && !registExpo.paid_record") 已報名 未繳費
-              span(v-if="registExpo.id && registExpo.paid_record") 已繳費
+              span(v-if="registExpo.id && registExpo.paid_record") 主辦單位確認中
               span(v-if="!registExpo.id ") 未報名
             .info 
               div

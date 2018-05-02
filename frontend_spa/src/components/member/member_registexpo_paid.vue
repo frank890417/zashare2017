@@ -26,11 +26,16 @@
         div(v-show="active==0")
           h4.mt-5 ㄧ、匯款資訊
           el-form-item(required label="1. 匯款日期/時間")
+            br
+            br
+            p 此為協助我們確認款項之作業流程，  請務必填寫正確日期。
             el-date-picker(v-model="registExpoPaid.paid_datetime" type="datetime",
                           value-format="yyyy-MM-dd HH:mm:ss")
-          p //此為協助我們確認款項之作業流程，  請務必填寫正確日期。
+          
 
           el-form-item(required label="2. 是否使用銀行/郵局臨櫃匯款")
+            br
+            br
             div
               el-radio(label="1" v-model="registExpoPaid.paid_direct" ) 是
               el-radio(label="0" v-model="registExpoPaid.paid_direct" ) 否
@@ -50,14 +55,16 @@
           h4.mt-5 二、發票資訊
 
           el-form-item(required label="1. 發票種類")
+            br
+            br
             p 如需報帳請選擇「三聯式發票」，並繼續填寫統編資訊。
             div
               el-radio(label="二聯式發票" v-model="registExpoPaid.receipt_type" ) 二聯式發票
               el-radio(label="三聯式發票" v-model="registExpoPaid.receipt_type" ) 三聯式發票
-          el-form-item(required label="2. 請輸入統編 （三聯式發票者須填）")
+          el-form-item(label="2. 請輸入統編 （三聯式發票者須填）" :required = "registExpoPaid.receipt_type=='三聯式發票'")
             el-input(v-model="registExpoPaid.receipt_number")
             
-          el-form-item(required label="3. 請輸入抬頭 （三聯式發票者須填）")
+          el-form-item(label="3. 請輸入抬頭 （三聯式發票者須填）" :required = "registExpoPaid.receipt_type=='三聯式發票'")
             el-input(v-model="registExpoPaid.receipt_title")
 
           el-form-item(required label="4. 發票寄送：收件人姓名")
@@ -74,8 +81,8 @@
             el-input(v-model="registExpoPaid.receipt_postcode")
 
         div(v-show="active==2") 
-          pre(v-html="registExpoPaid")
-          el-button(@click="sendRegistForm" type="primary" size="medium") 送出繳費紀錄
+          //- pre(v-html="registExpoPaid")
+          el-button.mt-5(@click="sendRegistForm" type="primary" size="medium") 送出繳費紀錄
         div(v-if="active==3") 
           p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
           panel_expo2018

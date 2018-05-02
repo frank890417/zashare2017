@@ -65,6 +65,7 @@
             el-upload(
               drag
               auto-upload
+              :limit="1"
               ref="upload"
               accept="pdf"
               :data="{token: auth.token}"
