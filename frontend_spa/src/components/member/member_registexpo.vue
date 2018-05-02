@@ -81,7 +81,6 @@
                 |<br> 七、過往參展經驗或活動成果
                 |<br> 八、如會在展位現場進行銷售或名單資料搜集，需提交商品介紹與現場售價或名單搜集方式（例如遊戲互動、傳單、coupon）
               el-upload(
-                  drag
                   auto-upload
                   ref="upload"
                   accept=".pdf"
@@ -90,8 +89,7 @@
                   :on-success="(url)=>{registExpo.file_proposal = url}"
                   :action="apiDomain+'api/registexpo/uploadtemp'"
                 )
-                  i.el-icon-upload
-                  div.el-upload__text 將文件拖曳到此處或<em>點擊上傳</em>
+                  el-button(size="small" type="primary") 點擊上傳
                   div.el-upload__tip(slot="tip") 檔案大小限制 20MB 內，請輸出成PDF格式。
           // :action "apiDomain+'api/registexpo/uploadtemp'"
     

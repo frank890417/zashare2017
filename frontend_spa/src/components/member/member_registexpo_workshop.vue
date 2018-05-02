@@ -55,7 +55,6 @@
               | <br>三、活動內容（目標族群、活動企劃、執行方式、人力分工配置等）
               | <br>四、過往活動經驗或舉辦成果
             el-upload(
-              drag
               auto-upload
               ref="upload"
               accept=".pdf"
@@ -65,9 +64,8 @@
               :action="apiDomain+'api/registexpo/uploadtemp'"
               
             )
-              i.el-icon-upload
-              div.el-upload__text 將文件拖曳到此處或<em>點擊上傳</em>
-              div.el-upload__tip(slot="tip") 只能上傳不超過20MB的PDF文件
+              el-button(size="small" type="primary") 點擊上傳
+              div.el-upload__tip(slot="tip") 檔案大小限制 20MB 內，請輸出成PDF格式。
         // :action "apiDomain+'api/registexpo/uploadtemp'"
                   
 

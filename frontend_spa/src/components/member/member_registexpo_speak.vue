@@ -64,7 +64,6 @@
 
           el-form-item(required label="6. 請檢附一份20頁(內)提案計畫書（主辦單位將以此份檔案作為「Zac.新創教育短講評選」初選評比依據。）")
             el-upload(
-              drag
               auto-upload
               :limit="1"
               ref="upload"
@@ -74,11 +73,9 @@
               :action="apiDomain+'api/registexpo/uploadtemp'"
               
             )
-              i.el-icon-upload
-              div.el-upload__text 將文件拖曳到此處或<em>點擊上傳</em>
-              div.el-upload__tip(slot="tip") 只能上傳不超過20MB的PDF文件
-
-
+              el-button(size="small" type="primary") 點擊上傳
+              div.el-upload__tip(slot="tip") 檔案大小限制 20MB 內，請輸出成PDF格式。
+              
         div(v-show="active==2")
           h4.mt-5.mb-5 三、申請人聯絡資料
           .row
