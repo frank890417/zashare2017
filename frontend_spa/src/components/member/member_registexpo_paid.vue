@@ -123,18 +123,26 @@ export default {
     ...mapActions(['loadRegistData','updateRegistForm']),
     sendRegistForm(){
       let _this = this
-      this.updateRegistForm({
-        data:{
-          paid_record: this.registExpoPaid
-        },
-        callback(){
-          _this.$message({
-            message: '付費紀錄更新成功',
-            type: 'success'
-          });
 
-          _this.active=3
-        }
+
+      this.$confirm('確認送出付款確認？送出將無法更改', '最後確認', {
+        confirmButtonText: '確定',
+        cancelButtonText: '取消',
+      }).then(() => {
+        this.updateRegistForm({
+          data:{
+            paid_record: this.registExpoPaid
+          },
+          callback(){
+            _this.$message({
+              message: '付費紀錄更新成功',
+              type: 'success'
+            });
+  
+            _this.active=3
+          }
+        })
+        
       })
     },
     prev() {

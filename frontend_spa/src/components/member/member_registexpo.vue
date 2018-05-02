@@ -227,7 +227,7 @@ export default {
       // console.log(result)
       if (check_result==""){
 
-        this.$confirm('確認送出參展報名？', '最後確認', {
+        this.$confirm('確認送出參展報名？送出將無法更改', '最後確認', {
           confirmButtonText: '確定',
           cancelButtonText: '取消',
         }).then(() => {

@@ -172,19 +172,28 @@ export default {
     ...mapActions(['loadRegistData','updateRegistForm']),
     sendRegistForm(){
       let _this = this
-      this.updateRegistForm({
-        data:{
-          regist_expo_speak: this.registExpoSpeak
-        },
-        callback(){
-          _this.$message({
-            message: '雜講堂報名更新成功',
-            type: 'success'
-          });
 
-          _this.active=4
-        }
-      })
+
+
+      this.$confirm('確認送出講堂報名？送出將無法更改', '最後確認', {
+        confirmButtonText: '確定',
+        cancelButtonText: '取消',
+      }).then(() => {
+        
+        this.updateRegistForm({
+          data:{
+            regist_expo_speak: this.registExpoSpeak
+          },
+          callback(){
+            _this.$message({
+              message: '雜講堂報名更新成功',
+              type: 'success'
+            });
+
+            _this.active=4
+          }
+        })
+      });
     },
     prev() {
       if (this.active-- < 0) this.active = 3;

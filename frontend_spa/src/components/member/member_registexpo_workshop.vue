@@ -100,9 +100,10 @@
 
         div(v-show="active==2") 
           //- pre(v-html="registExpoWorkshop")
+          p.mt-5 請再次確認所有填寫資料後按下「確認送出」，主辦單位收到提案申請後將以E-mail回覆確認。若提交後三日內未收到相關回覆，請主動聯繫主辦單位查詢。
           el-button.mt-5(@click="sendRegistForm" type="primary" size="medium") 送出雜工坊申請
         div(v-if="active==3") 
-          p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
+          p.mt-5 謝謝貴團隊的用心籌劃！<br>最後甄選結果與場次安排將於2018/07/10公布在官方網站。
           panel_expo2018
 
         hr
@@ -167,19 +168,31 @@ export default {
     ...mapActions(['loadRegistData','updateRegistForm']),
     sendRegistForm(){
       let _this = this
-      this.updateRegistForm({
-        data:{
-          regist_workshop: this.registExpoWorkshop
-        },
-        callback(){
-          _this.$message({
-            message: '雜工坊報名更新成功',
-            type: 'success'
-          });
 
-          _this.active=3
-        }
-      })
+
+      this.$confirm('確認送出雜工坊報名？送出將無法更改', '最後確認', {
+        confirmButtonText: '確定',
+        cancelButtonText: '取消',
+      }).then(() => {
+
+        this.updateRegistForm({
+          data:{
+            regist_workshop: this.registExpoWorkshop
+          },
+          callback(){
+            _this.$message({
+              message: '雜工坊報名更新成功',
+              type: 'success'
+            });
+
+            _this.active=3
+          }
+        })
+
+
+      });
+      
+
     },
     prev() {
       if (this.active-- < 0) this.active = 3;
