@@ -9,7 +9,7 @@
             .photo.small(:style="bgcss(getUserPhoto)")
             span Hello! {{auth.user.name}}
               span(@click="logout", style="opacity: 0.5").curp &nbsp;登出
-              span.ml-5(@click="setMenuState(false)")
+              span.ml-5(@click="setMenuState(false)" v-if="isAdmin")
                 router-link(to="/manage", style="opacity: 0.5").curp &nbsp;管理
             div(v-if="auth.user.studentcard")
               h4 學生證資訊
