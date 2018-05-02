@@ -28,6 +28,7 @@ class CreateRegistExpoSpeaksTable extends Migration {
 			$table->string('secondary_contact_name')->nullable();
 			$table->string('secondary_contact_phone')->nullable();
 			$table->string('secondary_contact_email')->nullable();
+			$table->boolean('confirmed')->default(false);
 		});
 	}
 
