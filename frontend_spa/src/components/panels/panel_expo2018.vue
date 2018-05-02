@@ -15,7 +15,7 @@
               div
                 h5 參展申請
                 router-link.float-right.btn(to="/member/registexpo/paid",
-                                                v-if="registExpo.id ").animated.fadeIn.delay-6 繳費確認
+                                                v-if="registExpo.id ").animated.fadeIn.delay-6 填寫匯款資料
               span(v-if="registExpo") 參展編碼： 
                 span(v-if="registExpo.id") {{ registId }}
               br

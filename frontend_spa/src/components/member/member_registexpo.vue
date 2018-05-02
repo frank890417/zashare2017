@@ -32,6 +32,9 @@
                     v-for='v in ["教育創新","文化實踐","生活探索","專業培育"]') {{v}}
 
           el-form-item(required label="3. 是否曾參展雜學校？")
+            br
+            br
+            p 若參展過2屆以上，請填寫「最近一次」的參展年份。
             el-select(v-model="registExpo.attended" , placeholder="若參展過2屆以上，請填寫「最近一次」的參展年份。")
               el-option(:value="v"
                     v-for='v in ["首次參展","2015不太乖教育節","2016雜學校","2017雜學校"]') {{v}}
