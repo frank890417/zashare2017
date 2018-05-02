@@ -147,15 +147,16 @@
           br
           vr
           p 我確認資料已經正確無誤，送出後將無法修改
+          p#err_msg
           el-button(@click="sendRegistForm" type="primary" size="medium") 確認送出
 
-        div(v-show="active==4") 
+        div(v-if="active==4") 
           p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
           panel_expo2018
 
         hr
         div.mt-5
-          el-button.float-left(@click="prev", v-if="active>0") 上一步
+          el-button.float-left(@click="prev", v-if="active>0 && active<4") 上一步
           el-button.float-right(@click="next" , v-if="active<3") 下一步
 
 </template>
@@ -163,6 +164,7 @@
 <script>
 import {mapState, mapGetters, mapActions} from 'vuex'
 import panel_expo2018 from '@/components/panels/panel_expo2018'
+import $ from 'jquery'
 export default {
   data(){
     return {
@@ -184,44 +186,69 @@ export default {
     // console.log(this.user)
     // this.userClone = JSON.parse(JSON.stringify(this.user))
     this.loadRegistData()
+    
 
   },
   methods: {
     ...mapActions(['loadRegistData','updateRegistForm']),
+
+    check_data(){
+      var check=true;
+      this.error_msg="";
+      var vobj=this;
+      $("[data-require]").each(function(index,obj){
+        if ( $(obj).attr('data-require')!='false'){
+          if ($(obj).val()=="" && $(obj).children("input").val()=="" ){
+            vobj.error_msg+=$(obj).attr("data-require")+" 需填寫<br>";
+            check=false;
+          }
+          if ($(obj).attr("type")=="file"){
+              if (($(obj).val().split(".").slice(-1)+"").toLowerCase()!= $(obj).attr("data-requiretype")){
+                vobj.error_msg+=$(obj).attr("data-require")+" 檔案格式錯誤! 需為"+$(obj).attr("data-requiretype")+"<br>";
+                check=false;
+              }
+          }
+
+        }
+      });
+
+
+      if (this.error_msg!=""){
+        this.error_msg="[資料不完整]<br>"+this.error_msg;
+      }
+      console.log(this.error_msg);
+      return this.error_msg
+    },
     sendRegistForm(){
       let _this = this
-      this.$refs.form_registexpo.validate().then((valid)=>{
-        if (valid){
-          
-          console.log("驗證通過")
-        }else{
-
-          console.log("請確認資料是否都填寫完整！")
-        }
-      }).catch(()=>{
-      })
+      let check_result=this.check_data()
 
       // console.log(result)
+      if (check_result==""){
 
-      this.$confirm('確認送出參展報名？', '最後確認', {
-        confirmButtonText: '確定',
-        cancelButtonText: '取消',
-      }).then(() => {
-        this.updateRegistForm({
-          data: this.registExpo,
-          callback(){
-            _this.$message({
-              message: '資料更新成功',
-              type: 'success'
-            });
-            _this.active=4
-          }
-        })
-      }).catch(() => {
-        this.$message({
-          message: '已取消送出'
-        });          
-      });
+        this.$confirm('確認送出參展報名？', '最後確認', {
+          confirmButtonText: '確定',
+          cancelButtonText: '取消',
+        }).then(() => {
+          this.updateRegistForm({
+            data: this.registExpo,
+            callback(){
+              _this.$message({
+                message: '資料更新成功',
+                type: 'success'
+              });
+              _this.active=4
+            }
+          })
+        }).catch(() => {
+          this.$message({
+            message: '已取消送出'
+          });          
+        });
+
+      }else{
+        $("#err_msg").html(check_result)
+      }
     },
     prev() {
       if (this.active-- < 0) this.active = 3;

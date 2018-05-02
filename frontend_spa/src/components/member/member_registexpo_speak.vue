@@ -105,14 +105,14 @@
 
         div(v-show="active==3") 
           //- pre(v-html="registExpoSpeak")
-          el-button(@click="sendRegistForm" type="primary" size="medium") 送出雜短講申請
-        div(v-show="active==4") 
+          el-button.mt-5(@click="sendRegistForm" type="primary" size="medium") 送出 Zac. 教育短講 申請
+        div(v-if="active==4") 
           p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
           panel_expo2018
 
       hr
       div.mt-5
-        el-button.float-left(@click="prev", v-if="active>0") 上一步
+        el-button.float-left(@click="prev", v-if="active>0 && active<4") 上一步
         el-button.float-right(@click="next" , v-if="active<3") 下一步
 
 </template>

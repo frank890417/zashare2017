@@ -11,7 +11,7 @@
         .col-sm-6
           router-link.box.big(to="/member/registexpo").animated.fadeIn.delay-3
             .cover(:style="bgcss('/static/img/regist2018/ZAEXPO.jpg')")
-              span 申請及繳費狀態：
+              span 申請/繳費狀態：
               span(v-if="registExpo.id && !registExpo.paid_record") 已報名 未繳費
               span(v-if="registExpo.id && registExpo.paid_record") 已繳費
               span(v-if="!registExpo.id ") 未報名
@@ -132,7 +132,7 @@ export default {
   z-index: 100
 
   a.box
-    margin-top: 30px
+    margin-top: 20px
     box-shadow: 0px 0px 20px 5px rgba(black,0.1)
     border-radius: 5px
     display: block
@@ -149,10 +149,10 @@ export default {
       background-size: cover
       border-radius: 5px 5px 0px 0px
     .info
-      padding: 20px
+      padding: 15px 20px
     &.big
       .cover
-        height: 240px
+        height: 220px
     .btn
       &:hover
         background-color: #ddd

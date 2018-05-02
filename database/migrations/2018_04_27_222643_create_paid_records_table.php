@@ -23,6 +23,7 @@ class CreatePaidRecordsTable extends Migration {
 			$table->string('receipt_phone')->nullable();
 			$table->string('receipt_address')->nullable();
 			$table->string('receipt_postcode')->nullable();
+			$table->boolean('confirmed')->default(false);
 		});
 	}
 

@@ -22,15 +22,15 @@
       .bottom(v-if="mode=='register' && !auth.user")
         h4 會員註冊
         //- label email
-        input(v-model="registerData.email", placeholder="電子郵件(登入帳號)", type="email", name="email", autocomplete="on")
+        el-input(v-model="registerData.email", placeholder="電子郵件(登入帳號)", type="email", name="email", autocomplete="on")
         //- label name
-        input(v-model="registerData.name", placeholder="名字", type="name", name="name", autocomplete="on")
+        el-input(v-model="registerData.name", placeholder="名字", type="name", name="name", autocomplete="on")
         label.mention ※若您持有「雜學校學生證」，請務必填寫您的真實姓名，方便核對身分及保障您的權益。
-        select(v-model="registerData.jobcata", placeholder="產業別" , name="jobcata", autocomplete="on")
-          option(v-for= "(jb,jbid) in auth.jobcatas", 
-                :value="jb") {{jb}}
-        input(v-model="registerData.job", :placeholder="jobInforLabel", type="job", name="job", autocomplete="on")
-        input(v-model="registerData.password", placeholder="密碼", type="password")
+        el-select(v-model="registerData.jobcata", placeholder="現職產業別" , name="jobcata", autocomplete="on", style="width: 100%")
+          el-option(v-for= "(jb,jbid) in auth.jobcatas", 
+                :value="jb", :label="jb") {{jb}}
+        el-input(v-model="registerData.job", :placeholder="jobInforLabel", type="job", name="job", autocomplete="on")
+        el-input(v-model="registerData.password", placeholder="密碼", type="password")
         button.btn.fw.black(@click="register(registerData)") 註冊
         //- label(v-if="auth.status") {{auth.status}}
         button.btn.fw.nobg(@click="mode='login'") 我已經有帳號了！ 前往登入

@@ -13,7 +13,7 @@
         el-step(title="確認與送出" , @click="active=2")
         el-step(title="填寫完成" , @click="active=3")
     //:disabled = "typeof registExpoWorkshop.id=='number'"
-    .col-sm-12
+    .col-sm-12()
       el-form(v-if="registExpoWorkshop", :disabled="typeof registExpoWorkshop.id=='number'",
               label-position="left",
               :model="registExpoWorkshop")
@@ -99,14 +99,14 @@
 
         div(v-show="active==2") 
           //- pre(v-html="registExpoWorkshop")
-          el-button(@click="sendRegistForm" type="primary" size="medium") 送出雜工坊申請
-        div(v-show="active==3") 
+          el-button.mt-5(@click="sendRegistForm" type="primary" size="medium") 送出雜工坊申請
+        div(v-if="active==3") 
           p 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
           panel_expo2018
 
         hr
         div.mt-5
-          el-button.float-left(@click="prev", v-if="active>0") 上一步
+          el-button.float-left(@click="prev", v-if="active>0 && active<3") 上一步
           el-button.float-right(@click="next" , v-if="active<2") 下一步
 </template>
 
