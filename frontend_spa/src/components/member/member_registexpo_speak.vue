@@ -63,6 +63,8 @@
             el-input(v-model="registExpoSpeak.startup_power", type="textarea" rows="5" :maxlength="300")
 
           el-form-item(required label="6. 請檢附一份20頁(內)提案計畫書（主辦單位將以此份檔案作為「Zac.新創教育短講評選」初選評比依據。）")
+            br
+            br
             el-upload(
               auto-upload
               :limit="1"
@@ -75,7 +77,7 @@
             )
               el-button(size="small" type="primary") 點擊上傳
               div.el-upload__tip(slot="tip") 檔案大小限制 20MB 內，請輸出成PDF格式。
-              
+
         div(v-show="active==2")
           h4.mt-5.mb-5 三、申請人聯絡資料
           .row

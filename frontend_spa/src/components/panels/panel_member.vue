@@ -35,6 +35,14 @@
                 :target="postTarget(post)",
                 :key="post.title",
                 :tag="post.tag")
+    .row
+      .col-sm-12
+        .tag.mt-5.mb-3 2018 ZA EXPO
+        i.fa.fa-info
+        | &nbsp;&nbsp;2018 年 6 月 15 日 申請截止
+      .col-sm-12
+        panel_expo2018.row( v-if="isAdmin")
+        
     .row.row-coupon( v-if="auth.user.studentcard || isAdmin")
       .col-sm-12(v-if="coupontypes.length")
         .tag ZA COURSE
@@ -55,13 +63,6 @@
           div(v-else)
             h4.text-center 無法領取(不符合資格)
           h4.text-center(v-if="ct.my") 序號：{{ct.my.coupon}}
-    .row
-      .col-sm-12
-        .tag.mt-5.mb-3 2018 ZA EXPO
-        i.fa.fa-info
-        | &nbsp;&nbsp;2018 年 6 月 15 日 申請截止
-      .col-sm-12
-        panel_expo2018.row( v-if="isAdmin")
       
         
 </template>
