@@ -57,6 +57,7 @@ class RegistExpoController extends Controller {
             "data"=>$result
         ];
     }
+
     public function updateMyData(){
         
         $inputs = Input::get(["registexpo"]);
@@ -176,7 +177,7 @@ class RegistExpoController extends Controller {
         $inputs = Input::get(["registexpo"]);
         $user = $this->guard()->user();
         $inputs['user_id']=$user->id;
-        if ( !RegistExpo::find($user->id)){
+        if ( !RegistExpo::where("user_id",$user->id)->first() ){
             $RegistExpo = RegistExpo::forceCreate($inputs);
             //搬移參展簡報到正式資料夾
             try{
