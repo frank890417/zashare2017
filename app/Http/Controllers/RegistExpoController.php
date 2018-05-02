@@ -157,6 +157,7 @@ class RegistExpoController extends Controller {
                 }
                 Storage::disk('public')->copy($RegistExpo->file_proposal,$fullpath);
                 $RegistExpo->file_proposal="/stroage/app/public/".$fullpath;
+                $RegistExpo->save();
             }
         } catch(Exception $e){
             
@@ -191,6 +192,7 @@ class RegistExpoController extends Controller {
                     }
                     Storage::disk('public')->copy($RegistExpo->file_proposal,$fullpath);
                     $RegistExpo->file_proposal="/stroage/app/public/".$fullpath;
+                    $RegistExpo->save();
                 }
             } catch(Exception $e){
                 

@@ -94,7 +94,7 @@ export default {
         return this.keyword=="" || JSON.stringify(regist).indexOf(this.keyword)!=-1
       }).map(regist=>({
         ...regist,
-        paid_record: (regist.paid_record && regist.paid_record.id)?"未繳款":"已繳款",
+        paid_record: (regist.paid_record && regist.paid_record.id)?"已填寫待確認":"未繳款",
       }))
     }
   }
