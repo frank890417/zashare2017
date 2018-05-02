@@ -1,6 +1,6 @@
 <template lang="pug">
 
-.row.row-expo2018( v-if="isAdmin", :key="menuState").text-left
+.row.row-expo2018(  :key="menuState").text-left
   .container
     .col-sm-12
       .row(@click="setMenuState(false)")
