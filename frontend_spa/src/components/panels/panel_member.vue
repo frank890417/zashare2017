@@ -38,7 +38,7 @@
     .row
       .col-sm-12
         .tag.mt-5.mb-3 2018 ZA EXPO
-        a(href="https://zashare.org/static/2018雜學校徵件手冊.pdf" target="_blank")
+        a(href="https://zashare.org/static/2018雜學校徵件手冊中文版.pdf" target="_blank")
           i.fa.fa-info
         | &nbsp;&nbsp;2018 年 6 月 15 日 申請截止
       .col-sm-12
