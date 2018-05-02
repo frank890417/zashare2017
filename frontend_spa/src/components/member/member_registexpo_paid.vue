@@ -72,7 +72,6 @@
             br
             p 雜學校團隊會於甄選階段開立發票，若最終無入選參展，發票將於甄選結果釋出後一個月內以掛號寄出；<br>入選參選者，則於佈展日現場簽到領取發票。
             el-input(v-model="registExpoPaid.receipt_name")
-
           el-form-item(required label="5. 發票寄送：收件人電話")
             el-input(v-model="registExpoPaid.receipt_phone")
           el-form-item(required label="6. 發票寄送：收件人地址")
