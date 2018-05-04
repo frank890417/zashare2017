@@ -221,7 +221,7 @@ export default {
           {required: true, message: "請輸入主要聯絡人電話"}
         ],
         main_contact_email:[
-          {required: true, message: "請輸入主要聯絡人信箱"}
+          {required: true, message: "請輸入有效的主要聯絡人信箱", type: "email"}
         ],
         secondary_contact_name:[
           {required: true, message: "請輸入次要聯絡人姓名"}
@@ -230,7 +230,7 @@ export default {
           {required: true, message: "請輸入次要聯絡人電話"}
         ],
         secondary_contact_email:[
-          {required: true, message: "請輸入次要聯絡人信箱"}
+          {required: true, message: "請輸入有效的次要聯絡人信箱", type: "email"}
         ],
 
       }
