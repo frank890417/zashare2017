@@ -21,8 +21,8 @@
               h4 學生資訊
               ul
                 li 會員ID碼： {{auth.user.id}}
-                li 職稱： {{auth.user.jobcata}}
-                li 工作： {{auth.user.job}} 
+                li 現職產業別： {{auth.user.jobcata}}
+                li 現職職稱： {{auth.user.job}} 
                 li 聯絡信箱：{{auth.user.email}}
                 //- li 生日： 
             span

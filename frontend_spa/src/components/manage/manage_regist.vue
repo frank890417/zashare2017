@@ -22,7 +22,7 @@
       el-table-column(prop="paid_record",label="繳款", width="80" sortable)
       el-table-column(prop="file_proposal",label="簡報", width="80")
         template(slot-scope="scope")
-          a(:href="apiDomain+scope.row.file_proposal", target="_href") 連結
+          a(:href="apiDomain+scope.row.file_proposal.replace('/stroage/app/public','')", target="_href") 連結
       el-table-column(prop="main_contact_name",label="主要聯絡人", width="200" sortable)
       el-table-column(prop="main_contact_phone",label="電話", width="200" sortable)
       el-table-column(prop="main_contact_email",label="信箱", width="200" sortable)

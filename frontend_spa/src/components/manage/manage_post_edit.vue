@@ -81,6 +81,7 @@
                   el-option(value="2015",label="2015")
                   el-option(value="2016",label="2016")
                   el-option(value="2017",label="2017")
+                  el-option(value="2018",label="2018")
               el-form-item(label="撰文者")
                 el-input(v-model="post.author")
               el-form-item(label="上稿時間")
