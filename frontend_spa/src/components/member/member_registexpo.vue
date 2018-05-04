@@ -75,7 +75,7 @@
             div.text-left
               br
               br
-              p 建議內容設定：
+              p 請務必輸出成pdf格式，並確認檔案大小在20MB限制內。若檔案不符導致系統無法存取，主辦方將不另行確認及通知。<br><br>建議內容設定：
                 |<br> 一、品牌/團隊/個人介紹
                 |<br> 二、闡述自身教育觀點理念或與創新教育關聯性（參展雜學校原因）
                 |<br> 三、本次參展主題或議題設定（如本次展出重點與品牌本身並無直接關聯，可詳加補述）
@@ -94,7 +94,7 @@
                   :action="apiDomain+'api/registexpo/uploadtemp'"
                 )
                   el-button(size="small" type="primary") 點擊上傳
-                  div.el-upload__tip(slot="tip") 檔案大小限制 20MB 內，請輸出成PDF格式。
+                  div.el-upload__tip(slot="tip") 請務必輸出成pdf格式，並確認檔案大小在20MB限制內。若檔案不符導致系統無法存取，主辦方將不另行確認及通知。
           // :action "apiDomain+'api/registexpo/uploadtemp'"
     
 
