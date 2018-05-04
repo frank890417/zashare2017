@@ -11,7 +11,7 @@
         //-   br
         .col-sm-12.animated.fadeInUp
           h1 Make Education Different
-          h3 奇特的場景及多元的探索，令雜學校成為亞洲最具影響力的教育創新博覽會品牌。
+          h3 奇幻繽紛的場景及融入生活的探索， 將教育與文化的多元串聯成亞洲最具影響力的創新會展品牌。
    
     .container-fluid.container-feature
       .row
@@ -33,13 +33,13 @@
       .row
         .col-sm-4.col-explore.wow.fadeInUp(data-wow-delay="0s")
           .fimg(:style="bgcss('/static/img/About/about-spirit-explore.png')")
-          h3.wow.fadeIn Explore 探索
+          h3.wow.fadeIn Imagine (打開想像)
         .col-sm-4.col-diverse.wow.fadeInUp(data-wow-delay="0.2s")
           .fimg(:style="bgcss('/static/img/About/about-spirit-diverse.png')")
-          h3.wow.fadeIn Diverse 多樣
+          h3.wow.fadeIn Explore (探索)
         .col-sm-4.col-unique.wow.fadeInUp(data-wow-delay="0.4s")
           .fimg(:style="bgcss('/static/img/About/about-spirit-unique.png')")
-          h3.wow.fadeIn Unique 獨創
+          h3.wow.fadeIn Diversify (使其多元)
   section.section-log
     .container
       .row
