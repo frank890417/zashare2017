@@ -32,16 +32,20 @@
               .bg(:style="bgcss('/static/img/regist2018/ZAWORKSHOP.jpg')")
               .infotext
                 span 申請狀態：
-                span(v-if="registExpo.regist_workshop") 已報名
-                span(v-else) 開放報名
+                span(v-if="!registExpo.id") 需先報名參展
+                span(v-else)
+                  span(v-if="registExpo.regist_workshop") 已報名
+                  span(v-else) 開放報名
             .info 雜工坊
           router-link.box(to="/member/registexpo/speak") 
             .cover
               .bg(:style="bgcss('/static/img/regist2018/Zac.jpg')")
               .infotext
                 span 申請狀態：
-                span(v-if="registExpo.regist_expo_speak") 已報名
-                span(v-else) 開放報名
+                span(v-if="!registExpo.id") 需先報名參展
+                span(v-else)
+                  span(v-if="registExpo.regist_expo_speak") 已報名
+                  span(v-else) 開放報名
             .info Zac. 教育新創短講評選
           
 </template>
