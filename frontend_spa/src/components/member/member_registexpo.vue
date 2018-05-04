@@ -16,22 +16,23 @@
     .col-sm-12
       el-form(v-if="registExpo"  :disabled="typeof registExpo.id=='number'",
               label-position="left",
+              :rules="rules",
               ref="form_registexpo",
               :model="registExpo")
         div(v-show="active==0")
           h4.mt-5.mb-5 ㄧ、參展資訊
-          el-form-item(required label="1. 申請攤位類型")
+          el-form-item(required label="1. 申請攤位類型", prop="type")
             el-select(v-model="registExpo.type")
               el-option(value="基礎單位 (1m*1m 限高2.5m)") 基礎單位 (1m*1m 限高2.5m)
               el-option(value="標準單位 (2m*3m 限高2.5m)") 標準單位 (2m*3m 限高2.5m)
               el-option(value="進階單位 (2m*6m 限高2.5m)") 進階單位 (2m*6m 限高2.5m)
 
-          el-form-item(required label="2. 申請類別（主辦方保留最後分配權）")
+          el-form-item(required label="2. 申請類別（主辦方保留最後分配權）", prop="theme")
             el-select(v-model="registExpo.theme")
               el-option(:value="v"
                     v-for='v in ["教育創新","文化實踐","生活探索","專業培育"]') {{v}}
 
-          el-form-item(required label="3. 是否曾參展雜學校？")
+          el-form-item(required label="3. 是否曾參展雜學校？", prop="attended")
             br
             br
             p 若參展過2屆以上，請填寫「最近一次」的參展年份。
@@ -42,35 +43,35 @@
         div(v-show="active==1")
           h4.mt-5.mb-5 二、申請單位資訊
           
-          el-form-item(required label="1. 申請單位/個人名稱 - 中文")
+          el-form-item(required label="1. 申請單位/個人名稱 - 中文", prop="name_cht")
               el-input(v-model="registExpo.name_cht")
-          el-form-item(required label="1. 申請單位/個人名稱 - 英文")
+          el-form-item(required label="1. 申請單位/個人名稱 - 英文", prop="name_eng")
               el-input(v-model="registExpo.name_eng")
 
-          el-form-item(required label="2. 申請單位/個人簡介 （請以200-300字讓我們能更認識你）")
+          el-form-item(required label="2. 申請單位/個人簡介 （請以200-300字讓我們能更認識你）", prop="description")
             el-input(v-model="registExpo.description", type="textarea" :rows="5",
                       :maxlength="300")
 
-          el-form-item(required label="3. 你目前所經營/接觸的目標受眾（取前2個最接近的對話群、消費群）")
+          el-form-item(required label="3. 你目前所經營/接觸的目標受眾（取前2個最接近的對話群、消費群）", prop="target_audience")
             el-select(v-model="registExpo.target_audience" multiple,
                       :multiple-limit="2")
               el-option(:value="v"
                     v-for='v in audiences') {{v}}
 
-          el-form-item(required label="4. 最希望在雜學校接觸/開放的目標受眾（取前2個最想開發的對話群、消費群）")
+          el-form-item(required label="4. 最希望在雜學校接觸/開放的目標受眾（取前2個最想開發的對話群、消費群）", prop="want_audience")
             el-select(v-model="registExpo.want_audience" multiple,
                       :multiple-limit="2")
               el-option(:value="v"
                     v-for='v in audiences') {{v}}
 
 
-          el-form-item(required label="5. 是否在展位進行銷售行為？")
+          el-form-item(required label="5. 是否在展位進行銷售行為？", prop="have_sell")
             br
             br
             el-radio(:label="1" v-model="registExpo.have_sell" ) 是（請於參展規劃簡報中介紹商品與現場售價）
             el-radio(:label="0" v-model="registExpo.have_sell" ) 否
 
-          el-form-item(required label="6. 請以一份20頁(內)電子簡報檔闡述參展規劃（主辦單位將以此份檔案作為雜星賞評選依據）")
+          el-form-item(required label="6. 請以一份20頁(內)電子簡報檔闡述參展規劃（主辦單位將以此份檔案作為雜星賞評選依據）", prop="file_proposal")
             div.text-left
               br
               br
@@ -97,10 +98,10 @@
           // :action "apiDomain+'api/registexpo/uploadtemp'"
     
 
-          el-form-item(required label="7. 請簡述參與雜學校的原因（100字以內）" )
+          el-form-item(required label="7. 請簡述參與雜學校的原因（100字以內）" , prop="attend_reason")
             el-input(v-model="registExpo.attend_reason", type="textarea" :rows="5" :maxlength="100")
 
-          el-form-item(label="8. 備註－其他補充事項（200字以內）" )
+          el-form-item(label="8. 備註－其他補充事項（200字以內）" , prop="other")
             el-input(v-model="registExpo.other", type="textarea" :rows="5" :maxlength="200")
 
 
@@ -110,22 +111,22 @@
             .col-sm-12
               h6 1.	主要聯絡人（請優先填寫執行窗口）
             .col-sm-12
-              el-form-item(required label="姓名")
+              el-form-item(required label="姓名", prop="main_contact_name")
                 el-input(v-model="registExpo.main_contact_name")
-              el-form-item(required label="手機")
+              el-form-item(required label="手機", prop="main_contact_phone")
                 el-input(v-model="registExpo.main_contact_phone")
-              el-form-item(required label="Email")
+              el-form-item(required label="Email", prop="main_contact_email")
                 el-input(v-model="registExpo.main_contact_email")
 
           .row.mt-5
             .col-sm-12.mt-5
               h6 2.	次要聯絡人
             .col-sm-12
-              el-form-item(required label="姓名")
+              el-form-item(required label="姓名", prop="secondary_contact_name")
                 el-input(v-model="registExpo.secondary_contact_name")
-              el-form-item(required label="手機")
+              el-form-item(required label="手機", prop="secondary_contact_phone")
                 el-input(v-model="registExpo.secondary_contact_phone")
-              el-form-item(required label="Email")
+              el-form-item(required label="Email", prop="secondary_contact_email")
                 el-input(v-model="registExpo.secondary_contact_email")
 
         div(v-show="active==3") 
@@ -152,6 +153,7 @@
           p 我確認資料已經正確無誤，送出後將無法修改
           p#err_msg
           el-button(@click="sendRegistForm" type="primary" size="medium") 確認送出
+          //el-button(@click="test" type="primary" size="medium") 測試
 
         div(v-if="active==4") 
           p.mt-5 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
@@ -174,7 +176,65 @@ export default {
       registExpo: {},
       audiences: "學齡前幼兒／國小生／國中生／高中生／自學生／大專以上學生／職場新鮮人／青壯年／家長／教育工作者／投資人／創業者／學校單位／公部門／其他".split("／"),
       active: 0,
-      success: false
+      success: false,
+      rules: {
+        type:[
+          {required: true, message: "請選擇種類"}
+        ],
+        theme:[
+          {required: true, message: "請選擇主題"}
+        ],
+        attended:[
+          {required: true, message: "請選擇參與紀錄"}
+        ],
+        name_eng:[
+          {required: true, message: "請輸入英文名稱"}
+        ],
+        name_cht:[
+          {required: true, message: "請輸入中文名稱"}
+        ],
+        description:[
+          {required: true, message: "請輸入描述"}
+        ],
+        target_audience:[
+          {required: true, message: "請輸入目標客群"}
+        ],
+        want_audience:[
+          {required: true, message: "請輸入想要的客群"}
+        ],
+        have_sell:[
+          {required: true, message: "請選擇是否有銷售行為"}
+        ],
+        file_proposal:[
+          {required: true, message: "請上傳企劃書"}
+        ],
+        attend_reason:[
+          {required: true, message: "請輸入參展理由"}
+        ],
+        // other:[
+          // {required: false}
+        // ],
+        main_contact_name:[
+          {required: true, message: "請輸入主要聯絡人姓名"}
+        ],
+        main_contact_phone:[
+          {required: true, message: "請輸入主要聯絡人電話"}
+        ],
+        main_contact_email:[
+          {required: true, message: "請輸入主要聯絡人信箱"}
+        ],
+        secondary_contact_name:[
+          {required: true, message: "請輸入次要聯絡人姓名"}
+        ],
+        secondary_contact_phone:[
+          {required: true, message: "請輸入次要聯絡人電話"}
+        ],
+        secondary_contact_email:[
+          {required: true, message: "請輸入次要聯絡人信箱"}
+        ],
+
+      }
+      
     }
   },
   computed: {
@@ -194,64 +254,43 @@ export default {
   },
   methods: {
     ...mapActions(['loadRegistData','updateRegistForm']),
-
-    check_data(){
-      var check=true;
-      this.error_msg="";
-      var vobj=this;
-      $("[data-require]").each(function(index,obj){
-        if ( $(obj).attr('data-require')!='false'){
-          if ($(obj).val()=="" && $(obj).children("input").val()=="" ){
-            vobj.error_msg+=$(obj).attr("data-require")+" 需填寫<br>";
-            check=false;
-          }
-          if ($(obj).attr("type")=="file"){
-              if (($(obj).val().split(".").slice(-1)+"").toLowerCase()!= $(obj).attr("data-requiretype")){
-                vobj.error_msg+=$(obj).attr("data-require")+" 檔案格式錯誤! 需為"+$(obj).attr("data-requiretype")+"<br>";
-                check=false;
-              }
-          }
-
-        }
-      });
-
-
-      if (this.error_msg!=""){
-        this.error_msg="[資料不完整]<br>"+this.error_msg;
-      }
-      console.log(this.error_msg);
-      return this.error_msg
+    test(){
+     
     },
     sendRegistForm(){
       let _this = this
-      let check_result=this.check_data()
+      this.$refs['form_registexpo'].validate(valid=>{
+        if (valid){
 
-      // console.log(result)
-      if (check_result==""){
-
-        this.$confirm('確認送出參展報名？送出將無法更改', '最後確認', {
-          confirmButtonText: '確定',
-          cancelButtonText: '取消',
-        }).then(() => {
-          this.updateRegistForm({
-            data: this.registExpo,
-            callback(){
-              _this.$message({
-                message: '資料更新成功',
-                type: 'success'
-              });
-              _this.active=4
-            }
-          })
-        }).catch(() => {
+          this.$confirm('確認送出參展報名？送出將無法更改', '最後確認', {
+            confirmButtonText: '確定',
+            cancelButtonText: '取消',
+          }).then(() => {
+            this.updateRegistForm({
+              data: this.registExpo,
+              callback(){
+                _this.$message({
+                  message: '資料更新成功',
+                  type: 'success'
+                });
+                _this.active=4
+              }
+            })
+          }).catch(() => {
+            this.$message({
+              message: '已取消送出'
+            });          
+          });
+        }else{
           this.$message({
-            message: '已取消送出'
+            message: '資料填寫不完整，請往前填寫完整後再送出',
+            type: 'error'
           });          
-        });
+        }
+      })
+      // console.log(result)
 
-      }else{
-        $("#err_msg").html(check_result)
-      }
+
     },
     prev() {
       if (this.active-- < 0) this.active = 3;

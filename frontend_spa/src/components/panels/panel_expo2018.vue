@@ -6,16 +6,20 @@
       .row(@click="setMenuState(false)")
         .col-sm-6
           router-link.box.big(to="/member/registexpo").animated.fadeIn.delay-3
-            .cover(:style="bgcss('/static/img/regist2018/ZAEXPO.jpg')")
-              span 申請/繳費狀態：
-              span(v-if="registExpo.id && !registExpo.paid_record") 已報名 未繳費
-              span(v-if="registExpo.id && registExpo.paid_record") 主辦單位確認中
-              span(v-if="!registExpo.id ") 未報名
+            .cover
+              .bg(:style="bgcss('/static/img/regist2018/ZAEXPO.jpg')")
+              .infotext
+                span 申請狀態：
+                span(v-if="registExpo.id") 已報名&nbsp;|&nbsp;
+                span(v-else) 未報名&nbsp;|&nbsp;
+                span(v-if="!registExpo.paid_record") 未繳費
+                span(v-if="registExpo.paid_record && !registExpo.paid_record.confirm") 主辦單位確認中
+                span(v-if="registExpo.paid_record && registExpo.paid_record.confirm") 已繳費
             .info 
               div
                 h5 參展申請
                 router-link.float-right.btn(to="/member/registexpo/paid",
-                                                v-if="registExpo.id ").animated.fadeIn.delay-6 填寫匯款資料
+                                                v-if="registExpo.id ").animated.fadeIn.delay-6 確認繳交報名費
               span(v-if="registExpo") 參展編碼： 
                 span(v-if="registExpo.id") {{ registId }}
               br
@@ -24,16 +28,20 @@
 
         .col-sm-6
           router-link.box(to="/member/registexpo/workshop").animated.fadeIn.delay-9
-            .cover(:style="bgcss('/static/img/regist2018/ZAWORKSHOP.jpg')")
-              span 申請狀態：
-              span(v-if="registExpo.regist_workshop") 已報名
-              span(v-else) 開放報名
+            .cover
+              .bg(:style="bgcss('/static/img/regist2018/ZAWORKSHOP.jpg')")
+              .infotext
+                span 申請狀態：
+                span(v-if="registExpo.regist_workshop") 已報名
+                span(v-else) 開放報名
             .info 雜工坊
           router-link.box(to="/member/registexpo/speak") 
-            .cover(:style="bgcss('/static/img/regist2018/Zac.jpg')")
-              span 申請狀態：
-              span(v-if="registExpo.regist_expo_speak") 已報名
-              span(v-else) 開放報名
+            .cover
+              .bg(:style="bgcss('/static/img/regist2018/Zac.jpg')")
+              .infotext
+                span 申請狀態：
+                span(v-if="registExpo.regist_expo_speak") 已報名
+                span(v-else) 開放報名
             .info Zac. 教育新創短講評選
           
 </template>
@@ -45,7 +53,7 @@ export default {
     return {
       tags: "師培、教具、國小、偏鄉、國中、高中、大學、實驗教育、媒體".split("、"),
       tempSearchKeyword: "",
-      coupontypes: [],
+      coupontypes: []
     }
   },
   computed: {
@@ -141,14 +149,32 @@ export default {
       text-decoration: none
 
     .cover
-      height: 100px
+      // height: 100px
       background-size: cover
       border-radius: 5px 5px 0px 0px
+      height: 0
+      padding-bottom: 20%
+      position: relative
+      .infotext
+        position: absolute
+        bottom: 10px
+        left: 10px
+      .bg
+        position: absolute
+        +size(100%)
+        left: 0
+        top: 0
+        background-size: cover
+        background-position: left center !important
+
+
     .info
       padding: 15px 20px
     &.big
       .cover
-        height: 220px
+        // height: 220px
+        height: 0
+        padding-bottom: 50%
     .btn
       &:hover
         background-color: #ddd

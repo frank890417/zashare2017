@@ -56,7 +56,7 @@
       .footer_logo
         a(href='https://www.facebook.com/zashare.expo/', target='_blank')
           img(src="/static/img/social-icon/social-fb.svg")
-        a(href='https://www.youtube.com/channel/UCiCIqDTmahczFvmg8iNUVow', target='_blank')
+        a(href='https://www.flickr.com/photos/140061501@N03/albums', target='_blank')
           img(src="/static/img/social-icon/social-fl.svg")
         a(href='https://www.instagram.com/za_share/', target='_blank')
           img(src="/static/img/social-icon/social-ig.svg")
