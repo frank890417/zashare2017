@@ -16,10 +16,12 @@
     .col-sm-12()
       el-form(v-if="registExpoWorkshop", :disabled="typeof registExpoWorkshop.id=='number'",
               label-position="left",
+              :rules="rules",
+              ref="form_registexpo_workshop"
               :model="registExpoWorkshop")
         div(v-show="active==0")
           h4.mt-5.mb-5 ㄧ、申請基本資訊
-          el-form-item(required label="1.	課程類型")
+          el-form-item(required label="1.	課程類型" prop="class_type")
             el-select(v-model="registExpoWorkshop.class_type")
               el-option(:value="v"
                     v-for='v in types') {{v}}
@@ -34,19 +36,19 @@
             
             el-input(v-if="!audience_normal" ,v-model="registExpoWorkshop.class_audience")
 
-          el-form-item(required label="3.	活動預計招生人數(場地建議容納人數以30人為限)")
+          el-form-item(required label="3.	活動預計招生人數(場地建議容納人數以30人為限)" prop="class_person_count")
             br
             br
             el-input-number(v-model="registExpoWorkshop.class_person_count", :max="30")
 
-          el-form-item(required label="4.	登記場次")
+          el-form-item(required label="4.	登記場次" prop="class_time")
             br
             br
             p 請複選可配合安排之場次，若確定有登記到工坊場次，主辦單位會以此做為時段安排的參考。 <br>主辦方保有最終審定權，參展方不得有異議。
             el-select(v-model="registExpoWorkshop.class_time" multiple)
               el-option(:value="t", v-for="t in timespans" ) {{t}}
           
-          el-form-item(required label="5. 檢附一份10頁(內)提案活動企劃書（主辦單位將以此份檔案作為「雜工坊」徵選依據。）")
+          el-form-item(required label="5. 檢附一份10頁(內)提案活動企劃書（主辦單位將以此份檔案作為「雜工坊」徵選依據。）" prop="class_proposal")
             br
             br
             p 建議內容設定：
@@ -76,22 +78,22 @@
             .col-sm-12
               h6 1.	主要聯絡人（請優先填寫執行窗口）
             .col-sm-12
-              el-form-item(required label="姓名")
+              el-form-item(required label="姓名" prop="main_contact_name")
                 el-input(v-model="registExpoWorkshop.main_contact_name")
-              el-form-item(required label="手機")
+              el-form-item(required label="手機" prop="main_contact_phone")
                 el-input(v-model="registExpoWorkshop.main_contact_phone")
-              el-form-item(required label="Email")
+              el-form-item(required label="Email" prop="main_contact_email")
                 el-input(v-model="registExpoWorkshop.main_contact_email")
 
           .row.mt-5
             .col-sm-12
               h6 2. 次要聯絡人
             .col-sm-12
-              el-form-item(required label="姓名")
+              el-form-item(required label="姓名" prop="secondary_contact_name")
                 el-input(v-model="registExpoWorkshop.secondary_contact_name")
-              el-form-item(required label="手機")
+              el-form-item(required label="手機" prop="secondary_contact_phone")
                 el-input(v-model="registExpoWorkshop.secondary_contact_phone")
-              el-form-item(required label="Email")
+              el-form-item(required label="Email" prop="secondary_contact_email")
                 el-input(v-model="registExpoWorkshop.secondary_contact_email")
 
 
@@ -143,7 +145,42 @@ export default {
         "10/7 (日) 13:00-14:30",
         "10/7 (日) 15:00-16:30",
         "10/7 (日) 17:00-18:30",
-      ]
+      ],
+      rules: {
+        class_type:[
+          { required: true, message: "請輸入課程類型"}
+        ],
+        class_audience:[
+          // { required: true, message: "請輸入活動招生族群"}
+        ],
+        class_person_count:[
+          { required: true, message: "請輸入預計人數"}
+        ],
+        class_time:[
+          { required: true, message: "請選擇偏好時段"}
+        ],
+        class_proposal:[
+          { required: true, message: "請上傳企劃書"}
+        ],
+        main_contact_name:[
+          {required: true, message: "請輸入主要聯絡人姓名"}
+        ],
+        main_contact_phone:[
+          {required: true, message: "請輸入主要聯絡人電話"}
+        ],
+        main_contact_email:[
+          {required: true, message: "請輸入主要聯絡人信箱"}
+        ],
+        secondary_contact_name:[
+          {required: true, message: "請輸入次要聯絡人姓名"}
+        ],
+        secondary_contact_phone:[
+          {required: true, message: "請輸入次要聯絡人電話"}
+        ],
+        secondary_contact_email:[
+          {required: true, message: "請輸入次要聯絡人信箱"}
+        ],
+      }
     }
   },
   computed: {
@@ -166,28 +203,37 @@ export default {
     sendRegistForm(){
       let _this = this
 
+      this.$refs['form_registexpo_workshop'].validate(valid=>{
+        if (valid){
 
-      this.$confirm('確認送出雜工坊報名？送出將無法更改', '最後確認', {
-        confirmButtonText: '確定',
-        cancelButtonText: '取消',
-      }).then(() => {
+          this.$confirm('確認送出雜工坊報名？送出將無法更改', '最後確認', {
+            confirmButtonText: '確定',
+            cancelButtonText: '取消',
+          }).then(() => {
 
-        this.updateRegistForm({
-          data:{
-            regist_workshop: this.registExpoWorkshop
-          },
-          callback(){
-            _this.$message({
-              message: '雜工坊報名更新成功',
-              type: 'success'
-            });
+            this.updateRegistForm({
+              data:{
+                regist_workshop: this.registExpoWorkshop
+              },
+              callback(){
+                _this.$message({
+                  message: '雜工坊報名更新成功',
+                  type: 'success'
+                });
 
-            _this.active=3
-          }
-        })
+                _this.active=3
+              }
+            })
 
 
-      });
+          });
+        }else{
+          this.$message({
+            message: '資料填寫不完整，請往前填寫完整後再送出',
+            type: 'error'
+          });    
+        }
+      })
       
 
     },

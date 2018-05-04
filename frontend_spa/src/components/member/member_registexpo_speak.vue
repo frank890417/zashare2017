@@ -18,11 +18,13 @@
     .col-sm-12    
       el-form(v-if="registExpoSpeak",  :disabled = "typeof registExpoSpeak.id=='number'",
               label-position="left",
+              ref="form_registexpo_speak",
+              :rules="rules"
               :model="registExpoSpeak")
         div(v-show="active==0")
           h4.mt-5.mb-5 ㄧ、申請基本資訊
           
-          el-form-item(required label="1. 評選入圍之單位，是否同意策展權益交由給主辦單位規劃與設計")
+          el-form-item(required prop="" label="1. 評選入圍之單位，是否同意策展權益交由給主辦單位規劃與設計")
             br
             br
             el-radio(:label="1" v-model="registExpoSpeak.agree_plan" ) 是，移展至雜學校概念館（由雜學校團隊量身規劃展位）
@@ -30,12 +32,12 @@
             
             
         
-          el-form-item(required label="2. 團隊人數")
+          el-form-item(required prop="team_person_count" label="2. 團隊人數")
             br
             br
             el-input-number(v-model="registExpoSpeak.team_person_count")
 
-          el-form-item(required label="3. 是否已有獲得資金挹注")
+          el-form-item(required prop="has_money" label="3. 是否已有獲得資金挹注")
             br
             br
             el-radio(:label="1" v-model="registExpoSpeak.has_money" ) 是
@@ -47,22 +49,22 @@
           h4.mt-5.mb-5 二、申請資料填寫
 
 
-          el-form-item(required label="1. 請簡述你的具體創業內容（200-300字內）")
+          el-form-item(required prop="startup_content" label="1. 請簡述你的具體創業內容（200-300字內）")
             el-input(v-model="registExpoSpeak.startup_content", type="textarea" rows="5" :maxlength="300")
 
-          el-form-item(required label="2. 請簡述你的目標族群（200-300字內）")
+          el-form-item(required prop="startup_audience" label="2. 請簡述你的目標族群（200-300字內）")
             el-input(v-model="registExpoSpeak.startup_audience", type="textarea" rows="5" :maxlength="300")
 
-          el-form-item(required label="3. 請簡述你目前的創業困境（200-300字內）")
+          el-form-item(required prop="startup_difficult" label="3. 請簡述你目前的創業困境（200-300字內）")
             el-input(v-model="registExpoSpeak.startup_difficult", type="textarea" rows="5" :maxlength="300")
 
-          el-form-item(required label="4. 請敘述你想解決的教育問題（200-300字內）")
+          el-form-item(required prop="startup_problem" label="4. 請敘述你想解決的教育問題（200-300字內）")
             el-input(v-model="registExpoSpeak.startup_problem", type="textarea" rows="5" :maxlength="300")
 
-          el-form-item(required label="5. 請敘述你認為團隊/產品賦予社會的影響力是（200-300字內）")
+          el-form-item(required prop="startup_power" label="5. 請敘述你認為團隊/產品賦予社會的影響力是（200-300字內）")
             el-input(v-model="registExpoSpeak.startup_power", type="textarea" rows="5" :maxlength="300")
 
-          el-form-item(required label="6. 請檢附一份20頁(內)提案計畫書（主辦單位將以此份檔案作為「Zac.新創教育短講評選」初選評比依據。）")
+          el-form-item(required prop="startup_proposal" label="6. 請檢附一份20頁(內)提案計畫書（主辦單位將以此份檔案作為「Zac.新創教育短講評選」初選評比依據。）")
             br
             br
             p 建議內容設定：
@@ -95,11 +97,11 @@
               h6 1.	主要聯絡人（請優先填寫執行窗口）
             .col-sm-12
 
-              el-form-item(required label="姓名")
+              el-form-item(required prop="main_contact_name" label="姓名")
                 el-input(v-model="registExpoSpeak.main_contact_name")
-              el-form-item(required label="手機")
+              el-form-item(required prop="main_contact_phone" label="手機")
                 el-input(v-model="registExpoSpeak.main_contact_phone")
-              el-form-item(required label="Email")
+              el-form-item(required prop="main_contact_email" label="Email")
                 el-input(v-model="registExpoSpeak.main_contact_email")
 
           .row.mt-5
@@ -107,11 +109,11 @@
               h6 2.	次要聯絡人
             .col-sm-12
 
-              el-form-item(required label="姓名")
+              el-form-item(required prop="secondary_contact_name" label="姓名")
                 el-input(v-model="registExpoSpeak.secondary_contact_name")
-              el-form-item(required label="手機")
+              el-form-item(required prop="secondary_contact_phone" label="手機")
                 el-input(v-model="registExpoSpeak.secondary_contact_phone")
-              el-form-item(required label="Email")
+              el-form-item(required prop="secondary_contact_email" label="Email")
                 el-input(v-model="registExpoSpeak.secondary_contact_email")
 
         div(v-show="active==3") 
@@ -162,7 +164,54 @@ export default {
         "10/7 (日) 13:00-14:30",
         "10/7 (日) 15:00-16:30",
         "10/7 (日) 17:00-18:30",
-      ]
+      ],
+      rules: {
+        agree_plan:[
+          {required: true, message: "請選擇策展權益"}
+        ],
+        team_person_count:[
+          {required: true, message: "請填寫團隊人數"}
+        ],
+        has_money:[
+          {required: true, message: "請選擇資金挹注"}
+        ],
+        startup_content:[
+          {required: true, message: "請輸入創業內容"}
+        ],
+        startup_audience:[
+          {required: true, message: "請輸入目標族群"}
+        ],
+        startup_difficult:[
+          {required: true, message: "請輸入創業困境"}
+        ],
+        startup_problem:[
+          {required: true, message: "請輸入教育問題"}
+        ],
+        startup_power:[
+          {required: true, message: "請輸入社會影響力"}
+        ],
+        startup_proposal:[
+          {required: true, message: "請上傳企劃書"}
+        ],
+        main_contact_name:[
+          {required: true, message: "請輸入主要聯絡人姓名"}
+        ],
+        main_contact_phone:[
+          {required: true, message: "請輸入主要聯絡人電話"}
+        ],
+        main_contact_email:[
+          {required: true, message: "請輸入主要聯絡人信箱"}
+        ],
+        secondary_contact_name:[
+          {required: true, message: "請輸入次要聯絡人姓名"}
+        ],
+        secondary_contact_phone:[
+          {required: true, message: "請輸入次要聯絡人電話"}
+        ],
+        secondary_contact_email:[
+          {required: true, message: "請輸入次要聯絡人信箱"}
+        ],
+      }
     }
   },
   computed: {
@@ -184,27 +233,35 @@ export default {
     sendRegistForm(){
       let _this = this
 
+      this.$refs['form_registexpo_speak'].validate(valid=>{
+        if (valid){
 
+          this.$confirm('確認送出講堂報名？送出將無法更改', '最後確認', {
+            confirmButtonText: '確定',
+            cancelButtonText: '取消',
+          }).then(() => {
+            
+            this.updateRegistForm({
+              data:{
+                regist_expo_speak: this.registExpoSpeak
+              },
+              callback(){
+                _this.$message({
+                  message: '雜講堂報名更新成功',
+                  type: 'success'
+                });
 
-      this.$confirm('確認送出講堂報名？送出將無法更改', '最後確認', {
-        confirmButtonText: '確定',
-        cancelButtonText: '取消',
-      }).then(() => {
-        
-        this.updateRegistForm({
-          data:{
-            regist_expo_speak: this.registExpoSpeak
-          },
-          callback(){
-            _this.$message({
-              message: '雜講堂報名更新成功',
-              type: 'success'
-            });
-
-            _this.active=4
-          }
-        })
-      });
+                _this.active=4
+              }
+            })
+          });
+        }else{
+          this.$message({
+            message: '資料填寫不完整，請往前填寫完整後再送出',
+            type: 'error'
+          });   
+        }
+      })
     },
     prev() {
       if (this.active-- < 0) this.active = 3;

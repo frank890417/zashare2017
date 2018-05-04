@@ -9,7 +9,7 @@
             .cover
               .bg(:style="bgcss('/static/img/regist2018/ZAEXPO.jpg')")
               .infotext
-                span 申請狀態：
+                span 申請狀態：<br>
                 span(v-if="registExpo.id") 已報名&nbsp;|&nbsp;
                 span(v-else) 未報名&nbsp;|&nbsp;
                 span(v-if="!registExpo.paid_record") 未繳費

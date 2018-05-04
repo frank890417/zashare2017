@@ -22,10 +22,12 @@
     .col-sm-12
       el-form(v-if="registExpoPaid",  :disabled = "typeof registExpoPaid.id=='number'",
               label-position="left",
-              :model="registExpoPaid")
+              :model="registExpoPaid",
+              ref="form_registexpo_paid"
+              :rules= "rules")
         div(v-show="active==0")
           h4.mt-5 ㄧ、匯款資訊
-          el-form-item(required label="1. 匯款日期/時間")
+          el-form-item(required label="1. 匯款日期/時間", prop="paid_datetime")
             br
             br
             p 此為協助我們確認款項之作業流程，  請務必填寫正確日期。
@@ -33,7 +35,7 @@
                           value-format="yyyy-MM-dd HH:mm:ss")
           
 
-          el-form-item(required label="2. 是否使用銀行/郵局臨櫃匯款")
+          el-form-item(required label="2. 是否使用銀行/郵局臨櫃匯款", prop="paid_direct")
             br
             br
             div
@@ -41,20 +43,20 @@
               el-radio(label="0" v-model="registExpoPaid.paid_direct" ) 否，使用非臨櫃匯款（如ATM、網路轉帳等）
 
 
-          el-form-item(required label="3. 請填寫使用匯款之戶名")
+          el-form-item(required label="3. 請填寫使用匯款之戶名", prop="paid_name")
             br
             br
             p 舉例：
               | <br>個人戶/陳雜兒
               | <br>公司戶/雜學股份有限公司
             el-input(v-model="registExpoPaid.paid_name")
-          el-form-item(required label="4. 請輸入匯款帳號後五碼")
+          el-form-item(required label="4. 請輸入匯款帳號後五碼", prop="paid_last_number")
             el-input(v-model="registExpoPaid.paid_last_number")
 
         div(v-show="active==1")
           h4.mt-5 二、發票資訊
 
-          el-form-item(required label="1. 發票種類")
+          el-form-item(required label="1. 發票種類", prop="receipt_type")
             br
             br
             p 如需報帳請選擇「三聯式發票」，並繼續填寫統編資訊。
@@ -67,16 +69,16 @@
           el-form-item(label="3. 請輸入抬頭 （三聯式發票者須填）" :required = "registExpoPaid.receipt_type=='三聯式發票'")
             el-input(v-model="registExpoPaid.receipt_title")
 
-          el-form-item(required label="4. 發票寄送：收件人姓名")
+          el-form-item(required label="4. 發票寄送：收件人姓名", prop="receipt_name")
             br
             br
             p 雜學校團隊會於甄選階段開立發票，若最終無入選參展，發票將於甄選結果釋出後一個月內以掛號寄出；<br>入選參選者，則於佈展日現場簽到領取發票。
             el-input(v-model="registExpoPaid.receipt_name")
-          el-form-item(required label="5. 發票寄送：收件人電話")
+          el-form-item(required label="5. 發票寄送：收件人電話", prop="receipt_phone")
             el-input(v-model="registExpoPaid.receipt_phone")
-          el-form-item(required label="6. 發票寄送：收件人地址")
+          el-form-item(required label="6. 發票寄送：收件人地址", prop="receipt_address")
             el-input(v-model="registExpoPaid.receipt_address")
-          el-form-item(required label="7. 發票寄送：郵遞區號")
+          el-form-item(required label="7. 發票寄送：郵遞區號", prop="receipt_postcode")
             el-input(v-model="registExpoPaid.receipt_postcode")
 
         div(v-show="active==2") 
@@ -102,7 +104,37 @@ export default {
       registExpoPaid: {},
       audiences: "學齡前幼兒／國小生／國中生／高中生／自學生／大專以上學生／職場新鮮人／青壯年／家長／教育工作者／投資人／創業者／學校單位／公部門／其他".split("／"),
       active: 0,
-      success: false
+      success: false,
+      rules: {
+        paid_datetime:[
+          {required: true,message: "請輸入匯款時間"}
+        ],
+        paid_direct:[
+          {required: true,message: "請選擇匯款方式"}
+        ],
+        paid_name:[
+          {required: true,message: "請輸入戶名"}
+        ],
+        paid_last_number:[
+          {required: true,message: "請輸入匯款後五碼"}
+        ],
+        receipt_type:[
+          {required: true,message: "請選擇發票種類"}
+        ],
+        receipt_name:[
+          {required: true,message: "請輸入收件者姓名"}
+        ],
+        receipt_phone:[
+          {required: true,message: "請輸入收件者電話"}
+        ],
+        receipt_address:[
+          {required: true,message: "請輸入收件者地址"}
+        ],
+        receipt_postcode:[
+          {required: true,message: "請輸入收件者郵遞編號"}
+        ],
+
+      }
     }
   },
   computed: {
@@ -124,25 +156,34 @@ export default {
     sendRegistForm(){
       let _this = this
 
+      this.$refs['form_registexpo_paid'].validate(valid=>{
+        if (valid){
 
-      this.$confirm('確認送出付款確認？送出將無法更改', '最後確認', {
-        confirmButtonText: '確定',
-        cancelButtonText: '取消',
-      }).then(() => {
-        this.updateRegistForm({
-          data:{
-            paid_record: this.registExpoPaid
-          },
-          callback(){
-            _this.$message({
-              message: '付費紀錄更新成功',
-              type: 'success'
-            });
-  
-            _this.active=3
-          }
-        })
-        
+          this.$confirm('確認送出付款確認？送出將無法更改', '最後確認', {
+            confirmButtonText: '確定',
+            cancelButtonText: '取消',
+          }).then(() => {
+            this.updateRegistForm({
+              data:{
+                paid_record: this.registExpoPaid
+              },
+              callback(){
+                _this.$message({
+                  message: '付費紀錄更新成功',
+                  type: 'success'
+                });
+      
+                _this.active=3
+              }
+            })
+            
+          })
+        }else{
+          this.$message({
+            message: '資料填寫不完整，請往前填寫完整後再送出',
+            type: 'error'
+          });          
+        }
       })
     },
     prev() {
