@@ -3,7 +3,7 @@
   .container-fluid
     .row-logo
       router-link.col-sm-12.logo-part(to="/")
-        img.logo-img(src="/static/img/Home/za-logo.svg", @click="loginAjax") 
+        img.logo-img(src="/static/img/Home/za-logo.svg") 
         //- h1.nav-cht-logo 雜學校
 
       //- router-link.col-sm-12.logo-part.fadeIn.animated(to="/" v-if="$route.path=='/'")
@@ -44,15 +44,18 @@
     .row-bottom
       span.col-login
         span(v-if="auth.user")
-          span Hello
-          span(@click="openMenu('login')") 雜學校學生 
+          span.main-text Hello&nbsp;
+          span.main-text(@click="openMenu('login')") 雜學校學生 
             b {{auth.user.name}}
+          br
+          span.sub-text(@click="openMenu('login')") 後台管理
         span(v-else) 
-          b 雜學校&nbsp;
-          span(@click="openMenu('login')")  登入 / 註冊
-        span &nbsp;&nbsp;|&nbsp;&nbsp;
-        span 
-          b(@click="openMenu('search')")  搜尋
+          b.main-text 雜學校&nbsp;
+          br
+          span.sub-text(@click="openMenu('login')")  登入 / 註冊
+        span.sub-text &nbsp;&nbsp;|&nbsp;&nbsp;
+        span.sub-text 
+          span(@click="openMenu('search')")  搜尋全站
       .footer_logo
         a(href='https://www.facebook.com/zashare.expo/', target='_blank')
           img(src="/static/img/social-icon/social-fb.svg")
@@ -335,6 +338,11 @@ export default {
     transition: 0.5s
     // font-size: 24px
 
+    .main-text
+      font-size: 20px
+      margin-bottom: 28px
+    .sub-text
+      opacity: 0.6
     .years
       position: absolute
       left: 100%

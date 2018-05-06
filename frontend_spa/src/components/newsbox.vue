@@ -34,6 +34,7 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../assets/_mixins.sass"
 .news_box
   background-color: #fff
   box-sizing: border-box
@@ -87,6 +88,8 @@ export default {
     letter-spacing: 0.3px
     margin-top: 20px
     min-height: 1em
+    +rwd_md
+      font-size: 15px
   h3
     line-height: 1.67
     letter-spacing: 1px
@@ -94,6 +97,8 @@ export default {
     min-height: 3.2em
     text-align: left
     margin-top: 10px
+    +rwd_md
+      font-size: 18px
   .bottom-info
     .hashtag
       margin-right: 10px

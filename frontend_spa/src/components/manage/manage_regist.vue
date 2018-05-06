@@ -17,9 +17,12 @@
       el-table-column(prop="description",label="描述", width="200" sortable)
       el-table-column(prop="target_audience",label="目標受眾", width="200" sortable)
       el-table-column(prop="want_audience",label="希望觸及受眾", width="200" sortable)
-      el-table-column(prop="have_sell",label="有銷售", width="200" sortable)
+      el-table-column(prop="have_sell",label="有銷售", width="100" sortable)
+        template(slot-scope="scope")
+          span {{scope.have_sell?"有":"無"}}
       el-table-column(prop="attend_reason",label="參與原因", width="200" sortable)
-      el-table-column(prop="paid_record",label="繳款", width="80" sortable)
+      el-table-column(prop="paid_record_status",label="繳款狀態", width="120" sortable)
+        
       el-table-column(prop="file_proposal",label="簡報", width="80")
         template(slot-scope="scope")
           a(:href="apiDomain+scope.row.file_proposal.replace('/stroage/app/public','')", target="_href") 連結
@@ -92,10 +95,20 @@ export default {
     filteredRegistexpo(){
       return (this.registexpos || []).filter(regist=>{
         return this.keyword=="" || JSON.stringify(regist).indexOf(this.keyword)!=-1
-      }).map(regist=>({
-        ...regist,
-        paid_record: (regist.paid_record && regist.paid_record.id)?"已填寫待確認":"未繳款",
-      }))
+      }).map(regist=>{
+        let paid_record_status = "✖︎未回報"
+        if (regist.paid_record && regist.paid_record.id){
+          if (regist.paid_record.confirmed){
+            paid_record_status="✔︎已確認"
+          }else{
+            paid_record_status="待確認"
+          }
+        }
+        return {
+          ...regist,
+          paid_record_status
+        }
+      })
     }
   }
 }

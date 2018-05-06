@@ -33,7 +33,7 @@ const store = new Vuex.Store({
         place: "華山1914 文化創意產業園區",
         cover: "/static/img/ZA EXPO/index/ZAexpo-banner-2017-1.jpg",
         report_cover: "/static/img/ZA EXPO/index/ZAexpo-banner-2017-2.jpg",
-        feature: "．包下整個華山園區，創下五萬人次觀展紀錄<br>．首創新創教育DemoDay ",
+        features: ["包下整個華山園區，創下五萬人次觀展紀錄","首創新創教育DemoDay "],
         content: `現在這個時代，我們不是不知道有什麼樣的途徑可以學習，而是不知道我們或生活還能「成為什麼樣子」。在打開對自己/生活的想像後，勇敢的選擇前往這個未來的學習途徑，成為你想成為的自己。
 
         通過一年一度博覽會形式，2017雜學校於台北華山全區開設 7大主題展館。4天觀展人次超過5萬人次、亞洲各國超過120個團隊參展。
@@ -49,7 +49,7 @@ const store = new Vuex.Store({
         place: "華山1914 文化創意產業園區",
         cover: "/static/img/ZA EXPO/index/ZAexpo-banner-2016-1.jpg",
         report_cover: "/static/img/ZA EXPO/index/ZAexpo-banner-2016-2.jpg",
-        feature: "．第一次售票，並創下華山單日售票最高紀錄<br>．成為亞洲最大量體創新教育博覽會",
+        features: ["第一次售票，並創下華山單日售票最高紀錄","成為亞洲最大量體創新教育博覽會"],
         content: `雜學校，亞洲最大創新教育展，前身為2015不太乖教育節。
 
 通過針對創新教育單位的邀展，結合論壇、實作工作坊與主題策展，打造全新教育策展體驗。在這裡，我們想給1-99歲的每一個人一個機會，去體驗教育的各種學習路徑與可能性。
@@ -66,7 +66,7 @@ const store = new Vuex.Store({
         place: "華山1914 文化創意產業園區",
         cover: "/static/img/ZA EXPO/index/ZAexpo-banner-2015-1.jpg",
         report_cover: "/static/img/ZA EXPO/index/ZAexpo-banner-2015-2.jpg",
-        feature: "．全臺首次發起全公益非典型教育新創展覽<br>．獲選華山本土最佳展覽品牌",
+        features: ["全臺首次發起全公益非典型教育新創展覽","獲選華山本土最佳展覽品牌"],
         content: `為期兩天的不太乖教育節，是一個由民間自主發起由下而上的社會創新策展。
 
 好或不好怎麼定義？不一樣的可能在哪裡？教育還可以走去哪？我們可以長成什麼樣子？

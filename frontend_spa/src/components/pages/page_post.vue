@@ -153,15 +153,21 @@ export default {
       background-position: center center
       background-size: cover
       +rwd_md
-        min-height: 40vh
-        margin-left: -20px
-        margin-right: -20px
+        // min-height: 40vh
+        // margin-left: -20px
+        // margin-right: -20px
       &.cover_21
         width: 100%
         height: 0
         min-height: 0px
         padding-bottom: 50%
         background-color: #eee
+    +rwd_md
+      &>[class^="col"]
+        padding-left: 0
+        padding-right: 0
+        img
+          margin-left: 0
   .row-header
     text-align: left
     position: relative
@@ -171,6 +177,9 @@ export default {
       font-size: 36px
       font-weight: bold
       letter-spacing: 0.9px
+      line-height: 1.5
+      +rwd_md
+        font-size: 32px
     .tag
       background-color: black
       color: white

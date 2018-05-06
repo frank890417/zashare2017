@@ -25,6 +25,11 @@
               //- hr
               p(v-if="$route.meta.type!='expo'") {{ strip_tags(slides[currentSlideId].short_description).slice(0,60) }}...
               p(v-else , v-html="slides[currentSlideId].short_description")
+              
+              // feature list
+              ul.feature-list(v-if="$route.meta.type=='expo'")
+                li(v-for="feature in slides[currentSlideId].features") {{feature}}
+
               //- router-link.btn.nostyle(:to="`/news/${slides[currentSlideId].id}`") 閱讀更多
           .nostype.row.row-index-news(v-else)
             .col-sm-12.col-cover
@@ -34,11 +39,13 @@
                   .cover.cover_21(:style="bgcss(slide.cover)")
             .col-sm-12.col-info
               h2.slide-title {{ slides[currentSlideId].title }}
+
+  //所有文章
   section.container.container-posts
     .container
       .row
         .col-sm-12
-          h4.cata-title 文章分類
+          h4.cata-title 文章
           ul.catas
             //- li(:class="{active: nowCata==''}", 
             //-   @click="nowCata=''") ALL
@@ -84,10 +91,10 @@ export default {
       showCount: 6,
       newsCatas: [
         {label: "全部", value: ""},
-        {label: "展覽公告", value: "expo"},
-        {label: "活動公告", value: "activity"},
-        {label: "一般公告", value: "normal"},
-        {label: "媒體報導", value: "media"},
+        {label: "展覽公告", value: "展覽公告"},
+        {label: "活動公告", value: "活動公告"},
+        {label: "一般公告", value: "一般公告"},
+        {label: "媒體報導", value: "媒體報導"},
       ]
       // newsCatas: ["ZA COURSE","ZA BASE","ZA EXPO"]
     }
@@ -131,7 +138,11 @@ export default {
     },
     //Filtered by cata
     filtered_posts(){
-      return this.use_source.filter(post=>this.nowCata=="" || (post.cata && post.cata.name==this.nowCata) || (post.year==this.nowCata) )
+
+      let result = this.use_source.filter(post=>this.nowCata=="" 
+            || (post.cata && post.cata.name==this.nowCata) 
+            || (post.year==this.nowCata) )
+      return result
     },
     //Limit filtered posts by count
     use_posts(){
@@ -144,7 +155,7 @@ export default {
         return this.expos.map(expo=>({
           ...expo,
           targetType: "expoyear",
-          short_description: "時間："+expo.time+"<br>地點："+expo.place+"<hr><p>"+expo.feature+"</p>"
+          short_description: "時間："+expo.time+"<br>地點："+expo.place+"<hr>",
         }))
 
       }
@@ -250,9 +261,22 @@ export default {
   .container-slider
     // background-color: white
     padding-bottom: 30px
+    padding-top: 43px
     +rwd_md
       border-bottom: solid 1px #ccc
       background-color: #fff
+      .container
+        padding-left: 0
+        padding-right: 0
+    .feature-list
+      padding: 0
+      list-style: none
+      li
+        padding-left: 1em
+        &:before
+          content: '．'
+          margin-left: -1em
+          // position: absolute
   .slide-company
     margin-bottom: 0
   .slide-title
@@ -358,10 +382,12 @@ export default {
     font-weight: bold
     cursor: pointer
     +trans
-    
+
+        
     &.active 
       border-top: solid 10px #333
       color: #333
+
 
   +rwd_md
     position: fixed
@@ -375,8 +401,9 @@ export default {
     margin-top: 0
     li
       border-top: none
-      border-bottom: solid 3px rgba(black,0.2)
+      // border-bottom: solid 3px rgba(black,0.2)
       padding-bottom: 8px
+      border-bbottom: solid 5px rgba(black,0)
       +trans
       &.active 
         border-top: none

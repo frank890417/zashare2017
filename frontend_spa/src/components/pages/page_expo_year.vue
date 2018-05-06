@@ -21,7 +21,7 @@
         p(v-html="replaceBr(expo.content)")
     .row.row-recommand(v-if="recommandPosts.length")
       .col-sm-12
-        h3 推薦參展報導
+        h4 推薦參展報導
         hr
     .row(v-if="recommandPosts.length")
       .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12.wow.fadeIn(v-for="(post,pid) in recommandPosts", :class="'delay-ani-'+pid") 

@@ -16,7 +16,8 @@ class Post extends Model
         'updated_at','stick_top_index','stick_top_cata',
         'year','hashtag','cata_id',
         'type',
-        'admin_lock'
+        'admin_lock',
+        'media_link'
         // ,'company'
     ];
 

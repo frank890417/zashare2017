@@ -18,7 +18,8 @@
               label-position="left",
               :rules="rules",
               ref="form_registexpo",
-              :model="registExpo")
+              :model="registExpo",
+              :finish-status="finishStatus")
         div(v-show="active==0")
           h4.mt-5.mb-5 ㄧ、參展資訊
           el-form-item(required label="1. 申請攤位類型", prop="type")
@@ -244,6 +245,9 @@ export default {
       token: state=>state.auth.token,
       registExpoOriginal: state=>state.registExpo
     }),
+    finishStatus(){
+      return this.registExpo.id?"success":""
+    }
   },
   mounted(){
     // console.log(this.user)

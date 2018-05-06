@@ -33,13 +33,13 @@
       .row
         .col-sm-4.col-explore.wow.fadeInUp(data-wow-delay="0s")
           .fimg(:style="bgcss('/static/img/About/about-spirit-explore.png')")
-          h3.wow.fadeIn Imagine (打開想像)
+          h3.wow.fadeIn Imagine 打開想像
         .col-sm-4.col-diverse.wow.fadeInUp(data-wow-delay="0.2s")
           .fimg(:style="bgcss('/static/img/About/about-spirit-diverse.png')")
-          h3.wow.fadeIn Explore (探索)
+          h3.wow.fadeIn Explore 探索
         .col-sm-4.col-unique.wow.fadeInUp(data-wow-delay="0.4s")
           .fimg(:style="bgcss('/static/img/About/about-spirit-unique.png')")
-          h3.wow.fadeIn Diversify (使其多元)
+          h3.wow.fadeIn Diversify 使其多元
   section.section-log
     .container
       .row
@@ -192,8 +192,8 @@ export default {
           font-size: 28px
         .fimg
           background-position: center center
-          background-size: cover
-
+          background-size: auto 110%
+          background-repeat: no-repeat
     .col-explore
       background-color: #1161ef
     .col-diverse
