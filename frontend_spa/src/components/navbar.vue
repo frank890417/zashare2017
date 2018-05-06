@@ -52,7 +52,7 @@
         span(v-else) 
           b.main-text 雜學校&nbsp;
           br
-          span.sub-text(@click="openMenu('login')")  登入 / 註冊
+          span.sub-text(@click="openMenu('login')")  登入
         span.sub-text &nbsp;&nbsp;|&nbsp;&nbsp;
         span.sub-text 
           span(@click="openMenu('search')")  搜尋全站

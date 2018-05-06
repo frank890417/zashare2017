@@ -1,5 +1,6 @@
 <template lang="pug">
-router-link.news_box.animated.fadeIn(:to="target")
+.news_box.animated.fadeIn(:is="target.indexOf('http')!=-1?'a':'router-link'" 
+            :to="target", :href="target", :target="target.indexOf('http')!=-1?'_blank':'_self'" )
   .row(v-if="post")
     .col-sm-12.col-cover
       .cover.animated.fadeIn.news_box_cover(:style="bgcss(post.cover)")

@@ -7,14 +7,18 @@
           .nostyle.row.row-head-news(v-if="$route.meta.type!='news'")
             .col-sm-8.col-cover
               .slick
-                router-link.slide(v-for="slide in slides",
-                                  :to="postTarget(slides[currentSlideId])") 
+                .slide(
+                        v-for="slide in slides",
+                        :is="postTarget(slide).indexOf('http')!=-1?'a':'router-link'" 
+                        :to="postTarget(slide)",
+                        :href="postTarget(slide)" ) 
                   .cover(:style="bgcss(slide.cover)")
               //- .cover(:style="bgcss('http://via.placeholder.com/800x600')")
 
-            router-link.nostyle.col-sm-4.col-info(
+            .nostyle.col-sm-4.col-info(
               v-if="slides[currentSlideId]", :key="currentSlideId",
-              :to="postTarget(slides[currentSlideId])")
+              :to="postTarget(slides[currentSlideId])",
+              :href="postTarget(slides[currentSlideId])")
               //- .tag ZA COURSE
               .tagwrap
                 .tag(v-if="$route.meta.type=='expo'") {{ slides[currentSlideId].year }}
@@ -34,8 +38,11 @@
           .nostype.row.row-index-news(v-else)
             .col-sm-12.col-cover
               .slick
-                router-link.slide(v-for="slide in slides",
-                                  :to="postTarget(slides[currentSlideId])") 
+                .slide(v-for="slide in slides",
+                          :to="postTarget(slides[currentSlideId])",
+                          :is="postTarget(slide).indexOf('http')!=-1?'a':'router-link'" 
+                          :href="postTarget(slides[currentSlideId])" 
+                          :target="postTarget(slides[currentSlideId]).indexOf('http')!=-1?'_blank':''") 
                   .cover.cover_21(:style="bgcss(slide.cover)")
             .col-sm-12.col-info
               h2.slide-title {{ slides[currentSlideId].title }}
@@ -173,6 +180,9 @@ export default {
       }
 
       if (this.$route.meta.type=="news"){
+        if (post.media_link){
+          return post.media_link
+        }
         return `/news/${post.id}`
       }
     }

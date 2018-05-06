@@ -258,16 +258,22 @@ let routes =
     name: 'expo_indep',
     component: pagePost,
     meta: {
-      type: "post",
+      type: "expo",
       navWidth: "350px",
       action: "back",
-      font_flush_delay: 400,
+      no_font_flush: true,
       back: {
         name: "ZA EXPO",
         path: "/expo"
-        },
+      },
+      subBack: {
+        name: "返回{year}展覽報導",
+        path: "/expo/{year}/blog",
+        params: ["year"]
+
+      },
       navPosition: "left"
-      }
+    }
   },
   {
     path: '/login',

@@ -15,7 +15,7 @@ class PostAddMediaLink extends Migration
     {
         // 
         Schema::table('posts',function($table){
-          $table->boolean('media_link')->nullable();
+          $table->string('media_link',500)->nullable();
         });
     }
 

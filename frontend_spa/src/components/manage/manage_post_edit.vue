@@ -56,6 +56,8 @@
                     :value="cata.id",
                     :key="cata.id"
                   )
+              el-form-item(label="媒體連結")
+                el-input(v-model="post.media_link", placeholder="欲外連請填寫")
               el-form-item(label="參展單位")
                 el-select(v-model="post.company_id" filterable placeholder="請選擇")
                   el-option(

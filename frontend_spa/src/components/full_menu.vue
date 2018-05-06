@@ -127,13 +127,13 @@ export default {
       authInit: "auth/init"
     }),
     postTarget(post){
-      // if (this.$route.meta.type=="expo"){
-        return `/expo/${post.year}/blog/${post.id}`
-      // }
+      if (post.type=="expo"){
+        return `/expo/blog/${post.id}`
+      }
 
-      // if (this.$route.meta.type=="news"){
-      //   return `/news/${post.id}`
-      // }
+      if (post.type=="news"){
+        return `/news/${post.id}`
+      }
     },
     hambergurAction(){
       if (!this.menuState){
