@@ -4,6 +4,9 @@
     .row.row-banner
       .col-sm-12
         .cover(:style="bgcss(expo.cover)")
+        br
+        br
+    .row
     .row.row-header  
       .col-sm-12
         h3 {{expo.year}}
@@ -13,7 +16,6 @@
         div
           p TIME: {{expo.year}}/{{expo.time}}<br>PLACE: {{expo.place}}
           //- .tags #影音　#影音　#影音
-    .row
       .col-sm-12
         hr
     .row.row-content
@@ -67,7 +69,7 @@ export default {
       background-size: cover
       background-position: center center
       height: 250px
-      margin-top: 60px
+      // margin-top: 60px
       +rwd_md
         margin-left: -15px
         margin-right: -15px

@@ -55,7 +55,9 @@
               h4 {{expo.label}}
               h5 {{expo.spirit}}
               br
-              p(v-html="expo.feature")
+              ul.feature-list
+                li(v-for="feature in expo.features") {{feature}}
+
 </template>
 
 <script>
@@ -220,6 +222,30 @@ export default {
     height: 270px
     margin-bottom: 100px
     background-color: #fff
+
+    +rwd_md
+      // margin-bottom: 120px
+      h4,h5
+        line-height: 1.5
+      h3
+        font-size: 26px
+        margin-bottom: -10px
+      h4
+        font-size: 22px
+      h5
+        font-size: 16px
+
+
+    .feature-list
+      padding: 0
+      list-style: none
+      li
+        padding-left: 1em
+        font-size: 15px
+        margin-bottom: 10px
+        &:before
+          content: '．'
+          margin-left: -1em
     .col-cover 
       flex: 592
       +trans

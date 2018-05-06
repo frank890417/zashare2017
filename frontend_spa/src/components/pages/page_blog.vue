@@ -283,6 +283,7 @@ export default {
       list-style: none
       li
         padding-left: 1em
+        margin-bottom: 10px
         &:before
           content: '．'
           margin-left: -1em
