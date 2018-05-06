@@ -165,10 +165,23 @@ export default {
       +rwd_sm
         padding: 100px 20px
         h1
+          font-size: 25px
         h3
           font-size: 15px
+          opacity: 0.6
+          line-height: 1.8
     .container-feature
       padding: 50px
+      +rwd_md
+        padding: 30px
+        h2
+          font-size: 28px
+        h5
+          font-size: 17px
+          // opacity: 0.6
+          line-height: 1.8
+          // margin-bottom: 34px
+          white-space: nowrap
 
       img
         width: 90px
@@ -188,7 +201,7 @@ export default {
       min-height: 540px
       padding-bottom: 20px
       h3
-        font-size: 48px
+        font-size: 30px
         position: relative
       +rwd_sm
         min-height: auto
