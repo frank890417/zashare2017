@@ -85,7 +85,7 @@ import {mapState } from 'vuex'
 export default {
   data(){
     return {
-      nowCata: "",
+      nowCata: this.$route.params.year || "",
       // posts: [],
         slickOptions: {
             slidesToShow: 1,
@@ -302,8 +302,6 @@ export default {
     background-size: cover
     background-position: center center
     position: relative
-    // margin-left: -15px
-    // margin-right: -15px
     &.cover_21
       width: 100%
       height: 0
@@ -342,6 +340,8 @@ export default {
     display: flex
     justify-content: center
     background-color: #fff
+    +rwd_md
+      padding: 15px 30px
     .tagwrap
       .tag
         // display: block
@@ -362,8 +362,8 @@ export default {
     // align-items: flex-end
 .row-index-news
   .col-info
-    padding-left: 15px
-    padding-right: 15px
+    // padding: 15px 30px
+    // box-sizing: border-box
     h2.slide-title
       width: 100%
       background-color: #ddd

@@ -85,7 +85,7 @@
           //- pre(v-html="registExpoPaid")
           p.mt-5 請再次確認所有填寫資料後按下「確認送出」，主辦單位將於收到表單回填三日內進行款項確認，並以E-mail回覆確認。若提交後三日內未收到相關回覆，請主動聯繫主辦單位查詢。
           el-button.mt-5(@click="sendRegistForm" type="primary" size="medium") 送出繳費紀錄
-        div(v-if="active==3") 
+        div(v-if="active==4") 
           p.mt-5 非常感謝您的填寫！<br>我們會於三日內確認款項，並寄出確認信。
           panel_expo2018
           
@@ -173,7 +173,7 @@ export default {
                   type: 'success'
                 });
       
-                _this.active=3
+                _this.active=4
               }
             })
             

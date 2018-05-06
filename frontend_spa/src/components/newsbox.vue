@@ -3,7 +3,8 @@
             :to="target", :href="target", :target="target.indexOf('http')!=-1?'_blank':'_self'" )
   .row(v-if="post")
     .col-sm-12.col-cover
-      .cover.animated.fadeIn.news_box_cover(:style="bgcss(post.cover)")
+      .cover.animated.fadeIn.news_box_cover
+        .innerCover.animated.fadeIn.delay-ani-3(:style="bgcss(post.cover)")
         .tag(v-if="!hideTag") {{ tag || 'ZA SHARE'}}
     .col-sm-12.col-info
       h4.company(v-if="post.company && !hideDetail") {{post.company ? post.company.name_cht : ""}}
@@ -51,8 +52,8 @@ export default {
   
   // margin: 10px
   &:hover
-    .col-cover .cover.news_box_cover
-      background-size: 115% auto
+    .col-cover .cover.news_box_cover,.col-cover .innerCover
+      background-size: 110% auto
       
   .col-cover
     .cover.news_box_cover
@@ -60,13 +61,18 @@ export default {
       width: 100%
       min-height: 0
       padding-bottom: 60%
-      background-size: 115% auto
 
-      background-position: center center
       position: relative
       transition: 0.5s
       border-radius: 6px 6px 0 0
-      
+    .innerCover
+      +size(100%)
+      position: absolute
+      left: 0
+      top: 0
+      background-position: center center
+      background-size: 105% auto
+      +trans
 
     .tag
       position: absolute

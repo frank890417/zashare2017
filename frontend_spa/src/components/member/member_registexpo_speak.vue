@@ -13,7 +13,7 @@
         el-step(title="申請資料填寫" , @click="active=1")
         el-step(title="申請人聯絡資料" , @click="active=2")
         el-step(title="確認送出" , @click="active=3")
-        el-step(title="填寫完成" , @click="active=4")
+        el-step(title="報名完成" , @click="active=5")
         
     .col-sm-12    
       el-form(v-if="registExpoSpeak",  :disabled = "typeof registExpoSpeak.id=='number'",
@@ -120,7 +120,7 @@
           //- pre(v-html="registExpoSpeak")
           p.mt-5 恭喜你即將完成「Zac. 教育新創短講評選」的報名申請！<br>請再次確認所有填寫資料後按下「確認送出」，主辦單位收到報名申請後將以E-mail回覆確認。若提交後三日內未收到相關回覆，請主動聯繫主辦單位查詢。
           el-button.mt-5(@click="sendRegistForm" type="primary" size="medium") 送出 Zac. 教育短講 申請
-        div(v-if="active==4") 
+        div(v-if="active==5") 
           p.mt-5 謝謝你願意和我們一同為教育而努力！<br>最後初選入圍名單將於2018/07/10公布在官方網站。
           panel_expo2018
 
@@ -251,7 +251,7 @@ export default {
                   type: 'success'
                 });
 
-                _this.active=4
+                _this.active=5
               }
             })
           });

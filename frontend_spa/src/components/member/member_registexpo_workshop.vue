@@ -11,7 +11,7 @@
         el-step(title="申請基本資訊" , @click="active=0")
         el-step(title="工坊聯絡資料" , @click="active=1")
         el-step(title="確認與送出" , @click="active=2")
-        el-step(title="填寫完成" , @click="active=3")
+        el-step(title="報名完成" , @click="active=4")
     //:disabled = "typeof registExpoWorkshop.id=='number'"
     .col-sm-12()
       el-form(v-if="registExpoWorkshop", :disabled="typeof registExpoWorkshop.id=='number'",
@@ -101,7 +101,7 @@
           //- pre(v-html="registExpoWorkshop")
           p.mt-5 請再次確認所有填寫資料後按下「確認送出」，主辦單位收到提案申請後將以E-mail回覆確認。若提交後三日內未收到相關回覆，請主動聯繫主辦單位查詢。
           el-button.mt-5(@click="sendRegistForm" type="primary" size="medium") 送出雜工坊申請
-        div(v-if="active==3") 
+        div(v-if="active==4") 
           p.mt-5 謝謝貴團隊的用心籌劃！<br>最後甄選結果與場次安排將於2018/07/10公布在官方網站。
           panel_expo2018
 
@@ -221,7 +221,7 @@ export default {
                   type: 'success'
                 });
 
-                _this.active=3
+                _this.active=4
               }
             })
 

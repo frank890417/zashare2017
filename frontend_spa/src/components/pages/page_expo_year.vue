@@ -24,6 +24,7 @@
     .row.row-recommand(v-if="recommandPosts.length")
       .col-sm-12
         h4 推薦參展報導
+          router-link.float-right.more-btn(:to="`/expo/${expo.year}/blog`") 更多參展報導
         hr
     .row(v-if="recommandPosts.length")
       .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12.wow.fadeIn(v-for="(post,pid) in recommandPosts", :class="'delay-ani-'+pid") 
@@ -70,11 +71,26 @@ export default {
       background-position: center center
       height: 250px
       // margin-top: 60px
+      margin-top: 60px
+      // margin-left: -15px
+      // margin-right: -15px
       +rwd_md
+        margin-top: 0
         margin-left: -15px
         margin-right: -15px
         width: 100vw
   .row-recommand
     margin-top: 60px
-    
+  h3
+    vertical-align: middle
+  .more-btn
+    font-size: 18px
+    color: #bbb
+    text-decoration: none
+    +trans
+    margin-top: 5px
+    &:hover
+      color: #999
+      
+  
 </style>

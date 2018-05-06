@@ -156,7 +156,7 @@
           el-button(@click="sendRegistForm" type="primary" size="medium") 確認送出
           //el-button(@click="test" type="primary" size="medium") 測試
 
-        div(v-if="active==4") 
+        div(v-if="active==5") 
           p.mt-5 謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：
           panel_expo2018
 
@@ -277,7 +277,7 @@ export default {
                   message: '資料更新成功',
                   type: 'success'
                 });
-                _this.active=4
+                _this.active=5
               }
             })
           }).catch(() => {
