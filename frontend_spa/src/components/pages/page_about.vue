@@ -164,6 +164,9 @@ export default {
       align-items: center
       +rwd_sm
         padding: 100px 20px
+        h1
+        h3
+          font-size: 15px
     .container-feature
       padding: 50px
 

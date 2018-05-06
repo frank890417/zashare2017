@@ -142,6 +142,7 @@ export default {
     margin-top: 30px
     margin-bottom: 30px
     opacity: 0.3
+  
 
   .row-banner
     .cover
@@ -242,6 +243,8 @@ export default {
       margin-bottom: 36px
       font-size: 30px
       line-height: 1.6
+      font-weight: bold
+    strong
       font-weight: bold
     blockquote
       font-size: 14px

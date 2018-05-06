@@ -399,6 +399,8 @@ export default {
 <style lang="sass">
 .row-edit-part
   position: relative
+  strong
+    font-weight: bold
   &.lock
     &:after
       left: 0
