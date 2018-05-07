@@ -53,7 +53,7 @@ export default {
   // margin: 10px
   &:hover
     .col-cover .cover.news_box_cover,.col-cover .innerCover
-      background-size: 110% auto
+      background-size: 125% auto
       
   .col-cover
     .cover.news_box_cover
@@ -71,7 +71,7 @@ export default {
       left: 0
       top: 0
       background-position: center center
-      background-size: 105% auto
+      background-size: 120% auto
       +trans
 
     .tag
