@@ -68,6 +68,7 @@ export default {
     .innerCover
       +size(100%)
       position: absolute
+      border-radius: 6px 6px 0 0
       left: 0
       top: 0
       background-position: center center

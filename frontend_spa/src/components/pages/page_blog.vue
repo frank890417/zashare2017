@@ -140,13 +140,14 @@ export default {
                             //  .slice().sort(o=>o.stick_top_index)
       if (this.$route.meta.type=="news"){
         use_source = this.news.filter(o=>o.status=="published")
+                             
       }
       return use_source
     },
     //Filtered by cata
     filtered_posts(){
 
-      let result = this.use_source.filter(post=>this.nowCata=="" 
+      let result = this.use_source.filter(post=>( this.nowCata=="" && (post.cata && post.cata.name)!='媒體報導')
             || (post.cata && post.cata.name==this.nowCata) 
             || (post.year==this.nowCata) )
       return result

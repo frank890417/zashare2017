@@ -95,7 +95,7 @@ export default {
       return this.posts.map(o=>({...o,tag: "ZA EXPO"})).filter(o=>JSON.stringify(o).indexOf(this.searchKeyword)!=-1)
     },
     latestNews(){
-      return this.news.slice(-1)[0]
+      return this.news.filter(post=>post.cata.name!='媒體報導').slice(-1)[0]
     },
     ...mapGetters({
       getUserPhoto: 'auth/getUserPhoto',
