@@ -443,6 +443,10 @@ export default {
       transition: 0.5s
       background-color: black
       color: white
+      margin-left: -20px
+      margin-right: -20px
+      // margin-bottom: -10px
+      width: calc(100% + 40px)
       // font-size: 24px
     .row-logo
       display: flex
@@ -454,6 +458,8 @@ export default {
         width: 150px
       +rwd_md
         height: 100%
+    .row-bottom
+      margin-bottom: -20px
     .col-theme-nav
       &:hover 
         background-color: #aaa
