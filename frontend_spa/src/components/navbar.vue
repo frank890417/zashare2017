@@ -44,10 +44,11 @@
     .row-bottom
       span.col-login
         span(v-if="auth.user")
-          span.main-text Hello&nbsp;
-          span.main-text(@click="openMenu('login')") 雜學校學生 
-            b {{auth.user.name}}
-          br
+          div.mb-2
+            span.main-text Hello&nbsp;
+            span.main-text(@click="openMenu('login')") 雜學校學生 
+              b {{auth.user.name}}
+
           span.sub-text(@click="openMenu('login')") 後台管理
         span(v-else) 
           b.main-text 雜學校&nbsp;

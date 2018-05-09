@@ -44,7 +44,7 @@
                           :href="postTarget(slides[currentSlideId])" 
                           :target="postTarget(slides[currentSlideId]).indexOf('http')!=-1?'_blank':''") 
                   .cover.cover_21(:style="bgcss(slide.cover)")
-            .col-sm-12.col-info
+            .col-sm-12.col-info-news
               h2.slide-title {{ slides[currentSlideId].title }}
 
   //所有文章
@@ -139,7 +139,7 @@ export default {
       
                             //  .slice().sort(o=>o.stick_top_index)
       if (this.$route.meta.type=="news"){
-        use_source = this.news.filter(o=>o.status=="published")
+        use_source = this.news.filter(o=>o.status=="published").slice().reverse()
                              
       }
       return use_source
@@ -362,9 +362,7 @@ export default {
       width: auto
     // align-items: flex-end
 .row-index-news
-  .col-info
-    // padding: 15px 30px
-    // box-sizing: border-box
+  .col-info-news
     h2.slide-title
       width: 100%
       background-color: #ddd

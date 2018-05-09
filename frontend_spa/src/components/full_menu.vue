@@ -38,9 +38,9 @@
           .container.container-menu
             .row( v-if="searchKeyword==''")
                       
-            .row-logo
+            .row-logo( @click="setMenuState(false)")
               router-link.col-sm-12.logo-part(to="/")
-                img.logo-img(src="/static/img/Home/za-logo.svg", @click="loginAjax") 
+                img.logo-img(src="/static/img/Home/za-logo.svg") 
             .row-bottom
               .col-login
                 span(v-if="auth.user") 
