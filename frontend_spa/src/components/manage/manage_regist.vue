@@ -43,7 +43,7 @@
           el-table-column(prop="paid_datetime",label="確認繳費", width="200" sortable)
             template(slot-scope="scope")
               div
-                span.mr-5(v-if="scope.row.confirmed") 已確認
+                span.mr-5(v-if="scope.row.confirmed") ✔︎ 已確認
                 span.mr-5(v-else) 未確認
                 el-switch(v-model="scope.row.confirmed", @change="uploadPaidStatus(scope)")
 
@@ -52,6 +52,11 @@
           el-table-column(prop="id",label="#", width="60" sortable)
           el-table-column(prop="registid",label="報名編號", width="120" sortable)
           el-table-column(prop="registname",label="攤位名稱", width="200" sortable)
+          //- el-table-column(prop="agree_plan",label="同意規劃", width="200" sortable)
+          el-table-column(prop="main_contact_name",label="主聯絡人", width="150" sortable)
+          el-table-column(prop="main_contact_phone",label="電話", width="100" sortable)
+          el-table-column(prop="main_contact_email",label="信箱", width="200" sortable)
+          
 
       el-tab-pane(label="Zac." name="zac") Zac.
         el-table(:data="registSpeaks" border)
