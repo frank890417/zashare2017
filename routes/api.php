@@ -46,7 +46,7 @@ Route::group(['middleware'=>['cors']],function(){
   Route::resource('paidrecord', 'PaidRecordController');
   Route::resource('registworkshop', 'RegistWorkshopController');
   Route::resource('registexpospeak', 'RegistExpoSpeakController');
-
+  Route::post('confirmPaid', 'RegistExpoController@confirmPaid');
 
 
 // Route::get('/page/blog','HomeController@postpage_api');

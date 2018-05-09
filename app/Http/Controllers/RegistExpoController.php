@@ -202,6 +202,24 @@ class RegistExpoController extends Controller {
         }
         return $RegistExpo;
     }
+
+    //確認繳費
+    public function confirmPaid(){
+        $inputs = Input::all();
+
+        // var_dump($inputs);
+        $user = $this->guard()->user();
+        if ($user->group=="admin"){
+             $obj = PaidRecord::where('id',$inputs['id'])->first();
+            //  echo $obj;
+             $obj->confirmed=$inputs['value'];
+             $obj->save();
+            return ["status"=> "success","confirmed"=>$obj->confirmed ];
+        }else{
+            return ["status"=> "fail, not admin.","confirmed"=>$obj->confirmed ];
+        }
+
+    }
     /**
      * Get the guard to be used during authentication.
      *

@@ -1,34 +1,67 @@
 <template lang="pug">
   .page.manage-post.text-left
-    h3 管理2018報名紀錄
+    h3.mt-5 管理2018報名紀錄
     el-input(v-model="keyword", placeholder="輸入關鍵字")
-    br
+
     //router-link.btn.btn-primary(to="/post/new") + 新增文章
     //el-select(v-model="now_year")
       el-option(value="2017", label="2017")
       el-option(value="2016", label="2016")
     br
-    el-table(:data="filteredRegistexpo" border)
-      el-table-column(prop="id",label="#", width="60" sortable)
-      //- el-table-column(prop="tag",label="類別", width="80" sortable)
-      el-table-column(prop="name_cht",label="中文", width="200" sortable)
-      el-table-column(prop="name_eng",label="英文", width="200" sortable)
+    el-tabs.mt-5.mb-3(v-model="activeName" @tab-click="handleClick")
+      el-tab-pane(label="報名紀錄" name="regist") 報名紀錄
+        el-table(:data="filteredRegistexpo" border)
+          el-table-column(prop="id",label="報名編號", width="120" sortable)
+          //- el-table-column(prop="tag",label="類別", width="80" sortable)
+          el-table-column(prop="name_cht",label="中文", width="200" sortable)
+          el-table-column(prop="name_eng",label="英文", width="200" sortable)
 
-      el-table-column(prop="description",label="描述", width="200" sortable)
-      el-table-column(prop="target_audience",label="目標受眾", width="200" sortable)
-      el-table-column(prop="want_audience",label="希望觸及受眾", width="200" sortable)
-      el-table-column(prop="have_sell",label="有銷售", width="100" sortable)
-        template(slot-scope="scope")
-          span {{scope.have_sell?"有":"無"}}
-      el-table-column(prop="attend_reason",label="參與原因", width="200" sortable)
-      el-table-column(prop="paid_record_status",label="繳款狀態", width="120" sortable)
-        
-      el-table-column(prop="file_proposal",label="簡報", width="80")
-        template(slot-scope="scope")
-          a(:href="apiDomain+scope.row.file_proposal.replace('/stroage/app/public','')", target="_href") 連結
-      el-table-column(prop="main_contact_name",label="主要聯絡人", width="200" sortable)
-      el-table-column(prop="main_contact_phone",label="電話", width="200" sortable)
-      el-table-column(prop="main_contact_email",label="信箱", width="200" sortable)
+          el-table-column(prop="description",label="描述", width="200" sortable)
+          el-table-column(prop="target_audience",label="目標受眾", width="200" sortable)
+          el-table-column(prop="want_audience",label="希望觸及受眾", width="200" sortable)
+          el-table-column(prop="have_sell",label="有銷售", width="100" sortable)
+            template(slot-scope="scope")
+              span {{scope.have_sell?"有":"無"}}
+          el-table-column(prop="attend_reason",label="參與原因", width="200" sortable)
+          el-table-column(prop="paid_record_status",label="繳款狀態", width="120" sortable)
+            
+          el-table-column(prop="file_proposal",label="簡報", width="80")
+            template(slot-scope="scope")
+              a(:href="apiDomain+scope.row.file_proposal.replace('/stroage/app/public','')", target="_href") 連結
+          el-table-column(prop="main_contact_name",label="主要聯絡人", width="200" sortable)
+          el-table-column(prop="main_contact_phone",label="電話", width="200" sortable)
+          el-table-column(prop="main_contact_email",label="信箱", width="200" sortable)
+
+      el-tab-pane(label="繳費記錄" name="paidrecord") 繳費記錄
+        el-table(:data="paidRecords" border)
+          //- el-table-column(prop="id",label="#", width="60" sortable)
+
+          el-table-column(prop="registid",label="報名編號", width="120" sortable)
+          el-table-column(prop="registname",label="攤位名稱", width="200" sortable)
+          el-table-column(prop="paid_last_number",label="後五碼", width="100" sortable)
+          el-table-column(prop="paid_datetime",label="繳費時間", width="200" sortable)
+          el-table-column(prop="paid_datetime",label="確認繳費", width="200" sortable)
+            template(slot-scope="scope")
+              div
+                span.mr-5(v-if="scope.row.confirmed") 已確認
+                span.mr-5(v-else) 未確認
+                el-switch(v-model="scope.row.confirmed", @change="uploadPaidStatus(scope)")
+
+      el-tab-pane(label="雜工坊報名" name="workshop") 雜工坊報名
+        el-table(:data="workshops" border)
+          el-table-column(prop="id",label="#", width="60" sortable)
+          el-table-column(prop="registid",label="報名編號", width="120" sortable)
+          el-table-column(prop="registname",label="攤位名稱", width="200" sortable)
+
+      el-tab-pane(label="Zac." name="zac") Zac.
+        el-table(:data="registSpeaks" border)
+          el-table-column(prop="id",label="#", width="60" sortable)
+          el-table-column(prop="registid",label="報名編號", width="120" sortable)
+          el-table-column(prop="registname",label="攤位名稱", width="200" sortable)
+
+
+
+
 
 
       //- el-table-column(prop="cover",label="封面", width="120")
@@ -61,6 +94,7 @@ export default {
     return {
       // posts: [],
       keyword: "",
+      activeName: "regist",
       now_year: "2016",
       registexpos: []
     }
@@ -86,6 +120,33 @@ export default {
         this.$set(this,"registexpos",res.data)
       })
     },
+    handleClick(tab, event) {
+          console.log(tab, event);
+    },
+    uploadPaidStatus(scope){
+      console.log("upload status!!!!!!!!");
+      axios.post('/api/confirmPaid',{
+        id: scope.row.id,
+        value: scope.row.confirmed,
+        token: this.token
+      }).then(res=>{
+        console.log(res.data)
+        if (res.data.status=="success"){
+          this.loadAll()
+          this.$message({
+            message: '更新成功',
+            type: 'success'
+          }); 
+        }else{
+          this.$message({
+            message: '更新狀態失敗',
+            type: 'error'
+          }); 
+        }
+      })
+
+    }
+        
   },
   computed:{
      ...mapState({
@@ -109,7 +170,31 @@ export default {
           paid_record_status
         }
       })
+    },
+    paidRecords(){
+      return this.filteredRegistexpo.map(r=>({
+        registid: r.id,
+        registname: r.name_cht,
+        ...r.paid_record,
+        confirmed: r.paid_record.confirmed?true:false
+      }) ).filter(r=>r.id)
+    },
+    workshops(){
+      return this.filteredRegistexpo.map(r=>({
+        registid: r.id,
+        registname: r.name_cht,
+        ...r.regist_workshop
+      })).filter(r=>r.id)
+    },
+    registSpeaks(){
+      return this.filteredRegistexpo.map(r=>({
+        registid: r.id,
+        registname: r.name_cht,
+        ...r.regist_expo_speak
+      })).filter(r=>r.id)
+
     }
+
   }
 }
 </script>

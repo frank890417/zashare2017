@@ -236,7 +236,7 @@ export default {
       this.$refs['form_registexpo_speak'].validate(valid=>{
         if (valid){
 
-          this.$confirm('確認送出講堂報名？送出將無法更改', '最後確認', {
+          this.$confirm('確認送出Zac.報名？送出將無法更改', '最後確認', {
             confirmButtonText: '確定',
             cancelButtonText: '取消',
           }).then(() => {
@@ -247,7 +247,7 @@ export default {
               },
               callback(){
                 _this.$message({
-                  message: '雜講堂報名更新成功',
+                  message: 'Zac.報名更新成功',
                   type: 'success'
                 });
 
