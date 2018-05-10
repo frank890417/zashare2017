@@ -42,17 +42,27 @@
               router-link.col-sm-12.logo-part(to="/")
                 img.logo-img(src="/static/img/Home/za-logo.svg") 
             .row-bottom
-              .col-login
-                span(v-if="auth.user") 
-                  span Hello
-                  span(@click="openMenu('login')") 雜學校學生
-                    b {{auth.user.name}}
+              span.col-login.mb-3
+                span(v-if="auth.user")
+                  div.mb-2
+                    span.main-text Hello&nbsp;
+                    span.main-text(@click="openMenu('login')") 雜學校學生 
+                      b {{auth.user.name}}
+
+                  
                 span(v-else) 
-                  b(style="margin-right: 30px") 雜學校 
-                  span(@click="openMenu('login')")  登入 / 註冊
-                span &nbsp;&nbsp;|&nbsp;&nbsp;
-                span 
-                  b(@click="openMenu('search')")  搜尋
+                  b.main-text 雜學校&nbsp;
+                  br
+                div
+                  span.sub-text(@click="openMenu('login')"
+                                v-if="!auth.user")  登入
+                  span.sub-text(@click="openMenu('login')"
+                                v-if="auth.user") 後台管理
+                  span.sub-text  &nbsp;&nbsp;|&nbsp;&nbsp;
+                  span.sub-text 
+                    span(@click="openMenu('search')")  搜尋全站
+
+
               div(@click="setMenuState(false)")
                 router-link.col-theme-nav.text-center.nav-course(to="/about")
                   span 關於雜學校
@@ -182,12 +192,19 @@ export default {
       }
     },
     menuState(){
+      setTimeout(() => {
+        _jf.flush();
+      },200)
       if (this.menuState && this.auth.user){
         this.loadAllCoupon()
 
       }
     },
     user(){
+
+      setTimeout(() => {
+        _jf.flush();
+      },200)
       if (this.menuState && this.auth.user){
         this.loadAllCoupon()
 
@@ -208,6 +225,7 @@ export default {
   width: 100%
   height: 100%
   
+
 .hambergur
   +size(72px)
   position: fixed
@@ -228,6 +246,8 @@ export default {
       &:nth-child(2)
         top: 60%
 .menu
+
+
   input
     border: none
     outline: none
@@ -433,6 +453,11 @@ export default {
       +flexCenter
     .col-login
       padding: 35px 50px
+      display: flex
+      flex-direction: column
+      justify-content: center
+      margin-bottom: 0
+      padding-bottom: 0
       text-align: center
     .col-theme-nav
       padding: 35px 50px
@@ -449,13 +474,17 @@ export default {
       width: calc(100% + 40px)
       // font-size: 24px
     .row-logo
-      display: flex
-      justify-content: center
-      align-items: center
+      +flexCenter
       width: 100%
+      margin: 0
+      margin-top: 10vh
+      position: relative
+      left: 20px
 
       img
-        width: 150px
+        max-width: 150px
+        overflow: hidden
+        // width: 150px
       +rwd_md
         height: 100%
     .row-bottom

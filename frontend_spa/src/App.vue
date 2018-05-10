@@ -29,6 +29,10 @@ export default {
 @import "assets/_mixins.sass"
 // @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css)
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700)
+
+
+//just font fadeIn
+
 .mobileBlock
   position: fixed
   width: 100vw

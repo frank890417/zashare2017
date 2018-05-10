@@ -1,53 +1,53 @@
 <template lang="pug">
 
-.row.row-expo2018(  :key="menuState").text-left
-  .container
-    .col-sm-12
-      .row(@click="setMenuState(false)")
-        .col-sm-6
-          router-link.box.big(to="/member/registexpo").animated.fadeIn.delay-3
-            .cover
-              .bg(:style="bgcss('/static/img/regist2018/ZAEXPO.jpg')")
-              .infotext
-                span 申請狀態：<br>
-                span(v-if="registExpo.id") 已報名&nbsp;|&nbsp;
-                span(v-else) 未報名&nbsp;|&nbsp;
-                span(v-if="!registExpo.paid_record") 未繳費
-                span(v-if="registExpo.paid_record && !registExpo.paid_record.confirm") 主辦單位確認中
-                span(v-if="registExpo.paid_record && registExpo.paid_record.confirm") 已繳費
-            .info 
-              div
-                h5 參展申請
-                router-link.float-right.btn(to="/member/registexpo/paid",
-                                                v-if="registExpo.id ").animated.fadeIn.delay-6 確認繳交報名費
-              span(v-if="registExpo") 參展編碼： 
-                span(v-if="registExpo.id") {{ registId }}
-              br
-              span(v-if="registExpo") 參展單位名稱： 
-                span(v-if="registExpo.id") {{ registExpo.name_cht }}
+.row.row-expo2018(  
+  :key="menuState", 
+  @click="setMenuState(false)").text-left
 
-        .col-sm-6
-          router-link.box(to="/member/registexpo/workshop").animated.fadeIn.delay-9
-            .cover
-              .bg(:style="bgcss('/static/img/regist2018/ZAWORKSHOP.jpg')")
-              .infotext
-                span 申請狀態：
-                span(v-if="!registExpo.id") 需先報名參展
-                span(v-else)
-                  span(v-if="registExpo.regist_workshop") 已報名
-                  span(v-else) 開放報名
-            .info 雜工坊
-          router-link.box(to="/member/registexpo/speak") 
-            .cover
-              .bg(:style="bgcss('/static/img/regist2018/Zac.jpg')")
-              .infotext
-                span 申請狀態：
-                span(v-if="!registExpo.id") 需先報名參展
-                span(v-else)
-                  span(v-if="registExpo.regist_expo_speak") 已報名
-                  span(v-else) 開放報名
-            .info Zac. 教育新創短講評選
-          
+  .col-sm-6
+    router-link.box.big(to="/member/registexpo").animated.fadeIn.delay-3
+      .cover
+        .bg(:style="bgcss('/static/img/regist2018/ZAEXPO.jpg')")
+        .infotext
+          span 申請狀態：<br>
+          span(v-if="registExpo.id") 已報名&nbsp;|&nbsp;
+          span(v-else) 未報名&nbsp;|&nbsp;
+          span(v-if="!registExpo.paid_record") 未繳費
+          span(v-if="registExpo.paid_record && !registExpo.paid_record.confirm") 主辦單位確認中
+          span(v-if="registExpo.paid_record && registExpo.paid_record.confirm") 已繳費
+      .info 
+        div
+          h5 參展申請
+          router-link.float-right.btn(to="/member/registexpo/paid",
+                                          v-if="registExpo.id ").animated.fadeIn.delay-6 確認繳交報名費
+        span(v-if="registExpo") 參展編碼： 
+          span(v-if="registExpo.id") {{ registId }}
+        br
+        span(v-if="registExpo") 參展單位名稱： 
+          span(v-if="registExpo.id") {{ registExpo.name_cht }}
+
+  .col-sm-6
+    router-link.box(to="/member/registexpo/workshop").animated.fadeIn.delay-9
+      .cover
+        .bg(:style="bgcss('/static/img/regist2018/ZAWORKSHOP.jpg')")
+        .infotext
+          span 申請狀態：
+          span(v-if="!registExpo.id") 需先報名參展
+          span(v-else)
+            span(v-if="registExpo.regist_workshop") 已報名
+            span(v-else) 開放報名
+      .info 雜工坊
+    router-link.box(to="/member/registexpo/speak") 
+      .cover
+        .bg(:style="bgcss('/static/img/regist2018/Zac.jpg')")
+        .infotext
+          span 申請狀態：
+          span(v-if="!registExpo.id") 需先報名參展
+          span(v-else)
+            span(v-if="registExpo.regist_expo_speak") 已報名
+            span(v-else) 開放報名
+      .info Zac. 教育新創短講評選
+        
 </template>
 
 <script>
@@ -165,6 +165,7 @@ export default {
         left: 10px
       .bg
         position: absolute
+        border-radius: 5px 5px 0px 0px
         +size(100%)
         left: 0
         top: 0

@@ -63,7 +63,7 @@ export default {
 <style lang="sass">
 @import "../../assets/_mixins.sass"
 
-.page-expo-year
+.page-post.page-expo-year
   .row-banner
     .cover
       padding-bottom: 40%
@@ -72,13 +72,13 @@ export default {
       height: 250px
       // margin-top: 60px
       margin-top: 60px
-      // margin-left: -15px
       // margin-right: -15px
       +rwd_md
         margin-top: 0
         margin-left: -15px
-        margin-right: -15px
+        // margin-right: -15px
         width: 100vw
+        margin-bottom: 30px
   .row-recommand
     margin-top: 60px
   h3

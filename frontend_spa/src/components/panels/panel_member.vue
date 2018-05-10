@@ -1,5 +1,5 @@
 <template lang="pug">
-.col-member.col-sm-12
+.col-member
   auth_panel(v-if="!auth.user")
   .container(v-else)
     .row
@@ -49,7 +49,7 @@
         .tag ZA COURSE
         i.fa.fa-info
         br
-      .col-sm-6.col-md-4.mt-3(v-for="(ct,ctid) in coupontypes", v-if="ct.can_get || isAdmin")
+      .col-sm-6.col-md-4.mt-3(v-for="(ct,ctid) in coupontypes")
         .coupon-box-inner
           .cover(:style="bgcss(ct.cover)")
             //.num 00{{ctid+1}}

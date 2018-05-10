@@ -271,7 +271,7 @@ export default {
       padding-right: 0
   .container-slider
     // background-color: white
-    padding-bottom: 30px
+    // padding-bottom: 30px
     padding-top: 43px
     +rwd_md
       border-bottom: solid 1px #ccc

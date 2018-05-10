@@ -168,15 +168,15 @@ export default {
       }
     },
     mobileCataStyle(){
-      if (this.$route.meta.type=="theme"){
-        return {
-          'background-color': "transparent"
-        }
-      }else if (this.$route.path.indexOf('/expo')==0){
-        return {
-          'background-color': this.theme.color
-        }
-      }else if (this.$route.meta.mobilenav.color){
+      // if (this.$route.meta.type=="theme"){
+        // return {
+          // 'background-color': "transparent"
+        // }
+      // if (this.$route.path.indexOf('/expo')==0){
+        // return {
+          // 'background-color': this.theme.color
+        // }
+      if (this.$route.meta.mobilenav.color){
         return {
           'background-color': this.$route.meta.mobilenav.color
         }
@@ -248,10 +248,13 @@ export default {
       // margin-bottom: 10px
     .page-label
       // font-weight: 900
-      text-align: left
+      text-align: center
+      padding-right: 60px
+      +flexCenter
       vertical-align: middle
       height: 60px
-      font-size: 30px
+      font-size: 1.2rem
+      font-weight: bold
       padding-left: 10px
       line-height: 60px
       img

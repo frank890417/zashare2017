@@ -30,7 +30,8 @@ let routes =
         },
         mobilenav: {
           color: "white",
-          text: "NEWS"
+          // text: "NEWS",
+          img: "/static/img/Home/za-logo.svg"
         },
         navPosition: "left"
       }
@@ -63,11 +64,11 @@ let routes =
         name: "回首頁",
         path: "/"
 
-        },
+      },
       mobilenav: {
         color: "white",
-        text: "NEWS"
-        },
+        img: "/static/img/Home/za-logo.svg"
+      },
       navPosition: "left"
       }
   },
@@ -182,12 +183,11 @@ let routes =
         name: "ZA EXPO",
         path: "/expo"
       },
-      // subBack: {
-      //   name: "返回歷屆展覽",
-      //   path: "/expo/main",
-      //   params: ["year"]
-
-      // },
+      mobilenav: {
+        color: "white",
+        text: "歷屆展覽"
+      },
+      
       navPosition: "left"
     }
   },
@@ -206,7 +206,11 @@ let routes =
         name: "返回歷屆展覽",
         path: "/expo/main"
 
-        },
+      },
+      mobilenav: {
+        color: "white",
+        text: "歷屆展覽"
+      },
       navPosition: "left"
       }
   },
