@@ -42,7 +42,7 @@
           i.fa.fa-info
         | &nbsp;&nbsp;2018 年 6 月 15 日 申請截止
       .col-sm-12
-        panel_expo2018.row
+        panel_expo2018
 
     .row.row-coupon.mt-5( v-if="auth.user.studentcard || isAdmin")
       .col-sm-12(v-if="coupontypes.length")
