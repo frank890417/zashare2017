@@ -15,7 +15,7 @@
    
     .container-fluid.container-feature
       .row
-        .col-6.col-xs-6.col-sm-6.col-md-4.col-lg-3.col-xl-2.wow.fadeIn(v-for="(f,fid) in features", class="'delay-ani-'+(fid*2+2)")
+        .col-6.col-xs-6.col-sm-6.col-md-3.col-lg-2.wow.fadeIn(v-for="(f,fid) in features", class="'delay-ani-'+(fid*2+2)")
           img(:src="f.img").animated.fadeIn
           br
           br

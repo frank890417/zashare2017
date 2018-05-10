@@ -31,6 +31,7 @@
                 :value="jb", :label="jb") {{jb}}
         el-input(v-model="registerData.job", :placeholder="jobInforLabel", type="job", name="job", autocomplete="on")
         el-input(v-model="registerData.password", placeholder="密碼", type="password")
+        el-input(v-model="registerData.password_confirmation", placeholder="密碼", type="password")
         button.btn.fw.black(@click="register(registerData)") 註冊
         //- label(v-if="auth.status") {{auth.status}}
         button.btn.fw.nobg(@click="mode='login'") 我已經有帳號了！ 前往登入

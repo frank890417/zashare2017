@@ -3,7 +3,7 @@
   .container
     div(v-if="userClone && userClone.studentcard")
       h4 學生證資訊 
-      p 學生證卡號：{{userClone.studentcard.card_id}}
+      p 學生證卡號：{{userClone.studentcard.card_id }}
         //- | 學生證級別：建校元老 <br>
         | 會員效期：{{userClone.studentcard.expiry_datetime}} <br>
         | 會員ID碼: {{userClone.studentcard.card_id}} <br>

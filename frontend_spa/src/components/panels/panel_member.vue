@@ -20,7 +20,7 @@
             div
               h4 學生資訊
               ul
-                li 會員ID碼： {{auth.user.id}}
+                li 會員ID碼： {{ "ZA"+("0000000"+auth.user.id).slice(-6) }}
                 li 現職產業別： {{auth.user.jobcata}}
                 li 現職職稱： {{auth.user.job}} 
                 li 聯絡信箱：{{auth.user.email}}
