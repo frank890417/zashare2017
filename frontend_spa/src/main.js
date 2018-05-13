@@ -30,7 +30,7 @@ import messages from './i18n/messages.js'
 Vue.use(VueI18n)
 
 const i18n = new VueI18n({
-  locale: 'en', // set locale
+  locale: 'zh', // set locale
   messages, // set locale messages
 })
 

@@ -1,4 +1,7 @@
 let data = {
+  global: {
+    name: "ZA SHARE",
+  },
   nav: {
     about: "About ZA SHARE",
     expo: "Past EXPOS",

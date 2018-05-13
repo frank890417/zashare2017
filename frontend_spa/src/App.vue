@@ -7,7 +7,10 @@
       img.logo(src="/static/img/Home/za-logo.svg")
     h2 手機版本還在開發中...<br>請使用電腦版瀏覽：）
   //- transition(name="page")
-  router-view(:key="$route.path")
+  
+  transition(name="page" , mode="out-in")
+    router-view(:key="$route.path")
+    
   navbar
   full_menu
   section_footer
@@ -225,6 +228,53 @@ p
 .fade-enter, .fade-leave-to
   opacity: 0
 
+
+
+.page-enter-active, .page-leave-active 
+  transition: 1s
+
+.page-enter, .page-leave-to
+  opacity: 0
+  
+// .page-enter-active
+//   @keyframes pageBlockUp
+//     0%
+//       bottom: 0
+//       height: 100vh
+//     100%
+//       bottom: 0
+//       height: 0%
+
+//   &:before
+//     content: ''
+//     display: block
+//     position: fixed
+//     left: 0
+//     +size(100%)
+//     z-index: 3
+//     animation: pageBlockUp 0.5s both
+//     background-color: black
+
+
+// .page-leave-active
+//   @keyframes pageBlockDown
+//     0%
+//       top: 0
+//       height: 0
+//     100%
+//       top: 0
+//       height: 100vh
+
+//   &:before
+//     content: ''
+//     display: block
+//     position: fixed
+//     left: 0
+//     +size(100%)
+//     z-index: 3
+//     animation: pageBlockDown 0.5s both
+//     background-color: black
+    
 
 .container-fluid
   padding: 0

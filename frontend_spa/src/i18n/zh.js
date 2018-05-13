@@ -3,6 +3,7 @@ let data = {
     name: "雜學校",
   },
   nav: {
+    login: "登入",
     about: "關於雜學校",
     expo: "歷屆展覽",
     shop: "線上商店",

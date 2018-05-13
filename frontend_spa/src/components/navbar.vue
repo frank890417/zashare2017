@@ -1,5 +1,5 @@
 <template lang="pug">
-.navbar(:style="navbarStyle")
+.navbar(:style="navbarStyle" )
   .container-fluid
     .row-logo
       router-link.logo-part(to="/")
@@ -57,7 +57,7 @@
 
           span.sub-text(@click="openMenu('login')") {{ $t('nav.manage') }}
         span(v-else) 
-          b.main-text {{ $t('nav.global.name') }}&nbsp;
+          b.main-text {{ $t('global.name') }}&nbsp;
           br
           span.sub-text(@click="openMenu('login')")  {{ $t('nav.login') }}
         span.sub-text &nbsp;&nbsp;|&nbsp;&nbsp;
@@ -228,7 +228,30 @@ export default {
   padding: 0
   width: 300px
   height: 100vh
+  z-index: 5
   transition: 0.5s, right 1s
+
+  @keyframes navBlockDown
+    0%
+      bottom: 0
+      height: 100%
+    100%
+      bottom: 0
+      height: 0%
+
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    left: 0
+    +size(100%)
+    z-index: 3
+    animation: navBlockDown 1s 0.5s both
+    background-color: black
+    
+
+
+
   .locale-sel
     span.option
       color: #222
