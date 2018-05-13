@@ -75,7 +75,7 @@ i
 
 //字體設定
 
-h1,h2,h3,h4,h5,h6,p,li,span
+h1,h2,h3,h4,h5,h6,p,li
   letter-spacing: 0.05rem
   line-height: 2
   &.small
@@ -112,6 +112,9 @@ p,li
   line-height: 2
   font-weight: 500
   opacity: 0.9
+span
+  font-size: 1rem
+
 p
   text-align: justify
 

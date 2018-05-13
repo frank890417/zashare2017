@@ -2,132 +2,98 @@
 .page.member-regist-expo.text-left
   .container
     .col-sm-12
-      h2.mt-5 Zac. 教育新創短講評選申請表
-      .row.mt-3
-        .col-sm-12
-      p 雜學校設法創造一個能提供實質資源的公開平台，透過Zac. 徵選，邀請通過初選之10 組入圍團隊（每一參與者均收21,000 元/ 展位）將移展至「雜學校概念館 」，由雜學校團隊量身訂製策展規劃，不只提供行銷與曝光的舞台，並讓其他參展團隊、記者媒體、貴賓等也有一個很棒的觀摩機會！（詳細參與辦法及相關評選內容請見徵展手冊 P.19)
+      h2.mt-5 {{ $t('regist_expospeak.title') }}
+      p.mt-3(v-html="$t('regist_expospeak.sub_title')") 
       
     .col-sm-12.text-left.mt-5
       el-steps(:active="active" finish-status="success")
-        el-step(title="申請基本資訊" , @click="active=0")
-        el-step(title="申請資料填寫" , @click="active=1")
-        el-step(title="申請人聯絡資料" , @click="active=2")
-        el-step(title="確認送出" , @click="active=3")
-        el-step(title="報名完成" , @click="active=5")
-        
+        el-step(v-for="section in sections",
+                :title="section.title.indexOf('、')==-1?section.title:section.title.split('、')[1]" ,
+                @click="active=section.id")
+        el-step(:title="$t('form.step_confirm')")
+        el-step(:title="$t('form.step_complete')")
+    // :disabled = "typeof registExpoSpeak.id=='number'"
     .col-sm-12    
-      el-form(v-if="registExpoSpeak",  :disabled = "typeof registExpoSpeak.id=='number'",
+      el-form(v-if="registExpoSpeak",
               label-position="left",
               ref="form_registexpo_speak",
               :rules="rules"
               :model="registExpoSpeak")
-        div(v-show="active==0")
-          h4.mt-5.mb-5 ㄧ、申請基本資訊
-          
-          el-form-item(required prop="" label="1. 評選入圍之單位，是否同意策展權益交由給主辦單位規劃與設計")
-            br
-            br
-            el-radio(:label="1" v-model="registExpoSpeak.agree_plan" ) 是，移展至雜學校概念館（由雜學校團隊量身規劃展位）
-            el-radio(:label="0" v-model="registExpoSpeak.agree_plan" ) 否，維持在雜博覽展出（參展團隊自行規劃展位）             
-            
-            
-        
-          el-form-item(required prop="team_person_count" label="2. 團隊人數")
-            br
-            br
-            el-input-number(v-model="registExpoSpeak.team_person_count")
-
-          el-form-item(required prop="has_money" label="3. 是否已有獲得資金挹注")
-            br
-            br
-            el-radio(:label="1" v-model="registExpoSpeak.has_money" ) 是
-            el-radio(:label="0" v-model="registExpoSpeak.has_money" ) 否
-                        
 
 
-        div(v-show="active==1")
-          h4.mt-5.mb-5 二、申請資料填寫
+        div(v-for="registFormObj in [registExpoSpeak]")
+          div(v-for="(section,sid) in sections" ,
+              v-show="active==section.id",
+              :key="sid")
+            h4.mt-5.mb-3 {{section.title}}
+            el-form-item(v-for="(question,qid) in section.questions ",
+                        :label="question.title", :prop="question.prop",
+                        :key="qid")
+              // 說明文字
+              div(v-if="question.explain || question.type=='number'")
+                br
+                br
+                p(v-html="question.explain")
 
+              // [預設] 單行輸入 (input)
+              el-input(v-model="registFormObj[question.prop]",
+                      :placeholder="question.settings && question.settings.placeholder",
+                      v-if="question.type=='input' || question.type===undefined")
 
-          el-form-item(required prop="startup_content" label="1. 請簡述你的具體創業內容（200-300字內）")
-            el-input(v-model="registExpoSpeak.startup_content", type="textarea" rows="5" :maxlength="300")
+              // 多行輸入 (textarea)
+              el-input(v-model="registFormObj[question.prop]",
+                        v-if="question.type=='textarea'",
+                        :placeholder="question.settings && question.settings.placeholder",
+                        :maxlength="question.settings && question.settings.maxlength",
+                        type="textarea",
+                        rows="5" )
 
-          el-form-item(required prop="startup_audience" label="2. 請簡述你的目標族群（200-300字內）")
-            el-input(v-model="registExpoSpeak.startup_audience", type="textarea" rows="5" :maxlength="300")
-
-          el-form-item(required prop="startup_difficult" label="3. 請簡述你目前的創業困境（200-300字內）")
-            el-input(v-model="registExpoSpeak.startup_difficult", type="textarea" rows="5" :maxlength="300")
-
-          el-form-item(required prop="startup_problem" label="4. 請敘述你想解決的教育問題（200-300字內）")
-            el-input(v-model="registExpoSpeak.startup_problem", type="textarea" rows="5" :maxlength="300")
-
-          el-form-item(required prop="startup_power" label="5. 請敘述你認為團隊/產品賦予社會的影響力是（200-300字內）")
-            el-input(v-model="registExpoSpeak.startup_power", type="textarea" rows="5" :maxlength="300")
-
-          el-form-item(required prop="startup_proposal" label="6. 請檢附一份20頁(內)提案計畫書（主辦單位將以此份檔案作為「Zac.新創教育短講評選」初選評比依據。）")
-            br
-            br
-            p 建議內容設定：
-              | <br>一、背景介紹（含品牌/ 團隊介紹）
-              | <br>二、創業目標
-              | <br>三、創業內容（目標市場、族群、競爭力分析等）
-              | <br>四、實施方法（目前發展狀況、商業模式、成果等）
-              | <br>五、執行期程與規劃
-              | <br>六、人力配置
-              | <br>七、預算分配及運用
-              | <br>八、風險評估
-              | <br>九、預期效益
-            el-upload(
-              auto-upload
-              :limit="1"
-              ref="upload"
-              accept=".pdf"
-              :data="{token: auth.token}"
-              :on-success="(url)=>{registExpoSpeak.startup_proposal = url}"
-              :action="apiDomain+'api/registexpo/uploadtemp'"
               
-            )
-              el-button(size="small" type="primary") 點擊上傳
-              div.el-upload__tip(slot="tip") 檔案大小限制 20MB 內，請輸出成PDF格式。
+              // 數字 (number)
+              el-input-number(v-model="registFormObj[question.prop]",
+                      v-if="question.type=='number'")
 
-        div(v-show="active==2")
-          h4.mt-5.mb-5 三、申請人聯絡資料
-          .row
-            .col-sm-12
-              h6 1.	主要聯絡人（請優先填寫執行窗口）
-            .col-sm-12
 
-              el-form-item(required prop="main_contact_name" label="姓名")
-                el-input(v-model="registExpoSpeak.main_contact_name")
-              el-form-item(required prop="main_contact_phone" label="手機")
-                el-input(v-model="registExpoSpeak.main_contact_phone")
-              el-form-item(required prop="main_contact_email" label="Email")
-                el-input(v-model="registExpoSpeak.main_contact_email")
+              // 選擇 (select)
+              el-select(v-model="registFormObj[question.prop]",
+                        v-if="question.type=='select'",
+                        :placeholder="question.settings && question.settings.placeholder",
+                        :multiple="question.settings && question.settings.multiple",
+                        :multiple-limit="question.settings && question.settings['multiple-limit']")
+                el-option(v-for="option in question.options",
+                          :value="typeof option=='object'?option.value:option",
+                          :label="typeof option=='object'?option.label:option",
+                          :key="typeof option=='object'?option.value:option")
+          
+              // 檔案 (file)
+              el-upload(
+                v-if="question.type=='file'"
+                auto-upload
+                ref="upload"
+                accept=".pdf"
+                :limit="1"
+                :data="{token: auth.token}"
+                :on-success="(url)=>{registFormObj[question.prop] = url}"
+                :action="apiDomain+'api/registexpo/uploadtemp'"
+              )
+                el-button(size="small" type="primary") {{ $t('form.label_upload') }}
 
-          .row.mt-5
-            .col-sm-12
-              h6 2.	次要聯絡人
-            .col-sm-12
 
-              el-form-item(required prop="secondary_contact_name" label="姓名")
-                el-input(v-model="registExpoSpeak.secondary_contact_name")
-              el-form-item(required prop="secondary_contact_phone" label="手機")
-                el-input(v-model="registExpoSpeak.secondary_contact_phone")
-              el-form-item(required prop="secondary_contact_email" label="Email")
-                el-input(v-model="registExpoSpeak.secondary_contact_email")
+        div(v-show="active==sections.length") 
+          //- pre(v-html="registExpo")
+          h4.mt-5.mb-5(v-html="$t('regist_expospeak.confirm_title')")
+          p.mt-5.mb-5(v-html="$t('regist_expospeak.confirm_text')")
+          p#err_msg
+          el-button(@click="sendRegistForm" type="primary" size="medium") {{ $t('form.label_submit') }}
 
-        div(v-show="active==3") 
-          //- pre(v-html="registExpoSpeak")
-          p.mt-5 恭喜你即將完成「Zac. 教育新創短講評選」的報名申請！<br>請再次確認所有填寫資料後按下「確認送出」，主辦單位收到報名申請後將以E-mail回覆確認。若提交後三日內未收到相關回覆，請主動聯繫主辦單位查詢。
-          el-button.mt-5(@click="sendRegistForm" type="primary" size="medium") 送出 Zac. 教育短講 申請
-        div(v-if="active==5") 
-          p.mt-5 謝謝你願意和我們一同為教育而努力！<br>最後初選入圍名單將於2018/07/10公布在官方網站。
+        div(v-if="active==sections.length+2") 
+          p.mt-5(v-html="$t('regist_expospeak.complete_text')")
           panel_expo2018
 
-      hr
-      div.mt-5
-        el-button.float-left(@click="prev", v-if="active>0 && active<4") 上一步
-        el-button.float-right(@click="next" , v-if="active<3") 下一步
+        hr
+        div.mt-5
+          el-button.float-left(@click="prev", v-if="active>0 && active<=sections.length") {{ $t('form.label_back') }}
+          el-button.float-right(@click="next" , v-if="active<sections.length") {{ $t('form.label_next') }}
 
 </template>
 
@@ -144,27 +110,6 @@ export default {
       // audiences: "學齡前幼兒／國小生／國中生／高中生／自學生／大專以上學生／職場新鮮人／青壯年／家長／教育工作者／投資人／創業者／學校單位／公部門／其他".split("／"),
       active: 0,
       success: false,
-      types: [ "藝術體驗創作",
-              "傳統工藝教學",
-              "互動式教學",
-              "科學動手實驗",
-              "創新教案分享與教學",
-              "小型分享座談",
-              "戶外園區導覽",
-              "其他"],
-      timespans: [
-        "10/5 (五) 13:00-14:30",
-        "10/5 (五) 15:00-16:30",
-        "10/5 (五) 17:00-18:30",
-        "10/6 (六) 10:00-11:30",
-        "10/6 (六) 13:00-14:30",
-        "10/6 (六) 15:00-16:30",
-        "10/6 (六) 17:00-18:30",
-        "10/7 (日) 10:00-11:30",
-        "10/7 (日) 13:00-14:30",
-        "10/7 (日) 15:00-16:30",
-        "10/7 (日) 17:00-18:30",
-      ],
       rules: {
         agree_plan:[
           {required: true, message: "請選擇策展權益"}
@@ -221,6 +166,9 @@ export default {
       registExpoOriginal: state=>state.registExpo,
       token: state=>state.auth.token
     }),
+    sections(){
+      return this.$t("regist_expospeak.sections")
+    }
   },
   mounted(){
     // console.log(this.user)
@@ -230,6 +178,27 @@ export default {
   },
   methods: {
     ...mapActions(['loadRegistData','updateRegistForm']),
+    getRules(sections){
+      let rules = {}
+      
+      sections.forEach(section=>{
+        section.questions.forEach(question=>{
+          rules[question.prop]={
+            required: false,
+            message: this.$t("form.data_not_complete")
+          }
+         
+          if ( (section.required && question.required!==false) ||
+               (!section.required && question.required)){
+            rules[question.prop].required=true   
+          }
+          if ( (question.prop+"").indexOf('email')!=-1){
+            rules[question.prop].type="email"
+          }
+        })
+      })
+      return rules
+    },
     sendRegistForm(){
       let _this = this
 

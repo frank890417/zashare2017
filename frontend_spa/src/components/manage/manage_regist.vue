@@ -49,6 +49,7 @@
                 span.mr-1(v-if="scope.row.confirmed") ✔︎ 已確認
                 span.mr-1(v-else) 未確認
                 el-switch(v-model="scope.row.confirmed", @change="uploadPaidStatus(scope)")
+          el-table-column(prop="paid_amount",label="繳費金額", width="200" sortable)
           el-table-column(prop="paid_datetime",label="繳費時間", width="200" sortable)
           el-table-column(prop="paid_direct",label="臨櫃匯款", width="120" sortable)
             template(slot-scope ="scope")

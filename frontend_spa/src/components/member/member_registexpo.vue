@@ -3,8 +3,8 @@
   .container
     .col-sm-12
       h2.mt-5 {{ $t('regist_expo.title') }}
-      h4.mt-3 {{ $t('regist_expo.sub_title') }}
-    .col-sm-12.text-left
+      p.mt-3(v-html="$t('regist_expo.sub_title')") 
+    .col-sm-12.text-left.mt-3
       el-steps(:active="active" finish-status="success")
         el-step(v-for="section in sections",
                 :title="section.title.indexOf('、')==-1?section.title:section.title.split('、')[1]" ,
@@ -19,69 +19,71 @@
               ref="form_registexpo",
               :model="registExpo",
               :finish-status="finishStatus")
+        div(v-for="registFormObj in [registExpo]")
+          div(v-for="(section,sid) in sections" ,
+              v-show="active==section.id",
+              :key="sid")
+            h4.mt-5.mb-3 {{section.title}}
+            el-form-item(v-for="(question,qid) in section.questions ",
+                        :label="question.title", :prop="question.prop",
+                        :key="qid")
+              // 說明文字
+              div(v-if="question.explain")
+                br
+                br
+                p(v-html="question.explain")
 
-        div(v-for="(section,sid) in sections" ,
-            v-show="active==section.id",
-            :key="sid")
-          h4.mt-5.mb-5 {{section.title}}
-           el-form-item(v-for="(question,qid) in section.questions ",
-                       :label="question.title", :prop="question.prop",
-                       :key="qid")
-            h4
-            // 說明文字
-            div(v-if="question.explain")
-              br
-              br
-              p(v-html="question.explain")
+              // [預設] 單行輸入 (input)
+              el-input(v-model="registFormObj[question.prop]",
+                      :placeholder="question.settings && question.settings.placeholder",
+                      v-if="question.type=='input' || question.type===undefined")
 
-            // [預設] 單行輸入 (input)
-            el-input(v-model="registExpo[question.prop]",
-                     v-if="question.type=='input' || question.type===undefined")
+              // 多行輸入 (textarea)
+              el-input(v-model="registFormObj[question.prop]",
+                        v-if="question.type=='textarea'",
+                        :placeholder="question.settings && question.settings.placeholder",
+                        :maxlength="question.settings && question.settings.maxlength",
+                        type="textarea",
+                        rows="5" )
 
-            // 多行輸入 (textarea)
-            el-input(v-model="registExpo[question.prop]",
-                      v-if="question.type=='textarea'",
-                      :maxlength="question.settings && question.settings.maxlength",
-                      type="textarea",
-                      rows="5" )
-
-            
-            // 數字 (number)
-            el-input-number(v-model="registExpo[question.prop]",
-                     v-if="question.type=='number'")
+              
+              // 數字 (number)
+              el-input-number(v-model="registFormObj[question.prop]",
+                      v-if="question.type=='number'")
 
 
-            // 選擇 (select)
-            el-select(v-model="registExpo[question.prop]",
-                      v-if="question.type=='select'",
-                      :multiple="question.settings && question.settings.multiple",
-                      :multiple-limit="question.settings && question.settings['multiple-limit']")
-              el-option(v-for="option in question.options",
-                        :value="typeof option=='object'?option.value:option",
-                        :label="typeof option=='object'?option.label:option",
-                        :key="typeof option=='object'?option.value:option")
-        
-            // 檔案 (file)
-            el-upload(
-              v-if="question.type=='file'"
-              auto-upload
-              ref="upload"
-              accept=".pdf"
-              :limit="1"
-              :data="{token: auth.token}"
-              :on-success="(url)=>{registExpo[question.prop] = url}"
-              :action="apiDomain+'api/registexpo/uploadtemp'"
-            )
-              el-button(size="small" type="primary") {{ $t('form.label_upload') }}
+              // 選擇 (select)
+              el-select(v-model="registFormObj[question.prop]",
+                        v-if="question.type=='select'",
+                        :placeholder="question.settings && question.settings.placeholder",
+                        :multiple="question.settings && question.settings.multiple",
+                        :multiple-limit="question.settings && question.settings['multiple-limit']")
+                el-option(v-for="option in question.options",
+                          :value="typeof option=='object'?option.value:option",
+                          :label="typeof option=='object'?option.label:option",
+                          :key="typeof option=='object'?option.value:option")
+          
+              // 檔案 (file)
+              el-upload(
+                v-if="question.type=='file'"
+                auto-upload
+                ref="upload"
+                accept=".pdf"
+                :limit="1"
+                :data="{token: auth.token}"
+                :on-success="(url)=>{registFormObj[question.prop] = url}"
+                :action="apiDomain+'api/registexpo/uploadtemp'"
+              )
+                el-button(size="small" type="primary") {{ $t('form.label_upload') }}
 
-        div(v-show="active==3") 
+        div(v-show="active==sections.length") 
           //- pre(v-html="registExpo")
           h4.mt-5.mb-5(v-html="$t('regist_expo.confirm_title')")
           p.mt-5.mb-5(v-html="$t('regist_expo.confirm_text')")
           p#err_msg
           el-button(@click="sendRegistForm" type="primary" size="medium") {{ $t('form.label_submit') }}
 
-        div(v-if="active==5") 
+        div(v-if="active==sections.length+2") 
           p.mt-5(v-html="$t('regist_expo.complete_text')")
           panel_expo2018
 
@@ -102,6 +104,7 @@ export default {
       registExpo: {},
       active: 0,
       success: false,
+      
     }
   },
   computed: {
@@ -111,9 +114,6 @@ export default {
       token: state=>state.auth.token,
       registExpoOriginal: state=>state.registExpo
     }),
-    finishStatus(){
-      return this.registExpo.id?"success":""
-    },
     sections(){
       return this.$t("regist_expo.sections")
     }
@@ -134,7 +134,7 @@ export default {
         section.questions.forEach(question=>{
           rules[question.prop]={
             required: false,
-            message: "資料未輸入或格式不正確"
+            message: this.$t("form.data_not_complete")
           }
          
           if ( (section.required && question.required!==false) ||
@@ -164,7 +164,7 @@ export default {
                   message:  _this.$t('form.update_success'),
                   type: 'success'
                 });
-                _this.active=5
+                _this.active = _this.sections.length+2
               }
             })
           }).catch(() => {

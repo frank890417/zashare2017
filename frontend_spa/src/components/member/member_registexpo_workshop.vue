@@ -2,113 +2,98 @@
 .page.member-regist-expo.text-left
   .container
     .col-sm-12
-      h2.mt-5 雜工坊申請表
-      .row
-        .col-sm-12
-      p.mt-5 每一工坊場次時限為90 分鐘( 含進、退場時間)、可容納座位數30 人為上限。<br>如成功登記到雜工坊場次，開課單位須支付10,000 元場次費，並由主辦單位統籌各場次報名、收費（每一參與者收500 元/ 場）事宜，如課堂衍生材料須由開課單位協力提供。（ 詳細說明請見徵展手冊 P.18）
+      h2.mt-5 {{ $t('regist_expoworkshop.title') }}
+      p.mt-3(v-html="$t('regist_expoworkshop.sub_title')") 
     .col-sm-12.text-left.mt-3
       el-steps(:active="active" finish-status="success")
-        el-step(title="申請基本資訊" , @click="active=0")
-        el-step(title="工坊聯絡資料" , @click="active=1")
-        el-step(title="確認與送出" , @click="active=2")
-        el-step(title="報名完成" , @click="active=4")
-    //:disabled = "typeof registExpoWorkshop.id=='number'"
-    .col-sm-12()
-      el-form(v-if="registExpoWorkshop", :disabled="typeof registExpoWorkshop.id=='number'",
+        el-step(v-for="section in sections",
+                :title="section.title.indexOf('、')==-1?section.title:section.title.split('、')[1]" ,
+                @click="active=section.id")
+        el-step(:title="$t('form.step_confirm')")
+        el-step(:title="$t('form.step_complete')")
+    .col-sm-12
+      // :disabled="typeof registExpoWorkshop.id=='number'"
+      el-form(v-if="registExpoWorkshop",
               label-position="left",
-              :rules="rules",
+              :rules="getRules(sections)",
               ref="form_registexpo_workshop"
               :model="registExpoWorkshop")
-        div(v-show="active==0")
-          h4.mt-5.mb-5 ㄧ、申請基本資訊
-          el-form-item(required label="1.	課程類型" prop="class_type")
-            el-select(v-model="registExpoWorkshop.class_type")
-              el-option(:value="v"
-                    v-for='v in types') {{v}}
-          el-form-item(required label="2. 活動招生族群")
-            br
-            br
-            p 請確認是否有報名身份/年齡等限制資格，如為限定親子參加、指定年齡層等請將「勾選取消」，並簡述。&nbsp;&nbsp;&nbsp;
-            div 
-              el-checkbox(v-model="audience_normal")
-              span(v-if="audience_normal") &nbsp;&nbsp;無限制（一般大眾皆可）
-              span(v-else) &nbsp;&nbsp;其他
-            
-            el-input(v-if="!audience_normal" ,v-model="registExpoWorkshop.class_audience")
 
-          el-form-item(required label="3.	活動預計招生人數(場地建議容納人數以30人為限)" prop="class_person_count")
-            br
-            br
-            el-input-number(v-model="registExpoWorkshop.class_person_count", :max="30")
 
-          el-form-item(required label="4.	登記場次" prop="class_time")
-            br
-            br
-            p 請複選可配合安排之場次，若確定有登記到工坊場次，主辦單位會以此做為時段安排的參考。 <br>主辦方保有最終審定權，參展方不得有異議。
-            el-select(v-model="registExpoWorkshop.class_time" multiple)
-              el-option(:value="t", v-for="t in timespans" ) {{t}}
-          
-          el-form-item(required label="5. 檢附一份10頁(內)提案活動企劃書（主辦單位將以此份檔案作為「雜工坊」徵選依據。）" prop="class_proposal")
-            br
-            br
-            p 建議內容設定：
-              | <br>一、背景介紹（含品牌/團隊/講師介紹）
-              | <br>二、主題或議題設定（如本次體驗活動重點與品牌本身並無直接關聯，可詳加補述）
-              | <br>三、活動內容（目標族群、活動企劃、執行方式、人力分工配置等）
-              | <br>四、過往活動經驗或舉辦成果
-            el-upload(
-              auto-upload
-              ref="upload"
-              accept=".pdf"
-              :limit="1"
-              :data="{token: auth.token}"
-              :on-success="(url)=>{registExpoWorkshop.class_proposal = url}"
-              :action="apiDomain+'api/registexpo/uploadtemp'"
+        div(v-for="registFormObj in [registExpoWorkshop]")
+          div(v-for="(section,sid) in sections" ,
+              v-show="active==section.id",
+              :key="sid")
+            h4.mt-5.mb-3 {{section.title}}
+            el-form-item(v-for="(question,qid) in section.questions ",
+                        :label="question.title", :prop="question.prop",
+                        :key="qid")
+              // 說明文字
+              div(v-if="question.explain || question.type=='number'")
+                br
+                br
+                p(v-html="question.explain")
+
+              // [預設] 單行輸入 (input)
+              el-input(v-model="registFormObj[question.prop]",
+                      :placeholder="question.settings && question.settings.placeholder",
+                      v-if="question.type=='input' || question.type===undefined")
+
+              // 多行輸入 (textarea)
+              el-input(v-model="registFormObj[question.prop]",
+                        v-if="question.type=='textarea'",
+                        :placeholder="question.settings && question.settings.placeholder",
+                        :maxlength="question.settings && question.settings.maxlength",
+                        type="textarea",
+                        rows="5" )
+
               
-            )
-              el-button(size="small" type="primary") 點擊上傳
-              div.el-upload__tip(slot="tip") 檔案大小限制 20MB 內，請輸出成PDF格式。
-        // :action "apiDomain+'api/registexpo/uploadtemp'"
-                  
+              // 數字 (number)
+              el-input-number(v-model="registFormObj[question.prop]",
+                      v-if="question.type=='number'")
 
 
-        div(v-show="active==1")
-          h4.mt-5.mb-5 工坊聯絡資料
-          .row
-            .col-sm-12
-              h6 1.	主要聯絡人（請優先填寫執行窗口）
-            .col-sm-12
-              el-form-item(required label="姓名" prop="main_contact_name")
-                el-input(v-model="registExpoWorkshop.main_contact_name")
-              el-form-item(required label="手機" prop="main_contact_phone")
-                el-input(v-model="registExpoWorkshop.main_contact_phone")
-              el-form-item(required label="Email" prop="main_contact_email")
-                el-input(v-model="registExpoWorkshop.main_contact_email")
+              // 選擇 (select)
+              el-select(v-model="registFormObj[question.prop]",
+                        v-if="question.type=='select'",
+                        :placeholder="question.settings && question.settings.placeholder",
+                        :multiple="question.settings && question.settings.multiple",
+                        :multiple-limit="question.settings && question.settings['multiple-limit']")
+                el-option(v-for="option in question.options",
+                          :value="typeof option=='object'?option.value:option",
+                          :label="typeof option=='object'?option.label:option",
+                          :key="typeof option=='object'?option.value:option")
+          
+              // 檔案 (file)
+              el-upload(
+                v-if="question.type=='file'"
+                auto-upload
+                ref="upload"
+                accept=".pdf"
+                :limit="1"
+                :data="{token: auth.token}"
+                :on-success="(url)=>{registFormObj[question.prop] = url}"
+                :action="apiDomain+'api/registexpo/uploadtemp'"
+              )
+                el-button(size="small" type="primary") {{ $t('form.label_upload') }}
 
-          .row.mt-5
-            .col-sm-12
-              h6 2. 次要聯絡人
-            .col-sm-12
-              el-form-item(required label="姓名" prop="secondary_contact_name")
-                el-input(v-model="registExpoWorkshop.secondary_contact_name")
-              el-form-item(required label="手機" prop="secondary_contact_phone")
-                el-input(v-model="registExpoWorkshop.secondary_contact_phone")
-              el-form-item(required label="Email" prop="secondary_contact_email")
-                el-input(v-model="registExpoWorkshop.secondary_contact_email")
 
+        div(v-show="active==sections.length") 
+          //- pre(v-html="registExpo")
+          h4.mt-5.mb-5(v-html="$t('regist_expoworkshop.confirm_title')")
+          p.mt-5.mb-5(v-html="$t('regist_expoworkshop.confirm_text')")
+          p#err_msg
+          el-button(@click="sendRegistForm" type="primary" size="medium") {{ $t('form.label_submit') }}
 
-        div(v-show="active==2") 
-          //- pre(v-html="registExpoWorkshop")
-          p.mt-5 請再次確認所有填寫資料後按下「確認送出」，主辦單位收到提案申請後將以E-mail回覆確認。若提交後三日內未收到相關回覆，請主動聯繫主辦單位查詢。
-          el-button.mt-5(@click="sendRegistForm" type="primary" size="medium") 送出雜工坊申請
-        div(v-if="active==4") 
-          p.mt-5 謝謝貴團隊的用心籌劃！<br>最後甄選結果與場次安排將於2018/07/10公布在官方網站。
+        div(v-if="active==sections.length+2") 
+          p.mt-5(v-html="$t('regist_expoworkshop.complete_text')")
           panel_expo2018
 
         hr
         div.mt-5
-          el-button.float-left(@click="prev", v-if="active>0 && active<3") 上一步
-          el-button.float-right(@click="next" , v-if="active<2") 下一步
+          el-button.float-left(@click="prev", v-if="active>0 && active<=sections.length") {{ $t('form.label_back') }}
+          el-button.float-right(@click="next" , v-if="active<sections.length") {{ $t('form.label_next') }}
+
 </template>
 
 
@@ -191,6 +176,9 @@ export default {
 
       token: state=>state.auth.token
     }),
+    sections(){
+      return this.$t("regist_expoworkshop.sections")
+    }
   },
   mounted(){
     // console.log(this.user)
@@ -200,6 +188,27 @@ export default {
   },
   methods: {
     ...mapActions(['loadRegistData','updateRegistForm']),
+    getRules(sections){
+      let rules = {}
+      
+      sections.forEach(section=>{
+        section.questions.forEach(question=>{
+          rules[question.prop]={
+            required: false,
+            message: this.$t("form.data_not_complete")
+          }
+         
+          if ( (section.required && question.required!==false) ||
+               (!section.required && question.required)){
+            rules[question.prop].required=true   
+          }
+          if ( (question.prop+"").indexOf('email')!=-1){
+            rules[question.prop].type="email"
+          }
+        })
+      })
+      return rules
+    },
     sendRegistForm(){
       let _this = this
 
