@@ -50,7 +50,9 @@
               | <br>個人戶/陳雜兒
               | <br>公司戶/雜學股份有限公司
             el-input(v-model="registExpoPaid.paid_name")
-          el-form-item(required label="4. 請輸入匯款帳號後五碼", prop="paid_last_number")
+          el-form-item(required label="4. 請輸入匯款金額", prop="paid_amount")
+            el-input(v-model="registExpoPaid.paid_amount", placeholder="800 / 1200")
+          el-form-item(required label="5. 請輸入匯款帳號後五碼", prop="paid_last_number")
             el-input(v-model="registExpoPaid.paid_last_number")
 
         div(v-show="active==1")
@@ -114,6 +116,9 @@ export default {
         ],
         paid_name:[
           {required: true,message: "請輸入戶名"}
+        ],
+        paid_amount: [
+          {required: true,message: "請輸入匯款金額"}
         ],
         paid_last_number:[
           {required: true,message: "請輸入匯款後五碼"}

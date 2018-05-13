@@ -24,6 +24,15 @@ import store from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+import VueI18n from 'vue-i18n'
+import messages from './i18n/messages.js'
+
+Vue.use(VueI18n)
+
+const i18n = new VueI18n({
+  locale: 'zh', // set locale
+  messages, // set locale messages
+})
 
 import VueAnalytics from 'vue-analytics'
 if (document.domain =="zashare.org") {
@@ -203,6 +212,7 @@ new Vue({
   el: '#app',
   router,
   store,
+  i18n,
   components: { App, navbar, full_menu, page_loading},
   template: '<App/>'
 })
