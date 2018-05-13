@@ -9,15 +9,15 @@ div(:class="{container: this.$route.path=='/member/registexpo2018'}")
         .cover
           .bg(:style="bgcss('/static/img/regist2018/ZAEXPO.jpg')")
           .infotext
-            span 申請狀態：<br>
-            span(v-if="registExpo.id") 已報名&nbsp;|&nbsp;
-            span(v-else) 未報名&nbsp;|&nbsp;
+            span {{ $t('menu.label_status') }}：<br>
+            span(v-if="registExpo.id") {{ $t('menu.status_registered') }}&nbsp;|&nbsp;
+            span(v-else) {{ $t('menu.status_not_registered') }} &nbsp;|&nbsp;
             span(v-if="!registExpo.paid_record") 未繳費
             span(v-if="registExpo.paid_record && !registExpo.paid_record.confirm") 主辦單位確認中
             span(v-if="registExpo.paid_record && registExpo.paid_record.confirm") 已繳費
         .info 
           div
-            h5 參展申請
+            h5 {{ $t('menu.label_registexpo') }}
             router-link.float-right.btn(to="/member/registexpo/paid",
                                             v-if="registExpo.id ").animated.fadeIn.delay-6 確認繳交報名費
           span(v-if="registExpo") 參展編碼： 
@@ -31,22 +31,22 @@ div(:class="{container: this.$route.path=='/member/registexpo2018'}")
         .cover
           .bg(:style="bgcss('/static/img/regist2018/ZAWORKSHOP.jpg')")
           .infotext
-            span 申請狀態：
+            span {{ $t('menu.label_status') }}：
             span(v-if="!registExpo.id") 需先報名參展
             span(v-else)
-              span(v-if="registExpo.regist_workshop") 已報名
-              span(v-else) 開放報名
-        .info 雜工坊
+              span(v-if="registExpo.regist_workshop") {{ $t('menu.status_registered') }}
+              span(v-else) {{ $t('menu.status_open_register') }}
+        .info  {{ $t('menu.label_registexpoworkshop') }}
       router-link.box(to="/member/registexpo/speak") 
         .cover
           .bg(:style="bgcss('/static/img/regist2018/Zac.jpg')")
           .infotext
-            span 申請狀態：
+            span {{ $t('menu.label_status') }}：
             span(v-if="!registExpo.id") 需先報名參展
             span(v-else)
-              span(v-if="registExpo.regist_expo_speak") 已報名
-              span(v-else) 開放報名
-        .info Zac. 教育新創短講評選
+              span(v-if="registExpo.regist_expo_speak") {{ $t('menu.status_registered') }}
+              span(v-else) {{ $t('menu.status_open_register') }}
+        .info  {{ $t('menu.label_registexpospeak') }}
         
 </template>
 

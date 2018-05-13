@@ -51,8 +51,8 @@
       span.col-login
         span(v-if="auth.user")
           div.mb-2
-            span.main-text Hello&nbsp;
-            span.main-text(@click="openMenu('login')") 雜學校學生 
+            span.main-text {{ $t('nav.hello') }}
+            span.main-text(@click="openMenu('login')")
               b {{auth.user.name}}
 
           span.sub-text(@click="openMenu('login')") {{ $t('nav.manage') }}
@@ -397,7 +397,7 @@ export default {
         
   .col-theme-nav
     span
-      font-size: 1.4rem
+      font-size: 1.2rem
     &:hover 
       background-color: #aaa
 

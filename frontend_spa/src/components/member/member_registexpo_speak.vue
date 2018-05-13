@@ -206,9 +206,9 @@ export default {
       this.$refs['form_registexpo_speak'].validate(valid=>{
         if (valid){
 
-          this.$confirm('確認送出Zac.報名？送出將無法更改', '最後確認', {
-            confirmButtonText: '確定',
-            cancelButtonText: '取消',
+          this.$confirm(_this.$t('form.confirm_dialog_title'), _this.$t('form.confirm_dialog_content'), {
+            confirmButtonText: _this.$t('form.confirm_dialog_yes'),
+            cancelButtonText: _this.$t('form.confirm_dialog_no'),
           }).then(() => {
             
             this.updateRegistForm({
@@ -217,17 +217,21 @@ export default {
               },
               callback(){
                 _this.$message({
-                  message: 'Zac.報名更新成功',
+                  message:  _this.$t('form.update_success'),
                   type: 'success'
                 });
 
                 _this.active=5
               }
             })
-          });
+          }).catch(() => {
+            this.$message({
+              message: _this.$t('form.update_cancel')
+            });          
+          });;
         }else{
           this.$message({
-            message: '資料填寫不完整，請往前填寫完整後再送出',
+            message: _this.$t('form.data_not_complete'),
             type: 'error'
           });   
         }

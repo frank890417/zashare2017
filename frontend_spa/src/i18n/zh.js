@@ -7,7 +7,26 @@ let data = {
     expo: "歷屆展覽",
     shop: "線上商店",
     search: "搜尋全站",
-    manage: "會員管理"
+    manage: "會員管理",
+    hello: "Hello 雜學校學生",
+  },
+  menu: {
+    hello: "Hello ",
+    logout: "登出",
+    profile: "學生資訊",
+    label_id: "會員ID碼",
+    manage: "管理",
+    label_occupation: "現職產業別",
+    label_position: "現職職稱",
+    label_email: "聯絡信箱",
+    label_status: "申請狀態",
+    label_registexpo: "參展申請",
+    label_registexpospeak: "Zac. 教育新創短講評選",
+    label_registexpoworkshop: "雜工坊",
+    status_registered: "已報名",
+    status_not_registered: "未報名",
+    status_open_register: "開放報名"
+
   },
   page_about: {
     sub_slogan: `”奇幻繽紛的場景及融入生活的探索， 將教育與文化的多元串聯成亞洲最具影響力的創新會展品牌。”`

@@ -4,7 +4,28 @@ let data = {
     expo: "Past EXPOS",
     shop: "Online Shop",
     search: "Search Site",
-    manage: "Manage"
+    manage: "Manage",
+    hello: "Hi ",
+  },
+  menu: {
+    hello: "Hi ",
+    logout: "Log out",
+    profile: "Profile",
+    label_id: "ID Number",
+    manage: "Manage",
+    label_occupation: "Present Occupation",
+    label_position: "Current Position",
+    label_email: "Email",
+    label_status: "Status",
+    label_registexpo: "Expo Application",
+    label_registexpospeak: "Zac. (ZA-accelerator) Demo",
+    label_registexpoworkshop: "ZA WORKSHOP",
+    status_registered: "Registered",
+    status_not_registered: "Not Registered",
+    status_open_register: "Now accepting"
+
+
+
 
   },
   page_about: {

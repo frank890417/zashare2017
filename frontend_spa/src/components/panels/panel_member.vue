@@ -5,28 +5,28 @@
     .row
       .col-sm-12
         .row.mt-5
-          .col-sm-4
+          .col-sm-6
             .photo.small(:style="bgcss(getUserPhoto)")
             span Hello! {{auth.user.name}}
-              span(@click="logout", style="opacity: 0.5").curp &nbsp;登出
+              span(@click="logout", style="opacity: 0.5").curp &nbsp;{{ $t('menu.logout') }}
               span.ml-5(@click="setMenuState(false)" v-if="isAdmin")
-                router-link(to="/manage", style="opacity: 0.5").curp &nbsp;管理
+                router-link(to="/manage", style="opacity: 0.5").curp &nbsp;{{ $t('menu.manage') }}
             div(v-if="auth.user.studentcard")
-              h4 學生證資訊
+              h4 {{ $t("menu.profile") }}
               ul
                 li 學生證卡號： {{auth.user.studentcard.card_id}}
                 li 學生證級別： {{auth.user.studentcard.type=="normal"?"創校元老":"會員"}}
                 li 會員效期： {{auth.user.studentcard.expiry_datetime}}
             div
-              h4 學生資訊
+              h4 {{ $t("menu.profile") }}
               ul
-                li 會員ID碼： {{ "ZA"+("0000000"+auth.user.id).slice(-6) }}
-                li 現職產業別： {{auth.user.jobcata}}
-                li 現職職稱： {{auth.user.job}} 
-                li 聯絡信箱：{{auth.user.email}}
+                li {{ $t("menu.label_id") }}： {{ "ZA"+("0000000"+auth.user.id).slice(-6) }}
+                li {{ $t("menu.label_position") }}： {{auth.user.jobcata}}
+                li {{ $t("menu.label_position") }}： {{auth.user.job}} 
+                li {{ $t("menu.label_email") }}：{{auth.user.email}}
                 //- li 生日： 
             span
-          .col-sm-4
+          .col-sm-2
           .col-sm-4(@click="setMenuState(false)" )
             h4 雜學校公布欄
             .row
