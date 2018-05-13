@@ -73,6 +73,49 @@ html,body
 i
   position: relative
 
+//字體設定
+
+h1,h2,h3,h4,h5,h6,p,li,span
+  letter-spacing: 0.05rem
+  line-height: 2
+  &.small
+    font-size: 0.6em
+    
+h1
+  font-size: 2.8rem
+  font-weight: 700
+  line-height: 1.5
+  +rwd_md
+    font-size: 2.6rem
+h2
+  font-size: 2rem
+  font-weight: 500
+  line-height: 1.5
+  +rwd_md
+    font-size: 1.8rem
+h3
+  font-size: 1.6rem
+  font-weight: 500
+  line-height: 1.5
+  +rwd_md
+    font-size: 1.4rem
+h4
+  font-size: 1.2rem
+  font-weight: 500
+  line-height: 1.5
+h5
+  font-size: 1rem
+  font-weight: 500
+  line-height: 1.5
+p,li
+  font-size: 1rem
+  line-height: 2
+  font-weight: 500
+  opacity: 0.9
+p
+  text-align: justify
+
+
 .noScroll
   overflow-y: hidden
   height: 100vh

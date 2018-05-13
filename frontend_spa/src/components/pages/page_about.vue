@@ -9,9 +9,9 @@
         //-   br
         //-   img.logo-img(src="/static/img/Home/za-logo.svg")
         //-   br
-        .col-sm-12.animated.fadeInUp
+        .col-sm-10.animated.fadeInUp
           h1 Make Education Different
-          h3 奇幻繽紛的場景及融入生活的探索， 將教育與文化的多元串聯成亞洲最具影響力的創新會展品牌。
+          h3 {{ this.$t("page_about.sub_slogan") }}
    
     .container-fluid.container-feature
       .row
