@@ -14,7 +14,8 @@ let routes = {
   path: '/manage',
   meta: {
     manage: true,
-    navHide: true
+    navHide: true,
+      navPosition: "left"
   },
   component: manage_layout,
     children: [

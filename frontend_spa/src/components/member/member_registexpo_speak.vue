@@ -17,6 +17,7 @@
       el-form(v-if="registExpoSpeak",
               label-position="left",
               ref="form_registexpo_speak",
+              :disabled = "typeof registExpoSpeak.id=='number'"
               :rules="rules"
               :model="registExpoSpeak")
 

@@ -234,7 +234,7 @@ export default {
   background-color: black
   padding: 10px
   cursor: pointer
-  z-index: 50
+  z-index: 3000
   +rwd_md
     left: 0
     top: 0
@@ -246,7 +246,6 @@ export default {
       &:nth-child(2)
         top: 60%
 .menu
-
 
   input
     border: none
@@ -300,7 +299,7 @@ export default {
     top: 0
     left: 0
     background-color: #fff
-    z-index: 40
+    z-index: 2000
     box-sizing: border-box
     text-align: left
 

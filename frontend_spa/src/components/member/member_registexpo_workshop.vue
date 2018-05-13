@@ -16,6 +16,7 @@
       el-form(v-if="registExpoWorkshop",
               label-position="left",
               :rules="getRules(sections)",
+              :disabled="typeof registExpoWorkshop.id=='number'"
               ref="form_registexpo_workshop"
               :model="registExpoWorkshop")
 

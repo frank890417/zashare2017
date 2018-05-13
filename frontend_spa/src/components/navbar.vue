@@ -2,8 +2,14 @@
 .navbar(:style="navbarStyle")
   .container-fluid
     .row-logo
-      router-link.col-sm-12.logo-part(to="/")
+      router-link.logo-part(to="/")
         img.logo-img(src="/static/img/Home/za-logo.svg") 
+      .locale-sel
+        span.option(@click="$i18n.locale='zh'",
+                  :class="{active: $i18n.locale=='zh'}") 繁中
+        span &nbsp;&nbsp;|&nbsp;&nbsp;
+        span.option(@click="$i18n.locale='en'",
+                  :class="{active: $i18n.locale=='en'}") EN
         //- h1.nav-cht-logo 雜學校
 
       //- router-link.col-sm-12.logo-part.fadeIn.animated(to="/" v-if="$route.path=='/'")
@@ -49,14 +55,14 @@
             span.main-text(@click="openMenu('login')") 雜學校學生 
               b {{auth.user.name}}
 
-          span.sub-text(@click="openMenu('login')") 後台管理
+          span.sub-text(@click="openMenu('login')") {{ $t('nav.manage') }}
         span(v-else) 
-          b.main-text 雜學校&nbsp;
+          b.main-text {{ $t('nav.global.name') }}&nbsp;
           br
-          span.sub-text(@click="openMenu('login')")  登入
+          span.sub-text(@click="openMenu('login')")  {{ $t('nav.login') }}
         span.sub-text &nbsp;&nbsp;|&nbsp;&nbsp;
         span.sub-text 
-          span(@click="openMenu('search')")  搜尋全站
+          span(@click="openMenu('search')")  {{ $t('nav.search') }}
       .footer_logo
         a(href='https://www.facebook.com/zashare.expo/', target='_blank')
           img(src="/static/img/social-icon/social-fb.svg")
@@ -83,15 +89,15 @@
 
 
       router-link.col-theme-nav.text-center.nav-course(to="/about")
-        span 關於雜學校
+        span {{ $t('nav.about') }}
       router-link.col-theme-nav.text-center.nav-base(to="/expo")
-        span 歷屆展覽
+        span {{ $t('nav.expo') }}
         ul.years
           router-link.year-item.delay-ani-3(to="/expo/2015") 2015
           router-link.year-item.delay-ani-6(to="/expo/2016") 2016
           router-link.year-item.delay-ani-9(to="/expo/2017") 2017
       a.col-theme-nav.text-center.nav-expo(href="https://www.zashare.com.tw", target="_blank")
-        span 線上商店
+        span {{ $t('nav.shop') }}
 
       // router-link.col-theme-nav.nav-expo(to="/expo")
       //   //- span ZA<br>Expo
@@ -141,7 +147,7 @@ export default {
       return {
         width,
         right: this.$route.meta.navPosition!='left'?"0px":`calc(100% - ${width})`,
-        display: (this.$route.path.indexOf("/manage")==0) || (this.$route.path.indexOf("/member")==0) ? "none":"block"
+        display: (this.$route.path.indexOf("/manage")==0) ? "none":"block"
       }
     },
     upCircleTo(){
@@ -223,6 +229,15 @@ export default {
   width: 300px
   height: 100vh
   transition: 0.5s, right 1s
+  .locale-sel
+    span.option
+      color: #222
+      cursor: pointer
+      opacity: 0.3
+      &.active
+        opacity: 1
+      &:hover
+        color: #555
   .row-bottom
     width: 100%
   .row-mobile-cata
@@ -282,11 +297,13 @@ export default {
   .logo-img
     width: 130px
     margin-right: -40px
+
   .logo-part
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
+    display: block
+  //   display: flex
+  //   flex-direction: column
+  //   align-items: center
+  //   justify-content: center
 
   
       
@@ -313,12 +330,17 @@ export default {
 
   .row-logo
     flex: 1
-    display: flex
+    +flexCenter
     flex-direction: column
-    padding: 80px 75px
+    // padding: 80px 75px
     position: relative
     // justify-content: space-between
-    align-items: space-between
+    .wrapper
+      height: 100%
+      flex: 1
+      +flexCenter
+
+      flex-direction: column
     .longline
       flex: 4
       width: 2px
@@ -341,7 +363,6 @@ export default {
     cursor: pointer
     transition: 0.5s
     // font-size: 24px
-
     .main-text
       font-size: 20px
       margin-bottom: 28px
@@ -375,6 +396,8 @@ export default {
           background-color: lighten(#8af187,5)
         
   .col-theme-nav
+    span
+      font-size: 1.4rem
     &:hover 
       background-color: #aaa
 

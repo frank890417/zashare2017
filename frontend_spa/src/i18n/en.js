@@ -1,4 +1,12 @@
 let data = {
+  nav: {
+    about: "About ZA SHARE",
+    expo: "Past EXPOS",
+    shop: "Online Shop",
+    search: "Search Site",
+    manage: "Manage"
+
+  },
   page_about: {
     sub_slogan: `” ZA SHARE setup fantastic scenes and explorations into life, connecting the diversity of education and culture to be recognized as Asia’s most influential innovation and exhibition brand.”`
   },
@@ -214,7 +222,249 @@ let data = {
     
     
     ]
+  },
+
+  regist_expoworkshop: {
+    title: "Za Workshop Application Form",
+    sub_title: "Every workshop session lasts 90 minutes including entering and exiting the venue and accommodates up to 30 people.<br><br>The exhibitors need to pay USD 380 per session and provide relevant course materials if any.The organizer is responsible for session registration and payment collection(TWD 500 per session for each participant.) (For more information, refer to p.18 of the manual)",
+
+    confirm_title: "恭喜你即將完成雜工坊申請！",
+    confirm_text: "請再次確認所有填寫資料後按下「確認送出」，主辦單位收到提案申請後將以E-mail回覆確認。若提交後三日內未收到相關回覆，請主動聯繫主辦單位查詢。",
+    complete_text: "謝謝貴團隊的用心籌劃！<br>最後甄選結果與場次安排將於2018/07/10公布在官方網站。",
+
+    sections: [
+      {
+        id: 0,
+        title: "A. Basic Information",
+        questions: [
+          {
+            title: "1.	Session types",
+            type: "select",
+            prop: "class_type",
+            options: [
+              { label: "Art creation", value: "藝術體驗創作" },
+              { label: "Traditional craft education", value: "傳統工藝教學" },
+              { label: "Interactive teaching", value: "互動式教學" },
+              { label: "Science experiment", value: "科學動手實驗" },
+              { label: "Innovative teaching plan sharing", value: "創新教案分享與教學" },
+              { label: "Small - scale panel discussion", value: "小型分享座談" },
+              { label: "Outdoor course", value: "戶外活動" },
+              { label: "Others", value: "其他 "}
+            ]
+          },
+          {
+            title: "2.	Participant eligibility",
+            prop: "class_audience",
+            explain: "Any eligibility requirements such as status or age? For family only or for a specific age group, please choose “Others” and write down your requirements",
+            required: false,
+            settings: {
+              placeholder: "No limitations (open to public)"
+            }
+          },
+          {
+            title: "3.	Estimated number of participants",
+            type: "number",
+            prop: "class_person_count",
+            explain: "The venue can accommodate up to 30 people."
+          }
+          ,
+          {
+            title: "4.	Preferred sessions",
+            type: "select",
+            explain: "Select multiple sessions for possible arrangement. The organizer has the right for final review and decision-making, and the exhibitor may not oppose to the decision made.",
+            prop: "class_time",
+            settings: {
+              multiple: true
+            },
+            options: [
+              {label: "10 / 5(Fri) 13: 00 - 14: 30", value:"10/5 (五) 13:00-14:30"},
+              {label: "10 / 5(Fri) 15: 00 - 16: 30", value:"10/5 (五) 15:00-16:30"},
+              {label: "10 / 5(Fri) 17: 00 - 18: 30", value:"10/5 (五) 17:00-18:30"},
+              {label: "10 / 6(Sat) 10: 00 - 11: 30", value:"10/6 (六) 10:00-11:30"},
+              {label: "10 / 6(Sat) 13: 00 - 14: 30", value:"10/6 (六) 13:00-14:30"},
+              {label: "10 / 6(Sat) 15: 00 - 16: 30", value:"10/6 (六) 15:00-16:30"},
+              {label: "10 / 6(Sat) 17: 00 - 18: 30", value:"10/6 (六) 17:00-18:30"},
+              {label: "10 / 7(Sun) 10: 00 - 11: 30", value:"10/7 (日) 10:00-11:30"},
+              {label: "10 / 7(Sun) 13: 00 - 14: 30", value:"10/7 (日) 13:00-14:30"},
+              {label: "10 / 7(Sun) 15: 00 - 16: 30", value:"10/7 (日) 15:00-16:30"},
+              {label: "10 / 7(Sun) 17: 00 - 18: 30", value:"10/7 (日) 17:00-18:30"}
+            ]
+          },
+          {
+            title: "5. Talk about your activity proposal with no more than 10 pages. (The organizer will select Za Workshop winners based on the document)",
+            type: "file",
+            prop: "class_proposal",
+            explain: `File size: 20MB / PDF format only<br>
+<br>
+<br>Suggested outline: 
+<br>1. Background introduction including you brand / team / lecturer
+<br>2. Your theme or issue to address (if your theme is not directly related to your brand, you may elaborate on it)
+<br>3. Activity content including target audience, activity planning, execution and division of labor
+<br>4. Past exhibition experiences or activity results
+`
+          }
+        ]
+      },
+      {
+        title: "B. Contact Information",
+        id: 1,
+        required: true,
+        questions: [
+          {
+            title: "1. Primary contact person Name(designated individual preferred)",
+            prop: "main_contact_name",
+          }, {
+            title: "Mobile number",
+            prop: "main_contact_phone",
+          }, {
+            title: "Email",
+            prop: "main_contact_email",
+          }, {
+            title: "2. Secondary contact person Name",
+            prop: "secondary_contact_name",
+          }, {
+            title: "Mobile number",
+            prop: "secondary_contact_phone",
+          }, {
+            title: "Email",
+            prop: "secondary_contact_email",
+          }
+        ],
+      }
+    ]
+  },
+  regist_expospeak: {
+    title: "Zac. Demo Day Application Form ",
+    sub_title: "Za Share tries to create an open, resource-abundant platform. Ten nominees will exhibit in Za Concept Exhibition and the organizer will specially curate an exhibition for them. Every nominee will be charged USD 750 for customized booth space. This will not only serve as a platform for marketing exposure but also provide an opportunity for them to be observed by other exhibitors, members of the press and our VIPs. (For information about application and selection, refer to p.19 of the manual)",
+
+    confirm_title: "恭喜你即將完成「Zac. 教育新創短講評選」申請！",
+    confirm_text: "請再次確認所有填寫資料後按下「確認送出」，主辦單位收到提案申請後將以E-mail回覆確認。若提交後三日內未收到相關回覆，請主動聯繫主辦單位查詢。",
+    complete_text: "謝謝貴團隊的用心籌劃！<br>最後甄選結果與場次安排將於2018/07/10公布在官方網站。",
+
+    sections: [
+      {
+        title: "A. Basic Information",
+        id: 0,
+        required: true,
+        questions: [
+          {
+            title: "1.	If nominated, do you agree to have the organizer design for you?",
+            type: "select",
+            prop: "agree_plan",
+            options: [
+              {
+                label: "Yes, I will exhibit in Za Concept Exhibition. (Za Share will specially curate an exhibition for the nominees)", value: 1 },
+              {
+                label: "No, I wish to stay in ZA EXPO. (Exhibitors design their own booths)", value: 0 }
+            ]
+          },
+          {
+            title: "2.	Number of team members",
+            type: "number",
+            prop: "team_person_count",
+          },
+          {
+            title: "3.	Have you received any investment?",
+            type: "select",
+            prop: "has_money",
+            options: [
+              { label: "No", value: 1 },
+              { label: "Yes", value: 0 }
+            ]
+          },
+
+        ]
+      },
+      {
+        title: "B. Help us to get to know you more",
+        id: 1,
+        required: true,
+        questions: [
+          {
+            title: "1.	Describe the content of your business (50-80 words)",
+            type: "textarea",
+            prop: "startup_content",
+            settings: {
+              maxlength: 300
+            }
+          }, {
+            title: "2.	Describe your target audience (50-80 words)",
+            type: "textarea",
+            prop: "startup_audience",
+            settings: {
+              maxlength: 300
+            }
+          }, {
+            title: "3.	Describe the difficulties you are encountering (50-80 words)",
+            type: "textarea",
+            prop: "startup_difficult",
+            settings: {
+              maxlength: 300
+            }
+          }, {
+            title: "4.	Describe the education issues you wish to address (50-80 words)",
+            type: "textarea",
+            prop: "startup_problem",
+            settings: {
+              maxlength: 300
+            }
+          }, {
+            title: "5.	What impact will your team/products bring to society?  (50-80 words)",
+            type: "textarea",
+            prop: "startup_power",
+            settings: {
+              maxlength: 300
+            }
+          }, {
+            title: "6. Talk about your pitch proposal in a presentation with no more than 20 slides. (The organizer will select Zac. nominees based on the document)<br><br>File size: 20MB / PDF format only",
+            type: "file",
+            prop: "startup_proposal",
+            explain: `Suggested outline: 
+<br>1. Background introduction including your brand/team
+<br>2. Business objectives
+<br>3. Content of your business (target market, segmentation, competitive analysis)
+<br>4. Implementation (current development, business model, achievements)
+<br>5. Implementation milestones and planning
+<br>6. Human resource allocation
+<br>7. Budget allocation and usage
+<br>8. Risk evaluation
+<br>9. Expected results
+`,
+          }
+        ]
+      },
+      {
+        title: "C. Contact Information",
+        id: 2,
+        required: true,
+        questions: [
+          {
+            title: "1. Primary contact person Name(designated individual preferred)",
+            prop: "main_contact_name",
+          }, {
+            title: "Mobile number",
+            prop: "main_contact_phone",
+          }, {
+            title: "Email",
+            prop: "main_contact_email",
+          }, {
+            title: "2. Secondary contact person Name",
+            prop: "secondary_contact_name",
+          }, {
+            title: "Mobile number",
+            prop: "secondary_contact_phone",
+          }, {
+            title: "Email",
+            prop: "secondary_contact_email",
+          }
+        ],
+      }
+    ]
+
   }
+
+
+
 }
 
 

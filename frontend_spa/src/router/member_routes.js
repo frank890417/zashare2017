@@ -18,28 +18,60 @@ let routes = {
     {
       path: '/',
       // redirect: '/member/info',
-      component: member_index
+      component: member_index,
+      meta: {
+        navPosition: "left",
+        navWidth: "350px",
+      }
     }, {
       path: 'info',
-      component: member_info
+      component: member_info,
+      meta: {
+        navPosition: "left",
+        navWidth: "350px",
+      }
     }, {
       path: 'coupon',
-      component: member_coupon
+      component: member_coupon,
+      meta: {
+        navPosition: "left",
+        navWidth: "350px",
+      }
     }, {
       path: 'registexpo2018',
-      component: panel_expo2018
+      component: panel_expo2018,
+      meta: {
+        navPosition: "left",
+        navWidth: "350px",
+      }
     }, {
       path: 'registexpo',
-      component: member_registexpo
+      component: member_registexpo,
+      meta: {
+        navPosition: "left",
+        navWidth: "350px",
+      }
     }, {
       path: 'registexpo/paid',
-      component: member_registexpo_paid
+      component: member_registexpo_paid,
+      meta: {
+        navPosition: "left",
+        navWidth: "350px",
+      }
     }, {
       path: 'registexpo/workshop',
-      component: member_registexpo_workshop
+      component: member_registexpo_workshop,
+      meta: {
+        navPosition: "left",
+        navWidth: "350px",
+      }
     }, {
       path: 'registexpo/speak',
-      component: member_registexpo_speak
+      component: member_registexpo_speak,
+      meta: {
+        navPosition: "left",
+        navWidth: "350px",
+      }
     }
   ]
 }

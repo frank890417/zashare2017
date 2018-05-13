@@ -11,12 +11,13 @@
                 @click="active=section.id")
         el-step(:title="$t('form.step_confirm')")
         el-step(:title="$t('form.step_complete')")
-    //- :disabled="typeof registExpo.id=='number'"
+    // :disabled="typeof registExpo.id=='number'"
     .col-sm-12
       el-form(v-if="registExpo" ,
               label-position="left",
               :rules="getRules(sections)",
               ref="form_registexpo",
+              :disabled="typeof registExpo.id=='number'"
               :model="registExpo",
               :finish-status="finishStatus")
         div(v-for="registFormObj in [registExpo]")
@@ -104,7 +105,7 @@ export default {
       registExpo: {},
       active: 0,
       success: false,
-      
+
     }
   },
   computed: {

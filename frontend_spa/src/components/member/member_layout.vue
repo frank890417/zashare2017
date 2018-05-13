@@ -1,8 +1,8 @@
 <template lang="pug">
-#member_app
+#member_app.page.right.pb-5
   
   .container-fluid(v-if="auth.user")
-    .row
+    //.row
       //- el-header
       .col-sm-2.col-nav(v-if="!mobile")
         el-menu(:default-active="activeIndex" 
@@ -16,11 +16,11 @@
         //- auth_panel(layout="function")
         router-link.btn(to="/") 返回首頁
 
-      .col-sm-10.col-content(:class="{'offset-2': !mobile}")
-        transition(name="fade", mode="out-in")
-          router-view(:key="$route.path")
-      .col-sm-12
-        el-footer
+    .col-sm-12.col-content.mb-5
+      transition(name="fade", mode="out-in")
+        router-view(:key="$route.path")
+    //.col-sm-12
+      el-footer
   .container-fluid.login(v-else)
     h3 請先登入後再使用會員功能哦！
     auth_panel
