@@ -131,7 +131,7 @@ export default {
     return {
       // posts: [],
       keyword: "",
-      activeName: "zac",
+      activeName: "regist",
       now_year: "2016",
       registexpos: []
     }
@@ -213,7 +213,7 @@ export default {
         registid: r.id,
         registname: r.name_cht,
         ...r.paid_record,
-        confirmed: r.paid_record.confirmed?true:false
+        confirmed: (r.paid_record && r.paid_record.confirmed)?true:false
       }) ).filter(r=>r.id)
     },
     workshops(){
