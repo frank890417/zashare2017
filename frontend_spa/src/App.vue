@@ -72,7 +72,7 @@ html,body
   padding: 0
   width: 100vw
   // height: 100vh
-  font-size: 17px
+  font-size: 16px
   overflow-x: hidden
 i
   position: relative
@@ -111,13 +111,16 @@ h5
   font-size: 1rem
   font-weight: 500
   line-height: 1.5
-p,li
+p
   font-size: 1rem
   line-height: 2
   font-weight: 500
   opacity: 0.9
 // span
 //   font-size: 1rem
+
+li
+  font-size: 1rem
 
 p
   text-align: justify

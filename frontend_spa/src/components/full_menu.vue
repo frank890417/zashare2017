@@ -12,7 +12,7 @@
           .container.container-menu
             .row.row-search
               .col-sm-12
-                input(placeholder="搜尋雜學校", v-model="tempSearchKeyword")
+                input(:placeholder="$t('nav.search')", v-model="tempSearchKeyword")
                 div.pull-right.clearInput(@click="setSearchKeyword('')")
                   i.fa.fa-search(v-show="searchKeyword==''")
                   i.fa.fa-times(v-show="searchKeyword!=''")

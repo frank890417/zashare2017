@@ -9,6 +9,8 @@ let data = {
     search: "Search Site",
     manage: "Manage",
     hello: "Hi ",
+    login: "Login",
+    search: "Search site",
   },
   menu: {
     hello: "Hi ",
@@ -32,7 +34,37 @@ let data = {
 
   },
   page_about: {
-    sub_slogan: `” ZA SHARE setup fantastic scenes and explorations into life, connecting the diversity of education and culture to be recognized as Asia’s most influential innovation and exhibition brand.”`
+    sub_slogan: `” ZA SHARE setup fantastic scenes and explorations into life, connecting the diversity of education and culture to be recognized as Asia’s most influential innovation and exhibition brand.”`,
+    numberlabels: [
+      "previous expos",
+      "participated teams",
+      "participated teams",
+      "cities oversea took part",
+      "expo visitors accumulated",
+      "online community reach"
+    ],
+    content: [
+      "Broad-based learning is a fundamental ability for future talent. Only with diversity and dissimilarity, can fertile ground for talent innovation be created.ZA SHARE is a social school that uses cities as units, everyday life as content and people as core.ZA is the transliteration of the Chinese word for ‘comprehensiveness’ and from Z to A, it implies engagement from the bottom - up, whereas SHARE indicates connection and sharing.",
+      `ZA SHARE is a grassroots movement for the innovation of education and culture
+      in Taiwan.It was established by Ozzie Su in 2015, who longed to build a utopia with a
+variety of learning pathways that allowed people aged 1-99 to find their life passion.
+      Thus, he recruited non-traditional educational and cultural creativity from Chinese
+society and organized a yearly expo for innovative education.Using brand new
+      curating practices, ZA SHARE is a unique platform for exhibitors from various
+backgrounds to work together and exchange ideas without boundaries.This also
+allows exploration and surprises to happen, which is a catalyst for the
+transformation of education into diverse lifestyles and for talent cultivation.
+      Furthermore, ZA SHARE continued to set up an education startup accelerator,
+    assisting businesses with innovative educational philosophies to develop their
+startup step by step.“If everyone could work out of passion, the society would be so
+much more powerful.”`
+    ],
+    themes: [
+      'Imagine',
+      'Explore',
+      'Diversify'
+    ],
+    title_brand: "Past EXPOS"
   },
   form: {
     label_next: "Next",
