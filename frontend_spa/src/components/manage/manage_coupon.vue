@@ -18,8 +18,8 @@
                 span 啟用時間：{{ct.active_datetime}}<br>
                 span 結束時間：{{ct.expiry_datetime}}<br>
                 span 領取資格：  {{ ct.user_can_get}}<br>
-                span 類型： {{ newCoupon.type=='single_time_hash'?'批次序號 / 單次使用':'單一序號 ／ 多次領取' }}<br>
-                span(v-if="newCoupon.type=='single_time_hash'") 已領取數量： {{ getCouponTotal(ct).got }} / {{ct.coupons.length}}
+                span 類型： {{ ct.type=='single_time_hash'?'批次序號 / 單次使用':'單一序號 ／ 多次領取' }}<br>
+                span(v-if="ct.type=='single_time_hash'") 已領取數量： {{ getCouponTotal(ct).got }} / {{ct.coupons.length}}
                 span(v-else) 已領取數量：{{ getUserLength(ct.users) }} 
               
         .col-sm-8
