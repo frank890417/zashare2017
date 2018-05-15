@@ -50,7 +50,59 @@ let data = {
       'Explore 探索',
       'Diversify 使其多元'
     ],
-    title_brand: "品牌大事記"
+    title_brand: "品牌大事記",
+    expos: [
+      {
+        year: 2017,
+        title: "雜學校第二屆",
+        subtitle: "年度精神提倡「有敢擇學 」",
+        features: ["包下整個華山園區，創下五萬人次觀展紀錄", "首創新創教育DemoDay"],
+        report_cover: "/static/img/ZA EXPO/index/ZAexpo-banner-2017-2.jpg",
+      }, {
+        year: 2016,
+        title: "雜學校第ㄧ屆",
+        subtitle: "年度精神提倡「學你想學、學你想成為。 」",
+        features: ["第一次售票，並創下華山單日售票最高紀錄", "成為亞洲最大量體創新教育博覽會"],
+        report_cover: "/static/img/ZA EXPO/index/ZAexpo-banner-2016-2.jpg",
+      }, {
+        year: 2015,
+        title: "雜學校前身 不太乖教育節",
+        subtitle: "年度精神提倡「乖乖做自己 」",
+        features: ["全臺首次發起全公益非典型教育新創展覽", "獲選華山本土最佳展覽品牌"],
+        report_cover: "/static/img/ZA EXPO/index/ZAexpo-banner-2015-2.jpg",
+      } 
+    ]
+    
+
+// 2017 2 nd ZA SHARE EXPO
+// The attitude of the year promotes “My Braveducation”
+// - Reserved all exhibition spaces in Huashan 1914 Creative Park and set a record-breaking visitor
+// number of fifty thousand people
+//     - Originator of Innovative Education DemoDay
+// 2017 雜學校第二屆
+// 年度精神提倡「有敢擇學」
+// - 包下整個華山園區，創下五萬人次觀展紀錄
+// -首創新創教育DemoDay
+
+// 2016 1 st ZA SHARE EXPO
+// The attitude of the year promotes “Learn to be, not taught to fit.”
+// -First ticket sale, setting the record for the highest single day gross in Huashan’s history
+//   - Became the largest innovative education expo in Asia
+// 2016 雜學校第一屆
+// 年度精神提倡「學你想學 學你想成為」
+// -第一次售票，並創下華山單日售票最高紀錄。
+// -成為亞洲最大量體創新教育博覽會。
+
+// 2015 Predecessor of ZA SHARE EXPO - NAUGHTY EDUCATION FEST
+// The attitude of the year promotes “Behaving yourself by being yourself”
+// -First charitable non - traditional educational innovation expo in Taiwan
+//   - Named as Huasan’s Best Local Exposition Brand
+// 2015 雜學校前身 不太乖教育節
+// 年度精神提倡「乖乖做自己」
+// -全臺首次發起全公益非典型教育新創展覽
+//   - 獲選華山本土最佳展覽品牌
+
+
   },
   form: {
     label_next: "下一步",

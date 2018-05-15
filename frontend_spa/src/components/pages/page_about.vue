@@ -47,12 +47,12 @@
           h2 {{ $t('page_about.title_brand') }}
           br
         .col-sm-12
-          router-link.row.row-expo.wow.fadeInUp(v-for="expo in expos", :to="`/expo/${expo.year}`")
+          router-link.row.row-expo.wow.fadeInUp(v-for="expo in $t('page_about.expos')", :to="`/expo/${expo.year}`")
             .col-cover(:style="bgcss(expo.report_cover)")
             .col-content.text-left
               h3 {{expo.year}}
-              h4 {{expo.label}}
-              h5 {{expo.spirit}}
+              h4 {{expo.title}}
+              h5(v-html="expo.subtitle")
               ul.feature-list
                 li(v-for="feature in expo.features") {{feature}}
 
@@ -233,7 +233,8 @@ export default {
   
   .row-expo
     display: flex
-    height: 270px
+    // height: 270px
+
     margin-bottom: 100px
     background-color: #fff
 

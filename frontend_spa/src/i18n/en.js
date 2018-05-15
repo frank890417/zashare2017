@@ -64,7 +64,28 @@ much more powerful.”`
       'Explore',
       'Diversify'
     ],
-    title_brand: "Past EXPOS"
+    title_brand: "Past EXPOS",
+    expos: [
+      {
+        year: 2017,
+        title: "2nd ZA SHARE EXPO",
+        subtitle: "The attitude of the year promotes <br>“My Braveducation”",
+        features: ["Reserved all exhibition spaces in Huashan 1914 Creative Park and set a record-breaking visitor number of fifty thousand people", "Originator of Innovative Education DemoDay"],
+        report_cover: "/static/img/ZA EXPO/index/ZAexpo-banner-2017-2.jpg",
+      }, {
+        year: 2016,
+        title: "1nd ZA SHARE EXPO",
+        subtitle: "The attitude of the year promotes <br>“Learn to be, not taught to fit.”",
+        features: ["First ticket sale, setting the record for the highest single day gross in Huashan’s history", "Became the largest innovative education expo in Asia"],
+        report_cover: "/static/img/ZA EXPO/index/ZAexpo-banner-2016-2.jpg",
+      }, {
+        year: 2015,
+        title: "Predecessor of ZA SHARE EXPO - NAUGHTY EDUCATION FEST",
+        subtitle: "The attitude of the year promotes <br>“Behaving yourself by being yourself”",
+        features: ["First charitable non-traditional educational innovation expo in Taiwan", "Named as Huasan’s Best Local Exposition Brand"],
+        report_cover: "/static/img/ZA EXPO/index/ZAexpo-banner-2015-2.jpg",
+      }
+    ]
   },
   form: {
     label_next: "Next",
