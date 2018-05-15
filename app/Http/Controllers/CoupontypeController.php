@@ -17,6 +17,8 @@ class CoupontypeController extends Controller
     {
         $this->middleware('jwt.auth');
     }
+
+    //管理者index
     public function index(){
         $user = $this->guard()->user();
         if ($user && $user->group=="admin"){
@@ -25,13 +27,29 @@ class CoupontypeController extends Controller
             return null;
         }
     }
+
+    // 使用者取得自己的coupon跟領取狀態
     public function userindex(){
         $all = Coupontype::all();
         // return  $this->guard();
         $user = $this->guard()->user();
         $studentcard =  User::find($user->id)->studentcard;
         foreach($all as $ct){
-            $ct['my'] = Coupon::where("cata_id",$ct->id)->where("user_id",$user->id)->first();
+            //多coupon
+            if ($ct->type == "single_time_hash"){
+                $ct['my'] = Coupon::where("cata_id",$ct->id)->where("user_id",$user->id)->first();
+
+            //單一coupon
+            }else if ($ct->type == "multi_time_single_hash"){
+                $users = $ct->users;
+                if ($users){
+                    $users = json_decode($users);
+                    if (in_array($user->id,$users)){
+                        $ct['my'] = Coupon::where("cata_id",$ct->id)->first();
+                    }
+                }
+                
+            }
             $canget = json_decode($ct->user_can_get);
             $ct['can_get'] = false;
             if ( in_array("studentcard", $canget) && $studentcard  ){
@@ -41,7 +59,9 @@ class CoupontypeController extends Controller
             if ( in_array("admin", $canget) && $user->group=="admin" ){
                 $ct['can_get'] = true;
             }
+            $ct['users']=null;
         }
+        
         return $all;
     }
     public function show($id){
@@ -92,16 +112,36 @@ class CoupontypeController extends Controller
 
         return $coupontype;
     }
+
+    //領取coupon
     public function getCoupon($id){
         $user = $this->guard()->user();
         $coupontype = Coupontype::find($id);
-        if (Coupon::where("cata_id",$id)->where("user_id",$user->id)->first() ){
-            return Coupon::where("cata_id",$id)->where("user_id",$user->id)->first();
-        }else{
-            $coupon = Coupon::where("cata_id",$id)->where("user_id",null)->where("used",false)->first();
-            $coupon->user_id = $user->id;
-            $coupon->save();
-            return $coupon;
+        if ($coupontype->type == "single_time_hash"){
+            if (Coupon::where("cata_id",$id)->where("user_id",$user->id)->first() ){
+                return Coupon::where("cata_id",$id)->where("user_id",$user->id)->first();
+            }else{
+                $coupon = Coupon::where("cata_id",$id)->where("user_id",null)->where("used",false)->first();
+                $coupon->user_id = $user->id;
+                $coupon->save();
+                return $coupon;
+            }
+        }
+        if ($coupontype->type == "multi_time_single_hash"){
+            $users = $coupontype->users;
+            if ($users){
+                $users = json_decode($users);
+            }else{
+                $users= [];
+            }
+            if (!in_array($user->id,$users)){
+                array_push($users,$user->id);
+            }
+            $coupontype->users = json_encode($users) ;
+            $coupontype->save();
+
+            return Coupon::where("cata_id",$id)->first();
+            //  = json_decode($coupontype->users)
         }
 
 

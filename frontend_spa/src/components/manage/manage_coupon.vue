@@ -18,7 +18,9 @@
                 span 啟用時間：{{ct.active_datetime}}<br>
                 span 結束時間：{{ct.expiry_datetime}}<br>
                 span 領取資格：  {{ ct.user_can_get}}<br>
-                span 已領取數量： {{ getCouponTotal(ct).got }} / {{ct.coupons.length}}
+                span 類型： {{ newCoupon.type=='single_time_hash'?'批次序號 / 單次使用':'單一序號 ／ 多次領取' }}<br>
+                span(v-if="newCoupon.type=='single_time_hash'") 已領取數量： {{ getCouponTotal(ct).got }} / {{ct.coupons.length}}
+                span(v-else) 已領取數量：{{ getUserLength(ct.users) }} 
               
         .col-sm-8
           h3 新增coupon群組
@@ -34,6 +36,7 @@
             el-form-item(label="類別")
               el-select(v-model="newCoupon.type")
                 el-option(value="single_time_hash" label="批次序號 / 單次使用")   
+                el-option(value="multi_time_single_hash" label="單一序號 ／ 多次領取")   
             el-form-item(label="可領取用戶別")
               el-select(v-model="newCoupon.user_can_get"
                         multiple
@@ -57,8 +60,16 @@
               el-date-picker(v-model="newCoupon.expiry_datetime",
                                     type="datetime",
                                     value-format="yyyy-MM-dd HH:mm:ss")
-            el-form-item(label="coupon(從excel直接複製或以換行分隔)")
-              el-input(type="textarea", v-model="newCoupon.coupons")
+            el-form-item(label="coupon序號")
+
+              el-input(type="textarea", v-model="newCoupon.coupons" , 
+                        v-if="newCoupon.type=='single_time_hash'",
+                        placeholder="(從excel直接複製或以換行分隔)",
+                        :rows="5")
+
+              el-input(v-model="newCoupon.coupons" ,  
+                      v-if="newCoupon.type=='multi_time_single_hash'",
+                        placeholder="請輸入單個序號")
                 
             el-button(@click="addCouponType") 新增類別
           //- ul.list-group
@@ -100,6 +111,13 @@ export default {
     this.loadAll()
   },
   methods: {
+    getUserLength(users){
+      if (users){
+        return JSON.parse(users).length
+      }else{
+        return 0
+      }
+    },
     select_pic(obj){
       console.log(obj)
       this.$set(this.newCoupon,"cover",obj.url)
