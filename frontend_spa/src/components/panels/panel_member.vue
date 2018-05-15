@@ -205,6 +205,8 @@ export default {
     &.big
       .cover
         height: 240px
+        +rwd_md
+          height: auto
 
   +rwd_md
     display: block

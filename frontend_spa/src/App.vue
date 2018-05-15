@@ -234,7 +234,7 @@ p
 
 
 .page-enter-active, .page-leave-active 
-  transition: 1s
+  transition: opacity 0.5s
 
 .page-enter, .page-leave-to
   opacity: 0

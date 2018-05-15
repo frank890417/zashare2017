@@ -3,7 +3,7 @@
   .container.text-left
     .row.row-banner
       .col-sm-12
-        .cover(:style="bgcss(expo.cover)")
+        .expo-cover(:style="bgcss(expo.cover)")
         br
         br
     .row
@@ -65,7 +65,7 @@ export default {
 
 .page-post.page-expo-year
   .row-banner
-    .cover
+    .expo-cover
       padding-bottom: 40%
       background-size: cover
       background-position: center center
