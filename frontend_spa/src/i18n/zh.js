@@ -169,6 +169,23 @@ let data = {
               {label: "2016雜學校", value: "2016雜學校"},
               {label: "2017雜學校", value: "2017雜學校"}
             ]
+          },
+          {
+            title: "4. 單位／個人所在國家及地區",
+            type: "select",
+            prop: "is_foreign",
+            options: [
+              { label: "台灣", value: 0 },
+              { label: "海外", value: 1 },
+           
+            ]
+          },
+          {
+            title: "5. 請填寫所在國家／城市",
+            prop: "foreign_country",
+            display(data){
+              return data['is_foreign']==1
+            }
           }
         ]
       },

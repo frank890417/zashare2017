@@ -15,7 +15,8 @@
     .col-sm-12
       el-form(v-if="registExpo" ,
               label-position="left",
-              :rules="rules",
+              :rules="getRules(sections)",
+              :validate-on-rule-change="false",
               ref="form_registexpo",
               :disabled="typeof registExpo.id=='number'"
               :model="registExpo",
@@ -27,6 +28,7 @@
             h4.mt-5.mb-3 {{section.title}}
             el-form-item(v-for="(question,qid) in section.questions ",
                         :label="question.title", :prop="question.prop",
+                        v-if="question.display==undefined || (typeof question.display=='function' && question.display(registFormObj))"
                         :key="qid")
               // 說明文字
               div(v-if="question.explain")
@@ -105,63 +107,63 @@ export default {
       registExpo: {},
       active: 0,
       success: false,
-      rules: {
-        type:[
-          {required: true, message: "請選擇種類"}
-        ],
-        theme:[
-          {required: true, message: "請選擇主題"}
-        ],
-        attended:[
-          {required: true, message: "請選擇參與紀錄"}
-        ],
-        name_eng:[
-          {required: true, message: "請輸入英文名稱"}
-        ],
-        name_cht:[
-          {required: true, message: "請輸入中文名稱"}
-        ],
-        description:[
-          {required: true, message: "請輸入描述"}
-        ],
-        target_audience:[
-          {required: true, message: "請輸入目標客群"}
-        ],
-        want_audience:[
-          {required: true, message: "請輸入想要的客群"}
-        ],
-        have_sell:[
-          {required: true, message: "請選擇是否有銷售行為"}
-        ],
-        file_proposal:[
-          {required: true, message: "請上傳企劃書"}
-        ],
-        attend_reason:[
-          {required: true, message: "請輸入參展理由"}
-        ],
-        // other:[
-          // {required: false}
-        // ],
-        main_contact_name:[
-          {required: true, message: "請輸入主要聯絡人姓名"}
-        ],
-        main_contact_phone:[
-          {required: true, message: "請輸入主要聯絡人電話"}
-        ],
-        main_contact_email:[
-          {required: true, message: "請輸入有效的主要聯絡人信箱", type: "email"}
-        ],
-        secondary_contact_name:[
-          {required: true, message: "請輸入次要聯絡人姓名"}
-        ],
-        secondary_contact_phone:[
-          {required: true, message: "請輸入次要聯絡人電話"}
-        ],
-        secondary_contact_email:[
-          {required: true, message: "請輸入有效的次要聯絡人信箱", type: "email"}
-        ],
+      // rules: {
+      //   type:[
+      //     {required: true, message: "請選擇種類"}
+      //   ],
+      //   theme:[
+      //     {required: true, message: "請選擇主題"}
+      //   ],
+      //   attended:[
+      //     {required: true, message: "請選擇參與紀錄"}
+      //   ],
+      //   name_eng:[
+      //     {required: true, message: "請輸入英文名稱"}
+      //   ],
+      //   name_cht:[
+      //     {required: true, message: "請輸入中文名稱"}
+      //   ],
+      //   description:[
+      //     {required: true, message: "請輸入描述"}
+      //   ],
+      //   target_audience:[
+      //     {required: true, message: "請輸入目標客群"}
+      //   ],
+      //   want_audience:[
+      //     {required: true, message: "請輸入想要的客群"}
+      //   ],
+      //   have_sell:[
+      //     {required: true, message: "請選擇是否有銷售行為"}
+      //   ],
+      //   file_proposal:[
+      //     {required: true, message: "請上傳企劃書"}
+      //   ],
+      //   attend_reason:[
+      //     {required: true, message: "請輸入參展理由"}
+      //   ],
+      //   // other:[
+      //     // {required: false}
+      //   // ],
+      //   main_contact_name:[
+      //     {required: true, message: "請輸入主要聯絡人姓名"}
+      //   ],
+      //   main_contact_phone:[
+      //     {required: true, message: "請輸入主要聯絡人電話"}
+      //   ],
+      //   main_contact_email:[
+      //     {required: true, message: "請輸入有效的主要聯絡人信箱", type: "email"}
+      //   ],
+      //   secondary_contact_name:[
+      //     {required: true, message: "請輸入次要聯絡人姓名"}
+      //   ],
+      //   secondary_contact_phone:[
+      //     {required: true, message: "請輸入次要聯絡人電話"}
+      //   ],
+      //   secondary_contact_email:[
+      //     {required: true, message: "請輸入有效的次要聯絡人信箱", type: "email"}
+      //   ],
 
-      }
+      // }
       
 
     }

@@ -10,16 +10,18 @@ div(:class="{container: this.$route.path=='/member/registexpo2018'}")
           .bg(:style="bgcss('/static/img/regist2018/ZAEXPO.jpg')")
           .infotext
             span {{ $t('menu.label_status') }}：<br>
-            span(v-if="registExpo.id") {{ $t('menu.status_registered') }}&nbsp;|&nbsp;
-            span(v-else) {{ $t('menu.status_not_registered') }} &nbsp;|&nbsp;
-            span(v-if="!registExpo.paid_record") 未繳費
-            span(v-if="registExpo.paid_record && !registExpo.paid_record.confirm") 主辦單位確認中
-            span(v-if="registExpo.paid_record && registExpo.paid_record.confirm") 已繳費
+            span(v-if="registExpo.id") {{ $t('menu.status_registered') }}
+            span(v-else) {{ $t('menu.status_not_registered') }}
+            span(v-if="!registExpo.is_foreign")
+              span &nbsp;|&nbsp;
+              span(v-if="!registExpo.paid_record") 未繳費
+              span(v-if="registExpo.paid_record && !registExpo.paid_record.confirm") 主辦單位確認中
+              span(v-if="registExpo.paid_record && registExpo.paid_record.confirm") 已繳費
         .info 
           div
             h5 {{ $t('menu.label_registexpo') }}
             router-link.float-right.btn(to="/member/registexpo/paid",
-                                            v-if="registExpo.id ").animated.fadeIn.delay-6 確認繳交報名費
+                                            v-if="registExpo.id  && !registExpo.is_foreign").animated.fadeIn.delay-6 確認繳交報名費
           span(v-if="registExpo") {{ $t('menu.regist_id') }}： 
             span(v-if="registExpo.id") {{ registId }}
           br

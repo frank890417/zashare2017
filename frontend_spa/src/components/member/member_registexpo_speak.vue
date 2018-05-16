@@ -17,8 +17,9 @@
       el-form(v-if="registExpoSpeak",
               label-position="left",
               ref="form_registexpo_speak",
+              :validate-on-rule-change="false",
               :disabled = "typeof registExpoSpeak.id=='number'"
-              :rules="rules"
+              :rules="getRules(sections)"
               :model="registExpoSpeak")
 
 

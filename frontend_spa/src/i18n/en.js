@@ -115,8 +115,9 @@ much more powerful.”`
 
     sections: [
       {
-        id: 0,
         title: "A. Exhibition information",
+        id: 0,
+        required: true,
         questions: [
           {
             title: "1. Booth type",
@@ -148,6 +149,23 @@ much more powerful.”`
               { label: "2017 ZA SHARE EXPO", value: "2017雜學校" }
             ]
           },
+          {
+            title: "4. Which the group or individual is from?",
+            type: "select",
+            prop: "is_foreign",
+            options: [
+              { label: "Taiwan", value: 0 },
+              { label: "overseas", value: 1 },
+
+            ]
+          },
+          {
+            title: "5. The country/city you currently lived in or your group located at",
+            prop: "foreign_country",
+            display(data) {
+              return data['is_foreign'] == 1
+            }
+          }
 
 
           
