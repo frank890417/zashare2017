@@ -21,19 +21,30 @@ let data = {
     label_occupation: "Present Occupation",
     label_position: "Current Position",
     label_email: "Email",
+    label_birthday: "Birthday",
+    label_phone: "Phone",
     label_status: "Status",
     label_registexpo: "Expo Application",
     label_registexpospeak: "Zac. (ZA-accelerator) Demo",
     label_registexpoworkshop: "ZA WORKSHOP",
+    label_expo_regist_end: "Deadline：2018.06.15",
     status_registered: "Registered",
     status_not_registered: "Not Registered",
     status_open_register: "Now accepting",
     regist_id: 'Application Number',
     regist_name: 'Application Name',
+    regist_expo_first: "Please regist EXPO first",
+    expo_not_paid: "Unpaid",
+    expo_paid_confirming: "Confirming by Organizer",
+    expo_paid_confirmed: "Paid",
+    news_title: "ZA SHARE News"
 
 
 
 
+  },
+  page_news: {
+    title: "Posts"
   },
   page_about: {
     sub_slogan: `” ZA SHARE setup fantastic scenes and explorations into life, connecting the diversity of education and culture to be recognized as Asia’s most influential innovation and exhibition brand.”`,
@@ -111,7 +122,7 @@ much more powerful.”`
 
     confirm_title: "It's almost completed!",
     confirm_text: "Please reconfirm your application, and press the “Submit” button.<br>We will send the application confirmed e-mail within three days. <br>If you do not receive the reply within three days, don’t hesitate to reach out to the organizer.<br><br>I confirmed that the application has been corrected and completed. It will not be modifiable after submit.",
-    complete_text: "Thank you for creating the better education with us.<br>The result will be announced at 07/10（Tue．）.<br>It will be reveal on the \"ZA SHARE\" official website.",
+    complete_text: "Thank you for creating the better education with us.<br>The result will be announced at 07/10（Tue).<br>It will be reveal on the \"ZA SHARE\" official website.",
 
     sections: [
       {
@@ -327,7 +338,7 @@ much more powerful.”`
 
     confirm_title: "It's almost completed!",
     confirm_text: "Please reconfirm your application, and press the “Submit” button.<br>We will send the application confirmed e-mail within three days. <br>If you do not receive the reply within three days, don’t hesitate to reach out to the organizer.<br><br>I confirmed that the application has been corrected and completed. It will not be modifiable after submit.",
-    complete_text: "Thank you for preparing.<br>The result will be announced at 07/10（Tue．）.It will be reveal on the \" Za Share \" official website.",
+    complete_text: "Thank you for preparing.<br>The result will be announced at 07/10（Tue).It will be reveal on the \" Za Share \" official website.",
     sections: [
       {
         id: 0,
@@ -435,7 +446,7 @@ much more powerful.”`
 
     confirm_title: "It's almost completed!",
     confirm_text: "Please reconfirm your application, and press the “Submit” button.<br>We will send the application confirmed e-mail within three days. <br>If you do not receive the reply within three days, don’t hesitate to reach out to the organizer.<br><br>I confirmed that the application has been corrected and completed. It will not be modifiable after submit.",
-    complete_text: "Thank you for preparing.<br>The result will be announced at 07/10（Tue．）.It will be reveal on the \" Za Share \" official website.",
+    complete_text: "Thank you for preparing.<br>The result will be announced at 07/10（Tue).It will be reveal on the \" Za Share \" official website.",
 
     sections: [
       {

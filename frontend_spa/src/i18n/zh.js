@@ -2,8 +2,16 @@ let data = {
   global: {
     name: "雜學校",
   },
+  member: {
+    login: "登入",
+    user: "帳號",
+    password: "密碼",
+    email: "信箱",
+
+  },
   nav: {
     login: "登入",
+    register: "註冊",
     about: "關於雜學校",
     expo: "歷屆展覽",
     shop: "線上商店",
@@ -21,17 +29,30 @@ let data = {
     label_occupation: "現職產業別",
     label_position: "現職職稱",
     label_email: "聯絡信箱",
+    label_birthday: "生日",
+    label_phone: "聯絡電話",
     label_status: "申請狀態",
     label_registexpo: "參展申請",
     label_registexpospeak: "Zac. 教育新創短講評選",
     label_registexpoworkshop: "雜工坊",
+    label_expo_regist_end: "2018 年 6 月 15 日 申請截止",
     status_registered: "已報名",
     status_not_registered: "未報名",
     status_open_register: "開放報名",
     regist_id: '參展編碼',
     regist_name: '參展單位名稱',
+    regist_expo_first: "需先報名參展",
+    expo_not_paid: "未繳費",
+    expo_paid_confirming: "確認中",
+    expo_paid_confirmed: "已繳費",
+    news_title: "雜學校公布欄"
 
 
+
+
+  },
+  page_news: {
+    title: "文章"
   },
   page_about: {
     sub_slogan: `”奇幻繽紛的場景及融入生活的探索， 將教育與文化的多元串聯成亞洲最具影響力的創新會展品牌。”`,

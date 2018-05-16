@@ -6,12 +6,17 @@
     router-link(to="/manage/post/new")
       el-button.btn.btn-primary( type="primary") + 新增文章
     el-select(v-model="now_year")
-      el-option(value="", label="2016 & 2017")
+      el-option(value="", label="所有文章")
       el-option(value="2017", label="2017")
       el-option(value="2016", label="2016")
       el-option(value="2015", label="2015")
     br
-    el-table.table(:data="filteredPosts" border max-height="800",
+    el-pagination(layout="prev, pager, next",
+                  :page-count="chunkedPosts.length",
+                  :current-page.sync="currentPage",
+                  :pager-count="10"
+                  )
+    el-table.table(:data="chunkedPosts[currentPage-1]" border max-height="800",
                :default-sort = "{prop: 'id', order: 'descending'}")
       el-table-column(prop="id",label="#", width="60" :sortable="true")
         template(slot-scope="scope")
@@ -60,10 +65,12 @@
 import {mapState, mapGetters} from 'vuex'
 import axios from 'axios'
 import store from "../../store"
+import _ from 'lodash'
 export default {
   data(){
     return {
       // posts: [],
+      currentPage: 1,
       keyword: "",
       now_year: "",
     }
@@ -139,7 +146,10 @@ export default {
         company: ((post.company) && post.company.name_cht) || "-",
         stick_top_index: post.stick_top_index?"是":"",
         stick_top_cata: post.stick_top_cata?"是":"",
-      }))
+      })).slice().reverse()
+    },
+    chunkedPosts(){
+      return _.chunk(this.filteredPosts,10)
     }
   },
   watch:{

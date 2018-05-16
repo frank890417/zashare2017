@@ -9,7 +9,12 @@
       el-option(value="2017", label="2017")
       el-option(value="2016", label="2016")
     br
-    el-table(:data="filteredCompany" border max-height="800",)
+    el-pagination(layout="prev, pager, next",
+                  :page-count="chunkedCompanies.length",
+                  :current-page.sync="currentPage",
+                  :pager-count="10"
+                  )
+    el-table(:data="chunkedCompanies[currentPage]" border max-height="800")
       el-table-column(prop="id",label="#", width="60" :sortable="true")
       //- el-table-column(prop="tag",label="類別", width="80" sortable)
       el-table-column(prop="name_cht",label="名字", width="200" :sortable="true")
@@ -38,10 +43,12 @@
 <script>
 import {mapState} from 'vuex'
 import store from '../../store'
+import _ from 'lodash'
 export default {
   data(){
     return {
       // posts: [],
+      currentPage: 1,
       keyword: "",
       now_year: "",
     }
@@ -86,6 +93,9 @@ export default {
       }).map(company=>({
         ...company,
       }))
+    },
+    chunkedCompanies(){
+      return _.chunk(this.filteredCompany,10)
     }
   }
 }

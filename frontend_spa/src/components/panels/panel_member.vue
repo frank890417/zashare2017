@@ -21,9 +21,11 @@
               h4 {{ $t("menu.profile") }}
               ul
                 li {{ $t("menu.label_id") }}： {{ "ZA"+("0000000"+auth.user.id).slice(-6) }}
-                li {{ $t("menu.label_position") }}： {{auth.user.jobcata}}
+                li {{ $t("menu.label_occupation") }}： {{auth.user.jobcata}}
                 li {{ $t("menu.label_position") }}： {{auth.user.job}} 
+                li {{ $t("menu.label_phone") }}：{{auth.user.phone}}
                 li {{ $t("menu.label_email") }}：{{auth.user.email}}
+                li {{ $t("menu.label_birthday") }}：{{auth.user.birthday}}
                 //- li 生日： 
             span
           .col-sm-2
@@ -40,7 +42,7 @@
         .tag.mt-5.mb-3 2018 ZA EXPO
         a(href="https://zashare.org/static/2018雜學校徵件手冊中文版.pdf" target="_blank")
           i.fa.fa-info
-        | &nbsp;&nbsp;2018 年 6 月 15 日 申請截止
+        | &nbsp;&nbsp; {{ $t('menu.label_expo_regist_end') }}
       .col-sm-12
         panel_expo2018
 

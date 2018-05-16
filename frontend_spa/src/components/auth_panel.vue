@@ -30,6 +30,10 @@
           el-option(v-for= "(jb,jbid) in auth.jobcatas", 
                 :value="jb", :label="jb") {{jb}}
         el-input(v-model="registerData.job", :placeholder="jobInforLabel", type="job", name="job", autocomplete="on")
+        el-input(v-model="registerData.phone", placeholder="電話", type="phone", name="phone", autocomplete="on")
+        el-date-picker(v-model="registerData.birthday", placeholder="生日", 
+                      type="date", name="birthday", autocomplete="on",style="width: 100%",
+                      value-format="yyyy-MM-dd")
         el-input(v-model="registerData.password", placeholder="密碼", type="password")
         el-input(v-model="registerData.password_confirmation", placeholder="再次輸入密碼", type="password")
         button.btn.fw.black(@click="register(registerData)") 註冊

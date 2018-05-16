@@ -3,7 +3,7 @@
   .container
     .row
       .col-sm-12
-        h2.mt-5 會員資料修改
+        h2.mt-5 會員資料修改 - {{userClone.name}}
         el-form(v-if="userClone")
           el-form-item(label="姓名")
             el-input(v-model="userClone.name")
@@ -11,6 +11,12 @@
             el-input(v-model="userClone.email",disabled = true)
           el-form-item(label="帳號類別",disabled = true)
             el-input(v-model="userClone.group",disabled = true)
+          el-form-item(label="電話")
+            el-input(v-model="userClone.phone")
+          el-form-item(label="生日")
+            el-date-picker(v-model="userClone.birthday", placeholder="生日", 
+                      type="date", name="birthday", autocomplete="on",
+                      value-format="yyyy-MM-dd", style="width: 100%")
           el-form-item(label="工作類別",disabled = true)
             el-select(v-model="userClone.jobcata", placeholder="產業別" , name="jobcata", autocomplete="on")
               el-option(v-for= "(jb,jbid) in auth.jobcatas", 

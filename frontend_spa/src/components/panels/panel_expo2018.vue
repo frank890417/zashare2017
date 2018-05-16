@@ -14,14 +14,15 @@ div(:class="{container: this.$route.path=='/member/registexpo2018'}")
             span(v-else) {{ $t('menu.status_not_registered') }}
             span(v-if="!registExpo.is_foreign")
               span &nbsp;|&nbsp;
-              span(v-if="!registExpo.paid_record") 未繳費
-              span(v-if="registExpo.paid_record && !registExpo.paid_record.confirm") 主辦單位確認中
-              span(v-if="registExpo.paid_record && registExpo.paid_record.confirm") 已繳費
+              span(v-if="!(registExpo.paid_record && registExpo.paid_record.id) ") {{ $t('menu.expo_not_paid') }}
+              span(v-if="registExpo.paid_record && !registExpo.paid_record.confirmed") {{ $t('menu.expo_paid_confirming') }}
+              span(v-if="registExpo.paid_record && registExpo.paid_record.confirmed") {{ $t('menu.expo_paid_confirmed') }}
         .info 
           div
             h5 {{ $t('menu.label_registexpo') }}
-            router-link.float-right.btn(to="/member/registexpo/paid",
-                                            v-if="registExpo.id  && !registExpo.is_foreign").animated.fadeIn.delay-6 確認繳交報名費
+            router-link.float-right.btn(
+              to="/member/registexpo/paid",
+              v-if=" (registExpo.id  && !registExpo.is_foreign) && !(registExpo.paid_record && registExpo.paid_record.confirmed)").animated.fadeIn.delay-6 確認繳交報名費
           span(v-if="registExpo") {{ $t('menu.regist_id') }}： 
             span(v-if="registExpo.id") {{ registId }}
           br
@@ -34,7 +35,7 @@ div(:class="{container: this.$route.path=='/member/registexpo2018'}")
           .bg(:style="bgcss('/static/img/regist2018/ZAWORKSHOP.jpg')")
           .infotext
             span {{ $t('menu.label_status') }}：
-            span(v-if="!registExpo.id") 需先報名參展
+            span(v-if="!registExpo.id") {{ $t('menu.regist_expo_first') }}
             span(v-else)
               span(v-if="registExpo.regist_workshop") {{ $t('menu.status_registered') }}
               span(v-else) {{ $t('menu.status_open_register') }}
@@ -44,7 +45,7 @@ div(:class="{container: this.$route.path=='/member/registexpo2018'}")
           .bg(:style="bgcss('/static/img/regist2018/Zac.jpg')")
           .infotext
             span {{ $t('menu.label_status') }}：
-            span(v-if="!registExpo.id") 需先報名參展
+            span(v-if="!registExpo.id") {{ $t('menu.regist_expo_first') }}
             span(v-else)
               span(v-if="registExpo.regist_expo_speak") {{ $t('menu.status_registered') }}
               span(v-else) {{ $t('menu.status_open_register') }}

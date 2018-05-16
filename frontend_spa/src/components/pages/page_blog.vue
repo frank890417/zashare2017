@@ -50,15 +50,16 @@
   //所有文章
   section.container.container-posts
     .container
+      //分類
       .row
         .col-sm-12
-          h4.cata-title 文章
+          h4.cata-title {{ $t('page_news.title') }}
           ul.catas
             //- li(:class="{active: nowCata==''}", 
             //-   @click="nowCata=''") ALL
             li(v-for="cata in useCatas",
               :class="{active: nowCata==cata.value}", 
-              @click="nowCata=cata.value") {{cata.label}}
+              @click="nowCata=cata.value") {{ $i18n.locale=='en'? (cata.label_eng || cata.label) : cata.label  }}
       .row
         .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12(v-for="(post,pid) in use_posts").col-news
           newsbox(:post='post', 
@@ -97,11 +98,11 @@ export default {
       currentSlideId: 0,
       showCount: 6,
       newsCatas: [
-        {label: "全部", value: ""},
-        {label: "展覽公告", value: "展覽公告"},
-        {label: "活動公告", value: "活動公告"},
-        {label: "一般公告", value: "一般公告"},
-        {label: "媒體報導", value: "媒體報導"},
+        {label: "全部", label_eng: "ALL", value: ""},
+        {label: "展覽公告", label_eng: "Expos", value: "展覽公告"},
+        {label: "活動公告", label_eng: "Activities", value: "活動公告"},
+        {label: "一般公告", label_eng: "Others", value: "一般公告"},
+        {label: "媒體報導", label_eng: "Press Report", value: "媒體報導"},
       ]
       // newsCatas: ["ZA COURSE","ZA BASE","ZA EXPO"]
     }

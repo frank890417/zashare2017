@@ -78,7 +78,9 @@ class AuthController extends Controller
             'name' => $request->input('name'),
             'job' => $request->input('job'),
             'jobcata' => $request->input('jobcata'),
-            'password' => bcrypt($request->input('password'))
+            'password' => bcrypt($request->input('password')),
+            'birthday' => $request->input('birthday'),
+            'phone' => $request->input('phone'),
         ];
         $require_fields = ["email","name","job","jobcata","password"];
         foreach($require_fields as $field){
@@ -154,6 +156,8 @@ class AuthController extends Controller
             $userdata['name'] = $newdata['name'];
             $userdata['job'] = $newdata['job'];
             $userdata['jobcata'] = $newdata['jobcata'];
+            $userdata['birthday'] = $newdata['birthday'];
+            $userdata['phone'] = $newdata['phone'];
             // $studentcard =  User::find($userdata->id)->studentcard;
             // if ( !$studentcard ){
             //     $findcard = Studentcard::where("email",$userdata->email)->first();
