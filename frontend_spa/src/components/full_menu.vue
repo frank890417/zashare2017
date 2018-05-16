@@ -92,7 +92,7 @@
 
         //登入跟會員頁面
       div(v-if="menuType=='login'")
-        panel_member
+        panel_member(:key="token")
                 
 </template>
 

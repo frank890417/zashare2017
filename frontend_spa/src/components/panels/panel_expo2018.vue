@@ -24,7 +24,7 @@ div(:class="{container: this.$route.path=='/member/registexpo2018'}")
             span(v-if="registExpo.id") {{ registId }}
           br
           span(v-if="registExpo") {{ $t('menu.regist_name') }}： 
-            span(v-if="registExpo.id") {{ registExpo.name_cht }}
+            span(v-if="registExpo.id") {{ registExpo.name_cht || registExpo.name_eng }}
 
     .col-sm-6
       router-link.box(to="/member/registexpo/workshop").animated.fadeIn.delay-9

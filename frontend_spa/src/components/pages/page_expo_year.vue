@@ -79,6 +79,7 @@ export default {
         // margin-right: -15px
         width: calc(100% + 30px)
         margin-bottom: 30px
+        max-height: 300px
   .row-recommand
     margin-top: 60px
   h3
