@@ -66,18 +66,18 @@ export default {
 .page-post.page-expo-year
   .row-banner
     .expo-cover
-      padding-bottom: 40%
+      padding-bottom: 80%
       background-size: cover
       background-position: center center
-      height: 250px
+      // height: 250px
       // margin-top: 60px
-      margin-top: 60px
+      margin-top: 80px
       // margin-right: -15px
       +rwd_md
         margin-top: 0
         margin-left: -15px
         // margin-right: -15px
-        width: 100vw
+        width: calc(100% + 30px)
         margin-bottom: 30px
   .row-recommand
     margin-top: 60px

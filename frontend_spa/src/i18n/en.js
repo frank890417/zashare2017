@@ -108,8 +108,8 @@ much more powerful.”`
     sub_title: "To make sure of successful registration, refer to the regulations, schedule and process in the exhibition manual.",
 
     confirm_title: "Congratulations! You have submited the application.",
-    confirm_text: "請再次確認所有填寫資料後按下「確認送出」，並於三日內繳交報名費，才算完成所有報名手續呦！<br>＊海外參展者（含中國、港、澳等地區）享「免報名費」優惠。<br><br>報名費繳款帳戶：<br>銀行名稱－第一銀行永春分行 (007)<br>帳戶名稱－雜學股份有限公司<br>帳號－157-10-029362<br><br>遞交報名申請後，將由主辦單位以E-mail回覆收到線上報名資料，及提供上列報名費繳費資訊。若提交後三日內未收到相關回覆，請主動聯繫主辦單位查詢。<br><br>我確認資料已經正確無誤，送出後將無法修改<br>",
-    complete_text: "謝謝你願意和我們一同為教育而努力！<br>最後甄選入選名單將於2018/07/10公布在官方網站。<br><br>如欲報名「ZA WORKSHOP 雜工坊」及「Zac. 教育新創短講評選」請繼續填寫表單：",
+    confirm_text: "Please reconfirm your application, and press the “Submit” button.<br>We will send the application confirmed e-mail within three days. <br>If you do not receive the reply within three days, don’t hesitate to reach out to the organizer.<br><br>I confirmed that the application has been corrected and completed. It will not be modifiable after submit.",
+    complete_text: "Thank you for creating the better education with us.<br>The result will be announced at 07/10（Tue．）.It will be reveal on the & quot; ZA SHARE & quot; official website.",
 
     sections: [
       {
