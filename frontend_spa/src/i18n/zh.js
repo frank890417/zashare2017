@@ -27,7 +27,10 @@ let data = {
     label_registexpoworkshop: "雜工坊",
     status_registered: "已報名",
     status_not_registered: "未報名",
-    status_open_register: "開放報名"
+    status_open_register: "開放報名",
+    regist_id: '參展編碼',
+    regist_name: '參展單位名稱',
+
 
   },
   page_about: {

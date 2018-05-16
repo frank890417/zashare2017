@@ -27,7 +27,9 @@ let data = {
     label_registexpoworkshop: "ZA WORKSHOP",
     status_registered: "Registered",
     status_not_registered: "Not Registered",
-    status_open_register: "Now accepting"
+    status_open_register: "Now accepting",
+    regist_id: 'Application Number',
+    regist_name: 'Application Name',
 
 
 
@@ -107,9 +109,9 @@ much more powerful.”`
     title: "Exhibition Application Form",
     sub_title: "To make sure of successful registration, refer to the regulations, schedule and process in the exhibition manual.",
 
-    confirm_title: "Congratulations! You have submited the application.",
+    confirm_title: "It's almost completed!",
     confirm_text: "Please reconfirm your application, and press the “Submit” button.<br>We will send the application confirmed e-mail within three days. <br>If you do not receive the reply within three days, don’t hesitate to reach out to the organizer.<br><br>I confirmed that the application has been corrected and completed. It will not be modifiable after submit.",
-    complete_text: "Thank you for creating the better education with us.<br>The result will be announced at 07/10（Tue．）.It will be reveal on the & quot; ZA SHARE & quot; official website.",
+    complete_text: "Thank you for creating the better education with us.<br>The result will be announced at 07/10（Tue．）.<br>It will be reveal on the \"ZA SHARE\" official website.",
 
     sections: [
       {
@@ -305,10 +307,9 @@ much more powerful.”`
     title: "Za Workshop Application Form",
     sub_title: "Every workshop session lasts 90 minutes including entering and exiting the venue and accommodates up to 30 people.<br><br>The exhibitors need to pay USD 380 per session and provide relevant course materials if any.The organizer is responsible for session registration and payment collection(TWD 500 per session for each participant.) (For more information, refer to p.18 of the manual)",
 
-    confirm_title: "恭喜你即將完成雜工坊申請！",
-    confirm_text: "請再次確認所有填寫資料後按下「確認送出」，主辦單位收到提案申請後將以E-mail回覆確認。若提交後三日內未收到相關回覆，請主動聯繫主辦單位查詢。",
-    complete_text: "謝謝貴團隊的用心籌劃！<br>最後甄選結果與場次安排將於2018/07/10公布在官方網站。",
-
+    confirm_title: "It's almost completed!",
+    confirm_text: "Please reconfirm your application, and press the “Submit” button.<br>We will send the application confirmed e-mail within three days. <br>If you do not receive the reply within three days, don’t hesitate to reach out to the organizer.<br><br>I confirmed that the application has been corrected and completed. It will not be modifiable after submit.",
+    complete_text: "Thank you for preparing.<br>The result will be announced at 07/10（Tue．）.It will be reveal on the \" Za Share \" official website.",
     sections: [
       {
         id: 0,
@@ -414,9 +415,9 @@ much more powerful.”`
     title: "Zac. Demo Day Application Form ",
     sub_title: "Za Share tries to create an open, resource-abundant platform. Ten nominees will exhibit in Za Concept Exhibition and the organizer will specially curate an exhibition for them. Every nominee will be charged USD 750 for customized booth space. This will not only serve as a platform for marketing exposure but also provide an opportunity for them to be observed by other exhibitors, members of the press and our VIPs. (For information about application and selection, refer to p.19 of the manual)",
 
-    confirm_title: "恭喜你即將完成「Zac. 教育新創短講評選」申請！",
-    confirm_text: "請再次確認所有填寫資料後按下「確認送出」，主辦單位收到提案申請後將以E-mail回覆確認。若提交後三日內未收到相關回覆，請主動聯繫主辦單位查詢。",
-    complete_text: "謝謝貴團隊的用心籌劃！<br>最後甄選結果與場次安排將於2018/07/10公布在官方網站。",
+    confirm_title: "It's almost completed!",
+    confirm_text: "Please reconfirm your application, and press the “Submit” button.<br>We will send the application confirmed e-mail within three days. <br>If you do not receive the reply within three days, don’t hesitate to reach out to the organizer.<br><br>I confirmed that the application has been corrected and completed. It will not be modifiable after submit.",
+    complete_text: "Thank you for preparing.<br>The result will be announced at 07/10（Tue．）.It will be reveal on the \" Za Share \" official website.",
 
     sections: [
       {

@@ -20,10 +20,10 @@ div(:class="{container: this.$route.path=='/member/registexpo2018'}")
             h5 {{ $t('menu.label_registexpo') }}
             router-link.float-right.btn(to="/member/registexpo/paid",
                                             v-if="registExpo.id ").animated.fadeIn.delay-6 確認繳交報名費
-          span(v-if="registExpo") 參展編碼： 
+          span(v-if="registExpo") {{ $t('menu.regist_id') }}： 
             span(v-if="registExpo.id") {{ registId }}
           br
-          span(v-if="registExpo") 參展單位名稱： 
+          span(v-if="registExpo") {{ $t('menu.regist_name') }}： 
             span(v-if="registExpo.id") {{ registExpo.name_cht }}
 
     .col-sm-6

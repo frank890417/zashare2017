@@ -41,35 +41,42 @@
             .row-logo( @click="setMenuState(false)")
               router-link.col-sm-12.logo-part(to="/")
                 img.logo-img(src="/static/img/Home/za-logo.svg") 
+              .locale-sel
+                span.option(@click="$i18n.locale='zh'",
+                          :class="{active: $i18n.locale=='zh'}") 繁中
+                span &nbsp;&nbsp;|&nbsp;&nbsp;
+                span.option(@click="$i18n.locale='en'",
+                          :class="{active: $i18n.locale=='en'}") EN
+      
             .row-bottom
               span.col-login.mb-3
                 span(v-if="auth.user")
                   div.mb-2
                     span.main-text Hello&nbsp;
-                    span.main-text(@click="openMenu('login')") 雜學校學生 
+                    span.main-text(@click="openMenu('login')") 
                       b {{auth.user.name}}
 
                   
                 span(v-else) 
-                  b.main-text 雜學校&nbsp;
+                  b.main-text {{ $t('global.name') }}&nbsp;
                   br
                 div
                   span.sub-text(@click="openMenu('login')"
-                                v-if="!auth.user")  登入
+                                v-if="!auth.user")  {{ $t('nav.login') }}
                   span.sub-text(@click="openMenu('login')"
-                                v-if="auth.user") 後台管理
+                                v-if="auth.user") {{ $t('nav.manage') }}
                   span.sub-text  &nbsp;&nbsp;|&nbsp;&nbsp;
                   span.sub-text 
-                    span(@click="openMenu('search')")  搜尋全站
+                    span(@click="openMenu('search')")  {{ $t('nav.search') }}
 
 
               div(@click="setMenuState(false)")
                 router-link.col-theme-nav.text-center.nav-course(to="/about")
-                  span 關於雜學校
+                  span {{ $t('nav.about') }}
                 router-link.col-theme-nav.text-center.nav-base(to="/expo")
-                  span 歷屆展覽
+                  span {{ $t('nav.expo') }}
                 a.col-theme-nav.text-center.nav-expo(href="https://www.zashare.com.tw", target="_blank")
-                  span 線上商店
+                  span {{ $t('nav.shop') }}
             //.row
               .col-sm-12
                 hr
@@ -474,6 +481,7 @@ export default {
       // font-size: 24px
     .row-logo
       +flexCenter
+      flex-direction: column
       width: 100%
       margin: 0
       margin-top: 10vh
