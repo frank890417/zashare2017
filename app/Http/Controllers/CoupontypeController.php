@@ -52,6 +52,9 @@ class CoupontypeController extends Controller
             }
             $canget = json_decode($ct->user_can_get);
             $ct['can_get'] = false;
+            if ( in_array("all", $canget)  ){
+                $ct['can_get'] = true;
+            }
             if ( in_array("studentcard", $canget) && $studentcard  ){
                 $ct['can_get'] = true;
             }

@@ -169,6 +169,9 @@ export default {
         this.loadAllCoupon()
 
       }
+    },
+    token(){
+      this.loadAllCoupon()
     }
   },
   components: {
