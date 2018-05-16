@@ -30,7 +30,7 @@
             span
           .col-sm-2
           .col-sm-4(@click="setMenuState(false)" )
-            h4 雜學校公布欄
+            h4 {{ $t("menu.news_title") }}
             .row
               newsbox(v-for="post in [latestNews]", 
                 :post = "post" ,
@@ -46,12 +46,13 @@
       .col-sm-12
         panel_expo2018
 
-    .row.row-coupon.mt-5( v-if="auth.user.studentcard || isAdmin")
-      .col-sm-12(v-if="coupontypes.length")
-        .tag ZA COURSE
+
+    .row.row-coupon.mt-5(v-if="coupontypes_normal.length")
+      .col-sm-12
+        .tag {{ $t('menu.title_coupon_normal') }}
         i.fa.fa-info
         br
-      .col-sm-6.col-md-4.mt-3(v-for="(ct,ctid) in coupontypes")
+      .col-sm-6.col-md-4.mt-3(v-for="(ct,ctid) in coupontypes_normal")
         .coupon-box-inner
           .cover(:style="bgcss(ct.cover)")
             //.num 00{{ctid+1}}
@@ -62,10 +63,32 @@
               span 啟用時間：{{ct.active_datetime}}<br>
               span 結束時間：{{ct.expiry_datetime}}<br>
           div(v-if="ct.can_get")
-            .btn.btn-primary.text-center(v-if="!ct.my",@click="getCoupon(ct)") 點擊以索取兌課序號
+            .btn.btn-primary.text-center(v-if="!ct.my",@click="getCoupon(ct)") {{ $t('menu.get_coupon') }}
           div(v-else)
-            h4.text-center 無法領取(不符合資格)
-          h4.text-center(v-if="ct.my") 序號：{{ct.my.coupon}}
+            h4.text-center {{ $t('menu.coupon_cannot_get') }}
+          h4.text-center(v-if="ct.my") {{ $t('menu.label_coupon') }}：{{ct.my.coupon}}
+      
+
+    .row.row-coupon.mt-5( v-if="auth.user.studentcard || isAdmin")
+      .col-sm-12
+        .tag {{ $t('menu.title_coupon_zacourse') }}
+        i.fa.fa-info
+        br
+      .col-sm-6.col-md-4.mt-3(v-for="(ct,ctid) in coupontypes_zacourse")
+        .coupon-box-inner
+          .cover(:style="bgcss(ct.cover)")
+            //.num 00{{ctid+1}}
+          .info
+            h4 {{ct.title}}
+            p(v-html="ct.description")
+            //p 
+              span 啟用時間：{{ct.active_datetime}}<br>
+              span 結束時間：{{ct.expiry_datetime}}<br>
+          div(v-if="ct.can_get")
+            .btn.btn-primary.text-center(v-if="!ct.my",@click="getCoupon(ct)") {{ $t('menu.get_coupon') }}
+          div(v-else)
+            h4.text-center {{ $t('menu.coupon_cannot_get') }}
+          h4.text-center(v-if="ct.my") {{ $t('menu.label_coupon') }}：{{ct.my.coupon}}
       
         
 </template>
@@ -103,6 +126,12 @@ export default {
       getUserPhoto: 'auth/getUserPhoto',
       isAdmin: 'auth/isAdmin'
     }),
+    coupontypes_zacourse(){
+      return (this.coupontypes || []).filter(ct=>ct.type=="single_time_hash")
+    },
+    coupontypes_normal(){
+      return (this.coupontypes || []).filter(ct=>ct.type=="multi_time_single_hash") 
+    }
   },
   methods: {
     ...mapMutations(['setMenuState','setSearchKeyword','openMenu']),

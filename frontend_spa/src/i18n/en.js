@@ -37,7 +37,13 @@ let data = {
     expo_not_paid: "Unpaid",
     expo_paid_confirming: "Confirming by Organizer",
     expo_paid_confirmed: "Paid",
-    news_title: "ZA SHARE News"
+    news_title: "ZA SHARE News",
+    label_coupon: "Coupon",
+    get_coupon: "Click to get coupon",
+    coupon_cannot_get: "Not qualified",
+    title_coupon_zacourse: "ZA COUPON",
+    title_coupon_normal: "ZA COURSE",
+
 
 
 

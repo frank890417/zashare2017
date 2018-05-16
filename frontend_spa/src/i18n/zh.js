@@ -45,7 +45,12 @@ let data = {
     expo_not_paid: "未繳費",
     expo_paid_confirming: "確認中",
     expo_paid_confirmed: "已繳費",
-    news_title: "雜學校公布欄"
+    news_title: "雜學校公布欄",
+    label_coupon: "序號",
+    get_coupon: "點擊以索取兌課序號",
+    coupon_cannot_get: "無法領取(不符合資格)",
+    title_coupon_zacourse: "ZA COURSE",
+    title_coupon_normal: "雜學優惠禮遇",
 
 
 
