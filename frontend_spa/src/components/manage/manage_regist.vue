@@ -12,6 +12,9 @@
       el-tab-pane(label="報名紀錄" name="regist") 報名紀錄
         el-table(:data="filteredRegistexpo" border)
           el-table-column(prop="id",label="編號", width="80" sortable)
+          el-table-column(prop="status",label="狀態", width="120" sortable)
+            template(slot-scope="scope")
+              span {{ getStatus(scope.row.status).label }}
           el-table-column(prop="paid_record_status",label="繳款狀態", width="120" sortable)
           //- el-table-column(prop="tag",label="類別", width="80" sortable)
           el-table-column(prop="name_cht",label="中文", width="150" sortable)
@@ -42,6 +45,9 @@
           //- el-table-column(prop="id",label="#", width="60" sortable)
 
           el-table-column(prop="registid",label="報名編號", width="120" sortable)
+          el-table-column(prop="status",label="狀態", width="120" sortable)
+            template(slot-scope="scope")
+              span {{ getStatus(scope.row.status).label }}
           el-table-column(prop="registname",label="攤位名稱", width="200" sortable)
           el-table-column(prop="paid_datetime",label="確認繳費", width="160" sortable)
             template(slot-scope="scope")
@@ -62,6 +68,9 @@
         el-table(:data="workshops" border)
           el-table-column(prop="id",label="#", width="60" sortable)
           el-table-column(prop="registid",label="報名編號", width="120" sortable)
+          el-table-column(prop="status",label="狀態", width="120" sortable)
+            template(slot-scope="scope")
+              span {{ getStatus(scope.row.status).label }}
           el-table-column(prop="registname",label="攤位名稱", width="200" sortable)
           el-table-column(prop="class_type",label="課程類型", width="200" sortable)
           el-table-column(prop="audience_normal",label="活動招生族群", width="160" sortable)
@@ -81,6 +90,9 @@
         el-table(:data="registSpeaks" border)
           el-table-column(prop="id",label="#", width="60" sortable)
           el-table-column(prop="registid",label="報名編號", width="120" sortable)
+          el-table-column(prop="status",label="狀態", width="120" sortable)
+            template(slot-scope="scope")
+              span {{ getStatus(scope.row.status).label }}
           el-table-column(prop="registname",label="攤位名稱", width="200" sortable)
           el-table-column(prop="agree_plan",label="同意策展權益", width="130" sortable)
             template(slot-scope ="scope")
@@ -133,7 +145,16 @@ export default {
       keyword: "",
       activeName: "regist",
       now_year: "2016",
-      registexpos: []
+      registexpos: [],
+      statuses: [
+        {label: "甄選中", value: "selecting"},
+        {label: "入選", value: "selected"},
+        {label: "未入選", value: "not-selected"},
+        {label: "取消", value: "cancel"},
+        {label: "合作", value: "cooperation"},
+        {label: "贊助", value: "sponsor"},
+        {label: "其他", value: "other"}
+      ]
     }
   },
   mounted(){
@@ -144,6 +165,9 @@ export default {
     // handleEdit(row){
     //   this.$router.push("/api/registexpo")
     // },
+    getStatus(value){
+      return this.statuses.find(st=>st.value==value)
+    },
     filterYear(value,row){
       return row.year === value;
     },
