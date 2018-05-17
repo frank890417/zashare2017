@@ -32,6 +32,7 @@
               :key="sid")
             h4.mt-5.mb-3 {{section.title}}
             el-form-item(v-for="(question,qid) in section.questions ",
+                        :required="(section.required && question.required!==false) || (!section.required && question.required)"
                         :label="question.title", :prop="question.prop",
                         :key="qid")
               // 說明文字

@@ -30,7 +30,9 @@
               :key="sid")
             h4.mt-5.mb-3 {{section.title}}
             el-form-item(v-for="(question,qid) in section.questions ",
-                        :label="question.title", :prop="question.prop",
+                        :label="question.title", 
+                        :prop="question.prop",
+                        :required="(section.required && question.required!==false) || (!section.required && question.required)"
                         v-if="question.display==undefined || (typeof question.display=='function' && question.display(registFormObj))"
                         :key="qid")
               // 說明文字
