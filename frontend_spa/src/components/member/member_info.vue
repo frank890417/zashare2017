@@ -3,39 +3,39 @@
   .container
     .row
       .col-sm-12
-        h2.mt-5 會員資料修改 - {{userClone.name}}
-        el-form(v-if="userClone")
-          el-form-item(label="姓名")
+        h2.mt-5 {{ $t('menu.update_member_data') }} - {{userClone.name}}
+        el-form(v-if="userClone", label-width="200")
+          el-form-item(:label="$t('member.form.register.name')")
             el-input(v-model="userClone.name")
-          el-form-item(label="Email")
+          el-form-item(:label="$t('member.form.register.email')")
             el-input(v-model="userClone.email",disabled = true)
-          el-form-item(label="帳號類別",disabled = true)
+          el-form-item(:label="$t('member.form.register.account_type')",disabled = true)
             el-input(v-model="userClone.group",disabled = true)
-          el-form-item(label="電話")
+          el-form-item(:label="$t('member.form.register.phone')")
             el-input(v-model="userClone.phone")
-          el-form-item(label="生日")
-            el-date-picker(v-model="userClone.birthday", placeholder="生日", 
+          el-form-item(:label="$t('member.form.register.birthday')")
+            el-date-picker(v-model="userClone.birthday", 
                       type="date", name="birthday", autocomplete="on",
                       value-format="yyyy-MM-dd", style="width: 100%")
-          el-form-item(label="工作類別",disabled = true)
-            el-select(v-model="userClone.jobcata", placeholder="產業別" , name="jobcata", autocomplete="on")
-              el-option(v-for= "(jb,jbid) in auth.jobcatas", 
-                    :value="jb") {{jb}}
-          el-form-item(label="工作職稱",disabled = true , placeholder="e.g. 建築師 / 設計師 / 法官...")
+          el-form-item(:label="$t('member.form.register.jobcata')",disabled = true)
+            el-select(v-model="userClone.jobcata" , name="jobcata", autocomplete="on")
+              el-option(v-for= "(jb,jbid) in $t('member.form.register.jobcatas')", 
+                    :value="jb.value" :label="jb.label") {{jb.label}}
+          el-form-item(:label="$t('member.form.register.job')",disabled = true)
             el-input(v-model="userClone.job")
-          el-form-item(label="註冊時間")
+          el-form-item(:label="$t('member.form.register.register_time')")
             el-input(v-model="userClone.created_at",disabled = true)
         br
-        el-button(type="primary",@click="updateUserInfo") 更新會員資料
+        el-button(type="primary",@click="updateUserInfo") {{ $t('member.form.register.update') }}
         br
-        div(v-if="userClone && userClone.studentcard")
-          h3 學生證資訊
-          el-form(label-width="100px")
-            el-form-item(label="登記名")
+        div.mt-5(v-if="userClone && userClone.studentcard")
+          h3 {{ $t('menu.label_student_card') }}
+          el-form(label-width="200")
+            el-form-item(:label="$t('menu.label_card_register_name')")
               el-input(v-model="userClone.studentcard.name" ,disabled = true)
-            el-form-item(label="學生證序號")
+            el-form-item(:label="$t('menu.label_card_id')")
               el-input(v-model="userClone.studentcard.card_id" ,disabled = true)
-            el-form-item(label="使用期限")
+            el-form-item(:label="$t('menu.label_card_date')")
               el-input(v-model="userClone.studentcard.expiry_datetime",disabled = true)
         //- pre {{userClone}}
 </template>

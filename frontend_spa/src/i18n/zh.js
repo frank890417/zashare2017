@@ -64,7 +64,12 @@ let data = {
         password: "密碼",
         confirm_password: "再次輸入密碼",
         regist: "註冊",
-        have_account: "我已經有帳號了！前往登入"
+        have_account: "我已經有帳號了！前往登入",
+
+        register_time: "註冊時間",
+        account_type: "帳號類別",
+        update: "更新會員資料"
+
 
 
       }
@@ -88,6 +93,16 @@ let data = {
     profile: "學生資訊",
     label_id: "會員ID碼",
     manage: "管理",
+
+
+
+    label_student_card: "學生證資訊",
+    label_card_register_name: '登記名',
+    label_card_id: "學生證卡號",
+    label_card_level: "學生證級別",
+    label_card_date: "會員效期",
+    label_card_level_member: "會員",
+    label_card_level_old: "創校元老",
     label_occupation: "現職產業別",
     label_position: "現職職稱",
     label_email: "聯絡信箱",
@@ -114,8 +129,8 @@ let data = {
     title_coupon_zacourse: "ZA COURSE",
     title_coupon_normal: "雜學優惠禮遇",
     register_mobile_warning: "請改以電腦操作申請，以利完成報名程序。",
-
-
+    modify: "修改",
+    update_member_data: "會員資料修改"
 
 
   },

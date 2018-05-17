@@ -66,7 +66,13 @@ let data = {
         password: "Password",
         confirm_password: "Password Confirmation",
         regist: "Register",
-        have_account: "I have an account! Go to login."
+        have_account: "I have an account! Go to login.",
+
+        register_time: "Registration time",
+        account_type: "Account type",
+        update: "Update member information",
+
+        
 
 
       }
@@ -89,6 +95,13 @@ let data = {
     profile: "Profile",
     label_id: "ID Number",
     manage: "Manage",
+    label_student_card: "Student Card Information",
+    label_card_register_name: 'Registered name',
+    label_card_id: "Student Card ID",
+    label_card_level: "Student Card type",
+    label_card_date: "Expiry date",
+    label_card_level_member: "Member",
+    label_card_level_old: "Pioneers",
     label_occupation: "Present Occupation",
     label_position: "Current Position",
     label_email: "Email",
@@ -116,6 +129,8 @@ let data = {
     title_coupon_normal: "ZA COUPON",
     register_mobile_warning: "Please use computer to complete the registration process.",
 
+    modify: "Modify",
+    update_member_data: "Update member information"
 
 
 

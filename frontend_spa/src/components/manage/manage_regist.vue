@@ -12,13 +12,13 @@
       el-tab-pane(label="報名紀錄" name="regist") 報名紀錄
         el-table(:data="filteredRegistexpo" border)
           el-table-column(prop="id",label="編號", width="80" sortable)
-          el-table-column(prop="is_foreign",label="國外", width="80" sortable)
+          el-table-column(prop="is_foreign",label="國外", width="80")
             template(slot-scope="scope")
               span {{ scope.row.is_foreign?"是":"否" }}
-          el-table-column(prop="status",label="狀態", width="120" sortable)
+          el-table-column(prop="status",label="狀態", width="120")
             template(slot-scope="scope")
               span {{ getStatus(scope.row.status).label }}
-          el-table-column(prop="paid_record_status",label="繳款狀態", width="120" sortable)
+          el-table-column(prop="paid_record_status",label="繳款狀態", width="120")
           //- el-table-column(prop="tag",label="類別", width="80" sortable)
           el-table-column(prop="name_cht",label="中文", width="150" sortable)
           el-table-column(prop="name_eng",label="英文", width="150" sortable)
@@ -48,11 +48,11 @@
           //- el-table-column(prop="id",label="#", width="60" sortable)
 
           el-table-column(prop="registid",label="報名編號", width="120" sortable)
-          el-table-column(prop="status",label="狀態", width="120" sortable)
+          el-table-column(prop="status",label="狀態", width="120" )
             template(slot-scope="scope")
               span {{ getStatus(scope.row.status).label }}
           el-table-column(prop="registname",label="攤位名稱", width="200" sortable)
-          el-table-column(prop="paid_datetime",label="確認繳費", width="160" sortable)
+          el-table-column(prop="paid_datetime",label="確認繳費", width="160" )
             template(slot-scope="scope")
               div
                 span.mr-1(v-if="scope.row.confirmed") ✔︎ 已確認
@@ -60,7 +60,7 @@
                 el-switch(v-model="scope.row.confirmed", @change="uploadPaidStatus(scope)")
           el-table-column(prop="paid_amount",label="繳費金額", width="200" sortable)
           el-table-column(prop="paid_datetime",label="繳費時間", width="200" sortable)
-          el-table-column(prop="paid_direct",label="臨櫃匯款", width="120" sortable)
+          el-table-column(prop="paid_direct",label="臨櫃匯款", width="120" )
             template(slot-scope ="scope")
               span {{ scope.row.paid_direct?'是':'否' }}
           el-table-column(prop="paid_name",label="名字", width="100" sortable)
@@ -71,12 +71,12 @@
         el-table(:data="workshops" border)
           el-table-column(prop="id",label="#", width="60" sortable)
           el-table-column(prop="registid",label="報名編號", width="120" sortable)
-          el-table-column(prop="status",label="狀態", width="120" sortable)
+          el-table-column(prop="status",label="狀態", width="120" )
             template(slot-scope="scope")
               span {{ getStatus(scope.row.status).label }}
           el-table-column(prop="registname",label="攤位名稱", width="200" sortable)
           el-table-column(prop="class_type",label="課程類型", width="200" sortable)
-          el-table-column(prop="audience_normal",label="活動招生族群", width="160" sortable)
+          el-table-column(prop="audience_normal",label="活動招生族群", width="160" )
             template(slot-scope ="scope")
               span {{ scope.row.audience_normal || '無限制' }}
           el-table-column(prop="class_person_count",label="預計人數", width="130" sortable)
@@ -93,11 +93,11 @@
         el-table(:data="registSpeaks" border)
           el-table-column(prop="id",label="#", width="60" sortable)
           el-table-column(prop="registid",label="報名編號", width="120" sortable)
-          el-table-column(prop="status",label="狀態", width="120" sortable)
+          el-table-column(prop="status",label="狀態", width="120" )
             template(slot-scope="scope")
               span {{ getStatus(scope.row.status).label }}
           el-table-column(prop="registname",label="攤位名稱", width="200" sortable)
-          el-table-column(prop="agree_plan",label="同意策展權益", width="130" sortable)
+          el-table-column(prop="agree_plan",label="同意策展權益", width="130" )
             template(slot-scope ="scope")
               span {{ scope.row.agree_plan?'是':'否' }}
           el-table-column(prop="startup_content",label="創業內容", width="200" sortable)

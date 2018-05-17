@@ -5,20 +5,22 @@
     .row
       .col-sm-12
         .row.mt-5
-          .col-sm-6
+          .col-sm-7
             .photo.small(:style="bgcss(getUserPhoto)")
             span Hello! {{auth.user.name}}
               span(@click="logout", style="opacity: 0.5").curp &nbsp;{{ $t('menu.logout') }}
               span.ml-5(@click="setMenuState(false)" v-if="isAdmin")
                 router-link(to="/manage", style="opacity: 0.5").curp &nbsp;{{ $t('menu.manage') }}
             div(v-if="auth.user.studentcard")
-              h4 {{ $t("menu.profile") }}
+              h4 {{ $t("menu.label_student_card") }}
               ul
-                li 學生證卡號： {{auth.user.studentcard.card_id}}
-                li 學生證級別： {{auth.user.studentcard.type=="normal"?"創校元老":"會員"}}
-                li 會員效期： {{auth.user.studentcard.expiry_datetime}}
+                li {{ $t("menu.label_card_id") }}： {{auth.user.studentcard.card_id}}
+                li {{ $t("menu.label_card_level") }}： {{auth.user.studentcard.type=="normal"?$t("menu.label_card_level_old"):$t("menu.label_card_level_member")}}
+                li {{ $t("menu.label_card_date") }}： {{auth.user.studentcard.expiry_datetime}}
             div
               h4 {{ $t("menu.profile") }}
+                div.float-right(@click="setMenuState(false)")
+                  router-link(to="/member/info").curp.btn-menu {{ $t('menu.modify') }}
               ul
                 li {{ $t("menu.label_id") }}： {{ "ZA"+("0000000"+auth.user.id).slice(-6) }}
                 li {{ $t("menu.label_occupation") }}： {{ getCataTrans(auth.user.jobcata) }}
@@ -28,7 +30,7 @@
                 li {{ $t("menu.label_birthday") }}：{{auth.user.birthday}}
                 //- li 生日： 
             span
-          .col-sm-2
+          .col-sm-1
           .col-sm-4(@click="setMenuState(false)" )
             h4 {{ $t("menu.news_title") }}
             .row
@@ -229,6 +231,13 @@ export default {
   padding-top: 50px
   padding-bottom: 50px
   height: auto
+
+  .btn-menu
+    padding: 6px 15px
+    border: solid 1px #777
+    &:hover
+      background-color: #aaa
+    
   // box-sizing: border-box
 
   a.box
