@@ -2,6 +2,13 @@ let data = {
   global: {
     name: "ZA SHARE",
   },
+  footer: {
+    zacourse: "ZA COURSE",
+    zarev: "ZA SHARE Revolution",
+    website: "Website created by Monoame Design Studio",
+    copywrite: "© 2018 ZA SHARE All Rights Reserved.",
+
+  },
   nav: {
     about: "About ZA SHARE",
     expo: "Past EXPOS",
@@ -369,7 +376,7 @@ much more powerful.”`
           {
             title: "2.	Participant eligibility",
             prop: "class_audience",
-            explain: "Any eligibility requirements such as status or age? For family only or for a specific age group, please choose “Others” and write down your requirements",
+            explain: "Any eligibility requirements such as status or age? For family only or for a specific age group, please write down your requirements",
             required: false,
             settings: {
               placeholder: "No limitations (open to public)"
@@ -379,7 +386,10 @@ much more powerful.”`
             title: "3.	Estimated number of participants",
             type: "number",
             prop: "class_person_count",
-            explain: "The venue can accommodate up to 30 people."
+            explain: "The venue can accommodate up to 30 people.",
+            settings: {
+              max: 30
+            }
           }
           ,
           {

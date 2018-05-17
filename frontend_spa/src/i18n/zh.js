@@ -2,6 +2,13 @@ let data = {
   global: {
     name: "雜學校",
   },
+  footer: {
+    zacourse: "雜選課 ZA COURSE",
+    zarev: "雜學起義 ZA SHARE Revolution",
+    website: "網站製作：墨雨設計 Monoame Design",
+    copywrite: "© 2018 雜學校 Za Share All Rights Reserved.",
+    
+  },
   member: {
     login: "登入",
     user: "帳號",
@@ -368,6 +375,7 @@ let data = {
             title: "2. 活動招生族群",
             prop: "class_audience",
             required: false,
+            explain: "請填寫是否有報名身份、年齡等限制資格，如為限定親子參加、指定年齡層等請簡述。",
             settings: {
               placeholder: "無限制（一般大眾皆可）"
             }
@@ -376,6 +384,9 @@ let data = {
             title: "3.	活動預計招生人數(場地建議容納人數以30人為限)",
             type: "number",
             prop: "class_person_count",
+            settings: {
+              max: 30
+            }
           }
           ,
           {

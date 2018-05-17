@@ -55,7 +55,8 @@
               
               // 數字 (number)
               el-input-number(v-model="registFormObj[question.prop]",
-                      v-if="question.type=='number'")
+                      v-if="question.type=='number'",
+                      :max="question.settings && question.settings.max")
 
 
               // 選擇 (select)

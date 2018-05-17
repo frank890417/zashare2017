@@ -12,6 +12,9 @@
       el-tab-pane(label="報名紀錄" name="regist") 報名紀錄
         el-table(:data="filteredRegistexpo" border)
           el-table-column(prop="id",label="編號", width="80" sortable)
+          el-table-column(prop="in_foreign",label="國外", width="80" sortable)
+            template(slot-scope="scope")
+              span {{ scope.row.in_foreign?"是":"否" }}
           el-table-column(prop="status",label="狀態", width="120" sortable)
             template(slot-scope="scope")
               span {{ getStatus(scope.row.status).label }}
@@ -32,7 +35,7 @@
             
           el-table-column(prop="file_proposal",label="簡報", width="80")
             template(slot-scope="scope")
-              a(:href="apiDomain+scope.row.file_proposal.replace('/stroage/app/public','')", target="_href") 連結
+              a(:href="apiDomain+scope.row.file_proposal.replace('/app/public','')", target="_href") 連結
           el-table-column(prop="main_contact_name",label="主要聯絡人", width="150" sortable)
           el-table-column(prop="main_contact_email",label="主要信箱", width="200" sortable)
           el-table-column(prop="secondary_contact_name",label="次要聯絡人", width="150" sortable)
@@ -79,7 +82,7 @@
           el-table-column(prop="class_person_count",label="預計人數", width="130" sortable)
           el-table-column(prop="class_proposal",label="提案簡報", width="80")
             template(slot-scope="scope")
-              a(:href="apiDomain+scope.row.class_proposal.replace('/stroage/app/public','')", target="_href") 連結
+              a(:href="apiDomain+scope.row.class_proposal.replace('/app/public','')", target="_href") 連結
           //- el-table-column(prop="agree_plan",label="同意規劃", width="200" sortable)
           el-table-column(prop="main_contact_name",label="主要聯絡人", width="150" sortable)
           el-table-column(prop="main_contact_email",label="主要信箱", width="200" sortable)
@@ -101,7 +104,7 @@
           el-table-column(prop="startup_problem",label="想解決的問題", width="200" sortable)
           el-table-column(prop="startup_proposal",label="提案簡報", width="80")
             template(slot-scope="scope")
-              a(:href="apiDomain+scope.row.startup_proposal.replace('/stroage/app/public','')", target="_href") 連結
+              a(:href="apiDomain+scope.row.startup_proposal.replace('/app/public','')", target="_href") 連結
 
 
           el-table-column(prop="main_contact_name",label="主要聯絡人", width="150" sortable)
@@ -153,7 +156,8 @@ export default {
         {label: "取消", value: "cancel"},
         {label: "合作", value: "cooperation"},
         {label: "贊助", value: "sponsor"},
-        {label: "其他", value: "other"}
+        {label: "其他", value: "other"},
+        {label: "-", value: ""}
       ]
     }
   },

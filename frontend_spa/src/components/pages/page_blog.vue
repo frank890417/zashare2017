@@ -122,7 +122,7 @@ export default {
                         .map(year=>({label: year,value: year}))
 
         catas.unshift({
-          label: "全部",value: ""
+          label: "全部",label_eng: "ALL",value: ""
         })
         return catas
       }

@@ -23,12 +23,12 @@
         h3 Tel. +886-2-2729-7122<br>Mail. zashare@ozzie-art.com<br>Business hours. 10:00-19:00 Mon. - Fri.
       .col-sm-4.footer-text 
         h3
-          a(href="https://www.yottau.com.tw/partner/344" target="_blank") 雜選課 ZA COURSE
+          a(href="https://www.yottau.com.tw/partner/344" target="_blank") {{ $t('footer.zacourse') }}
           br
-          a(href="http://revolution.zashare.org/" target="_blank")  雜學起義 ZA SHARE Revolution
+          a(href="http://revolution.zashare.org/" target="_blank")  {{ $t('footer.zarev') }}
 
       .col-sm-4.footer-text 
-        h3 網站製作：墨雨設計 Monoame Design<br>© 2018 雜學校 Za Share All Rights Reserved.<br>
+        h3 {{ $t('footer.website') }}<br>{{ $t('footer.copywrite') }}<br>
 </template>
 
 <script>
