@@ -208,7 +208,7 @@ window.onresize=function(){
 }
 
 /* eslint-disable no-new */
-new Vue({
+let vm = new Vue({
   el: '#app',
   router,
   store,
@@ -216,3 +216,4 @@ new Vue({
   components: { App, navbar, full_menu, page_loading},
   template: '<App/>'
 })
+windon.vm=vm

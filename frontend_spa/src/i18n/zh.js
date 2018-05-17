@@ -16,7 +16,8 @@ let data = {
     logout: "登出",
     setting: "設定",
     hello: "Hello ! 雜學校學生　",
-    login_fail: "登入失敗",
+    login_fail: "登入失敗..",
+    logout_success: "已成功登出！",
     form:{
       login: {
         title: "登入雜學校",
@@ -470,7 +471,7 @@ let data = {
             title: "5. 檢附一份10頁(內)提案活動企劃書（主辦單位將以此份檔案作為「雜工坊」徵選依據。）",
             type: "file",
             prop: "class_proposal",
-            explain: `建議內容設定：建議內容設定：
+            explain: `建議內容設定：
                 <br>一、背景介紹（含品牌/團隊/講師介紹）
                 <br>二、主題或議題設定（如本次體驗活動重點與品牌本身並無直接關聯，可詳加補述）
                 <br>三、活動內容（目標族群、活動企劃、執行方式、人力分工配置等）

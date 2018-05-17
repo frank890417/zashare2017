@@ -17,6 +17,7 @@ let data = {
     setting: "Settings",
     hello: "Hello ! ",
     login_fail: "Login Failed.",
+    logout_success: "Logout successfully!",
     form: {
       login: {
         title: "Login ZASHARE",

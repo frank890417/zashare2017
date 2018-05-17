@@ -50,13 +50,13 @@ const moduleAuth = {
         if (res.data.status=="fail"){
           console.log(res)
           context.commit("setProcessing", false)
-          context.commit("setStatus", "註冊失敗.." + res.data.error)
+          context.commit("setStatus", 'member.login_fail')
 
         }
       }).catch((res) => {
         console.log(res)
         context.commit("setProcessing", false)
-        context.commit("setStatus", "註冊失敗..")
+        context.commit("setStatus", 'member.login_fail')
 
         return {
           success: false,
@@ -71,7 +71,7 @@ const moduleAuth = {
         context.dispatch("getUser")
       }).catch(res => {
         context.commit("setProcessing", false)
-        context.commit("setStatus", "登入失敗..")
+        context.commit("setStatus", 'member.login_fail')
         
       })
     },
@@ -94,7 +94,7 @@ const moduleAuth = {
         if (res.data.status == "success") {
           context.commit("setUser", null )
           context.commit("setUserToken", null)
-          context.commit("setStatus", res.data.message)
+          context.commit("setStatus", 'member.logout_success') 
           context.commit("setProcessing", false)
           
         }

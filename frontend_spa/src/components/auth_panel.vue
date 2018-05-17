@@ -7,8 +7,8 @@
       .top
         .photo(:style="bgcss(getUserPhoto(auth.user))")
         h3.name
-          span(v-if="auth.user") {{ auth.status || ($t('member.hello') + `${auth.user.name}`) }}
-          span(v-else) {{ auth.status || $t('member.form.login.not_logined') }}
+          span(v-if="auth.user") {{ (auth.status && $t(auth.status)) || ($t('member.hello') + `${auth.user.name}`) }}
+          span(v-else) {{ (auth.status && $t(auth.status))  || $t('member.form.login.not_logined') }}
       .bottom(v-if="mode=='login' && !auth.user")
         h4.login-title {{$t('member.form.login.title')}}
         //- label 信箱
