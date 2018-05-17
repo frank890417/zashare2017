@@ -11,7 +11,8 @@
           el-menu-item(index="/manage/news") 新聞管理 
           el-menu-item(index="/manage/post") 文章管理 
           el-menu-item(index="/manage/company") 攤位管理 
-          el-menu-item(index="/manage/cata") 類別管理 
+          el-menu-item(index="/manage/expo") 展覽管理 
+          el-menu-item(index="/manage/cata") 類別管理
           el-menu-item(index="/manage/coupon") Coupon管理 
           el-menu-item(index="/manage/regist") 參展報名
         auth_panel(layout="function")

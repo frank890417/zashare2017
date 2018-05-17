@@ -1,5 +1,8 @@
 <template lang="pug">
 .page.member-regist-expo.text-left
+  .mobile-block.d-lg-none.d-xl-none 
+    img.animated.fadeIn.animated(src="https://service.zashare.org/img/2017/index_za_logo_white.svg")
+    h3.animated.fadeIn.animated {{ $t('menu.register_mobile_warning') }}
   .container
     .col-sm-12
       h2.mt-5 {{ $t('regist_expospeak.title') }}
@@ -18,7 +21,7 @@
               label-position="left",
               ref="form_registexpo_speak",
               :validate-on-rule-change="false",
-              :disabled = "typeof registExpoSpeak.id=='number'"
+              :disabled = "typeof registExpoSpeak.id=='nuxmber'"
               :rules="getRules(sections)"
               :model="registExpoSpeak")
 
@@ -266,7 +269,23 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../../assets/_mixins.sass"
 .member-regist-expo
+  .mobile-block
+    position: fixed
+    background-color: black
+    flex-direction: column
+    left: 0
+    top: 0
+    font-size: 1.5rem
+    +size(100%)
+    padding: 5vw
+    +flexCenter    
+    color: white
+    z-index: 1000
+    img
+      max-width: 150px
+      margin-bottom: 5vmin
   .el-select
     width: 100%
 </style>

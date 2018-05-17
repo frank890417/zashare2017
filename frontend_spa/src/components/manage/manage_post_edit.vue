@@ -48,6 +48,8 @@
                 el-switch(v-model="post.stick_top_index")
               el-form-item(label="類別置頂")
                 el-switch(v-model="post.stick_top_cata")
+              el-form-item(label="會員新聞置頂" v-if="post.type=='news'")
+                el-switch(v-model="post.stick_top_member")
               el-form-item(label="文章類別")
                 el-select(v-model="post.cata_id" placeholder="請選擇")
                   el-option(
@@ -270,6 +272,7 @@ export default {
         //el-radio type convert
         this.post.stick_top_index = this.post.stick_top_index?true:false
         this.post.stick_top_cata = this.post.stick_top_cata?true:false
+        this.post.stick_top_member = this.post.stick_top_member?true:false
         this.post.admin_lock = this.post.admin_lock?true:false
         
         // if (this.post.cover.indexOf(""))

@@ -17,7 +17,8 @@ class Post extends Model
         'year','hashtag','cata_id',
         'type',
         'admin_lock',
-        'media_link'
+        'media_link',
+        'stick_top_member'
         // ,'company'
     ];
 

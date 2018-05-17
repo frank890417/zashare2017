@@ -26,6 +26,7 @@
         :filter-method="filterYear" :sortable="true")
       el-table-column(prop="title",label="標題" :sortable="true")
       el-table-column(prop="stick_top_index",label="置頂",width="100" :sortable="true")
+      el-table-column(prop="stick_top_member",label="會員置頂",width="100" :sortable="true")
       //- el-table-column(prop="stick_top_cata",label="類置頂",width="100" , :sortable="true")
       el-table-column(prop="updated_at",label="更新時間",width="100" , :sortable="true")
       el-table-column(label="操作", width="200")
@@ -104,6 +105,7 @@ export default {
         company: ((post.company) && post.company.name_cht) || "-",
         stick_top_index: post.stick_top_index?"是":"",
         stick_top_cata: post.stick_top_cata?"是":"",
+        stick_top_member: post.stick_top_member?"是":"",
       }))
     }
   }

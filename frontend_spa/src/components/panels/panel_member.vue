@@ -33,6 +33,7 @@
             h4 {{ $t("menu.news_title") }}
             .row
               newsbox(v-for="post in [latestNews]", 
+                v-if="latestNews",
                 :post = "post" ,
                 :target="postTarget(post)",
                 :key="post.title",
@@ -120,7 +121,7 @@ export default {
       return this.posts.map(o=>({...o,tag: "ZA EXPO"})).filter(o=>JSON.stringify(o).indexOf(this.searchKeyword)!=-1)
     },
     latestNews(){
-      return this.news.filter(post=>post.cata.name!='媒體報導').slice(-1)[0]
+      return this.news.filter(post=>post.cata.name!='媒體報導').filter(o=>o.stick_top_member).slice(-1)[0]
     },
     ...mapGetters({
       getUserPhoto: 'auth/getUserPhoto',

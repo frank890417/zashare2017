@@ -43,6 +43,7 @@ let data = {
     coupon_cannot_get: "Not qualified",
     title_coupon_zacourse: "ZA COUPON",
     title_coupon_normal: "ZA COURSE",
+    register_mobile_warning: "Please use computer to complete the registration process.",
 
 
 

@@ -6,6 +6,7 @@ import manage_team from '@/components/manage/manage_team'
 import manage_cata from '@/components/manage/manage_cata'
 import manage_coupon from '@/components/manage/manage_coupon'
 import manage_regist from '@/components/manage/manage_regist'
+import manage_expo from '@/components/manage/manage_expo'
 // import manage_registexpo from '@/components/manage/manage_registexpo'
 import manage_post_edit from '@/components/manage/manage_post_edit'
 import manage_company_edit from '@/components/manage/manage_team_edit'
@@ -51,6 +52,11 @@ let routes = {
         path: 'regist',
         name: 'regist list',
         component: manage_regist
+      },
+      {
+        path: 'expo',
+        name: 'expo list',
+        component: manage_expo
       },
       {
         path: 'news/new',

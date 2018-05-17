@@ -51,6 +51,7 @@ let data = {
     coupon_cannot_get: "無法領取(不符合資格)",
     title_coupon_zacourse: "ZA COURSE",
     title_coupon_normal: "雜學優惠禮遇",
+    register_mobile_warning: "請改以電腦操作申請，以利完成報名程序。",
 
 
 

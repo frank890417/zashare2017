@@ -25,6 +25,7 @@ Route::group(['middleware'=>['cors']],function(){
   Route::resource('news',"NewsController");
   Route::resource('cata',"CataApiController");
   Route::resource('company',"CompanyApiController");
+  Route::resource('expo',"ExpoController");
 
   Route::resource('coupon',"CouponController");
 
