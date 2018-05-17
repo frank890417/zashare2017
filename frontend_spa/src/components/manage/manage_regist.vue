@@ -12,9 +12,9 @@
       el-tab-pane(label="報名紀錄" name="regist") 報名紀錄
         el-table(:data="filteredRegistexpo" border)
           el-table-column(prop="id",label="編號", width="80" sortable)
-          el-table-column(prop="in_foreign",label="國外", width="80" sortable)
+          el-table-column(prop="is_foreign",label="國外", width="80" sortable)
             template(slot-scope="scope")
-              span {{ scope.row.in_foreign?"是":"否" }}
+              span {{ scope.row.is_foreign?"是":"否" }}
           el-table-column(prop="status",label="狀態", width="120" sortable)
             template(slot-scope="scope")
               span {{ getStatus(scope.row.status).label }}

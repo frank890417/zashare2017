@@ -7,38 +7,38 @@
       .top
         .photo(:style="bgcss(getUserPhoto(auth.user))")
         h3.name
-          span(v-if="auth.user") {{ auth.status ||  `Hello ! 雜學校學生　${auth.user.name}` }}
-          span(v-else) {{ auth.status || '這名學生未登入哦！' }}
+          span(v-if="auth.user") {{ auth.status || ($t('member.hello') + `${auth.user.name}`) }}
+          span(v-else) {{ auth.status || $t('member.form.login.not_logined') }}
       .bottom(v-if="mode=='login' && !auth.user")
-        h4.login-title 登入雜學校
+        h4.login-title {{$t('member.form.login.title')}}
         //- label 信箱
-        input(v-model="loginData.email", placeholder="信箱", type="email")
+        input(v-model="loginData.email", :placeholder="$t('member.form.login.user')", type="email")
         //- label 密碼
-        input.loginPwd(v-model="loginData.password", placeholder="密碼" , type="password")
-        button.btn.fw.black(@click="login(loginData)") 登入
+        input.loginPwd(v-model="loginData.password", :placeholder="$t('member.form.login.password')" , type="password")
+        button.btn.fw.black(@click="login(loginData)") {{$t('member.form.login.login')}}
         //- button.btn.fw(@click="loginFacebook") 使用 Facebook 登入
-        button.btn.fw.nobg 忘記密碼
-        button.btn.fw.nobg(@click="mode='register'") 註冊為雜學校學生
+        button.btn.fw.nobg {{$t('member.form.login.forget')}}
+        button.btn.fw.nobg(@click="mode='register'") {{$t('member.form.login.register')}}
       .bottom(v-if="mode=='register' && !auth.user")
-        h4 會員註冊
+        h4 {{$t('member.form.register.title')}}
         //- label email
-        el-input(v-model="registerData.email", placeholder="電子郵件(登入帳號)", type="email", name="email", autocomplete="on")
+        el-input(v-model="registerData.email", :placeholder="$t('member.form.register.email')", type="email", name="email", autocomplete="on")
         //- label name
-        el-input(v-model="registerData.name", placeholder="名字", type="name", name="name", autocomplete="on")
-        label.mention ※若您持有「雜學校學生證」，請務必填寫您的真實姓名，方便核對身分及保障您的權益。
-        el-select(v-model="registerData.jobcata", placeholder="現職產業別" , name="jobcata", autocomplete="on", style="width: 100%")
-          el-option(v-for= "(jb,jbid) in auth.jobcatas", 
-                :value="jb", :label="jb") {{jb}}
-        el-input(v-model="registerData.job", :placeholder="jobInforLabel", type="job", name="job", autocomplete="on")
-        el-input(v-model="registerData.phone", placeholder="電話", type="phone", name="phone", autocomplete="on")
-        el-date-picker(v-model="registerData.birthday", placeholder="生日", 
+        el-input(v-model="registerData.name", :placeholder="$t('member.form.register.name')", type="name", name="name", autocomplete="on")
+        label.mention {{ $t('member.form.register.name_explain') }}
+        el-select(v-model="registerData.jobcata", :placeholder="$t('member.form.register.jobcata')" , name="jobcata", autocomplete="on", style="width: 100%")
+          el-option(v-for= "(jb,jbid) in $t('member.form.register.jobcatas')", 
+                :value="jb.value", :label="jb.label") {{jb.label}}
+        el-input(v-model="registerData.job", :placeholder="$t('member.form.register.job')" type="job", name="job", autocomplete="on")
+        el-input(v-model="registerData.phone", :placeholder="$t('member.form.register.phone')", type="phone", name="phone", autocomplete="on")
+        el-date-picker(v-model="registerData.birthday", :placeholder="$t('member.form.register.birthday')", 
                       type="date", name="birthday", autocomplete="on",style="width: 100%",
                       value-format="yyyy-MM-dd")
-        el-input(v-model="registerData.password", placeholder="密碼", type="password")
-        el-input(v-model="registerData.password_confirmation", placeholder="再次輸入密碼", type="password")
-        button.btn.fw.black(@click="register(registerData)") 註冊
+        el-input(v-model="registerData.password", :placeholder="$t('member.form.register.password')", type="password")
+        el-input(v-model="registerData.password_confirmation", :placeholder="$t('member.form.register.confirm_password')", type="password")
+        button.btn.fw.black(@click="register(registerData)") {{ $t('member.form.register.regist') }}
         //- label(v-if="auth.status") {{auth.status}}
-        button.btn.fw.nobg(@click="mode='login'") 我已經有帳號了！ 前往登入
+        button.btn.fw.nobg(@click="mode='login'") {{ $t('member.form.register.have_account') }}
       .bottom(v-if="auth.user")
         h4 學生簡介
         div(v-if="auth.user.studentcard")
@@ -59,14 +59,14 @@
         br
       
         .btn-group( @click="setMenuState(false)")
-          button.btn.fw.black(@click="logout") 登出
-          router-link.btn.fw(to="/member/info") 設定
+          button.btn.fw.black(@click="logout") {{ $t('member.logout') }}
+          router-link.btn.fw(to="/member/info") {{ $t('member.setting') }}
         .btn-group(v-if="canManage()", @click="setMenuState(false)")
           router-link.btn.fw.black(to="/manage") 前往後台({{userGroup()}})
     div(v-if="layout=='function'")
       .btn-group
-        button.btn.fw.black(@click="logout") 登出
-        router-link.btn.fw(to="/member/info") 設定
+        button.btn.fw.black(@click="logout") {{ $t('member.logout') }}
+        router-link.btn.fw(to="/member/info") {{ $t('member.setting') }}
       .btn-group(v-if="canManage()", @click="setMenuState(false)")
         router-link.btn.fw.black(to="/manage") 前往後台({{userGroup()}})
       //pre {{auth}}

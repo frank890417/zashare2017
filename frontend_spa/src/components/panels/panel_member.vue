@@ -21,7 +21,7 @@
               h4 {{ $t("menu.profile") }}
               ul
                 li {{ $t("menu.label_id") }}： {{ "ZA"+("0000000"+auth.user.id).slice(-6) }}
-                li {{ $t("menu.label_occupation") }}： {{auth.user.jobcata}}
+                li {{ $t("menu.label_occupation") }}： {{ getCataTrans(auth.user.jobcata) }}
                 li {{ $t("menu.label_position") }}： {{auth.user.job}} 
                 li {{ $t("menu.label_phone") }}：{{auth.user.phone}}
                 li {{ $t("menu.label_email") }}：{{auth.user.email}}
@@ -143,6 +143,14 @@ export default {
       loginFacebook: "auth/loginFacebook",
       authInit: "auth/init"
     }),
+    getCataTrans(value){
+      let item =  this.$t("member.form.register.jobcatas").find(ct=>ct.value==value)
+      if ( item ){
+        return item.label
+      } else{
+        return value
+      }
+    },
     postTarget(post){
       if (post.type=="expo"){
         return `/expo/blog/${post.id}`

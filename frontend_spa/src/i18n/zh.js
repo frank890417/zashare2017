@@ -10,10 +10,64 @@ let data = {
     
   },
   member: {
-    login: "登入",
     user: "帳號",
     password: "密碼",
     email: "信箱",
+    logout: "登出",
+    setting: "設定",
+    hello: "Hello ! 雜學校學生　",
+    login_fail: "登入失敗",
+    form:{
+      login: {
+        title: "登入雜學校",
+        not_logined: "這名學生未登入哦！",
+        user: "帳號",
+        password: "密碼",
+        login: "登入",
+        forget: "忘記密碼",
+        register: "註冊為雜學校學生"
+      },
+      register: {
+        title: "會員註冊",
+        email: "電子郵件(登入帳號)",
+        name: "名字",
+        name_explain: "※若您持有「雜學校學生證」，請務必填寫您的真實姓名，方便核對身分及保障您的權益。",
+        jobcata: "現職產業別",
+        jobcatas: [
+          { label: "政府機關、公部門", value: "政府機關、公部門"},
+          { label: "非營利組織相關", value: "非營利組織相關"},
+          { label: "教育業", value: "教育業"},
+          { label: "學生", value: "學生"},
+          { label: "自由接案", value: "自由接案"},
+          { label: "大眾傳播、出版相關", value: "大眾傳播、出版相關"},
+          { label: "設計與文創相關", value: "設計與文創相關"},
+          { label: "藝術文化相關", value: "藝術文化相關"},
+          { label: "流行與時尚文化相關", value: "流行與時尚文化相關"},
+          { label: "旅遊、休閒、運動產業", value: "旅遊、休閒、運動產業"},
+          { label: "金融投顧、保險相關", value: "金融投顧、保險相關"},
+          { label: "法律相關", value: "法律相關"},
+          { label: "一般服務業", value: "一般服務業"},
+          { label: "一般傳統製造", value: "一般傳統製造"},
+          { label: "運輸物流、倉儲、貿易", value: "運輸物流、倉儲、貿易"},
+          { label: "農、林、漁、牧業", value: "農、林、漁、牧業"},
+          { label: "礦業土石、水電能源", value: "礦業土石、水電能源"},
+          { label: "建築營造、不動產相關", value: "建築營造、不動產相關"},
+          { label: "醫療照護、環境衛生", value: "醫療照護、環境衛生"},
+          { label: "批發零售", value: "批發零售"},
+          { label: "電子科技、資訊、軟體、半導體", value: "電子科技、資訊、軟體、半導體"},
+          { label: "其他", value: "其他"}
+        ],
+        job: "職稱",
+        phone: "電話",
+        birthday: "生日",
+        password: "密碼",
+        confirm_password: "再次輸入密碼",
+        regist: "註冊",
+        have_account: "我已經有帳號了！前往登入"
+
+
+      }
+    }
 
   },
   nav: {
@@ -355,6 +409,7 @@ let data = {
       {
         id: 0,
         title: "ㄧ、申請基本資訊",
+        required: true,
         questions: [
           {
             title: "1. 課程類型",

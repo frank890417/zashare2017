@@ -112,7 +112,7 @@ import panel_expo2018 from '@/components/panels/panel_expo2018'
 export default {
   data(){
     return {
-      registExpoWorkshop: {class_person_count: 0},
+      registExpoWorkshop: {},
       // audiences: "學齡前幼兒／國小生／國中生／高中生／自學生／大專以上學生／職場新鮮人／青壯年／家長／教育工作者／投資人／創業者／學校單位／公部門／其他".split("／"),
       active: 0,
       audience_normal: true,

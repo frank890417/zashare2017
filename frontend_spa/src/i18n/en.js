@@ -9,6 +9,69 @@ let data = {
     copywrite: "© 2018 ZA SHARE All Rights Reserved.",
 
   },
+  member: {
+    user: "Account",
+    password: "Password",
+    email: "Email",
+    logout: "Logout",
+    setting: "Settings",
+    hello: "Hello ! ",
+    login_fail: "Login Failed.",
+    form: {
+      login: {
+        title: "Login ZASHARE",
+        not_logined: "You are not logged in.",
+        user: "Account",
+        password: "Password",
+        login: "Login",
+        forget: "Forget password",
+        register: "Member registration"
+      },
+      register: {
+        title: "Member Registration",
+        email: "Email(Account)",
+        name: "Name",
+        name_explain: "If you had \"ZASHARE\" student card, please register with your real name to use student features.",
+        jobcata: "Current industry",
+        jobcatas: [
+
+          { value: "政府機關、公部門", label:"Government, public sector"},
+          { value: "非營利組織相關", label:"NGO, NPO, Religious Organizations"},
+          { value: "教育業", label:"Academic institutions, Education and Related Clerks"},
+          { value: "學生", label:"Student"},
+          { value: "自由接案", label:"Freelancer"},
+          { value: "大眾傳播、出版相關", label:"Marketing Professional, Publishing Activities"},
+          { value: "設計與文創相關", label:"Cultural and Creative Industry"},
+          { value: "藝術文化相關", label:"Creative, Arts and Entertainment Activities"},
+          { value: "流行與時尚文化相關", label:"Fashion, Hairdressing and Other Beauty Treatment"},
+          { value: "旅遊、休閒、運動產業 ", label:" Tourism, Sports Activities and Amusement and Recreation Activities"},
+          { value: "金融投顧、保險相關", label:"Financial Leasing and Insurance"},
+          { value: "法律相關", label:"Legal Professionals"},
+          { value: "一般服務業", label:"Service and Sales Work"},
+          { value: "一般傳統製造", label:"Manufacturing"},
+          { value: "運輸物流、倉儲、貿易", label:"Transportation and Storage"},
+          { value: "農、林、漁、牧業", label:"Agriculture, Forestry, Fishing and Animal Husbandry"},
+          { value: "礦業土石、水電能源", label:"Mining and Quarrying"},
+          { value: "建築營造、不動產相關", label:"Building Frame, Real Estate Activities and Related Trades Work"},
+          { value: "醫療照護、環境衛生", label:"Health service, Social welfare, Environment welfare"},
+          { value: "批發零售", label:"Wholesale and Retail Trade"},
+          { value: "電子科技、資訊、軟體、半導體", label:"Software Developers and Programmers"},
+          { value: "其他", label:"Other"},
+         
+        ],
+        job: "Job",
+        phone: "Phone",
+        birthday: "Birthday",
+        password: "Password",
+        confirm_password: "Password Confirmation",
+        regist: "Register",
+        have_account: "I have an account! Go to login."
+
+
+      }
+    }
+
+  },
   nav: {
     about: "About ZA SHARE",
     expo: "Past EXPOS",
