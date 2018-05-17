@@ -35,7 +35,7 @@
             
           el-table-column(prop="file_proposal",label="簡報", width="80")
             template(slot-scope="scope")
-              a(:href="apiDomain+scope.row.file_proposal.replace('/app/public','')", target="_href") 連結
+              a(:href="apiDomain+scope.row.file_proposal.replace('/storage/app/public','storage')", target="_href") 連結
           el-table-column(prop="main_contact_name",label="主要聯絡人", width="150" sortable)
           el-table-column(prop="main_contact_email",label="主要信箱", width="200" sortable)
           el-table-column(prop="secondary_contact_name",label="次要聯絡人", width="150" sortable)
@@ -82,7 +82,7 @@
           el-table-column(prop="class_person_count",label="預計人數", width="130" sortable)
           el-table-column(prop="class_proposal",label="提案簡報", width="80")
             template(slot-scope="scope")
-              a(:href="apiDomain+scope.row.class_proposal.replace('/app/public','')", target="_href") 連結
+              a(:href="apiDomain+scope.row.class_proposal.replace('stroage/app/public','storage')", target="_href") 連結
           //- el-table-column(prop="agree_plan",label="同意規劃", width="200" sortable)
           el-table-column(prop="main_contact_name",label="主要聯絡人", width="150" sortable)
           el-table-column(prop="main_contact_email",label="主要信箱", width="200" sortable)
@@ -104,7 +104,7 @@
           el-table-column(prop="startup_problem",label="想解決的問題", width="200" sortable)
           el-table-column(prop="startup_proposal",label="提案簡報", width="80")
             template(slot-scope="scope")
-              a(:href="apiDomain+scope.row.startup_proposal.replace('/app/public','')", target="_href") 連結
+              a(:href="apiDomain+scope.row.startup_proposal.replace('stroage/app/public','storage')", target="_href") 連結
 
 
           el-table-column(prop="main_contact_name",label="主要聯絡人", width="150" sortable)

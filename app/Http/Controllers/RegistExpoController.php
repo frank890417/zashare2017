@@ -100,7 +100,7 @@ class RegistExpoController extends Controller {
                         } catch(Exception $e){
                         }
                         Storage::disk('public')->copy($obj->startup_proposal,$fullpath);
-                        $obj->startup_proposal="/stroage/app/public/".$fullpath;
+                        $obj->startup_proposal="/storage/app/public/".$fullpath;
                     }
                 } catch(Exception $e){
                     
@@ -129,7 +129,7 @@ class RegistExpoController extends Controller {
                         } catch(Exception $e){
                         }
                         Storage::disk('public')->copy($obj->class_proposal,$fullpath);
-                        $obj->class_proposal="/stroage/app/public/".$fullpath;
+                        $obj->class_proposal="/storage/app/public/".$fullpath;
                     }
                 } catch(Exception $e){
                     
@@ -156,7 +156,7 @@ class RegistExpoController extends Controller {
                 } catch(Exception $e){
                 }
                 Storage::disk('public')->copy($RegistExpo->file_proposal,$fullpath);
-                $RegistExpo->file_proposal="/stroage/app/public/".$fullpath;
+                $RegistExpo->file_proposal="/storage/app/public/".$fullpath;
                 $RegistExpo->save();
             }
         } catch(Exception $e){
@@ -191,7 +191,7 @@ class RegistExpoController extends Controller {
                     } catch(Exception $e){
                     }
                     Storage::disk('public')->copy($RegistExpo->file_proposal,$fullpath);
-                    $RegistExpo->file_proposal="/stroage/app/public/".$fullpath;
+                    $RegistExpo->file_proposal="/storage/app/public/".$fullpath;
                     $RegistExpo->save();
                 }
             } catch(Exception $e){
