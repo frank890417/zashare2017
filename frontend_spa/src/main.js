@@ -59,6 +59,7 @@ store.dispatch("scroll/init")
 store.dispatch("auth/init")
 store.dispatch("post/loadWebsite")
 store.dispatch("manage/loadWebsite")
+store.dispatch("loadExpos")
 
 Vue.config.productionTip = false
 
@@ -160,7 +161,21 @@ Vue.mixin({
       )
       $("html,body").animate({ scrollTop: $(cname).offset().top + options.pan })
     },
+    getDurationText(date1,date2){
+      //傳入兩個日期，傳回連結字 (e.g. 10/20,10/22 -> 10/20-22  )
+      console.log(date1,date2)
+      let m1 = date1.split('-')[1]
+      let m2 = date2.split('-')[1]
+      let d1 = date1.split('-')[2]
+      let d2 = date2.split('-')[2]
+      if (m1==m2){
+        return m1+"/"+d1+"-"+d2
+      }else{
 
+        return m1 + "/" + d1 + "-" + m2 + "/" + d2
+      }
+      return ""
+    }
   }
 })
 

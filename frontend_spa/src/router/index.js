@@ -70,7 +70,7 @@ router.afterEach((route) => {
           window.jfFontLoaded[route.path] = true;
 
         }
-      }, route.meta.font_flush_delay || 100);
+      }, route.meta.font_flush_delay || 200);
     }
   }
 

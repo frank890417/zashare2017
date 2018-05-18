@@ -1,5 +1,5 @@
 <template lang="pug">
-.page.right.page-blog.animated.fadeIn
+.page.right.page-blog
   section.container-fluid.container-slider
     .container
       .row
@@ -32,7 +32,7 @@
               
               // feature list
               ul.feature-list(v-if="$route.meta.type=='expo'")
-                li(v-for="feature in slides[currentSlideId].features") {{feature}}
+                li(v-for="feature in splitNewline(slides[currentSlideId].features)") {{feature}}
 
               //- router-link.btn.nostyle(:to="`/news/${slides[currentSlideId].id}`") 閱讀更多
           .nostype.row.row-index-news(v-else)
@@ -164,7 +164,7 @@ export default {
         return this.expos.map(expo=>({
           ...expo,
           targetType: "expoyear",
-          short_description: "時間："+expo.time+"<br>地點："+expo.place+"<hr>",
+          short_description: "時間："+this.getDurationText(expo.start_date,expo.end_date)+"<br>地點："+expo.place+"<hr>",
         }))
 
       }
@@ -187,6 +187,9 @@ export default {
         }
         return `/news/${post.id}`
       }
+    },
+    splitNewline(text){
+      return text.split('\n')
     }
   },
   watch: {

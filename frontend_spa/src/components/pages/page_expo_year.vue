@@ -1,5 +1,5 @@
 <template lang="pug">
-.page.page-post.page-expo-year.right.animated.fadeIn
+.page.page-post.page-expo-year.right
   .container.text-left
     .row.row-banner
       .col-sm-12
@@ -14,7 +14,7 @@
         //- h2 有敢擇學 MY BRAVECATION!
       .col-sm-12
         div
-          p TIME: {{expo.year}}/{{expo.time}}<br>PLACE: {{expo.place}}
+          p TIME: {{expo.year}}/{{ getDurationText(expo.start_date,expo.end_date) }}<br>PLACE: {{expo.place}}
           //- .tags #影音　#影音　#影音
       .col-sm-12
         hr

@@ -3,75 +3,76 @@
     .container
       .row
         .col-sm-12
-          h3 展覽資料管理
+          h3.mt-5 展覽資料管理
           //- el-input(v-model="keyword", placeholder="輸入關鍵字")
           br
             
       .row
-        .col-sm-4
-          h2 expo類別清單
-          ul.list-group
-            li.list-group-item(v-for="ct in expotypes")
-              h4 名稱：{{ct.title}}
-                el-button.btn.btn-danger.float-right(@click="handleDelete(ct.id)",type="danger") -
-              p 
-                span 啟用時間：{{ct.active_datetime}}<br>
-                span 結束時間：{{ct.expiry_datetime}}<br>
-                span 領取資格：  {{ ct.user_can_get}}<br>
-                span 類型： {{ ct.type=='single_time_hash'?'批次序號 / 單次使用':'單一序號 ／ 多次領取' }}<br>
-                span(v-if="ct.type=='single_time_hash'") 已領取數量： {{ getexpoTotal(ct).got }} / {{ct.expos.length}}
-                span(v-else) 已領取數量：{{ getUserLength(ct.users) }} 
+        .col-sm-12
+          el-table.table(:data="expos")
+            el-table-column(prop="year" label="年度" width=100, :sortable="true")
+            el-table-column(prop="label" label="標題")
+            el-table-column(prop="cover" label="封面")
+              template(slot-scope="scope")
+                img.cover(:src="scope.row.cover")
+            el-table-column(prop="title" label="中文slogan")
+            el-table-column(prop="place" label="地點")
+            el-table-column(prop="start_date" label="開始日期")
+            el-table-column(prop="end_date" label="結束日期")
+            //- el-table-column(prop="updated_at" label="更新時間")
+            el-table-column(prop="label" label="編輯" width=200)
+              template(slot-scope="scope")
+                el-button(@click="newExpo=scope.row" ) 編輯
+                el-button(@click="handleDelete(scope.row.id)", type="danger") 刪除
+
               
-        .col-sm-8
-          h3 新增expo群組
-          el-form(label-width="150px")
-            el-form-item(label="標題")
-              el-input(v-model="newexpo.title")
-            el-form-item(label="封面圖片")
-              el-input(v-model="newexpo.cover")
-                default_pic_selector(@select_pic="select_pic" slot="append")
-              img(:src="newexpo.cover", style="width: 100%;max-width: 100px")
-            el-form-item(label="說明")
-              el-input(v-model="newexpo.description")
-            el-form-item(label="類別")
-              el-select(v-model="newexpo.type")
-                el-option(value="single_time_hash" label="批次序號 / 單次使用")   
-                el-option(value="multi_time_single_hash" label="單一序號 ／ 多次領取")   
-            el-form-item(label="可領取用戶別")
-              el-select(v-model="newexpo.user_can_get"
-                        multiple
-                        filterable
-                        default-first-option
-                        placeholder="請選擇群組")
-                el-option(
-                  v-for="item in default_usergroup"
-                  :key="item"
-                  :label="item.label"
-                  :value="item.value") 
-            //el-form-item(label="已領取使用者")
-              el-input(v-model="newexpo.users")
-            //- el-form-item(label="可重複使用")
-            //-   el-switch(v-model="newexpo.resuable")
-            el-form-item(label="開始時間")
-              el-date-picker(v-model="newexpo.active_datetime",
-                                    type="datetime",
-                                    value-format="yyyy-MM-dd HH:mm:ss")
-            el-form-item(label="失效時間")
-              el-date-picker(v-model="newexpo.expiry_datetime",
-                                    type="datetime",
-                                    value-format="yyyy-MM-dd HH:mm:ss")
-            el-form-item(label="expo序號")
+          el-button.w100(type="primary", @click="addNewExpo") + 新增資料
 
-              el-input(type="textarea", v-model="newexpo.expos" , 
-                        v-if="newexpo.type=='single_time_hash'",
-                        placeholder="(從excel直接複製或以換行分隔)",
-                        :rows="5")
+        .col-sm-12(v-if="newExpo")
+          h3.mt-5 {{ (newExpo.id?'編輯資料--':'新增資料--')+newExpo.year+' | '+newExpo.title }}
+          el-form(label-width="150px").row
+            .col-sm-6
+              el-form-item(label="年度")
+                el-input(v-model="newExpo.year")
+              el-form-item(label="標題")
+                el-input(v-model="newExpo.label" , placeholder="雜學校第二屆")
+              el-form-item(label="中文Slogan")
+                el-input(v-model="newExpo.title", placeholder="有敢擇學")
+              el-form-item(label="英文Slogan")
+                el-input(v-model="newExpo.title_eng", placeholder="Try Try See !")
+              el-form-item(label="精神")
+                el-input(v-model="newExpo.spirit", placeholder="年度精神提倡「有敢擇學 」")
 
-              el-input(v-model="newexpo.expos" ,  
-                      v-if="newexpo.type=='multi_time_single_hash'",
-                        placeholder="請輸入單個序號")
+              el-form-item(label="開始日期")
+                el-date-picker(v-model="newExpo.start_date",
+                                      type="date",
+                                      value-format="yyyy-MM-dd")
+              el-form-item(label="結束日期")
+                el-date-picker(v-model="newExpo.end_date",
+                                      type="date",
+                                      value-format="yyyy-MM-dd")
+          
+            .col-sm-6
+              el-form-item(label="地點")
+                el-input(v-model="newExpo.place")
+              el-form-item(label="特色(換行分隔)")
+                el-input(v-model="newExpo.features",
+                        type="textarea", :rows=4)
+              el-form-item(label="詳細資訊")
+                el-input(v-model="newExpo.content",
+                        type="textarea", :rows=4)           
+
+              el-form-item(label="封面圖片")
+                el-input(v-model="newExpo.cover")
+                  default_pic_selector(@select_pic="select_pic" slot="append")
+                img(:src="newExpo.cover", style="width: 100%;max-width: 100px")
+              el-form-item(label="About封面圖片")
+                el-input(v-model="newExpo.report_cover")
+                  default_pic_selector(@select_pic="select_pic_report" slot="append")
+                img(:src="newExpo.report_cover", style="width: 100%;max-width: 100px")
+            
                 
-            el-button(@click="addexpoType") 新增類別
+          el-button(@click="postExpo", type="primary") 更新資訊
           //- ul.list-group
             li.list-group-item 
           hr
@@ -93,18 +94,9 @@ export default {
       // posts: [],
       keyword: "",
       now_year: "2016",
-      expotypes: [],
-      newexpo: {
-        user_can_get: [
-          'studentcard'
-        ],
-        resuable: false
-      },
-      default_usergroup: [
-        {value: "studentcard",label: "有學生證會員"},
-        {value: "admin",label: "管理員"},
-        {value: "all",label: "所有會員"}
-      ]
+      expos: [],
+      currentExpo: null,
+      newExpo: null
     }
   },
   mounted(){
@@ -120,7 +112,12 @@ export default {
     },
     select_pic(obj){
       console.log(obj)
-      this.$set(this.newexpo,"cover",obj.url)
+      this.$set(this.newExpo,"cover",obj.url)
+
+    },
+    select_pic_report(obj){
+      console.log(obj)
+      this.$set(this.newExpo,"report_cover",obj.url)
 
     },
     getexpoTotal(ct){
@@ -129,13 +126,27 @@ export default {
         total: ct.expos.length
       }
     },
-    addexpoType(){
-      axios.post("/api/expo",{
+    //開始新增
+    addNewExpo(){
+      this.newExpo={}
+
+    }
+    ,
+    //傳到後端建立資料
+    postExpo(){
+      let updateMethod = this.newExpo.id?axios.patch:axios.post
+      updateMethod("/api/expo"+(this.newExpo.id?("/"+this.newExpo.id):""),{
         token: this.token,
-        ...this.newexpo,
+        data: this.newExpo,
       }).then(res=>{
+        this.$message({
+          message: '儲存成功',
+          type: 'success'
+        });
         console.log(res.data)
         this.loadAll()
+        this.newExpo=null
+        
       })
 
     },
@@ -146,7 +157,7 @@ export default {
         }
       }).then(res=>{
         this.expos = res.data
-        this.$message.success("新增成功")
+        this.$message.success("更新成功")
       })
     },
 
