@@ -31,6 +31,7 @@ Route::group(['middleware'=>['cors']],function(){
 
   Route::post('coupontype/userget/{id}',"CoupontypeController@getCoupon");
   Route::post('coupontype/user',"CoupontypeController@userindex");
+  Route::post('coupontype/getusers/{id}',"CoupontypeController@getCouponUsers");
   Route::resource('coupontype',"CoupontypeController");
 
   Route::post('upload',"ApiController@upload_image");

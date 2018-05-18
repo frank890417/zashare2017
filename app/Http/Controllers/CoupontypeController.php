@@ -151,6 +151,40 @@ class CoupontypeController extends Controller
 
     }
 
+
+    public function getCouponUsers($id){
+        
+        $user = $this->guard()->user();
+        if ($user && $user->group=="admin"){
+            $coupontype = Coupontype::find($id);
+            if ($coupontype->type == "single_time_hash"){
+                $users= [];
+                $coupons = $coupontype->coupons;
+                foreach ($coupons as $coupon){
+                    if ($coupon->user_id){
+                        array_push( $users,$coupon->user_id);
+                    }
+                }
+                return User::findMany($users);
+            }
+            if ($coupontype->type == "multi_time_single_hash"){
+                $users = $coupontype->users;
+                if ($users){
+                    $users = json_decode($users);
+                }else{
+                    $users= [];
+                }
+                
+                // $coupontype->users = json_encode($users) ;
+                // $coupontype->save();
+
+                return User::findMany($users);
+                //  = json_decode($coupontype->users)
+            }
+        }else{
+            return ['status'=>'error'];
+        }
+    }
     /**
      * Get the guard to be used during authentication.
      *

@@ -76,6 +76,9 @@ Vue.component("newsbox", newsbox)
 Vue.component("auth_panel", auth_panel)
 Vue.component("section_footer", section_footer)
 
+import full_page from './components/full_page.vue'
+Vue.component("full_page", full_page)
+
 Vue.mixin({
   computed: {
     apiDomain(){
