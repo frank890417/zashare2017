@@ -17,7 +17,7 @@
         input.loginPwd(v-model="loginData.password", :placeholder="$t('member.form.login.password')" , type="password")
         button.btn.fw.black(@click="login(loginData)") {{$t('member.form.login.login')}}
         //- button.btn.fw(@click="loginFacebook") 使用 Facebook 登入
-        button.btn.fw.nobg {{$t('member.form.login.forget')}}
+        // button.btn.fw.nobg {{$t('member.form.login.forget')}}
         button.btn.fw.nobg(@click="mode='register'") {{$t('member.form.login.register')}}
       .bottom(v-if="mode=='register' && !auth.user")
         h4 {{$t('member.form.register.title')}}
@@ -40,19 +40,19 @@
         //- label(v-if="auth.status") {{auth.status}}
         button.btn.fw.nobg(@click="mode='login'") {{ $t('member.form.register.have_account') }}
       .bottom(v-if="auth.user")
-        h4 學生簡介
+        h4 {{ $t('menu.label_student_card') }}
         div(v-if="auth.user.studentcard")
           label.info-group
-            span 學生證卡號：
+            span {{ $t('menu.label_card_id') }}：
             span {{ auth.user.studentcard.card_id }}
           label 
-            span 學生證級別：
+            span {{ $t('menu.label_card_level') }}：
             span {{ auth.user.studentcard.type }}
           label 
-            span 會員效期：
+            span {{ $t('menu.label_card_date') }}：
             span {{ auth.user.studentcard.expiry_datetime }}
         div(v-else)
-          label.info-group
+          //label.info-group
             span 學生證卡號：
             span 尚未綁定
 

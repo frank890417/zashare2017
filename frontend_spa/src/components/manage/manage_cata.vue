@@ -1,6 +1,6 @@
 <template lang="pug">
   .page.manage-post.text-left
-    h3 管理類別
+    h3.mt-5 管理類別
     el-input(v-model="keyword", placeholder="輸入關鍵字")
     br
     //router-link.btn.btn-primary(to="/post/new") + 新增文章

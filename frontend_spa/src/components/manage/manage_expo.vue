@@ -1,6 +1,6 @@
 <template lang="pug">
   .page.manage-post.text-left
-    .container
+    .container-fluid
       .row
         .col-sm-12
           h3.mt-5 展覽資料管理
@@ -139,10 +139,7 @@ export default {
         token: this.token,
         data: this.newExpo,
       }).then(res=>{
-        this.$message({
-          message: '儲存成功',
-          type: 'success'
-        });
+        this.$message.success("儲存成功")
         console.log(res.data)
         this.loadAll()
         this.newExpo=null
@@ -157,7 +154,7 @@ export default {
         }
       }).then(res=>{
         this.expos = res.data
-        this.$message.success("更新成功")
+        // this.$message.success("更新成功")
       })
     },
 

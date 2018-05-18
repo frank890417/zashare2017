@@ -1,6 +1,6 @@
 <template lang="pug">
   .page.manage-post.text-left
-    h3 管理參展單位
+    h3.mt-5 管理參展單位
     el-input(v-model="keyword", placeholder="輸入關鍵字")
     br
     router-link(to="/manage/company/new")

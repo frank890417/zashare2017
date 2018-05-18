@@ -1,9 +1,9 @@
 <template lang="pug">
   .page.manage-post.text-left
-    .container
+    .container-fluid
       .row
         .col-sm-12
-          h3 管理Coupon
+          h3.mt-5 管理Coupon
           //- el-input(v-model="keyword", placeholder="輸入關鍵字")
           br
             

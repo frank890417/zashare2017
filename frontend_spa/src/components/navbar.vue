@@ -182,7 +182,7 @@ export default {
         // return {
           // 'background-color': this.theme.color
         // }
-      if (this.$route.meta.mobilenav.color){
+      if (this.$route.meta.mobilenav && this.$route.meta.mobilenav.color){
         return {
           'background-color': this.$route.meta.mobilenav.color
         }
