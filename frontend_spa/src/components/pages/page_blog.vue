@@ -2,7 +2,7 @@
 .page.right.page-blog
   section.container-fluid.container-slider
     .container
-      .row(@click="$ga.event(this.$route.meta.type, 'click', 'banner')")
+      .row(@click="$ga.event($route.meta.type, 'click', 'banner')")
         .col-sm-12(v-if="slides.length")
           .nostyle.row.row-head-news(v-if="$route.meta.type!='news'")
             .col-sm-8.col-cover
@@ -59,7 +59,7 @@
             //-   @click="nowCata=''") ALL
             li(v-for="cata in useCatas",
               :class="{active: nowCata==cata.value}", 
-              @click="nowCata=cata.value;$ga.event(this.$route.meta.type, 'cata', cata.label)") {{ $i18n.locale=='en'? (cata.label_eng || cata.label) : cata.label  }}
+              @click="nowCata=cata.value;$ga.event($route.meta.type, 'cata', cata.label)") {{ $i18n.locale=='en'? (cata.label_eng || cata.label) : cata.label  }}
       .row
         .col-xl-4.col-lg-6.col-md-6.col-sm-12.col-xs-12(v-for="(post,pid) in use_posts").col-news
           newsbox(:post='post', 

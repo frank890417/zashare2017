@@ -61,7 +61,7 @@
             //.num 00{{ctid+1}}
           .info
             h4 {{ct.title}}
-            p(v-html="ct.description")
+            p(v-html="ct.description", style="word-break: break-all;")
             //p 
               span 啟用時間：{{ct.active_datetime}}<br>
               span 結束時間：{{ct.expiry_datetime}}<br>
@@ -201,16 +201,10 @@ export default {
   },
   watch: {
     menuState(){
-      if (this.menuState && this.auth.user){
-        this.loadAllCoupon()
-
-      }
+      this.loadAllCoupon()
     },
     user(){
-      if (this.menuState && this.auth.user){
-        this.loadAllCoupon()
-
-      }
+      this.loadAllCoupon()
     },
     token(){
       this.loadAllCoupon()
