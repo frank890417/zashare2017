@@ -2,6 +2,11 @@ let data = {
   global: {
     name: "雜學校",
   },
+  pages: {
+    about: "關於雜學校",
+    expo: "歷屆展覽",
+
+  },
   footer: {
     zacourse: "雜選課 ZA COURSE",
     zarev: "雜學起義 ZA SHARE Revolution",
@@ -78,6 +83,7 @@ let data = {
   },
   nav: {
     login: "登入",
+    logout: "登出",
     register: "註冊",
     about: "關於雜學校",
     expo: "歷屆展覽",

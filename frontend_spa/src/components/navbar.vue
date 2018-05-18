@@ -120,12 +120,12 @@
       .ovh(v-if="$route.meta.mobilenav")
         .page-label.animated.slideInUp(
                     v-if="$route.meta.mobilenav.text",
-                    :key="$route.meta.mobilenav.text") {{$route.meta.mobilenav.text}}
+                    :key="$route.meta.mobilenav.text") {{ $t($route.meta.mobilenav.text) }}
         .page-label.animated.slideInUp(
                     v-if="$route.meta.mobilenav.img",
                     :key="$route.meta.mobilenav.img") 
             img(:src="$route.meta.mobilenav.img")
-        .loginbtn(@click="openMenu('login')") {{auth.user?"登出":"登入"}}
+        .loginbtn(@click="openMenu('login')") {{auth.user?$t('nav.logout'): $t('nav.login') }}
       .wrapper.ovh.animated.slideInUp
         .mt(:style="mobile_nav_style")
         img(v-for="theme in themes.slice().reverse()", :src="theme.nav_image")

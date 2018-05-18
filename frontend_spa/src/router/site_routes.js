@@ -135,7 +135,7 @@ let routes =
         },
       mobilenav: {
         color: "white",
-        text: "關於雜學校"
+        text: "pages.about"
         },
       navPosition: "left"
       }
@@ -185,7 +185,7 @@ let routes =
       },
       mobilenav: {
         color: "white",
-        text: "歷屆展覽"
+        text: "pages.expo"
       },
       
       navPosition: "left"
@@ -209,7 +209,7 @@ let routes =
       },
       mobilenav: {
         color: "white",
-        text: "歷屆展覽"
+        text: "pages.expo"
       },
       navPosition: "left"
       }

@@ -2,6 +2,11 @@ let data = {
   global: {
     name: "ZA SHARE",
   },
+  pages: {
+    about: "About ZASHARE",
+    expo: "Past EXPOs",
+
+  },
   footer: {
     zacourse: "ZA COURSE",
     zarev: "ZA SHARE Revolution",
@@ -87,6 +92,7 @@ let data = {
     manage: "Manage",
     hello: "Hi ",
     login: "Login",
+    logout: "Logout",
     search: "Search site",
   },
   menu: {
