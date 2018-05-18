@@ -131,6 +131,8 @@ export default {
 @import "../../assets/_mixins.sass"
 .page-about
   background-color: #f2f2f2
+  p
+    text-align: left
   a
     color: inherit
     text-decoration: none

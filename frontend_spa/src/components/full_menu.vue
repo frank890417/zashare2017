@@ -44,7 +44,7 @@
               .locale-sel
                 span.option(@click="$i18n.locale='zh'",
                           :class="{active: $i18n.locale=='zh'}") 繁中
-                span &nbsp;&nbsp;|&nbsp;&nbsp;
+                span.span &nbsp;&nbsp;|&nbsp;&nbsp;
                 span.option(@click="$i18n.locale='en'",
                           :class="{active: $i18n.locale=='en'}") EN
       
@@ -253,7 +253,21 @@ export default {
       &:nth-child(2)
         top: 60%
 .menu
+  
+  //語言選單
 
+  .locale-sel
+    span.span
+      opacity: 0.2
+    span.option
+      color: #222
+      cursor: pointer
+      opacity: 0.3
+      &.active
+        opacity: 1
+      &:hover
+        color: #555
+  
   input
     border: none
     outline: none
@@ -454,6 +468,7 @@ export default {
     padding-left: 0
     padding-right: 0
     .logo-img
+      transform: translateX(20px)
       margin: auto
     .logo-part
       +flexCenter
@@ -486,7 +501,8 @@ export default {
       margin: 0
       margin-top: 10vh
       position: relative
-      left: 20px
+      // left: 20px
+      
 
       img
         max-width: 150px

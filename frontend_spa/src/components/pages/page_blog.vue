@@ -102,7 +102,7 @@ export default {
         {label: "展覽公告", label_eng: "Expos", value: "展覽公告"},
         {label: "活動公告", label_eng: "Activities", value: "活動公告"},
         {label: "一般公告", label_eng: "Others", value: "一般公告"},
-        {label: "媒體報導", label_eng: "Press Report", value: "媒體報導"},
+        {label: "媒體報導", label_eng: "Report", value: "媒體報導"},
       ]
       // newsCatas: ["ZA COURSE","ZA BASE","ZA EXPO"]
     }
@@ -276,7 +276,7 @@ export default {
   .container-slider
     // background-color: white
     // padding-bottom: 30px
-    padding-top: 43px
+    padding-top: 54px
     +rwd_md
       border-bottom: solid 1px #ccc
       background-color: #fff

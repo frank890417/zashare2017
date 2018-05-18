@@ -232,8 +232,12 @@ let routes =
         params: ["year"]
 
       },
-      navPosition: "left"
-      }
+      navPosition: "left",
+      mobilenav: {
+        color: "white",
+        text: "pages.expo"
+      },
+    },
   },
   {
     path: '/expo/:year/blog/:post_id',
@@ -254,8 +258,12 @@ let routes =
         params: ["year"]
 
       },
-      navPosition: "left"
-      }
+      navPosition: "left",
+      mobilenav: {
+        color: "white",
+        text: "pages.expo"
+      },
+    }
   },
   {
     path: '/expo/blog/:post_id',
@@ -276,7 +284,11 @@ let routes =
         params: ["year"]
 
       },
-      navPosition: "left"
+      navPosition: "left",
+      mobilenav: {
+        color: "white",
+        text: "pages.expo"
+      },
     }
   },
   {

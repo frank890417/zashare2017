@@ -180,7 +180,7 @@ export default {
       letter-spacing: 0.9px
       line-height: 1.5
       +rwd_md
-        font-size: 32px
+        font-size: 30px
     .tag
       background-color: black
       color: white
@@ -206,6 +206,9 @@ export default {
       position: absolute
       right: 0
       bottom: 0
+      margin-top: 20px
+      +rwd_md
+        position: relative
   .row-content
     text-align: left
     .col-sm-12
@@ -284,7 +287,7 @@ export default {
 
       +rwd_md
         font-size: 20px
-        padding: 20px 40px
+        padding: 15px 30px
 
       
   .row-company
