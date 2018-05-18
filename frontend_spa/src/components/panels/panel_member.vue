@@ -31,7 +31,7 @@
                 //- li 生日： 
             span
           .col-sm-1
-          .col-sm-4(@click="setMenuState(false)" )
+          .col-sm-4(@click="setMenuState(false);$ga.event('member', 'news', 'click')" )
             h4 {{ $t("menu.news_title") }}
             .row
               newsbox(v-for="post in [latestNews]", 

@@ -6,7 +6,7 @@
           h3.mt-5 管理Coupon
           //- el-input(v-model="keyword", placeholder="輸入關鍵字")
           br
-          full_page(:show="showUsersFullpage", @closeFullpage="showUsersFullpage=false")
+          full_page(:show="showUsersFullpage", @closeFullpage="showUsersFullpage=false", max-height="600")
             el-table(:data="users")
               el-table-column(prop="id", label="#")
               el-table-column(prop="name", label="名字")

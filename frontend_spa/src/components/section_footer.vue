@@ -23,9 +23,11 @@
         h3 Tel. +886-2-2729-7122<br>Mail. zashare@ozzie-art.com<br>Business hours. 10:00-19:00 Mon. - Fri.
       .col-sm-4.footer-text 
         h3
-          a(href="https://www.yottau.com.tw/partner/344" target="_blank") {{ $t('footer.zacourse') }}
+          a(href="https://www.yottau.com.tw/partner/344" target="_blank",
+            @click="$ga.event('footer', 'zacourse', 'click')") {{ $t('footer.zacourse') }}
           br
-          a(href="http://revolution.zashare.org/" target="_blank")  {{ $t('footer.zarev') }}
+          a(href="http://revolution.zashare.org/" target="_blank"
+             @click="$ga.event('footer', 'zarevolution', 'click')")  {{ $t('footer.zarev') }}
 
       .col-sm-4.footer-text 
         h3 {{ $t('footer.website') }}<br>{{ $t('footer.copywrite') }}<br>

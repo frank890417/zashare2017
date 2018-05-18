@@ -31,7 +31,7 @@
         .col-sm-12(v-if="newExpo")
           h3.mt-5 {{ (newExpo.id?'編輯資料--':'新增資料--')+newExpo.year+' | '+newExpo.title }}
           el-form(label-width="150px").row
-            .col-sm-6
+            .col-sm-4
               el-form-item(label="年度")
                 el-input(v-model="newExpo.year")
               el-form-item(label="標題")
@@ -52,7 +52,7 @@
                                       type="date",
                                       value-format="yyyy-MM-dd")
           
-            .col-sm-6
+            .col-sm-8
               el-form-item(label="地點")
                 el-input(v-model="newExpo.place")
               el-form-item(label="特色(換行分隔)")
@@ -64,7 +64,7 @@
                         :editorToolbar="customToolbar",
                         :editorOptions="editorSettings",
                         @imageAdded="handleImageAdded",
-                        style="height: 500px;margin-bottom: 50px" ) 
+                        style="height: 300px;margin-bottom: 50px" ) 
                 //- el-input(v-model="newExpo.content",
                 //-         type="textarea", :rows=4)           
 

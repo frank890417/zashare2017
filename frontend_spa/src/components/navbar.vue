@@ -5,10 +5,10 @@
       router-link.logo-part(to="/")
         img.logo-img(src="/static/img/Home/za-logo.svg") 
       .locale-sel
-        span.option(@click="$i18n.locale='zh'",
+        span.option(@click="$i18n.locale='zh';$ga.event('locale', 'change','zh')",
                   :class="{active: $i18n.locale=='zh'}") 繁中
         span &nbsp;&nbsp;|&nbsp;&nbsp;
-        span.option(@click="$i18n.locale='en'",
+        span.option(@click="$i18n.locale='en';$ga.event('locale', 'change','en')",
                   :class="{active: $i18n.locale=='en'}") EN
         //- h1.nav-cht-logo 雜學校
 
@@ -55,11 +55,11 @@
             span.main-text(@click="openMenu('login')")
               b {{auth.user.name}}
 
-          span.sub-text(@click="openMenu('login')") {{ $t('nav.manage') }}
+          span.sub-text(@click="openMenu('login');$ga.event('member', 'click', 'manage')") {{ $t('nav.manage') }}
         span(v-else) 
           b.main-text {{ $t('global.name') }}&nbsp;
           br
-          span.sub-text(@click="openMenu('login')")  {{ $t('nav.login') }}
+          span.sub-text(@click="openMenu('login');$ga.event('member', 'click', 'login')")  {{ $t('nav.login') }}
         span.sub-text &nbsp;&nbsp;|&nbsp;&nbsp;
         span.sub-text 
           span(@click="openMenu('search')")  {{ $t('nav.search') }}
@@ -87,15 +87,16 @@
         //- a(href='http://open.weixin.qq.com/qr/code/?username=zashare_edu', target='_blank')
         //-   svg(src="/static/img/social-icon/social-wc.svg")
 
-
-      router-link.col-theme-nav.text-center.nav-course(to="/about")
-        span {{ $t('nav.about') }}
-      router-link.col-theme-nav.text-center.nav-base(to="/expo")
-        span {{ $t('nav.expo') }}
-        ul.years
-          router-link.year-item.delay-ani-3(to="/expo/2015") 2015
-          router-link.year-item.delay-ani-6(to="/expo/2016") 2016
-          router-link.year-item.delay-ani-9(to="/expo/2017") 2017
+      span(@click="$ga.event('nav', 'click', 'about')")
+        router-link.col-theme-nav.text-center.nav-course(to="/about")
+          span {{ $t('nav.about') }}
+      span(@click="$ga.event('nav', 'click', 'expo')")
+        router-link.col-theme-nav.text-center.nav-base(to="/expo")
+          span {{ $t('nav.expo') }}
+          ul.years
+            router-link.year-item.delay-ani-3(to="/expo/2015", @click="$ga.event('nav', 'click', 'expo',2015)") 2015
+            router-link.year-item.delay-ani-6(to="/expo/2016", @click="$ga.event('nav', 'click', 'expo',2016)") 2016
+            router-link.year-item.delay-ani-9(to="/expo/2017", @click="$ga.event('nav', 'click', 'expo',2017)") 2017
       a.col-theme-nav.text-center.nav-expo(href="https://www.zashare.com.tw", target="_blank")
         span {{ $t('nav.shop') }}
 
