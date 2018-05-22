@@ -29,8 +29,8 @@
                     @click="setMenuState(false)")
               newsbox.col-lg-4.col-md-6.col-sm-12(v-for="post in filteredPost", 
                               :post = "post" ,
-                               :target="postTarget(post)",
-                               :key="post.title",
+                              :target="postTarget(post)",
+                              :key="post.title",
                               :tag="post.tag",
                               :hideDetail="true")
       .row.row-page.h100(v-if="menuType=='nav'")
@@ -199,23 +199,23 @@ export default {
       }
     },
     menuState(){
-      setTimeout(() => {
-        _jf.flush();
-      },200)
       if (this.menuState && this.auth.user){
         this.loadAllCoupon()
 
       }
+      setTimeout(() => {
+        _jf.flush();
+      },200)
     },
     user(){
 
-      setTimeout(() => {
-        _jf.flush();
-      },200)
       if (this.menuState && this.auth.user){
         this.loadAllCoupon()
 
       }
+      setTimeout(() => {
+        _jf.flush();
+      },200)
     }
   },
   components: {

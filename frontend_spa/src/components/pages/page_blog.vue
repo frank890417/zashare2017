@@ -223,12 +223,13 @@ export default {
       let scrollPos = this.scrollY+$(window).height()*1.5
       let lastCount = this.use_posts.length
       // console.log(detectorPos,scrollPos)
+      let _this = this
       if (detectorPos<scrollPos ){
         this.showCount+=12
-         this.$nextTick(()=>{
-            let newCount= this.use_posts.length
+         _this.$nextTick(()=>{
+            let newCount= _this.use_posts.length
             if (newCount>lastCount){
-              this.$nextTick(()=>{
+              _this.$nextTick(()=>{
                 _jf.flush();
               })
 
@@ -238,9 +239,10 @@ export default {
       }
     },
     nowCata(){
+      let _this = this
       this.$nextTick(()=>{
         _jf.flush();
-        this.showCount=12
+        _this.showCount=12
       })
     }
   },
