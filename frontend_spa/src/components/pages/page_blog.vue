@@ -67,7 +67,7 @@
                 :tag=" ((post.cata && post.cata.year)!='news')?post.year:(post.cata && post.cata.name)",
                 :hideTag="$route.meta.type=='news'",
                 :class="'delay-ani-'+(pid % 3)*2",
-                :key="post.id")
+                :key="post.title")
       .row.lazy-detector
         //- router-link.news_box.animated.fadeIn(to="/news/test")
         //-   .row
@@ -98,7 +98,7 @@ export default {
             // Any other options that can be got from plugin documentation
         },
       currentSlideId: 0,
-      showCount: 6,
+      showCount: 12,
       newsCatas: [
         {label: "全部", label_eng: "ALL", value: ""},
         {label: "展覽公告", label_eng: "Expos", value: "展覽公告"},
@@ -221,11 +221,26 @@ export default {
     scrollY(){
       let detectorPos = $(".lazy-detector").offset().top
       let scrollPos = this.scrollY+$(window).height()*1.5
+      let lastCount = this.use_posts.length
       // console.log(detectorPos,scrollPos)
+      if (detectorPos<scrollPos ){
+        this.showCount+=12
+         this.$nextTick(()=>{
+            let newCount= this.use_posts.length
+            if (newCount>lastCount){
+              this.$nextTick(()=>{
+                _jf.flush();
+              })
+
+            }
+         })
+         
+      }
     },
     nowCata(){
       this.$nextTick(()=>{
         _jf.flush();
+        this.showCount=12
       })
     }
   },
