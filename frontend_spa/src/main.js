@@ -234,4 +234,4 @@ let vm = new Vue({
   components: { App, navbar, full_menu, page_loading},
   template: '<App/>'
 })
-windon.vm=vm
+window.vm=vm
