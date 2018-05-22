@@ -261,6 +261,11 @@ export default {
         console.log("init paid")
         this.registExpoSpeak={}
       }
+    },
+    active(){
+       this.$nextTick(()=>{
+        _jf.flush()
+      })
     }
   },
   components: {

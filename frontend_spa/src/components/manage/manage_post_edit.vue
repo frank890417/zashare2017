@@ -103,14 +103,14 @@
                 //el-input(v-model="post.cover")
                 //img(:src="post.cover", style="width: 100%")
             .col-sm-9.col-content
-              el-form-item(label="標題")
+              el-form-item(label="標題" prop="title")
                 el-input(v-model="post.title")
               //- el-form-item(label="攤位編號")
               //-   el-input(v-model="post.company")
-              el-form-item(label="短簡介")
+              el-form-item(label="短簡介" prop="short_description")
                 el-input(v-model="post.short_description" type="textarea")
-              el-form-item(label="簡介")
-                el-input(v-model="post.description" type="textarea",rows=4)
+              el-form-item(label="簡介" prop="description")
+                el-input(v-model="post.description" type="textarea", :rows=4)
               el-form-item
                 VueEditor.ve(id ="content", v-model="post.content",
                         :useCustomImageHandler="true",
@@ -123,7 +123,8 @@
 
 <script>
 import default_pic_selector from '../default_pic_selector.vue'
-import { VueEditor, Quill  } from 'vue2-editor'
+import { VueEditor ,Quill } from 'vue2-editor'
+
 import { mapState,mapGetters } from 'vuex'
 import $ from 'jquery'
 let quill_editor = null

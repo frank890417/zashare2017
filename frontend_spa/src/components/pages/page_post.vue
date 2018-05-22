@@ -28,10 +28,11 @@
           .col-md-9.col-sm-8.col-xs-12
             h3 {{post.company.name_cht}}
             p {{post.company.discribe_cht}}
-    //.row.row-related
+    .row.row-related
       .col-sm-12
-        h3 相關消息
+        h3 
         hr
+
     .row
       .col-sm-4(v-for="post in relatedPost") 
         newsbox(:post='post', :target='`/expo/${$route.params.year}/blog/${post.id}`',:tag="post.cata && post.cata.name")

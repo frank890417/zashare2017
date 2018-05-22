@@ -66,7 +66,8 @@
                 :target='postTarget(post)',
                 :tag=" ((post.cata && post.cata.year)!='news')?post.year:(post.cata && post.cata.name)",
                 :hideTag="$route.meta.type=='news'",
-                :class="'delay-ani-'+(pid % 3)*2")
+                :class="'delay-ani-'+(pid % 3)*2",
+                :key="post.id")
       .row.lazy-detector
         //- router-link.news_box.animated.fadeIn(to="/news/test")
         //-   .row
@@ -83,6 +84,7 @@ import axios from 'axios'
 import $ from 'jquery'
 import slick from 'slick-carousel'
 import {mapState } from 'vuex'
+import moment from 'moment'
 export default {
   data(){
     return {
@@ -134,13 +136,16 @@ export default {
       let use_source = this.posts
       use_source = use_source.filter(o=>o.status=="published")
       if (this.$route.meta.type=="expo"){
-        use_source = use_source.slice().sort((a,b)=> (parseInt(a.year)-parseInt(b.year)) ).reverse()
+        use_source = use_source.slice()
+                    .sort((a,b)=>  (moment(a.established_time).isAfter(b.established_time)?-1:1) + (parseInt(b.year)-parseInt(a.year))*100  )
         return use_source
       }
       
                             //  .slice().sort(o=>o.stick_top_index)
       if (this.$route.meta.type=="news"){
-        use_source = this.news.filter(o=>o.status=="published").slice().reverse()
+        use_source = this.news.filter(o=>o.status=="published").slice()
+                    .sort((a,b)=>  (moment(a.established_time).isAfter(b.established_time)?-1:1))
+                      // .sort((a,b)=>new Date(a.established_time)>new Date(b.established_time)?1:-1)
                              
       }
       return use_source
@@ -217,9 +222,11 @@ export default {
       let detectorPos = $(".lazy-detector").offset().top
       let scrollPos = this.scrollY+$(window).height()*1.5
       // console.log(detectorPos,scrollPos)
-      if (detectorPos<scrollPos ){
-        this.showCount+=3
-      }
+    },
+    nowCata(){
+      this.$nextTick(()=>{
+        _jf.flush();
+      })
     }
   },
   mounted(){

@@ -210,6 +210,11 @@ export default {
         console.log("init paid")
         this.registExpoPaid={}
       }
+    },
+    active(){
+       this.$nextTick(()=>{
+        _jf.flush()
+      })
     }
   },
   components: {

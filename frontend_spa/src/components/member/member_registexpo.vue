@@ -265,6 +265,11 @@ export default {
   watch: {
     registExpoOriginal(){
       this.$set(this,"registExpo",JSON.parse(JSON.stringify(this.registExpoOriginal)))
+    },
+    active(){
+       this.$nextTick(()=>{
+        _jf.flush()
+      })
     }
   },
   components: {

@@ -276,6 +276,11 @@ export default {
         console.log("init paid")
         this.registExpoWorkshop={class_time: []}
       }
+    },
+    active(){
+       this.$nextTick(()=>{
+        _jf.flush()
+      })
     }
   },
   components: {
