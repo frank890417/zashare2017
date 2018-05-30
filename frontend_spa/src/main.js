@@ -6,16 +6,14 @@ import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/zh-TW'
 Vue.use(ElementUI, { locale })
 
-// require styles
-// import 'quill/dist/quill.core.css'
-// import 'quill/dist/quill.snow.css'
-// import 'quill/dist/quill.bubble.css'
-
-
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import softscroll from 'monoame-softscroll'
 // softscroll.init()
+
+//
+// ─── VUE AND ROUTER BASIC SETTINGS ──────────────────────────────────────────────
+//
+
+  
 
 import Vue from 'vue'
 import App from './App'
@@ -34,6 +32,7 @@ const i18n = new VueI18n({
   messages, // set locale messages
 })
 
+
 import VueAnalytics from 'vue-analytics'
 if (document.domain =="zashare.org") {
   Vue.use(VueAnalytics, {
@@ -42,18 +41,18 @@ if (document.domain =="zashare.org") {
   })
 }
 
-
-// import VueQuillEditor from 'vue-quill-editor'
-
-// Vue.use(VueQuillEditor, /* { default global options } */)
-
 Vue.use(VueAxios, axios)
-
 Vue.use(ElementUI)
 
 // axios.defaults.timeout = 5000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 axios.defaults.baseURL = process.env.API_DOMAIN;
+
+//
+// ───  ──────────────────────────────────────────────────────────────────────────
+//
+
+  
 
 store.dispatch("scroll/init")
 store.dispatch("auth/init")
@@ -69,12 +68,14 @@ import full_menu from './components/full_menu.vue'
 import newsbox from './components/newsbox.vue'
 import auth_panel from './components/auth_panel.vue'
 import section_footer from './components/section_footer.vue'
+import csv_export from "./components/csv_export.vue";
 Vue.component("page_loading", page_loading)
 Vue.component("navbar", navbar)
 Vue.component("full_menu", full_menu)
 Vue.component("newsbox", newsbox)
 Vue.component("auth_panel", auth_panel)
 Vue.component("section_footer", section_footer)
+Vue.component("csv_export", csv_export);
 
 import full_page from './components/full_page.vue'
 Vue.component("full_page", full_page)
@@ -178,10 +179,16 @@ Vue.mixin({
         return m1 + "/" + d1 + "-" + m2 + "/" + d2
       }
       return ""
-    }
+    },
+    
   }
 })
 
+//
+// ─── SHOW INIT LOADING ──────────────────────────────────────────────────────────
+//
+
+  
 
 if (process.env.NODE_ENV == "development") {
   
@@ -195,7 +202,6 @@ if (process.env.NODE_ENV == "production") {
     store.commit("setLoading", false)
   }, 3000);
 
-  
 }
 
 import ImageProloader from "./plugins/image-preloader"
@@ -221,6 +227,9 @@ preload_all(loadgroups).then(() => {
   console.log("oh no")
 })
 
+// ────────────────────────────────────────────────────────────────────────────────
+
+
 window.onresize=function(){
   store.commit("setMobile", window.innerWidth < 1200)
 }
@@ -234,4 +243,4 @@ let vm = new Vue({
   components: { App, navbar, full_menu, page_loading},
   template: '<App/>'
 })
-window.vm=vm
+// window.vm=vm

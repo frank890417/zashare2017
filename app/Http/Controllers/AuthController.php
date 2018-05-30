@@ -142,6 +142,23 @@ class AuthController extends Controller
         return response()->json($userdata);
     }
 
+
+    /**
+     * Get the authenticated User
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getAllUser()
+    {
+        $user = $this->guard()->user();
+        
+        if ($user->group=="admin"){
+            return User::all();
+        }
+        return ;
+    }
+
+
      /**
      * Update user info (job / jobcata / name)
      *
@@ -173,6 +190,8 @@ class AuthController extends Controller
         }
         
     }
+
+
 
     /**
      * Log the user out (Invalidate the token)

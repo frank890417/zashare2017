@@ -15,6 +15,7 @@
           el-menu-item(index="/manage/cata") 類別管理
           el-menu-item(index="/manage/coupon") Coupon管理 
           el-menu-item(index="/manage/regist") 參展報名
+          el-menu-item(index="/manage/user") 使用者管理
         auth_panel(layout="function")
         router-link.btn(to="/") 返回首頁
 

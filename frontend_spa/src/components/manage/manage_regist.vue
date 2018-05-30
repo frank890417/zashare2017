@@ -9,7 +9,8 @@
       el-option(value="2016", label="2016")
     br
     el-tabs.mt-5.mb-3(v-model="activeName" @tab-click="handleClick")
-      el-tab-pane(label="報名紀錄" name="regist") 報名紀錄
+      el-tab-pane(label="報名紀錄" name="regist" ) 報名紀錄
+        csv_export(:data="filteredRegistexpo" title="報名紀錄")
         el-table(:data="filteredRegistexpo" border)
           el-table-column(prop="id",label="編號", width="80" :sortable="true")
           el-table-column(prop="is_foreign",label="國外", width="80" :sortable="true")
@@ -44,6 +45,7 @@
           //- el-table-column(prop="main_contact_phone",label="電話", width="200" :sortable="true")
 
       el-tab-pane(label="繳費記錄" name="paidrecord") 繳費記錄
+        csv_export(:data="paidRecords" title="繳費記錄")
         el-table(:data="paidRecords" border)
           //- el-table-column(prop="id",label="#", width="60" :sortable="true")
 
@@ -68,6 +70,7 @@
           el-table-column(prop="receipt_type",label="發票種類", width="120" :sortable="true")
 
       el-tab-pane(label="雜工坊報名" name="workshop") 雜工坊報名
+        csv_export(:data="workshops" title="雜工坊報名")
         el-table(:data="workshops" border)
           el-table-column(prop="id",label="#", width="60" :sortable="true")
           el-table-column(prop="registid",label="報名編號", width="120" :sortable="true")
@@ -90,6 +93,7 @@
           el-table-column(prop="secondary_contact_email",label="次要信箱", width="200" :sortable="true")
 
       el-tab-pane(label="Zac." name="zac") Zac.
+        csv_export(:data="registSpeaks" title="Zac.")
         el-table(:data="registSpeaks" border)
           el-table-column(prop="id",label="#", width="60" :sortable="true")
           el-table-column(prop="registid",label="報名編號", width="120" :sortable="true")

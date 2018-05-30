@@ -26,6 +26,7 @@ Route::group(['middleware'=>['cors']],function(){
   Route::resource('cata',"CataApiController");
   Route::resource('company',"CompanyApiController");
   Route::resource('expo',"ExpoController");
+  Route::get('user',"AuthController@getAllUser");
 
   Route::resource('coupon',"CouponController");
 
@@ -71,6 +72,8 @@ Route::group(['middleware'=>['cors']],function(){
       Route::post('logout', 'AuthController@logout');
       Route::post('refresh', 'AuthController@refresh');
       Route::post('me', 'AuthController@me');
+
+      
 
   });
 });
