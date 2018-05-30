@@ -22,6 +22,8 @@
       el-table-column(prop="email",label="Email", width="300" :sortable="true")
       el-table-column(prop="job",label="職業", width="200", :sortable="true")
       el-table-column(prop="jobcata",label="職業類別", width="200", :sortable="true")
+      el-table-column(prop="birthday",label="生日", width="100", :sortable="true")
+      el-table-column(prop="phone",label="手機", width="100", :sortable="true")
       el-table-column(prop="created_at",label="註冊時間", width="160", :sortable="true")
       el-table-column(prop="group",label="權限", width="100" :sortable="true")
       //el-table-column(prop="cover",label="Logo", width="120")
