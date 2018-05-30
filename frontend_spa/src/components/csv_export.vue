@@ -22,12 +22,13 @@ export default {
               var line = '';
               for (var index in array[i]) {
                   if (line != '') line += ','
-                  let hasNL = (""+array[i][index]).indexOf("\n")>-1
-                  if (hasNL) line+='"'
+                  // let hasNL = (""+array[i][index]).indexOf("\n")>-1
+                  line+='"'
                   let data =  array[i][index]
-                  data = (data===null?"":data+ "").replace(/\"/g,"\"\"")
+                  data = ((data===null?"":data)+ "").replace(/\"/g,"\"\"")
+                  data = ((data===null?"":data)+ "").replace(/,/g,"\",")
                   line += data;
-                  if (hasNL) line+='"'
+                  line+='"'
               }
 
               str += line + '\r\n';
