@@ -26,7 +26,7 @@ export default {
                   line+='"'
                   let data =  array[i][index]
                   data = ((data===null?"":data)+ "").replace(/\"/g,"\"\"")
-                  data = ((data===null?"":data)+ "").replace(/,/g,"\",")
+                  // data = ((data===null?"":data)+ "").replace(/,/g,"\",")
                   line += data;
                   line+='"'
               }
