@@ -23,6 +23,7 @@ let data = {
     hello: "Hello ! ",
     login_fail: "Login Failed.",
     logout_success: "Logout successfully!",
+    change_password: "Change Password",
     form: {
       login: {
         title: "Login ZASHARE",

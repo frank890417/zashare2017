@@ -27,6 +27,9 @@
             el-input(v-model="userClone.created_at",disabled = true)
         br
         el-button(type="primary",@click="updateUserInfo") {{ $t('member.form.register.update') }}
+
+        a(href="http://service.zashare.org/password/reset").ml-2
+          el-button {{ $t('member.change_password') }}
         br
         div.mt-5(v-if="userClone && userClone.studentcard")
           h3 {{ $t('menu.label_student_card') }}

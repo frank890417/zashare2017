@@ -23,6 +23,7 @@ let data = {
     hello: "Hello ! 雜學校學生　",
     login_fail: "登入失敗..",
     logout_success: "已成功登出！",
+    change_password: "修改密碼",
     form:{
       login: {
         title: "登入雜學校",
