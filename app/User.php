@@ -5,11 +5,15 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+// use Illuminate\Auth\Reminders\RemindableTrait;
+// use Illuminate\Auth\Reminders\RemindableInterface;
+
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
+    // use RemindableTrait;
 
     /**
      * The attributes that are mass assignable.

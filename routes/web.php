@@ -15,6 +15,9 @@
 Route::get('/test', function(){
   
 });
+Route::get('/frontend', function(){
+  return  Redirect::to("https://zashare.org");
+});
 Route::get('/', function(){
   return view("layouts/app_spa") ->with([
           "meta_og"=>[

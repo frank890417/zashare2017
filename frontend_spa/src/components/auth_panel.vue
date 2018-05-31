@@ -16,8 +16,9 @@
         //- label 密碼
         input.loginPwd(v-model="loginData.password", :placeholder="$t('member.form.login.password')" , type="password")
         button.btn.fw.black(@click="login(loginData)") {{$t('member.form.login.login')}}
-        //- button.btn.fw(@click="loginFacebook") 使用 Facebook 登入
-        // button.btn.fw.nobg {{$t('member.form.login.forget')}}
+        //- button.btn.fw(@click="loginFacebook") 使用 Facebook 登入'
+        //- 忘記密碼-由後端提供功能
+        a.btn.fw.nobg(href="http://service.zashare.org/password/reset") {{$t('member.form.login.forget')}}
         button.btn.fw.nobg(@click="mode='register'") {{$t('member.form.login.register')}}
       .bottom(v-if="mode=='register' && !auth.user")
         h4 {{$t('member.form.register.title')}}
