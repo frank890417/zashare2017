@@ -315,14 +315,23 @@ export default {
     overflow-y: auto
     // min-height: 100vh
     height: 100vh
+
     // padding: 20px
 
     top: 0
     left: 0
     background-color: #fff
     z-index: 2000
+
     box-sizing: border-box
     text-align: left
+    -webkit-overflow-scrolling: touch
+    .col-member
+      position: relative
+      z-index: 8000
+    .auth-card
+      position: relative
+      z-index: 8000
 
     a
       display: inline-block

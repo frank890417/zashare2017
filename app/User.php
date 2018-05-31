@@ -4,10 +4,9 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
 // use Illuminate\Auth\Reminders\RemindableTrait;
 // use Illuminate\Auth\Reminders\RemindableInterface;
-
+use App\Notifications\ResetPasswordNotification;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
@@ -76,5 +75,15 @@ class User extends Authenticatable implements JWTSubject
     public function RegistWorkshop(){
         return $this->hasOne('App\RegistWorkshop',"user_id","id");
     }
-    
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
 }
