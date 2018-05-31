@@ -61,8 +61,8 @@
           br
           span.sub-text(@click="openMenu('login');$ga.event('member', 'click', 'login')")  {{ $t('nav.login') }}
         span.sub-text &nbsp;&nbsp;|&nbsp;&nbsp;
-        span.sub-text 
-          span(@click="openMenu('search')")  {{ $t('nav.search') }}
+        span.sub-text
+          span(@click="openMenu('search');$ga.event('nav', 'click', 'search')")  {{ $t('nav.search') }}
       .footer_logo
         a(href='https://www.facebook.com/zashare.expo/', target='_blank')
           img(src="/static/img/social-icon/social-fb.svg")
@@ -97,7 +97,9 @@
             router-link.year-item.delay-ani-3(to="/expo/2015", @click="$ga.event('nav', 'click', 'expo',2015)") 2015
             router-link.year-item.delay-ani-6(to="/expo/2016", @click="$ga.event('nav', 'click', 'expo',2016)") 2016
             router-link.year-item.delay-ani-9(to="/expo/2017", @click="$ga.event('nav', 'click', 'expo',2017)") 2017
-      a.col-theme-nav.text-center.nav-expo(href="https://www.zashare.com.tw", target="_blank")
+      a.col-theme-nav.text-center.nav-expo(
+              href="https://www.zashare.com.tw", target="_blank",
+              @click="$ga.event('nav', 'click', 'shop')")
         span {{ $t('nav.shop') }}
 
       // router-link.col-theme-nav.nav-expo(to="/expo")
