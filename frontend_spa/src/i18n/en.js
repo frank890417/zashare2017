@@ -24,6 +24,7 @@ let data = {
     login_fail: "Login Failed.",
     logout_success: "Logout successfully!",
     change_password: "Change Password",
+    expo_handbook_url: "/static/2018-ZA%20SHARE-English%20Manual.pdf",
     form: {
       login: {
         title: "Login ZASHARE",

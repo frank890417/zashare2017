@@ -9,7 +9,7 @@
             .photo.small(:style="bgcss(getUserPhoto)")
             span Hello! {{auth.user.name}}
               span(@click="logout", style="opacity: 0.5").curp &nbsp;{{ $t('menu.logout') }}
-              span.ml-5(@click="setMenuState(false)" v-if="isAdmin")
+              span.ml-5(@click="setMenuState(false)" v-if="canManage")
                 router-link(to="/manage", style="opacity: 0.5").curp &nbsp;{{ $t('menu.manage') }}
             div(v-if="auth.user.studentcard")
               h4 {{ $t("menu.label_student_card") }}
@@ -43,8 +43,8 @@
     .row
       .col-sm-12
         .tag.mt-5.mb-3 2018 ZA EXPO
-        a(href="https://zashare.org/static/2018雜學校徵件手冊中文版.pdf" target="_blank")
-          i.fa.fa-info
+        a(:href="$t('member.expo_handbook_url')" target="_blank")
+          i.fa.fa-info(@click="$ga.event('member', 'expo_handbook', 'click')")
         | &nbsp;&nbsp; {{ $t('menu.label_expo_regist_end') }}
       .col-sm-12
         panel_expo2018
@@ -127,7 +127,8 @@ export default {
     },
     ...mapGetters({
       getUserPhoto: 'auth/getUserPhoto',
-      isAdmin: 'auth/isAdmin'
+      isAdmin: 'auth/isAdmin',
+      canManage: 'auth/canManage'
     }),
     coupontypes_zacourse(){
       return (this.coupontypes || []).filter(ct=>ct.type=="single_time_hash")

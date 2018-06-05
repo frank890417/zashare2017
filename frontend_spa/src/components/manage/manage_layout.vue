@@ -13,10 +13,11 @@
           el-menu-item(index="/manage/company") 攤位管理 
           el-menu-item(index="/manage/expo") 展覽管理 
           el-menu-item(index="/manage/cata") 類別管理
-          el-menu-item(index="/manage/coupon") Coupon管理 
-          el-menu-item(index="/manage/regist") 參展報名
-          el-menu-item(index="/manage/user") 使用者管理
-        auth_panel(layout="function")
+          el-menu-item(index="/manage/coupon" v-if="isAdmin") Coupon管理 
+          el-menu-item(index="/manage/regist" v-if="isAdmin") 參展報名
+          el-menu-item(index="/manage/user" v-if="isAdmin") 使用者管理
+        p.mt-4(v-if="!isAdmin") (編輯帳號僅能管理文章與新聞)
+        auth_panel.mt-4(layout="function")
         router-link.btn(to="/") 返回首頁
 
       .col-sm-10.offset-2.col-content
@@ -46,7 +47,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      canManage: 'auth/canManage'
+      canManage: 'auth/canManage',
+      isAdmin: 'auth/isAdmin'
     })
   }
 }
