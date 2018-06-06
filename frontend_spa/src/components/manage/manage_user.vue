@@ -61,7 +61,7 @@ export default {
       currentPage: 1
     }
   },
-  mounted(){
+  created(){
     axios.get('/api/user',{params: {token: this.token}}).then(res=>{
       this.users=res.data
     })

@@ -218,7 +218,7 @@ export default {
       newExpo: null
     }
   },
-  mounted(){
+  created(){
     this.loadAll()
   },
   methods: {

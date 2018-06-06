@@ -165,7 +165,7 @@ export default {
       ]
     }
   },
-  mounted(){
+  created(){
     console.log("loag")
     this.loadAll()
   },

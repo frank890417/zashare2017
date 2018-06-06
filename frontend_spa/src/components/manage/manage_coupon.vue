@@ -129,7 +129,7 @@ export default {
       users: []
     }
   },
-  mounted(){
+  created(){
     this.loadAll()
   },
   methods: {

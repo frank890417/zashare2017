@@ -53,7 +53,7 @@ export default {
       now_year: "",
     }
   },
-  mounted(){
+  created(){
     store.dispatch("manage/loadWebsite")
   },
   methods: {

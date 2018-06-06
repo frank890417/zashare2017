@@ -49,7 +49,7 @@ export default {
       ready: false
     }
   },
-  mounted(){
+  created(){
     let type = this.$route.meta.type=="expo"?"post":"news"
     let _this = this
     axios.get(`/api/${type}/`+this.$route.params.post_id).then(res=>{

@@ -194,7 +194,7 @@ export default {
         })
     }
   },
-  mounted(){
+  created(){
     if (this.menuState && this.menuType=="login" && this.auth.user){
         this.loadAllCoupon()
 
