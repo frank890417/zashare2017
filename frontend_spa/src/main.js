@@ -52,13 +52,22 @@ axios.defaults.baseURL = process.env.API_DOMAIN;
 // ───  ──────────────────────────────────────────────────────────────────────────
 //
 
-  
+//取得網址的query string 轉換為物件
+window.queryObject = (window.location.href.split("?")[1] || "")
+  .split("&")
+  .reduce((obj, text) => {
+    obj[text.split("=")[0]] = text.split("=")[1];
+    return obj;
+  }, {});
+
+
 
 store.dispatch("scroll/init")
 store.dispatch("auth/init")
 store.dispatch("post/loadWebsite")
 store.dispatch("manage/loadWebsite")
 store.dispatch("loadExpos")
+
 
 Vue.config.productionTip = false
 
@@ -93,7 +102,7 @@ Vue.mixin({
     bgcss(url){
       let trans_url = (url || "")
         .replace(/..\/..\//g,"/")
-        .replace(/\/dropzone\/uploads/g, "http://service.zashare.org/dropzone/uploads/")
+        .replace(/\/dropzone\/uploads/g, "dropzone/uploads/")
       return {
         'background-image': `url("${trans_url}")`,
         'background-position': 'center center'
@@ -150,7 +159,7 @@ Vue.mixin({
       })
     }, 
     cssbg(url) {
-      let use_url = url.replace("http://service.zashare.org/assets/", "/dschool_old_assets/")
+      let use_url = url
       let result = {
         'background-image': `url("${use_url}")`
       }

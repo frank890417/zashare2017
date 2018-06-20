@@ -9,7 +9,22 @@
         h3.name
           span(v-if="auth.user") {{ (auth.status && $t(auth.status)) || ($t('member.hello') + `${auth.user.name}`) }}
           span(v-else) {{ (auth.status && $t(auth.status))  || $t('member.form.login.not_logined') }}
-      .bottom(v-if="mode=='login' && !auth.user")
+      
+      .bottom(v-if="mode=='reset_send_email'")
+        h4 雜學校會員密碼重設 / ZA SHARE Reset Password
+        el-input(placeholder="輸入原帳號信箱(E-Mail)", type="email", name="email", autocomplete="on", v-model="resetSendMailData.email")
+        button.btn.fw.black(@click="resetSendMail(resetSendMailData)") 送出 / Send Password Reset Link
+
+      .bottom(v-else-if="mode=='reset_password' || auth.resetToken")
+        h4 雜學校會員密碼重設 / ZA SHARE Reset Password
+        el-input(placeholder="輸入原帳號信箱 (E-Mail)", type="email", name="email", autocomplete="on", v-model="resetSendMailData.email")
+        el-input(placeholder="請輸入新密碼 (New Password)", type="email", name="email", autocomplete="on", v-model="resetSendMailData.email")
+        el-input(placeholder="再次輸入密碼 (Confirm Password)", type="email", name="email", autocomplete="on", v-model="resetSendMailData.email")
+        button.btn.fw.black(@click="resetPassword(resetPasswordData)") 重設密碼 / Reset Password
+
+      
+      
+      .bottom(v-else-if="mode=='login' && !auth.user")
         h4.login-title {{$t('member.form.login.title')}}
         //- label 信箱
         input(v-model="loginData.email", :placeholder="$t('member.form.login.user')", type="email")
@@ -17,10 +32,12 @@
         input.loginPwd(v-model="loginData.password", :placeholder="$t('member.form.login.password')" , type="password")
         button.btn.fw.black(@click="login(loginData)") {{$t('member.form.login.login')}}
         //- button.btn.fw(@click="loginFacebook") 使用 Facebook 登入'
-        //- 忘記密碼-由後端提供功能
-        a.btn.fw.nobg(href="http://service.zashare.org/password/reset") {{$t('member.form.login.forget')}}
+        // - 忘記密碼-頁面
+        button.btn.fw.nobg(@click="mode='reset_send_email'") {{$t('member.form.login.forget')}}
         button.btn.fw.nobg(@click="mode='register'") {{$t('member.form.login.register')}}
-      .bottom(v-if="mode=='register' && !auth.user")
+
+    
+      .bottom(v-else-if="mode=='register' && !auth.user")
         h4 {{$t('member.form.register.title')}}
         //- label email
         el-input(v-model="registerData.email", :placeholder="$t('member.form.register.email')", type="email", name="email", autocomplete="on")
@@ -40,7 +57,7 @@
         button.btn.fw.black(@click="register(registerData)") {{ $t('member.form.register.regist') }}
         //- label(v-if="auth.status") {{auth.status}}
         button.btn.fw.nobg(@click="mode='login'") {{ $t('member.form.register.have_account') }}
-      .bottom(v-if="auth.user")
+      .bottom(v-else-if="auth.user")
         h4 {{ $t('menu.label_student_card') }}
         div(v-if="auth.user.studentcard")
           label.info-group
@@ -96,8 +113,17 @@ export default {
         job: "",
         
       },
+      resetSendMailData:{
+        email: ""
+      },
+      resetPasswordData:{
+        email: "",
+        password: "",
+        password_comfirmation: "",
+        token: ""
+      },
       loginData: {
-        email:  localStorage.zashare_auth_user_email || "",
+        email: localStorage.zashare_auth_user_email || "",
         password: "",
         
       },
@@ -105,7 +131,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['menuState','auth']),
+    ...mapState(['menuState','auth','resetToken']),
     jobInforLabel(){
       if (this.registerData.jobcata=="學生"){
         return "學校系所"
@@ -120,7 +146,9 @@ export default {
       login: 'auth/login',
       logout: 'auth/logout',
       loginFacebook: "auth/loginFacebook",
-      authInit: "auth/init"
+      authInit: "auth/init",
+      resetSendMail: "auth/resetSendMail",
+      resetPassword: "auth/resetPassword"
     }),
     ...mapGetters({
       getUserPhoto: 'auth/getUserPhoto',

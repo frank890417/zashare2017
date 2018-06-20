@@ -36,11 +36,8 @@ Route::group(['middleware'=>['cors']],function(){
   Route::resource('coupontype',"CoupontypeController");
 
   Route::post('upload',"ApiController@upload_image");
-  // Auth::routes();
   Route::post("login","Auth\LoginController@postLogin");
-
-  Route::post('upload',"ApiController@upload_image");
-
+  
   
   Route::post('registexpo/uploadtemp','RegistExpoController@uploadtemp');
   Route::get('registexpo/my','RegistExpoController@my');
@@ -72,6 +69,9 @@ Route::group(['middleware'=>['cors']],function(){
       Route::post('logout', 'AuthController@logout');
       Route::post('refresh', 'AuthController@refresh');
       Route::post('me', 'AuthController@me');
+
+      Route::post("password/email","Auth\ForgotPasswordController@sendResetLinkEmail");
+      Route::post("password/reset","Auth\ResetPasswordController@resetPassword");
 
       
 
