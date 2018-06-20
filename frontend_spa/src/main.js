@@ -69,7 +69,8 @@ store.dispatch("manage/loadWebsite")
 store.dispatch("loadExpos")
 
 
-Vue.config.productionTip = false
+
+Vue.config.productionTip = false;
 
 import page_loading from './components/pages/page_loading.vue'
 import navbar from './components/navbar.vue'
@@ -172,7 +173,7 @@ Vue.mixin({
       },
         custon_option
       )
-      $("html,body").animate({ scrollTop: $(cname).offset().top + options.pan })
+      $("html,body").animate({ scrollTop: $(cname).password_confirmationoffset().top + options.pan })
     },
     getDurationText(date1,date2){
       //傳入兩個日期，傳回連結字 (e.g. 10/20,10/22 -> 10/20-22  )
@@ -241,6 +242,12 @@ preload_all(loadgroups).then(() => {
 
 window.onresize=function(){
   store.commit("setMobile", window.innerWidth < 1200)
+}
+
+
+if (queryObject.reset_token) {
+  store.commit("setResetToken",queryObject.reset_token);
+  store.commit("openMenu", "login");
 }
 
 /* eslint-disable no-new */

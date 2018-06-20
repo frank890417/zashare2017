@@ -12,15 +12,18 @@
       
       .bottom(v-if="mode=='reset_send_email'")
         h4 雜學校會員密碼重設 / ZA SHARE Reset Password
-        el-input(placeholder="輸入原帳號信箱(E-Mail)", type="email", name="email", autocomplete="on", v-model="resetSendMailData.email")
-        button.btn.fw.black(@click="resetSendMail(resetSendMailData)") 送出 / Send Password Reset Link
+        div(v-if="!auth.password_reset_success")
+          el-input(placeholder="輸入原帳號信箱(E-Mail)", type="email", name="email", v-model="resetSendMailData.email")
+          button.btn.fw.black(@click="resetSendMail(resetSendMailData)" @keydown.enter.prevent="resetSendMail(resetSendMailData)") 送出 / Send Password Reset Link
+        div(v-else)
+          h4 {{ $t("member.password_reset_email_sent") }}
 
-      .bottom(v-else-if="mode=='reset_password' || auth.resetToken")
+      .bottom(v-else-if="mode=='reset_password'")
         h4 雜學校會員密碼重設 / ZA SHARE Reset Password
-        el-input(placeholder="輸入原帳號信箱 (E-Mail)", type="email", name="email", autocomplete="on", v-model="resetSendMailData.email")
-        el-input(placeholder="請輸入新密碼 (New Password)", type="email", name="email", autocomplete="on", v-model="resetSendMailData.email")
-        el-input(placeholder="再次輸入密碼 (Confirm Password)", type="email", name="email", autocomplete="on", v-model="resetSendMailData.email")
-        button.btn.fw.black(@click="resetPassword(resetPasswordData)") 重設密碼 / Reset Password
+        el-input(placeholder="輸入原帳號信箱 (E-Mail)", type="email", name="email", v-model="resetPasswordData.email")
+        el-input(placeholder="請輸入新密碼 (New Password)", type="password", name="password", v-model="resetPasswordData.password")
+        el-input(placeholder="再次輸入密碼 (Confirm Password)", type="password", name="password_confirmation", v-model="resetPasswordData.password_confirmation")
+        button.btn.fw.black(@click="userResetPassword" ) 重設密碼 / Reset Password
 
       
       
@@ -119,7 +122,7 @@ export default {
       resetPasswordData:{
         email: "",
         password: "",
-        password_comfirmation: "",
+        password_confirmation: "",
         token: ""
       },
       loginData: {
@@ -127,7 +130,7 @@ export default {
         password: "",
         
       },
-      mode: "login",
+      mode: window.queryObject.reset_token?"reset_password":"login",
     }
   },
   computed: {
@@ -156,7 +159,15 @@ export default {
       isEditor: 'auth/isEditor',
       canManage: 'auth/canManage',
       userGroup: 'auth/userGroup'
-    })
+    }),
+    userResetPassword(){
+      this.resetPassword({
+        data: this.resetPasswordData,
+        successHook: ()=>{
+          this.$message.success( this.$t("member.password_reset_success") )
+        }
+      })
+    }
   },
   mounted(){
     // this.authInit()

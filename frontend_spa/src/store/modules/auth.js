@@ -134,10 +134,13 @@ const moduleAuth = {
         });
     },
     // email / password / password_confirmation / token
-    resetPassword(context, data) {
+    resetPassword(context, {data,successHook} ) {
       context.commit("setProcessing", true);
       axios
-        .post(context.state.domain + "/password/reset", data)
+        .post(context.state.domain + "/password/reset", {
+          ...data,
+          token: context.state.resetToken
+        })
         .then(res => {
           if (res.data.success) {
             context.commit("setStatus", "member.password_reset_success");
@@ -145,10 +148,13 @@ const moduleAuth = {
             context.commit("setStatus", "member.password_reset_fail");
           }
           context.commit("setProcessing", false);
+          if (successHook){
+            successHook()
+          }
         })
         .catch(res => {
           context.commit("setProcessing", false);
-          context.commit("setStatus", "member.password_reset_email_fail");
+          context.commit("setStatus", "member.password_reset_fail");
         });
     },
     getUser(context) {

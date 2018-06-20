@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('meta_og')
 
-
+<meta http-equiv="refresh" content="0; url=https://zashare.org/" />
     @if (isset($meta_og))
         <title>{{$meta_og['title']}}</title>
         <meta property="og:title" content="{{$meta_og['title']}}">

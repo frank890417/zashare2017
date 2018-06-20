@@ -2,7 +2,7 @@
 #app(:class="{noScroll: menuState}")
   transition(name="fade")
     page_loading(v-if="loading")
-  .mobileBlock(v-if="mobile_mask_show")
+  //.mobileBlock(v-if="mobile_mask_show")
     .logo-container.animated.swing
       img.logo(src="/static/img/Home/za-logo.svg")
     h2 手機版本還在開發中...<br>請使用電腦版瀏覽：）

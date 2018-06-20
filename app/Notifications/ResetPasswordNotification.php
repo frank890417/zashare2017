@@ -44,11 +44,10 @@ class ResetPasswordNotification extends Notification
             ->subject('雜學校｜會員密碼重設連結ZA SHARE｜Reset Password')
             ->line('因收到您對於雜學校會員密碼重設的請求，請點擊以下按鈕，重新設定您的登入密碼。')
             ->line('You are receiving this email because we received a password reset request for your account.')
-            ->action('重設密碼 / Reset Password', url(config('backpack.base.route_prefix').'/password/reset', $this->token))
+            ->action('重設密碼 / Reset Password', 'https://zashare.org?reset_token=', $this->token)
             ->line('如您沒有要求重設密碼，則無需採取進一步的操作。')
             ->line('If you did not request a password reset, no further action is required.')
            ;
-    
     }
 
     /**
