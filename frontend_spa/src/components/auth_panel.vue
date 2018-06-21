@@ -165,6 +165,9 @@ export default {
         data: this.resetPasswordData,
         successHook: ()=>{
           this.$message.success( this.$t("member.password_reset_success") )
+        },
+        failHook: ()=>{
+          this.$message.warning( this.$t("member.password_reset_fail") )
         }
       })
     }

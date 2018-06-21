@@ -85,7 +85,10 @@ let data = {
       }
     },
 
-    password_reset_email_sent: "Reset link has been sent to your email!"
+    password_reset_email_sent: "Reset link has been sent to your email!",
+    password_reset_email_fail: "Cannot find user record",
+    password_reset_success: "Reset password successfully! Please close and login.",
+    password_reset_fail: "Reset password fail."
 
   },
   nav: {

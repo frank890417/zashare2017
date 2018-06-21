@@ -71,7 +71,7 @@ Route::group(['middleware'=>['cors']],function(){
       Route::post('me', 'AuthController@me');
 
       Route::post("password/email","Auth\ForgotPasswordController@sendResetLinkEmail");
-      Route::post("password/reset","Auth\ResetPasswordController@resetPassword");
+      Route::post("password/reset","Auth\ResetPasswordController@resetPasswordHandler");
 
       
 

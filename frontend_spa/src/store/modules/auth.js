@@ -134,27 +134,37 @@ const moduleAuth = {
         });
     },
     // email / password / password_confirmation / token
-    resetPassword(context, {data,successHook} ) {
+    resetPassword(context, {data,successHook,failHook} ) {
       context.commit("setProcessing", true);
-      axios
-        .post(context.state.domain + "/password/reset", {
+
+      axios({
+        method: "post",
+        url: context.state.domain + "/password/reset",
+        // withCredentials: true,
+        // crossdomain: true,
+        data: {
           ...data,
           token: context.state.resetToken
-        })
+        },
+        headers: {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-cache"
+        }
+      })
         .then(res => {
           if (res.data.success) {
             context.commit("setStatus", "member.password_reset_success");
+            successHook && successHook();
           } else {
             context.commit("setStatus", "member.password_reset_fail");
+            failHook && failHook();
           }
           context.commit("setProcessing", false);
-          if (successHook){
-            successHook()
-          }
         })
         .catch(res => {
           context.commit("setProcessing", false);
           context.commit("setStatus", "member.password_reset_fail");
+          
         });
     },
     getUser(context) {

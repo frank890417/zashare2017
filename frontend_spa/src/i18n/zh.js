@@ -81,7 +81,10 @@ let data = {
       }
     },
 
-    password_reset_email_sent: "重設連結已傳送到您的信箱！"
+    password_reset_email_sent: "重設連結已傳送到您的信箱！",
+    password_reset_email_fail: "找不到對應的會員資料..",
+    password_reset_success: "密碼重設成功！請關閉後重新登入",
+    password_reset_fail: "密碼重設失敗"
   },
   nav: {
     login: "登入",
