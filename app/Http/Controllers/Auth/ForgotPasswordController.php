@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 
+use App\Notifications\ResetPasswordNotification;
+
 class ForgotPasswordController extends Controller
 {
     /*
@@ -46,13 +48,21 @@ class ForgotPasswordController extends Controller
         // to send the link, we will examine the response then see the message we
         // need to show to the user. Finally, we'll send out a proper response.
         $response = $this->broker()->sendResetLink(
-            $request->only('email')
+            $request->only('email') 
         );
 
         return $response == Password::RESET_LINK_SENT
                     ? ["success"=>true,"status" => "success"]
                     : ["success"=>false,"status" => "fail"];
     }
+
+    // protected function resetNotifier()
+    // {
+    //     return function($token)
+    //     {
+    //         return new ResetPasswordNotification($token);
+    //     };
+    // }
 
    
 }

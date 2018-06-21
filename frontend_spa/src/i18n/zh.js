@@ -79,7 +79,9 @@ let data = {
         account_type: "帳號類別",
         update: "更新會員資料"
       }
-    }
+    },
+
+    password_reset_email_sent: "重設連結已傳送到您的信箱！"
   },
   nav: {
     login: "登入",

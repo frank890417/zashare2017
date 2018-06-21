@@ -83,7 +83,9 @@ let data = {
 
 
       }
-    }
+    },
+
+    password_reset_email_sent: "Reset link has been sent to your email!"
 
   },
   nav: {
