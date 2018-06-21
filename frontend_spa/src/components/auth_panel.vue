@@ -165,9 +165,14 @@ export default {
         data: this.resetPasswordData,
         successHook: ()=>{
           this.$message.success( this.$t("member.password_reset_success") )
+          setTimeout(()=>{
+            this.$router.push("/")
+            this.setMenuState(false)
+          },2000)
+          
         },
         failHook: ()=>{
-          this.$message.warning( this.$t("member.password_reset_fail") )
+          this.$message.danger( this.$t("member.password_reset_fail") )
         }
       })
     }
@@ -180,6 +185,14 @@ export default {
             this.login(this.loginData)
           }
       })
+  },
+  watch:{
+    registerData(){
+      if ( /[^\x00-\xff]/g.test(this.registerData.email)){
+        this.$message.danger("請勿輸入全形文字")
+        this.registerData.email=""
+      }
+    }
   }
 }
 </script>
