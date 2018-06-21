@@ -173,9 +173,10 @@ export default {
           setTimeout(()=>{
             this.setResetToken(null)
             this.mode="login"
-            this.$router.push("/")
-            this.setMenuState(false)
-          },2000)
+            window.location.href=window.location.href.split("?")[0]
+            // this.$router.push("/")
+            // this.setMenuState(false)
+          },1500)
           
         },
         failHook: ()=>{
