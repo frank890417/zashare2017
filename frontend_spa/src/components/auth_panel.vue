@@ -18,7 +18,7 @@
         div(v-else)
           h4 {{ $t("member.password_reset_email_sent") }}
 
-      .bottom(v-else-if="mode=='reset_password'")
+      .bottom(v-else-if="mode=='reset_password' ")
         h4 {{ $t("member.reset_password_title") }}
         el-input(placeholder="輸入原帳號信箱 (E-Mail)", type="email", name="email", v-model="resetPasswordData.email")
         el-input(placeholder="請輸入新密碼 (New Password)", type="password", name="password", v-model="resetPasswordData.password")

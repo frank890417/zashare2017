@@ -61,6 +61,10 @@ window.queryObject = (window.location.href.split("?")[1] || "")
   }, {});
 
 
+if (queryObject.reset_token) {
+  store.commit("setResetToken", queryObject.reset_token);
+}
+
 
 store.dispatch("scroll/init")
 store.dispatch("auth/init")

@@ -65,7 +65,7 @@ const moduleAuth = {
   },
   actions: {
     init(context) {
-      if (context.state.token) {
+      if (context.state.token && !window.queryObject.reset_token) {
         context.commit("setProcessing", true);
         context.dispatch("getUser");
       }
