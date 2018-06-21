@@ -202,6 +202,8 @@ const moduleAuth = {
   },
   getters: {
     getUserPhoto: state => {
+      return "/static/img/Home/za-logo.svg";
+      //暫時因為都沒有圖片 都回傳logo
       if (state.user) {
         return state.user.cover;
       } else {

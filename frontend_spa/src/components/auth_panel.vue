@@ -10,7 +10,7 @@
           span(v-if="auth.user") {{ (auth.status && $t(auth.status)) || ($t('member.hello') + `${auth.user.name}`) }}
           span(v-else) {{ (auth.status && $t(auth.status))  || $t('member.form.login.not_logined') }}
       
-      .bottom(v-if="mode=='reset_send_email'")
+      .bottom(v-if="mode=='reset_send_email' || forceMode=='reset'")
         h4 {{ $t("member.reset_send_email_title") }}
         div(v-if="!auth.password_reset_success")
           el-input(placeholder="輸入原帳號信箱(E-Mail)", type="email", name="email", v-model="resetSendMailData.email")
@@ -24,8 +24,6 @@
         el-input(placeholder="請輸入新密碼 (New Password)", type="password", name="password", v-model="resetPasswordData.password")
         el-input(placeholder="再次輸入密碼 (Confirm Password)", type="password", name="password_confirmation", v-model="resetPasswordData.password_confirmation")
         button.btn.fw.black(@click="userResetPassword" ) {{ $t("member.btn_reset") }}
-
-      
       
       .bottom(v-else-if="mode=='login' && !auth.user")
         h4.login-title {{$t('member.form.login.title')}}
@@ -106,7 +104,12 @@ export default {
     layout: {
       type: String,
       default: "card",
-    }
+    },
+
+    forceMode: {
+      type: String,
+      default: null,
+    },
   },
   data() {
     return {

@@ -1,7 +1,7 @@
 <template lang="pug">
 #member_app.page.right.pb-5
   
-  .container-fluid(v-if="auth.user")
+  .container-fluid(v-if="auth.user || $route.path=='member/reset/password' ")
     //.row
       //- el-header
       .col-sm-2.col-nav(v-if="!mobile")

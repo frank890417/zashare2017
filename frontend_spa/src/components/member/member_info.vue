@@ -28,7 +28,8 @@
         br
         el-button(type="primary",@click="updateUserInfo") {{ $t('member.form.register.update') }}
 
-        a(href="http://service.zashare.org/password/reset").ml-2
+        // a(href="http://service.zashare.org/password/reset").ml-2
+        router-link(to="/member/reset/password")
           el-button {{ $t('member.change_password') }}
         br
         div.mt-5(v-if="userClone && userClone.studentcard")
@@ -44,7 +45,7 @@
 </template>
 
 <script>
-import {mapState, mapGetters} from 'vuex'
+import {mapState, mapGetters,mapMutations} from 'vuex'
 export default {
   data(){
     return {
@@ -55,7 +56,6 @@ export default {
     ...mapState({
       auth: 'auth',
       user: state=>state.auth.user,
-
       token: state=>state.auth.token
     }),
   },
@@ -64,6 +64,7 @@ export default {
     this.userClone = JSON.parse(JSON.stringify(this.user))
   },
   methods: {
+     ...mapMutations(['openMenu']),
     updateUserInfo(){
        this.axios.post(
           `/api/auth/user/update/info`,

@@ -6,7 +6,8 @@
       .col-sm-12
         .row.mt-5
           .col-sm-7
-            .photo.small(:style="bgcss(getUserPhoto)")
+            .photo.small
+              //(:style="bgcss(getUserPhoto)")
             span Hello! {{auth.user.name}}
               span(@click="logout", style="opacity: 0.5").curp &nbsp;{{ $t('menu.logout') }}
               span.ml-5(@click="setMenuState(false)" v-if="canManage")
