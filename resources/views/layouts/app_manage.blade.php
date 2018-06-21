@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ZASHARE 雜學校重設密碼</title>
-
+    
+<meta http-equiv="refresh" content="0; url=https://zashare.org/" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
     <link href="/css/admin_css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/admin_css/datepicker3.css" rel="stylesheet">
@@ -22,8 +23,8 @@
     </script>
 
     <script>
-    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
-    ':35729/livereload.js?snipver=1"></' + 'script>');
+    // document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+    // ':35729/livereload.js?snipver=1"></' + 'script>');
     </script>
   </head>
   <body>
