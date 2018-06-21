@@ -5,10 +5,10 @@
       router-link.logo-part(to="/")
         img.logo-img(src="/static/img/Home/za-logo.svg") 
       .locale-sel
-        span.option(@click="$i18n.locale='zh';$ga.event('locale', 'change','zh')",
+        span.option(@click="$i18n.locale='zh';setLocalLocale('zh');$ga.event('locale', 'change','zh')",
                   :class="{active: $i18n.locale=='zh'}") 繁中
         span &nbsp;&nbsp;|&nbsp;&nbsp;
-        span.option(@click="$i18n.locale='en';$ga.event('locale', 'change','en')",
+        span.option(@click="$i18n.locale='en';setLocalLocale('en');$ga.event('locale', 'change','en')",
                   :class="{active: $i18n.locale=='en'}") EN
         //- h1.nav-cht-logo 雜學校
 
@@ -217,6 +217,10 @@ export default {
         }).then(res=>{
           console.log(res)
         })
+      },
+      setLocalLocale(str){
+
+        localStorage.setItem("zashare_locale", str);
       }
   }
 }

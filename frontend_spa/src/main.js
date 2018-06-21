@@ -28,9 +28,9 @@ import messages from './i18n/messages.js'
 Vue.use(VueI18n)
 
 const i18n = new VueI18n({
-  locale: 'zh', // set locale
-  messages, // set locale messages
-})
+  locale: localStorage.zashare_locale || "zh",
+  messages
+});
 
 
 import VueAnalytics from 'vue-analytics'

@@ -11,19 +11,19 @@
           span(v-else) {{ (auth.status && $t(auth.status))  || $t('member.form.login.not_logined') }}
       
       .bottom(v-if="mode=='reset_send_email'")
-        h4 雜學校會員密碼重設 / ZA SHARE Reset Password
+        h4 {{ $t("member.reset_send_email_title") }}
         div(v-if="!auth.password_reset_success")
           el-input(placeholder="輸入原帳號信箱(E-Mail)", type="email", name="email", v-model="resetSendMailData.email")
-          button.btn.fw.black(@click="resetSendMail(resetSendMailData)" @keydown.enter.prevent="resetSendMail(resetSendMailData)") 送出 / Send Password Reset Link
+          button.btn.fw.black(@click="resetSendMail(resetSendMailData)" @keydown.enter.prevent="resetSendMail(resetSendMailData)")  {{ $t("member.btn_send_reset_link") }}
         div(v-else)
           h4 {{ $t("member.password_reset_email_sent") }}
 
       .bottom(v-else-if="mode=='reset_password'")
-        h4 雜學校會員密碼重設 / ZA SHARE Reset Password
+        h4 {{ $t("member.reset_password_title") }}
         el-input(placeholder="輸入原帳號信箱 (E-Mail)", type="email", name="email", v-model="resetPasswordData.email")
         el-input(placeholder="請輸入新密碼 (New Password)", type="password", name="password", v-model="resetPasswordData.password")
         el-input(placeholder="再次輸入密碼 (Confirm Password)", type="password", name="password_confirmation", v-model="resetPasswordData.password_confirmation")
-        button.btn.fw.black(@click="userResetPassword" ) 重設密碼 / Reset Password
+        button.btn.fw.black(@click="userResetPassword" ) {{ $t("member.btn_reset") }}
 
       
       
@@ -43,17 +43,19 @@
       .bottom(v-else-if="mode=='register' && !auth.user")
         h4 {{$t('member.form.register.title')}}
         //- label email
-        el-input(v-model="registerData.email", :placeholder="$t('member.form.register.email')", type="email", name="email", autocomplete="on")
+        el-input(v-model="registerData.email", 
+              :placeholder="$t('member.form.register.email')", type="email", name="email",
+              @input="checkMail")
         //- label name
-        el-input(v-model="registerData.name", :placeholder="$t('member.form.register.name')", type="name", name="name", autocomplete="on")
+        el-input(v-model="registerData.name", :placeholder="$t('member.form.register.name')", type="name", name="name")
         label.mention {{ $t('member.form.register.name_explain') }}
-        el-select(v-model="registerData.jobcata", :placeholder="$t('member.form.register.jobcata')" , name="jobcata", autocomplete="on", style="width: 100%")
+        el-select(v-model="registerData.jobcata", :placeholder="$t('member.form.register.jobcata')" , name="jobcata", style="width: 100%")
           el-option(v-for= "(jb,jbid) in $t('member.form.register.jobcatas')", 
                 :value="jb.value", :label="jb.label") {{jb.label}}
-        el-input(v-model="registerData.job", :placeholder="$t('member.form.register.job')" type="job", name="job", autocomplete="on")
-        el-input(v-model="registerData.phone", :placeholder="$t('member.form.register.phone')", type="phone", name="phone", autocomplete="on")
+        el-input(v-model="registerData.job", :placeholder="$t('member.form.register.job')" type="job", name="job")
+        el-input(v-model="registerData.phone", :placeholder="$t('member.form.register.phone')", type="phone", name="phone")
         el-date-picker(v-model="registerData.birthday", :placeholder="$t('member.form.register.birthday')", 
-                      type="date", name="birthday", autocomplete="on",style="width: 100%",
+                      type="date", name="birthday",style="width: 100%",
                       value-format="yyyy-MM-dd")
         el-input(v-model="registerData.password", :placeholder="$t('member.form.register.password')", type="password")
         el-input(v-model="registerData.password_confirmation", :placeholder="$t('member.form.register.confirm_password')", type="password")
@@ -143,7 +145,10 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['setMenuState']),
+    ...mapMutations({
+      setMenuState: "setMenuState",
+      setResetToken: "auth/setResetToken"
+    }),
     ...mapActions({
       register: 'auth/register',
       login: 'auth/login',
@@ -166,15 +171,23 @@ export default {
         successHook: ()=>{
           this.$message.success( this.$t("member.password_reset_success") )
           setTimeout(()=>{
+            this.setResetToken(null)
             this.$router.push("/")
             this.setMenuState(false)
           },2000)
           
         },
         failHook: ()=>{
-          this.$message.danger( this.$t("member.password_reset_fail") )
+          this.$message.error( this.$t("member.password_reset_fail") )
         }
       })
+    },
+    checkMail(){
+      // console.log(this.registerData)
+      if ( /[^\x00-\xff]/g.test(this.registerData.email)){
+        this.$message.error("請勿輸入全形文字")
+        this.$set(this.registerData,"email","")
+      }
     }
   },
   mounted(){
@@ -185,14 +198,6 @@ export default {
             this.login(this.loginData)
           }
       })
-  },
-  watch:{
-    registerData(){
-      if ( /[^\x00-\xff]/g.test(this.registerData.email)){
-        this.$message.danger("請勿輸入全形文字")
-        this.registerData.email=""
-      }
-    }
   }
 }
 </script>
