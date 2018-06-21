@@ -124,7 +124,9 @@ let data = {
     reset_send_email_title: "ZA SHARE Reset Password Request",
     reset_password_title: "ZA SHARE Reset Password",
     btn_reset: "Reset Password",
-    btn_send_reset_link: "Send Reset Link"
+    btn_send_reset_link: "Send Reset Link",
+
+    notify_not_enter_fullwidth: "Please do not enter full-width char."
   },
   nav: {
     about: "About ZA SHARE",

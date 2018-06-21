@@ -88,7 +88,10 @@ let data = {
     reset_send_email_title: "雜學校會員密碼重設要求",
     reset_password_title: "雜學校會員密碼重設",
     btn_reset: "重設密碼",
-    btn_send_reset_link: "傳送重設連結"
+    btn_send_reset_link: "傳送重設連結",
+
+
+    notify_not_enter_fullwidth: "請勿輸入全形文字"
   },
   nav: {
     login: "登入",

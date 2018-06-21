@@ -172,6 +172,7 @@ export default {
           this.$message.success( this.$t("member.password_reset_success") )
           setTimeout(()=>{
             this.setResetToken(null)
+            this.mode="login"
             this.$router.push("/")
             this.setMenuState(false)
           },2000)
