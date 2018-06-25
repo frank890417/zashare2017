@@ -18,7 +18,9 @@ use Illuminate\Http\Request;
 
 // })->middleware('auth:api');
 
-
+Route::options('{any?}', function (){
+    return response('',200);
+})->where('any', '.*');
 
 Route::group(['middleware'=>['cors']],function(){
   Route::resource('post',"PostApiController");
