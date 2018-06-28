@@ -3,8 +3,8 @@
   RewriteBase /
 
 
-  RewriteRule ^storage(.*)$ https://zaservice.ellis.tw/storage$1 [L,R=301]
-  RewriteRule ^dropzone(.*)$ https://zaservice.ellis.tw/dropzone$1 [L,R=301]
+  RewriteRule ^storage(.*)$ https://service.zashare.org/storage$1 [L,R=301]
+  RewriteRule ^dropzone(.*)$ https://service.zashare.org/dropzone$1 [L,R=301]
 
 
   RewriteRule ^index\.html$ - [L]
