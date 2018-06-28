@@ -22,7 +22,7 @@ Route::options('{any?}', function (){
 })->where('any', '.*');
 
 
-Route::group(['middleware'=>['cors']],function(){
+Route::group([],function(){
   Route::resource('post',"PostApiController");
   Route::resource('news',"NewsController");
   Route::resource('cata',"CataApiController");

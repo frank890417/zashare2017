@@ -236,7 +236,7 @@ return [
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuthFacades\JWTFactory::class,
 
-        'Cors' => Barryvdh\Cors\ServiceProvider::class,
+        // 'Cors' => Barryvdh\Cors\ServiceProvider::class,
     ],
 
 ];
