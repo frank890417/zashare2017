@@ -107,7 +107,8 @@ Vue.mixin({
     bgcss(url){
       let trans_url = (url || "")
         .replace(/..\/..\//g,"/")
-        .replace(/\/dropzone\/uploads/g, "dropzone/uploads/")
+        .replace(/\/dropzone\/uploads/g, "/dropzone/uploads")
+        .trim()
       return {
         'background-image': `url("${trans_url}")`,
         'background-position': 'center center'

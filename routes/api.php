@@ -40,7 +40,6 @@ Route::group([],function(){
   Route::post('upload',"ApiController@upload_image");
   Route::post("login","Auth\LoginController@postLogin");
   
-  
   Route::post('registexpo/uploadtemp','RegistExpoController@uploadtemp');
   Route::get('registexpo/my','RegistExpoController@my');
   Route::resource('registexpo', 'RegistExpoController');
